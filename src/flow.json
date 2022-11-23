@@ -113,10 +113,6 @@
                 "y": 200,
                 "wires": [
                     {
-                        "id": "e83ddd55004fb64e",
-                        "port": 0
-                    },
-                    {
                         "id": "9c897aef15b24d1a",
                         "port": 0
                     }
@@ -196,7 +192,7 @@
         "in": [
             {
                 "x": 220,
-                "y": 400,
+                "y": 440,
                 "wires": [
                     {
                         "id": "5aa16189aff2b4c3"
@@ -206,8 +202,8 @@
         ],
         "out": [
             {
-                "x": 1680,
-                "y": 300,
+                "x": 1720,
+                "y": 340,
                 "wires": [
                     {
                         "id": "cb4ea3ccf7541c86",
@@ -216,8 +212,8 @@
                 ]
             },
             {
-                "x": 1880,
-                "y": 400,
+                "x": 1920,
+                "y": 440,
                 "wires": [
                     {
                         "id": "5935cece6c345653",
@@ -281,18 +277,6 @@
         ]
     },
     {
-        "id": "8fbc984b55b2edef",
-        "type": "junction",
-        "z": "981390739fa10d48",
-        "x": 300,
-        "y": 940,
-        "wires": [
-            [
-                "3f0952280c38a70e"
-            ]
-        ]
-    },
-    {
         "id": "a567f42879c1f449",
         "type": "mqtt-broker",
         "name": "",
@@ -324,6 +308,12 @@
         "type": "websocket-listener",
         "path": "/ws/pup",
         "wholemsg": "true"
+    },
+    {
+        "id": "43ca9917319c367b",
+        "type": "websocket-listener",
+        "path": "/ws/worklet",
+        "wholemsg": "false"
     },
     {
         "id": "d171e77e6e654fb0",
@@ -1270,156 +1260,6 @@
         ]
     },
     {
-        "id": "3f0952280c38a70e",
-        "type": "loop",
-        "z": "981390739fa10d48",
-        "name": "",
-        "kind": "enum",
-        "count": "",
-        "initial": "1",
-        "step": "1",
-        "condition": "",
-        "conditionType": "js",
-        "when": "before",
-        "enumeration": "receipts",
-        "enumerationType": "msg",
-        "limit": "",
-        "loopPayload": "loop-keep",
-        "finalPayload": "final-count",
-        "x": 490,
-        "y": 640,
-        "wires": [
-            [
-                "1ba08ecffefdaec3"
-            ],
-            [
-                "b00e1f122daad736"
-            ]
-        ]
-    },
-    {
-        "id": "e7c327366a49474d",
-        "type": "change",
-        "z": "981390739fa10d48",
-        "name": "Sæt currentCitizen",
-        "rules": [
-            {
-                "t": "set",
-                "p": "currentCitizen.tillaegsprocent",
-                "pt": "msg",
-                "to": "80",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.danmarkGruppe",
-                "pt": "msg",
-                "to": "1",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.bevilling",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.udvidetHelbredstillaeg",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.almHelbredstillaeg",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.helbredskort",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.formue",
-                "pt": "msg",
-                "to": "65000",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 490,
-        "y": 860,
-        "wires": [
-            [
-                "ebaa4e52529fda71"
-            ]
-        ]
-    },
-    {
-        "id": "ebaa4e52529fda71",
-        "type": "function",
-        "z": "981390739fa10d48",
-        "name": "Push borger til liste",
-        "func": "var value = msg.currentCitizen;\nmsg.payload.push(value);\n\nreturn msg;\n\n/*\nvar value = msg.currentCitizen;\nvar array = msg.payload;\n\nif (array != null && typeof array.cpr != undefined) {\n\n    if (array.length > 0)\n    {\n        var valueFound = false;\n\n        array.forEach(function (element, index) {\n            if (element.cpr === value) {\n                valueFound = true;\n            }\n        });\n\n        if (!valueFound)\n            msg.payload.push(value);\n\n    }\n    else\n        msg.payload.push(value);\n}\nelse\n    msg.payload.push(value);\n\n//global.set(\"processedReceipts\", msg.processedReceipts, \"storeInFile\");\n\nreturn msg;\n*/",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 900,
-        "wires": [
-            [
-                "8fbc984b55b2edef"
-            ]
-        ]
-    },
-    {
-        "id": "4af6e12cb816ea56",
-        "type": "debug",
-        "z": "981390739fa10d48",
-        "name": "Borgerliste debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "citizens",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "68f6ada478391086",
-        "type": "function",
-        "z": "981390739fa10d48",
-        "name": "Clear payload",
-        "func": "//msg.payload = [msg.currentReceipt.antalYdelser];\nmsg.payload = [];\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 600,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "9b3dd6f36db12512",
         "type": "status",
         "z": "981390739fa10d48",
@@ -1435,207 +1275,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "e83ddd55004fb64e",
-        "type": "function",
-        "z": "981390739fa10d48",
-        "name": "Sæt status",
-        "func": "node.status({ fill: \"green\", shape: \"dot\", text: \"Alle \" + (msg.tempCount+1) + \" borgere behandlet\"});\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "62474c5075ceb42e",
-        "type": "switch",
-        "z": "981390739fa10d48",
-        "name": "",
-        "property": "currentCitizenDataExists",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            },
-            {
-                "t": "eq",
-                "v": "false",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 230,
-        "y": 820,
-        "wires": [
-            [
-                "3f0952280c38a70e"
-            ],
-            [
-                "e7c327366a49474d"
-            ]
-        ]
-    },
-    {
-        "id": "aa34d767b4bce3b1",
-        "type": "function",
-        "z": "981390739fa10d48",
-        "name": "Check om borger findes i liste",
-        "func": "var value = msg.currentCitizen.cpr;\nvar array = msg.payload;\n\nvar valueFound = false;\n\nif (typeof array != undefined && array != null)\n{\n    if (array.length > 0)\n    {\n        array.forEach(function (element)\n        {\n            if (element.cpr == value)\n                valueFound = true;\n\n        });\n    }\n}\n\nmsg.currentCitizenDataExists = valueFound;\n\n//global.set(\"processedReceipts\", msg.processedReceipts, \"storeInFile\");\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 780,
-        "wires": [
-            [
-                "62474c5075ceb42e"
-            ]
-        ]
-    },
-    {
-        "id": "da7c63910cb6ae2e",
-        "type": "change",
-        "z": "981390739fa10d48",
-        "name": "Sæt currentCitizen initial",
-        "rules": [
-            {
-                "t": "set",
-                "p": "tempCount",
-                "pt": "msg",
-                "to": "loop.index",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "currentCitizen.cpr",
-                "pt": "msg",
-                "to": "loop.value.patientCPR",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 510,
-        "y": 740,
-        "wires": [
-            [
-                "aa34d767b4bce3b1"
-            ]
-        ]
-    },
-    {
-        "id": "b00e1f122daad736",
-        "type": "function",
-        "z": "981390739fa10d48",
-        "name": "Sæt status",
-        "func": "node.status({ fill: \"yellow\", shape: \"ring\", text: \"Behandler borger \" + (msg.tempCount+1) + \" ud af \" + msg.receipts.length});\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 700,
-        "wires": [
-            [
-                "da7c63910cb6ae2e"
-            ]
-        ]
-    },
-    {
-        "id": "1ba08ecffefdaec3",
-        "type": "change",
-        "z": "981390739fa10d48",
-        "name": "Set msg.citizens",
-        "rules": [
-            {
-                "t": "set",
-                "p": "citizens",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 620,
-        "wires": [
-            [
-                "e83ddd55004fb64e",
-                "4af6e12cb816ea56"
-            ]
-        ]
-    },
-    {
-        "id": "e4137bb34a44e9ce",
-        "type": "change",
-        "z": "981390739fa10d48",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 240,
-        "y": 640,
-        "wires": [
-            [
-                "3f0952280c38a70e"
-            ]
-        ]
-    },
-    {
-        "id": "cbe9f418499cd717",
-        "type": "debug",
-        "z": "981390739fa10d48",
-        "name": "debug 8",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "546f21dc858b174e",
@@ -1811,23 +1450,6 @@
         ]
     },
     {
-        "id": "21f910dd75c6973f",
-        "type": "debug",
-        "z": "981390739fa10d48",
-        "name": "PUP ACTIONS",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 840,
-        "wires": []
-    },
-    {
         "id": "7cbad3646cbdb01e",
         "type": "change",
         "z": "981390739fa10d48",
@@ -1864,8 +1486,8 @@
         "y": 200,
         "wires": [
             [
-                "f76077d6ce5f33db",
-                "9e8721dd0e11d89c"
+                "9e8721dd0e11d89c",
+                "d86d85f85c92aaa1"
             ]
         ]
     },
@@ -1950,34 +1572,6 @@
         "wires": []
     },
     {
-        "id": "f76077d6ce5f33db",
-        "type": "change",
-        "z": "981390739fa10d48",
-        "name": "TESTDATA",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pupOutputs",
-                "pt": "msg",
-                "to": "[]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 730,
-        "y": 240,
-        "wires": [
-            [
-                "9c897aef15b24d1a",
-                "342dc6abedec9c9e"
-            ]
-        ]
-    },
-    {
         "id": "abb4709a00ce8d57",
         "type": "comment",
         "z": "981390739fa10d48",
@@ -2029,6 +1623,41 @@
         "y": 280,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "d86d85f85c92aaa1",
+        "type": "credentials",
+        "z": "981390739fa10d48",
+        "name": "testdata",
+        "props": [
+            {
+                "value": "pupOutputs",
+                "type": "msg"
+            }
+        ],
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "fd60d780ca334c47"
+            ]
+        ]
+    },
+    {
+        "id": "fd60d780ca334c47",
+        "type": "json",
+        "z": "981390739fa10d48",
+        "name": "",
+        "property": "pupOutputs",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 240,
+        "wires": [
+            [
+                "9c897aef15b24d1a"
+            ]
         ]
     },
     {
@@ -2802,7 +2431,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "f38a2efe43edd64e"
@@ -2820,7 +2449,7 @@
         "syntax": "mustache",
         "template": "/* Import Google Font - Poppins */\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n*{\nmargin: 0;\npadding: 0;\nbox-sizing: border-box;\nfont-family: 'Poppins', sans-serif;\ncolor:rgb(204, 204, 204)\n}\n*:focus\n{\noutline: none;\n}\nbody{\nwidth: 100%;\nheight: 100vh;\noverflow: hidden;\ndisplay: flex;\nalign-content: stretch;\nflex-direction: column;\n}\n.flex\n{\nwidth: 100%;\ndisplay: inline-flex;\nflex-grow: 1;\n}\n.containerLeft\n{\nwidth: 55%;\nbackground: #282b2f;\n/*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/\n}\n.containerRight\n{\nheight: calc(100vh - 30px);\nwidth: 45%;\noverflow-y:auto;\nbackground-color: #1d2025;\nborder-left: 4px solid rgb(29, 31, 29);\n}\n\n/* BOTTOM CMD */\n.commandLine\n{\nline-height: 30px;\ncolor:darkslategray;\nwidth:100%;\nbackground-color: #0b0c0c;\npadding-left: 15px;\n}\n.cmd\n{\nwidth: calc(100% - 30px);\nheight: 100%;\nborder:0px;\nbackground-color: #0b0c0c;\npadding-left: 5px;\nfont-family: monospace;\nfont-size: 15px;\n}\n\n/* RIGHT CONTAINER - TEXT AREA\n.containerRight textarea\n{\nbackground: linear-gradient(135deg, #141618, #191c22);\npadding: 10px 20px;\nwidth:100%;\nheight:100vh;\nborder: 0px;\n} */\n.editor {\ndisplay: inline-flex;\nalign-content: stretch;\nline-height: 21px;\nfont-size: 12px;\nbackground: linear-gradient(135deg, #1a1c20, #1d2025);\nwidth:100%;\n}\n\n.textarea {\noverflow-wrap:break-word;\nwhite-space: pre-wrap;\nline-height: 21px;\n/*overflow-y: hidden;\nbackground: #282a3a;\nheight: 100vh;\ncolor: #FFF;*/\nmin-height: calc(100vh - 30px);\noverflow:hidden;\noutline: none;\nresize: none;\nfont-family: monospace;\nflex-grow: 1;\ncolor:rgb(214, 211, 211);\n\nbackground: linear-gradient(135deg, #141618, #191c22);\npadding: 10px 15px;\nborder: 0px;\n}\n.line-numbers {\npadding: 10px 0px;\nmargin-right: 10px;\nwidth: 35px;\ntext-align: right;\nflex-grow: 0;\n}\n\n.line-numbers span {\ncounter-increment: linenumber;\n}\n\n.line-numbers span::before {\ncontent: counter(linenumber);\ndisplay: block;\ncolor: darkslategray;\nfont-family: monospace;\n}\n\n\n\n\n/* LEFT CONTAINER - VISUAL EDITOR */\n.menu\n{\nbox-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);\nbackground: #282b2f;\nbackground: linear-gradient(135deg, rgb(29, 31, 29) 0%, rgb(22, 24, 24) 100%); /* #232626 */\n}\n.menu .menupoints\n{\nfont-size: 12px;\nline-height: 35px;\npadding-left: 12px;\ntext-transform: capitalize;\nbackground: linear-gradient(135deg, rgb(21, 22, 21) 0%, rgb(16, 17, 17) 100%);\n}\n.menupoints div\n{\ndisplay: inline-flex;\npadding: 0px 10px;\n}\n.menupoints div:hover\n{\nbackground: #232626;\ncursor: pointer;\n}\n\n.controls{\npadding: 7px 10px;\npadding-bottom: 14px;\ntext-align: left;\nmax-height: 61px;\noverflow-y: auto;\n}\n.controls div\n{\nfont-size: 12px;\ntext-transform: capitalize;\ncolor:darkslategray;\npadding-left: 3px;\n}\n.controls .button{\nborder: none;\nopacity: 0.4;\noutline: none;\ncolor: #fff;\ncursor: pointer;\nfont-size: 13px;\npadding: 8px 18px;\nmargin-top:4px;\nborder-radius: 3px;\nletter-spacing: 0.3px;\npointer-events: none;\ntransition: transform 0.25s ease;\nbackground: #344b48; /* 343c4b */\n}\n.controls .button:not(:first-child)\n{\nmargin-left: 3px;\n}\n.button:hover\n{\nbackground: #4d6f6b;\n}\n.button.active{\nopacity: 1;\npointer-events: auto;\n}\n.button:active{\ntransform: scale(0.93);\n}\n\n\n\n\n.commandList\n{\npadding: 10px 8px;\nwidth:100%;\noverflow-y: auto;\nmax-height:calc(100vh - 126px);\nheight: 100%;\noverflow-x: hidden;\n/*background-color: darkslategray;*/\n}\n.commandList span\n{\npadding-left: 7px;\n}\n.commandList.overflow{\noverflow-y: auto;\n}\n*::-webkit-scrollbar{\nwidth: 5px;\n}\n*::-webkit-scrollbar-track{\nbackground: #3f4349;\nborder-radius: 25px;\n}\n*::-webkit-scrollbar-thumb{\nbackground: #6d6d6d;\nborder-radius: 25px;\n}\n\n\n.commandList .task\n{\nlist-style: none;\nfont-size: 15px;\n\nmargin-bottom: 5px;\nborder-radius: 5px;\n\nbox-shadow: 3px 3px 3px rgba(20, 20, 20, 0.05);\nbackground: linear-gradient(135deg, #32363a, #2d3135);\n}\n    .task.current\n    {\n        background: linear-gradient(135deg, #3f2f4f, #4a3859)!important;\n        /*background: linear-gradient(135deg, #99597d, #804b67)!important;*/\n    }\n    .task.error\n    {\n        background: linear-gradient(135deg, #6e4a48, #6b4a46)!important;\n        /*background: linear-gradient(135deg, #9c5c5c, #854e4e)!important;*/\n    }\n.commandList .task > div\n{\npadding-left: 20px;\ndisplay: inline-flex;\nalign-items: flex-start;\nflex-wrap: wrap;\ngap: 15px;\nwidth: 100%;\nmax-width: 100%!important;\npadding-top: 8px;\npadding-bottom: 8px;\nline-height: 25px;\n}\n.task span\n{\ncolor: rgb(136, 136, 136);\nfont-family: monospace;\nline-height: 25px;\nfont-size:12px;\n}\n.task p\n{\n    text-transform: capitalize;\n}\n.commandList .task > div > div\n{\ncolor: rgb(114, 153, 153);\nfont-family: monospace;\n}\n.commandList .task > div input\n{\nbackground-color: #535353;\nborder: 0px;\nborder-radius: 3px;\nline-height: 25px;\npadding: 0px 10px;\nfont-family: monospace;\nwidth: auto;\nmax-width: calc(100vh - 150px);\n}\n\n.commandList .task > div > div.filler\n{\nflex-grow: 1;\nflex-shrink: 1;\n}\n.commandList .settings\n{\nposition: relative;\nfloat: right;\npadding-right:10px;\n/*top: -16px;*/\nflex-grow: 0!important;\n}\n.settings :where(i, li){\ncursor: pointer;\n}\n.settings .bulletinMenu{\nz-index: 10;\nright: 12px;\npadding: 5px 0;\nbackground: #757575;\nposition: absolute;\nborder-radius: 4px;\ntransform: scale(0);\ntransform-origin: top right;\nbox-shadow: 0 0 6px rgba(0,0,0,0.15);\ntransition: transform 0.2s ease;\n}\n.commandList .task:last-child:not(:first-child) .bulletinMenu{\nbottom: 20px;\ntransform-origin: bottom right;\n}\n.commandList .task:not(:last-child) .bulletinMenu{\ntop: 20px;\n}\n/*\n.commandList .task:first-child .bulletinMenu{\nbottom: -65px;\ntransform-origin: top right;\n}*/\n.bulletinMenu.show{\ntransform: scale(1);\n}\n.bulletinMenu li{\nheight: 25px;\nfont-size: 12px;\nline-height: 25px;\nmargin-bottom: 2px;\npadding: 0px 10px;\nmin-width: 85px;\ncursor: pointer; list-style-type: none;\n}\n.bulletinMenu li:last-child{\nmargin-bottom: 0;\n}\n.settings li:hover{\nbackground: rgb(128, 128, 128);\n}\n.settings li i{\npadding-right: 8px;\n}",
         "x": 790,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "6dbedac851d8db69"
@@ -2839,7 +2468,7 @@
         "syntax": "plain",
         "template": "\n/////////////\n/// #1 : Query selectors + start\n////////////\nconst commandList = document.querySelector(\".commandList\"),\n\n    buttonAdd_launch = document.querySelector(\".button#launch\"),\n    buttonAdd_goto = document.querySelector(\".button#goto\"),\n    buttonAdd_click = document.querySelector(\".button#click\"),\n    buttonAdd_type = document.querySelector(\".button#type\"),\n    buttonAdd_select = document.querySelector(\".button#select\"),\n    buttonAdd_get = document.querySelector(\".button#get\"),\n    buttonAdd_wait = document.querySelector(\".button#wait\"),\n    buttonAdd_close = document.querySelector(\".button#close\"),\n\n    cmdInput = document.querySelector(\".cmd\"),\n    textarea = document.querySelector('.textarea'),\n    lineNumbers = document.querySelector('.line-numbers');\n\nconst storageName = \"pupControl_JSON_commandGen\";\n\n///\n// Start ()\n\nlet commands = [];\ntry {\n    commands = JSON.parse(localStorage.getItem(storageName));\n}\ncatch {\n    console.log(\"Found command list, but corrupt:\\n\" + localStorage.getItem(storageName));\n}\nShowCommandList();\nUpdateJSON();\n\n\n\n\n\n\n\n\n\n\n\n/////////////\n/// #2 : Data manipulation\n////////////\n\n///\n// Add command\n\nvar variableCount = 0;\nfunction AddCommand(type, parameters = \"\") {\n\n    // Check if command is of valid type\n    if (!IsValidType(type)) {\n        console.log(\"Failed to add command of unknown type `\" + type + \"`\");\n        return;\n    }\n\n    // Check if a command array already exists, otherwise define it\n    commands = !commands ? [] : commands;\n\n    // Create initial command object\n    var command = {\n        \"action\": type\n    };\n\n    // Check parameters\n    var multipleParameters = parameters.split(' ');\n    var splitParameters = parameters.split('=');\n\n    // Add parameter values depending on command type\n    switch (type) {\n\n        // launch name (parameters)\n        case \"launch\":\n            if (parameters == \"\") break;\n            if (parameters == \"-debug\" || parameters == \"-d\") {\n                command.parameters = {\n                    \"headless\": false,\n                    \"slowMo\": 50,\n                    \"ignoreHTTPSErrors\": true,\n                    \"defaultViewport\": null\n                }\n            }\n            else\n                command.name = multipleParameters.length > 1 ? multipleParameters[0] : parameters;\n            break;\n\n        // goto url\n        case \"goto\":\n            command.url = ReturnUrl(parameters);\n            break;\n\n        // click element clickCount\n        case \"click\":\n            var clickCount = 0;\n            if (parseInt(multipleParameters[multipleParameters.length - 1], clickCount)) {\n                command.parameters = {};\n                command.parameters.clickCount = parseInt(multipleParameters[multipleParameters.length - 1]);\n                let remainingParameters = parameters.replace(multipleParameters[multipleParameters.length - 1], \"\");\n                command.path = GenerateSelector(remainingParameters);\n            } else\n                command.path = GenerateSelector(parameters);\n            break;\n\n        // type text element\n        case \"type\":\n            if (multipleParameters.length >= 2) {\n                let text = multipleParameters[0];\n                let _parameters = parameters.replace(text, '');\n                command.input = text;\n                command.path = GenerateSelector(_parameters);\n            }\n            else {\n                command.input = \"\";\n                command.path = \"\";\n            }\n            break;\n\n        // select element=selection\n        case \"select\":\n            if (splitParameters.length > 1) {\n                command.path = splitParameters[0];\n                command.input = splitParameters[1];\n            }\n            else {\n                command.path = \"\";\n                command.input = \"\";\n            }\n            break;\n\n        // get variable=element // get element\n        case \"get\":\n            //let split = parameters.split('=');\n            if (splitParameters.length > 1) {\n                command.name = splitParameters[0];\n                command.path = GenerateSelector(splitParameters[1]);\n            }\n            else if (parameters != null) {\n                command.name = \"variable_\" + variableCount++;\n                command.path = GenerateSelector(parameters);\n            }\n            else {\n                command.name = \"variable_\" + variableCount++;\n                command.path = \"\";\n            }\n            break;\n\n        // wait ms\n        case \"wait\":\n            if (parameters != null && parameters != \"\")\n                command.ms = parameters;\n            else command.ms = 1000;\n            break;\n\n    }\n\n    // Push new command to list, and store JSON\n    commands.push(command);\n    StoreAndUpdateJSON();\n\n    if (type == \"launch\")\n        SetAddCommandButtonsActive();\n}\n\n// Function to check if type is valid\nfunction IsValidType(type) {\n    switch (type) {\n        case \"launch\": case \"goto\": case \"click\": case \"type\": case \"select\": case \"get\": case \"wait\": case \"close\":\n            return true;\n\n        default:\n            return false;\n    }\n}\n\n// HTTP encode + add https if missing\nfunction ReturnUrl(url) {\n    var newUrl = encodeURIComponent(url);\n    if (!(url.includes(\"https://\") || url.includes(\"http://\")))\n        newUrl = \"https://\" + newUrl;\n    return newUrl;\n}\n\n// Selector generator from object path definition\nfunction GenerateSelector(parameters) {\n    var multipleParameters = parameters.trim().split(' ');\n    var path = multipleParameters[0];\n    if (multipleParameters.length == 1)\n        return path;\n\n    for (let i = 1; i < multipleParameters.length; i++) {\n        let _c = multipleParameters[i];\n        var insideBrackets = _c.includes('[');\n\n        let attrSplit = _c.split('=');\n        if (!insideBrackets && attrSplit.length == 2) {\n            let attr = (_c.split('='))[0];\n            let value = (_c.split('='))[1];\n            path += '[' + attr + '=\"' + value + '\"]';\n        }\n        else\n            path += \" \" + _c;\n    }\n    return path;\n}\n\n// Receive update variable command from event\nfunction UpdateCommandVar(inputField) {\n    let id = inputField.id;\n    let s = id.split('_');\n    let _id = s[1];\n    var _attr = s[2];\n    if (s.length > 3)\n        _attr += \".\" + s[3];\n    UpdateCommandValue(_attr, inputField.value, _id);\n}\n\n// Update and store the change\nfunction UpdateCommandValue(attr, value, commandId) {\n    if (attr == \"path\")\n        value = GenerateSelector(value);\n\n    if (attr.includes('.')) {\n        let s = attr.split(\".\");\n\n        if (((commands[commandId])[s[0]])[s[1]] != null)\n            ((commands[commandId])[s[0]])[s[1]] = value;\n\n    }\n    else\n        if ((commands[commandId])[attr] != null)\n            (commands[commandId])[attr] = value;\n\n    StoreAndUpdateJSON();\n}\n\n// Additional functions\n\nfunction ClearAllCommands() {\n    commands.splice(0, commands.length);\n    StoreAndUpdateJSON();\n    SetAddCommandButtonsActive(false);\n}\n\nfunction DeleteCommand(deleteId) {\n    commands.splice(deleteId, 1);\n    StoreAndUpdateJSON();\n\n    if (commands.length == 0)\n        SetAddCommandButtonsActive(false);\n}\n\nfunction CopyCommand(copyId) {\n    let command = commands[copyId];\n    commands.push(command);\n    StoreAndUpdateJSON();\n}\n\nfunction AddCommandAttribute(attr, commandId) {\n    attr = attr.remove('.');\n    if ((commands[commandId])[attr] == null)\n        (commands[commandId])[attr] = \"\";\n\n    StoreAndUpdateJSON();\n}\n\n///\n// STORE DATA / UPDATE JSON\n\nfunction StoreAndUpdateJSON(_text = null) {\n\n    let text = UpdateJSON(_text);\n\n    if (text != null)\n        localStorage.setItem(storageName, text);\n\n    ShowCommandList();\n}\nfunction UpdateJSON(_text = null) {\n\n    var text = null;\n\n    if (_text == null) {\n        text = JSON.stringify(commands);\n        SetTextareaText(text);\n    }\n\n    else {\n\n        var _parsed = null;\n        try { _parsed = JSON.parse(_text) }\n        catch { }\n        //console.log(\"Updating JSON from textarea!\");\n        //console.log(_parsed);\n        if (_parsed != null) {\n            commands = _parsed;\n            text = JSON.stringify(commands);\n        }\n\n    }\n\n    SetTextareLineNumbers();\n    return text;\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #3 : Visual manipulation\n////////////\n\nfunction ShowCommandList() {\n    let liTag = \"\";\n\n    // Check if command list exists and is populated\n    if (commands) {\n        commands.forEach((command, id) => {\n            liTag += PrintCommand(command, id);\n        });\n    }\n\n    // Base text - if no commands exists\n    commandList.innerHTML = liTag || `<span>Start by adding a <b>Launch</b> command</span>`;\n\n    // Add event listeners to all input fields in tasks\n    var inputFields = document.querySelectorAll('.task input');\n    for (var i = 0; i < inputFields.length; i++) {\n\n        // Update the command that has been changed on focusout, and resize input field to match content\n        inputFields[i].addEventListener('focusout', function (event) {\n            UpdateCommandVar(event.target);\n            ResizeInputToFit(event.target.id);\n        }, false);\n\n        inputFields[i].addEventListener('keyup', function (event) {\n            // Also resize on key-up\n            ResizeInputToFit(event.target.id);\n        }, false);\n\n        // Also resize immediately to match loaded content\n        ResizeInputToFit(inputFields[i].id);\n    }\n\n    // Set add command buttons active\n    buttonAdd_launch.classList.add(\"active\");\n    if (commands)\n        if (commands.length > 0)\n            SetAddCommandButtonsActive();\n}\n\n// Show bulletin menu for each action in list (with copy / delete options)\nfunction ShowBulletinMenu(selectedTask) {\n    let menuDiv = selectedTask.parentElement.lastElementChild;\n    menuDiv.classList.add(\"show\");\n    document.addEventListener(\"click\", e => {\n        if (e.target.tagName != \"I\" || e.target != selectedTask)\n            menuDiv.classList.remove(\"show\");\n    });\n}\n\n///\n// PRINT COMMAND\n///\nfunction PrintCommand(command, id) {\n    var commandName = command.action == \"goto\" ? \"go to\" : command.action;\n    //for (const key in command) console.log(\"Key:\" + key + \": \" + command[key]);\n    var returnStr = \"\";\n    returnStr += `\n                <li class=\"task\" id=\"task_${id}\">\n                <div>\n                    <div>\n                        <label for=\"${id}\">\n                            <p>${commandName}</p>\n                        </label>\n                    </div>`;\n    // Add input fields for each object variable\n    returnStr += AddInputFields(command, id);\n    returnStr += `\n                    <div>\n                    </div>\n                    <div class=\"filler\"></div>\n                    <div class=\"settings\">\n                        <i onclick=\"ShowBulletinMenu(this)\" class=\"uil uil-ellipsis-h\"></i>\n                        <ul class=\"bulletinMenu\">\n                            <li onclick='CopyCommand(${id})'><i class=\"uil uil-trash\"></i>Copy</li>\n                            <li onclick='DeleteCommand(${id})'><i class=\"uil uil-trash\"></i>Delete</li>\n                        </ul>\n                    </div>\n                </div>\n            </li>`;\n    return returnStr;\n}\n\n// Add input fields for each command variable\nfunction AddInputFields(command, id, previousKey = null) {\n    var returnStr = \"\";\n    for (const key in command) {\n        var keystr = key;\n        keystr = key.toLocaleLowerCase();\n\n        if (command[key] !== null && typeof command[key] === 'object') {\n            returnStr += \"<span>\" + key + \" {</span>\";\n            returnStr += AddInputFields(command[key], id, key);\n            returnStr += \"<span>}</span>\";\n        }\n\n        else if (keystr != \"action\") {\n            let inputID = \"commandInput_\" + id + \"_\" + (previousKey != null ? previousKey + \"_\" : \"\") + key;\n            //inputIDArray.push(inputID);\n            returnStr += `\n                    <div>\n                    ${keystr}\n                    <input id=\"${inputID}\" value='${command[key]}'/>\n                    </div>\n                        `;\n        }\n\n    }\n    return returnStr;\n}\n\nfunction SetAddCommandButtonsActive(bool = true) {\n    if (bool) {\n        buttonAdd_launch.classList.remove(\"active\");\n        buttonAdd_goto.classList.add(\"active\");\n        buttonAdd_click.classList.add(\"active\");\n        buttonAdd_type.classList.add(\"active\");\n        buttonAdd_select.classList.add(\"active\");\n        buttonAdd_get.classList.add(\"active\");\n        buttonAdd_wait.classList.add(\"active\");\n        buttonAdd_close.classList.add(\"active\");\n    }\n    else {\n        buttonAdd_launch.classList.add(\"active\");\n        buttonAdd_goto.classList.remove(\"active\");\n        buttonAdd_click.classList.remove(\"active\");\n        buttonAdd_type.classList.remove(\"active\");\n        buttonAdd_select.classList.remove(\"active\");\n        buttonAdd_get.classList.remove(\"active\");\n        buttonAdd_wait.classList.remove(\"active\");\n        buttonAdd_close.classList.remove(\"active\");\n    }\n}\n\nfunction ResizeInputToFit(id) {\n    let _inputField = document.querySelector((\"#\" + id));\n    let width = (40 + (_inputField.value.length * 7.35)) + \"px\";\n    document.querySelector((\"#\" + id)).setAttribute('style', 'width:' + width);\n}\n\nvar lastChar = '';\nvar isNewline = false;\nvar isInsideQuotations = false;\nfunction SetTextareaText(json) {\n    var text = \"\";\n    let count = json.length;\n    var level = 0;\n\n    for (let i = 0; i < count; i++) {\n        let char = json[i];\n\n        switch (char) {\n            case '{': case '[':\n                if (!isInsideQuotations && i != 0 && (json[i - 1] == ',' || json[i - 1] == ':')) text += \"\\n\";\n                if (!isInsideQuotations)\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                text += char;\n                if (!isInsideQuotations) {\n                    text += \"\\n\";\n                    level++;\n                    isNewline = true;\n                }\n                break;\n\n            case '}': case ']':\n                if (!isInsideQuotations) {\n                    text += \"\\n\";\n                    level--;\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                    isNewline = true;\n                }\n                text += char;\n                break;\n\n            case ',':\n                if (!isInsideQuotations)\n                    isNewline = true;\n                text += char;\n                break;\n\n            case ':':\n                text += char;\n                if (lastChar == \"\\\"\")\n                    text += \" \";\n                break;\n\n            case '\"':\n                isInsideQuotations = !isInsideQuotations;\n\n            default:\n                if (i != 0 && json[i - 1] == ',') { text += \"\\n\"; isNewline = true }\n                if (isNewline)\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                text += char;\n                isNewline = false;\n                break;\n        }\n\n        lastChar = char;\n    }\n\n    textarea.value = text;\n}\n\nfunction SetTextareLineNumbers() {\n    const numberOfLines = textarea.value.split('\\n').length;\n    lineNumbers.innerHTML = Array(numberOfLines)\n        .fill('<span></span>')\n        .join('');\n}\n\n\n\n\n\n\n\n\n\n\n\n/////////////\n/// #4 : Communication (HTTP Request + Websockets)\n////////////\n\n///\n// HTTP post method (for testing flows using \"nr\"-command)\nasync function SendToNodeRed() {\n    if (commandList.length == 0)\n        return;\n\n    document.getElementById('task_0').classList.add(\"current\");\n\n    fetch('/puprun', {\n\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: textarea.value\n\n    }).then(response => {\n        if (response.ok) {\n            response.json().then(json => {\n                console.log(json);\n            });\n        }\n    });\n}\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"pup\", \"ws/pup\");\n\nfunction wsConnect() {\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function (msg) {\n        var line = \"\";  // or uncomment this to overwrite the existing message\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message ID: \" + obj.pupid);\n\n        // Remove bg from current command box (and set error if error was detected)\n        document.getElementById('task_' + obj.pupid).classList.remove(\"current\")\n        if (!obj.succesful)\n            document.getElementById('task_' + obj.pupid).classList.add(\"error\")\n\n        // Update next command box bg\n        let nextID = obj.pupid + 1;\n        if (commands.length > nextID)\n            document.getElementById('task_' + nextID).classList.add(\"current\");\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #5 : Command line interface\n////////////\n\nfunction RunCommandLineAction(key) {\n    if (key != \"Enter\")\n        return;\n\n    var input = cmdInput.value;\n    input = input.toLowerCase();\n\n    const inputCommand = (input.split(' '))[0];\n\n    var clearInput = true;\n\n    switch (inputCommand) {\n        case \"clear\":\n            ClearAllCommands();\n            break;\n\n        case \"node-red\": case \"nr\":\n            SendToNodeRed();\n            break;\n\n        case \"add\":\n            let s = input.split(' '); let i1 = s[1], i2 = s[2];\n            AddCommandAttribute(i1, i2);\n            break;\n\n        case \"launch\": case \"goto\": case \"click\": case \"type\": case \"get\": case \"wait\": case \"close\":\n            AddCommandLineCommand(inputCommand, input);\n            break;\n\n        default:\n            console.log(\"Received unrecognized console command `\" + input + \"`\");\n            clearInput = false;\n            break;\n    }\n\n    if (clearInput)\n        cmdInput.value = \"\";\n}\n\nfunction AddCommandLineCommand(ic, i) {\n    const parameters = i.replace(ic, '').trim();\n    AddCommand(ic, parameters);\n\n    console.log(\"Received command `\" + ic + \"` with parameters `\" + parameters + \"`\");\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #6 : Event listeners\n////////////\n\ntextarea.addEventListener('keyup', event => {\n    SetTextareLineNumbers();\n    StoreAndUpdateJSON(textarea.value);\n});\ncmdInput.addEventListener('keyup', event => {\n    RunCommandLineAction(event.key);\n});\ntextarea.addEventListener('keydown', event => {\n    if (event.key === 'Tab') {\n        const start = textarea.selectionStart;\n        //const end = textarea.selectionEnd;\n\n        textarea.value = textarea.value.substring(0, start) + '\\t' + textarea.value.substring(start, textarea.value.length);\n\n        textarea.selectionEnd = start + 1;\n\n        event.preventDefault();\n    }\n});\n\nbuttonAdd_launch.addEventListener(\"click\", () => {\n    AddCommand(\"launch\");\n});\nbuttonAdd_goto.addEventListener(\"click\", () => {\n    AddCommand(\"goto\");\n});\nbuttonAdd_click.addEventListener(\"click\", () => {\n    AddCommand(\"click\");\n});\nbuttonAdd_type.addEventListener(\"click\", () => {\n    AddCommand(\"type\");\n});\nbuttonAdd_select.addEventListener(\"click\", () => {\n    AddCommand(\"select\");\n});\nbuttonAdd_get.addEventListener(\"click\", () => {\n    AddCommand(\"get\");\n});\nbuttonAdd_wait.addEventListener(\"click\", () => {\n    AddCommand(\"wait\");\n});\nbuttonAdd_close.addEventListener(\"click\", () => {\n    AddCommand(\"close\");\n});",
         "x": 630,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "ccd6ab4c66afb0c3"
@@ -2854,7 +2483,7 @@
         "statusCode": "",
         "headers": {},
         "x": 1130,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -2868,7 +2497,7 @@
         "syntax": "mustache",
         "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>PupController</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    <div class=\"flex\">\n\n      <div class=\"containerLeft\">\n\n        <div class=\"menu\">\n\n          <div class=\"menupoints\">\n            <div>Documentation</div>\n            <div>GitHub</div>\n          </div>\n\n          <div class=\"controls\">\n            <button class=\"button\" id=\"launch\">Launch</button>\n            <button class=\"button\" id=\"goto\">Go To</button>\n            <button class=\"button\" id=\"click\">Click</button>\n            <button class=\"button\" id=\"type\">Type</button>\n            <button class=\"button\" id=\"select\">Select</button>\n            <button class=\"button\" id=\"get\">Get</button>\n            <button class=\"button\" id=\"wait\">Wait</button>\n            <button class=\"button\" id=\"close\">Close</button>\n          </div>\n\n        </div>\n\n        <ul class=\"commandList\"></ul>\n\n      </div>\n      <div class=\"containerRight\">\n\n        <div class=\"editor\">\n          <div class=\"line-numbers\">\n            <span></span>\n          </div>\n          <textarea class=\"textarea\"></textarea>\n        </div><!-- /editor -->\n\n      </div><!-- /containerRight -->\n    </div><!-- /flex -->\n\n\n\n    <div class=\"commandLine\">\n      <span>></span><input class=\"cmd\" />\n    </div>\n\n\n<script>{{{payload.script}}}</script>\n\n  </body>\n</html>",
         "x": 970,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "5c5841605bcac134"
@@ -2882,7 +2511,7 @@
         "name": "Set URL",
         "info": "",
         "x": 400,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -2892,7 +2521,7 @@
         "name": "Host website",
         "info": "",
         "x": 150,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -2915,7 +2544,7 @@
         "to": "",
         "reg": false,
         "x": 400,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "a904c240fb3f52bd",
@@ -2933,7 +2562,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 150,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "0fa8b45a3aec3fd5"
@@ -2959,7 +2588,7 @@
         "repair": false,
         "outputs": 2,
         "x": 910,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "274738f45a0d5d5a"
@@ -2996,7 +2625,7 @@
         "to": "",
         "reg": false,
         "x": 1120,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "1a32f920705bb1bc"
@@ -3015,7 +2644,7 @@
         "finalize": "",
         "libs": [],
         "x": 1140,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "580a9e3166314a22"
@@ -3034,7 +2663,7 @@
         "finalize": "",
         "libs": [],
         "x": 1340,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "cb4ea3ccf7541c86",
@@ -3052,7 +2681,7 @@
         "name": "Start flow from web",
         "info": "",
         "x": 170,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -3068,8 +2697,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1640,
-        "y": 440,
+        "x": 1620,
+        "y": 500,
         "wires": []
     },
     {
@@ -3079,8 +2708,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1710,
-        "y": 260,
+        "x": 1750,
+        "y": 300,
         "wires": []
     },
     {
@@ -3096,8 +2725,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1650,
-        "y": 220,
+        "x": 1630,
+        "y": 240,
         "wires": []
     },
     {
@@ -3126,8 +2755,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1560,
-        "y": 380,
+        "x": 1600,
+        "y": 420,
         "wires": [
             [
                 "5935cece6c345653"
@@ -3141,8 +2770,8 @@
         "name": "",
         "server": "6e63b3c396c75d87",
         "client": "",
-        "x": 1930,
-        "y": 360,
+        "x": 1970,
+        "y": 400,
         "wires": []
     },
     {
@@ -3152,7 +2781,7 @@
         "name": "Set JavaScript",
         "info": "",
         "x": 650,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -3162,7 +2791,7 @@
         "name": "Start flow from flow",
         "info": "",
         "x": 170,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -3172,7 +2801,7 @@
         "name": "Endpoint",
         "info": "",
         "x": 1140,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -3182,7 +2811,7 @@
         "name": "Check instance",
         "info": "",
         "x": 900,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -3197,7 +2826,7 @@
         "finalize": "",
         "libs": [],
         "x": 680,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "d68baf48942491dd"
@@ -3211,7 +2840,7 @@
         "name": "Create CSS selectors",
         "info": "",
         "x": 680,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -3234,7 +2863,7 @@
         "to": "",
         "reg": false,
         "x": 380,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "6553bd482e86e7cd"
@@ -3261,7 +2890,7 @@
         "to": "",
         "reg": false,
         "x": 390,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "6553bd482e86e7cd"
@@ -3290,8 +2919,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1730,
-        "y": 380,
+        "x": 1770,
+        "y": 420,
         "wires": [
             [
                 "8020507bdd5939ba"
@@ -3321,8 +2950,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1530,
-        "y": 280,
+        "x": 1570,
+        "y": 320,
         "wires": [
             [
                 "69738f2e4dcc6f63"
@@ -3338,7 +2967,7 @@
         "scope": null,
         "uncaught": false,
         "x": 200,
-        "y": 620,
+        "y": 660,
         "wires": [
             [
                 "9eb94ead2cba83a2"
@@ -3359,7 +2988,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 340,
-        "y": 620,
+        "y": 660,
         "wires": []
     },
     {
@@ -3371,9 +3000,9 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "plain",
-        "template": "/////////////\n/// #0 : Action definitions\n////////////\n\nfunction actionList() {\n    return [\n        {\n            \"action\": \"launch\",\n            \"parameters\":\n            {\n                \"headless\": false,\n                \"slowMo\": 50,\n                \"ignoreHTTPSErrors\": true,\n                \"defaultViewport\": null\n            }\n        },\n        {\n            \"action\": \"goto\",\n            \"url\": \"\"\n        },\n        {\n            \"action\": \"click\",\n            \"path\": \"\",\n            \"parameters\":\n            {\n                \"clickCount\": 1\n            }\n        },\n        {\n            \"action\": \"type\",\n            \"input\": \"\",\n            \"path\": \"\"\n        },\n        {\n            \"action\": \"select\",\n            \"path\": \"\",\n            \"input\": \"\"\n        },\n        {\n            \"action\": \"get\",\n            \"name\": \"\",\n            \"path\": \"\"\n        },\n        {\n            \"action\": \"wait\",\n            \"ms\": 1000\n        },\n        {\n            \"action\": \"close\"\n        }\n    ];\n};\n\n\n/////////////\n/// #1 : Start ()\n////////////\n\nconst commandList = document.querySelector(\".commandList\"),\n    controls = document.querySelector(\".controls\"),\n\n    cmdInput = document.querySelector(\".cmd\"),\n    textarea = document.querySelector('.textarea'),\n    lineNumbers = document.querySelector('.line-numbers');\n\nconst storageName = \"pupControl_JSON_commandGen\";\n\n// Define + get commands from SQLite\n\nlet commands = [];\n\ntry {\n    commands = JSON.parse(localStorage.getItem(storageName));\n}\ncatch {\n    console.log(\"Found command list, but corrupt:\\n\" + localStorage.getItem(storageName));\n}\n\nShowCommandList();\nUpdateJSON();\n\n// Create pseudo enum \"actionKeys\" -> usage to get full object: actionList()[actionKeys[\"launch\"]]\n\nlet _actionKeys = [];\nfor (let i = 0; i < actionList().length; i++)\n    _actionKeys[actionList()[i].action] = i;\n\nconst actionKeys = _actionKeys;\n\n// Function to create IDs for query selection of buttons\n\nfunction GetElementIdFromAction(actionObject) { return \"buttonAdd_\" + actionObject.action.replace(\" \", \"\"); }  // Example ID: buttonAdd_launch\n\n// Dynamically instantiate buttons for action objects\n\nfor (let i = 0; i < actionList().length; i++)\n    controls.innerHTML += `\n        <button class=\"button active\" id=\"${GetElementIdFromAction(actionList()[i])}\">${actionList()[i].action}</button>\n    `;\n\n// Dynamically create query selectors for action object buttons\n\nlet _buttonAdd = [];\nfor (let i = 0; i < actionList().length; i++)\n    _buttonAdd[actionList()[i].action] = document.querySelector(\".button#\" + GetElementIdFromAction(actionList()[i]));\n\nconst buttonAdd = _buttonAdd;\n\n// and add event listeners\n\nfor (let i = 0; i < actionList().length; i++)\n    buttonAdd[actionList()[i].action].addEventListener(\"click\", () => {\n        AddCommand(actionList()[i]);\n    });\n\n\n\n\n\n\n/////////////\n/// #2 : Data manipulation\n////////////\n\n///\n// Add command\n\nlet variableCount = 0;\nfunction AddCommand(actionObject) {\n\n    //console.log(\"Received action object: \\n\" + JSON.stringify(actionObject));\n\n    //console.log(\"Full action list: \" + JSON.stringify(actionList));\n\n    // Check if command is of valid type\n    if (!IsValidType(actionObject.action)) {\n        console.log(\"Failed to add command of unknown type `\" + actionObject.action + \"`\");\n        return;\n    }\n\n    // Check if a command array already exists, otherwise define it\n    commands = !commands ? [] : commands;\n\n    // Create initial command object\n    let clone = {}; // the new empty object\n\n    // let's copy all action properties into it\n    for (let key in actionObject) {\n        clone[key] = actionObject[key];\n    }\n    const command = clone;\n\n    // Push new command to list, and store JSON\n    commands.push(command);\n\n    StoreAndUpdateJSON();\n}\n\n// Function to check if type is valid\nfunction IsValidType(type) {\n    return !(actionKeys[type] == null);\n}\n\n// HTTP encode + add https if missing\nfunction ReturnUrl(url) {\n    var newUrl = encodeURIComponent(url);\n    if (!(url.includes(\"https://\") || url.includes(\"http://\")))\n        newUrl = \"https://\" + newUrl;\n    return newUrl;\n}\n\n// Selector generator from string\nfunction GenerateSelector(parameters) {\n    var multipleParameters = parameters.trim().split(' ');\n    var path = multipleParameters[0];\n    if (multipleParameters.length == 1)\n        return path;\n\n    for (let i = 1; i < multipleParameters.length; i++) {\n        let _c = multipleParameters[i];\n        var insideBrackets = _c.includes('[');\n\n        let attrSplit = _c.split('=');\n        if (!insideBrackets && attrSplit.length == 2) {\n            let attr = (_c.split('='))[0];\n            let value = (_c.split('='))[1];\n            path += '[' + attr + '=\"' + value + '\"]';\n        }\n        else\n            path += \" \" + _c;\n    }\n    return path;\n}\n\n// Receive update variable command from event\nfunction UpdateCommandVar(inputField) {\n\n    // Get ID of input field to determine which value to update\n    let id = inputField.id;\n    let s = id.split('_');\n\n    // Example ID: obj_attr\n    let _id = s[1];\n    var _attr = s[2];\n    if (s.length > 3)\n        _attr += \".\" + s[3];\n\n    UpdateCommandValue(_attr, inputField.value, _id);\n}\n\n// Update and store the change\nfunction UpdateCommandValue(attr, value, commandId) {\n\n    if (attr == \"path\")\n        value = GenerateSelector(value);\n\n    // Parse if float or int (ignore if \"path\" or \"input\")\n    if (attr != \"path\" && attr != \"\") //  <- HARD CODE :(\n    {\n        if (value.includes(\".\") || value.includes(\",\")) {\n            // Is float?\n            let _value = value.replace(\",\", \".\");\n            const parsed = parseFloat(_value);\n            if (!isNaN(parsed))\n                value = parsed;\n        }\n        else {\n            // Is int?\n            const parsed = parseInt(value);\n            if (!isNaN(parsed))\n                value = parsed;\n        }\n\n        // Parse if boolean or null\n        if (value === \"true\") value = true;\n        if (value === \"false\") value = false;\n        if (value === \"null\") value = null;\n    }\n\n\n    if (attr.includes('.')) {\n        let s = attr.split(\".\");\n\n        console.log(\"Updating attr \" + attr + \" from value \" + ((commands[commandId])[s[0]])[s[1]] + \" to value \" + value + \" (id: \" + commandId + \")\");\n\n        //if (((commands[commandId])[s[0]])[s[1]] != undefined)\n        ((commands[commandId])[s[0]])[s[1]] = value;\n\n\n    }\n    else {\n        console.log(\"Updating attr \" + attr + \" from value \" + (commands[commandId])[attr] + \" to value \" + value + \" (id: \" + commandId + \")\");\n\n        //if ((commands[commandId])[attr] != undefined)\n        (commands[commandId])[attr] = value;\n\n    }\n\n    StoreAndUpdateJSON();\n}\n\n// Additional functions\n\nfunction ClearAllCommands() {\n    commands.splice(0, commands.length);\n    StoreAndUpdateJSON();\n}\n\nfunction DeleteCommand(deleteId) {\n    commands.splice(deleteId, 1);\n    StoreAndUpdateJSON();\n}\n\nfunction CopyCommand(copyId) {\n    let command = commands[copyId];\n    commands.push(command);\n    StoreAndUpdateJSON();\n}\n\n///\n// STORE DATA / UPDATE JSON\n\nfunction StoreAndUpdateJSON(_text = null) {\n\n    // Function is used with _text parameter when called from textarea event listener\n    let text = UpdateJSON(_text);\n\n    if (text != null)\n        localStorage.setItem(storageName, text);\n\n    ShowCommandList();\n}\n\nfunction UpdateJSON(_text = null) {\n\n    var text = null;\n\n    if (_text == null) {\n        text = JSON.stringify(commands);\n        SetTextareaText(text);\n    }\n\n    else {\n\n        var _parsed = null;\n        try { _parsed = JSON.parse(_text) }\n        catch { }\n        //console.log(\"Updating JSON from textarea!\");\n        //console.log(_parsed);\n        if (_parsed != null) {\n            commands = _parsed;\n            text = JSON.stringify(commands);\n        }\n\n    }\n\n    SetTextareLineNumbers();\n    return text;\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #3 : Visual manipulation\n////////////\n\nfunction ShowCommandList() {\n    let liTag = \"\";\n\n    // Check if command list exists and is populated\n    if (commands) {\n        commands.forEach((command, id) => {\n            liTag += PrintCommand(command, id);\n        });\n    }\n\n    // Base text - if no commands exists\n    commandList.innerHTML = liTag || `<span>Start by adding a <b>Launch</b> command</span>`;\n\n    // Add event listeners to all input fields in tasks\n    var inputFields = document.querySelectorAll('.task input');\n    for (var i = 0; i < inputFields.length; i++) {\n\n        // Update the command that has been changed on focusout, and resize input field to match content\n        inputFields[i].addEventListener('focusout', function (event) {\n            UpdateCommandVar(event.target);\n            ResizeInputToFit(event.target.id);\n        }, false);\n\n        inputFields[i].addEventListener('keyup', function (event) {\n            // Also resize on key-up\n            ResizeInputToFit(event.target.id);\n        }, false);\n\n        // Also resize immediately to match loaded content\n        ResizeInputToFit(inputFields[i].id);\n    }\n}\n\n// Show bulletin menu for each action in list (with copy / delete options)\nfunction ShowBulletinMenu(selectedTask) {\n    let menuDiv = selectedTask.parentElement.lastElementChild;\n    menuDiv.classList.add(\"show\");\n    document.addEventListener(\"click\", e => {\n        if (e.target.tagName != \"I\" || e.target != selectedTask)\n            menuDiv.classList.remove(\"show\");\n    });\n}\n\n///\n// PRINT COMMAND\n///\nfunction PrintCommand(command, id) {\n\n    var commandName = command.action == \"goto\" ? \"go to\" : command.action;\n\n    var returnStr = \"\";\n    returnStr += `\n                <li class=\"task\" id=\"task_${id}\">\n                <div>\n                    <div>\n                        <label for=\"${id}\">\n                            <p>${commandName}</p>\n                        </label>\n                    </div>`;\n\n    // Add input fields for each object variable\n    returnStr += AddInputFields(command, id);\n\n    returnStr += `\n                    <div>\n                    </div>\n                    <div class=\"filler\"></div>\n                    <div class=\"settings\">\n                        <i onclick=\"ShowBulletinMenu(this)\" class=\"uil uil-ellipsis-h\"></i>\n                        <ul class=\"bulletinMenu\">\n                            <li onclick='CopyCommand(${id})'><i class=\"uil uil-trash\"></i>Copy</li>\n                            <li onclick='DeleteCommand(${id})'><i class=\"uil uil-trash\"></i>Delete</li>\n                        </ul>\n                    </div>\n                </div>\n            </li>`;\n\n    return returnStr;\n}\n\n// Add input fields for each command variable\nfunction AddInputFields(command, id, previousKey = null) {\n    var returnStr = \"\";\n    for (const key in command) {\n        var keystr = key;\n        keystr = key.toLocaleLowerCase();\n\n        if (command[key] !== null && typeof command[key] === 'object') {\n            returnStr += \"<span>\" + key + \" {</span>\";\n            returnStr += AddInputFields(command[key], id, key);\n            returnStr += \"<span>}</span>\";\n        }\n\n        else if (keystr != \"action\") {\n            let inputID = \"commandInput_\" + id + \"_\" + (previousKey != null ? previousKey + \"_\" : \"\") + key;\n            //inputIDArray.push(inputID);\n            returnStr += `\n                    <div>\n                    ${keystr}\n                    <input id=\"${inputID}\" value='${command[key]}'/>\n                    </div>\n                        `;\n        }\n\n    }\n    return returnStr;\n}\n\n\nfunction ResizeInputToFit(id) {\n    let _inputField = document.querySelector((\"#\" + id));\n    let width = (40 + (_inputField.value.length * 7.35)) + \"px\";\n    document.querySelector((\"#\" + id)).setAttribute('style', 'width:' + width);\n}\n\nvar lastChar = '';\nvar isNewline = false;\nvar isInsideQuotations = false;\nfunction SetTextareaText(json) {\n    var text = \"\";\n    let count = json.length;\n    var level = 0;\n\n    for (let i = 0; i < count; i++) {\n        let char = json[i];\n\n        switch (char) {\n            case '{': case '[':\n                if (!isInsideQuotations && i != 0 && (json[i - 1] == ',' || json[i - 1] == ':')) text += \"\\n\";\n                if (!isInsideQuotations)\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                text += char;\n                if (!isInsideQuotations) {\n                    text += \"\\n\";\n                    level++;\n                    isNewline = true;\n                }\n                break;\n\n            case '}': case ']':\n                if (!isInsideQuotations) {\n                    text += \"\\n\";\n                    level--;\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                    isNewline = true;\n                }\n                text += char;\n                break;\n\n            case ',':\n                if (!isInsideQuotations)\n                    isNewline = true;\n                text += char;\n                break;\n\n            case ':':\n                text += char;\n                if (lastChar == \"\\\"\")\n                    text += \" \";\n                break;\n\n            case '\"':\n                isInsideQuotations = !isInsideQuotations;\n\n            default:\n                if (i != 0 && json[i - 1] == ',') { text += \"\\n\"; isNewline = true }\n                if (isNewline)\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                text += char;\n                isNewline = false;\n                break;\n        }\n\n        lastChar = char;\n    }\n\n    textarea.value = text;\n}\n\nfunction SetTextareLineNumbers() {\n    const numberOfLines = textarea.value.split('\\n').length;\n    lineNumbers.innerHTML = Array(numberOfLines)\n        .fill('<span></span>')\n        .join('');\n}\n\n\n\n\n\n\n\n\n\n\n\n/////////////\n/// #4 : Communication (HTTP Request + Websockets)\n////////////\n\n///\n// HTTP post method (for testing flows using \"nr\"-command)\nasync function SendToNodeRed() {\n    if (commandList.length == 0)\n        return;\n\n    document.getElementById('task_0').classList.add(\"current\");\n\n    fetch('/puprun', {\n\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: textarea.value\n\n    }).then(response => {\n        if (response.ok) {\n            response.json().then(json => {\n                console.log(json);\n            });\n        }\n    });\n}\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"pup\", \"ws/pup\");\n\nfunction wsConnect() {\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function (msg) {\n        var line = \"\";  // or uncomment this to overwrite the existing message\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message ID: \" + obj.pupid);\n\n        // Remove bg from current command box (and set error if error was detected)\n        document.getElementById('task_' + obj.pupid).classList.remove(\"current\")\n        if (!obj.succesful)\n            document.getElementById('task_' + obj.pupid).classList.add(\"error\")\n\n        // Update next command box bg\n        let nextID = obj.pupid + 1;\n        if (commands.length > nextID)\n            document.getElementById('task_' + nextID).classList.add(\"current\");\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #5 : Command line interface\n////////////\n\nfunction RunCommandLineAction(key) {\n    if (key != \"Enter\")\n        return;\n\n    var input = cmdInput.value;\n    input = input.toLowerCase();\n\n    const inputCommand = (input.split(' '))[0];\n\n    var clearInput = true;\n\n    switch (inputCommand) {\n        case \"clear\":\n            ClearAllCommands();\n            break;\n\n        case \"node-red\": case \"nr\":\n            SendToNodeRed();\n            break;\n\n        default:\n            console.log(\"Received unrecognized console command `\" + input + \"`\");\n            clearInput = false;\n            break;\n    }\n\n    if (clearInput)\n        cmdInput.value = \"\";\n}\n\n/*\nfunction AddCommandLineCommand(ic, i) {\n    const parameters = i.replace(ic, '').trim();\n    AddCommand(ic, parameters);\n\n    console.log(\"Received command `\" + ic + \"` with parameters `\" + parameters + \"`\");\n}\n\n*/\n\n\n\n\n\n\n\n/////////////\n/// #6 : Event listeners\n////////////\n\ntextarea.addEventListener('keyup', event => {\n    SetTextareLineNumbers();\n    StoreAndUpdateJSON(textarea.value);\n});\ncmdInput.addEventListener('keyup', event => {\n    RunCommandLineAction(event.key);\n});\ntextarea.addEventListener('keydown', event => {\n    if (event.key === 'Tab') {\n        const start = textarea.selectionStart;\n        //const end = textarea.selectionEnd;\n\n        textarea.value = textarea.value.substring(0, start) + '\\t' + textarea.value.substring(start, textarea.value.length);\n\n        textarea.selectionEnd = start + 1;\n\n        event.preventDefault();\n    }\n});",
+        "template": "/////////////\n/// #0 : Action definitions\n////////////\n\nfunction actionList() {\n    return [\n        {\n            \"action\": \"launch\",\n            \"parameters\":\n            {\n                \"headless\": false,\n                \"slowMo\": 50,\n                \"ignoreHTTPSErrors\": true,\n                \"defaultViewport\": null\n            }\n        },\n        {\n            \"action\": \"goto\",\n            \"url\": \"\"\n        },\n        {\n            \"action\": \"click\",\n            \"path\": \"\",\n            \"parameters\":\n            {\n                \"clickCount\": 1\n            }\n        },\n        {\n            \"action\": \"type\",\n            \"input\": \"\",\n            \"path\": \"\"\n        },\n        {\n            \"action\": \"select\",\n            \"path\": \"\",\n            \"input\": \"\"\n        },\n        {\n            \"action\": \"get\",\n            \"name\": \"\",\n            \"path\": \"\"\n        },\n        {\n            \"action\": \"wait\",\n            \"ms\": 1000\n        },\n        {\n            \"action\": \"close\"\n        }\n    ];\n};\n\n\n/////////////\n/// #1 : Start ()\n////////////\n\nconst commandList = document.querySelector(\".commandList\"),\n    controls = document.querySelector(\".controls\"),\n\n    cmdInput = document.querySelector(\".cmd\"),\n    textarea = document.querySelector('.textarea'),\n    lineNumbers = document.querySelector('.line-numbers');\n\nconst storageName = \"pupControl_JSON_commandGen\";\n\n// Define + get commands from SQLite\n\nlet commands = [];\n\ntry {\n    commands = JSON.parse(localStorage.getItem(storageName));\n}\ncatch {\n    console.log(\"Found command list, but corrupt:\\n\" + localStorage.getItem(storageName));\n}\n\nShowCommandList();\nUpdateJSON();\n\n// Create pseudo enum \"actionKeys\" -> usage to get full object: actionList()[actionKeys[\"launch\"]]\n\nlet _actionKeys = [];\nfor (let i = 0; i < actionList().length; i++)\n    _actionKeys[actionList()[i].action] = i;\n\nconst actionKeys = _actionKeys;\n\n// Function to create IDs for query selection of buttons\n\nfunction GetElementIdFromAction(actionObject) { return \"buttonAdd_\" + actionObject.action.replace(\" \", \"\"); }  // Example ID: buttonAdd_launch\n\n// Dynamically instantiate buttons for action objects\n\nfor (let i = 0; i < actionList().length; i++)\n    controls.innerHTML += `\n        <button class=\"button active\" id=\"${GetElementIdFromAction(actionList()[i])}\">${actionList()[i].action}</button>\n    `;\n\n// Dynamically create query selectors for action object buttons\n\nlet _buttonAdd = [];\nfor (let i = 0; i < actionList().length; i++)\n    _buttonAdd[actionList()[i].action] = document.querySelector(\".button#\" + GetElementIdFromAction(actionList()[i]));\n\nconst buttonAdd = _buttonAdd;\n\n// and add event listeners\n\nfor (let i = 0; i < actionList().length; i++)\n    buttonAdd[actionList()[i].action].addEventListener(\"click\", () => {\n        AddCommand(actionList()[i]);\n    });\n\n\n\n\n\n\n/////////////\n/// #2 : Data manipulation\n////////////\n\n///\n// Add command\n\nlet variableCount = 0;\nfunction AddCommand(actionObject) {\n\n    //console.log(\"Received action object: \\n\" + JSON.stringify(actionObject));\n\n    //console.log(\"Full action list: \" + JSON.stringify(actionList));\n\n    // Check if command is of valid type\n    if (!IsValidType(actionObject.action)) {\n        console.log(\"Failed to add command of unknown type `\" + actionObject.action + \"`\");\n        return;\n    }\n\n    // Check if a command array already exists, otherwise define it\n    commands = !commands ? [] : commands;\n\n    // Create initial command object\n    let clone = {}; // the new empty object\n\n    // let's copy all action properties into it\n    for (let key in actionObject) {\n        clone[key] = actionObject[key];\n    }\n    const command = clone;\n\n    // Push new command to list, and store JSON\n    commands.push(command);\n\n    StoreAndUpdateJSON();\n}\n\n// Function to check if type is valid\nfunction IsValidType(type) {\n    return !(actionKeys[type] == null);\n}\n\n// HTTP encode + add https if missing\nfunction ReturnUrl(url) {\n    var newUrl = encodeURIComponent(url);\n    if (!(url.includes(\"https://\") || url.includes(\"http://\")))\n        newUrl = \"https://\" + newUrl;\n    return newUrl;\n}\n\n// Selector generator from string\nfunction GenerateSelector(parameters) {\n    var multipleParameters = parameters.trim().split(' ');\n    var path = multipleParameters[0];\n    if (multipleParameters.length == 1)\n        return path;\n\n    for (let i = 1; i < multipleParameters.length; i++) {\n        let _c = multipleParameters[i];\n        var insideBrackets = _c.includes('[');\n\n        let attrSplit = _c.split('=');\n        if (!insideBrackets && attrSplit.length == 2) {\n            let attr = (_c.split('='))[0];\n            let value = (_c.split('='))[1];\n            path += '[' + attr + '=\"' + value + '\"]';\n        }\n        else\n            path += \" \" + _c;\n    }\n    return path;\n}\n\n// Receive update variable command from event\nfunction UpdateCommandVar(inputField) {\n\n    // Get ID of input field to determine which value to update\n    let id = inputField.id;\n    let s = id.split('_');\n\n    // Example ID: obj_attr\n    let _id = s[1];\n    var _attr = s[2];\n    if (s.length > 3)\n        _attr += \".\" + s[3];\n\n    UpdateCommandValue(_attr, inputField.value, _id);\n}\n\n// Update and store the change\nfunction UpdateCommandValue(attr, value, commandId) {\n\n    if (attr == \"path\")\n        value = GenerateSelector(value);\n\n    // Parse if float or int (ignore if \"path\" or \"input\")\n    if (attr != \"path\" && attr != \"\") //  <- HARD CODE :(\n    {\n        if (value.includes(\".\") || value.includes(\",\")) {\n            // Is float?\n            let _value = value.replace(\",\", \".\");\n            const parsed = parseFloat(_value);\n            if (!isNaN(parsed))\n                value = parsed;\n        }\n        else {\n            // Is int?\n            const parsed = parseInt(value);\n            if (!isNaN(parsed))\n                value = parsed;\n        }\n\n        // Parse if boolean or null\n        if (value === \"true\") value = true;\n        if (value === \"false\") value = false;\n        if (value === \"null\") value = null;\n    }\n\n\n    if (attr.includes('.')) {\n        let s = attr.split(\".\");\n\n        console.log(\"Updating attr \" + attr + \" from value \" + ((commands[commandId])[s[0]])[s[1]] + \" to value \" + value + \" (id: \" + commandId + \")\");\n\n        //if (((commands[commandId])[s[0]])[s[1]] != undefined)\n        ((commands[commandId])[s[0]])[s[1]] = value;\n\n\n    }\n    else {\n        console.log(\"Updating attr \" + attr + \" from value \" + (commands[commandId])[attr] + \" to value \" + value + \" (id: \" + commandId + \")\");\n\n        //if ((commands[commandId])[attr] != undefined)\n        (commands[commandId])[attr] = value;\n\n    }\n\n    StoreAndUpdateJSON();\n}\n\n// Additional functions\n\nfunction ClearAllCommands() {\n    commands.splice(0, commands.length);\n    StoreAndUpdateJSON();\n}\n\nfunction DeleteCommand(deleteId) {\n    commands.splice(deleteId, 1);\n    StoreAndUpdateJSON();\n}\n\nfunction CopyCommand(copyId) {\n    let command = commands[copyId];\n    commands.push(command);\n    StoreAndUpdateJSON();\n}\n\n///\n// STORE DATA / UPDATE JSON\n\nfunction StoreAndUpdateJSON(_text = null) {\n\n    // Function is used with _text parameter when called from textarea event listener\n    let text = UpdateJSON(_text);\n\n    if (text != null)\n        localStorage.setItem(storageName, text);\n\n    ShowCommandList();\n}\n\nfunction UpdateJSON(_text = null) {\n\n    var text = null;\n\n    if (_text == null) {\n        text = JSON.stringify(commands);\n        SetTextareaText(text);\n    }\n\n    else {\n\n        var _parsed = null;\n        try { _parsed = JSON.parse(_text) }\n        catch { }\n        //console.log(\"Updating JSON from textarea!\");\n        //console.log(_parsed);\n        if (_parsed != null) {\n            commands = _parsed;\n            text = JSON.stringify(commands);\n        }\n\n    }\n\n    SetTextareLineNumbers();\n    return text;\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #3 : Visual manipulation\n////////////\n\nfunction ShowCommandList() {\n    let liTag = \"\";\n\n    // Check if command list exists and is populated\n    if (commands) {\n        commands.forEach((command, id) => {\n            liTag += PrintCommand(command, id);\n        });\n    }\n\n    // Base text - if no commands exists\n    commandList.innerHTML = liTag || `<span>Start by adding a <b>Launch</b> command</span>`;\n\n    // Add event listeners to all input fields in tasks\n    var inputFields = document.querySelectorAll('.task input');\n    for (var i = 0; i < inputFields.length; i++) {\n\n        // Update the command that has been changed on focusout, and resize input field to match content\n        inputFields[i].addEventListener('focusout', function (event) {\n            UpdateCommandVar(event.target);\n            ResizeInputToFit(event.target.id);\n        }, false);\n\n        inputFields[i].addEventListener('keyup', function (event) {\n            // Also resize on key-up\n            ResizeInputToFit(event.target.id);\n        }, false);\n\n        // Also resize immediately to match loaded content\n        ResizeInputToFit(inputFields[i].id);\n    }\n}\n\n// Show bulletin menu for each action in list (with copy / delete options)\nfunction ShowBulletinMenu(selectedTask) {\n    let menuDiv = selectedTask.parentElement.lastElementChild;\n    menuDiv.classList.add(\"show\");\n    document.addEventListener(\"click\", e => {\n        if (e.target.tagName != \"I\" || e.target != selectedTask)\n            menuDiv.classList.remove(\"show\");\n    });\n}\n\n///\n// PRINT COMMAND\n///\nfunction PrintCommand(command, id) {\n\n    var commandName = command.action == \"goto\" ? \"go to\" : command.action;\n\n    var returnStr = \"\";\n    returnStr += `\n                <li class=\"task\" id=\"task_${id}\">\n                <div>\n                    <div>\n                        <label for=\"${id}\">\n                            <p>${commandName}</p>\n                        </label>\n                    </div>`;\n\n    // Add input fields for each object variable\n    returnStr += AddInputFields(command, id);\n\n    returnStr += `\n                    <div>\n                    </div>\n                    <div class=\"filler\"></div>\n                    <div class=\"settings\">\n                        <i onclick=\"ShowBulletinMenu(this)\" class=\"uil uil-ellipsis-h\"></i>\n                        <ul class=\"bulletinMenu\">\n                            <li onclick='CopyCommand(${id})'><i class=\"uil uil-trash\"></i>Copy</li>\n                            <li onclick='DeleteCommand(${id})'><i class=\"uil uil-trash\"></i>Delete</li>\n                        </ul>\n                    </div>\n                </div>\n            </li>`;\n\n    return returnStr;\n}\n\n// Add input fields for each command variable\nfunction AddInputFields(command, id, previousKey = null) {\n    var returnStr = \"\";\n    for (const key in command) {\n        var keystr = key;\n        keystr = key.toLocaleLowerCase();\n\n        if (command[key] !== null && typeof command[key] === 'object') {\n            returnStr += \"<span>\" + key + \" {</span>\";\n            returnStr += AddInputFields(command[key], id, key);\n            returnStr += \"<span>}</span>\";\n        }\n\n        else if (keystr != \"action\") {\n            let inputID = \"commandInput_\" + id + \"_\" + (previousKey != null ? previousKey + \"_\" : \"\") + key;\n            //inputIDArray.push(inputID);\n            returnStr += `\n                    <div>\n                    ${keystr}\n                    <input id=\"${inputID}\" value='${command[key]}'/>\n                    </div>\n                        `;\n        }\n\n    }\n    return returnStr;\n}\n\n\nfunction ResizeInputToFit(id) {\n    let _inputField = document.querySelector((\"#\" + id));\n    let width = (40 + (_inputField.value.length * 7.35)) + \"px\";\n    document.querySelector((\"#\" + id)).setAttribute('style', 'width:' + width);\n}\n\nvar lastChar = '';\nvar isNewline = false;\nvar isInsideQuotations = false;\nfunction SetTextareaText(json) {\n    var text = \"\";\n    let count = json.length;\n    var level = 0;\n\n    for (let i = 0; i < count; i++) {\n        let char = json[i];\n\n        switch (char) {\n            case '{': case '[':\n                if (!isInsideQuotations && i != 0 && (json[i - 1] == ',' || json[i - 1] == ':')) text += \"\\n\";\n                if (!isInsideQuotations)\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                text += char;\n                if (!isInsideQuotations) {\n                    text += \"\\n\";\n                    level++;\n                    isNewline = true;\n                }\n                break;\n\n            case '}': case ']':\n                if (!isInsideQuotations) {\n                    text += \"\\n\";\n                    level--;\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                    isNewline = true;\n                }\n                text += char;\n                break;\n\n            case ',':\n                if (!isInsideQuotations)\n                    isNewline = true;\n                text += char;\n                break;\n\n            case ':':\n                text += char;\n                if (lastChar == \"\\\"\")\n                    text += \" \";\n                break;\n\n            case '\"':\n                isInsideQuotations = !isInsideQuotations;\n\n            default:\n                if (i != 0 && json[i - 1] == ',') { text += \"\\n\"; isNewline = true }\n                if (isNewline)\n                    for (let l = 0; l < level; l++)\n                        text += \"\\t\";\n                text += char;\n                isNewline = false;\n                break;\n        }\n\n        lastChar = char;\n    }\n\n    textarea.value = text;\n}\n\nfunction SetTextareLineNumbers() {\n    /*\n    const lineHeight = 21;\n    var taHeight = textarea.scrollHeight; // Get the scroll height of the textarea\n    const numberOfLines = Math.floor(taHeight/lineHeight);\n    */\n    const numberOfLines = textarea.value.split('\\n').length;\n    lineNumbers.innerHTML = Array(numberOfLines)\n        .fill('<span></span>')\n        .join('');\n}\n\n\n\n\n\n\n\n\n\n\n\n/////////////\n/// #4 : Communication (HTTP Request + Websockets)\n////////////\n\n///\n// HTTP post method (for testing flows using \"nr\"-command)\nasync function SendToNodeRed() {\n    if (commandList.length == 0)\n        return;\n\n    document.getElementById('task_0').classList.add(\"current\");\n\n    fetch('/puprun', {\n\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: textarea.value\n\n    }).then(response => {\n        if (response.ok) {\n            response.json().then(json => {\n                console.log(json);\n            });\n        }\n    });\n}\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"pup\", \"ws/pup\");\n\nfunction wsConnect() {\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function (msg) {\n        var line = \"\";  // or uncomment this to overwrite the existing message\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message ID: \" + obj.pupid);\n\n        // Remove bg from current command box (and set error if error was detected)\n        document.getElementById('task_' + obj.pupid).classList.remove(\"current\")\n        if (!obj.succesful)\n            document.getElementById('task_' + obj.pupid).classList.add(\"error\")\n\n        // Update next command box bg\n        let nextID = obj.pupid + 1;\n        if (commands.length > nextID)\n            document.getElementById('task_' + nextID).classList.add(\"current\");\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}\n\n\n\n\n\n\n\n\n\n/////////////\n/// #5 : Command line interface\n////////////\n\nfunction RunCommandLineAction(key) {\n    if (key != \"Enter\")\n        return;\n\n    var input = cmdInput.value;\n    input = input.toLowerCase();\n\n    const inputCommand = (input.split(' '))[0];\n\n    var clearInput = true;\n\n    switch (inputCommand) {\n        case \"clear\":\n            ClearAllCommands();\n            break;\n\n        case \"node-red\": case \"nr\":\n            SendToNodeRed();\n            break;\n\n        default:\n            console.log(\"Received unrecognized console command `\" + input + \"`\");\n            clearInput = false;\n            break;\n    }\n\n    if (clearInput)\n        cmdInput.value = \"\";\n}\n\n/*\nfunction AddCommandLineCommand(ic, i) {\n    const parameters = i.replace(ic, '').trim();\n    AddCommand(ic, parameters);\n\n    console.log(\"Received command `\" + ic + \"` with parameters `\" + parameters + \"`\");\n}\n\n*/\n\n\n\n\n\n\n\n/////////////\n/// #6 : Event listeners\n////////////\n\ntextarea.addEventListener('keyup', event => {\n    SetTextareLineNumbers();\n    StoreAndUpdateJSON(textarea.value);\n});\n\ntextarea.addEventListener('keydown', event => {\n    if (event.key === 'Tab') {\n        const start = textarea.selectionStart;\n        //const end = textarea.selectionEnd;\n\n        textarea.value = textarea.value.substring(0, start) + '\\t' + textarea.value.substring(start, textarea.value.length);\n\n        textarea.selectionEnd = start + 1;\n\n        event.preventDefault();\n    }\n});\n\ncmdInput.addEventListener('keyup', event => {\n    RunCommandLineAction(event.key);\n});\n\n/*\nwindow.onresize = SetTextareLineNumbers;\n*/",
         "x": 630,
-        "y": 40,
+        "y": 80,
         "wires": [
             [
                 "c8f4a55e7618b7e2"
@@ -3391,7 +3020,7 @@
         "syntax": "mustache",
         "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>PupController</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    <div class=\"flex\">\n\n      <div class=\"containerLeft\">\n\n        <div class=\"menu\">\n\n          <div class=\"menupoints\">\n            <div>Documentation</div>\n            <div>GitHub</div>\n          </div>\n\n          <div class=\"controls\"></div>\n\n        </div>\n\n        <ul class=\"commandList\"></ul>\n\n      </div>\n      <div class=\"containerRight\">\n\n        <div class=\"editor\">\n          <div class=\"line-numbers\">\n            <span></span>\n          </div>\n          <textarea class=\"textarea\"></textarea>\n        </div><!-- /editor -->\n\n      </div><!-- /containerRight -->\n    </div><!-- /flex -->\n\n\n\n    <div class=\"commandLine\">\n      <span>></span><input class=\"cmd\" />\n    </div>\n\n\n<script>{{{payload.script}}}</script>\n\n  </body>\n</html>",
         "x": 970,
-        "y": 40,
+        "y": 80,
         "wires": [
             [
                 "5c5841605bcac134"
@@ -3407,9 +3036,9 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "/* Import Google Font - Poppins */\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n*{\nmargin: 0;\npadding: 0;\nbox-sizing: border-box;\nfont-family: 'Poppins', sans-serif;\ncolor:rgb(204, 204, 204)\n}\n*:focus\n{\noutline: none;\n}\nbody{\nwidth: 100%;\nheight: 100vh;\noverflow: hidden;\ndisplay: flex;\nalign-content: stretch;\nflex-direction: column;\n}\n.flex\n{\nwidth: 100%;\ndisplay: inline-flex;\nflex-grow: 1;\n}\n.containerLeft\n{\nwidth: 55%;\nbackground: #282b2f;\n/*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/\n}\n.containerRight\n{\nheight: calc(100vh - 30px);\nwidth: 45%;\noverflow-y:auto;\nbackground-color: #1d2025;\nborder-left: 4px solid rgb(29, 31, 29);\n}\n\n/* BOTTOM CMD */\n.commandLine\n{\nline-height: 30px;\ncolor:darkslategray;\nwidth:100%;\nbackground-color: #0b0c0c;\npadding-left: 15px;\n}\n.cmd\n{\nwidth: calc(100% - 30px);\nheight: 100%;\nborder:0px;\nbackground-color: #0b0c0c;\npadding-left: 5px;\nfont-family: monospace;\nfont-size: 15px;\n}\n\n/* RIGHT CONTAINER - TEXT AREA\n.containerRight textarea\n{\nbackground: linear-gradient(135deg, #141618, #191c22);\npadding: 10px 20px;\nwidth:100%;\nheight:100vh;\nborder: 0px;\n} */\n.editor {\ndisplay: inline-flex;\nalign-content: stretch;\nline-height: 21px;\nfont-size: 12px;\nbackground: linear-gradient(135deg, #1a1c20, #1d2025);\nwidth:100%;\n}\n\n.textarea {\noverflow-wrap:break-word;\nwhite-space: pre-wrap;\nline-height: 21px;\n/*overflow-y: hidden;\nbackground: #282a3a;\nheight: 100vh;\ncolor: #FFF;*/\nmin-height: calc(100vh - 30px);\noverflow:hidden;\noutline: none;\nresize: none;\nfont-family: monospace;\nflex-grow: 1;\ncolor:rgb(214, 211, 211);\n\nbackground: linear-gradient(135deg, #141618, #191c22);\npadding: 10px 15px;\nborder: 0px;\n}\n.line-numbers {\npadding: 10px 0px;\nmargin-right: 10px;\nwidth: 35px;\ntext-align: right;\nflex-grow: 0;\n}\n\n.line-numbers span {\ncounter-increment: linenumber;\n}\n\n.line-numbers span::before {\ncontent: counter(linenumber);\ndisplay: block;\ncolor: darkslategray;\nfont-family: monospace;\n}\n\n\n\n\n/* LEFT CONTAINER - VISUAL EDITOR */\n.menu\n{\nbox-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);\nbackground: #282b2f;\nbackground: linear-gradient(135deg, rgb(29, 31, 29) 0%, rgb(22, 24, 24) 100%); /* #232626 */\n}\n.menu .menupoints\n{\nfont-size: 12px;\nline-height: 35px;\npadding-left: 12px;\ntext-transform: capitalize;\nbackground: linear-gradient(135deg, rgb(21, 22, 21) 0%, rgb(16, 17, 17) 100%);\n}\n.menupoints div\n{\ndisplay: inline-flex;\npadding: 0px 10px;\n}\n.menupoints div:hover\n{\nbackground: #232626;\ncursor: pointer;\n}\n\n.controls{\npadding: 7px 10px;\npadding-bottom: 14px;\ntext-align: left;\nmax-height: 61px;\noverflow-y: auto;\n}\n.controls div\n{\nfont-size: 12px;\ntext-transform: capitalize;\ncolor:darkslategray;\npadding-left: 3px;\n}\n.controls .button{\nborder: none;\nopacity: 0.4;\noutline: none;\ncolor: #fff;\ncursor: pointer;\nfont-size: 13px;\npadding: 8px 18px;\nmargin-top:4px;\nborder-radius: 3px;\nletter-spacing: 0.3px;\npointer-events: none;\ntransition: transform 0.25s ease;\nbackground: #344b48; /* 343c4b */\n}\n.controls .button:not(:first-child)\n{\nmargin-left: 3px;\n}\n.button:hover\n{\nbackground: #4d6f6b;\n}\n.button.active{\nopacity: 1;\npointer-events: auto;\n}\n.button:active{\ntransform: scale(0.93);\n}\n\n\n\n\n.commandList\n{\npadding: 10px 8px;\nwidth:100%;\noverflow-y: auto;\nmax-height:calc(100vh - 126px);\nheight: 100%;\noverflow-x: hidden;\n/*background-color: darkslategray;*/\n}\n.commandList span\n{\npadding-left: 7px;\n}\n.commandList.overflow{\noverflow-y: auto;\n}\n*::-webkit-scrollbar{\nwidth: 5px;\n}\n*::-webkit-scrollbar-track{\nbackground: #3f4349;\nborder-radius: 25px;\n}\n*::-webkit-scrollbar-thumb{\nbackground: #6d6d6d;\nborder-radius: 25px;\n}\n\n\n.commandList .task\n{\nlist-style: none;\nfont-size: 15px;\n\nmargin-bottom: 5px;\nborder-radius: 5px;\n\nbox-shadow: 3px 3px 3px rgba(20, 20, 20, 0.05);\nbackground: linear-gradient(135deg, #32363a, #2d3135);\n}\n    .task.current\n    {\n        background: linear-gradient(135deg, #3f2f4f, #4a3859)!important;\n        /*background: linear-gradient(135deg, #99597d, #804b67)!important;*/\n    }\n    .task.error\n    {\n        background: linear-gradient(135deg, #6e4a48, #6b4a46)!important;\n        /*background: linear-gradient(135deg, #9c5c5c, #854e4e)!important;*/\n    }\n.commandList .task > div\n{\npadding-left: 20px;\ndisplay: inline-flex;\nalign-items: flex-start;\nflex-wrap: wrap;\ngap: 15px;\nwidth: 100%;\nmax-width: 100%!important;\npadding-top: 8px;\npadding-bottom: 8px;\nline-height: 25px;\n}\n.task span\n{\ncolor: rgb(136, 136, 136);\nfont-family: monospace;\nline-height: 25px;\nfont-size:12px;\n}\n.task p\n{\n    text-transform: capitalize;\n}\n.commandList .task > div > div\n{\ncolor: rgb(114, 153, 153);\nfont-family: monospace;\n}\n.commandList .task > div input\n{\nbackground-color: #535353;\nborder: 0px;\nborder-radius: 3px;\nline-height: 25px;\npadding: 0px 10px;\nfont-family: monospace;\nwidth: auto;\nmax-width: calc(100vh - 150px);\n}\n\n.commandList .task > div > div.filler\n{\nflex-grow: 1;\nflex-shrink: 1;\n}\n.commandList .settings\n{\nposition: relative;\nfloat: right;\npadding-right:10px;\n/*top: -16px;*/\nflex-grow: 0!important;\n}\n.settings :where(i, li){\ncursor: pointer;\n}\n.settings .bulletinMenu{\nz-index: 10;\nright: 12px;\npadding: 5px 0;\nbackground: #757575;\nposition: absolute;\nborder-radius: 4px;\ntransform: scale(0);\ntransform-origin: top right;\nbox-shadow: 0 0 6px rgba(0,0,0,0.15);\ntransition: transform 0.2s ease;\n}\n.commandList .task:last-child:not(:first-child) .bulletinMenu{\nbottom: 20px;\ntransform-origin: bottom right;\n}\n.commandList .task:not(:last-child) .bulletinMenu{\ntop: 20px;\n}\n/*\n.commandList .task:first-child .bulletinMenu{\nbottom: -65px;\ntransform-origin: top right;\n}*/\n.bulletinMenu.show{\ntransform: scale(1);\n}\n.bulletinMenu li{\nheight: 25px;\nfont-size: 12px;\nline-height: 25px;\nmargin-bottom: 2px;\npadding: 0px 10px;\nmin-width: 85px;\ncursor: pointer; list-style-type: none;\n}\n.bulletinMenu li:last-child{\nmargin-bottom: 0;\n}\n.settings li:hover{\nbackground: rgb(128, 128, 128);\n}\n.settings li i{\npadding-right: 8px;\n}",
+        "template": "/* Import Google Font - Poppins */\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n*{\nmargin: 0;\npadding: 0;\nbox-sizing: border-box;\nfont-family: 'Poppins', sans-serif;\ncolor:rgb(204, 204, 204)\n}\n*:focus\n{\noutline: none;\n}\nbody{\nwidth: 100%;\nheight: 100vh;\noverflow: hidden;\ndisplay: flex;\nalign-content: stretch;\nflex-direction: column;\n}\n.flex\n{\nwidth: 100%;\ndisplay: inline-flex;\nflex-grow: 1;\n}\n.containerLeft\n{\nwidth: 55%;\nbackground: #282b2f;\n/*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/\n}\n.containerRight\n{\nheight: calc(100vh - 30px);\nwidth: 45%;\noverflow-y:auto;\nbackground-color: #1d2025;\nborder-left: 4px solid rgb(29, 31, 29);\n}\n\n/* BOTTOM CMD */\n.commandLine\n{\nline-height: 30px;\ncolor:darkslategray;\nwidth:100%;\nbackground-color: #0b0c0c;\npadding-left: 15px;\n}\n.cmd\n{\nwidth: calc(100% - 30px);\nheight: 100%;\nborder:0px;\nbackground-color: #0b0c0c;\npadding-left: 5px;\nfont-family: monospace;\nfont-size: 15px;\n}\n\n/* RIGHT CONTAINER - TEXT AREA\n.containerRight textarea\n{\nbackground: linear-gradient(135deg, #141618, #191c22);\npadding: 10px 20px;\nwidth:100%;\nheight:100vh;\nborder: 0px;\n} */\n.editor {\ndisplay: inline-flex;\nalign-content: stretch;\nline-height: 21px;\nfont-size: 12px;\nbackground: linear-gradient(135deg, #1a1c20, #1d2025);\nwidth:100%;\n}\n\n.textarea {\noverflow-wrap:break-word;\nwhite-space: pre-wrap;\nline-height: 21px;\n/*overflow-y: hidden;\nbackground: #282a3a;\nheight: 100vh;\ncolor: #FFF;*/\nmin-height: calc(100vh - 30px);\noverflow:hidden;\noutline: none;\nresize: none;\nfont-family: monospace;\nflex-grow: 1;\ncolor:rgb(214, 211, 211);\n\nbackground: linear-gradient(135deg, #141618, #191c22);\npadding: 10px 15px;\nborder: 0px;\n}\n.line-numbers {\npadding: 10px 0px;\nmargin-right: 10px;\nwidth: 35px;\ntext-align: right;\nflex-grow: 0;\n}\n\n.line-numbers span {\ncounter-increment: linenumber;\n}\n\n.line-numbers span::before {\ncontent: counter(linenumber);\ndisplay: block;\ncolor: darkslategray;\nfont-family: monospace;\n}\n\n\n\n\n/* LEFT CONTAINER - VISUAL EDITOR */\n.menu\n{\nbox-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);\nbackground: #282b2f;\nbackground: linear-gradient(135deg, rgb(29, 31, 29) 0%, rgb(22, 24, 24) 100%); /* #232626 */\n}\n.menu .menupoints\n{\nfont-size: 12px;\nline-height: 35px;\npadding-left: 12px;\ntext-transform: capitalize;\nbackground: linear-gradient(135deg, rgb(21, 22, 21) 0%, rgb(16, 17, 17) 100%);\n}\n.menupoints div\n{\ndisplay: inline-flex;\npadding: 0px 10px;\n}\n.menupoints div:hover\n{\nbackground: #232626;\ncursor: pointer;\n}\n\n.controls{\npadding: 7px 10px;\npadding-bottom: 14px;\ntext-align: left;\nmax-height: 61px;\noverflow-y: auto;\n}\n.controls div\n{\nfont-size: 12px;\ntext-transform: capitalize;\ncolor:darkslategray;\npadding-left: 3px;\n}\n.controls .button{\nborder: none;\nopacity: 0.4;\noutline: none;\ncolor: #fff;\ncursor: pointer;\nfont-size: 13px;\npadding: 8px 18px;\nmargin-top:4px;\nborder-radius: 3px;\nletter-spacing: 0.3px;\npointer-events: none;\ntransition: transform 0.25s ease;\nbackground: #344b48; /* 343c4b */\ntext-transform: capitalize;\n}\n.controls .button:not(:first-child)\n{\nmargin-left: 3px;\n}\n.button:hover\n{\nbackground: #4d6f6b;\n}\n.button.active{\nopacity: 1;\npointer-events: auto;\n}\n.button:active{\ntransform: scale(0.93);\n}\n\n\n\n\n.commandList\n{\npadding: 10px 8px;\nwidth:100%;\noverflow-y: auto;\nmax-height:calc(100vh - 126px);\nheight: 100%;\noverflow-x: hidden;\n/*background-color: darkslategray;*/\n}\n.commandList span\n{\npadding-left: 7px;\n}\n.commandList.overflow{\noverflow-y: auto;\n}\n*::-webkit-scrollbar{\nwidth: 5px;\n}\n*::-webkit-scrollbar-track{\nbackground: #3f4349;\nborder-radius: 25px;\n}\n*::-webkit-scrollbar-thumb{\nbackground: #6d6d6d;\nborder-radius: 25px;\n}\n\n\n.commandList .task\n{\nlist-style: none;\nfont-size: 15px;\n\nmargin-bottom: 5px;\nborder-radius: 5px;\n\nbox-shadow: 3px 3px 3px rgba(20, 20, 20, 0.05);\nbackground: linear-gradient(135deg, #32363a, #2d3135);\n}\n    .task.current\n    {\n        background: linear-gradient(135deg, #3f2f4f, #4a3859)!important;\n        /*background: linear-gradient(135deg, #99597d, #804b67)!important;*/\n    }\n    .task.error\n    {\n        background: linear-gradient(135deg, #6e4a48, #6b4a46)!important;\n        /*background: linear-gradient(135deg, #9c5c5c, #854e4e)!important;*/\n    }\n.commandList .task > div\n{\npadding-left: 20px;\ndisplay: inline-flex;\nalign-items: flex-start;\nflex-wrap: wrap;\ngap: 15px;\nwidth: 100%;\nmax-width: 100%!important;\npadding-top: 8px;\npadding-bottom: 8px;\nline-height: 25px;\n}\n.task span\n{\ncolor: rgb(136, 136, 136);\nfont-family: monospace;\nline-height: 25px;\nfont-size:12px;\n}\n.task p\n{\n    text-transform: capitalize;\n}\n.commandList .task > div > div\n{\ncolor: rgb(114, 153, 153);\nfont-family: monospace;\n}\n.commandList .task > div input\n{\nbackground-color: #535353;\nborder: 0px;\nborder-radius: 3px;\nline-height: 25px;\npadding: 0px 10px;\nfont-family: monospace;\nwidth: auto;\nmax-width: calc(100vh - 150px);\n}\n\n.commandList .task > div > div.filler\n{\nflex-grow: 1;\nflex-shrink: 1;\n}\n.commandList .settings\n{\nposition: relative;\nfloat: right;\npadding-right:10px;\n/*top: -16px;*/\nflex-grow: 0!important;\n}\n.settings :where(i, li){\ncursor: pointer;\n}\n.settings .bulletinMenu{\nz-index: 10;\nright: 12px;\npadding: 5px 0;\nbackground: #757575;\nposition: absolute;\nborder-radius: 4px;\ntransform: scale(0);\ntransform-origin: top right;\nbox-shadow: 0 0 6px rgba(0,0,0,0.15);\ntransition: transform 0.2s ease;\n}\n.commandList .task:last-child:not(:first-child) .bulletinMenu{\nbottom: 20px;\ntransform-origin: bottom right;\n}\n.commandList .task:not(:last-child) .bulletinMenu{\ntop: 20px;\n}\n/*\n.commandList .task:first-child .bulletinMenu{\nbottom: -65px;\ntransform-origin: top right;\n}*/\n.bulletinMenu.show{\ntransform: scale(1);\n}\n.bulletinMenu li{\nheight: 25px;\nfont-size: 12px;\nline-height: 25px;\nmargin-bottom: 2px;\npadding: 0px 10px;\nmin-width: 85px;\ncursor: pointer; list-style-type: none;\n}\n.bulletinMenu li:last-child{\nmargin-bottom: 0;\n}\n.settings li:hover{\nbackground: rgb(128, 128, 128);\n}\n.settings li i{\npadding-right: 8px;\n}",
         "x": 790,
-        "y": 40,
+        "y": 80,
         "wires": [
             [
                 "a17c13f96787e2b4"
@@ -3889,10 +3518,10 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 150,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
-                "c9972c7d558fd555"
+                "6862e352aded6adf"
             ]
         ]
     },
@@ -3905,8 +3534,8 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "",
-        "x": 790,
+        "template": "body\n{\n    padding-top: 250px;\n    background-color: #49C5B1;\n    margin: 0px;\n}\n\n.ruleWrapper\n{\n    padding-left: 75px;\n    background-color: white;\n    padding-top: 25px;\n    padding-bottom: 25px;\n}",
+        "x": 1190,
         "y": 840,
         "wires": [
             [
@@ -3923,8 +3552,8 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "plain",
-        "template": "",
-        "x": 610,
+        "template": "const ruleWrapper = document.querySelector(\".ruleWrapper\");\n\nconst rules = _rules != null ? _rules : [];\n\n/*\nIS DEFINED IN HTML -> REFERENCE TO payload.inputFields\n\nconst rules = [\n    {\n        \"name\": \"Formuegrænse\",\n        \"variable\": \"\",\n        \"operator\": \"\",\n        \"value\": \"\",\n        \"description\": \"Borgerens formue overstiger formuegrænsen\"\n    }\n];\n*/\nconst operators = [\n    {\n        \"name\": \"equal to\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"not equal to\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"more than\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"more than or equal to\",\n        \"value\": \">=\"\n    },\n    {\n        \"name\": \"less than\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"less than or equal to\",\n        \"value\": \"<=\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>        \n        <select id=\"input_${index}_operator\">\n        `;\n\n    for (let i = 0; i < operators.length; i++)\n    {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\": \"\"}>${operators[i].name} ( ${operators[i].value} )</option>`;\n    }\n\n    returnHTML += `\n        </select>\n        <input id=\"input_${index}_value\" value=\"${obj.value}\" />\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    ruleWrapper.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n    \n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
+        "x": 990,
         "y": 840,
         "wires": [
             [
@@ -3939,7 +3568,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1090,
+        "x": 1550,
         "y": 840,
         "wires": []
     },
@@ -3952,8 +3581,8 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>PupController</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    Hej\n\n\n<script>{{{payload.script}}}</script>\n\n  </body>\n</html>",
-        "x": 950,
+        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>PupController</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    <div class=\"ruleWrapper\">\n    </div>\n\n    <script>\n      const _rules = {{{payload.inputFields}}}\n    </script>\n    <script>\n      {{{payload.script}}}\n    </script>\n\n  </body>\n</html>",
+        "x": 1370,
         "y": 840,
         "wires": [
             [
@@ -3965,7 +3594,7 @@
         "id": "b0e7c0223f35204b",
         "type": "comment",
         "z": "8ea344595d9a442a",
-        "name": "Set URL",
+        "name": "Set input fields",
         "info": "",
         "x": 400,
         "y": 800,
@@ -3978,35 +3607,8 @@
         "name": "Host website",
         "info": "",
         "x": 150,
-        "y": 800,
+        "y": 820,
         "wires": []
-    },
-    {
-        "id": "c9972c7d558fd555",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "name": "url = /worklet",
-        "rules": [
-            {
-                "t": "set",
-                "p": "url",
-                "pt": "msg",
-                "to": "worklet",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 840,
-        "wires": [
-            [
-                "b78999fe15906d87"
-            ]
-        ]
     },
     {
         "id": "e61b9e68a1a9e687",
@@ -4014,7 +3616,7 @@
         "z": "8ea344595d9a442a",
         "name": "Set content",
         "info": "",
-        "x": 610,
+        "x": 990,
         "y": 800,
         "wires": []
     },
@@ -4024,8 +3626,199 @@
         "z": "8ea344595d9a442a",
         "name": "Endpoint",
         "info": "",
-        "x": 1100,
+        "x": 1560,
         "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3460ad3d4bc402dd",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.inputFields",
+                "pt": "msg",
+                "to": "[\t    {\t        \"name\": \"Formuegrænse\",\t        \"variable\": \"formuegraense\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Borgerens formue overstiger formuegrænsen\"\t    },\t    {\t        \"name\": \"Testværdi 2\",\t        \"variable\": \"test2\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    },\t    {\t        \"name\": \"Testværdi 3\",\t        \"variable\": \"test3\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    }\t]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 880,
+        "wires": [
+            [
+                "576df08c4fd1853c"
+            ]
+        ]
+    },
+    {
+        "id": "9ee6e743efbedf9f",
+        "type": "websocket in",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "server": "43ca9917319c367b",
+        "client": "",
+        "x": 160,
+        "y": 1060,
+        "wires": [
+            [
+                "54ebf542897cb37d"
+            ]
+        ]
+    },
+    {
+        "id": "9193e4e8badda861",
+        "type": "websocket out",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "server": "43ca9917319c367b",
+        "client": "",
+        "x": 1060,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "576df08c4fd1853c",
+        "type": "json",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "payload.inputFields",
+        "action": "str",
+        "pretty": false,
+        "x": 810,
+        "y": 840,
+        "wires": [
+            [
+                "b78999fe15906d87"
+            ]
+        ]
+    },
+    {
+        "id": "6862e352aded6adf",
+        "type": "switch",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "#:(storeInFile)::rules",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "empty"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 330,
+        "y": 860,
+        "wires": [
+            [
+                "5dc5bfc86dfa161e"
+            ],
+            [
+                "3460ad3d4bc402dd"
+            ],
+            [
+                "3460ad3d4bc402dd"
+            ]
+        ]
+    },
+    {
+        "id": "5dc5bfc86dfa161e",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.inputFields",
+                "pt": "msg",
+                "to": "#:(storeInFile)::rules",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 840,
+        "wires": [
+            [
+                "576df08c4fd1853c"
+            ]
+        ]
+    },
+    {
+        "id": "54ebf542897cb37d",
+        "type": "json",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 1060,
+        "wires": [
+            [
+                "a7100eb3aada3d3c"
+            ]
+        ]
+    },
+    {
+        "id": "a7100eb3aada3d3c",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::rules",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 1060,
+        "wires": [
+            [
+                "68f7f88bbaaedb3a"
+            ]
+        ]
+    },
+    {
+        "id": "68f7f88bbaaedb3a",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "Rules updated",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 1060,
         "wires": []
     }
 ]
