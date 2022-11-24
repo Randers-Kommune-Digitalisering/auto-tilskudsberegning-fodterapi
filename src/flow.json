@@ -1656,7 +1656,8 @@
         "y": 240,
         "wires": [
             [
-                "9c897aef15b24d1a"
+                "9c897aef15b24d1a",
+                "342dc6abedec9c9e"
             ]
         ]
     },
@@ -3534,8 +3535,8 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "body\n{\n    padding-top: 250px;\n    background-color: #49C5B1;\n    margin: 0px;\n}\n\n.ruleWrapper\n{\n    padding-left: 75px;\n    background-color: white;\n    padding-top: 25px;\n    padding-bottom: 25px;\n}",
-        "x": 1190,
+        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #DA1884;\n}\n\nbody\n{\n    padding-top: 150px;\n    background-color: #d6d6d6;\n    margin: 0px;\n    flex: content;\n    display: flex;\n    justify-content: center;\n}\n\n.ruleBox\n{\n    width: 30vw;\n    background-color: white;\n    border-radius: 5px;\n}\n\n    .ruleBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 15px;\n        font-size: 20px;\n        font-family: 'Roboto Slab';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n    }\n    .ruleBox .ruleWrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n\n        .ruleWrapper > div\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: flex-start;\n            gap: 5px;\n            padding: 15px 12px;\n            line-height: 35px;\n        }\n        .ruleWrapper > div:hover\n        {\n            width: 100%;\n            background-color: #fafafa;\n        }\n        .ruleWrapper > div:hover:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n        }\n            .ruleWrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .ruleWrapper span.valuetype\n            {\n                background-color: #DA1884;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .ruleWrapper > div > span:first-of-type\n            {\n                font-weight: 400;\n                width: 20%;\n                font-size: 14px;\n            }\n            .ruleWrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }",
+        "x": 1110,
         "y": 840,
         "wires": [
             [
@@ -3552,8 +3553,8 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "plain",
-        "template": "const ruleWrapper = document.querySelector(\".ruleWrapper\");\n\nconst rules = _rules != null ? _rules : [];\n\n/*\nIS DEFINED IN HTML -> REFERENCE TO payload.inputFields\n\nconst rules = [\n    {\n        \"name\": \"Formuegrænse\",\n        \"variable\": \"\",\n        \"operator\": \"\",\n        \"value\": \"\",\n        \"description\": \"Borgerens formue overstiger formuegrænsen\"\n    }\n];\n*/\nconst operators = [\n    {\n        \"name\": \"equal to\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"not equal to\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"more than\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"more than or equal to\",\n        \"value\": \">=\"\n    },\n    {\n        \"name\": \"less than\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"less than or equal to\",\n        \"value\": \"<=\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>        \n        <select id=\"input_${index}_operator\">\n        `;\n\n    for (let i = 0; i < operators.length; i++)\n    {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\": \"\"}>${operators[i].name} ( ${operators[i].value} )</option>`;\n    }\n\n    returnHTML += `\n        </select>\n        <input id=\"input_${index}_value\" value=\"${obj.value}\" />\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    ruleWrapper.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n    \n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
-        "x": 990,
+        "template": "const ruleWrapper = document.querySelector(\".ruleWrapper\");\n\nconst rules = _rules != null ? _rules : []; // Rules are defined in change node previous to this\n\nconst operators = [\n    {\n        \"name\": \"= Skal være lig med\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"≠ Må ikke være lig med\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"< Skal være mindre end\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"> Skal være større end\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"{?} Indeholder\",\n        \"value\": \"contains\"\n    },\n    {\n        \"name\": \"{!} Indeholder ikke\",\n        \"value\": \"!contains\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>\n        <div>    \n            <select id=\"input_${index}_operator\">\n        `;\n\n    for (let i = 0; i < operators.length; i++) {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\" : \"\"}>${operators[i].name}</option>`;\n    }\n\n    let valueType = obj.type != null ? `<span class=\"valuetype\">${obj.type == \"number\" ? \"tal\" : obj.type == \"text\" ? \"tekst\" : \"\"}</span>` : ``;\n    returnHTML += `\n            </select>\n        </div>\n        <div>\n            <input id=\"input_${index}_value\" value=\"${obj.value}\" />\n        </div>\n        <span class=\"description\" title=\"${obj.description}\">?</span>\n        ${valueType}\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    ruleWrapper.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"input\", () => {\n        OnInputChange(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n\n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n///\n//\nfunction OnInputChange(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n    let type = (rules[parseInt(sid[1])])[\"type\"];\n\n    switch (type) {\n        case \"int\": case \"float\": case \"double\": case \"number\":\n            inputField.value = inputField.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');\n            break;\n\n        case \"text\": case \"letters\":\n            inputField.value = inputField.value.replace(/[^A-Za-z]/g, '');\n            break;\n\n    }\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
+        "x": 950,
         "y": 840,
         "wires": [
             [
@@ -3568,7 +3569,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1550,
+        "x": 1390,
         "y": 840,
         "wires": []
     },
@@ -3581,8 +3582,8 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>PupController</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    <div class=\"ruleWrapper\">\n    </div>\n\n    <script>\n      const _rules = {{{payload.inputFields}}}\n    </script>\n    <script>\n      {{{payload.script}}}\n    </script>\n\n  </body>\n</html>",
-        "x": 1370,
+        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>PupController</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    <div class=\"ruleBox\">\n      <div class=\"header\">Regler</div>\n      <div class=\"ruleWrapper\">\n      </div>\n    </div>\n\n    <script>\n      const _rules = {{{payload.rules}}}\n    </script>\n    <script>\n      {{{payload.script}}}\n    </script>\n\n  </body>\n</html>",
+        "x": 1250,
         "y": 840,
         "wires": [
             [
@@ -3594,9 +3595,9 @@
         "id": "b0e7c0223f35204b",
         "type": "comment",
         "z": "8ea344595d9a442a",
-        "name": "Set input fields",
+        "name": "Set rules from memory or template",
         "info": "",
-        "x": 400,
+        "x": 420,
         "y": 800,
         "wires": []
     },
@@ -3616,7 +3617,7 @@
         "z": "8ea344595d9a442a",
         "name": "Set content",
         "info": "",
-        "x": 990,
+        "x": 950,
         "y": 800,
         "wires": []
     },
@@ -3626,7 +3627,7 @@
         "z": "8ea344595d9a442a",
         "name": "Endpoint",
         "info": "",
-        "x": 1560,
+        "x": 1400,
         "y": 800,
         "wires": []
     },
@@ -3638,9 +3639,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.inputFields",
+                "p": "payload.rules",
                 "pt": "msg",
-                "to": "[\t    {\t        \"name\": \"Formuegrænse\",\t        \"variable\": \"formuegraense\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Borgerens formue overstiger formuegrænsen\"\t    },\t    {\t        \"name\": \"Testværdi 2\",\t        \"variable\": \"test2\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    },\t    {\t        \"name\": \"Testværdi 3\",\t        \"variable\": \"test3\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    }\t]",
+                "to": "[\t    {\t        \"name\": \"Formue\",\t        \"variable\": \"formuegraense\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue overstiger formuegrænsen\"\t    },\t    {\t        \"name\": \"Testværdi 2\",\t        \"variable\": \"test2\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"type\": \"text\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    },\t    {\t        \"name\": \"Testværdi 3\",\t        \"variable\": \"test3\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    }\t]",
                 "tot": "jsonata"
             }
         ],
@@ -3649,7 +3650,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
+        "x": 520,
         "y": 880,
         "wires": [
             [
@@ -3688,10 +3689,10 @@
         "type": "json",
         "z": "8ea344595d9a442a",
         "name": "",
-        "property": "payload.inputFields",
+        "property": "payload.rules",
         "action": "str",
         "pretty": false,
-        "x": 810,
+        "x": 790,
         "y": 840,
         "wires": [
             [
@@ -3742,7 +3743,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.inputFields",
+                "p": "payload.rules",
                 "pt": "msg",
                 "to": "#:(storeInFile)::rules",
                 "tot": "global"
@@ -3753,7 +3754,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
+        "x": 520,
         "y": 840,
         "wires": [
             [
@@ -3809,7 +3810,7 @@
         "type": "debug",
         "z": "8ea344595d9a442a",
         "name": "Rules updated",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
