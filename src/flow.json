@@ -259,8 +259,8 @@
         "nodes": [
             "27f71b6540b6e2d8"
         ],
-        "x": 1174,
-        "y": 159,
+        "x": 654,
+        "y": 279,
         "w": 172,
         "h": 82
     },
@@ -2185,7 +2185,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.persondata|\t{\t    \"formue\": (formue\t        ~> $replace(\"Ikke oplyst\", \"-1\")\t        ~> $replace(\"-\", \"-1\")\t        ~> $split(\" \"))[0]\t        ~> $replace(\".\", \"\")\t        ~> $replace(\",\", \".\")\t        ~> $number()\t}\t|",
+                "to": "$.payload ~> |$.persondata|\t{\t    \"formue\": \t            formue = \"Ikke oplyst\" ?\t                null\t            :\t            formue = \"-\" ?\t                null\t            :\t                (formue\t                ~> $replace(\"-\", \"-1\")\t                ~> $split(\" \"))[0]\t                ~> $replace(\".\", \"\")\t                ~> $replace(\",\", \".\")\t                ~> $number()\t}\t|",
                 "tot": "jsonata"
             }
         ],
@@ -2401,13 +2401,14 @@
         "id": "2a9459c08fa19335",
         "type": "change",
         "z": "57c40cb841470eb3",
+        "d": true,
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "errors",
                 "pt": "msg",
-                "to": "payload @$p.\t(\t\t$rule := rules[$.variable = \"formuegraense\"];\t\t\t\t$respectsRule := function($value)\t{\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        $contains($string($rule.value), $string($value))\t    \t};\t\t\t{\t\t    \"formue\": $p.persondata.formue,\t    \"rule\": $rule,\t    \"respect\": $respectsRule($p.persondata.formue)\t\t}\t\t)",
+                "to": "payload @$p.\t(\t\t\t\t$rule := rules[$.variable = \"formuegraense\"];\t\t\t$getRule := function($variableName)\t{\t    rules[$.variable = $variableName]\t};\t\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t    \t};\t\t\t{\t\t    \"formue\": $p.persondata.formue,\t    /*\"rule\": $rule,*/\t    \"respect\": $respectsRule($getRule(\"formuegraense\"), $p.persondata.formue)\t    \t}\t\t)",
                 "tot": "jsonata"
             }
         ],
@@ -2429,7 +2430,7 @@
         "id": "cfcd26b205856ce4",
         "type": "change",
         "z": "57c40cb841470eb3",
-        "name": "",
+        "name": "Hent regler fra global variabel",
         "rules": [
             {
                 "t": "set",
@@ -2444,11 +2445,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 690,
         "y": 240,
         "wires": [
             [
-                "2a9459c08fa19335"
+                "2a9459c08fa19335",
+                "962e7a08ce9e868f",
+                "6e6456e73cf0d51d"
             ]
         ]
     },
@@ -2475,8 +2478,52 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 340,
+        "x": 980,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "962e7a08ce9e868f",
+        "type": "change",
+        "z": "57c40cb841470eb3",
+        "name": "Tjek alle regler mod borgerdata",
+        "rules": [
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "payload @$p.\t(\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"!null\" ?\t        $value != null\t    :\t    $value = null ?\t        false\t    :\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t};\t{\t    \"borger\": $p.cpr,\t\t    \"regelbrud\":\t        rules @$r.\t        (\t            $respectsRule($r, $data := $lookup($p.persondata, $r.variable)) = false ?\t            {\t                \"regel\": $r.name,\t                \"beskrivelse\": $r.description,\t                \"persondata\": $data,\t                \"respekteres\": $respectsRule($r, $data)\t            }\t        ),\t\t    \"regelcheck\":\t        rules @$r.\t        (\t            {\t                \"regel\": $r.name,\t                \"beskrivelse\": $r.description,\t                \"persondata\": $data := $lookup($p.persondata, $r.variable),\t                \"respekteres\": $respectsRule($r, $data)\t            }\t        )\t}\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "e0d54d4a55253a49"
+            ]
+        ]
+    },
+    {
+        "id": "6e6456e73cf0d51d",
+        "type": "debug",
+        "z": "57c40cb841470eb3",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 380,
         "wires": []
     },
     {
@@ -3372,7 +3419,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
+        "x": 480,
         "y": 460,
         "wires": []
     },
@@ -3443,7 +3490,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 450,
         "y": 420,
         "wires": []
     },
@@ -3463,8 +3510,8 @@
         "z": "8ea344595d9a442a",
         "name": "Transformér data",
         "info": "",
-        "x": 1260,
-        "y": 160,
+        "x": 740,
+        "y": 280,
         "wires": []
     },
     {
@@ -3473,8 +3520,8 @@
         "z": "8ea344595d9a442a",
         "name": "Load / KP sager",
         "info": "",
-        "x": 1460,
-        "y": 160,
+        "x": 940,
+        "y": 280,
         "wires": []
     },
     {
@@ -3532,8 +3579,8 @@
         "z": "8ea344595d9a442a",
         "g": "4689d5530a08a735",
         "name": "",
-        "x": 1260,
-        "y": 200,
+        "x": 740,
+        "y": 320,
         "wires": [
             [
                 "e6a62c075865c065"
@@ -3555,8 +3602,8 @@
         "type": "subflow:3a3b104b02c5ccd9",
         "z": "8ea344595d9a442a",
         "name": "",
-        "x": 1430,
-        "y": 200,
+        "x": 910,
+        "y": 320,
         "wires": []
     },
     {
@@ -3617,7 +3664,7 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n    font-weight: 400;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #FAE100;\n}\ninput:disabled, select:disabled\n{\n    color: #737373!important;\n    opacity: 1!important;\n}\n\nbody\n{\n    padding-top: 150px;\n    background-color: #d6d6d6;\n    margin: 0px;\n    flex: content;\n    display: flex;\n    justify-content: center;\n}\n\n.ruleBox\n{\n    width: 30vw;\n    background-color: white;\n    border-radius: 5px;\n}\n\n    .ruleBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 18px;\n        font-size: 20px;\n        font-family: 'Roboto Slab';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n    }\n    .ruleBox > .subheader\n    {\n        width: 100%;\n        padding: 10px 15px;\n        text-transform: uppercase;\n        font-weight: 400;\n        background-color: #fafafa;\n        border-left: 2px solid whitesmoke;\n        border-right: 2px solid whitesmoke;\n\n    }\n    .ruleBox .ruleWrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n\n        .ruleWrapper > div /* RULE PARENT */\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: flex-start;\n            gap: 5px;\n            padding: 15px;\n            line-height: 35px;\n            border-left: 2px solid whitesmoke;\n            border-right: 2px solid whitesmoke;\n        }\n        .ruleWrapper > div:hover\n        {\n            width: 100%;\n            background-color: #fcfcfc;\n        }\n        .ruleWrapper:last-of-type > div:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n            border-bottom: 2px solid whitesmoke;\n            \n        }\n            .ruleWrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .ruleWrapper span.valuetype\n            {\n                background-color: #DA1884;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .ruleWrapper > div > span:first-of-type\n            {\n                width: 20%;\n                font-size: 15px;\n            }\n            .ruleWrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }",
+        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n    font-weight: 400;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #FAE100;\n}\ninput:disabled, select:disabled\n{\n    color: #737373!important;\n    opacity: 1!important;\n}\n\nbody\n{\n    padding-top: 150px;\n    background-color: #d6d6d6;\n    margin: 0px;\n    flex: content;\n    display: flex;\n    justify-content: center;\n}\n\n.ruleBox\n{\n    width: 40vw;\n    background-color: white;\n    border-radius: 5px;\n}\n\n    .ruleBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 18px;\n        font-size: 20px;\n        font-family: 'Roboto Slab';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n    }\n    .ruleBox > .subheader\n    {\n        width: 100%;\n        padding: 10px 15px;\n        text-transform: uppercase;\n        font-weight: 400;\n        background: linear-gradient(#737373, #878787);\n        color: white;\n        border-left: 2px solid whitesmoke;\n        border-right: 2px solid whitesmoke;\n\n    }\n    .ruleBox .ruleWrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n\n        .ruleWrapper > div /* RULE PARENT */\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: flex-start;\n            gap: 5px;\n            padding: 15px;\n            line-height: 35px;\n            border-left: 2px solid whitesmoke;\n            border-right: 2px solid whitesmoke;\n        }\n        .ruleWrapper > div:hover\n        {\n            width: 100%;\n            background-color: #fafafa;\n        }\n        .ruleWrapper:last-of-type > div:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n            border-bottom: 2px solid whitesmoke;\n            \n        }\n            .ruleWrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .ruleWrapper span.valuetype\n            {\n                background-color: #DA1884;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .ruleWrapper > div > span:first-of-type\n            {\n                width: 20%;\n                font-size: 15px;\n            }\n            .ruleWrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }",
         "x": 1110,
         "y": 840,
         "wires": [
@@ -3635,7 +3682,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "plain",
-        "template": "const ruleWrapper_system = document.querySelector(\".ruleWrapper_system\");\nconst ruleWrapper_user = document.querySelector(\".ruleWrapper_user\");\n\nconst rules = _rules != null ? _rules : []; // Rules are defined in change node previous to this\n\nconst operators = [\n    {\n        \"name\": \"= Skal være lig med\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"≠ Må ikke være lig med\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"< Skal være mindre end\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"> Skal være større end\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"{?} Indeholder\",\n        \"value\": \"contains\"\n    },\n    {\n        \"name\": \"{!} Indeholder ikke\",\n        \"value\": \"!contains\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>\n        <div>    \n            <select id=\"input_${index}_operator\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"}>\n        `;\n\n    for (let i = 0; i < operators.length; i++) {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\" : \"\"}>${operators[i].name}</option>`;\n    }\n\n    let valueType = obj.type != null ? `<span class=\"valuetype\">${obj.type == \"number\" ? \"tal\" : obj.type == \"text\" ? \"tekst\" : \"\"}</span>` : ``;\n    returnHTML += `\n            </select>\n        </div>\n        <div>\n            <input id=\"input_${index}_value\" value=\"${obj.value}\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"} />\n        </div>\n        <span class=\"description\" title=\"${obj.description}\">?</span>\n        ${valueType}\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    if (rules[i][\"systemrule\"] != null && rules[i][\"systemrule\"] == true)\n        ruleWrapper_system.innerHTML += newInputField(i);\n    else\n        ruleWrapper_user.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"input\", () => {\n        OnInputChange(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n\n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n///\n//\nfunction OnInputChange(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n    let type = (rules[parseInt(sid[1])])[\"type\"];\n\n    switch (type) {\n        case \"int\": case \"float\": case \"double\": case \"number\":\n            inputField.value = inputField.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');\n            break;\n\n        case \"text\": case \"letters\":\n            inputField.value = inputField.value.replace(/[^A-Za-z]/g, '');\n            break;\n\n    }\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
+        "template": "const ruleWrapper_system = document.querySelector(\".ruleWrapper_system\");\nconst ruleWrapper_user = document.querySelector(\".ruleWrapper_user\");\n\nconst rules = _rules != null ? _rules : []; // Rules are defined in change node previous to this\n\nconst operators = [\n    {\n        \"name\": \"= Skal være lig med\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"≠ Må ikke være lig med\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"< Skal være mindre end\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"> Skal være større end\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"{?} Indeholder\",\n        \"value\": \"contains\"\n    },\n    {\n        \"name\": \"{!} Indeholder ikke\",\n        \"value\": \"!contains\"\n    },\n    {\n        \"name\": \"[o] Skal være oplyst\",\n        \"value\": \"!null\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>\n        <div>    \n            <select id=\"input_${index}_operator\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"}>\n        `;\n\n    for (let i = 0; i < operators.length; i++) {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\" : \"\"}>${operators[i].name}</option>`;\n    }\n\n    let valueType = obj.type != null ? `<span class=\"valuetype\">${obj.type == \"number\" ? \"tal\" : obj.type == \"text\" ? \"tekst\" : \"\"}</span>` : ``;\n    returnHTML += `\n            </select>\n        </div>\n        <div>\n            <input id=\"input_${index}_value\" value=\"${obj.value}\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"} />\n        </div>\n        <span class=\"description\" title=\"${obj.description}\">?</span>\n        ${valueType}\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    if (rules[i][\"systemrule\"] != null && rules[i][\"systemrule\"] == true)\n        ruleWrapper_system.innerHTML += newInputField(i);\n    else\n        ruleWrapper_user.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"input\", () => {\n        OnInputChange(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n\n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n///\n//\nfunction OnInputChange(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n    let type = (rules[parseInt(sid[1])])[\"type\"];\n\n    switch (type) {\n        case \"int\": case \"float\": case \"double\": case \"number\":\n            inputField.value = inputField.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');\n            break;\n\n        case \"text\": case \"letters\":\n            inputField.value = inputField.value.replace(/[^A-Za-z]/g, '');\n            break;\n\n    }\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
         "x": 950,
         "y": 840,
         "wires": [
@@ -3723,7 +3770,7 @@
                 "t": "set",
                 "p": "payload.rules",
                 "pt": "msg",
-                "to": "[\t    {\t        \"name\": \"Formue\",\t        \"variable\": \"formuegraense\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue overstiger formuegrænsen\"\t    },\t    {\t        \"name\": \"Systemregel\",\t        \"variable\": \"test2\",\t        \"operator\": \">\",\t        \"value\": \"15\",\t        \"type\": \"number\",\t        \"description\": \"Ingen yderligere beskrivelse\",\t        \"systemrule\": true\t    },\t    {\t        \"name\": \"Testværdi 3\",\t        \"variable\": \"test3\",\t        \"operator\": \"\",\t        \"value\": \"\",\t        \"description\": \"Ingen yderligere beskrivelse\"\t    }\t]",
+                "to": "[\t    {\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": \"30000\",\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"systemrule\": true\t    }\t]",
                 "tot": "jsonata"
             }
         ],
