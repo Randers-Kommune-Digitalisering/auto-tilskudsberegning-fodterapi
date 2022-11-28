@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "b5ae94617e862de8",
+        "type": "tab",
+        "label": "Systembruger data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "52e57c24c4e5e6b5",
         "type": "subflow",
         "name": "Initialize",
@@ -671,7 +679,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 790,
         "y": 180,
         "wires": [
             [
@@ -700,8 +708,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 880,
+        "x": 270,
+        "y": 720,
         "wires": [
             []
         ]
@@ -1035,8 +1043,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
-        "y": 840,
+        "x": 250,
+        "y": 680,
         "wires": [
             [
                 "3380ac67751fbb1b"
@@ -1681,287 +1689,6 @@
         ]
     },
     {
-        "id": "afcf8469f5970c91",
-        "type": "debug",
-        "z": "57c40cb841470eb3",
-        "name": "Super JSON debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "superjson",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "c93619fc1a4bbdb6",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "name": "Merge into super-JSON",
-        "rules": [
-            {
-                "t": "set",
-                "p": "superjson",
-                "pt": "msg",
-                "to": "receipts@$A.(\t    /* Funktion til formatering af dato */\t    $formaterDato := function($dato){(\t    $temp:= $substring($A.dato, 0, 10);\t    ($temp ~> $substring(8, 2)) & \"-\" &\t    ($temp ~> $substring(5, 2)) & \"-\" &\t    ($temp ~> $substring(0, 4))\t    )};\t    /* Funktion til formatering af dato */\t    \t{\t    \"id\" :     $A.id,\t    \"dato\" :   $A.dato ~> $formaterDato(),\t\t    /* Hent borger-objekt fra citizens-array */\t    \"borger\" : citizens[ (cpr=$A.patientCPR)],\t    \t    /* Hent tidligere behandlede ydelser med samme ID og tildel værdien til $Y */\t    \"ydelserBehandlet\" : $y :=  processedReceipts[ (id=$A.id) ].ydelserBehandlet,\t\t    /* Hent ydelser fra faktura */\t    /*\"antalYdelser\": ($count($A.behandlinger)),*/\t    \"ydelser\": $A.behandlinger@$B.\t    {\t        /* Flyt relevant data fra faktura + definér behandingstypen (A/B) */\t        \"titel\" :     $B.titel,\t        \"type\"  :    ($B.titel = 'Behandlingipatientsegethjem' or $B.titel = 'Behandlingpåklinik') ? 'A' : 'B',\t        \"ydelsesNummer\" : $B.ydelsesnummer,\t        \"patientAndel\" : $B.patientAndel,\t        \"sygesikringsAndel\" : $B.sygesikringsAndel,\t        \"totalPris\": ($B.patientAndel+$B.sygesikringsAndel),\t\t        /* Tjek om ydelsesnummeret findes blandt tidligere behandlede ydelser på DENNE faktura */\t        \"erBehandlet\":   $y[ ($ = $B.ydelsesnummer) ] ? true : false\t    },\t\t    /* Tjek om alle ydelser på fakturaen er behandlet */\t    \"erBehandlet\" : (($count($A.behandlinger)-($count(processedReceipts[(id=$A.id)].ydelserBehandlet))) <= 0) ? true : false\t})",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 350,
-        "y": 900,
-        "wires": [
-            [
-                "a8b35e056d5d56e5",
-                "afcf8469f5970c91"
-            ]
-        ]
-    },
-    {
-        "id": "2447d68bf144b0c4",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/BJCtqQu38",
-        "info": "",
-        "x": 350,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "16efa67df790efbb",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/zodtXv4HC",
-        "info": "",
-        "x": 1210,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "653b55da7267faa0",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "name": "Create initial action array (big objects)",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "superjson@$A.(\t/* Reference til borger (til brug i funktioner )*/\t$borger := $A.borger;\t\t/* Funktioner til beregning af tilskud */\t/* Tjek bevilling */\t$harBevilling := function($type){ \t    $type = 'B' ?\t        $borger.helbredskort ? true : false\t    :\t        $borger.bevilling ? true : false\t };\t/* Tjek helbredstillægssag */\t$harHelbredstillaegsSag := function($type){\t    $type = 'B' ?\t        $borger.almHelbredstillaeg ? true : false\t    :\t        $borger.udvidetHelbredstillaeg ? true : false\t};\t\t/* Opret skelet-objekt for faktura som skal behandles */\t$A.erBehandlet = false ?\t{\t    \"id\": $A.id,\t\t    /* Opret sub-objekt for hver ydelse på faktura */\t    \"ydelser\":\t    $A.ydelser@$B.\t    [\t        /* Tjek om ydelsen allerede er behandlet */\t        $B.erBehandlet = false ?\t        {\t\t            \"type\": $B.type,\t            \"erBevilget\": $harBevilling($B.type),\t            \"sagForeligger\": $harHelbredstillaegsSag($B.type),\t\t            /* Opret liste over handlinger */\t            /* Tilføj handlinger for oprettelse af sager, hvis beviling foreligger men ingen sag gør */\t            \"handlinger\": \t                $harHelbredstillaegsSag($B.type) ?\t                    {\t                        /* Sag foreligger for den behandlingstypen */\t                        \"titel\": \"Tilføj ydelse til sag\",\t                        \"type\": $B.type,\t                        \"tilskud\": 0,\t                        \"erBehandlet\": false\t                    }\t                : $harBevilling($B.type) ?\t                    [{\t                        /* INGEN sag foreligger for den behandlingstypen, men borger er bevilget */\t                        \"titel\": \"Opret sag\",\t                        \"type\": $B.type,\t                        \"erBehandlet\": false\t                    },\t                    {\t                        /* Sag foreligger for den behandlingstypen */\t                        \"titel\": \"Tilføj ydelse til sag\",\t                        \"type\": $B.type,\t                        \"tilskud\": 0,\t                        \"erBehandlet\": false\t                    }]\t                :\t                    {\t                        /* INGEN sag foreligger og borger er IKKE bevilget */\t                        \"titel\": \"Rapportér fejl: Ingen gyldig bevilling\",\t                        \"type\": $B.type,\t                        \"erBehandlet\": true\t                    }\t\t        } : {}\t    ]\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1230,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9f4fc3771159754f",
-        "type": "debug",
-        "z": "57c40cb841470eb3",
-        "name": "Receipt actions",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "actions",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1940,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "1969503ae5f8c6e8",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "Tjek bevillinger og opret skelet for alle handlinger som skal udføres",
-        "info": "",
-        "x": 1780,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "6309d08fc3ae7141",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "Beregn tilskud for alle handlinger",
-        "info": "",
-        "x": 1670,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "40aab6e10f0bf515",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "name": "Create initial action array (action objects)",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "superjson@$A.(\t/* Reference til borger (til brug i funktioner )*/\t$borger := $A.borger;\t\t/* Funktioner til beregning af tilskud */\t/* Tjek bevilling */\t$harBevilling := function($type){ \t    $type = 'B' ?\t        $borger.helbredskort ? true : false\t    :\t        $borger.bevilling ? true : false\t };\t/* Tjek helbredstillægssag */\t$harHelbredstillaegsSag := function($type){\t    $type = 'B' ?\t        $borger.almHelbredstillaeg ? true : false\t    :\t        $borger.udvidetHelbredstillaeg ? true : false\t};\t\t/* Opret skelet-objekt for faktura som skal behandles */\t$A.erBehandlet = false ?\t$A.ydelser@$B.\t\t    /* Opret sub-objekt for hver ydelse på faktura */\t    /* Opret liste over handlinger */\t    /* Tilføj handlinger for oprettelse af sager, hvis beviling foreligger men ingen sag gør */\t    $harHelbredstillaegsSag($B.type) ?\t        {\t            /* Sag foreligger for den behandlingstypen */\t            \"id\": $A.id,\t            \"titel\": \"Tilføj ydelse til sag\",\t            \"type\": $B.type,\t            \"tilskud\": 0,\t            \"erBehandlet\": false\t        }\t    : $harBevilling($B.type) ?\t        [{\t            /* INGEN sag foreligger for den behandlingstypen, men borger er bevilget */\t            \"id\": $A.id,\t            \"titel\": \"Opret sag\",\t            \"type\": $B.type,\t            \"erBehandlet\": false\t        },\t        {\t            /* Sag foreligger for den behandlingstypen */\t            \"id\": $A.id,\t            \"titel\": \"Tilføj ydelse til sag\",\t            \"type\": $B.type,\t            \"tilskud\": 0,\t            \"erBehandlet\": false\t        }]\t    :\t        {\t            /* INGEN sag foreligger og borger er IKKE bevilget */\t            \"id\": $A.id,\t            \"titel\": \"Rapportér fejl: Ingen gyldig bevilling\",\t            \"type\": $B.type,\t            \"erBehandlet\": true\t        }\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1240,
-        "y": 980,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "78aea2501347dec6",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/B13gIw93V",
-        "info": "",
-        "x": 1210,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "a8b35e056d5d56e5",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "name": "Create initial action array (treatment objects)",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "superjson@$A.(\t/* Reference til borger (til brug i funktioner)*/\t$borger := $A.borger;\t\t/* Funktioner til beregning af tilskud */\t/* Tjek bevilling */\t$harBevilling := function($type){ \t    $type = 'B' ?\t        $borger.helbredskort ? true : false\t    :\t        $borger.bevilling ? true : false\t };\t/* Tjek helbredstillægssag */\t$harHelbredstillaegsSag := function($type){\t    $type = 'B' ?\t        $borger.almHelbredstillaeg ? true : false\t    :\t        $borger.udvidetHelbredstillaeg ? true : false\t};\t\t/* Opret skelet-objekt for faktura som skal behandles */\t$A.erBehandlet = false ?\t{\t    \"id\": $A.id,\t    \"dato\": $A.dato,\t    \"borger\": $borger,\t\t    \"handlinger\": $A.ydelser@$B.( $B.erBehandlet = false ?\t    /* Opret sub-objekt for handling krævet for hver ubehandlet ydelse på faktura */\t    /* Tilføj først handlinger for oprettelse af sager, hvis beviling foreligger, men ingen sag gør */\t    /* Tilføj dernæst ydelsen til sagen *//* Tjek til sidst for duplikater og fjern evt. */\t    $harHelbredstillaegsSag($B.type) ?\t    {\t        /* Sag foreligger for den behandlingstypen */\t        \"id\": $A.id,\t        \"handling\": \"Tilføj ydelse til sag\",\t        \"ydelse\": $B.titel,\t        \"ydelsesNummer\": $B.ydelsesNummer,\t        \"type\": $B.type,\t        \"patientAndel\": $B.patientAndel,\t        \"pris\": $B.totalPris,\t        \"tilskud\": 0,\t        \"erBehandlet\": false\t    }\t    : $harBevilling($B.type) ?\t        [{\t            /* INGEN sag foreligger for den behandlingstypen, men borger er bevilget */\t            \"id\": $A.id,\t            \"handling\": \"Opret sag\",\t            \"type\": $B.type,\t            \"erBehandlet\": false\t        },\t        {\t            /* Sag er netop oprettet */\t            \"id\": $A.id,\t            \"handling\": \"Tilføj ydelse til sag\",\t            \"ydelse\": $B.titel,\t            \"ydelsesNummer\": $B.ydelsesNummer,\t            \"type\": $B.type,\t            \"patientAndel\": $B.patientAndel,\t            \"pris\": $B.totalPris,\t            \"tilskud\": 0,\t            \"erBehandlet\": false\t        }]\t    :\t            {\t                /* INGEN sag foreligger og borger er IKKE bevilget */\t                \"id\": $A.id,\t                \"handling\": \"Rapportér fejl: Ingen gyldig bevilling\",\t                \"type\": $B.type,\t                \"erBehandlet\": true\t            }\t        \t    )\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 710,
-        "y": 900,
-        "wires": [
-            [
-                "08759468cf1fc1f8"
-            ]
-        ]
-    },
-    {
-        "id": "01cfc8bc9bdeb061",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/Kf7FRl9_j",
-        "info": "",
-        "x": 670,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "08759468cf1fc1f8",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "name": "Merge inital action array based on CPR",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "citizens@$A.(\t{\t    \"borger\": $A,\t    \"handlinger\": $distinct((payload[borger.cpr = $A.cpr].handlinger)@$B.\t    ({\t        \"id\": $B.id,\t        \"handling\": $B.handling,\t        \"ydelse\": $B.ydelse,\t        \"ydelsesNummer\": $B.ydelsesNummer,\t        \"type\": $B.type,\t        \"patientAndel\": $B.patientAndel,\t        \"pris\": $B.pris,\t        \"tilskud\": 0,\t        \"erBehandlet\": false\t    }))\t})",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 700,
-        "y": 1040,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "13b4db29cca3bcdd",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/pOjD-6WF8",
-        "info": "",
-        "x": 670,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "8b2490733399742a",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "name": "Super-transformer",
-        "rules": [
-            {
-                "t": "set",
-                "p": "actions",
-                "pt": "msg",
-                "to": "/* Iterér over borger-liste */\tcitizens@$A.(\t\t    /* Skab referencer */\t    $behandledeFakturaer := processedReceipts[];\t\t    /* Funktion til at skabe unikt ydelses-ID */\t    $skabID := function($fakturaID, $ydelsesNummer, $count){\t        ($fakturaID ~> $substring(19,17)) & \"-\" & $ydelsesNummer & \"-\" & ($count+1)\t    };\t    /* Funktion til at finde type for behandling */\t    $findType := function($behandlingstitel){\t        ($behandlingstitel = 'Behandlingipatientsegethjem' or $behandlingstitel = 'Behandlingpåklinik') ? 'A' : 'B'\t    };\t    /* Funktioner til kontrol af bevilling + helbredstillægssag + formue/tillægsprocent */\t    $harBevilling := function($type){ \t        $type = 'B' ? $A.helbredskort ? true : false : $A.bevilling ? true : false\t    };\t    $harHelbredstillaegsSag := function($type){\t        $type = 'B' ? $A.almHelbredstillaeg ? true : false : $A.udvidetHelbredstillaeg ? true : false\t    };\t    $erBerretiget  := function(){\t        (($A.tillaegsprocent > 0) and ($A.formue <= tilskudsInfo.formuegraense))\t    };\t    $findDanmarksTilskud := function($ydelse, $dato){(\t        $dato_ms := $toMillis($dato);\t        (tilskudsInfo.tilskudsperioder[\t            ((periode_fra ~> $toMillis) <= $dato_ms)\t            and \t            ((periode_til ~> $toMillis) >= $dato_ms)\t        ]).satser[\t            ((titel ~> $replace(\" \", \"\")) = $ydelse.titel)\t        ]\t    )};\t    /* Funktion til udregning af tilskud! */\t    $udregnTilskud := function($ydelse, $type, $dato){(\t        /* TYPE A */\t        ($type = 'A') ?\t        (\t           /* Sikr at hele beløbet er patient-andel */\t           $belob := ($ydelse.patientAndel + $ydelse.sygesikringsAndel);\t           /* Fratræk 50% af egenbetaling (maks 100 kr) hvis medlem af Danmark gruppe 1/2 */\t           $belob := ($A.danmarkGruppe = 1) or ($A.danmarkGruppe = 2) ?\t                        ($belob - (($belob*(tilskudsInfo.danmark_fratraek_procent/100)) > tilskudsInfo.danmark_fratraek_maxdkk ?\t                            tilskudsInfo.danmark_fratraek_maxdkk : ($belob*(tilskudsInfo.danmark_fratraek_procent/100))))\t                            : $belob;\t            /* Sikr at tilskudsbeløbet ikke overstiger beløbsgrænsen */\t            $belob := ($ydelse.titel = \"Behandlingipatientsegethjem\") ?\t                        (($belob > tilskudsInfo.max_udekoersel) ? tilskudsInfo.max_udekoersel : $belob)\t                        : (($belob > tilskudsInfo.max_hjemmebehandling) ? tilskudsInfo.max_hjemmebehandling : $belob);\t            /* Gang med tillægsprocent */\t            $belob := ($belob * ($A.tillaegsprocent / 100))\t        ) :\t        /* TYPE B */\t        (\t           $belob := $ydelse.patientAndel;\t           /* Find tilskud fra Danmark og fratræk det fra tilskudsbeløbet */\t           $fratraek := ($belob * ($findDanmarksTilskud($ydelse, $dato).tilskud_procent / 100)) <= $findDanmarksTilskud($ydelse, $dato).tilskud_maxdkk ?\t                        ($belob * ($findDanmarksTilskud($ydelse, $dato).tilskud_procent / 100)) : $findDanmarksTilskud($ydelse, $dato).tilskud_procent;\t           $belob := $belob - $fratraek;\t           /* Gang med tillægsprocent */\t           $belob := ($belob * ($A.tillaegsprocent / 100));\t           $belob\t        )\t    )};\t    /* Funktion til formatering af dato */\t    $formaterDato := function($dato){\t        $toMillis($dato) ~> $fromMillis('[Y0001]-[M01]-[D01]')\t    };\t\t/* Opret objekt for hver borger der har ubehandlede faktura */\t{\t    \"borger\": $A,\t\t    /* Opret sub-objekt for handling krævet for hver ydelse på faktura */\t    \"handlinger\": $distinct(receipts[patientCPR = $A.cpr].behandlinger@$B#$index.\t    (\t        /* Skab unikt ID for ydelsen */\t        $ydelsesID := $skabID(id, $B.ydelsesnummer, $index);\t        /* Find type for ydelsen */\t        $ydelsesType := $findType($B.titel);\t        /* Reference til faktura ID */\t        $fakturaID := id;\t\t        /* Kontoller at denne ydelse ikke allerede er behandlet */\t        (($exists($behandledeFakturaer[id = $fakturaID]) = false)\t              or ($behandledeFakturaer[id = $fakturaID].erBehandlet = false)) ?\t        (\t            /* Kontroller at borgernes parametre overholdes */\t            $erBerretiget() ?\t            (\t\t            /* Tilføj først oprettelse af sager, hvis beviling foreligger, men ingen aktuel sag gør */\t            /* Tilføj dernæst ydelsen til sagen */\t            $harHelbredstillaegsSag($ydelsesType) ?\t            {\t                /* Sag foreligger for den behandlingstypen */\t                \"fakturaID\": $fakturaID,\t                \"ydelsesID\": $ydelsesID,\t                \"handling\": \"Tilføj ydelse til sag\",\t                \"dato\": $formaterDato(dato),\t                \"tilskud\": $udregnTilskud($B, $ydelsesType, dato),\t                \"erForetaget\": false\t            }\t            : $harBevilling($ydelsesType) ?\t                [{\t                    /* INGEN sag foreligger for den behandlingstypen, men borger er bevilget */\t                    \"handling\": \"Opret sag\",\t                    \"type\": $ydelsesType,\t                    \"erForetaget\": false\t                },\t                {\t                    /* Sag er netop oprettet */\t                    \"fakturaID\": $fakturaID,\t                    \"ydelsesID\": $ydelsesID,\t                    \"handling\": \"Tilføj ydelse til sag\",\t                    \"dato\": $formaterDato(dato),\t                    \"tilskud\": $udregnTilskud($B, $ydelsesType, dato),\t                    \"erForetaget\": false\t                }]\t                :\t                    {\t                        /* INGEN sag foreligger og borger er IKKE bevilget */\t                        \"fakturaID\": $fakturaID,\t                        \"ydelsesID\": $ydelsesID,\t                        \"handling\": \"Rapportér fejl: Ingen gyldig bevilling\",\t                        \"dato\": $formaterDato(dato),\t                        \"erForetaget\": true\t                    }\t            ) : ({\t                /* Borger er IKKE berettiget tilskud (formue eller tillægsprocent) */\t                \"fakturaID\": $fakturaID,\t                \"ydelsesID\": $ydelsesID,\t                \"handling\": \"Rapportér fejl: Borger ej berettiget\",\t                \"fejl\": ($A.tillaegsprocent > 0) ? \"Formue overstiger beløbsgrænse\" : \"Tillægsprocent er 0\",\t                \"dato\": $formaterDato(dato),\t                \"erForetaget\": true\t            })\t            )\t        )\t    )\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1630,
-        "y": 980,
-        "wires": [
-            [
-                "9f4fc3771159754f"
-            ]
-        ]
-    },
-    {
-        "id": "2b4be15b7138659e",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/VesE-84-1",
-        "info": "",
-        "x": 1670,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "bf35e6be5897e23c",
-        "type": "comment",
-        "z": "57c40cb841470eb3",
-        "name": "https://try.jsonata.org/z6oNnGbCv",
-        "info": "",
-        "x": 1670,
-        "y": 1060,
-        "wires": []
-    },
-    {
         "id": "d2a10d8a141aeef9",
         "type": "change",
         "z": "57c40cb841470eb3",
@@ -2351,7 +2078,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$|(\t\t$faktura := faktura;\t\t$harBevilling := function($type)\t{\t    $type = \"A\" ?\t        $.persondata.bevilling\t    :\t        $.persondata.sager [ \t            type ~> $lowercase ~> $contains(\"helbredstillægskort\")\t        ] ?\t            true : false\t};\t\t$sagForeligger := function($type, $dato)\t{\t    $.persondata.sager [\t        $type = 'A' ?\t            type ~> $lowercase ~> $contains(\"udvidet helbred\")\t        and \t            titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t    and\t        ($dato ~> $toMillis) > (fra ~> $toMillis)\t    and\t        (til ? ($dato ~> $toMillis) < (til ~> $toMillis) : true)\t    and\t        bevilling = true\t    ] ?\t        true : false\t};\t\t{\t    \"handlinger\": faktura.behandlinger @$b .(\t        $b := $b;\t\t        $sagForeligger($b.type, $faktura.dato) = false ?\t        $harBevilling($b.type) ? \t\t        [{\t            \"handling\": \"Opret sag\",\t            \"type\": $b.type\t        },\t        {\t            \"handling\": \"Tilføj ydelse\",\t            \"type\": $b.type,\t            \"uid\": $b.uid,\t            \"dato\": $faktura.dato\t        }]\t        : () : \t        {\t            \"handling\": \"Tilføj ydelse\",\t            \"type\": $b.type,\t            \"uid\": $b.uid,\t            \"dato\": $faktura.dato\t        }\t    ) ~> $distinct\t}\t\t)|",
+                "to": "$.payload ~> |$|(\t\t$faktura := faktura;\t\t$harBevilling := function($type)\t{\t    $type = \"A\" ?\t        $.persondata.bevilling\t    :\t        $.persondata.sager [ \t            type ~> $lowercase ~> $contains(\"helbredstillægskort\")\t        ] ?\t            true : false\t};\t\t$sagForeligger := function($type, $dato)\t{\t    $.persondata.sager [\t        $type = 'A' ?\t            type ~> $lowercase ~> $contains(\"udvidet helbred\")\t        and \t            titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t    and\t        ($dato ~> $toMillis) > (fra ~> $toMillis)\t    and\t        (til ? ($dato ~> $toMillis) < (til ~> $toMillis) : true)\t    and\t        bevilling = true\t    ] ?\t        true : false\t};\t\t{\t    \"handlinger\": faktura.behandlinger @$b .(\t        $b := $b;\t\t        $sagForeligger($b.type, $faktura.dato) = false ?\t        $harBevilling($b.type) ? \t\t        [{\t            \"handling\": \"Opret sag\",\t            \"type\": $b.type\t        },\t        {\t            \"handling\": \"Tilføj ydelse\",\t            \"type\": $b.type,\t            \"uid\": $b.uid,\t            \"dato\": $faktura.dato\t        }]\t        : () : \t        {\t            \"handling\": \"Tilføj ydelse\",\t            \"type\": $b.type,\t            \"uid\": $b.uid,\t            \"dato\": $faktura.dato\t        }\t    )\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -2398,35 +2125,6 @@
         "info": "https://try.jsonata.org/zbfWKbpM7"
     },
     {
-        "id": "2a9459c08fa19335",
-        "type": "change",
-        "z": "57c40cb841470eb3",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "errors",
-                "pt": "msg",
-                "to": "payload @$p.\t(\t\t\t\t$rule := rules[$.variable = \"formuegraense\"];\t\t\t$getRule := function($variableName)\t{\t    rules[$.variable = $variableName]\t};\t\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t    \t};\t\t\t{\t\t    \"formue\": $p.persondata.formue,\t    /*\"rule\": $rule,*/\t    \"respect\": $respectsRule($getRule(\"formuegraense\"), $p.persondata.formue)\t    \t}\t\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 280,
-        "wires": [
-            [
-                "baefa4faa88d4ac2",
-                "e0d54d4a55253a49"
-            ]
-        ]
-    },
-    {
         "id": "cfcd26b205856ce4",
         "type": "change",
         "z": "57c40cb841470eb3",
@@ -2449,9 +2147,8 @@
         "y": 240,
         "wires": [
             [
-                "2a9459c08fa19335",
                 "962e7a08ce9e868f",
-                "6e6456e73cf0d51d"
+                "c067cff28b4489bb"
             ]
         ]
     },
@@ -2486,6 +2183,7 @@
         "id": "962e7a08ce9e868f",
         "type": "change",
         "z": "57c40cb841470eb3",
+        "d": true,
         "name": "Tjek alle regler mod borgerdata",
         "rules": [
             {
@@ -2513,7 +2211,7 @@
         "id": "6e6456e73cf0d51d",
         "type": "debug",
         "z": "57c40cb841470eb3",
-        "name": "debug 8",
+        "name": "PAYLOAD",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -2522,9 +2220,91 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
-        "y": 380,
+        "x": 1250,
+        "y": 460,
         "wires": []
+    },
+    {
+        "id": "c067cff28b4489bb",
+        "type": "change",
+        "z": "57c40cb841470eb3",
+        "name": "Tjek alle regler mod borgerdata",
+        "rules": [
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "payload @$p.\t(\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"!null\" ?\t        $value != null\t    :\t    $value = null ?\t        false\t    :\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t};\t{\t    \"borger\": $p.cpr,\t\t    \"regelbrud\":\t        rules @$r.\t        (\t            $respectsRule($r, $data := $lookup($p.persondata, $r.variable)) = false ?\t            {\t                \"regel\": $r.name,\t                \"beskrivelse\": $r.description,\t                \"persondata\": $data,\t                \"respekteres\": $respectsRule($r, $data)\t            }\t        )\t}\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "98b4ab70443ee198"
+            ]
+        ]
+    },
+    {
+        "id": "98b4ab70443ee198",
+        "type": "change",
+        "z": "57c40cb841470eb3",
+        "name": "Find regelbrud",
+        "rules": [
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "errors @$e.\t(\t    $e.regelbrud ~> $boolean ?\t    {\t        \"borger\": $e.borger,\t        \"regelbrud\": $e.regelbrud\t    }\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 400,
+        "wires": [
+            [
+                "e0d54d4a55253a49",
+                "75e8e1a4e51d600c"
+            ]
+        ]
+    },
+    {
+        "id": "75e8e1a4e51d600c",
+        "type": "change",
+        "z": "57c40cb841470eb3",
+        "name": "Fjern borgere som ikke er berettiget",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload @$p.\t(\t    \t    (errors[borger = $p.cpr] ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 440,
+        "wires": [
+            [
+                "baefa4faa88d4ac2"
+            ]
+        ]
     },
     {
         "id": "57300174d1783ae5",
@@ -3567,8 +3347,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1480,
-        "y": 420,
+        "x": 1740,
+        "y": 280,
         "wires": [
             []
         ]
@@ -3593,8 +3373,8 @@
         "z": "8ea344595d9a442a",
         "name": "GAMMEL",
         "info": "",
-        "x": 1440,
-        "y": 380,
+        "x": 1700,
+        "y": 240,
         "wires": []
     },
     {
@@ -3795,23 +3575,12 @@
         "server": "43ca9917319c367b",
         "client": "",
         "x": 160,
-        "y": 1060,
+        "y": 920,
         "wires": [
             [
                 "54ebf542897cb37d"
             ]
         ]
-    },
-    {
-        "id": "9193e4e8badda861",
-        "type": "websocket out",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "server": "43ca9917319c367b",
-        "client": "",
-        "x": 1180,
-        "y": 960,
-        "wires": []
     },
     {
         "id": "576df08c4fd1853c",
@@ -3865,7 +3634,7 @@
         "action": "obj",
         "pretty": false,
         "x": 330,
-        "y": 1060,
+        "y": 920,
         "wires": [
             [
                 "9d2701d9f3f3c610"
@@ -3892,7 +3661,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1060,
+        "y": 920,
         "wires": [
             [
                 "68f7f88bbaaedb3a"
@@ -3913,7 +3682,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 960,
-        "y": 1060,
+        "y": 920,
         "wires": []
     },
     {
@@ -3965,11 +3734,293 @@
         "to": "",
         "reg": false,
         "x": 520,
-        "y": 1060,
+        "y": 920,
         "wires": [
             [
                 "a7100eb3aada3d3c"
             ]
+        ]
+    },
+    {
+        "id": "d9efe549c9e470ea",
+        "type": "inject",
+        "z": "b5ae94617e862de8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "950036d6bc324dff"
+            ]
+        ]
+    },
+    {
+        "id": "950036d6bc324dff",
+        "type": "exec",
+        "z": "b5ae94617e862de8",
+        "command": "whoami",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "a88aa26fbc2fcca5"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a88aa26fbc2fcca5",
+        "type": "change",
+        "z": "b5ae94617e862de8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "'chcp 865 && net user ' & (((payload ~> $split (\"\\\\\"))[1]) ~> $trim) & ' /domain' ~> $string",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "5797f615d1a26b7c",
+                "f68d90dde3e2af12",
+                "6af1e24a409a4072"
+            ]
+        ]
+    },
+    {
+        "id": "5797f615d1a26b7c",
+        "type": "debug",
+        "z": "b5ae94617e862de8",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6af1e24a409a4072",
+        "type": "exec",
+        "z": "b5ae94617e862de8",
+        "d": true,
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 610,
+        "y": 400,
+        "wires": [
+            [
+                "1453837efcc008b1"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1453837efcc008b1",
+        "type": "function",
+        "z": "b5ae94617e862de8",
+        "name": "function 1",
+        "func": "///let newBuff = new Buffer('New String');\n//let newbuff2 = Buffer.from(msg.payload);\nmsg.payload = msg.payload.toString();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 400,
+        "wires": [
+            [
+                "5797f615d1a26b7c"
+            ]
+        ]
+    },
+    {
+        "id": "0c93a32f0629bfc6",
+        "type": "change",
+        "z": "b5ae94617e862de8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "([adsi]\"WinNT://laksen04/dqa8932,user\").fullname",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddb7cad89dc8aba6",
+        "type": "function",
+        "z": "b5ae94617e862de8",
+        "name": "function 3",
+        "func": "var spawn = childProcess.spawn;\n\n\n//var cp = spawn(process.env.comspec, ['/c', 'command', '-arg1', '-arg2']);\n\n/*cp.stdout.on(\"data\", function(data) {\n    console.log(data.toString());\n});\n\ncp.stderr.on(\"data\", function(data) {\n    console.error(data.toString());\n});\nvar test = function(A)\n{\n    return \"js\";\n}\n\nconst func = childProcess.exec(msg.payload, { 'encoding': 'utf8' }, (err, stdout, stderr) => {\n    msg.payload = stdout;\n});\n\n*/\n\n\nconst func = childProcess.exec(msg.payload, { 'encoding': 'utf8' }, (err, stdout, stderr) => {\n    return stdout;\n});\n\n\nconst retu = childProcess.exec(msg.payload, { 'encoding': 'utf8' });\n\n\nconst newtest = childProcess.exec(\"dir\");\n\nmsg.payload = JSON.stringify(newtest);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "childProcess",
+                "module": "child_process"
+            }
+        ],
+        "x": 220,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f68d90dde3e2af12",
+        "type": "function",
+        "z": "b5ae94617e862de8",
+        "name": "RUN CMD",
+        "func": "const cmd = global.get(\"cmd\");\n\nvar process = cmd.runSync(msg.payload);\n\nmsg.payload = JSON.stringify(process.data);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "d59d7e33e17ac8c1"
+            ]
+        ]
+    },
+    {
+        "id": "d59d7e33e17ac8c1",
+        "type": "json",
+        "z": "b5ae94617e862de8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "5797f615d1a26b7c"
+            ]
+        ]
+    },
+    {
+        "id": "f6306b71f41ac4bc",
+        "type": "template",
+        "z": "b5ae94617e862de8",
+        "name": "UI tekst template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "[B]Resultat[/B]\n\nEfter gennemgang af godkendte regelsæt anbefales følgende handlingsplan:\n\n----------\n----------\n----------\n\nØnsker du automatisere dette? Godkend herunder-",
+        "output": "str",
+        "x": 690,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90a7b281bcbe7868",
+        "type": "encode-utf16le",
+        "z": "b5ae94617e862de8",
+        "name": "",
+        "x": 660,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1f496b3b5f1041b",
+        "type": "function",
+        "z": "b5ae94617e862de8",
+        "name": "function 2",
+        "func": "//const shell = require('node-powershell');\n\nfunction PowershellNode() {\n    \n    let ps = new shell({\n        executionPolicy: 'Bypass',\n        noProfile: true,\n        pwsh: true\n    });\n\n    ps.addCommand(msg.payload);\n    ps.invoke()\n        .then(output => {\n            msg.payload = output;\n            this.send(msg);\n        })\n        .catch(error => {\n            msg.payload = error;\n            this.error(error, msg);\n        });\n}\n\nmsg.payload = PowershellNode();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "shell",
+                "module": "node-powershell"
+            }
+        ],
+        "x": 420,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46eb8fb7ba338b6c",
+        "type": "powershell",
+        "z": "b5ae94617e862de8",
+        "name": "",
+        "x": 430,
+        "y": 900,
+        "wires": [
+            [],
+            []
         ]
     }
 ]
