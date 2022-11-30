@@ -318,7 +318,13 @@
         "wholemsg": "true"
     },
     {
-        "id": "43ca9917319c367b",
+        "id": "c1ae0d59916344e0",
+        "type": "websocket-listener",
+        "path": "ws/rules",
+        "wholemsg": "false"
+    },
+    {
+        "id": "13a90a014adf9bc5",
         "type": "websocket-listener",
         "path": "/ws/worklet",
         "wholemsg": "false"
@@ -2905,7 +2911,7 @@
         "id": "e271c933dcfb52c5",
         "type": "template",
         "z": "41d1b8798efe7e15",
-        "name": "Main",
+        "name": "Script",
         "field": "payload.script",
         "fieldType": "msg",
         "format": "javascript",
@@ -3444,8 +3450,8 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n    font-weight: 400;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #FAE100;\n}\ninput:disabled, select:disabled\n{\n    color: #737373!important;\n    opacity: 1!important;\n}\n\nbody\n{\n    padding-top: 150px;\n    background-color: #d6d6d6;\n    margin: 0px;\n    flex: content;\n    display: flex;\n    justify-content: center;\n}\n\n.ruleBox\n{\n    width: 40vw;\n    background-color: white;\n    border-radius: 5px;\n}\n\n    .ruleBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 18px;\n        font-size: 20px;\n        font-family: 'Roboto Slab';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n    }\n    .ruleBox > .subheader\n    {\n        width: 100%;\n        padding: 10px 15px;\n        text-transform: uppercase;\n        font-weight: 400;\n        background: linear-gradient(#737373, #878787);\n        color: white;\n        border-left: 2px solid whitesmoke;\n        border-right: 2px solid whitesmoke;\n\n    }\n    .ruleBox .ruleWrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n\n        .ruleWrapper > div /* RULE PARENT */\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: flex-start;\n            gap: 5px;\n            padding: 15px;\n            line-height: 35px;\n            border-left: 2px solid whitesmoke;\n            border-right: 2px solid whitesmoke;\n        }\n        .ruleWrapper > div:hover\n        {\n            width: 100%;\n            background-color: #fafafa;\n        }\n        .ruleWrapper:last-of-type > div:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n            border-bottom: 2px solid whitesmoke;\n            \n        }\n            .ruleWrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .ruleWrapper span.valuetype\n            {\n                background-color: #DA1884;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .ruleWrapper > div > span:first-of-type\n            {\n                width: 20%;\n                font-size: 15px;\n            }\n            .ruleWrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }",
-        "x": 1110,
+        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n    transition: 1000ms;\n    overflow: hidden;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n    font-weight: 400;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n    max-width: 150px;\n}\nbutton\n{\n    height: 70px;\n    font-size: 20px;\n    border: 0px;\n    margin: 2px;\n}\n.contentBox.login input\n{\n    width: 280px;\n    max-width: 280px;\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #FAE100;\n}\ninput:disabled, select:disabled\n{\n    color: #737373!important;\n    opacity: 1!important;\n}\n\nbody\n{\n    padding-left: 50px;\n    background-color: #d6d6d6;\n    margin: 0px;\n    \n    flex: content;\n    display: flex;\n    justify-content: center;\n    gap: 15px;\n}\n#body\n{\n    padding-top: 150px;\n}\n\n.contentBox\n{\n    background-color: white;\n    border-radius: 5px;\n    /*width: 100%;*/\n    max-height: 100%;\n    width: 600px;\n}\n\n.contentBox.hidden \n{\n    max-height: 0px;\n    overflow: hidden;\n}\n.contentBox.hidden *\n{\n    max-height: 0px;\n}\n.contentBox *\n{\n    max-height: 100%;\n}\n\n.contentBox:not(.hidden)\n{\n    margin-bottom: 20px;\n}\n\n.contentBox.locked > div.header\n{\n        background: linear-gradient(#575c65, #666d76)!important;\n}\n.contentBox.locked input, .contentBox.locked select\n{\n    pointer-events:none;\n}\n.contentBox.checked \n{\n    background-color: #7dd25989!important;\n}\n    /*.contentBox.rules\n    {\n        width: 30vw;  \n    }*/\n    .contentBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 18px;\n        font-size: 20px;\n        font-family: 'Roboto Slab';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n        transition-delay: 500ms;\n    }\n    .contentBox > .subheader\n    {\n        width: 100%;\n        padding: 10px 15px;\n        text-transform: uppercase;\n        font-weight: 400;\n        background: linear-gradient(#737373, #878787);\n        color: white;\n        border-left: 2px solid whitesmoke;\n        border-right: 2px solid whitesmoke;\n\n    }\n    .contentBox .wrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n        .wrapper > div /* WRAPPER OBJECT PARENT */\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: flex-end;\n            gap: 5px;\n            padding: 15px;\n            line-height: 35px;\n            border-left: 2px solid whitesmoke;\n            border-right: 2px solid whitesmoke;\n        }\n        .wrapper label\n        {\n            padding: 0px;\n            font-size: 18px;\n            line-height: 40px;\n            flex-grow: 2;\n            padding-left: 20px;\n            cursor: pointer;\n        }\n        .wrapper input[type='checkbox']\n        {\n            width: 25px;\n            cursor: pointer;\n        }\n        .wrapper:last-child > div:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n            border-bottom: 2px solid whitesmoke;\n        }\n\n            .contentBox.approve .wrapper > div:first-child\n            {\n                border-top-left-radius: 5px;\n                border-top-right-radius: 5px;\n                border-top: 2px solid whitesmoke;\n            }\n            .wrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .wrapper span.valuetype\n            {\n                background-color: #95afc0;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .wrapper > div > span:first-of-type\n            {\n                font-size: 15px;\n            }\n            .wrapper > div > div > span \n            {\n                font-size: 15px;\n            }\n            .wrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }\n            .wrapper .spacing\n            {\n                flex-grow: 2;\n            }\n\n.no-select {\n    user-select: none; /* supported by Chrome and Opera */\n   -webkit-user-select: none; /* Safari */\n   -khtml-user-select: none; /* Konqueror HTML */\n   -moz-user-select: none; /* Firefox */\n   -ms-user-select: none; /* Internet Explorer/Edge */\n}",
+        "x": 1250,
         "y": 840,
         "wires": [
             [
@@ -3457,17 +3463,17 @@
         "id": "b78999fe15906d87",
         "type": "template",
         "z": "8ea344595d9a442a",
-        "name": "JavaScript",
-        "field": "payload.script",
+        "name": "Rules JS",
+        "field": "payload.scripts.rules",
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "plain",
-        "template": "const ruleWrapper_system = document.querySelector(\".ruleWrapper_system\");\nconst ruleWrapper_user = document.querySelector(\".ruleWrapper_user\");\n\nconst rules = _rules != null ? _rules : []; // Rules are defined in change node previous to this\n\nconst operators = [\n    {\n        \"name\": \"= Skal være lig med\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"≠ Må ikke være lig med\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"< Skal være mindre end\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"> Skal være større end\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"{?} Indeholder\",\n        \"value\": \"contains\"\n    },\n    {\n        \"name\": \"{!} Indeholder ikke\",\n        \"value\": \"!contains\"\n    },\n    {\n        \"name\": \"[o] Skal være oplyst\",\n        \"value\": \"!null\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>\n        <div>    \n            <select id=\"input_${index}_operator\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"}>\n        `;\n\n    for (let i = 0; i < operators.length; i++) {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\" : \"\"}>${operators[i].name}</option>`;\n    }\n\n    let valueType = obj.type != null ? `<span class=\"valuetype\">${obj.type == \"number\" ? \"tal\" : obj.type == \"text\" ? \"tekst\" : \"\"}</span>` : ``;\n    returnHTML += `\n            </select>\n        </div>\n        <div>\n            <input id=\"input_${index}_value\" value=\"${obj.value}\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"} />\n        </div>\n        <span class=\"description\" title=\"${obj.description}\">?</span>\n        ${valueType}\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    if (rules[i][\"systemrule\"] != null && rules[i][\"systemrule\"] == true)\n        ruleWrapper_system.innerHTML += newInputField(i);\n    else\n        ruleWrapper_user.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"input\", () => {\n        OnInputChange(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n\n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n///\n//\nfunction OnInputChange(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n    let type = (rules[parseInt(sid[1])])[\"type\"];\n\n    switch (type) {\n        case \"int\": case \"float\": case \"double\": case \"number\":\n            inputField.value = inputField.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');\n            break;\n\n        case \"text\": case \"letters\":\n            inputField.value = inputField.value.replace(/[^A-Za-z]/g, '');\n            break;\n\n    }\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
-        "x": 950,
+        "template": "const ruleWrapper_system = document.querySelector(\".ruleWrapper_system\");\nconst ruleWrapper_user = document.querySelector(\".ruleWrapper_user\");\n\nconst rules = _rules != null ? _rules : []; // Rules are defined in change node previous to this\n\nconst operators = [\n    {\n        \"name\": \"= Skal være lig med\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"≠ Må ikke være lig med\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"< Skal være mindre end\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"> Skal være større end\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"{?} Indeholder\",\n        \"value\": \"contains\"\n    },\n    {\n        \"name\": \"{!} Indeholder ikke\",\n        \"value\": \"!contains\"\n    },\n    {\n        \"name\": \"[o] Skal være oplyst\",\n        \"value\": \"!null\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div>\n        <span>${obj.name}:</span>\n        <div class=\"spacing\">&nbsp;</div>\n        <div>    \n            <select id=\"input_${index}_operator\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"}>\n        `;\n\n    for (let i = 0; i < operators.length; i++) {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\" : \"\"}>${operators[i].name}</option>`;\n    }\n\n    let valueType = obj.type == \"number\" || obj.type == \"text\" ? `<span class=\"valuetype\">${obj.type == \"number\" ? \"tal\" : obj.type == \"text\" ? \"tekst\" : \"\"}</span>` : ``;\n    returnHTML += `\n            </select>\n        </div>\n        <div>\n            <input id=\"input_${index}_value\" value=\"${obj.value}\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"} />\n        </div>\n        ${valueType}\n        <span class=\"description\" title=\"${obj.description}\">?</span>\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    if (rules[i][\"systemrule\"] != null && rules[i][\"systemrule\"] == true)\n        ruleWrapper_system.innerHTML += newInputField(i);\n    else\n        ruleWrapper_user.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"input\", () => {\n        OnInputChange(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n\n    PublishWsMessage(JSON.stringify(message));\n    console.log(message);\n}\n\n///\n//\nfunction OnInputChange(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n    let type = (rules[parseInt(sid[1])])[\"type\"];\n\n    switch (type) {\n        case \"int\": case \"float\": case \"double\": case \"number\":\n            inputField.value = inputField.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');\n            break;\n\n        case \"text\": case \"letters\":\n            inputField.value = inputField.value.replace(/[^A-Za-z ]/g, '');\n            break;\n\n    }\n}\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/rules\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to ws/rules\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"ws/rules connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m) {\n    if (ws) { ws.send(m); }\n}",
+        "x": 940,
         "y": 840,
         "wires": [
             [
-                "3d5f7ca46f492c8b"
+                "cd73593a1a17cac8"
             ]
         ]
     },
@@ -3478,7 +3484,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1390,
+        "x": 1550,
         "y": 840,
         "wires": []
     },
@@ -3491,8 +3497,8 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>Regler</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\">\n\n    <div class=\"ruleBox\">\n      <div class=\"header\">Regler</div>\n      <div class=\"subheader\">Systemregler</div>\n      <div class=\"ruleWrapper ruleWrapper_system\"></div>\n      <div class=\"subheader\">Brugerregler</div>\n      <div class=\"ruleWrapper ruleWrapper_user\"></div>\n    </div>\n\n    <script>\n      const _rules = {{{payload.rules}}}\n    </script>\n    <script>\n      {{{payload.script}}}\n    </script>\n\n  </body>\n</html>",
-        "x": 1250,
+        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>Regler</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\" id=\"body\">\n\n    <div>\n\n      <div class=\"contentBox login\">\n        <div class=\"header\">WorkLet login</div>\n        <div class=\"wrapper\">\n          <div>\n            <div>\n              <span>E-mail adresse</span><br />\n              <input id=\"WorkLetEmail\" />\n            </div>\n            <div>\n              <span>Kodeord</span><br />\n              <input id=\"WorkLetPass\" type=\"password\" />\n            </div>\n          </div>\n        </div>\n      </div>\n      \n      <div class=\"contentBox approve\" id=\"approveLogin\">\n        <div class=\"wrapper\">\n          <div>\n            <input type=\"checkbox\" id=\"acceptLogin\" name=\"acceptLogin\" value=\"true\">\n            <label for=\"acceptLogin\" class=\"no-select\" id=\"acceptLoginLabel\">Godkend loginoplysninger</label>\n          </div>\n        </div>\n      </div>\n\n\n\n      <div class=\"contentBox rules hidden\">\n        <div class=\"header\">Regler</div>\n        <div class=\"subheader\">Systemregler</div>\n        <div class=\"wrapper ruleWrapper_system\"></div>\n        <div class=\"subheader\">Brugerregler</div>\n        <div class=\"wrapper ruleWrapper_user\"></div>\n      </div>\n\n      <div class=\"contentBox approve hidden\" id=\"approveRules\">\n        <div class=\"wrapper\">\n          <div>\n            <input type=\"checkbox\" id=\"acceptRules\" name=\"acceptRules\" value=\"true\">\n            <label for=\"acceptRules\" class=\"no-select\" id=\"acceptRulesLabel\">Godkend regelsæt</label>\n          </div>\n        </div>\n      </div>\n\n      \n\n\n      <div class=\"contentBox actions hidden\">\n        <div class=\"header\">Tilskudsberegning</div>\n        <div class=\"subheader\">Anbefalede handlinger</div>\n        <div class=\"wrapper\">\n          <button type=\"button\" >Start beregning</button>\n        </div>\n      </div>\n\n    </div>\n\n    <script>\n      const _rules = {{{payload.rules}}}\n\n      /* RULES */\n\n      {{{payload.scripts.rules}}}\n\n      /* UI */\n\n      {{{payload.scripts.ui}}}\n    </script>\n\n  </body>\n</html>",
+        "x": 1410,
         "y": 840,
         "wires": [
             [
@@ -3536,7 +3542,7 @@
         "z": "8ea344595d9a442a",
         "name": "Endpoint",
         "info": "",
-        "x": 1400,
+        "x": 1560,
         "y": 800,
         "wires": []
     },
@@ -3572,10 +3578,10 @@
         "type": "websocket in",
         "z": "8ea344595d9a442a",
         "name": "",
-        "server": "43ca9917319c367b",
+        "server": "c1ae0d59916344e0",
         "client": "",
-        "x": 160,
-        "y": 920,
+        "x": 150,
+        "y": 940,
         "wires": [
             [
                 "54ebf542897cb37d"
@@ -3594,7 +3600,7 @@
         "y": 840,
         "wires": [
             [
-                "b78999fe15906d87"
+                "c404f88972fe3400"
             ]
         ]
     },
@@ -3634,7 +3640,7 @@
         "action": "obj",
         "pretty": false,
         "x": 330,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "9d2701d9f3f3c610"
@@ -3661,7 +3667,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "68f7f88bbaaedb3a"
@@ -3682,7 +3688,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 960,
-        "y": 920,
+        "y": 940,
         "wires": []
     },
     {
@@ -3734,11 +3740,87 @@
         "to": "",
         "reg": false,
         "x": 520,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "a7100eb3aada3d3c"
             ]
+        ]
+    },
+    {
+        "id": "cd73593a1a17cac8",
+        "type": "template",
+        "z": "8ea344595d9a442a",
+        "name": "UI JS",
+        "field": "payload.scripts.ui",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "const checkboxRules = document.querySelector('#acceptRules'),\n      checkboxLogin = document.querySelector('#acceptLogin'),\n\n    acceptRulesLabel = document.querySelector('#acceptRulesLabel'),\n    acceptLoginLabel = document.querySelector('#acceptLoginLabel'),\n\n    loginEmail = document.querySelector('#WorkLetEmail'),\n    loginPass = document.querySelector('#WorkLetPass'),\n\n    contentBoxApproveRules = document.querySelector('.contentBox.approve#approveRules'),\n    contentBoxApproveLogin = document.querySelector('.contentBox.approve#approveLogin'),\n      \n      contentBoxActions = document.querySelector('.contentBox.actions'),\n      contentBoxRules = document.querySelector('.contentBox.rules'),\n      contentBoxLogin = document.querySelector('.contentBox.login'),\n      \n    body = document.querySelector('#body');\n\n\nvar paddingTop = 150;\n\n\n// APROVE LOGIN //\n\ncheckboxLogin.addEventListener('change', event => {\n    if (checkboxLogin.checked == true)\n    {\n        // Make checkbox bg green\n        contentBoxApproveLogin.classList.add(\"checked\");\n\n        // Hide this box\n        contentBoxLogin.classList.add(\"hidden\");\n\n        if (checkboxRules.checked != true)\n        {\n            // Show next box\n            contentBoxRules.classList.remove(\"hidden\");\n            contentBoxApproveRules.classList.remove(\"hidden\");\n        }\n\n        // Change approve label\n        acceptLoginLabel.innerHTML = \"Loginoplysninger godkendt\";\n\n        // Send to node-red\n        ApproveWorkLetLogin();\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= 70) + \"px\";\n        if (paddingTop < 30) body.style.paddingTop = (paddingTop = 30) + \"px\";\n    }\n    else\n    {\n        // Remove green checkbox bg\n        contentBoxApproveLogin.classList.remove(\"checked\");\n\n        // Un-hide this box\n        contentBoxLogin.classList.remove(\"hidden\");\n\n        // Reverse approve label\n        acceptLoginLabel.innerHTML = \"Godkend loginoplysninger\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop += 70) + \"px\";\n    }\n\n});\n\n\n// APROVE RULES //\n\ncheckboxRules.addEventListener('change', event => {\n    if (checkboxRules.checked == true)\n    {\n        // Make checkbox bg green\n        contentBoxApproveRules.classList.add(\"checked\");\n\n        // Hide this box\n        contentBoxRules.classList.add(\"hidden\");\n\n        // Show next box\n        contentBoxActions.classList.remove(\"hidden\");\n\n        // Change approve label\n        acceptRulesLabel.innerHTML = \"Regelsæt godkendt\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= 70) + \"px\";\n        if (paddingTop < 30) body.style.paddingTop = (paddingTop = 30) + \"px\";\n    }\n    else\n    {\n        // Remove green checkbox bg\n        contentBoxApproveRules.classList.remove(\"checked\");\n\n        // Un-hide this box\n        contentBoxRules.classList.remove(\"hidden\");\n\n        // Hide next box\n        contentBoxActions.classList.add(\"hidden\");\n\n        // Reverse approve label\n        acceptRulesLabel.innerHTML = \"Godkend regelsæt\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop += 70) + \"px\";\n    }\n\n});\n\n\n\n\n\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to ws/worklet\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"ws/worklet connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction ApproveWorkLetLogin() {\n    let loginObj = {\n        \"user\": loginEmail.value,\n        \"pass\": loginPass.value\n    }\n    if (ws){\n        ws.send(JSON.stringify(loginObj));\n        }\n}",
+        "output": "str",
+        "x": 1110,
+        "y": 840,
+        "wires": [
+            [
+                "3d5f7ca46f492c8b"
+            ]
+        ]
+    },
+    {
+        "id": "c404f88972fe3400",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.scripts",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 835,
+        "y": 840,
+        "wires": [
+            [
+                "b78999fe15906d87"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4bbf05574c4eb354",
+        "type": "websocket in",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "server": "13a90a014adf9bc5",
+        "client": "",
+        "x": 160,
+        "y": 1020,
+        "wires": [
+            [
+                "55f7483f97a32598"
+            ]
+        ]
+    },
+    {
+        "id": "55f7483f97a32598",
+        "type": "json",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 1020,
+        "wires": [
+            []
         ]
     },
     {
