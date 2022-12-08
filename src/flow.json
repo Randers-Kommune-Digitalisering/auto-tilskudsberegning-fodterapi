@@ -1950,7 +1950,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.persondata|\t{\t    \"danmarkgruppe\": danmarkgruppe\t        ~> $replace(\"Ikke oplyst\", \"-1\")\t        ~> $replace(\"Nej\", \"-1\")\t        ~> $replace(\"Ja - Gruppe \", \"\")\t        ~> $replace(\"-\", \"-1\")\t        ~> $number()\t}\t|",
+                "to": "$.payload ~> |$.persondata|\t(\t{\t    \"danmarkgruppe\": danmarkgruppe\t    ~> $replace(\"Ikke oplyst\", \"0\")\t    ~> $replace(\"Nej\", \"0\")\t    ~> $replace(\"Ja - Gruppe \", \"\")\t    ~> $replace(\"-\", \"0\")\t    ~> $number\t})\t|",
                 "tot": "jsonata"
             }
         ],
@@ -1963,7 +1963,7 @@
         "y": 360,
         "wires": [
             [
-                "cfcd26b205856ce4"
+                "76070a712d0b8f3e"
             ]
         ]
     },
@@ -2231,8 +2231,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1250,
-        "y": 460,
+        "x": 510,
+        "y": 540,
         "wires": []
     },
     {
@@ -2285,7 +2285,6 @@
         "y": 400,
         "wires": [
             [
-                "e0d54d4a55253a49",
                 "75e8e1a4e51d600c"
             ]
         ]
@@ -2314,6 +2313,34 @@
         "wires": [
             [
                 "baefa4faa88d4ac2"
+            ]
+        ]
+    },
+    {
+        "id": "76070a712d0b8f3e",
+        "type": "change",
+        "z": "57c40cb841470eb3",
+        "name": "Kontroller sager",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|(\t\t$sagForeligger := function($type, $titel)\t{\t\t    sager[$type = 'A' ?\t            type ~> $lowercase ~> $contains($titel)\t        and \t            titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains($titel)] ?\t        true : false\t};\t\t{\t\t    \"udvidetHelbredstillaeg\": $sagForeligger('A', 'udvidet helbredstill'),\t    \"almHelbredstillaeg\": $sagForeligger('B', 'almindeligt helbredstill'),\t    \"helbredskort\": $sagForeligger('B', 'gskort')\t\t}\t\t)|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 440,
+        "wires": [
+            [
+                "cfcd26b205856ce4",
+                "6e6456e73cf0d51d"
             ]
         ]
     },
@@ -3443,7 +3470,7 @@
         "y": 860,
         "wires": [
             [
-                "499cd9ebcec444da"
+                "fb217fc355c8774a"
             ]
         ]
     },
@@ -3456,12 +3483,12 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@300;400;700;900&display=swap');\n\n*\n{\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n    transition: 1000ms;\n    max-height: 100%;\n}\n*:not(#main, body, #body)\n{\n    box-sizing: border-box;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n    font-weight: 400;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n    max-width: 150px;\n}\nbutton\n{\n    height: 70px;\n    font-size: 20px;\n    border: 0px;\n    margin: 2px;\n    cursor: pointer;\n    background: linear-gradient(whitesmoke, #fafafa);\n    text-align: left;\n    padding-left: 70px;\n}\nbutton:hover\n{\n    background: linear-gradient(ebebeb, whitesmoke);\n}\n.contentBox.login input\n{\n    width: 100%;\n    max-width: 100%;\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #FAE100;\n}\ninput:disabled, select:disabled\n{\n    color: #737373!important;\n    opacity: 1!important;\n}\n\nbody\n{\n    padding-left: 50px;\n    padding-bottom: 30px;\n    \n    background-color: #d6d6d6;\n    margin: 0px;\n    \n    flex: content;\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n#body\n{\n    padding-top: 150px;\n}\n    #main\n    {\n        width: 600px;\n        transition-delay: 500ms;\n    }\n\n.contentBox\n{\n    background-color: white;\n    border-radius: 5px;\n    width: 100%;\n    /*width: 600px;*/\n    overflow: hidden;\n}\n\n.hidden \n{\n    max-height: 0px!important;\n    overflow: hidden!important;\n}\n.hidden *\n{\n    max-height: 0px!important;\n    overflow: hidden!important;\n}\n.contentBox *\n{\n    overflow: hidden;\n}\n\n.contentBox:not(.hidden)\n{\n    margin-bottom: 20px;\n}\n.contentBox.locked > div.header\n{\n        background: linear-gradient(#575c65, #666d76)!important;\n}\n.contentBox.locked input, .contentBox.locked select\n{\n    pointer-events:none;\n}\n.contentBox.checked \n{\n    background-color: #7dd25989!important;\n}\n\n    /*.contentBox.rules\n    {\n        width: 30vw;  \n    }*/\n    .contentBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 18px;\n        font-size: 20px;\n        font-family: 'Roboto';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n        transition-delay: 500ms;\n    }\n    .contentBox > .subheader\n    {\n        width: 100%;\n        padding-left: 20px;\n        padding-right: 20px;\n        line-height: 40px;\n        text-transform: uppercase;\n        font-weight: 300;\n        background: linear-gradient(#737373, #878787);\n        font-family: 'Roboto';\n        color: white;\n        border-left: 2px solid whitesmoke;\n        border-right: 2px solid whitesmoke;\n    }\n    .contentBox .wrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n    .contentBox .actionList\n    {\n        display: flex;\n        flex-direction: column;\n    }\n        .wrapper > div, .actionList > div#wrappedStartButton /* WRAPPER OBJECT PARENT */\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-between;\n            gap: 5px;\n            padding: 15px;\n            line-height: 35px;\n            border-left: 2px solid whitesmoke;\n            border-right: 2px solid whitesmoke;\n        }\n        .wrapper label, .actionList label\n        {\n            padding: 0px;\n            font-size: 18px;\n            line-height: 40px;\n            flex-grow: 2;\n            padding-left: 20px;\n            cursor: pointer;\n        }\n        .wrapper input[type='checkbox'], .actionList input[type='checkbox']\n        {\n            width: 25px;\n            cursor: pointer;\n        }\n        .wrapper:last-child > div:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n            border-bottom: 2px solid whitesmoke;\n        }\n\n            .contentBox.approve .wrapper > div:first-child\n            {\n                border-top-left-radius: 5px;\n                border-top-right-radius: 5px;\n                border-top: 2px solid whitesmoke;\n            }\n            .wrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .wrapper span.valuetype\n            {\n                background-color: #95afc0;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .wrapper > div > span:first-of-type\n            {\n                font-size: 15px;\n            }\n            .wrapper > div > div > span \n            {\n                font-size: 15px;\n            }\n            .wrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }\n            .wrapper .spacing\n            {\n                flex-grow: 2;\n            }\n\n.no-select {\n    user-select: none; /* supported by Chrome and Opera */\n   -webkit-user-select: none; /* Safari */\n   -khtml-user-select: none; /* Konqueror HTML */\n   -moz-user-select: none; /* Firefox */\n   -ms-user-select: none; /* Internet Explorer/Edge */\n}\n\n\n.w50 {\n    width: 100%;\n    max-width: 45%;\n}\n.w40 {\n    flex-grow: 10;\n    justify-self: flex-start;\n}\n.w20 {\n    flex-grow: 1;\n    justify-self: flex-end;\n    width: 15%;\n}\n\n.disabled {\n    background-color: #c8c8c8!important;\n}\n.disabled input, .disabled select, .disabled label\n{\n    pointer-events: none;\n}\n\n\n\n.column\n{\n    flex-direction: column!important;\n}\n.flex\n{\n    display: flex;\n    justify-content: space-between;\n}\n.floatr\n{\n    float: right;\n    position: relative;\n}\n\n\n\n\n\n\n\n.citizen\n{\n    background-color: #e8e2f7;\n}\n.receipt\n{\n    background-color: #f5f4dd;\n    border-top-left-radius: 8px;\n    border-top-right-radius: 8px;\n}\n.suggestedActions\n{\n    background-color: #e2f7ee;\n    border-bottom-left-radius: 8px;\n    border-bottom-right-radius: 8px;\n    padding-bottom: 7px;\n}\n.actionList > div\n{\n    width: 100%;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    gap: 5px;\n    padding: 15px;\n    line-height: 35px;\n    border-left: 2px solid whitesmoke;\n    border-right: 2px solid whitesmoke;\n}\n\n\n    .receipt .flex > div:not(:first-of-type)\n    {\n        text-align: right;\n    }\n    \n    .receipt .flex:last-child,\n    .citizen .flex:last-child,\n    .suggestedActions .flex:last-child\n    {\n        padding-bottom: 3px;\n    }\n    .receipt > div,\n    .citizen > div,\n    .suggestedActions > div\n    {\n        padding-left: 20px;\n        padding-right: 20px;\n        line-height: 35px;\n    }\n    .receipt .header,\n    .citizen .header,\n    .suggestedActions .header\n    {\n        text-transform: uppercase;\n        font-family: 'Roboto';\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 45px;\n        background-color: #00000009;\n    }\n    .receipt .subheader,\n    .citizen .subheader,\n    .suggestedActions .subheader\n    {\n        background-color: #00000009;\n        text-transform: uppercase;\n        font-weight: 900;\n        line-height: 20px;\n        padding-bottom: 8px;\n    }\n        .receipt .subheader *,\n        .citizen .subheader *,\n        .suggestedActions .subheader *\n        {\n            font-size: 11px;\n            font-family: 'Roboto';\n            font-weight: 300;\n            align-self: flex-end;\n        }\n        .receipt .fakturanr\n        {\n            font-size: 12px;\n            padding-left: 20px;\n            color: #95afc0;\n        }",
-        "x": 1270,
+        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@300;400;700;900&display=swap');\n\n*\n{\n    font-family: 'Roboto Slab';\n    font-weight: 300;\n    font-size: 13px;\n    transition: 1000ms;\n    max-height: 100%;\n}\n*:not(#main, body, #body)\n{\n    box-sizing: border-box;\n}\ninput, select\n{\n    border-radius: 3px;\n    background-color: whitesmoke;\n    border: 1px solid #ebebeb;\n    line-height: 35px;\n    min-height: 37px;\n    padding: 0px 10px;\n    font-weight: 400;\n}\ninput\n{\n    background: linear-gradient(whitesmoke, #fafafa);\n    max-width: 150px;\n}\nbutton\n{\n    height: 70px;\n    font-size: 20px;\n    border: 0px;\n    margin: 2px;\n    cursor: pointer;\n    background: linear-gradient(whitesmoke, #fafafa);\n    text-align: left;\n    padding-left: 70px;\n}\nbutton:hover\n{\n    background: linear-gradient(ebebeb, whitesmoke);\n}\n.contentBox.login input\n{\n    width: 100%;\n    max-width: 100%;\n}\nselect\n{\n    background: linear-gradient(whitesmoke, #e8e8e8);\n}\ninput:focus, select:focus\n{\n    outline: 1px solid #FAE100;\n}\ninput:disabled, select:disabled\n{\n    color: #737373!important;\n    opacity: 1!important;\n}\n\nbody\n{\n    padding-left: 50px;\n    padding-bottom: 30px;\n    \n    background-color: #d6d6d6;\n    margin: 0px;\n    \n    flex: content;\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n#body\n{\n    padding-top: 150px;\n}\n    #main\n    {\n        width: 600px;\n        transition-delay: 500ms;\n    }\n\n.contentBox\n{\n    background-color: white;\n    border-radius: 5px;\n    width: 100%;\n    /*width: 600px;*/\n    overflow: hidden;\n}\n\n.hidden \n{\n    max-height: 0px!important;\n    overflow: hidden!important;\n}\n.hidden *\n{\n    max-height: 0px!important;\n    overflow: hidden!important;\n}\n.contentBox *\n{\n    overflow: hidden;\n}\n\n.contentBox:not(.hidden)\n{\n    margin-bottom: 20px;\n}\n.contentBox.locked > div.header\n{\n        background: linear-gradient(#575c65, #666d76)!important;\n}\n.contentBox.locked input, .contentBox.locked select\n{\n    pointer-events:none;\n}\n.contentBox.checked \n{\n    background-color: #7dd25989!important;\n}\n\n    /*.contentBox.rules\n    {\n        width: 30vw;  \n    }*/\n    .contentBox > div.header\n    {\n        width: 100%;\n        background: linear-gradient(#1B365D, #3c506e);\n        /* background-color: #1B365D; /*#3c506e;*/\n        line-height: 70px;\n        color: white;\n        padding-left: 18px;\n        font-size: 20px;\n        font-family: 'Roboto';\n        font-weight: 400;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border: 2px solid whitesmoke;\n        border-top-left-radius: 5px;\n        border-top-right-radius: 5px;\n        transition-delay: 500ms;\n    }\n    .contentBox > .subheader\n    {\n        width: 100%;\n        padding-left: 20px;\n        padding-right: 20px;\n        line-height: 40px;\n        text-transform: uppercase;\n        font-weight: 300;\n        background: linear-gradient(#737373, #878787);\n        font-family: 'Roboto';\n        color: white;\n        border-left: 2px solid whitesmoke;\n        border-right: 2px solid whitesmoke;\n    }\n    .contentBox .wrapper\n    {\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        gap: 2px;\n    }\n    .contentBox .actionList\n    {\n        display: flex;\n        flex-direction: column;\n    }\n        .wrapper > div, .actionList > div#wrappedStartButton /* WRAPPER OBJECT PARENT */\n        {\n            width: 100%;\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-between;\n            gap: 5px;\n            padding: 15px;\n            line-height: 35px;\n            border-left: 2px solid whitesmoke;\n            border-right: 2px solid whitesmoke;\n        }\n        .wrapper label, .actionList label\n        {\n            padding: 0px;\n            font-size: 18px;\n            line-height: 40px;\n            flex-grow: 2;\n            padding-left: 20px;\n            cursor: pointer;\n        }\n        .wrapper input[type='checkbox'], .actionList input[type='checkbox']\n        {\n            width: 25px;\n            cursor: pointer;\n        }\n        .wrapper:last-child > div:last-child\n        {\n            border-bottom-left-radius: 5px;\n            border-bottom-right-radius: 5px;\n            border-bottom: 2px solid whitesmoke;\n        }\n\n            .contentBox.approve .wrapper > div:first-child\n            {\n                border-top-left-radius: 5px;\n                border-top-right-radius: 5px;\n                border-top: 2px solid whitesmoke;\n            }\n            .wrapper > div > span\n            {\n                flex-grow: 0;\n            }\n            .wrapper span.valuetype\n            {\n                background-color: #95afc0;\n                color: white;\n                border-radius: 3px;\n                padding: 0px 5px;\n                opacity: 0.7;\n            }\n            .wrapper > div > span:first-of-type\n            {\n                font-size: 15px;\n            }\n            .wrapper > div > div > span \n            {\n                font-size: 15px;\n            }\n            .wrapper > div > span.description\n            {\n                background-color: #FAE100;\n                border-radius: 3px;\n                padding: 0px 10px;\n                opacity: 0.7;\n                color: black;\n                font-size: 15px;\n                font-weight: 400;\n                cursor: help;\n            }\n            .wrapper .spacing\n            {\n                flex-grow: 2;\n            }\n\n.no-select {\n    user-select: none; /* supported by Chrome and Opera */\n   -webkit-user-select: none; /* Safari */\n   -khtml-user-select: none; /* Konqueror HTML */\n   -moz-user-select: none; /* Firefox */\n   -ms-user-select: none; /* Internet Explorer/Edge */\n}\n\n\n.w50 {\n    width: 100%;\n    max-width: 45%;\n}\n.w40 {\n    flex-grow: 10;\n    justify-self: flex-start;\n}\n.w20 {\n    flex-grow: 1;\n    justify-self: flex-end;\n    width: 15%;\n}\n\n.disabled {\n    background-color: #c8c8c8!important;\n}\n.disabled input, .disabled select, .disabled label\n{\n    pointer-events: none;\n}\n\n\n\n.column\n{\n    flex-direction: column!important;\n}\n.flex\n{\n    display: flex;\n    justify-content: space-between;\n}\n.floatr\n{\n    float: right;\n    position: relative;\n}\n\n\n\n\n\n\n\n.citizen\n{\n    background-color: #e8e2f7;\n}\n.receipt\n{\n    background-color: #f5f4dd;\n    border-top-left-radius: 8px;\n    border-top-right-radius: 8px;\n}\n.suggestedActions\n{\n    background-color: #e2f7ee;\n    border-bottom-left-radius: 8px;\n    border-bottom-right-radius: 8px;\n    padding-bottom: 7px;\n}\n.actionList > div\n{\n    width: 100%;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    gap: 5px;\n    padding: 15px;\n    line-height: 35px;\n    border-left: 2px solid whitesmoke;\n    border-right: 2px solid whitesmoke;\n}\n\n\n    .receipt .flex > div:not(:first-of-type)\n    {\n        text-align: right;\n    }\n    \n    .receipt .flex:last-child,\n    .citizen .flex:last-child,\n    .suggestedActions .flex:last-child\n    {\n        padding-bottom: 3px;\n    }\n    .receipt > div,\n    .citizen > div,\n    .suggestedActions > div\n    {\n        padding-left: 20px;\n        padding-right: 20px;\n        line-height: 35px;\n    }\n    .receipt .header,\n    .citizen .header,\n    .suggestedActions .header\n    {\n        text-transform: uppercase;\n        font-family: 'Roboto';\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 45px;\n        background-color: #00000009;\n    }\n    .receipt .subheader,\n    .citizen .subheader,\n    .suggestedActions .subheader\n    {\n        background-color: #00000009;\n        text-transform: uppercase;\n        font-weight: 900;\n        line-height: 20px;\n        padding-bottom: 8px;\n    }\n        .receipt .subheader *,\n        .citizen .subheader *,\n        .suggestedActions .subheader *\n        {\n            font-size: 11px;\n            font-family: 'Roboto';\n            font-weight: 300;\n            align-self: flex-end;\n        }\n        .receipt .fakturanr\n        {\n            font-size: 12px;\n            padding-left: 20px;\n            color: #95afc0;\n        }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* RESULTS */\n@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@300;400;500;600;700;900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n}\na\n{\n    text-decoration: none;\n    color: rgb(59, 59, 59);\n}\nbody\n{\n    max-width: 100vw;\n    margin: 0px;\n    scrollbar-gutter: stable;\n}\n.results\n{\n    position: absolute;\n    left: 0px;\n    right: 0px;\n    bottom: 0px;\n\n    background-color: #a8a8a8;\n    width: 100%;\n    max-height: 0px;\n    min-height: 100vh;\n    scrollbar-gutter: stable;\n\n    display: flex;\n    overflow-x: hidden;\n    justify-content: center;\n\n    font-family: 'Roboto Slab';\n    font-weight: 400;\n    font-size: 13px;\n    color: rgb(59, 59, 59);\n\n    transition-duration: 1200ms;\n}\n  \n    .results:not(.visible)\n    {\n        min-height: 0vh;\n    }\n    .results > div.main\n    {\n        max-width: 1700px;\n        min-width: 900px;\n\n        margin-top: 170px;\n    }\n\n/* MENU / KATEGORIER */\n.menu\n{\n    position: fixed;\n    z-index: 2;\n    \n    display: flex;\n    justify-content: center;\n    gap: 27px;\n\n    padding-top: 50px;\n    padding-bottom: 18px;\n    background-color: #999999ee;\n\n    left: 18px;\n    right: 18px;\n}\n    .menu > div\n    {\n        display: flex;\n        height: 60px;\n        transition-duration: 150ms;\n\n        user-select: none; /* supported by Chrome and Opera */\n        -webkit-user-select: none; /* Safari */\n        -khtml-user-select: none; /* Konqueror HTML */\n        -moz-user-select: none; /* Firefox */\n        -ms-user-select: none; /* Internet Explorer/Edge */\n    }\n        .menu > div.selected\n        {\n            margin-top: 12px;\n            border: 5px solid rgba(255, 255, 255, 0.411);\n        }\n        .menu > div.green\n        {\n            background-color: #DAE5D7;\n        }\n        .menu > div.red\n        {\n            background-color: #e5d7d7;\n        }\n        .menu > div.yellow\n        {\n            background-color: #e5e0d7;\n        }\n    .menu > div:hover\n    {\n        scale: 1.05;\n        cursor: pointer;\n    }\n        .menu > div > div\n        {\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-end;\n        }\n        .menu > div > div:first-child\n        {\n            background: rgb(1, 1, 1, 0.08);\n            justify-content: flex-end;\n\n            width: 70px;\n        }\n            .menu > div > div:first-child > div /* Procent-visning af relativt antal faktura i kategori */\n            {\n                display: flex;\n                flex-direction: column;\n            }\n                .menu > div.green > div:first-child > div\n                {\n                    background-color: #80bf80;\n                }\n                .menu > div.red > div:first-child > div\n                {\n                    background-color: #bf8080;\n                }\n                .menu > div.yellow > div:first-child > div\n                {\n                    background-color: #bfb980;\n                }\n            .menu > div > div:first-child > div > span /* Procent ^^ i tekst ovenover boks */\n            {\n                align-self: center;\n                font-size: 9px;\n                font-weight: 600;\n                margin-top: -11.5px;\n            }\n                .menu > div.green > div:first-child > div > span\n                {\n                    color: #639463;\n                }\n                .menu > div.red > div:first-child > div > span\n                {\n                    color: #946363;\n                }\n                .menu > div.yellow > div:first-child > div > span\n                {\n                    color: #948f63;\n                }\n            .menu > div > div:first-child > div > span > span\n            {\n                font-size: 7px;\n            }\n        .menu > div > div:last-child /* Kategori-titel */\n        {\n            padding-left: 20px;\n            justify-content: center;\n\n            width: 170px;\n\n            font-family: 'Roboto';\n            text-transform: uppercase;\n            font-size: 12px;\n            font-weight: 500;\n            letter-spacing: 1px;\n            color: rgb(1, 1, 1, 0.65);\n        }\n    \n\n\n.itemList\n{\n    display: flex;\n    flex-direction: column;\n}\n\n/* LIST ITEM */\n.listItem\n{\n    display: flex;\n    padding-bottom: 35px;\n}\n    .listItem > div\n    {\n        align-self: flex-start;\n    \n        min-width: 270px;\n    }\n        .listItem .header\n        {\n            line-height: 38px;\n            background: rgb(1, 1, 1, 0.08);\n\n            text-transform: uppercase;\n            font-family: 'Roboto';\n            font-weight: 400;\n            font-size: 11px;\n            letter-spacing: 0.45px;\n            color: rgb(1, 1, 1, 0.55);\n\n            padding-left: 14px;\n            padding-right: 14px;\n\n            user-select: none; /* supported by Chrome and Opera */\n            -webkit-user-select: none; /* Safari */\n            -khtml-user-select: none; /* Konqueror HTML */\n            -moz-user-select: none; /* Firefox */\n            -ms-user-select: none; /* Internet Explorer/Edge */\n        }\n            .listItem .header:hover\n            {\n                cursor: grab;\n            }\n            .header > span\n            {\n                position: relative;\n                float: right;\n                margin-right: 3px;\n            }\n            .listItem > div:first-child .header\n            {\n                padding-right: 30px;\n            }\n                #togglePop\n                {\n                    cursor: pointer;\n                }\n                span > .popmenu\n                {\n                    position: absolute;\n                    float: left;\n                    top: 20px;\n                    right: 18px;\n                    width: 150px;\n\n                    font-size: 10px;\n                    line-height: 32px;\n\n                    background-color: rgb(255, 255, 255, 1);\n                    box-shadow: 0px 0px 30px -10px grey;\n\n                    display: flex;\n                    flex-direction: column;\n\n                    max-height: 0vh;\n                    max-width: 0vh;\n                    overflow: hidden;\n                    white-space: nowrap;\n                    text-overflow: ellipsis;\n\n                    transition-duration: 100ms;\n                }\n                    #togglePop.show > .popmenu\n                    {\n                        max-height: 30vh;\n                        max-width: 100vh;\n\n                        transition-duration: 1000ms;\n                    }\n                    .popmenu > a\n                    {\n                        padding: 0px 10px;\n                    }\n                    .popmenu > a:hover\n                    {\n                        background-color: rgb(240, 240, 240, 1); \n                    }\n\n    /* Borger */\n    .listItem > div:first-child\n    {\n        flex-grow: 0;\n        background-color: #DDDEFE;\n        padding-bottom: 8px;\n    }\n        .listItem > div:first-child > .cpr\n        {\n            padding: 15px 18px;\n            font-size: 17px;\n            font-weight: 400;\n            letter-spacing: 0.3px;\n        }\n        .listItem > div:first-child > .sag\n        {\n            padding: 4px 14px;\n            background: rgb(1, 1, 1, 0.04);\n            margin-bottom: 2px;\n\n            text-transform: uppercase;\n            font-family: 'Roboto';\n            line-height: 18px;\n            font-size: 10px;\n            letter-spacing: 0.45px;\n        }\n            .sag > span\n            {\n                font-size: 17px;\n            }\n            .sag.findes\n            {\n                color: #46a114;\n                font-weight: 400;\n            }\n            .sag.findes-ikke\n            {\n                color: #a15814;\n                font-weight: 400;\n            }\n        .listItem > div:first-child > .persondata\n        {\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-evenly;\n\n            padding: 9px 0px;\n            width: 98%;\n        }\n            .listItem > div:first-child > .persondata > div\n            {\n                text-align: center;\n                min-width: 30%;\n                font-family: 'Roboto';\n            }\n    \n\n    /* Faktura + Handlinger */\n    .listItem > div:last-child\n    {\n        flex-grow: 1;\n        justify-self: stretch;\n\n        display: flex;\n        flex-direction: column;\n\n        min-width: 600px;\n    }\n\n        .listItem > div:last-child > .faktura\n        {\n            background-color: #FEFEF3;\n\n            margin-left: -18px;\n            margin-top: -5px;\n            margin-right: -5px;\n\n            padding-bottom: 8px;\n\n            border: 5px solid #a8a8a8;\n        }\n            .listItem > div:last-child > .faktura > div:not(.header)\n            {\n                padding: 8px 14px;\n            }\n            .listItem > div:last-child > .faktura > .ydelse\n            {\n                display: flex;\n                align-items: flex-end;\n                gap: 10px;\n            }\n                /* Små overskrifter */\n                .listItem > div:last-child > .faktura > .ydelse span, .listItem > div:first-child > .persondata > div > span\n                {\n                    text-transform: uppercase;\n                    font-family: 'Roboto';\n                    font-size: 9px;\n                    color: rgb(159, 159, 159);\n                }\n                .listItem > div:last-child > .faktura > .ydelse > .titel\n                {\n                    flex-grow: 1;\n                }\n                .listItem > div:last-child > .faktura > .ydelse > div:not(.titel)\n                {\n                    text-align: right;\n                }\n                    .listItem > div:last-child > .faktura > .ydelse > div > div\n                    {\n                        margin-top: 8px;\n                    }\n\n        .listItem > div:last-child > .handling\n        {\n            background-color: #F9E1DD;\n            display: flex;\n\n            margin-bottom: 5px;\n            border-left: 5px solid #a8a8a8;\n            margin-right: 18px;\n        }\n            .listItem > div:last-child > .handling > div:not(.header)\n            {\n                line-height: 38px;\n                padding-left: 12px;\n            }\n\n/* Ghost */\n.ghost\n{\n    position: absolute;\n    pointer-events: none;\n    z-index: 10;\n\n    opacity: 0;\n    scale: 0.8;\n}\n.ghost.visible \n{\n    opacity: 0.65;\n}",
+        "x": 1250,
         "y": 840,
         "wires": [
             [
-                "a6987b61fee6301a"
+                "5939609dd7538821"
             ]
         ]
     },
@@ -3475,7 +3502,7 @@
         "format": "javascript",
         "syntax": "plain",
         "template": "const ruleWrapper_system = document.querySelector(\".ruleWrapper_system\");\nconst ruleWrapper_user = document.querySelector(\".ruleWrapper_user\");\n\nconst rules = _rules != null ? _rules : []; // Rules are defined in change node previous to this\n\nconst operators = [\n    {\n        \"name\": \"= Skal være lig med\",\n        \"value\": \"==\"\n    },\n    {\n        \"name\": \"≠ Må ikke være lig med\",\n        \"value\": \"!=\"\n    },\n    {\n        \"name\": \"< Skal være mindre end\",\n        \"value\": \"<\"\n    },\n    {\n        \"name\": \"> Skal være større end\",\n        \"value\": \">\"\n    },\n    {\n        \"name\": \"{?} Indeholder\",\n        \"value\": \"contains\"\n    },\n    {\n        \"name\": \"{!} Indeholder ikke\",\n        \"value\": \"!contains\"\n    },\n    {\n        \"name\": \"[o] Skal være oplyst\",\n        \"value\": \"!null\"\n    }\n]\n\n\nfunction newSelector(selectedValue) {\n    return `\n    `;\n}\n\nfunction newInputField(index) {\n    const obj = rules[index];\n    let returnHTML = `\n        <div${obj.systemrule == true ? \" class=\\\"disabled\\\"\" : \"\"}>\n        <span>${obj.name}:</span>\n        <div class=\"spacing\">&nbsp;</div>\n        <div>    \n            <select id=\"input_${index}_operator\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"}>\n        `;\n\n    for (let i = 0; i < operators.length; i++) {\n        let isSelected = obj.operator == operators[i].value;\n        //console.log(\"Checking '\" + obj.operator + \"' against '\" + operators[i].value + \"' = \" + isSelected);\n        returnHTML += `<option value=\"${operators[i].value}\"${isSelected ? \" selected\" : \"\"}>${operators[i].name}</option>`;\n    }\n\n    let valueType = obj.type == \"number\" || obj.type == \"text\" ? `<span class=\"valuetype\">${obj.type == \"number\" ? \"tal\" : obj.type == \"text\" ? \"tekst\" : \"\"}</span>` : ``;\n    returnHTML += `\n            </select>\n        </div>\n        <div>\n            <input id=\"input_${index}_value\" value=\"${obj.value}\"${obj.systemrule == true ? \" disabled=\\\"disabled\\\"\" : \"\"} />\n        </div>\n        ${valueType}\n        <span class=\"description\" title=\"${obj.description}\">?</span>\n        </div>\n    `;\n    return returnHTML;\n}\n\n///\n// Instantiate input fields\n\nfor (let i = 0; i < rules.length; i++)\n    if (rules[i][\"systemrule\"] != null && rules[i][\"systemrule\"] == true)\n        ruleWrapper_system.innerHTML += newInputField(i);\n    else\n        ruleWrapper_user.innerHTML += newInputField(i);\n\n///\n// Dynamically add event listeners \n\nfor (let i = 0; i < rules.length; i++) {\n    document.querySelector(\"#input_\" + i + \"_operator\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_operator\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"focusout\", () => {\n        UpdateValue(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n\n    document.querySelector(\"#input_\" + i + \"_value\").addEventListener(\"input\", () => {\n        OnInputChange(document.querySelector(\"#input_\" + i + \"_value\"));\n    });\n}\n\n///\n// Update input value\nfunction UpdateValue(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n\n    (rules[parseInt(sid[1])])[sid[2]] = inputField.value;\n\n    const message = rules;\n\n    PublishRules(JSON.stringify(message));\n    console.log(message);\n}\n\n///\n//\nfunction OnInputChange(inputField) {\n    let id = inputField.id;\n    let sid = id.split(\"_\");\n    let type = (rules[parseInt(sid[1])])[\"type\"];\n\n    switch (type) {\n        case \"int\": case \"float\": case \"double\": case \"number\":\n            inputField.value = inputField.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');\n            break;\n\n        case \"text\": case \"letters\":\n            inputField.value = inputField.value.replace(/[^A-Za-z ]/g, '');\n            break;\n\n    }\n}\n\n\n\n\n///\n/* WEB SOCKET (node-red)\nvar ws_rules;\nvar wsUri_rules = \"ws:\";\nvar loc_rules = window.location; //console.log(loc);\n\nif (loc_rules.protocol === \"https:\") { wsUri_rules = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri_rules += \"//\" + loc_rules.host + loc_rules.pathname.replace(\"worklet\", \"ws/rules\");\n\nfunction wsConnect_rules() {\n\n    console.log(\"Connecting to \", wsUri_rules);\n    ws_rules = new WebSocket(wsUri_rules);\n\n    ws_rules.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws_rules.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to ws/rules\");\n    }\n\n    ws_rules.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"ws/rules connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect_rules, 3000);\n    }\n}*/\nfunction PublishRules(m) {\n    if (ws) { ws.send(m); }\n}",
-        "x": 940,
+        "x": 960,
         "y": 840,
         "wires": [
             [
@@ -3493,24 +3520,6 @@
         "x": 1570,
         "y": 840,
         "wires": []
-    },
-    {
-        "id": "a6987b61fee6301a",
-        "type": "template",
-        "z": "8ea344595d9a442a",
-        "name": "HTML",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>Regler</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\" id=\"body\">\n\n    <div id=\"main\">\n\n      <div class=\"contentBox login\">\n        <div class=\"header\">WorkLet login</div>\n        <div class=\"wrapper\">\n          <div>\n            <div class=\"w50\">\n              <span>E-mail adresse</span><br />\n              <input id=\"WorkLetEmail\" />\n            </div>\n            <div class=\"w50\">\n              <span>Kodeord</span><br />\n              <input id=\"WorkLetPass\" type=\"password\" />\n            </div>\n          </div>\n        </div>\n      </div>\n      \n      <div class=\"contentBox approve\" id=\"approveLogin\">\n        <div class=\"wrapper\">\n          <div>\n            <input type=\"checkbox\" id=\"acceptLogin\" name=\"acceptLogin\" value=\"true\">\n            <label for=\"acceptLogin\" class=\"no-select\" id=\"acceptLoginLabel\">Godkend loginoplysninger</label>\n          </div>\n        </div>\n      </div>\n\n\n\n\n      <div class=\"contentBox rules hidden\">\n        <div class=\"header\">Regler</div>\n        <div class=\"subheader\">Systemregler</div>\n        <div class=\"wrapper ruleWrapper_system\"></div>\n        <div class=\"subheader\">Brugerregler</div>\n        <div class=\"wrapper ruleWrapper_user\"></div>\n      </div>\n\n      <div class=\"contentBox approve hidden\" id=\"approveRules\">\n        <div class=\"wrapper\">\n          <div>\n            <input type=\"checkbox\" id=\"acceptRules\" name=\"acceptRules\" value=\"true\">\n            <label for=\"acceptRules\" class=\"no-select\" id=\"acceptRulesLabel\">Godkend regelsæt</label>\n          </div>\n        </div>\n      </div>\n\n      \n\n\n      <div class=\"contentBox actions hidden\">\n        <div class=\"header\">Tilskudsberegning</div>\n        <div class=\"subheader\">Anbefalede handlinger</div>\n        <div class=\"actionList\">\n          <div id=\"wrappedStartButton\">\n            <input type=\"checkbox\" id=\"startRun\" name=\"startRun\" value=\"true\">\n            <label for=\"startRun\" class=\"no-select\" id=\"startRunLabel\">Start beregning</label>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n    <script>\n      const _rules = {{{payload.rules}}}\n\n      /* RULES */\n\n      {{{payload.scripts.rules}}}\n\n      /* UI */\n\n      {{{payload.scripts.ui}}}\n    </script>\n\n  </body>\n</html>",
-        "x": 1430,
-        "y": 840,
-        "wires": [
-            [
-                "78a498d6a82a151b"
-            ]
-        ]
     },
     {
         "id": "b0e7c0223f35204b",
@@ -3538,7 +3547,7 @@
         "z": "8ea344595d9a442a",
         "name": "Set content",
         "info": "",
-        "x": 950,
+        "x": 970,
         "y": 800,
         "wires": []
     },
@@ -3589,7 +3598,7 @@
         "server": "c1ae0d59916344e0",
         "client": "",
         "x": 150,
-        "y": 1100,
+        "y": 1300,
         "wires": [
             [
                 "54ebf542897cb37d"
@@ -3649,7 +3658,7 @@
         "action": "obj",
         "pretty": false,
         "x": 330,
-        "y": 1100,
+        "y": 1300,
         "wires": [
             [
                 "9d2701d9f3f3c610"
@@ -3676,7 +3685,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1100,
+        "y": 1300,
         "wires": [
             [
                 "68f7f88bbaaedb3a"
@@ -3697,7 +3706,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 960,
-        "y": 1100,
+        "y": 1300,
         "wires": []
     },
     {
@@ -3749,7 +3758,7 @@
         "to": "",
         "reg": false,
         "x": 520,
-        "y": 1100,
+        "y": 1300,
         "wires": [
             [
                 "a7100eb3aada3d3c"
@@ -3765,7 +3774,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "const checkboxRules = document.querySelector('#acceptRules'),\n      checkboxLogin = document.querySelector('#acceptLogin'),\n\n    startRunButton = document.querySelector('#startRun'),\n\n    acceptRulesLabel = document.querySelector('#acceptRulesLabel'),\n    acceptLoginLabel = document.querySelector('#acceptLoginLabel'),\n    startRunLabel = document.querySelector('#startRunLabel'),\n\n    loginEmail = document.querySelector('#WorkLetEmail'),\n    loginPass = document.querySelector('#WorkLetPass'),\n\n    contentBoxApproveRules = document.querySelector('.contentBox.approve#approveRules'),\n    contentBoxApproveLogin = document.querySelector('.contentBox.approve#approveLogin'),\n\n    wrappedStartButton = document.querySelector('#wrappedStartButton'),\n    actionList = document.querySelector('.actionList'),\n    \n      contentBoxActions = document.querySelector('.contentBox.actions'),\n      contentBoxRules = document.querySelector('.contentBox.rules'),\n      contentBoxLogin = document.querySelector('.contentBox.login'),\n      \n    body = document.querySelector('#body'),\n    main = document.querySelector('#main');\n\n\nvar paddingTop = 150;\nvar paddingAdjustment = 60,\n    paddingMin = 30;\n\n\n// APROVE LOGIN //\n\ncheckboxLogin.addEventListener('change', event => {\n    if (checkboxLogin.checked == true)\n    {\n        // Make checkbox bg green\n        contentBoxApproveLogin.classList.add(\"checked\");\n\n        // Hide this box\n        contentBoxLogin.classList.add(\"hidden\");\n\n        if (checkboxRules.checked != true)\n        {\n            // Show next box\n            contentBoxRules.classList.remove(\"hidden\");\n            contentBoxApproveRules.classList.remove(\"hidden\");\n        }\n\n        // Change approve label\n        acceptLoginLabel.innerHTML = \"Loginoplysninger godkendt\";\n\n        // Send to node-red\n        ApproveWorkLetLogin();\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= paddingAdjustment) + \"px\";\n        if (paddingTop < paddingMin) body.style.paddingTop = (paddingTop = paddingMin) + \"px\";\n    }\n    else\n    {\n        // Remove green checkbox bg\n        contentBoxApproveLogin.classList.remove(\"checked\");\n\n        // Un-hide this box\n        contentBoxLogin.classList.remove(\"hidden\");\n\n        // Reverse approve label\n        acceptLoginLabel.innerHTML = \"Godkend loginoplysninger\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop += paddingAdjustment) + \"px\";\n    }\n\n});\n\n\n// APROVE RULES //\n\ncheckboxRules.addEventListener('change', event => {\n    if (checkboxRules.checked == true)\n    {\n        // Make checkbox bg green\n        contentBoxApproveRules.classList.add(\"checked\");\n\n        // Hide this box\n        contentBoxRules.classList.add(\"hidden\");\n\n        // Show next box\n        contentBoxActions.classList.remove(\"hidden\");\n\n        // Change approve label\n        acceptRulesLabel.innerHTML = \"Regelsæt godkendt\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= paddingAdjustment) + \"px\";\n        if (paddingTop < paddingMin) body.style.paddingTop = (paddingTop = paddingMin) + \"px\";\n    }\n    else\n    {\n        // Remove green checkbox bg\n        contentBoxApproveRules.classList.remove(\"checked\");\n\n        // Un-hide this box\n        contentBoxRules.classList.remove(\"hidden\");\n\n        // Hide next box\n        contentBoxActions.classList.add(\"hidden\");\n        \n        // Reverse approve label\n        acceptRulesLabel.innerHTML = \"Godkend regelsæt\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop += paddingAdjustment) + \"px\";\n    }\n\n});\n\n\n// START RUN //\n\nstartRunButton.addEventListener('change', event => {\n    if (startRunButton.checked == true) {\n        // Disable all checkboxes\n        contentBoxActions.classList.add(\"disabled\");\n        contentBoxApproveRules.classList.add(\"disabled\");\n        contentBoxApproveLogin.classList.add(\"disabled\");\n\n        contentBoxApproveRules.classList.remove(\"checked\");\n        contentBoxApproveLogin.classList.remove(\"checked\");\n\n        // Show action list?\n        //contentBoxActions.classList.remove(\"hidden\");\n\n        // Set extra wide main div for actions\n        main.style.width = \"800px\";\n\n        // Change approve label\n        startRunLabel.innerHTML = \"Beregning påbegyndt ... vent venligst ...\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= paddingAdjustment) + \"px\";\n        if (paddingTop < paddingMin) body.style.paddingTop = (paddingTop = paddingMin) + \"px\";\n\n        // Start run\n        StartRun();\n    }\n    else {\n        \n    }\n\n});\n\n\n\n// POPULATE ACTIONS\n\n\nfunction PupulateActions(objList) {\n\n    contentBoxActions.classList.remove(\"disabled\");\n\n    //console.log(\"Obj count: \" + objList.length);\n    //console.log(\"Obj list: \\n\" + objList);\n\n    let html = ``;\n\n    for (let i = 0; i < objList.length;i++)\n    {\n        html += `\n            <div class=\"column\">\n                <div class=\"receipt\">\n\n                    <div class=\"header\">\n                        Faktura\n                        <span class=\"fakturanr\">\n                            Element `+ i +`\n                        </span>\n                        <div class=\"floatr\">\n                            04-10-2022 14:30\n                        </div>\n                    </div>\n\n                    <div class=\"subheader flex\">\n                        <div class=\"w40\">Behandling</div>\n                        <div class=\"w20\">Egenbetaling</div>\n                        <div class=\"w20\">Sygesikring</div>\n                        <div class=\"w20\">Total</div>\n                    </div>\n\n                    <div class=\"flex\">\n                        <div class=\"w40\">Behandling på klinik</div>\n                        <div class=\"w20\">300 kr</div>\n                        <div class=\"w20\">0 kr</div>\n                        <div class=\"w20\">300 kr</div>\n                    </div>\n\n                </div>\n\n                <div class=\"citizen\">\n\n                    <div class=\"header\">\n                        Borger\n                    </div>\n\n                    <div class=\"subheader flex\">\n                        <div class=\"w40\">Alm. helbredstillæg</div>\n                        <div class=\"w20\">Udvidet helbredstillæg</div>\n                        <div class=\"w20\">Helbredskort</div>\n                        <div class=\"w20\">Bevilget fodpleje</div>\n                        <div class=\"w20\">Formue</div>\n                        <div class=\"w20\">Danmark gruppe</div>\n                        <div class=\"w20\">Tillægsprocent</div>\n                    </div>\n\n                    <div class=\"flex\">\n                        <div class=\"w40\">Data</div>\n                        <div class=\"w20\">Udvidet Data</div>\n                        <div class=\"w20\">Data</div>\n                        <div class=\"w20\">Bevilget Data</div>\n                        <div class=\"w20\">Data</div>\n                        <div class=\"w20\">Danmark Data</div>\n                        <div class=\"w20\">Data</div>\n                    </div>\n\n                </div>\n\n                <div class=\"suggestedActions\">\n\n                    <div class=\"header\">\n                        Handlinger\n                    </div>\n\n                    <div class=\"flex\">\n                        <div>\n                            Her kommer liste over handlinger\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n            `;\n    }\n\n    actionList.innerHTML = html;\n\n    actionList.style.maxHeight = \"100%\";\n}\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        //console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        PupulateActions(obj);\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to ws/worklet\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"ws/worklet connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\n\nfunction ApproveWorkLetLogin() {\n    let loginObj = {\n        \"user\": loginEmail.value,\n        \"pass\": loginPass.value\n    }\n    if (ws){\n        ws.send(JSON.stringify(loginObj));\n        }\n}\n\nfunction StartRun() {\n    let mqttObj = {\n        \"mqtt\": \"start\"\n    }\n    if (ws) {\n        ws.send(JSON.stringify(mqttObj));\n    }\n}\n\n\n\n",
+        "template": "const checkboxRules = document.querySelector('#acceptRules'),\n      checkboxLogin = document.querySelector('#acceptLogin'),\n\n    startRunButton = document.querySelector('#startRun'),\n\n    acceptRulesLabel = document.querySelector('#acceptRulesLabel'),\n    acceptLoginLabel = document.querySelector('#acceptLoginLabel'),\n    startRunLabel = document.querySelector('#startRunLabel'),\n\n    loginEmail = document.querySelector('#WorkLetEmail'),\n    loginPass = document.querySelector('#WorkLetPass'),\n\n    contentBoxApproveRules = document.querySelector('.contentBox.approve#approveRules'),\n    contentBoxApproveLogin = document.querySelector('.contentBox.approve#approveLogin'),\n\n    wrappedStartButton = document.querySelector('#wrappedStartButton'),\n    actionList = document.querySelector('.actionList'),\n    \n      contentBoxActions = document.querySelector('.contentBox.actions'),\n      contentBoxRules = document.querySelector('.contentBox.rules'),\n      contentBoxLogin = document.querySelector('.contentBox.login'),\n      \n    body = document.querySelector('#body'),\n    main = document.querySelector('#main');\n\n\nvar paddingTop = 150;\nvar paddingAdjustment = 60,\n    paddingMin = 30;\n\n\n// APROVE LOGIN //\n\ncheckboxLogin.addEventListener('change', event => {\n    if (checkboxLogin.checked == true)\n    {\n        // Make checkbox bg green\n        contentBoxApproveLogin.classList.add(\"checked\");\n\n        // Hide this box\n        contentBoxLogin.classList.add(\"hidden\");\n\n        if (checkboxRules.checked != true)\n        {\n            // Show next box\n            contentBoxRules.classList.remove(\"hidden\");\n            contentBoxApproveRules.classList.remove(\"hidden\");\n        }\n\n        // Change approve label\n        acceptLoginLabel.innerHTML = \"Loginoplysninger godkendt\";\n\n        // Send to node-red\n        ApproveWorkLetLogin();\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= paddingAdjustment) + \"px\";\n        if (paddingTop < paddingMin) body.style.paddingTop = (paddingTop = paddingMin) + \"px\";\n    }\n    else\n    {\n        // Remove green checkbox bg\n        contentBoxApproveLogin.classList.remove(\"checked\");\n\n        // Un-hide this box\n        contentBoxLogin.classList.remove(\"hidden\");\n\n        // Reverse approve label\n        acceptLoginLabel.innerHTML = \"Godkend loginoplysninger\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop += paddingAdjustment) + \"px\";\n    }\n\n});\n\n\n// APROVE RULES //\n\ncheckboxRules.addEventListener('change', event => {\n    if (checkboxRules.checked == true)\n    {\n        // Make checkbox bg green\n        contentBoxApproveRules.classList.add(\"checked\");\n\n        // Hide this box\n        contentBoxRules.classList.add(\"hidden\");\n\n        // Show next box\n        contentBoxActions.classList.remove(\"hidden\");\n\n        // Change approve label\n        acceptRulesLabel.innerHTML = \"Regelsæt godkendt\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= paddingAdjustment) + \"px\";\n        if (paddingTop < paddingMin) body.style.paddingTop = (paddingTop = paddingMin) + \"px\";\n    }\n    else\n    {\n        // Remove green checkbox bg\n        contentBoxApproveRules.classList.remove(\"checked\");\n\n        // Un-hide this box\n        contentBoxRules.classList.remove(\"hidden\");\n\n        // Hide next box\n        contentBoxActions.classList.add(\"hidden\");\n        \n        // Reverse approve label\n        acceptRulesLabel.innerHTML = \"Godkend regelsæt\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop += paddingAdjustment) + \"px\";\n    }\n\n});\n\n\n// START RUN //\n\nstartRunButton.addEventListener('change', event => {\n    if (startRunButton.checked == true) {\n        // Disable all checkboxes\n        contentBoxActions.classList.add(\"disabled\");\n        contentBoxApproveRules.classList.add(\"disabled\");\n        contentBoxApproveLogin.classList.add(\"disabled\");\n\n        contentBoxApproveRules.classList.remove(\"checked\");\n        contentBoxApproveLogin.classList.remove(\"checked\");\n\n        // Show action list?\n        //contentBoxActions.classList.remove(\"hidden\");\n\n        // Set extra wide main div for actions\n        main.style.width = \"800px\";\n\n        // Change approve label\n        startRunLabel.innerHTML = \"Beregning påbegyndt ... vent venligst ...\";\n\n        // Adjust body padding\n        body.style.paddingTop = (paddingTop -= paddingAdjustment) + \"px\";\n        if (paddingTop < paddingMin) body.style.paddingTop = (paddingTop = paddingMin) + \"px\";\n\n        // Start run\n        StartRun();\n    }\n    else {\n        \n    }\n\n});\n\n\n\n// POPULATE ACTIONS\n\n\nfunction PopulateActions(objList) {\n\n    contentBoxActions.classList.remove(\"disabled\");\n\n    //console.log(\"Obj count: \" + objList.length);\n    //console.log(\"Obj list: \\n\" + objList);\n\n    let html = ``;\n\n    for (let i = 0; i < objList.length;i++)\n    {\n        html += `\n            <div class=\"column\">\n                <div class=\"receipt\">\n\n                    <div class=\"header\">\n                        Faktura\n                        <span class=\"fakturanr\">\n                            Element `+ i +`\n                        </span>\n                        <div class=\"floatr\">\n                            04-10-2022 14:30\n                        </div>\n                    </div>\n\n                    <div class=\"subheader flex\">\n                        <div class=\"w40\">Behandling</div>\n                        <div class=\"w20\">Egenbetaling</div>\n                        <div class=\"w20\">Sygesikring</div>\n                        <div class=\"w20\">Total</div>\n                    </div>\n\n                    <div class=\"flex\">\n                        <div class=\"w40\">Behandling på klinik</div>\n                        <div class=\"w20\">300 kr</div>\n                        <div class=\"w20\">0 kr</div>\n                        <div class=\"w20\">300 kr</div>\n                    </div>\n\n                </div>\n\n                <div class=\"citizen\">\n\n                    <div class=\"header\">\n                        Borger\n                    </div>\n\n                    <div class=\"subheader flex\">\n                        <div class=\"w40\">Alm. helbredstillæg</div>\n                        <div class=\"w20\">Udvidet helbredstillæg</div>\n                        <div class=\"w20\">Helbredskort</div>\n                        <div class=\"w20\">Bevilget fodpleje</div>\n                        <div class=\"w20\">Formue</div>\n                        <div class=\"w20\">Danmark gruppe</div>\n                        <div class=\"w20\">Tillægsprocent</div>\n                    </div>\n\n                    <div class=\"flex\">\n                        <div class=\"w40\">Data</div>\n                        <div class=\"w20\">Udvidet Data</div>\n                        <div class=\"w20\">Data</div>\n                        <div class=\"w20\">Bevilget Data</div>\n                        <div class=\"w20\">Data</div>\n                        <div class=\"w20\">Danmark Data</div>\n                        <div class=\"w20\">Data</div>\n                    </div>\n\n                </div>\n\n                <div class=\"suggestedActions\">\n\n                    <div class=\"header\">\n                        Handlinger\n                    </div>\n\n                    <div class=\"flex\">\n                        <div>\n                            Her kommer liste over handlinger\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n            `;\n    }\n\n    actionList.innerHTML = html;\n\n    actionList.style.maxHeight = \"100%\";\n}\n\n\n\n///\n// WEB SOCKET (node-red)\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + loc.pathname.replace(\"worklet\", \"ws/worklet\");\n\nfunction wsConnect() {\n\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n\n    ws.onmessage = function (msg) {\n\n        // parse the incoming message as a JSON object\n        var data = msg.data;\n        const obj = JSON.parse(data);\n\n        //console.log(\"Received WS message: \" + JSON.stringify(obj));\n\n        //PopulateActions(obj);\n\n        location.reload();\n\n        /*\n        fetch('/worklet', {\n            method: 'POST',\n            headers: {\n                'Accept': 'application/json',\n                'Content-Type': 'application/json'\n            },\n            body: JSON.stringify({ \"id\": 78912 })\n        });*/\n\n        //ws.send(JSON.stringify({data:data}));\n    }\n\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to ws/worklet\");\n    }\n\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"ws/worklet connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\n\nfunction ApproveWorkLetLogin() {\n    let loginObj = {\n        \"user\": loginEmail.value,\n        \"pass\": loginPass.value\n    }\n    if (ws){\n        ws.send(JSON.stringify(loginObj));\n        }\n}\n\nfunction StartRun() {\n    let mqttObj = {\n        \"mqtt\": \"start\"\n    }\n    if (ws) {\n        ws.send(JSON.stringify(mqttObj));\n    }\n}\n\n\n\n",
         "output": "str",
         "x": 1110,
         "y": 840,
@@ -3794,7 +3803,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 835,
+        "x": 845,
         "y": 840,
         "wires": [
             [
@@ -3811,7 +3820,7 @@
         "server": "13a90a014adf9bc5",
         "client": "",
         "x": 160,
-        "y": 1020,
+        "y": 1220,
         "wires": [
             [
                 "55f7483f97a32598"
@@ -3827,7 +3836,7 @@
         "action": "",
         "pretty": false,
         "x": 330,
-        "y": 1020,
+        "y": 1220,
         "wires": [
             [
                 "963c9893bf47de87",
@@ -3858,7 +3867,7 @@
         "repair": false,
         "outputs": 2,
         "x": 490,
-        "y": 1020,
+        "y": 1220,
         "wires": [
             [
                 "a7400f24b25c5de2"
@@ -3883,7 +3892,7 @@
         "expiry": "",
         "broker": "a567f42879c1f449",
         "x": 970,
-        "y": 1020,
+        "y": 1220,
         "wires": []
     },
     {
@@ -3906,7 +3915,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1020,
+        "y": 1220,
         "wires": [
             [
                 "1aaa8fade1e8d780"
@@ -3920,7 +3929,7 @@
         "name": "",
         "server": "13a90a014adf9bc5",
         "client": "",
-        "x": 1220,
+        "x": 1500,
         "y": 580,
         "wires": []
     },
@@ -3932,8 +3941,8 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
-                "pt": "msg",
+                "p": "results",
+                "pt": "flow",
                 "to": "$.payload ~> |$|\t{\t    \"cpr\": \t           (cpr ~>\t           $split(\"-\"))[0]\t           & \"-XXXX\"\t}\t|",
                 "tot": "jsonata"
             }
@@ -3947,7 +3956,7 @@
         "y": 580,
         "wires": [
             [
-                "b1559f9d4a7c3f92"
+                "ce947c0f871d1233"
             ]
         ]
     },
@@ -3989,8 +3998,240 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 960,
+        "y": 1180,
         "wires": []
+    },
+    {
+        "id": "782f6a476e9a630b",
+        "type": "template",
+        "z": "8ea344595d9a442a",
+        "name": "CSS",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:wght@300;400;500;600;700;900&display=swap');\n\n*\n{\n    box-sizing: border-box;\n}\na\n{\n    text-decoration: none;\n    color: rgb(59, 59, 59);\n}\nbody\n{\n    max-width: 100vw;\n    margin-top: 0px;\n    margin-left: 0px;\n    margin-right: 0px;\n    background-color: #a8a8a8;\n\n    display: flex;\n    overflow-x: hidden;\n    justify-content: center;\n\n    font-family: 'Roboto Slab';\n    font-weight: 400;\n    font-size: 13px;\n    color: rgb(59, 59, 59);\n}\n    body > div.main\n    {\n        max-width: 1700px;\n        min-width: 900px;\n\n        margin-top: 170px;\n    }\n\n/* MENU / KATEGORIER */\n.menu\n{\n    position: fixed;\n    z-index: 5;\n    \n    display: flex;\n    justify-content: center;\n    gap: 27px;\n\n    padding-top: 50px;\n    padding-bottom: 18px;\n    background-color: #999999ee;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n\n    width: 100%;\n}\n    .menu > div\n    {\n        display: flex;\n        height: 60px;\n        transition-duration: 150ms;\n\n        user-select: none; /* supported by Chrome and Opera */\n        -webkit-user-select: none; /* Safari */\n        -khtml-user-select: none; /* Konqueror HTML */\n        -moz-user-select: none; /* Firefox */\n        -ms-user-select: none; /* Internet Explorer/Edge */\n    }\n        .menu > div.selected\n        {\n            margin-top: 12px;\n            border: 5px solid rgba(255, 255, 255, 0.411);\n        }\n        .menu > div.green\n        {\n            background-color: #DAE5D7;\n        }\n        .menu > div.red\n        {\n            background-color: #e5d7d7;\n        }\n        .menu > div.yellow\n        {\n            background-color: #e5e0d7;\n        }\n    .menu > div:hover\n    {\n        scale: 1.05;\n        cursor: pointer;\n    }\n        .menu > div > div\n        {\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-end;\n        }\n        .menu > div > div:first-child\n        {\n            background: rgb(1, 1, 1, 0.08);\n            justify-content: flex-end;\n\n            width: 70px;\n        }\n            .menu > div > div:first-child > div /* Procent-visning af relativt antal faktura i kategori */\n            {\n                display: flex;\n                flex-direction: column;\n            }\n                .menu > div.green > div:first-child > div\n                {\n                    background-color: #80bf80;\n                }\n                .menu > div.red > div:first-child > div\n                {\n                    background-color: #bf8080;\n                }\n                .menu > div.yellow > div:first-child > div\n                {\n                    background-color: #bfb980;\n                }\n            .menu > div > div:first-child > div > span /* Procent ^^ i tekst ovenover boks */\n            {\n                align-self: center;\n                font-size: 9px;\n                font-weight: 600;\n                margin-top: -11.5px;\n            }\n                .menu > div.green > div:first-child > div > span\n                {\n                    color: #639463;\n                }\n                .menu > div.red > div:first-child > div > span\n                {\n                    color: #946363;\n                }\n                .menu > div.yellow > div:first-child > div > span\n                {\n                    color: #948f63;\n                }\n            .menu > div > div:first-child > div > span > span\n            {\n                font-size: 7px;\n            }\n        .menu > div > div:last-child /* Kategori-titel */\n        {\n            padding-left: 20px;\n            justify-content: center;\n\n            width: 170px;\n\n            font-family: 'Roboto';\n            text-transform: uppercase;\n            font-size: 12px;\n            font-weight: 500;\n            letter-spacing: 1px;\n            color: rgb(1, 1, 1, 0.65);\n        }\n    \n\n\n.itemList\n{\n    display: flex;\n    flex-direction: column;\n}\n\n/* LIST ITEM */\n.listItem\n{\n    display: flex;\n    padding-bottom: 35px;\n}\n    .listItem > div\n    {\n        align-self: flex-start;\n    \n        min-width: 270px;\n    }\n        .listItem .header\n        {\n            line-height: 38px;\n            background: rgb(1, 1, 1, 0.08);\n\n            text-transform: uppercase;\n            font-family: 'Roboto';\n            font-weight: 400;\n            font-size: 11px;\n            letter-spacing: 0.45px;\n            color: rgb(1, 1, 1, 0.55);\n\n            padding-left: 14px;\n            padding-right: 14px;\n\n            user-select: none; /* supported by Chrome and Opera */\n            -webkit-user-select: none; /* Safari */\n            -khtml-user-select: none; /* Konqueror HTML */\n            -moz-user-select: none; /* Firefox */\n            -ms-user-select: none; /* Internet Explorer/Edge */\n        }\n            .listItem .header:hover\n            {\n                cursor: grab;\n            }\n            .header > span\n            {\n                position: relative;\n                float: right;\n                margin-right: 3px;\n            }\n            .listItem > div:first-child .header\n            {\n                padding-right: 30px;\n            }\n                #togglePop\n                {\n                    cursor: pointer;\n                }\n                span > .popmenu\n                {\n                    position: absolute;\n                    float: left;\n                    top: 20px;\n                    right: 18px;\n                    width: 150px;\n\n                    font-size: 10px;\n                    line-height: 32px;\n\n                    background-color: rgb(255, 255, 255, 1);\n                    box-shadow: 0px 0px 30px -10px grey;\n\n                    display: flex;\n                    flex-direction: column;\n\n                    max-height: 0vh;\n                    max-width: 0vh;\n                    overflow: hidden;\n                    white-space: nowrap;\n                    text-overflow: ellipsis;\n\n                    transition-duration: 100ms;\n                }\n                    #togglePop.show > .popmenu\n                    {\n                        max-height: 30vh;\n                        max-width: 100vh;\n\n                        transition-duration: 1000ms;\n                    }\n                    .popmenu > a\n                    {\n                        padding: 0px 10px;\n                    }\n                    .popmenu > a:hover\n                    {\n                        background-color: rgb(240, 240, 240, 1); \n                    }\n\n    /* Borger */\n    .listItem > div:first-child\n    {\n        flex-grow: 0;\n        background-color: #DDDEFE;\n        padding-bottom: 8px;\n    }\n        .listItem > div:first-child > .cpr\n        {\n            padding: 15px 18px;\n            font-size: 17px;\n            font-weight: 400;\n            letter-spacing: 0.3px;\n        }\n        .listItem > div:first-child > .sag\n        {\n            padding: 4px 14px;\n            background: rgb(1, 1, 1, 0.04);\n            margin-bottom: 2px;\n\n            text-transform: uppercase;\n            font-family: 'Roboto';\n            line-height: 18px;\n            font-size: 10px;\n            letter-spacing: 0.45px;\n        }\n            .sag > span\n            {\n                font-size: 17px;\n            }\n            .sag.findes\n            {\n                color: #46a114;\n                font-weight: 400;\n            }\n            .sag.findes-ikke\n            {\n                color: #a15814;\n                font-weight: 400;\n            }\n        .listItem > div:first-child > .persondata\n        {\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-evenly;\n\n            padding: 9px 0px;\n            width: 98%;\n        }\n            .listItem > div:first-child > .persondata > div\n            {\n                text-align: center;\n                min-width: 30%;\n                font-family: 'Roboto';\n            }\n    \n\n    /* Faktura + Handlinger */\n    .listItem > div:last-child\n    {\n        flex-grow: 1;\n        justify-self: stretch;\n\n        display: flex;\n        flex-direction: column;\n\n        min-width: 600px;\n    }\n\n        .listItem > div:last-child > .faktura\n        {\n            background-color: #FEFEF3;\n\n            margin-left: -18px;\n            margin-top: -5px;\n            margin-right: -5px;\n\n            padding-bottom: 8px;\n\n            border: 5px solid #a8a8a8;\n        }\n            .listItem > div:last-child > .faktura > div:not(.header)\n            {\n                padding: 8px 14px;\n            }\n            .listItem > div:last-child > .faktura > .ydelse\n            {\n                display: flex;\n                align-items: flex-end;\n                gap: 10px;\n            }\n                /* Små overskrifter */\n                .listItem > div:last-child > .faktura > .ydelse span, .listItem > div:first-child > .persondata > div > span\n                {\n                    text-transform: uppercase;\n                    font-family: 'Roboto';\n                    font-size: 9px;\n                    color: rgb(159, 159, 159);\n                }\n                .listItem > div:last-child > .faktura > .ydelse > .titel\n                {\n                    flex-grow: 1;\n                }\n                .listItem > div:last-child > .faktura > .ydelse > div:not(.titel)\n                {\n                    text-align: right;\n                }\n                    .listItem > div:last-child > .faktura > .ydelse > div > div\n                    {\n                        margin-top: 8px;\n                    }\n\n        .listItem > div:last-child > .handling\n        {\n            background-color: #F9E1DD;\n            display: flex;\n\n            margin-bottom: 5px;\n            border-left: 5px solid #a8a8a8;\n            margin-right: 18px;\n        }\n            .listItem > div:last-child > .handling > div:not(.header)\n            {\n                line-height: 38px;\n                padding-left: 12px;\n            }\n\n/* Ghost */\n.ghost\n{\n    position: absolute;\n    pointer-events: none;\n    z-index: 10;\n\n    opacity: 0;\n    scale: 0.8;\n}\n.ghost.visible \n{\n    opacity: 0.65;\n}",
+        "output": "str",
+        "x": 870,
+        "y": 740,
+        "wires": [
+            [
+                "995fb8f2b8f0fd58"
+            ]
+        ]
+    },
+    {
+        "id": "5939609dd7538821",
+        "type": "template",
+        "z": "8ea344595d9a442a",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\">  \n    <title>Regler</title>\n    <style>{{{payload.style}}}</style>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <!-- Iconscout Link For Icons -->\n    <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  </head>\n  <body onload=\"wsConnect();\" onunload=\"ws.disconnect();\" id=\"body\">\n\n    <div id=\"main\">\n\n      <div class=\"contentBox login\">\n        <div class=\"header\">WorkLet login</div>\n        <div class=\"wrapper\">\n          <div>\n            <div class=\"w50\">\n              <span>E-mail adresse</span><br />\n              <input id=\"WorkLetEmail\" />\n            </div>\n            <div class=\"w50\">\n              <span>Kodeord</span><br />\n              <input id=\"WorkLetPass\" type=\"password\" />\n            </div>\n          </div>\n        </div>\n      </div>\n      \n      <div class=\"contentBox approve\" id=\"approveLogin\">\n        <div class=\"wrapper\">\n          <div>\n            <input type=\"checkbox\" id=\"acceptLogin\" name=\"acceptLogin\" value=\"true\">\n            <label for=\"acceptLogin\" class=\"no-select\" id=\"acceptLoginLabel\">Godkend loginoplysninger</label>\n          </div>\n        </div>\n      </div>\n\n\n\n\n      <div class=\"contentBox rules hidden\">\n        <div class=\"header\">Regler</div>\n        <div class=\"subheader\">Systemregler</div>\n        <div class=\"wrapper ruleWrapper_system\"></div>\n        <div class=\"subheader\">Brugerregler</div>\n        <div class=\"wrapper ruleWrapper_user\"></div>\n      </div>\n\n      <div class=\"contentBox approve hidden\" id=\"approveRules\">\n        <div class=\"wrapper\">\n          <div>\n            <input type=\"checkbox\" id=\"acceptRules\" name=\"acceptRules\" value=\"true\">\n            <label for=\"acceptRules\" class=\"no-select\" id=\"acceptRulesLabel\">Godkend regelsæt</label>\n          </div>\n        </div>\n      </div>\n\n      \n\n\n      <div class=\"contentBox actions hidden\">\n        <div class=\"header\">Tilskudsberegning</div>\n        <div class=\"subheader\">Anbefalede handlinger</div>\n        <div class=\"actionList\">\n          <div id=\"wrappedStartButton\">\n            <input type=\"checkbox\" id=\"startRun\" name=\"startRun\" value=\"true\">\n            <label for=\"startRun\" class=\"no-select\" id=\"startRunLabel\">Start beregning</label>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n    <script>\n      const _rules = {{{payload.rules}}}\n\n      /* RULES */\n\n      {{{payload.scripts.rules}}}\n\n      /* UI */\n\n      {{{payload.scripts.ui}}}\n    </script>\n\n  </body>\n</html>",
+        "x": 1410,
+        "y": 840,
+        "wires": [
+            [
+                "78a498d6a82a151b"
+            ]
+        ]
+    },
+    {
+        "id": "9d47d525c531c37b",
+        "type": "http in",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "url": "/worklet",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "995fb8f2b8f0fd58",
+        "type": "template",
+        "z": "8ea344595d9a442a",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Tilskudsberegning</title>\n\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <!-- Iconscout Link For Icons -->\n  <link rel=\"stylesheet\" href=\"https://unicons.iconscout.com/release/v4.0.0/css/line.css\">\n  <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css\">\n  <style>\n    {{{payload.style}}}\n  </style>\n</head>\n\n<body>\n\n  <div class=\"ghost listItem\">\n    <div></div>\n  </div>\n\n  <div class=\"menu\">\n\n    <div class=\"menuItem green selected\" id=\"anbefalede_handlinger\" onmouseup=\"dropZone(this)\">\n      <div>\n        <div style=\"height: 70%;\"><span>70<span>%</span></span></div>\n      </div>\n      <div>Anbefalede<br />handlinger</div>\n    </div>\n\n    <div class=\"menuItem red\" id=\"usikre_handlinger\" onmouseup=\"dropZone(this)\">\n      <div>\n        <div style=\"height: 10%;\"><span>10<span>%</span></span></div>\n      </div>\n      <div>Usikre<br />handlinger</div>\n    </div>\n\n    <div class=\"menuItem yellow\" id=\"manuel_behandling\" onmouseup=\"dropZone(this)\">\n      <div>\n        <div style=\"height: 20%;\"><span>20<span>%</span></span></div>\n      </div>\n      <div>Manuel<br />behandling</div>\n    </div>\n\n  </div><!-- /menu -->\n\n  <div class=\"main\">\n\n    <div class=\"itemList\">\n\n\n    </div><!-- /itemList -->\n\n  </div><!-- /main -->\n\n  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js\"></script>\n  <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js\"></script>\n  <script>\n    {{{payload.script}}}\n  </script>\n\n\n</body>\n\n</html>",
+        "x": 1030,
+        "y": 740,
+        "wires": [
+            [
+                "78a498d6a82a151b"
+            ]
+        ]
+    },
+    {
+        "id": "fb217fc355c8774a",
+        "type": "switch",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "displayingResults",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 760,
+        "wires": [
+            [
+                "98495774d5f7029f"
+            ],
+            [
+                "499cd9ebcec444da"
+            ]
+        ]
+    },
+    {
+        "id": "ce947c0f871d1233",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "displayingResults",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 580,
+        "wires": [
+            [
+                "b1559f9d4a7c3f92"
+            ]
+        ]
+    },
+    {
+        "id": "105fdc1f39bd2266",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "name": "Reset UI",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 640,
+        "wires": [
+            [
+                "832ab7b9a8489a23"
+            ]
+        ]
+    },
+    {
+        "id": "832ab7b9a8489a23",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "displayingResults",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98495774d5f7029f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "results",
+                "pt": "msg",
+                "to": "results",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 740,
+        "wires": [
+            [
+                "f62ad6d5da3e6f12"
+            ]
+        ]
+    },
+    {
+        "id": "f62ad6d5da3e6f12",
+        "type": "json",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "results",
+        "action": "str",
+        "pretty": false,
+        "x": 590,
+        "y": 740,
+        "wires": [
+            [
+                "cda18253f37bd8d8"
+            ]
+        ]
+    },
+    {
+        "id": "cda18253f37bd8d8",
+        "type": "template",
+        "z": "8ea344595d9a442a",
+        "name": "JS",
+        "field": "payload.script",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "\n    const results = {{{results}}};\n\n    //const resultObj = JSON.parse(results);\n    var itemList = document.querySelector('.itemList');\n    itemList.innerHTML = \"\";\n\n    for(let i = 0;i < results.length;i++)\n    {\n        itemList.innerHTML += printObject(i);\n    }\n\n    function printObject(index)\n    {        \n        let obj = results[index];\n        \n        let returnStr = `\n        <div class=\"listItem\" id=\"listItem_${index}\">\n        <div>\n\n          <div class=\"header\" onmousedown=\"dragItem('listItem_${index}')\">\n            Borger\n            <span class=\"uil uil-ellipsis-h\" id=\"togglePop\" onclick=\"togglePop(this)\">\n                        <div class=\"popmenu show\">\n                            <a href=\"#\">Gå til borger i KP</a>\n                        </div>\n                        </span>\n          </div>\n          <div class=\"cpr\">${obj.cpr}</div>\n\n          <div class=\"sag findes${obj.persondata.bevilling ? '' : '-ikke'}\"><span class=\"uil uil-${obj.persondata.bevilling ? 'check' : 'times'}\"></span> Bevilget fodpleje</div>\n          <div class=\"sag findes${obj.persondata.udvidetHelbredstillaeg ? '' : '-ikke'}\"><span class=\"uil uil-${obj.persondata.udvidetHelbredstillaeg ? 'check' : 'times'}\"></span> Udvidet helbredstillæg</div>\n          <div class=\"sag findes${obj.persondata.almHelbredstillaeg ? '' : '-ikke'}\"><span class=\"uil uil-${obj.persondata.almHelbredstillaeg ? 'check' : 'times'}\"></span> Alm. helbredstillæg</div>\n          <div class=\"sag findes${obj.persondata.helbredskort ? '' : '-ikke'}\"><span class=\"uil uil-${obj.persondata.helbredskort ? 'check' : 'times'}\"></span> Helbredskort</div>\n\n          <div class=\"persondata\">\n            <div>\n              <span>Danmark</span><br />\n              ${obj.persondata.danmarkgruppe != 0 ? ('Gruppe ' + obj.persondata.danmarkgruppe) : 'Ej medlem'}\n            </div>\n\n            <div>\n              <span>Formue</span><br />\n              ${obj.persondata.formue} kr\n            </div>\n\n            <div>\n              <span>Tillægsprocent</span><br />\n              ${obj.persondata.helbredstillaegsprocent[0].tillaegsprocent}%\n            </div>\n          </div>\n\n        </div>\n        <div>\n\n          <div class=\"faktura\">\n\n            <div class=\"header\" onmousedown=\"dragItem('listItem_${index}')\">\n              Faktura\n              <span class=\"uil uil-ellipsis-h\" id=\"togglePop\" onclick=\"togglePop(this)\">\n                            <div class=\"popmenu show\">\n                                <a href=\"#\">Se faktura i WorkLet</a>\n                            </div>\n                            </span>\n            </div>\n\n            <div class=\"ydelse\">\n              <div>\n                <span>#</span>`;\n\n      if (Array.isArray(obj.faktura.behandlinger))\n        for(let i = 0;i < obj.faktura.behandlinger.length;i++)\n          returnStr += `<div>${obj.faktura.behandlinger[i].ydelsesnummer}</div>`;\n      else\n        returnStr += `<div>${obj.faktura.behandlinger.ydelsesnummer}</div>`;\n        \n              \n        returnStr += `\n              </div>\n              <div class=\"titel\">\n                <span>Ydelse</span>`;\n\n      if (Array.isArray(obj.faktura.behandlinger))\n        for (let i = 0; i < obj.faktura.behandlinger.length; i++)\n          returnStr += `<div>${obj.faktura.behandlinger[i].titel}</div>`;\n      else\n        returnStr += `<div>${obj.faktura.behandlinger.titel}</div>`;\n\n        returnStr += `\n              </div>\n              <div>\n                <span>Sygesikringsandel</span>`;\n\n      if (Array.isArray(obj.faktura.behandlinger))\n        for (let i = 0; i < obj.faktura.behandlinger.length; i++)\n          returnStr += `<div>${obj.faktura.behandlinger[i].sygesikringsAndel}</div>`;\n      else\n        returnStr += `<div>${obj.faktura.behandlinger.sygesikringsAndel}</div>`;\n\n        returnStr += `\n              </div>\n              <div>\n                <span>Patientandel</span>`;\n\n      if (Array.isArray(obj.faktura.behandlinger))\n        for (let i = 0; i < obj.faktura.behandlinger.length; i++)\n          returnStr += `<div>${obj.faktura.behandlinger[i].patientAndel}</div>`;\n      else\n        returnStr += `<div>${obj.faktura.behandlinger.patientAndel}</div>`;\n\n        returnStr += `\n              </div>\n              <div>\n                <span>Honorar</span>`;\n\n      if (Array.isArray(obj.faktura.behandlinger))\n        for (let i = 0; i < obj.faktura.behandlinger.length; i++)\n          returnStr += `<div>${obj.faktura.behandlinger[i].pris}</div>`;\n      else\n        returnStr += `<div>${obj.faktura.behandlinger.pris}</div>`;\n\n      returnStr += `\n            </div>\n          </div>\n\n        </div>\n        `;\n\n      if (Array.isArray(obj.handlinger))\n        for (let i = 0; i < obj.handlinger.length; i++)\n        {\n          returnStr += `<div class=\"handling\">\n\n            <div class=\"header\">Handling</div>\n            <div>${obj.handlinger[i].handling}</div>\n\n          </div>`;\n        }\n      else if (typeof obj.handlinger == \"object\")\n      {\n        returnStr += `<div class=\"handling\">\n\n            <div class=\"header\">Handling</div>\n            <div>${obj.handlinger.handling}</div>\n\n          </div>`;\n      }\n\n      returnStr += `\n        </div>\n        </div><!-- /listItem -->\n        `;\n\n        return returnStr;\n\n    }\n\n\n    function togglePop(element)\n    {\n        element.classList.toggle(\"show\");\n    }\n\n\n    const menuElements = document.getElementsByClassName(\"menuItem\");\n    const listElements = document.getElementsByClassName(\"listItem\");\n\n    var currentDraggedElement = null;\n\n    function dragItem(itemId)\n    {\n        var item = document.getElementById(itemId);\n        currentDraggedElement = item;\n\n        let itemX = item.offsetLeft;\n        let itemY = item.offsetTop;\n        //console.log(\"Item pos: [\" + itemX + \", \" + itemY + \"]\");\n        //console.log(\"Mouse pos: [\" + mouseX + \", \" + mouseY + \"]\");\n        //console.log(\"Offset: [\" + (itemX-mouseX) + \", \" + (itemY-mouseY) + \"]\");\n\n        offsetX = (itemX-mouseX);\n        offsetY = (itemY-mouseY) - 25;\n    }\n\n    function dropZone(zone)\n    {\n        if(currentDraggedElement == null)\n            return;\n        \n        console.log(\"Item '\" + currentDraggedElement.id + \"' was dropped into zone '\" + zone.id + \"'\");\n        \n        clearGhost();\n    }\n\n\n\n    var ghostObject = null;\n    const ghost = document.querySelector('.ghost');\n\n    function createGhostObject(item)\n    {\n        ghostObject = item;\n        ghost.innerHTML = ghostObject.innerHTML;\n        ghost.style = ghostObject.style;\n        ghost.style.marginLeft = offsetX + \"px\";\n        ghost.style.marginTop = offsetY + \"px\";\n        ghost.classList.add(\"visible\");\n\n        item.style.opacity = 0.6;\n\n        document.querySelector('body').style.cursor = \"grabbing\";\n    }\n\n    var mouseX, mouseY;\n    var offsetX, offsetY;\n    document.addEventListener('mousemove', function(e)\n    {            \n        let left = mouseX = e.pageX;\n        let top = mouseY = e.pageY;\n\n        if(currentDraggedElement == null)\n            return;\n\n        if(ghostObject == null)\n            createGhostObject(currentDraggedElement);\n\n        ghost.style.left = left + 'px';\n        ghost.style.top = top + 'px';\n    });\n\n    document.addEventListener('mouseup', function(e)\n    {\n        if(currentDraggedElement == null)\n            return;\n        clearGhost();\n    });\n\n    function clearGhost()\n    {\n        currentDraggedElement.style.opacity = 1;\n        currentDraggedElement = null;\n\n        ghostObject = null;            \n        ghost.innerHTML = \"\";\n        ghost.classList.remove(\"visible\");\n\n        document.querySelector('body').style.cursor = \"auto\";\n        //ghost.style = null;\n    }",
+        "output": "str",
+        "x": 730,
+        "y": 740,
+        "wires": [
+            [
+                "782f6a476e9a630b"
+            ]
+        ]
     },
     {
         "id": "d9efe549c9e470ea",
@@ -4033,8 +4274,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 400,
-        "y": 240,
+        "x": 380,
+        "y": 220,
         "wires": [
             [
                 "a88aa26fbc2fcca5"
