@@ -10,9 +10,9 @@
 
   ### E
 
-    #### Initialisering inden kørsel
-    #### Extraction af fakturaer
-    #### Extraction af borgerdata
+- Initialisering inden kørsel
+- Extraction af fakturaer
+- Extraction af borgerdata
 
   ### T
 
