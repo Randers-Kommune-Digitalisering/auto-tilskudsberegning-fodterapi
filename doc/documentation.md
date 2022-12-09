@@ -1,19 +1,27 @@
-# Dokumentation
+# Dokumentation (auto-tilskudsberegning-docs)
+System til automatisk tilskudsberegning af WorkLet fodpleje-fakturaer samt bogføring i KP (Kommunernes Pensionssystem).
 
-## Formål
+## Moduler / Komponenter
+Til projektet er bygget nogle generiske moduler med henblik på genbrug/let udskiftning heraf.
 
-## Framework
 
-## Bruger-flow
+### WorkLet tilskudsberegning-interface
 
-## Node-flow
+### PupController
 
-  ### E
+### Regelmotor
 
+
+
+## Metoder
+
+### ETL
+
+E
 - Initialisering inden kørsel
 - Extraction af fakturaer
 - Extraction af borgerdata
 
-  ### T
+T
+L
 
-  ### L
