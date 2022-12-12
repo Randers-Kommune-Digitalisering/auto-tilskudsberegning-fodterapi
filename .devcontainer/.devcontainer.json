@@ -13,7 +13,8 @@
 
 	// "dockerComposeFile": "./docker-compose.yml",
    	// "service": "node-red",
-   	"workspaceFolder": "/home",
+   	 "workspaceMount": "source=${localWorkspaceFolder},target=/data,type=bind",
+   	"workspaceFolder": "/data",
    	"postStartCommand": ["node-red"],
 	
 	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "true" }
