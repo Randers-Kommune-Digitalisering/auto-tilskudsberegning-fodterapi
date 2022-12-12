@@ -18,7 +18,7 @@
    	"workspaceFolder": "/data",
    	"postStartCommand": ["node-red"],
 	
-	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "false", "FLOWS": "/src/flows.json"}
+	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "false", "FLOWS": "/data/src/flow.json"}
 	// NODE_PATH=/usr/src/node-red/node_modules:/data/node_modules
 		
 	// Configure tool-specific properties.
