@@ -1,5 +1,6 @@
 {
 	"name": "Node-RED 3",
+	// "image": "docker.io/nodered/node-red:latest",
 	"image": "docker.io/nodered/node-red:3.0.2",
 
 	// Features to add to the dev container. More info: https://containers.dev/implementors/features.
