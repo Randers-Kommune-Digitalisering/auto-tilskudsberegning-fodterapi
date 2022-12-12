@@ -1,4 +1,4 @@
-# ![automation-icon] auto-tilskudsberegning-fodterapi
+# ![automation-icon] Automatiseret tilskudsberegning til fodterapi
 
 * Beskrivelse??
 
