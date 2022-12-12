@@ -1,4 +1,4 @@
-# ![automation-icon] auto-tilskudsberegning-fodterapi
+# ![automation-icon] Automatiseret tilskudsberegning til fodterapi
 
 * Beskrivelse??
 
@@ -46,7 +46,7 @@ graph RL
 - Projekt: ???
 
 
-[automation-icon]: https://api.iconify.design/material-symbols/autopay.svg?height=48
+[automation-icon]: https://api.iconify.design/material-symbols/autopay.svg?height=48&color=orange
 [clipboard-icon]: https://api.iconify.design/line-md/clipboard-list.svg?height=36
 [flow-icon]: https://api.iconify.design/carbon/flow-data.svg?height=36
 [link-icon]: https://api.iconify.design/carbon/copy-link.svg?height=36
