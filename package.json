@@ -1,5 +1,5 @@
 {
-    "name": "WorkLetAutomatisering",
+    "name": "workletautomatisering",
     "description": "New",
     "version": "0.0.1",
     "dependencies": {
@@ -15,8 +15,8 @@
     },
     "node-red": {
         "settings": {
-            "flowFile": "src\\flows.json",
-            "credentialsFile": "src\\flows_cred.json"
+            "flowFile": "/data/src/flows.json",
+            "credentialsFile": "/data/src/flows_cred.json"
         }
     }
 }
