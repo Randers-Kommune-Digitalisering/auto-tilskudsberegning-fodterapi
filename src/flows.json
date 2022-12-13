@@ -925,7 +925,7 @@
         "expiry": "",
         "broker": "a567f42879c1f449",
         "x": 410,
-        "y": 540,
+        "y": 520,
         "wires": []
     },
     {
@@ -946,7 +946,7 @@
         "payload": "start",
         "payloadType": "str",
         "x": 190,
-        "y": 540,
+        "y": 520,
         "wires": [
             [
                 "58b31d3473d4badf"
@@ -995,7 +995,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 150,
-        "y": 660,
+        "y": 640,
         "wires": [
             [
                 "86720377ed4f4477"
@@ -1043,7 +1043,7 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 660,
+        "y": 640,
         "wires": [
             []
         ]
@@ -1740,8 +1740,8 @@
         "name": "",
         "server": "13a90a014adf9bc5",
         "client": "",
-        "x": 2140,
-        "y": 1400,
+        "x": 1820,
+        "y": 1320,
         "wires": []
     },
     {
@@ -1763,8 +1763,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1680,
-        "y": 1400,
+        "x": 1360,
+        "y": 1320,
         "wires": [
             [
                 "ce947c0f871d1233"
@@ -1915,8 +1915,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1910,
-        "y": 1400,
+        "x": 1590,
+        "y": 1320,
         "wires": [
             [
                 "b1559f9d4a7c3f92"
@@ -1935,7 +1935,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 140,
-        "y": 720,
+        "y": 680,
         "wires": [
             [
                 "832ab7b9a8489a23"
@@ -1962,7 +1962,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 720,
+        "y": 680,
         "wires": [
             []
         ]
@@ -2421,7 +2421,7 @@
         "type": "file in",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "name": "Get JSON",
+        "name": "Læs JSON fil",
         "filename": "filePath",
         "filenameType": "msg",
         "format": "utf8",
@@ -2460,7 +2460,7 @@
         "type": "function",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "name": "Delete JSON",
+        "name": "Slet JSON fil",
         "func": "const fs = global.get('fs');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\nmsg.filePath = downloadPath + \"\\\\\" + msg.fileName;\n\nfs.unlinkSync(msg.filePath);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -2471,7 +2471,8 @@
         "y": 400,
         "wires": [
             []
-        ]
+        ],
+        "info": "## Delete JSON file\r\n\r\nThis JS snippet utilizes the FS module to delete the JSON file after it has been read to memory."
     },
     {
         "id": "d5a462980f4852cf",
@@ -2500,9 +2501,9 @@
         "type": "comment",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "name": "Slet JSON",
+        "name": "Slet fakturaliste",
         "info": "",
-        "x": 1920,
+        "x": 1940,
         "y": 360,
         "wires": []
     },
@@ -2511,7 +2512,7 @@
         "type": "change",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "name": "",
+        "name": "Sæt msg.receipts",
         "rules": [
             {
                 "t": "set",
@@ -2539,7 +2540,8 @@
                 "d183f106c2e11bce"
             ]
         ],
-        "l": false
+        "l": false,
+        "info": "## Set msg.receipts\r\n\r\nThis change node sets msg.receipts = payload.kvitteringer (which contains an array of receipts), and deletes the payload afterwards."
     },
     {
         "id": "569d9f497b06babc",
@@ -2678,7 +2680,7 @@
                 "15a1703b4a5286c7"
             ]
         ],
-        "info": "## Set pup commands\r\n\r\nThis change node sets the automation flow JSON needed in PupController. The flow is hard-coded with variable references to the CSS selectors defined in the preceeding node."
+        "info": "## Set pup commands\r\n\r\nThis change node sets the automation flow JSON needed in PupController API. The flow is hard-coded with variable references to the CSS selectors defined in the preceeding node."
     },
     {
         "id": "bb143ed21df0febf",
@@ -3147,8 +3149,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2070,
-        "y": 1060,
+        "x": 2170,
+        "y": 1080,
         "wires": []
     },
     {
@@ -3245,8 +3247,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1530,
-        "y": 1020,
+        "x": 1410,
+        "y": 1040,
         "wires": [
             [
                 "05096968ae22cc6f"
@@ -3329,8 +3331,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 1080,
+        "x": 660,
+        "y": 1120,
         "wires": [
             [
                 "349a8caa82ed4d5e"
@@ -3356,8 +3358,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 1120,
+        "x": 660,
+        "y": 1160,
         "wires": [
             [
                 "ac8390885c3e684c"
@@ -3370,8 +3372,8 @@
         "z": "8ea344595d9a442a",
         "name": "Transformer faktura data (+ fjern unødvendig data)",
         "info": "",
-        "x": 1590,
-        "y": 900,
+        "x": 1470,
+        "y": 920,
         "wires": []
     },
     {
@@ -3393,8 +3395,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1500,
-        "y": 940,
+        "x": 1380,
+        "y": 960,
         "wires": [
             [
                 "6afaf8f1c596de67"
@@ -3420,8 +3422,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1500,
-        "y": 980,
+        "x": 1380,
+        "y": 1000,
         "wires": [
             [
                 "141037f73383a9f6"
@@ -3434,8 +3436,8 @@
         "z": "8ea344595d9a442a",
         "name": "Opret sager + ydelser",
         "info": "",
-        "x": 1960,
-        "y": 880,
+        "x": 1780,
+        "y": 960,
         "wires": []
     },
     {
@@ -3444,8 +3446,8 @@
         "z": "8ea344595d9a442a",
         "name": "Beregn tilskud",
         "info": "",
-        "x": 1990,
-        "y": 960,
+        "x": 1750,
+        "y": 1040,
         "wires": []
     },
     {
@@ -3458,7 +3460,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or titel = 'Behandlingpåklinik') ? 'A' : 'B'\t\t})|",
+                "to": "$.payload ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or\t             titel = 'Behandlingpåklinik' or\t             titel = \"Behandlingudentilskud\") ?\t                'A' : 'B'\t\t})|",
                 "tot": "jsonata"
             }
         ],
@@ -3467,8 +3469,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1510,
-        "y": 1060,
+        "x": 1390,
+        "y": 1080,
         "wires": [
             [
                 "c3699e52d27c7f43"
@@ -3495,8 +3497,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2000,
-        "y": 920,
+        "x": 1820,
+        "y": 1000,
         "wires": [
             [
                 "422fe2162474cfee"
@@ -3508,7 +3510,7 @@
         "id": "422fe2162474cfee",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "name": "Beregn tilskud",
+        "name": "Find tillægsprocent for hver behandling",
         "rules": [
             {
                 "t": "set",
@@ -3523,8 +3525,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2000,
-        "y": 1000,
+        "x": 1830,
+        "y": 1080,
         "wires": [
             [
                 "8a3db972f8fb7806",
@@ -3552,11 +3554,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
-        "y": 1000,
+        "x": 1050,
+        "y": 980,
         "wires": [
             [
-                "025bb676d906c835",
                 "4c51b10755b92b07"
             ]
         ]
@@ -3567,8 +3568,8 @@
         "z": "8ea344595d9a442a",
         "name": "Kontroller data ud fra regelsæt",
         "info": "",
-        "x": 1120,
-        "y": 960,
+        "x": 1040,
+        "y": 940,
         "wires": []
     },
     {
@@ -3584,37 +3585,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1420,
-        "y": 1180,
+        "x": 980,
+        "y": 1280,
         "wires": []
-    },
-    {
-        "id": "025bb676d906c835",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "name": "Tjek alle regler mod borgerdata",
-        "rules": [
-            {
-                "t": "set",
-                "p": "errors",
-                "pt": "msg",
-                "to": "payload @$p.\t(\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"!null\" ?\t        $value != null\t    :\t    $value = null ?\t        false\t    :\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t};\t{\t    \"borger\": $p.cpr,\t\t    \"regelbrud\":\t        rules @$r.\t        (\t            $respectsRule($r, $data := $lookup($p.persondata, $r.variable)) = false ?\t            {\t                \"regel\": $r.name,\t                \"beskrivelse\": $r.description,\t                \"persondata\": $data,\t                \"respekteres\": $respectsRule($r, $data)\t            }\t        ),\t\t    \"regelcheck\":\t        rules @$r.\t        (\t            {\t                \"regel\": $r.name,\t                \"beskrivelse\": $r.description,\t                \"persondata\": $data := $lookup($p.persondata, $r.variable),\t                \"respekteres\": $respectsRule($r, $data)\t            }\t        )\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1130,
-        "y": 1080,
-        "wires": [
-            [
-                "5d7e42be40e46699"
-            ]
-        ]
     },
     {
         "id": "6ff2d0dc61ab8294",
@@ -3629,8 +3602,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
-        "y": 1280,
+        "x": 950,
+        "y": 1200,
         "wires": []
     },
     {
@@ -3652,8 +3625,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
-        "y": 1120,
+        "x": 1050,
+        "y": 1020,
         "wires": [
             [
                 "4e374431cb68ace4"
@@ -3679,8 +3652,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 1160,
+        "x": 1000,
+        "y": 1060,
         "wires": [
             [
                 "5e112e4574f64f9b"
@@ -3706,8 +3679,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1140,
-        "y": 1200,
+        "x": 1060,
+        "y": 1100,
         "wires": [
             [
                 "71c55498ef71a4c9"
@@ -3724,7 +3697,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$sagForeligger := function($type, $titel)\t{\t\t    sager[$type = 'A' ?\t            type ~> $lowercase ~> $contains($titel)\t        and \t            titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains($titel)] ?\t        true : false\t};\t\t{\t\t    \"udvidetHelbredstillaeg\": $sagForeligger('A', 'udvidet helbredstill'),\t    \"almHelbredstillaeg\": $sagForeligger('B', 'almindeligt helbredstill'),\t    \"helbredskort\": $sagForeligger('B', 'gskort')\t\t}\t\t)|",
+                "to": "$.payload ~> |$.persondata|(\t\t$sagForeligger := function($type, $titel)\t{\t\t    sager   [fra ~> $toMillis < $millis()\t        and\t            (til ~> $boolean ? \t                til ~> $toMillis > $millis()\t            :\t            true)\t        and\t            ($type = 'A' ?\t                type ~> $lowercase ~> $contains($titel)\t            and \t                titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains($titel)\t            )] ?\t        true\t        :\t        false\t};\t\t{\t\t    \"udvidetHelbredstillaeg\": $sagForeligger('A', 'udvidet helbredstill'),\t    \"almHelbredstillaeg\": $sagForeligger('B', 'almindeligt helbredstill'),\t    \"helbredskort\": $sagForeligger('B', 'gskort')\t\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -3733,14 +3706,15 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
+        "x": 680,
         "y": 1200,
         "wires": [
             [
                 "215c708ef9319356",
                 "6ff2d0dc61ab8294"
             ]
-        ]
+        ],
+        "info": "https://try.jsonata.org/XMh66GbxR"
     },
     {
         "id": "5e6c62c7505cca22",
