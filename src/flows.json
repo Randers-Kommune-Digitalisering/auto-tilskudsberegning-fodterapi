@@ -252,6 +252,18 @@
         ]
     },
     {
+        "id": "7d7a7bf5a54224e8",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "x": 800,
+        "y": 1160,
+        "wires": [
+            [
+                "215c708ef9319356"
+            ]
+        ]
+    },
+    {
         "id": "a567f42879c1f449",
         "type": "mqtt-broker",
         "name": "",
@@ -1740,8 +1752,8 @@
         "name": "",
         "server": "13a90a014adf9bc5",
         "client": "",
-        "x": 1820,
-        "y": 1320,
+        "x": 1640,
+        "y": 1680,
         "wires": []
     },
     {
@@ -1763,8 +1775,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1360,
-        "y": 1320,
+        "x": 1180,
+        "y": 1680,
         "wires": [
             [
                 "ce947c0f871d1233"
@@ -1915,8 +1927,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1590,
-        "y": 1320,
+        "x": 1410,
+        "y": 1680,
         "wires": [
             [
                 "b1559f9d4a7c3f92"
@@ -3149,8 +3161,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2170,
-        "y": 1080,
+        "x": 1510,
+        "y": 1460,
         "wires": []
     },
     {
@@ -3238,7 +3250,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> | $.faktura |\t({\t\t\"behandlinger\": behandlinger @$b #$i .{\t\t    \"uid\": (id ~> $substring(19,17))\t            & \"-\" & $b.ydelsesnummer\t            & \"-\" & ($i+1),\t\t    \"titel\": $b.titel,\t    \"ydelsesnummer\": $b.ydelsesnummer,\t    \"behandlingsKategory\": $b.behandlingsKategory,\t    \"pris\": $b.pris,\t    \"kørteKilometer\": $b.kørteKilometer,\t    \"patientAndel\": $b.patientAndel,\t    \"sygesikringsAndel\": $b.sygesikringsAndel\t\t}\t})|",
+                "to": "$.payload ~> | $.faktura |\t({\t\t\"behandlinger\": behandlinger @$b #$i .{\t\t    \"uid\": (id ~> $substring(19,17))\t            & \"-\" & $b.ydelsesnummer\t            & \"-\" & ($i+1),\t\t    \"titel\": $b.titel,\t    \"ydelsesnummer\": $b.ydelsesnummer,\t    \"ydernummer\": $b.ydernummer,\t    \"behandlingsKategory\": $b.behandlingsKategory,\t    \"pris\": $b.pris,\t    \"kørteKilometer\": $b.kørteKilometer,\t    \"patientAndel\": $b.patientAndel,\t    \"sygesikringsAndel\": $b.sygesikringsAndel\t\t}\t})|",
                 "tot": "jsonata"
             }
         ],
@@ -3247,11 +3259,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1410,
+        "x": 1430,
         "y": 1040,
         "wires": [
             [
-                "05096968ae22cc6f"
+                "7f450a3e484312bd",
+                "6ff2d0dc61ab8294"
             ]
         ],
         "info": "https://try.jsonata.org/zbfWKbpM7"
@@ -3362,7 +3375,8 @@
         "y": 1160,
         "wires": [
             [
-                "ac8390885c3e684c"
+                "ac8390885c3e684c",
+                "7d7a7bf5a54224e8"
             ]
         ]
     },
@@ -3372,7 +3386,7 @@
         "z": "8ea344595d9a442a",
         "name": "Transformer faktura data (+ fjern unødvendig data)",
         "info": "",
-        "x": 1470,
+        "x": 1490,
         "y": 920,
         "wires": []
     },
@@ -3386,7 +3400,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.faktura|\t{},\t[\t    \"behandlerNavn\",\t    \"klinikNavn\",\t    \"klinikCVR\",\t    \"behandlerType\",\t    \"ydernummer\",\t    \"patientTelefon\"\t]\t|",
+                "to": "$.payload ~> |$.faktura|\t{},\t[\t    \"behandlerNavn\",\t    \"klinikNavn\",\t    \"klinikCVR\",\t    \"behandlerType\",\t    \"patientTelefon\"\t]\t|",
                 "tot": "jsonata"
             }
         ],
@@ -3395,7 +3409,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1380,
+        "x": 1400,
         "y": 960,
         "wires": [
             [
@@ -3422,7 +3436,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1380,
+        "x": 1400,
         "y": 1000,
         "wires": [
             [
@@ -3436,8 +3450,8 @@
         "z": "8ea344595d9a442a",
         "name": "Opret sager + ydelser",
         "info": "",
-        "x": 1780,
-        "y": 960,
+        "x": 600,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3446,8 +3460,8 @@
         "z": "8ea344595d9a442a",
         "name": "Beregn tilskud",
         "info": "",
-        "x": 1750,
-        "y": 1040,
+        "x": 750,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3469,11 +3483,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1390,
-        "y": 1080,
+        "x": 1410,
+        "y": 1300,
         "wires": [
             [
-                "c3699e52d27c7f43"
+                "046eb82cefda08d4"
             ]
         ],
         "info": "https://try.jsonata.org/zbfWKbpM7"
@@ -3497,8 +3511,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1820,
-        "y": 1000,
+        "x": 640,
+        "y": 1520,
         "wires": [
             [
                 "422fe2162474cfee"
@@ -3510,7 +3524,7 @@
         "id": "422fe2162474cfee",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "name": "Find tillægsprocent for hver behandling",
+        "name": "Find bevilling + tillægsprocent for hver behandling",
         "rules": [
             {
                 "t": "set",
@@ -3525,8 +3539,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1830,
-        "y": 1080,
+        "x": 690,
+        "y": 1560,
         "wires": [
             [
                 "8a3db972f8fb7806",
@@ -3566,9 +3580,9 @@
         "id": "c68d4ee2f02ada08",
         "type": "comment",
         "z": "8ea344595d9a442a",
-        "name": "Kontroller data ud fra regelsæt",
+        "name": "Kontroller KP data ud fra regelsæt",
         "info": "",
-        "x": 1040,
+        "x": 1060,
         "y": 940,
         "wires": []
     },
@@ -3585,8 +3599,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 980,
-        "y": 1280,
+        "x": 1000,
+        "y": 1140,
         "wires": []
     },
     {
@@ -3602,8 +3616,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 1200,
+        "x": 1850,
+        "y": 1020,
         "wires": []
     },
     {
@@ -3691,13 +3705,14 @@
         "id": "ac8390885c3e684c",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "d": true,
         "name": "Kontroller sager",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$sagForeligger := function($type, $titel)\t{\t\t    sager   [fra ~> $toMillis < $millis()\t        and\t            (til ~> $boolean ? \t                til ~> $toMillis > $millis()\t            :\t            true)\t        and\t            ($type = 'A' ?\t                type ~> $lowercase ~> $contains($titel)\t            and \t                titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains($titel)\t            )] ?\t        true\t        :\t        false\t};\t\t{\t\t    \"udvidetHelbredstillaeg\": $sagForeligger('A', 'udvidet helbredstill'),\t    \"almHelbredstillaeg\": $sagForeligger('B', 'almindeligt helbredstill'),\t    \"helbredskort\": $sagForeligger('B', 'gskort')\t\t}\t\t)|",
+                "to": "$.payload ~> |$.persondata|(\t\t$sagForeligger := function($type, $titel)\t{\t    sager [\t        ($type = 'A' ?\t            type ~> $lowercase ~> $contains($titel)\t        and \t            titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains($titel))\t    and\t        $millis() > (fra ~> $toMillis)\t    and\t        (til ? $millis() < (til ~> $toMillis) : true)\t    and\t        bevilling\t    ] ?\t        true : false\t};\t\t{\t\t    \"udvidetHelbredstillaeg\": $sagForeligger('A', 'udvidet helbredstill'),\t    \"almHelbredstillaeg\": $sagForeligger('B', 'almindeligt helbredstill'),\t    \"helbredskort\": $sagForeligger('B', 'gskort')\t\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -3707,11 +3722,10 @@
         "to": "",
         "reg": false,
         "x": 680,
-        "y": 1200,
+        "y": 1240,
         "wires": [
             [
-                "215c708ef9319356",
-                "6ff2d0dc61ab8294"
+                "215c708ef9319356"
             ]
         ],
         "info": "https://try.jsonata.org/XMh66GbxR"
@@ -3725,6 +3739,81 @@
         "info": "",
         "x": 850,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "046eb82cefda08d4",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Find bevilling + sag gældende for hver behandling",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.faktura.behandlinger |\t(\t\t    $uid := uid;\t    $borger := $$.payload[faktura.behandlinger.uid = $uid];\t    $type := type;\t\t{\t\t    \"bevilget\": type = 'A' ?\t                            $borger.persondata.bevilling\t                        :  \t                            $borger.persondata.sager\t                            [\t                                (type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t                            or\t                                type ~> $lowercase ~> $contains(\"gskort\"))\t                            and\t                                ($borger.faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                            and\t                                (til ? ($borger.faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                            and\t                                bevilling = true\t                            ] ?\t                                true : false,\t                                \t    \"sag\": $borger.persondata.sager [\t                                        titel ~> $lowercase ~> $contains(\"fod\")\t                                    and\t                                        ($type = 'A' ?\t                                            (type ~> $lowercase ~> $contains(\"udvidet helbred\"))\t                                        :\t                                            (type ~> $lowercase ~> $contains(\"almindeligt helbredstill\")\t                                        or\t                                            type ~> $lowercase ~> $contains(\"gskort\")))\t                                    and\t                                        ($borger.faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                                    and\t                                        (til ? ($borger.faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                                    and\t                                        bevilling = true\t                                    ]\t\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1490,
+        "y": 1340,
+        "wires": [
+            [
+                "8a3db972f8fb7806",
+                "da966ceeba7b23dd"
+            ]
+        ]
+    },
+    {
+        "id": "6b4df0013a0256a0",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "name": "Find relevant data for hver behandling på faktura",
+        "info": "",
+        "x": 1480,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "7f450a3e484312bd",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Find tillægsprocent gældende for hver faktura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.faktura |\t(\t\t    $id := id;\t    $borger := $$.payload[faktura.id = $id];\t    $dato := dato;\t\t{\t\t    \"_personligtillaegsprocent\": $borger.persondata.personligtillaegsprocent [\t        ($dato ~> $toMillis) > (dato_fra ~> $toMillis)\t    and\t        (dato_til ~> $boolean ? ($dato ~> $toMillis) < (dato_til ~> $toMillis) : true)\t    ],\t\t    \"_helbredstillaegsprocent\": $borger.persondata.helbredstillaegsprocent [\t        ($dato ~> $toMillis) > (dato_fra ~> $toMillis)\t    and\t        (dato_til ~> $boolean ? ($dato ~> $toMillis) < (dato_til ~> $toMillis) : true)\t    ]\t\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1470,
+        "y": 1160,
+        "wires": [
+            [
+                "05096968ae22cc6f"
+            ]
+        ]
+    },
+    {
+        "id": "852046d71f487d02",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "name": "Find relevant data for hver faktura",
+        "info": "",
+        "x": 1430,
+        "y": 1120,
         "wires": []
     },
     {
