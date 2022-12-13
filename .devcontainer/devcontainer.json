@@ -20,7 +20,7 @@
    	// "service": "node-red",
    	"workspaceMount": "source=${localWorkspaceFolder},target=/data,type=bind",
    	"workspaceFolder": "/data",
-   	"postStartCommand": ["node-red -u '/data/src/flows.json'"],
+   	"postStartCommand": ["node-red -u '/data/' /data/src/flows.json"],
 
 	
 	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "false"}
