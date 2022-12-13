@@ -1,5 +1,5 @@
 {
-    "name": "WorkLetAutomatisering",
+    "name": "workletautomatisering",
     "description": "New",
     "version": "0.0.1",
     "dependencies": {
@@ -12,11 +12,5 @@
         "puppeteer": "^18.2.1",
         "puppeteer-core": "^18.2.1",
         "ws": "^8.9.0"
-    },
-    "node-red": {
-        "settings": {
-            "flowFile": "src\\flows.json",
-            "credentialsFile": "src\\flows_cred.json"
-        }
     }
 }

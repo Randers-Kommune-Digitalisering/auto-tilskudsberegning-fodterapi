@@ -1,7 +1,7 @@
 {
 	"name": "Node-RED 3",
-	// "image": "docker.io/nodered/node-red:latest",
-	"image": "docker.io/nodered/node-red:3.0.2",
+	 "image": "docker.io/nodered/node-red:latest",
+	//"image": "docker.io/nodered/node-red:3.0.2",
 
 	// Features to add to the dev container. More info: https://containers.dev/implementors/features.
 	// "features": {},
@@ -10,15 +10,20 @@
 	"forwardPorts": [1880],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "",
+	// Install node-red dependencies from /data/package.json
+	"postCreateCommand": "npm install --prefix /data/",
 
+	//"postStartCommand": ["node-red"],
+	//	"postAttachCommand": {
+   	//	 "server": "npm start"
+  	//},
 	// "dockerComposeFile": "./docker-compose.yml",
    	// "service": "node-red",
-   	 "workspaceMount": "source=${localWorkspaceFolder},target=/data,type=bind",
+   	"workspaceMount": "source=${localWorkspaceFolder},target=/data,type=bind",
    	"workspaceFolder": "/data",
-   	"postStartCommand": ["node-red"],
+   	"postStartCommand": "node-red -u '/data/' /data/src/flows.json",
 	
-	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "false", "FLOWS": "/data/src/flow.json"}
+	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "false"}
 	// NODE_PATH=/usr/src/node-red/node_modules:/data/node_modules
 		
 	// Configure tool-specific properties.
