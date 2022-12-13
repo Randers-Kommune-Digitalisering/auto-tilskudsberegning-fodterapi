@@ -16,8 +16,11 @@
    	// "service": "node-red",
    	"workspaceMount": "source=${localWorkspaceFolder},target=/data,type=bind",
    	"workspaceFolder": "/data",
-   	"postStartCommand": ["node-red"],
-	
+   	//"postStartCommand": ["node-red"],
+	"postAttachCommand": {
+   		 "server": "npm start"
+  	},
+		
 	"containerEnv": { "NODE_RED_ENABLE_PROJECTS": "false", "FLOWS": "/data/src/flows.json"}
 	// NODE_PATH=/usr/src/node-red/node_modules:/data/node_modules
 		
