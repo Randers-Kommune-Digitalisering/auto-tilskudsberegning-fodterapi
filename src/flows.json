@@ -16,6 +16,22 @@
         "env": []
     },
     {
+        "id": "46a5586ef7af1095",
+        "type": "tab",
+        "label": "Post examples",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f153e034803f1e1e",
+        "type": "tab",
+        "label": "HTTP Request",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "41d1b8798efe7e15",
         "type": "subflow",
         "name": "PupController",
@@ -71,9 +87,7 @@
             "6c9c15c3a64af0ef"
         ],
         "x": 2634,
-        "y": 239,
-        "w": 212,
-        "h": 82
+        "y": 239
     },
     {
         "id": "7de50fe1369c94a7",
@@ -91,9 +105,7 @@
             "8b4e8bc5facd8f90"
         ],
         "x": 574,
-        "y": 139,
-        "w": 322,
-        "h": 122
+        "y": 139
     },
     {
         "id": "27007b43e1b2750d",
@@ -117,9 +129,7 @@
             "c0efbe2a4fc25ff6"
         ],
         "x": 934,
-        "y": 39,
-        "w": 672,
-        "h": 222
+        "y": 39
     },
     {
         "id": "669e09e244099963",
@@ -153,9 +163,7 @@
             "90acc4726c72125a"
         ],
         "x": 634,
-        "y": 299,
-        "w": 1452,
-        "h": 187
+        "y": 299
     },
     {
         "id": "9c4f3569ebca5f7b",
@@ -184,9 +192,7 @@
             "f7835ac1742b0168"
         ],
         "x": 694,
-        "y": 519,
-        "w": 1172,
-        "h": 222
+        "y": 519
     },
     {
         "id": "becf3086d0307883",
@@ -4085,5 +4091,785 @@
             [],
             []
         ]
+    },
+    {
+        "id": "42de3af98b8ce955",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/js",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "4ecdb9d3908ce87b"
+            ]
+        ]
+    },
+    {
+        "id": "809ebd4b83ba8a98",
+        "type": "http response",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1150,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0deb93eb3ab278b1",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n</head>\n<body>\n\n    <div class=\"container\">\n\n        <h1>Post</h1>\n        <p>My first bootstrap post test</p>\n\n        <br /><br />\n\n        <div id=\"responseDiv\"></div>\n\n        <br /><br />\n        <div class=\"form-group\">\n            <label for=\"inputfield\" class=\"form-label mt-4\">Text input</label>\n            <input type=\"text\" class=\"form-control\" id=\"inputfield\" aria-describedby=\"texthelp\" placeholder=\"Enter anything\">\n            <small id=\"textHelp\" class=\"form-text text-muted\">Type anything you can think of</small>\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\" onclick=\"postRequest(document.getElementById('inputfield').value)\">Submit</button>\n\n    </div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
+        "output": "str",
+        "x": 1010,
+        "y": 160,
+        "wires": [
+            [
+                "809ebd4b83ba8a98"
+            ]
+        ]
+    },
+    {
+        "id": "f436be9408463448",
+        "type": "change",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "postdata",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "b16d80e9bd2810c9"
+            ]
+        ]
+    },
+    {
+        "id": "4ecdb9d3908ce87b",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "CSS",
+        "field": "css",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');",
+        "output": "str",
+        "x": 730,
+        "y": 160,
+        "wires": [
+            [
+                "5c3063a86795789a"
+            ]
+        ]
+    },
+    {
+        "id": "78ca453c89e36b62",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/js/post",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "da59dfc69226af2d",
+                "f436be9408463448"
+            ]
+        ]
+    },
+    {
+        "id": "da59dfc69226af2d",
+        "type": "debug",
+        "z": "46a5586ef7af1095",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.text",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5c3063a86795789a",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "JS",
+        "field": "js",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "function postRequest(text)\n{\n    fetch('/js/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({ \"text\": text })\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    setInnerHTML(\"responseDiv\", responseObject.text);\n    return responseObject;\n}\n\n\nfunction setInnerHTML(objectName, content) {\n    var container = document.getElementById(objectName);\n    container.innerHTML = content;\n}",
+        "output": "str",
+        "x": 870,
+        "y": 160,
+        "wires": [
+            [
+                "0deb93eb3ab278b1"
+            ]
+        ]
+    },
+    {
+        "id": "b16d80e9bd2810c9",
+        "type": "http response",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2282e0713ab105b6",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/html",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "bd26b8c29bc95091"
+            ]
+        ]
+    },
+    {
+        "id": "ec68cbdc8c0561bc",
+        "type": "http response",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1150,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c44c598fefd9fe2d",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n</head>\n<body>\n\n    <div class=\"container\">\n\n        <h1>Post</h1>\n        <p>My first bootstrap post test</p>\n\n        <br /><br />\n\n        <div>{{{postdata}}}</div>\n\n        <br /><br />\n        <form method=\"post\" action=\"/html/post\">\n            <div class=\"form-group\">\n                <label for=\"inputfield\" class=\"form-label mt-4\">Text input</label>\n                <input type=\"text\" class=\"form-control\" name=\"inputField\" id=\"inputfield\" aria-describedby=\"texthelp\" placeholder=\"Enter anything\">\n                <small id=\"textHelp\" class=\"form-text text-muted\">Type anything you can think of</small>\n            </div>\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n        </form>\n    </div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
+        "output": "str",
+        "x": 1010,
+        "y": 280,
+        "wires": [
+            [
+                "ec68cbdc8c0561bc"
+            ]
+        ]
+    },
+    {
+        "id": "13a2ef1e50bd0a26",
+        "type": "change",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "postdata",
+                "pt": "msg",
+                "to": "payload.inputField",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "bd26b8c29bc95091"
+            ]
+        ]
+    },
+    {
+        "id": "bd26b8c29bc95091",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "CSS",
+        "field": "css",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');",
+        "output": "str",
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [
+                "c44c598fefd9fe2d"
+            ]
+        ]
+    },
+    {
+        "id": "1d2233855ece37e9",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/html/post",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "21070de2348e09f3",
+                "13a2ef1e50bd0a26"
+            ]
+        ]
+    },
+    {
+        "id": "21070de2348e09f3",
+        "type": "debug",
+        "z": "46a5586ef7af1095",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.text",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1e8199de114d83a8",
+        "type": "comment",
+        "z": "46a5586ef7af1095",
+        "name": "JS example",
+        "info": "",
+        "x": 170,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "aacf002aeefed0be",
+        "type": "comment",
+        "z": "46a5586ef7af1095",
+        "name": "HTML example",
+        "info": "",
+        "x": 180,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0af24f61a615bb39",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/ajs",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "40f3f97ef7c2be32"
+            ]
+        ]
+    },
+    {
+        "id": "c8c124620e0f49cc",
+        "type": "http response",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1150,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "997e085d83d42099",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n</head>\n<body>\n\n    <div class=\"container\">\n\n        <h1>Hidden in-memory database</h1>\n        <div id=\"responseDiv\"></div>\n\n        <br /><br />\n        \n        <h2>Get existing variable</h2>\n        <div class=\"form-group\">\n            <label for=\"var\" class=\"form-label mt-4\">Variable name</label>\n            <input type=\"text\" class=\"form-control\" id=\"getvar\" aria-describedby=\"texthelp\" placeholder=\"Variable name\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\" onclick=\"postGetRequest(document.getElementById('getvar').value)\">Submit</button>\n\n        <br /><br />\n        <h2>Set new variable</h2>\n        <div class=\"form-group\">\n            <label for=\"var\" class=\"form-label mt-4\">Variable name</label>\n            <input type=\"text\" class=\"form-control\" id=\"var\" aria-describedby=\"texthelp\" placeholder=\"Variable name\">\n            <label for=\"val\" class=\"form-label mt-4\">Value</label>\n            <input type=\"text\" class=\"form-control\" id=\"val\" aria-describedby=\"texthelp\" placeholder=\"Value\">\n            <small id=\"textHelp\" class=\"form-text text-muted\">Type anything you can think of</small>\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\" onclick=\"postSetRequest(document.getElementById('var').value, document.getElementById('val').value)\">Submit</button>\n\n    </div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
+        "output": "str",
+        "x": 1010,
+        "y": 820,
+        "wires": [
+            [
+                "c8c124620e0f49cc"
+            ]
+        ]
+    },
+    {
+        "id": "40f3f97ef7c2be32",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "CSS",
+        "field": "css",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');",
+        "output": "str",
+        "x": 430,
+        "y": 820,
+        "wires": [
+            [
+                "a2f5b544118ad2c0"
+            ]
+        ]
+    },
+    {
+        "id": "1dd5501459103eab",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/ajs/set",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 680,
+        "wires": [
+            [
+                "33d31599a4a632cb"
+            ]
+        ]
+    },
+    {
+        "id": "7a9873eb81c90d7d",
+        "type": "debug",
+        "z": "46a5586ef7af1095",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a2f5b544118ad2c0",
+        "type": "template",
+        "z": "46a5586ef7af1095",
+        "name": "JS",
+        "field": "js",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "function postSetRequest(variable, text)\n{\n    fetch('/ajs/set', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({ \"variable\": variable, \"value\": text })\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n/*\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n    postGetRequest(\"placeholder\");\n});\n*/\n\nfunction postGetRequest(variable) {\n    fetch('/ajs/get', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({ \"variable\": variable })\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    setInnerHTML(\"responseDiv\", responseObject.response);\n    return responseObject;\n}\n\n\nfunction setInnerHTML(objectName, content) {\n    content = `<p>` + content + `</p>`;\n    var container = document.getElementById(objectName);\n    container.innerHTML = content;\n}",
+        "output": "str",
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "997e085d83d42099"
+            ]
+        ]
+    },
+    {
+        "id": "338e16524a29406e",
+        "type": "http response",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1150,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "ba607ddb8cb9c9ed",
+        "type": "comment",
+        "z": "46a5586ef7af1095",
+        "name": "Data stored internally",
+        "info": "",
+        "x": 200,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "33d31599a4a632cb",
+        "type": "function",
+        "z": "46a5586ef7af1095",
+        "name": "Set flow var",
+        "func": "flow.set(msg.payload.variable, msg.payload.value);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 680,
+        "wires": [
+            [
+                "32d8ba7ed396b23e"
+            ]
+        ]
+    },
+    {
+        "id": "e61fd36eb5e42628",
+        "type": "http in",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "url": "/ajs/get",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "cc536065bbfc85d0",
+                "843194ca33cc07a7"
+            ]
+        ]
+    },
+    {
+        "id": "63af14d708218f1a",
+        "type": "http response",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1150,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "cc536065bbfc85d0",
+        "type": "debug",
+        "z": "46a5586ef7af1095",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "82835d81d6e37909",
+        "type": "debug",
+        "z": "46a5586ef7af1095",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "843194ca33cc07a7",
+        "type": "function",
+        "z": "46a5586ef7af1095",
+        "name": "Get flow var",
+        "func": "msg.payload.value = flow.get(msg.payload.variable);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 740,
+        "wires": [
+            [
+                "82835d81d6e37909",
+                "f86ec0b78063bf66"
+            ]
+        ]
+    },
+    {
+        "id": "32d8ba7ed396b23e",
+        "type": "change",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.response",
+                "pt": "msg",
+                "to": "\"Variable <b>\" & payload.variable & \"</b> set to <b>\" & payload.value & \"</b>\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 680,
+        "wires": [
+            [
+                "338e16524a29406e"
+            ]
+        ]
+    },
+    {
+        "id": "f86ec0b78063bf66",
+        "type": "change",
+        "z": "46a5586ef7af1095",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.response",
+                "pt": "msg",
+                "to": "\"Variable <b>\" & payload.variable & \"</b> contains <b>\" & payload.value & \"</b>\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 740,
+        "wires": [
+            [
+                "63af14d708218f1a"
+            ]
+        ]
+    },
+    {
+        "id": "2525b875b7d395ea",
+        "type": "http in",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "url": "/fod",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "6c4a87c3e715d004"
+            ]
+        ]
+    },
+    {
+        "id": "80bb09981a2dc92a",
+        "type": "http response",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1290,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "bfb87965a41c602d",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n    <meta name=\"theme-color\" content=\"#7952b3\">\n</head>\n<body>\n\n<div class=\"d-flex flex-column align-items-stretch flex-shrink-0\" id=\"sideMenu\">\n\n  <a class=\"d-flex align-items-center flex-shrink-0 p-3 link-primary text-decoration-none\">\n    <svg class=\"bi me-2\" width=\"30\" height=\"24\"><use xlink:href=\"#bootstrap\"></use></svg>\n    <span class=\"fs-5 fw-semibold\">Auto<small class=\"text-muted\" style=\"padding-left: 3px\">WorkLet</small></span>\n  </a>\n\n  <div class=\"container\" style=\"margin-top: 20px;margin-bottom: 8px\">\n    <ul class=\"nav nav-pills flex-column\">\n\n      <li class=\"nav-item\">\n        <a href=\"#\" class=\"nav-link active bg-dark\" aria-current=\"page\">\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i>\n          Loginoplysninger\n        </a>\n      </li>\n\n      <li>\n        <a href=\"#\" class=\"nav-link text-primary\">\n          <i class=\"fa fa-briefcase\" aria-hidden=\"true\"></i>\n          Forretningsregler\n        </a>\n      </li>\n\n      <li>\n        <a href=\"#\" class=\"nav-link text-primary\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Tilskudssatser\n        </a>\n      </li>\n\n      <li>\n        <a href=\"#\" class=\"nav-link text-primary\" style=\"margin-top: 50px\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Fakturaer\n        </a>\n      </li>\n\n    </ul>\n  </div>\n\n  <div class=\"list-group list-group-flush scrollarea border-top border-bottom\">\n\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" style=\"background-color: #f0c67d\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Manuel behandling</strong>\n        <small class=\"text-muted\">3</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 3 ubehandlede fakturaer, som kræver manuel behandling.</div>\n    </a>\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight disabled \" aria-current=\"true\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Anbefalede handlinger</strong>\n        <small>Wed</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Anbefalede handlinger vises i denne kategori, efter robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight disabled\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Usikre handlinger</strong>\n        <small class=\"text-muted\">Tues</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Usikre handlinger vises i denne kategori, efter robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n\n  </div>\n</div><!-- /sideMenu -->\n\n<div id=\"pageContent\">\n  \n\n  <h3>Loginoplysninger</h3>\n\n  <div class=\"card border-secondary mb-3\" style=\"max-width: 900px;\">\n    <div class=\"card-header\">Header</div>\n    <div class=\"card-body\">\n      <h4 class=\"card-title\">Secondary card title</h4>\n      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    </div>\n  </div>\n\n  <div class=\"card mb-3\" style=\"max-width: 900px;\">\n    <div class=\"card-body\">\n      <h4 class=\"card-title\">Card title</h4>\n      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n      <a href=\"#\" class=\"card-link\">Card link</a>\n      <a href=\"#\" class=\"card-link\">Another link</a>\n    </div>\n  </div>\n  \n  <div class=\"card mb-3\" style=\"max-width: 900px;\">\n    <div class=\"card-header\">Header</div>\n    <div class=\"card-body\">\n      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n      <a href=\"#\" class=\"card-link\">Card link</a>\n      <a href=\"#\" class=\"card-link\">Another link</a>\n    </div>\n  </div>\n  \n\n  <!--\n  <div class=\"form-group\">\n  <label class=\"form-label mt-4\">Floating labels</label>\n  <div class=\"form-floating mb-3\">\n    <input type=\"email\" class=\"form-control\" id=\"floatingInput\" placeholder=\"name@example.com\">\n    <label for=\"floatingInput\">Email address</label>\n  </div>\n  <div class=\"form-floating\">\n    <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"Password\">\n    <label for=\"floatingPassword\">Password</label>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" onclick=\"postRequest(document.getElementById('inputfield').value)\">Submit</button>\n  </div>\n-->\n\n\n\n</div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
+        "output": "str",
+        "x": 1070,
+        "y": 420,
+        "wires": [
+            [
+                "80bb09981a2dc92a"
+            ]
+        ]
+    },
+    {
+        "id": "fd10c99b1a5f214e",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "CSS",
+        "field": "css",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n\nbody\n{\n    margin: 0px;\n}\n\n#sideMenu\n{\n    width: 30vh;\n    height: 100vh;\n    position: fixed;\n}\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 30vh;\n    padding-left: 30px;\n    padding-top: 78px;\n    padding-right: 30px;\n    \n    background-color: rgb(221, 228, 231);\n}\n    #pageContent h3\n    {\n        padding-left: 10px;\n    }\n\n\n.nav-link > .fa\n{\n    margin-left: -5px;\n    margin-right: 10px;\n}\n\n\n#sideMenu h6\n{\n    line-height: 35px;\n}\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}",
+        "output": "str",
+        "x": 890,
+        "y": 420,
+        "wires": [
+            [
+                "bfb87965a41c602d"
+            ]
+        ]
+    },
+    {
+        "id": "ccb5546b842060f8",
+        "type": "http in",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "url": "/fod/post",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 340,
+        "wires": [
+            [
+                "08df71e938d67c61",
+                "85b214655c3ea0fd"
+            ]
+        ]
+    },
+    {
+        "id": "08df71e938d67c61",
+        "type": "debug",
+        "z": "f153e034803f1e1e",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.text",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6c4a87c3e715d004",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "JS",
+        "field": "js",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "function postRequest(text)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({ \"text\": text })\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    setInnerHTML(\"responseDiv\", responseObject.response);\n    return responseObject;\n}\n\n\nfunction setInnerHTML(objectName, content) {\n    var container = document.getElementById(objectName);\n    container.innerHTML = content;\n}",
+        "output": "str",
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [
+                "fd10c99b1a5f214e"
+            ]
+        ]
+    },
+    {
+        "id": "5892c924f55b6d99",
+        "type": "http response",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 910,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8e22f9ad8adee069",
+        "type": "comment",
+        "z": "f153e034803f1e1e",
+        "name": "JS example",
+        "info": "",
+        "x": 230,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "85b214655c3ea0fd",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "field": "payload.response",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload.text}} !",
+        "output": "str",
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "5892c924f55b6d99",
+                "a39aff02995a206d"
+            ]
+        ]
+    },
+    {
+        "id": "a39aff02995a206d",
+        "type": "debug",
+        "z": "f153e034803f1e1e",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 300,
+        "wires": []
     }
 ]
