@@ -87,7 +87,9 @@
             "6c9c15c3a64af0ef"
         ],
         "x": 2634,
-        "y": 239
+        "y": 239,
+        "w": 212,
+        "h": 82
     },
     {
         "id": "7de50fe1369c94a7",
@@ -105,7 +107,9 @@
             "8b4e8bc5facd8f90"
         ],
         "x": 574,
-        "y": 139
+        "y": 139,
+        "w": 322,
+        "h": 122
     },
     {
         "id": "27007b43e1b2750d",
@@ -129,7 +133,9 @@
             "c0efbe2a4fc25ff6"
         ],
         "x": 934,
-        "y": 39
+        "y": 39,
+        "w": 672,
+        "h": 222
     },
     {
         "id": "669e09e244099963",
@@ -163,7 +169,9 @@
             "90acc4726c72125a"
         ],
         "x": 634,
-        "y": 299
+        "y": 299,
+        "w": 1452,
+        "h": 187
     },
     {
         "id": "9c4f3569ebca5f7b",
@@ -192,7 +200,9 @@
             "f7835ac1742b0168"
         ],
         "x": 694,
-        "y": 519
+        "y": 519,
+        "w": 1172,
+        "h": 222
     },
     {
         "id": "becf3086d0307883",
@@ -4703,11 +4713,11 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 220,
-        "y": 420,
+        "x": 180,
+        "y": 720,
         "wires": [
             [
-                "6c4a87c3e715d004"
+                "4fa382f72b48a180"
             ]
         ]
     },
@@ -4718,8 +4728,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1290,
-        "y": 420,
+        "x": 1710,
+        "y": 720,
         "wires": []
     },
     {
@@ -4731,10 +4741,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n    <meta name=\"theme-color\" content=\"#7952b3\">\n</head>\n<body>\n\n<div class=\"d-flex flex-column align-items-stretch flex-shrink-0\" id=\"sideMenu\">\n\n  <a class=\"d-flex align-items-center flex-shrink-0 p-3 link-primary text-decoration-none\">\n    <svg class=\"bi me-2\" width=\"30\" height=\"24\"><use xlink:href=\"#bootstrap\"></use></svg>\n    <span class=\"fs-5 fw-semibold\">Auto<small class=\"text-muted\" style=\"padding-left: 3px\">WorkLet</small></span>\n  </a>\n\n  <div class=\"container\" style=\"margin-top: 20px;margin-bottom: 8px\">\n    <ul class=\"nav nav-pills flex-column\">\n\n      <li class=\"nav-item\">\n        <a href=\"#\" class=\"nav-link active bg-dark\" aria-current=\"page\">\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i>\n          Loginoplysninger\n        </a>\n      </li>\n\n      <li>\n        <a href=\"#\" class=\"nav-link text-primary\">\n          <i class=\"fa fa-briefcase\" aria-hidden=\"true\"></i>\n          Forretningsregler\n        </a>\n      </li>\n\n      <li>\n        <a href=\"#\" class=\"nav-link text-primary\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Tilskudssatser\n        </a>\n      </li>\n\n      <li>\n        <a href=\"#\" class=\"nav-link text-primary\" style=\"margin-top: 50px\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Fakturaer\n        </a>\n      </li>\n\n    </ul>\n  </div>\n\n  <div class=\"list-group list-group-flush scrollarea border-top border-bottom\">\n\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" style=\"background-color: #f0c67d\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Manuel behandling</strong>\n        <small class=\"text-muted\">3</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 3 ubehandlede fakturaer, som kræver manuel behandling.</div>\n    </a>\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight disabled \" aria-current=\"true\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Anbefalede handlinger</strong>\n        <small>Wed</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Anbefalede handlinger vises i denne kategori, efter robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight disabled\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Usikre handlinger</strong>\n        <small class=\"text-muted\">Tues</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Usikre handlinger vises i denne kategori, efter robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n\n  </div>\n</div><!-- /sideMenu -->\n\n<div id=\"pageContent\">\n  \n\n  <h3>Loginoplysninger</h3>\n\n  <div class=\"card border-secondary mb-3\" style=\"max-width: 900px;\">\n    <div class=\"card-header\">Header</div>\n    <div class=\"card-body\">\n      <h4 class=\"card-title\">Secondary card title</h4>\n      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    </div>\n  </div>\n\n  <div class=\"card mb-3\" style=\"max-width: 900px;\">\n    <div class=\"card-body\">\n      <h4 class=\"card-title\">Card title</h4>\n      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n      <a href=\"#\" class=\"card-link\">Card link</a>\n      <a href=\"#\" class=\"card-link\">Another link</a>\n    </div>\n  </div>\n  \n  <div class=\"card mb-3\" style=\"max-width: 900px;\">\n    <div class=\"card-header\">Header</div>\n    <div class=\"card-body\">\n      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n      <a href=\"#\" class=\"card-link\">Card link</a>\n      <a href=\"#\" class=\"card-link\">Another link</a>\n    </div>\n  </div>\n  \n\n  <!--\n  <div class=\"form-group\">\n  <label class=\"form-label mt-4\">Floating labels</label>\n  <div class=\"form-floating mb-3\">\n    <input type=\"email\" class=\"form-control\" id=\"floatingInput\" placeholder=\"name@example.com\">\n    <label for=\"floatingInput\">Email address</label>\n  </div>\n  <div class=\"form-floating\">\n    <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"Password\">\n    <label for=\"floatingPassword\">Password</label>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" onclick=\"postRequest(document.getElementById('inputfield').value)\">Submit</button>\n  </div>\n-->\n\n\n\n</div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n    <meta name=\"theme-color\" content=\"#7952b3\">\n</head>\n<body>\n\n<div class=\"d-flex flex-column align-items-stretch flex-shrink-0\" id=\"sideMenu\">\n\n  <a class=\"d-flex align-items-center flex-shrink-0 p-3 link-primary text-decoration-none\">\n    <svg class=\"bi me-2\" width=\"30\" height=\"24\"><use xlink:href=\"#bootstrap\"></use></svg>\n    <span class=\"fs-5 fw-semibold\">Auto<small class=\"text-muted\" style=\"padding-left: 3px\">WorkLet</small></span>\n  </a>\n\n  <div class=\"container\" style=\"margin-top: 20px;margin-bottom: 8px\">\n    <ul class=\"nav nav-pills flex-column\">\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link mb-1 text-primary\" aria-current=\"page\" onclick=\"setPageContent('login')\" id=\"menu_login\">\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i>\n          Loginoplysninger\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link mb-1 text-primary\" onclick=\"setPageContent('regler')\" id=\"menu_regler\">\n          <i class=\"fa fa-briefcase\" aria-hidden=\"true\"></i>\n          Forretningsregler\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link mb-1 text-primary\" onclick=\"setPageContent('tilskud')\" id=\"menu_tilskud\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Tilskudssatser\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link text-primary\" style=\"margin-top: 40px\" onclick=\"setPageContent('fakturaer')\" id=\"menu_fakturaer\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Fakturaer\n        </a>\n      </li>\n\n    </ul>\n  </div>\n\n  <div class=\"list-group list-group-flush scrollarea border-top border-bottom\">\n\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" style=\"background-color: #f0c67d\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Manuel behandling</strong>\n        <small>3</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 3 ubehandlede fakturaer, som kræver manuel behandling.</div>\n    </a>\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight disabled \" aria-current=\"true\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Anbefalede handlinger</strong>\n        <small class=\"text-muted\">0</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Anbefalede handlinger vises i denne kategori, efter robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n    <a href=\"#\" class=\"list-group-item list-group-item-action py-3 lh-tight disabled\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Usikre handlinger</strong>\n        <small class=\"text-muted\">0</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Usikre handlinger vises i denne kategori, efter robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n\n  </div>\n</div><!-- /sideMenu -->\n\n<div id=\"pageContent\">\n  <div class=\"container\" id=\"mainContent\">\n  \n\n  </div>\n</div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
         "output": "str",
-        "x": 1070,
-        "y": 420,
+        "x": 1510,
+        "y": 720,
         "wires": [
             [
                 "80bb09981a2dc92a"
@@ -4750,10 +4760,10 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n\nbody\n{\n    margin: 0px;\n}\n\n#sideMenu\n{\n    width: 30vh;\n    height: 100vh;\n    position: fixed;\n}\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 30vh;\n    padding-left: 30px;\n    padding-top: 78px;\n    padding-right: 30px;\n    \n    background-color: rgb(221, 228, 231);\n}\n    #pageContent h3\n    {\n        padding-left: 10px;\n    }\n\n\n.nav-link > .fa\n{\n    margin-left: -5px;\n    margin-right: 10px;\n}\n\n\n#sideMenu h6\n{\n    line-height: 35px;\n}\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n\nbody\n{\n    margin: 0px;\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n\n\n#sideMenu\n{\n    width: 20vw;\n    height: 100vh;\n    position: fixed;\n\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n\n        .nav-link:hover\n        {\n            background-color: aliceblue;\n        }\n        \n    .nav-link.success.active\n    {\n        background-color: #5CB89C!important;\n    }\n    .nav-link.success:not(.active)\n    {\n        color: #5CB89C!important;\n    }\n\n        .nav-link.success:hover\n        {\n            background-color: #4A9780!important;\n        }       \n\n        .nav-link > .fa\n        {\n            margin-left: -5px;\n            margin-right: 10px;\n        }\n\n\n\n\n\n\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 20vw;\n    padding-left: 40px;\n    padding-top: 78px;\n    padding-right: 20px;\n    \n    background-color: rgb(221, 228, 231);\n    \n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n    #pageContent > .container\n    {\n        margin-left: 0px;\n    \n        transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n    }\n\n\n\n\n@media only screen and (max-width: 1200px)\n{\n    #sideMenu\n    {\n        width: 30vw;\n    }\n    #pageContent\n    {\n        margin-left: 30vw;\n        padding-left: 15px;\n        padding-right: 10px;\n    }\n}\n@media only screen and (max-width: 768px)\n{\n    #sideMenu\n    {\n        width: 40vw;\n    }\n    #pageContent\n    {\n        margin-left: 40vw;\n        padding-left: 0px;\n        padding-top: 15px;\n        padding-right: 0px;\n    }\n}\n\n@media only screen and (max-width: 576px)\n{\n    #sideMenu\n    {\n        width: 45vw;\n    }\n    #pageContent\n    {\n        margin-left: 45vw;\n    }\n}\n\n\n\n\n\n\n\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}\n\n\n\n\n\n\nbutton\n{\n    padding-left: 25px!important;\n    padding-right: 25px!important;\n\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\nbutton .goNext\n{\n    max-height: 70px!important;\n}\n\nbutton.goNext.collapsed\n{\n    opacity: 0;\n    pointer-events: none;\n}",
         "output": "str",
-        "x": 890,
-        "y": 420,
+        "x": 1370,
+        "y": 720,
         "wires": [
             [
                 "bfb87965a41c602d"
@@ -4769,31 +4779,14 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 240,
+        "x": 200,
         "y": 340,
         "wires": [
             [
-                "08df71e938d67c61",
-                "85b214655c3ea0fd"
+                "a39aff02995a206d",
+                "552d13e5b32ad69e"
             ]
         ]
-    },
-    {
-        "id": "08df71e938d67c61",
-        "type": "debug",
-        "z": "f153e034803f1e1e",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.text",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "6c4a87c3e715d004",
@@ -4804,10 +4797,10 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "function postRequest(text)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({ \"text\": text })\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    setInnerHTML(\"responseDiv\", responseObject.response);\n    return responseObject;\n}\n\n\nfunction setInnerHTML(objectName, content) {\n    var container = document.getElementById(objectName);\n    container.innerHTML = content;\n}",
+        "template": "var pages = {{{payload.pages}}};\nvar landingPage = \"{{{payload.landingPage}}}\";\n\nvar activePage = null;\nfunction setPageContent(page)\n{\n    if(pages[page] == null)\n    {\n        setPageContent(\"404\");\n        return;\n    }\n    else if (activePage == page)\n        return;\n\n    let menuItem = document.getElementById(\"menu_\" + activePage);\n    menuItem?.classList.remove(\"active\");\n    menuItem?.classList.remove(\"bg-dark\");\n    menuItem?.classList.add(\"text-primary\");\n\n    menuItem = document.getElementById(\"menu_\" + page);\n    menuItem?.classList.add(\"active\");\n    menuItem?.classList.add(\"bg-dark\");\n    menuItem?.classList.remove(\"text-primary\");\n\n    setInnerHTML(\"mainContent\", pages[page]);\n\n    document.title = \"AutoWorklet - \" + page;\n\n    if(page != \"404\")\n        window.history.pushState({ \"page\": page }, \"\", \"/\" + page);\n\n    activePage = page;\n}\n\nsetPageContent(landingPage);\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page);\n};\n\n\n\n\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\n\nfunction postRequest(object)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    handleResponseDynamically[responseObject.responseFunction](responseObject.actionSuccess);\n    return responseObject;\n}\n\n\nvar handleResponseDynamically = [];\n\nhandleResponseDynamically[\"login\"] = function(success)\n{\n    setInnerHTML(\"buttonLogin\", \"Loginoplysninger godkendt\");\n    setButtonGreen(\"buttonLogin\");\n    setMenuItemGreen(\"menu_login\");\n    enableGoNext(\"buttonLogin_goNext\");\n}\n\n\n\n\n\n\n//\n// VISUAL\n//\nfunction enableGoNext(objectName)\n{\n    var container = document.getElementById(objectName);\n    container.classList.remove(\"collapsed\");\n}\n\nfunction setButtonGreen(objectName)\n{\n    var container = document.getElementById(objectName);\n    container.classList.remove(\"btn-dark\");\n    container.classList.add(\"btn-success\");\n    //setStyle(objectName, \"background-color\", \"\")\n}\nfunction setMenuItemGreen(objectName)\n{\n    var container = document.getElementById(objectName);\n    container.classList.add(\"success\");\n\n}\n\nfunction setInnerHTML(objectName, content) {\n    var container = document.getElementById(objectName);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectName, styleVar, styleValue)\n{\n    var container = document.getElementById(objectName);\n    container.style[styleVar] = styleValue;\n}",
         "output": "str",
-        "x": 530,
-        "y": 420,
+        "x": 1230,
+        "y": 720,
         "wires": [
             [
                 "fd10c99b1a5f214e"
@@ -4821,7 +4814,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 910,
+        "x": 1570,
         "y": 340,
         "wires": []
     },
@@ -4829,9 +4822,9 @@
         "id": "8e22f9ad8adee069",
         "type": "comment",
         "z": "f153e034803f1e1e",
-        "name": "JS example",
+        "name": "POST requests",
         "info": "",
-        "x": 230,
+        "x": 200,
         "y": 300,
         "wires": []
     },
@@ -4839,19 +4832,19 @@
         "id": "85b214655c3ea0fd",
         "type": "template",
         "z": "f153e034803f1e1e",
-        "name": "",
+        "name": "Set response body",
         "field": "payload.response",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "This is the payload: {{payload.text}} !",
+        "template": "This is the function called: {{payload.responseFunction}} !",
         "output": "str",
-        "x": 680,
+        "x": 1310,
         "y": 340,
         "wires": [
             [
                 "5892c924f55b6d99",
-                "a39aff02995a206d"
+                "458349b02a99b78b"
             ]
         ]
     },
@@ -4859,7 +4852,7 @@
         "id": "a39aff02995a206d",
         "type": "debug",
         "z": "f153e034803f1e1e",
-        "name": "debug 11",
+        "name": "POST Obj",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -4868,8 +4861,292 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
+        "x": 470,
         "y": 300,
         "wires": []
+    },
+    {
+        "id": "2ecc3aac4beb6ef4",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "Set response function call",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.responseFunction",
+                "pt": "msg",
+                "to": "login",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.actionSuccess",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 340,
+        "wires": [
+            [
+                "85b214655c3ea0fd"
+            ]
+        ]
+    },
+    {
+        "id": "552d13e5b32ad69e",
+        "type": "switch",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "workletUser",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 340,
+        "wires": [
+            [
+                "2ecc3aac4beb6ef4"
+            ]
+        ]
+    },
+    {
+        "id": "b004032e7cdb7ae9",
+        "type": "comment",
+        "z": "f153e034803f1e1e",
+        "name": "Switch on type of request",
+        "info": "",
+        "x": 750,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "458349b02a99b78b",
+        "type": "debug",
+        "z": "f153e034803f1e1e",
+        "name": "Response Obj",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7c4dbe15c5f0e07e",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "Login",
+        "field": "payload.pages.login",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Loginoplysninger</div>\n    <div class=\"card-body\">\n    <h6 class=\"card-subtitle mb-2 text-muted\">WorkLet loginoplysninger</h6>\n    <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n    \n    <div class=\"form-group\">\n        <!--label class=\"form-label mt-4\">Floating labels</label-->\n        <div class=\"form-floating mb-3\">\n        <input type=\"email\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\">\n        <label for=\"workletUser\">Email addresse</label>\n        </div>\n        <div class=\"form-floating\">\n        <input type=\"password\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\">\n        <label for=\"workletPass\">Kodeord</label>\n        </div>\n        <!-- button type=\"submit\" class=\"btn btn-primary\" onclick=\"postRequest(document.getElementById('inputfield').value)\">Submit</button -->\n    </div>\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonLogin\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('workletUser'), document.getElementById('workletPass')))\">\n    Godkend loginoplysninger\n</button>\n\n<button class=\"btn btn-lg btn-dark ml-2 goNext collapsed\" id=\"buttonLogin_goNext\" type=\"button\" onclick=\"setPageContent('regler')\">\n    Gå til forretningsregler\n</button>",
+        "output": "str",
+        "x": 830,
+        "y": 720,
+        "wires": [
+            [
+                "5af5c6b8d9cd3f3d"
+            ]
+        ]
+    },
+    {
+        "id": "86545a7e1131056b",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.pages",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 675,
+        "y": 720,
+        "wires": [
+            [
+                "db34d554f5add303"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "07155b4b164da1d5",
+        "type": "json",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "property": "payload.pages",
+        "action": "str",
+        "pretty": false,
+        "x": 1090,
+        "y": 720,
+        "wires": [
+            [
+                "6c4a87c3e715d004"
+            ]
+        ]
+    },
+    {
+        "id": "5af5c6b8d9cd3f3d",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "Forretningsregler",
+        "field": "payload.pages.regler",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n    <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n    <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n    \n    Mere tekst.\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonLogin\" type=\"button\" onclick=\"\">\n    Godkend forretningsregler\n</button>",
+        "output": "str",
+        "x": 870,
+        "y": 760,
+        "wires": [
+            [
+                "b61be1295cb516ba"
+            ]
+        ]
+    },
+    {
+        "id": "b143a960d5778cf9",
+        "type": "http in",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "url": "/:page",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 760,
+        "wires": [
+            [
+                "dbf81eba68591e1e"
+            ]
+        ]
+    },
+    {
+        "id": "dbf81eba68591e1e",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.landingPage",
+                "pt": "msg",
+                "to": "req.params.page",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 760,
+        "wires": [
+            [
+                "86545a7e1131056b"
+            ]
+        ]
+    },
+    {
+        "id": "4fa382f72b48a180",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.landingPage",
+                "pt": "msg",
+                "to": "login",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 720,
+        "wires": [
+            [
+                "86545a7e1131056b"
+            ]
+        ]
+    },
+    {
+        "id": "db34d554f5add303",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "404",
+        "field": "payload.pages.404",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<h4>Siden blev ikke fundet</h4>",
+        "output": "str",
+        "x": 830,
+        "y": 680,
+        "wires": [
+            [
+                "7c4dbe15c5f0e07e"
+            ]
+        ]
+    },
+    {
+        "id": "b61be1295cb516ba",
+        "type": "template",
+        "z": "f153e034803f1e1e",
+        "name": "Forretningsregler",
+        "field": "payload.pages.tilskud",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Tilskudssatser</div>\n    <div class=\"card-body\">\n    <h6 class=\"card-subtitle mb-2 text-muted\">Tilskudssatser fra Danmark</h6>\n    <p class=\"card-text\">Kontrollér/sæt og derefter godkendt tilskudssatserne som fratrækkes under tilskudsberegningen.</p>\n    \n    Mere tekst.\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonLogin\" type=\"button\" onclick=\"\">\n    Godkend forretningsregler\n</button>",
+        "output": "str",
+        "x": 870,
+        "y": 800,
+        "wires": [
+            [
+                "07155b4b164da1d5"
+            ]
+        ]
     }
 ]
