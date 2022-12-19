@@ -4773,7 +4773,7 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n\nbody\n{\n    margin: 0px;\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n\n\n#sideMenu\n{\n    width: 20vw;\n    height: 100vh;\n    position: fixed;\n\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n\n        .nav-link:hover\n        {\n            background-color: aliceblue;\n        }\n        \n    .nav-link.success.active\n    {\n        background-color: #5CB89C!important;\n    }\n    .nav-link.success:not(.active)\n    {\n        color: #5CB89C!important;\n    }\n\n        .nav-link.success:hover\n        {\n            background-color: #4A9780!important;\n        }       \n\n        .nav-link > .fa\n        {\n            margin-left: -5px;\n            margin-right: 10px;\n        }\n\n\n\n\n\n\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 20vw;\n    padding-left: 40px;\n    padding-top: 78px;\n    padding-right: 20px;\n    \n    background-color: rgb(221, 228, 231);\n    \n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n    #pageContent > .container\n    {\n        margin-left: 0px;\n    \n        transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n    }\n\n\n\n\n@media only screen and (max-width: 1200px)\n{\n    #sideMenu\n    {\n        width: 30vw;\n    }\n    #pageContent\n    {\n        margin-left: 30vw;\n        padding-left: 15px;\n        padding-right: 10px;\n    }\n}\n@media only screen and (max-width: 768px)\n{\n    #sideMenu\n    {\n        width: 40vw;\n    }\n    #pageContent\n    {\n        margin-left: 40vw;\n        padding-left: 0px;\n        padding-top: 15px;\n        padding-right: 0px;\n    }\n}\n\n@media only screen and (max-width: 576px)\n{\n    #sideMenu\n    {\n        width: 45vw;\n    }\n    #pageContent\n    {\n        margin-left: 45vw;\n    }\n}\n\n\n\n\n\n\n\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}\n\n\n\n\n\n\nbutton\n{\n    padding-left: 25px!important;\n    padding-right: 25px!important;\n\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\nbutton .goNext\n{\n    max-height: 70px!important;\n}\n\nbutton.goNext.collapsed\n{\n    opacity: 0;\n    pointer-events: none;\n}",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n\nbody\n{\n    margin: 0px;\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n\n\n#sideMenu\n{\n    width: 20vw;\n    height: 100vh;\n    position: fixed;\n\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n\n        .nav-link:hover\n        {\n            background-color: aliceblue;\n        }\n        \n    .nav-link.success.active\n    {\n        background-color: #5CB89C!important;\n    }\n    .nav-link.success:not(.active)\n    {\n        color: #5CB89C!important;\n    }\n\n        .nav-link.success.active:hover\n        {\n            background-color: #4A9780!important;\n        }       \n        \n        .nav-link.success:not(.active):hover\n        {\n            background-color: rgb(240, 255, 245)!important;\n        }       \n\n        .nav-link > .fa\n        {\n            margin-left: -5px;\n            margin-right: 10px;\n        }\n\n\n\n\n\n\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 20vw;\n    padding-left: 40px;\n    padding-top: 78px;\n    padding-right: 20px;\n    \n    background-color: rgb(221, 228, 231);\n    \n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n    #pageContent > .container\n    {\n        margin-left: 0px;\n    \n        transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n    }\n\n\n\n\n@media only screen and (max-width: 1200px)\n{\n    #sideMenu\n    {\n        width: 30vw;\n    }\n    #pageContent\n    {\n        margin-left: 30vw;\n        padding-left: 15px;\n        padding-right: 10px;\n    }\n}\n@media only screen and (max-width: 768px)\n{\n    #sideMenu\n    {\n        width: 40vw;\n    }\n    #pageContent\n    {\n        margin-left: 40vw;\n        padding-left: 0px;\n        padding-top: 15px;\n        padding-right: 0px;\n    }\n}\n\n@media only screen and (max-width: 576px)\n{\n    #sideMenu\n    {\n        width: 45vw;\n    }\n    #pageContent\n    {\n        margin-left: 45vw;\n    }\n}\n\n\n\n\n\n\n\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}\n\n\n\n\n\n\nbutton\n{\n    padding-left: 25px!important;\n    padding-right: 25px!important;\n\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\nbutton .goNext\n{\n    max-height: 70px!important;\n}\n\nbutton.goNext.collapsed\n{\n    opacity: 0;\n    pointer-events: none;\n}",
         "output": "str",
         "x": 790,
         "y": 1200,
@@ -4793,7 +4793,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 200,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "a39aff02995a206d",
@@ -4810,7 +4810,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "var pages = {{{payload.pages}}};\nvar landingPage = \"{{{payload.landingPage}}}\";\nvar initialLoad = true;\n\nif ({{{payload.funcToRun}}} != null)\n    {{{payload.funcToRun}}}();\n\nvar activePage = null;\nfunction setPageContent(page, setHistory = true)\n{\n    if (pages[page] == null)\n    {\n        setPageContent(\"404\", false);\n        return;\n    }\n    else if (activePage == page)\n        return;\n\n    let menuItem = document.getElementById(\"menu_\" + activePage);\n    menuItem?.classList.remove(\"active\");\n    menuItem?.classList.remove(\"bg-dark\");\n    menuItem?.classList.add(\"text-primary\");\n\n    menuItem = document.getElementById(\"menu_\" + page);\n    menuItem?.classList.add(\"active\");\n    menuItem?.classList.add(\"bg-dark\");\n    menuItem?.classList.remove(\"text-primary\");\n\n    setInnerHTML(\"mainContent\", pages[page]);\n    document.title = \"AutoWorklet - \" + page;\n    \n    if (!initialLoad)\n        switch (page)\n        {\n            case \"login\":\n                checkIfAccepted(\"login\");\n                break;\n        }\n    initialLoad = false;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": page }, \"\", \"/\" + page);\n\n    activePage = page;\n}\n\nsetPageContent(landingPage);\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n    {\n        obj[vars[i].id] = vars[i].value;\n        console.log(\"Var: \" + vars[i].id + \" - value: \" + vars[i].value);\n        console.log(\"Obj: \" + obj[vars[i].id]);\n    }\n\n    return obj;\n}\n\n\nfunction postRequest(object)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    handleResponseDynamically[responseObject.responseFunction](responseObject.response);\n    return responseObject;\n}\n\n\nvar handleResponseDynamically = [];\n\nhandleResponseDynamically[\"login\"] = function(success)\n{\n    setMenuItemGreen(\"menu_login\");\n    \n    if(activePage != \"login\")\n        return;\n\n    setInnerHTML(\"buttonLogin\", \"Loginoplysninger godkendt\");\n    setButtonGreen(\"buttonLogin\");\n    enableGoNext(\"buttonLogin_goNext\");\n}\n\n\n\n\n\n\n//\n// VISUAL\n//\nfunction checkAllAccepted()\n{\n    checkIfAccepted(\"login\");\n}\nfunction checkIfAccepted(formName)\n{\n    //var form = document.getElementById(formId);\n    var request = {\n                    \"requestType\": \"get\",\n                    \"variable\": formName + \"Accepted\",\n                    \"responseFunction\": \"checkIfAccepted\"\n                  };\n    postRequest(request);\n}\nhandleResponseDynamically[\"checkIfAccepted\"] = function (response)\n{\n    if (response.value == true)\n        switch(response.variable)\n        {\n            case \"loginAccepted\":\n                handleResponseDynamically[\"login\"](true);\n                break;\n        }\n}\n\n\n\nfunction setOperatorSelection(objectId, operatorString)\n{\n    console.log(\"This runs: \" + objectId + \", \" + operatorString);\n}\n\n\n\nfunction enableGoNext(objectId)\n{\n    var button = document.getElementById(objectId);\n    button.classList.remove(\"collapsed\");\n}\n\nfunction setButtonGreen(objectId)\n{\n    var button = document.getElementById(objectId);\n    button.classList.remove(\"btn-dark\");\n    button.classList.add(\"btn-success\");\n    //setStyle(objectId, \"background-color\", \"\")\n}\n\nfunction setMenuItemGreen(objectId)\n{\n    var menuItem = document.getElementById(objectId);\n    menuItem.classList.add(\"success\");\n\n}\n\n\n\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue)\n{\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}",
+        "template": "var pages = {{{payload.pages}}};\nvar landingPage = \"{{{payload.landingPage}}}\";\nvar initialLoad = true;\n\n{{#payload.funcToRun}}\nif ({{{payload.funcToRun}}} != null)\n    {{{payload.funcToRun}}}();\n{{/payload.funcToRun}}\n\nvar activePage = null;\nfunction setPageContent(page, setHistory = true)\n{\n    if (pages[page] == null)\n    {\n        setPageContent(\"404\", false);\n        return;\n    }\n    else if (activePage == page)\n        return;\n\n    let menuItem = document.getElementById(\"menu_\" + activePage);\n    menuItem?.classList.remove(\"active\");\n    menuItem?.classList.remove(\"bg-dark\");\n    menuItem?.classList.add(\"text-primary\");\n\n    menuItem = document.getElementById(\"menu_\" + page);\n    menuItem?.classList.add(\"active\");\n    menuItem?.classList.add(\"bg-dark\");\n    menuItem?.classList.remove(\"text-primary\");\n\n    setInnerHTML(\"mainContent\", pages[page]);\n    document.title = \"AutoWorklet - \" + page;\n    \n    if (!initialLoad)\n        switch (page)\n        {\n            case \"login\":\n                checkIfAccepted(\"login\");\n                break;\n        }\n    initialLoad = false;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": page }, \"\", \"/\" + page);\n\n    activePage = page;\n}\n\nsetPageContent(landingPage);\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\n\nfunction postRequest(object)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    handleResponseDynamically[responseObject.responseFunction](responseObject.response);\n    return responseObject;\n}\n\n\nvar handleResponseDynamically = [];\n\nhandleResponseDynamically[\"login\"] = function(success)\n{\n    setMenuItemGreen(\"menu_login\");\n    \n    if(activePage != \"login\")\n        return;\n\n    setInnerHTML(\"buttonLogin\", \"Loginoplysninger godkendt\");\n    setButtonGreen(\"buttonLogin\");\n    enableGoNext(\"buttonLogin_goNext\");\n}\n\n\n\n//\n// PAGE SPECIFIC\n//\nfunction createRuleJSON(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\nfunction setInputBox(uid)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if(operator == \"!null\")\n        html = `<select class=\"form-select\" id=\"value_` + uid +`\">\n                        <option value=\"true\" selected>Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid +`\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid +`\" placeholder=\"0\" style=\"color: black\">\n                <label for=\"value_`+ uid +`\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n//\n// VISUAL\n//\nfunction checkAllAccepted()\n{\n    checkIfAccepted(\"login\");\n}\nfunction checkIfAccepted(formName)\n{\n    //var form = document.getElementById(formId);\n    var request = {\n                    \"requestType\": \"get\",\n                    \"variable\": formName + \"Accepted\",\n                    \"responseFunction\": \"checkIfAccepted\"\n                  };\n    postRequest(request);\n}\nhandleResponseDynamically[\"checkIfAccepted\"] = function (response)\n{\n    if (response.value == true)\n        switch(response.variable)\n        {\n            case \"loginAccepted\":\n                handleResponseDynamically[\"login\"](true);\n                break;\n        }\n}\n\n\n\nfunction setOperatorSelection(objectId, operatorString)\n{\n    console.log(\"This runs: \" + objectId + \", \" + operatorString);\n}\n\n\n\nfunction enableGoNext(objectId)\n{\n    var button = document.getElementById(objectId);\n    button.classList.remove(\"collapsed\");\n}\n\nfunction setButtonGreen(objectId)\n{\n    var button = document.getElementById(objectId);\n    button.classList.remove(\"btn-dark\");\n    button.classList.add(\"btn-success\");\n    //setStyle(objectId, \"background-color\", \"\")\n}\n\nfunction setMenuItemGreen(objectId)\n{\n    var menuItem = document.getElementById(objectId);\n    menuItem.classList.add(\"success\");\n\n}\n\n\n\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue)\n{\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}",
         "output": "str",
         "x": 650,
         "y": 1200,
@@ -4838,7 +4838,7 @@
         "name": "POST requests",
         "info": "",
         "x": 200,
-        "y": 300,
+        "y": 320,
         "wires": []
     },
     {
@@ -4862,7 +4862,7 @@
         "id": "2ecc3aac4beb6ef4",
         "type": "change",
         "z": "f153e034803f1e1e",
-        "name": "Set response function call",
+        "name": "Set response",
         "rules": [
             {
                 "t": "set",
@@ -4891,7 +4891,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
+        "x": 1090,
         "y": 340,
         "wires": [
             [
@@ -4916,19 +4916,27 @@
                 "t": "eq",
                 "v": "get",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rules",
+                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 2,
+        "outputs": 3,
         "x": 450,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "1b794fcd127a58c6"
             ],
             [
                 "5e17cad29ae40131"
+            ],
+            [
+                "6fabbf6c7f32fdac"
             ]
         ]
     },
@@ -5031,7 +5039,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n\n        <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n            <input type=\"hidden\" id=\"requestType\" value=\"rules\">\n            <!-- button type=\"submit\" class=\"btn btn-primary\" onclick=\"postRequest(document.getElementById('inputfield').value)\">Submit</button -->\n            {{#payload.rules}}\n            <div class=\"row border-top pb-2 pt-2 \">\n\n                <div class=\"col-2 d-flex flex-column justify-content-center\">\n                    <span>{{name}}</span>\n                </div>\n\n                <div class=\"form-floating col\">\n                    <select class=\"form-select\" id=\"operator_{{variable}}\" onpageshow=\"setOperatorSelection('operator_{{variable}}', '{{operator}}')\" aria-label=\"Default select example\">\n                        <option selected>Open this select menu</option>\n                        <option value=\"1\">One</option>\n                        <option value=\"2\">Two</option>\n                        <option value=\"3\">Three</option>\n                    </select>\n                    <label for=\"operator_{{variable}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n                </div>\n\n                <div class=\"form-floating col\">\n                    <input type=\"text\" class=\"form-control\" id=\"value_{{variable}}\" placeholder=\"0\" value=\"{{value}}\" style=\"color: black\">\n                    <label for=\"value_{{variable}}\" style=\"padding-left: 27px\">Værdi</label>\n                </div>\n\n            </div>\n            {{/payload.rules}}\n\n        </div>\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonLogin\" type=\"button\" onclick=\"\">\n    Godkend forretningsregler\n</button>",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n\n        <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n            <input type=\"hidden\" id=\"requestType\" value=\"rules\">\n            <!-- button type=\"submit\" class=\"btn btn-primary\" onclick=\"postRequest(document.getElementById('inputfield').value)\">Submit</button -->\n            {{#payload.rules}}\n            <div class=\"row border-top pb-2 pt-2 \">\n\n                <div class=\"col-2 d-flex flex-column justify-content-center\">\n                    <span>{{name}} {{operatorIsEqualTo}}</span>\n                </div>\n\n                <div class=\"form-floating col\">\n                    <select class=\"form-select\" id=\"operator_{{uid}}\" onchange=\"setInputBox('{{uid}}')\">\n                        <option>Open this select menu</option>\n                        <option value=\"==\" {{#operatorIsEqualTo}}selected{{/operatorIsEqualTo}}>= Skal være lig med</option>\n                        <option value=\"!=\" {{#operatorIsNotEqualTo}}selected{{/operatorIsNotEqualTo}}>≠ Må ikke være lig med</option>\n                        <option value=\"<\" {{#operatorIsLessThan}}selected{{/operatorIsLessThan}}>< Skal være mindre end</option>\n                        <option value=\">\" {{#operatorIsGreaterThan}}selected{{/operatorIsGreaterThan}}>> Skal være større end</option>\n                        <option value=\"contains\" {{#operatorIsContains}}selected{{/operatorIsContains}}>{?} Indeholder</option>\n                        <option value=\"!contains\" {{#operatorIsDoesNotContain}}selected{{/operatorIsDoesNotContain}}>{!} Indeholder ikke</option>\n                        <option value=\"!null\" {{#operatorIsNotNull}}selected{{/operatorIsNotNull}}>[o] Skal være oplyst</option>\n                    </select>\n                    <label for=\"operator_{{uid}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n                </div>\n\n                <div class=\"form-floating col\" id=\"inputContainer_{{uid}}\">\n                {{#isBool}}\n                    <select class=\"form-select\" id=\"value_{{uid}}\">\n                        <option value=\"true\" {{#boolValue}}selected{{/boolValue}}>Ja</option>\n                        <option value=\"false\"{{^boolValue}}selected{{/boolValue}}>Nej</option>\n                    </select>\n                    <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n                {{/isBool}}\n                {{^isBool}}\n                    <input type=\"text\" class=\"form-control\" id=\"value_{{uid}}\" placeholder=\"0\" value=\"{{value}}\" style=\"color: black\">\n                    <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n                {{/isBool}}\n                </div>\n\n\n            </div>\n            {{/payload.rules}}\n\n        </div>\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonLogin\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'){{#payload.rules}},{ 'id': '{{uid}}', 'value': createRuleJSON('{{uid}}') }{{/payload.rules}}))\">\n    Godkend forretningsregler\n</button>",
         "output": "str",
         "x": 250,
         "y": 1240,
@@ -5104,13 +5112,6 @@
                 "pt": "msg",
                 "to": "login",
                 "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload.funcToRun",
-                "pt": "msg",
-                "to": "null",
-                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -5118,7 +5119,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
+        "x": 410,
         "y": 720,
         "wires": [
             [
@@ -5191,7 +5192,21 @@
                 "t": "set",
                 "p": "payload.rules",
                 "pt": "msg",
-                "to": "[\t    {\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"isNumber\": true,\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"isBool\": true,\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
+                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "$.payload.rules ~> | $ |\t\ttype = \"bool\" ?\t(\t    value = true ?\t    ({\t            \"isBool\": true,\t            \"boolValue\": true\t    }) :\t    ({\t            \"isBool\": true\t    })\t\t) :\t\ttype = \"number\" ?\t    ({\t            \"isNumber\": true\t    })\t|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "$.payload.rules ~> | $ |\t\toperator = \"==\" ?\t    ({\t            \"operatorIsEqualTo\": true\t    }) :\t\toperator = \"!=\" ?\t    ({\t            \"operatorIsNotEqualTo\": true\t    }) :\t\toperator = \"<\" ?\t    ({\t            \"operatorIsLessThan\": true\t    }) :\t\toperator = \">\" ?\t    ({\t            \"operatorIsGreaterThan\": true\t    }) :\t\toperator = \"contains\" ?\t    ({\t            \"operatorIsContains\": true\t    }) :\t\toperator = \"!contains\" ?\t    ({\t            \"operatorIsDoesNotContain\": true\t    }) :\t\toperator = \"!null\" ?\t    ({\t            \"operatorIsNotNull\": true\t    })\t|",
                 "tot": "jsonata"
             }
         ],
@@ -5216,7 +5231,7 @@
         "property": "payload.rules",
         "action": "obj",
         "pretty": false,
-        "x": 750,
+        "x": 830,
         "y": 980,
         "wires": [
             [
@@ -5269,7 +5284,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 170,
+        "x": 150,
         "y": 1000,
         "wires": [
             [
@@ -5445,6 +5460,21 @@
                 "pt": "msg",
                 "to": "payload.variable",
                 "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.requestType",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.variable",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.returnedValue",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -5457,6 +5487,205 @@
         "wires": [
             [
                 "0b546b6ae02b43ef"
+            ]
+        ]
+    },
+    {
+        "id": "76145fbbf6a80f90",
+        "type": "comment",
+        "z": "f153e034803f1e1e",
+        "name": "rules",
+        "info": "",
+        "x": 830,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6fabbf6c7f32fdac",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "Set flow boolean",
+        "rules": [
+            {
+                "t": "set",
+                "p": "rulesAccepted",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 620,
+        "wires": [
+            [
+                "c560fe0dbef0b140"
+            ]
+        ]
+    },
+    {
+        "id": "c560fe0dbef0b140",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "Load rules",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.requestType",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tempPayload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.ruleChanges",
+                "pt": "msg",
+                "to": "tempPayload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "tempPayload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "#:(storeInFile)::rules",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 620,
+        "wires": [
+            [
+                "95f9d6dc1ef3cafc"
+            ]
+        ]
+    },
+    {
+        "id": "95f9d6dc1ef3cafc",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "Merge changes",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "$.payload.rules ~> | $ |\t(\t\t\t$ruleChange := $lookup($$.payload.ruleChanges, uid);\t\t{\t        \"operator\": $ruleChange.operator,\t        \"value\": $ruleChange.value\t})\t\t|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "payload.ruleChanges",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "payload.rules @$r .(\t\t$getType := function($value, $operator)\t{\t    ($value[$ ~> /^[0-9\\.]{1,}$/m] ~> $boolean) ?\t        \"number\" :\t    ($operator = \"!null\") ? \t        \"bool\"\t};\t\t{\t    \t    \"uid\": $r.uid,\t    \"name\": $r.name,\t    \"variable\": $r.variable,\t    \"operator\": $r.operator,\t    \"value\": $r.value,\t    \"type\": $getType($r.value, $r.operator),\t    \"description\": $r.description,\t    \"isSystemRule\": $r.isSystemRule\t    \t}\t)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "$.payload.rules ~> | $ |\t\ttype = \"bool\" ?\t(\t    value = \"true\" ?\t    ({\t            \"value\": true,\t            \"isBool\": true,\t            \"boolValue\": true\t    }) :\t    ({\t            \"value\": false,\t            \"isBool\": true\t    })\t\t) :\t\ttype = \"number\" ?\t    ({\t            \"isNumber\": true\t    })\t|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "$.payload.rules ~> | $ |\t\toperator = \"==\" ?\t    ({\t            \"operatorIsEqualTo\": true\t    }) :\t\toperator = \"!=\" ?\t    ({\t            \"operatorIsNotEqualTo\": true\t    }) :\t\toperator = \"<\" ?\t    ({\t            \"operatorIsLessThan\": true\t    }) :\t\toperator = \">\" ?\t    ({\t            \"operatorIsGreaterThan\": true\t    }) :\t\toperator = \"contains\" ?\t    ({\t            \"operatorIsContains\": true\t    }) :\t\toperator = \"!contains\" ?\t    ({\t            \"operatorIsDoesNotContain\": true\t    }) :\t\toperator = \"!null\" ?\t    ({\t            \"operatorIsNotNull\": true\t    })\t|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "$.payload.rules ~> | $ |\t{\t    \"value\": \t        type = \"number\" ?\t            value ~> $number() \t            :\t            value  \t}\t|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 620,
+        "wires": [
+            [
+                "abc13dae0e710436"
+            ]
+        ]
+    },
+    {
+        "id": "14201eb490bc051a",
+        "type": "debug",
+        "z": "f153e034803f1e1e",
+        "name": "POST Obj",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1330,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "abc13dae0e710436",
+        "type": "change",
+        "z": "f153e034803f1e1e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::rules",
+                "pt": "global",
+                "to": "payload.rules",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1500,
+        "y": 620,
+        "wires": [
+            [
+                "14201eb490bc051a"
             ]
         ]
     }
