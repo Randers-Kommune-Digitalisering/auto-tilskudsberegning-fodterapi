@@ -328,7 +328,7 @@
         "id": "53c070f3a6e4c909",
         "type": "junction",
         "z": "4fd74d0002aa2bc4",
-        "x": 1720,
+        "x": 1760,
         "y": 240,
         "wires": [
             [
@@ -354,7 +354,7 @@
         "type": "junction",
         "z": "4fd74d0002aa2bc4",
         "x": 660,
-        "y": 540,
+        "y": 700,
         "wires": [
             [
                 "ec5733c98c66b003"
@@ -5886,7 +5886,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 160,
-        "y": 420,
+        "y": 580,
         "wires": [
             [
                 "a583e16fda76e4d4"
@@ -5901,7 +5901,7 @@
         "statusCode": "",
         "headers": {},
         "x": 990,
-        "y": 760,
+        "y": 920,
         "wires": []
     },
     {
@@ -5913,10 +5913,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <style>{{{css}}}</style>\n    <meta name=\"theme-color\" content=\"#7952b3\">\n</head>\n<body>\n\n<div class=\"d-flex flex-column align-items-stretch flex-shrink-0\" id=\"sideMenu\">\n\n  <a class=\"d-flex align-items-center flex-shrink-0 p-3 link-primary text-decoration-none\">\n    <svg class=\"bi me-2\" width=\"30\" height=\"24\"><use xlink:href=\"#bootstrap\"></use></svg>\n    <span class=\"fs-5 fw-semibold\">Auto<small class=\"text-muted\" style=\"padding-left: 3px\">WorkLet</small></span>\n  </a>\n\n  <div class=\"container\" style=\"margin-top: 20px;margin-bottom: 8px\">\n    <ul class=\"nav nav-pills flex-column\">\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link mb-1 text-primary\" aria-current=\"page\" onclick=\"setPageContent('login')\" id=\"menu_login\">\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i>\n          Loginoplysninger\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link mb-1 text-primary\" onclick=\"setPageContent('rules')\" id=\"menu_rules\">\n          <i class=\"fa fa-briefcase\" aria-hidden=\"true\"></i>\n          Forretningsregler\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link mb-1 text-primary\" onclick=\"setPageContent('grants')\" id=\"menu_grants\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Tilskudssatser\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link text-primary\" style=\"margin-top: 40px\" onclick=\"setPageContent('receipts')\" id=\"menu_receipts\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Fakturaer\n        </a>\n      </li>\n\n    </ul>\n  </div>\n\n  <div class=\"list-group list-group-flush scrollarea border-top border-bottom\">\n\n\n    <a class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" onclick=\"setPageContent('receipts-manual')\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Manuel behandling</strong>\n        <small class=\"text-muted\">0</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 0 ubehandlede fakturaer, som kræver manuel behandling.</div>\n    </a>\n\n    <a class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" id=\"menu_receipts-recommended\" aria-current=\"true\" onclick=\"setPageContent('receipts-recommended')\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Anbefalede handlinger</strong>\n        <small>3</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 3 fakturaer med anbefalede handlinger. Godkend handlingsplanen for at fortsætte.</div>\n    </a>\n\n\n    <a class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Usikre handlinger</strong>\n        <small class=\"text-muted\">0</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Usikre handlinger vises i denne kategori, når robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n\n  </div>\n</div><!-- /sideMenu -->\n\n<div id=\"pageContent\">\n  <div class=\"container\" id=\"mainContent\">\n  \n\n  </div>\n</div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <script src=\"https://code.jquery.com/jquery-3.6.3.slim.min.js\"></script>\n    <!--script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js\"></script-->\n    <script src=\"https://unpkg.com/@popperjs/core@2\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js\"></script>\n    <style>{{{css}}}</style>\n    <meta name=\"theme-color\" content=\"#7952b3\">\n</head>\n<body>\n\n<div class=\"d-flex flex-column align-items-stretch flex-shrink-0\" id=\"sideMenu\">\n\n  <a class=\"d-flex align-items-center flex-shrink-0 p-3 link-primary text-decoration-none\">\n    <svg class=\"bi me-2\" width=\"30\" height=\"24\"><use xlink:href=\"#bootstrap\"></use></svg>\n    <span class=\"fs-5 fw-semibold\">Auto<small class=\"text-muted\" style=\"padding-left: 3px\">WorkLet</small></span>\n  </a>\n\n  <div class=\"container\" style=\"margin-top: 20px;margin-bottom: 8px\">\n    <ul class=\"nav nav-pills flex-column\">\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link mb-1 text-primary\" aria-current=\"page\" onclick=\"setPageContent('login')\" id=\"menu_login\">\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i>\n          Loginoplysninger\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link mb-1 text-primary\" onclick=\"setPageContent('rules')\" id=\"menu_rules\">\n          <i class=\"fa fa-briefcase\" aria-hidden=\"true\"></i>\n          Forretningsregler\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link mb-1 text-primary\" onclick=\"setPageContent('grants')\" id=\"menu_grants\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Tilskudssatser\n        </a>\n      </li>\n\n      <li>\n        <a class=\"nav-link text-primary\" style=\"margin-top: 40px\" onclick=\"setPageContent('receipts')\" id=\"menu_receipts\">\n          <i class=\"fa fa-book\" aria-hidden=\"true\"></i>\n          Fakturaer\n        </a>\n      </li>\n\n    </ul>\n  </div>\n\n  <div class=\"list-group list-group-flush scrollarea border-top border-bottom\">\n\n\n    <a class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" onclick=\"setPageContent('receipts-manual')\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Manuel behandling</strong>\n        <small class=\"text-muted\">0</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 0 ubehandlede fakturaer, som kræver manuel behandling.</div>\n    </a>\n\n    <a class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\" id=\"menu_receipts-recommended\" aria-current=\"true\" onclick=\"setPageContent('receipts-recommended')\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Anbefalede handlinger</strong>\n        <small>3</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Der er 3 fakturaer med anbefalede handlinger. Godkend handlingsplanen for at fortsætte.</div>\n    </a>\n\n\n    <a class=\"list-group-item list-group-item-action py-3 lh-tight text-primary\">\n      <div class=\"d-flex w-100 align-items-center justify-content-between\">\n        <strong class=\"mb-1\">Usikre handlinger</strong>\n        <small class=\"text-muted\">0</small>\n      </div>\n      <div class=\"col-10 mb-1 small\">Usikre handlinger vises i denne kategori, når robotten har søgt efter fakturaer.</div>\n    </a>\n\n\n\n  </div>\n</div><!-- /sideMenu -->\n\n<div id=\"pageContent\">\n  <div class=\"container\" id=\"mainContent\">\n  \n\n  </div>\n</div>\n\n</body>\n<script>{{{js}}}</script>\n</html>",
         "output": "str",
         "x": 790,
-        "y": 760,
+        "y": 920,
         "wires": [
             [
                 "fadd69372798f56d"
@@ -5932,10 +5932,10 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\n\nbody\n{\n    margin: 0px;\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n\n\n#sideMenu\n{\n    width: 20vw;\n    height: 100vh;\n    position: fixed;\n\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n\n    user-select: none; /* supported by Chrome and Opera */\n    -webkit-user-select: none; /* Safari */\n    -khtml-user-select: none; /* Konqueror HTML */\n    -moz-user-select: none; /* Firefox */\n    -ms-user-select: none; /* Internet Explorer/Edge */\n}\n\n        .nav-link:hover, .list-group-item-action:hover\n        {\n            background-color: aliceblue;\n        }\n        .nav-link.selected, .list-group-item-action.selected\n        {\n            pointer-events: none;\n        }\n        \n\n    .nav-link.success.selected\n    {\n        background-color: #5CB89C!important;\n    }\n    .nav-link.success:not(.selected)\n    {\n        color: #5CB89C!important;\n    }\n\n        .nav-link.success.selected:hover\n        {\n            background-color: #4A9780!important;\n        }       \n        \n        .nav-link.success:not(.selected):hover\n        {\n            background-color: rgb(240, 255, 245)!important;\n        }       \n\n        .nav-link > .fa\n        {\n            margin-left: -5px;\n            margin-right: 10px;\n        }\n\ndiv.form-floating input\n{\n    color: black!important;\n}\n\n\n.list-group-item-action\n{\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n\n\n\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 20vw;\n    padding-left: 40px;\n    padding-top: 78px;\n    padding-right: 20px;\n    \n    background-color: rgb(221, 228, 231);\n    \n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n    #pageContent > .container\n    {\n        margin-left: 0px;\n    \n        transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n    }\n\n\n.receiptContainer\n{\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    width: 100%;\n    gap: 5px;\n}\n\n\n\n@media only screen and (max-width: 1600px)\n{\n    #sideMenu\n    {\n        width: 25vw;\n    }\n    #pageContent\n    {\n        margin-left: 25vw;\n    }\n}\n@media only screen and (max-width: 1200px)\n{\n    #sideMenu\n    {\n        width: 30vw;\n    }\n    #pageContent\n    {\n        margin-left: 30vw;\n        padding-left: 15px;\n        padding-right: 10px;\n    }\n}\n@media only screen and (max-width: 768px)\n{\n    #sideMenu\n    {\n        width: 40vw;\n    }\n    #pageContent\n    {\n        margin-left: 40vw;\n        padding-left: 0px;\n        padding-top: 15px;\n        padding-right: 0px;\n    }\n}\n\n@media only screen and (max-width: 576px)\n{\n    #sideMenu\n    {\n        width: 45vw;\n    }\n    #pageContent\n    {\n        margin-left: 45vw;\n    }\n}\n\n\n\n\n\n\n\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}\n\n\n\n\n\n\nbutton\n{\n    padding-left: 25px!important;\n    padding-right: 25px!important;\n\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\nbutton .goNext\n{\n    max-height: 70px!important;\n}\n\nbutton.goNext.collapsed\n{\n    opacity: 0;\n    pointer-events: none;\n}\n\n\n\n.no-border-bottom\n{\n    border-bottom: 0px!important;\n}\n.no-border\n{\n    border: 0px!important;\n}\n.no-border *\n{\n    border: 0px!important;\n}\n\n.accordion-item\n{\n    margin: 0px!important;\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\n\n\n.badge\n{\n    padding: 8px 10px;\n}\n.badge.text-dark\n{\n    color: #7A8587!important;\n}\n.badge.text-dark:hover\n{\n    color: black!important;\n}\n\n\n\n.floatr\n{\n    position: relative;\n    float: right;\n}\n\n\n\n#togglePop\n                {\n                    cursor: pointer;\n                }\n                span > .popmenu\n                {\n                    position: absolute;\n                    float: left;\n                    top: 20px;\n                    right: 10px;\n                    width: 150px;\n\n                    font-size: 11px;\n                    line-height: 32px;\n\n                    background-color: rgb(255, 255, 255, 1);\n                    box-shadow: 0px 0px 30px -10px grey;\n\n                    display: flex;\n                    flex-direction: column;\n\n                    max-height: 0vh;\n                    max-width: 0vh;\n                    overflow: hidden;\n                    white-space: nowrap;\n                    text-overflow: ellipsis;\n\n                    transition-duration: 100ms;\n                }\n                    #togglePop.show > .popmenu\n                    {\n                        max-height: 30vh;\n                        max-width: 100vh;\n\n                        transition-duration: 1000ms;\n                    }\n                    .popmenu > a\n                    {\n                        padding: 0px 10px;\n                        text-decoration: none;\n                        color: black;\n                    }\n                    .popmenu > a:hover\n                    {\n                        background-color: rgb(240, 240, 240, 1); \n                    }",
+        "template": "@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');\n/*@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css');\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/zephyr/bootstrap.min.css');*/\n@import url('https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css');\n\n@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');\n\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\n\nbody\n{\n    margin: 0px;\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n\n\n#sideMenu\n{\n    width: 20vw;\n    height: 100vh;\n    position: fixed;\n\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n\n    user-select: none; /* supported by Chrome and Opera */\n    -webkit-user-select: none; /* Safari */\n    -khtml-user-select: none; /* Konqueror HTML */\n    -moz-user-select: none; /* Firefox */\n    -ms-user-select: none; /* Internet Explorer/Edge */\n}\n\n        .nav-link:hover, .list-group-item-action:hover\n        {\n            background-color: aliceblue;\n        }\n        .nav-link.selected, .list-group-item-action.selected\n        {\n            pointer-events: none;\n        }\n        \n\n    .nav-link.success.selected\n    {\n        background-color: #5CB89C!important;\n    }\n    .nav-link.success:not(.selected)\n    {\n        color: #5CB89C!important;\n    }\n\n        .nav-link.success.selected:hover\n        {\n            background-color: #4A9780!important;\n        }       \n        \n        .nav-link.success:not(.selected):hover\n        {\n            background-color: rgb(240, 255, 245)!important;\n        }       \n\n        .nav-link > .fa\n        {\n            margin-left: -5px;\n            margin-right: 10px;\n        }\n\ndiv.form-floating input\n{\n    color: black!important;\n}\n\n\n.list-group-item-action\n{\n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n\n\n\n#pageContent\n{\n    min-height: 100vh;\n\n    margin-left: 20vw;\n    padding-left: 40px;\n    padding-top: 78px;\n    padding-right: 20px;\n    \n    background-color: rgb(221, 228, 231);\n    \n    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n}\n    #pageContent > .container\n    {\n        margin-left: 0px;\n    \n        transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);\n    }\n\n\n.receiptContainer\n{\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    width: 100%;\n    gap: 5px;\n}\n\n\n\n@media only screen and (max-width: 1600px)\n{\n    #sideMenu\n    {\n        width: 25vw;\n    }\n    #pageContent\n    {\n        margin-left: 25vw;\n    }\n}\n@media only screen and (max-width: 1200px)\n{\n    #sideMenu\n    {\n        width: 30vw;\n    }\n    #pageContent\n    {\n        margin-left: 30vw;\n        padding-left: 15px;\n        padding-right: 10px;\n    }\n}\n@media only screen and (max-width: 768px)\n{\n    #sideMenu\n    {\n        width: 40vw;\n    }\n    #pageContent\n    {\n        margin-left: 40vw;\n        padding-left: 0px;\n        padding-top: 15px;\n        padding-right: 0px;\n    }\n}\n\n@media only screen and (max-width: 576px)\n{\n    #sideMenu\n    {\n        width: 45vw;\n    }\n    #pageContent\n    {\n        margin-left: 45vw;\n    }\n}\n\n\n\n\n\n\n\n\n.disabled\n{\n    opacity: 0.65;\n    background-color: rgb(242, 251, 251)!important;\n}\n\n\n\n.tooltip\n{\n    font-size: 11px!important;\n}\n.tooltip.show\n{\n    opacity: 0.8;\n}\n\n\n\n\n\nbutton\n{\n    padding-left: 25px!important;\n    padding-right: 25px!important;\n\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\nbutton .goNext\n{\n    max-height: 70px!important;\n}\n\nbutton.goNext.collapsed\n{\n    opacity: 0;\n    pointer-events: none;\n}\n\n\n\n.no-border-bottom\n{\n    border-bottom: 0px!important;\n}\n.no-border\n{\n    border: 0px!important;\n}\n.no-border *\n{\n    border: 0px!important;\n}\n\n.accordion-item\n{\n    margin: 0px!important;\n    transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1)!important;\n}\n\n\n\n.badge\n{\n    padding: 8px 10px;\n}\n.badge.text-dark\n{\n    color: #7A8587!important;\n}\n.badge.text-dark:hover\n{\n    color: black!important;\n}\n\n\n\n.floatr\n{\n    position: relative;\n    float: right;\n}\n\n\n\n#togglePop\n                {\n                    cursor: pointer;\n                }\n                span > .popmenu\n                {\n                    position: absolute;\n                    float: left;\n                    top: 20px;\n                    right: 10px;\n                    width: 150px;\n\n                    font-size: 11px;\n                    line-height: 32px;\n\n                    background-color: rgb(255, 255, 255, 1);\n                    box-shadow: 0px 0px 30px -10px grey;\n\n                    display: flex;\n                    flex-direction: column;\n\n                    max-height: 0vh;\n                    max-width: 0vh;\n                    overflow: hidden;\n                    white-space: nowrap;\n                    text-overflow: ellipsis;\n\n                    transition-duration: 100ms;\n                }\n                    #togglePop.show > .popmenu\n                    {\n                        max-height: 30vh;\n                        max-width: 100vh;\n\n                        transition-duration: 1000ms;\n                    }\n                    .popmenu > a\n                    {\n                        padding: 0px 10px;\n                        text-decoration: none;\n                        color: black;\n                    }\n                    .popmenu > a:hover\n                    {\n                        background-color: rgb(240, 240, 240, 1); \n                    }",
         "output": "str",
         "x": 670,
-        "y": 760,
+        "y": 920,
         "wires": [
             [
                 "ccfd8a36c9eed804"
@@ -5969,10 +5969,10 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "// INITIALIZE\n\nvar pages = {{{payload.pages}}};\nvar landingPage = \"{{{payload.landingPage}}}\";\nvar initialLoad = true;\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{    \n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        const operatorInput = document.getElementById(\"operator_\" + element.uid);\n        var valueInput = document.getElementById(\"value_\" + element.uid);\n        \n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            valueInput = document.getElementById(\"value_\" + element.uid);\n        }\n\n        operatorInput.value = element.operator;\n        valueInput.value = element.value;\n    }\n}\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = null;\nfunction setPageContent(page, setHistory = true)\n{\n    //console.log(\"Setting page content to page: \" + page);\n    \n    if (pages[page] == null)\n    {\n        setPageContent(\"404\", false);\n        return;\n    }\n    else if (activePage == page)\n        return;\n\n    let menuItem = document.getElementById(\"menu_\" + activePage);\n    menuItem?.classList.remove(\"selected\");\n    menuItem?.classList.remove(\"bg-dark\");\n    menuItem?.classList.add(\"text-primary\");\n    menuItem?.classList.remove(\"text-white\");\n\n    menuItem = document.getElementById(\"menu_\" + page);\n    menuItem?.classList.add(\"selected\");\n    menuItem?.classList.add(\"bg-dark\");\n    menuItem?.classList.remove(\"text-primary\");\n    menuItem?.classList.add(\"text-white\");\n\n    setInnerHTML(\"mainContent\", pages[page]);\n    document.title = \"AutoWorkLet - \" + page;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": page }, \"\", \"/\" + page);\n\n    activePage = page;\n\n    if (!initialLoad)\n        if (page == \"login\" || page == \"rules\" || page == \"grants\")\n            togglePageAccept(page, false);\n\n    if(loadPageFunc[page] != null)\n        loadPageFunc[page]();\n        \n    initialLoad = false;\n\n}\n\n// START / ON LOAD\n\nsetPageContent(landingPage);\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n/*\nfunction postIfRequired(object)\n{\n    if (!(object.requestType == \"login\" || object.requestType == \"rules\" || object.requestType == \"grants\"))\n        return;\n\n    if (pageAccepted[object.requestType])\n    {\n        withdrawPageAccept(object.requestType);\n        postRequest({\"requestType\": object.requestType, \"\"})\n    }\n    else \n        postRequest(object);\n}\n*/\nfunction handlePostResponse(responseObject)\n{\n    //console.log(\"Attempting to call response function \" + responseObject.responseFunction);\n    //console.log(\"Function: \" + handleResponseDynamically[responseObject.responseFunction]);\n\n\n    if (handleResponseDynamically[responseObject.responseFunction] != null)\n        handleResponseDynamically[responseObject.responseFunction](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\nhandleResponseDynamically['login'] = function (responseObj)\n{\n    if (responseObj.response)\n        togglePageAccept(\"login\");\n}\n\nhandleResponseDynamically['rules'] = function (responseObj)\n{\n    if (!responseObj.response)\n        return;\n\n    togglePageAccept(\"rules\");\n\n    if(responseObj.rules == null)\n        return;\n        \n    rules = responseObj.rules;\n}\n\nhandleResponseDynamically['grants'] = function (responseObj) {\n    if (responseObj.response)\n        togglePageAccept(\"grants\");\n}\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\n\n\n//\n/// UI STATE VARS + FUNCTIONS\n//\n\nvar pageAccepted = [];\npageAccepted['login'] = false;\npageAccepted['rules'] = false;\npageAccepted['grants'] = false;\n\nvar _loginAccepted = \"{{{flow.loginAccepted}}}\"; if (_loginAccepted == \"true\") togglePageAccept(\"login\");\nvar _rulesAccepted = \"{{{flow.rulesAccepted}}}\"; if (_rulesAccepted == \"true\") togglePageAccept(\"rules\");\nvar _grantsAccepted = \"{{{flow.grantsAccepted}}}\"; if (_grantsAccepted == \"true\") togglePageAccept(\"grants\");\n\nfunction togglePageAccept(page, setAccept = true)\n{\n    var title;\n    switch(page)\n    {\n        case \"login\": title = \"Loginoplysninger\"; break;\n        case \"rules\": title = \"Forretningsregler\"; break;\n        case \"grants\": title = \"Tilskudssatser\"; break;\n    }\n\n    if (setAccept)\n        pageAccepted[page] = !pageAccepted[page];\n\n    if(pageAccepted[page])\n    {\n        setMenuItemGreen(\"menu_\" + page);\n\n        if (activePage != page)\n            return;\n\n        let pageCap = page.charAt(0).toUpperCase() + page.slice(1);\n        setInnerHTML(\"button\" + pageCap, title + \" godkendt\");\n        setButtonGreen(\"button\" + pageCap);\n        enableGoNext(\"button\" + pageCap + \"_goNext\");\n        document.getElementById(\"toAccept\").value = \"false\";\n    }\n    else\n    {\n        setMenuItemNormal(\"menu_\" + page);\n\n        if (activePage != page)\n            return;\n\n        let pageCap = page.charAt(0).toUpperCase() + page.slice(1);\n        setInnerHTML(\"button\" + pageCap, \"Godkend \" + title.toLowerCase());\n        setButtonNormal(\"button\" + pageCap);\n        disableGoNext(\"button\" + pageCap + \"_goNext\");\n        document.getElementById(\"toAccept\").value = \"true\";\n    }\n}\n\nfunction withdrawPageAccept(page)\n{\n    if(pageAccepted[page])\n        togglePageAccept(page);\n}\n\n\n\n\n\n//\n// PAGE SPECIFIC\n//\n\n// RULES\n\nfunction createRuleJSON(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if(operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid +`\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid +`\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid +`\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid +`\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n\n//\n// VISUAL\n//\n\nfunction enableGoNext(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (!button.classList.contains(\"collapsed\"))\n        return;\n\n    button.classList.remove(\"collapsed\");\n}\nfunction disableGoNext(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (button.classList.contains(\"collapsed\"))\n        return;\n\n    button.classList.add(\"collapsed\");\n}\n\nfunction setButtonGreen(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (button.classList.contains(\"btn-success\"))\n        return;\n    \n    button.classList.remove(\"btn-dark\");\n    button.classList.add(\"btn-success\");\n}\n\nfunction setButtonNormal(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (button.classList.contains(\"btn-dark\"))\n        return;\n\n    button.classList.remove(\"btn-success\");\n    button.classList.add(\"btn-dark\");\n}\n\nfunction setMenuItemGreen(objectId)\n{\n    var menuItem = document.getElementById(objectId);\n\n    if(menuItem.classList.contains(\"success\"))\n        return;\n\n    menuItem.classList.add(\"success\");\n\n}\nfunction setMenuItemNormal(objectId)\n{\n    var menuItem = document.getElementById(objectId);\n\n    if (!menuItem.classList.contains(\"success\"))\n        return;\n\n    menuItem.classList.remove(\"success\");\n}\n\nfunction toggleListItemActive(objectId)\n{\n    var listItem = document.getElementById(objectId);\n    listItem.classList.toggle(\"text-primary\");\n    listItem.classList.toggle(\"disabled\");\n}\n\n\n\n\nfunction togglePop(element) {\n    element.classList.toggle(\"show\");\n}\n\n\n\n//\n/// BS functions\n//\nfunction toggleCollapse(objectId)\n{\n    var obj = document.getElementById(objectId);\n\n    if(obj.classList.contains(\"collapse\"))\n        obj.classList.toggle(\"show\");\n\n}",
+        "template": "// Bootstrap initialize\n\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip()\n});\n\n// INITIALIZE\n\nvar pages = {{{payload.pages}}};\nvar landingPage = \"{{{payload.landingPage}}}\";\nvar initialLoad = true;\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{    \n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        const operatorInput = document.getElementById(\"operator_\" + element.uid);\n        var valueInput = document.getElementById(\"value_\" + element.uid);\n        \n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            valueInput = document.getElementById(\"value_\" + element.uid);\n        }\n\n        operatorInput.value = element.operator;\n        valueInput.value = element.value;\n    }\n}\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = null;\nfunction setPageContent(page, setHistory = true)\n{\n    //console.log(\"Setting page content to page: \" + page);\n    \n    if (pages[page] == null)\n    {\n        setPageContent(\"404\", false);\n        return;\n    }\n    else if (activePage == page)\n        return;\n\n    let menuItem = document.getElementById(\"menu_\" + activePage);\n    menuItem?.classList.remove(\"selected\");\n    menuItem?.classList.remove(\"bg-dark\");\n    menuItem?.classList.add(\"text-primary\");\n    menuItem?.classList.remove(\"text-white\");\n\n    menuItem = document.getElementById(\"menu_\" + page);\n    menuItem?.classList.add(\"selected\");\n    menuItem?.classList.add(\"bg-dark\");\n    menuItem?.classList.remove(\"text-primary\");\n    menuItem?.classList.add(\"text-white\");\n\n    setInnerHTML(\"mainContent\", pages[page]);\n    document.title = \"AutoWorkLet - \" + page;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": page }, \"\", \"/\" + page);\n\n    activePage = page;\n\n    if (!initialLoad)\n        if (page == \"login\" || page == \"rules\" || page == \"grants\")\n            togglePageAccept(page, false);\n\n    if(loadPageFunc[page] != null)\n        loadPageFunc[page]();\n        \n    initialLoad = false;\n\n}\n\n// START / ON LOAD\n\nsetPageContent(landingPage);\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/fod/post', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n/*\nfunction postIfRequired(object)\n{\n    if (!(object.requestType == \"login\" || object.requestType == \"rules\" || object.requestType == \"grants\"))\n        return;\n\n    if (pageAccepted[object.requestType])\n    {\n        withdrawPageAccept(object.requestType);\n        postRequest({\"requestType\": object.requestType, \"\"})\n    }\n    else \n        postRequest(object);\n}\n*/\nfunction handlePostResponse(responseObject)\n{\n    //console.log(\"Attempting to call response function \" + responseObject.responseFunction);\n    //console.log(\"Function: \" + handleResponseDynamically[responseObject.responseFunction]);\n\n\n    if (handleResponseDynamically[responseObject.responseFunction] != null)\n        handleResponseDynamically[responseObject.responseFunction](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\nhandleResponseDynamically['login'] = function (responseObj)\n{\n    if (responseObj.response)\n        togglePageAccept(\"login\");\n}\n\nhandleResponseDynamically['rules'] = function (responseObj)\n{\n    if (!responseObj.response)\n        return;\n\n    togglePageAccept(\"rules\");\n\n    if(responseObj.rules == null)\n        return;\n        \n    rules = responseObj.rules;\n}\n\nhandleResponseDynamically['grants'] = function (responseObj) {\n    if (responseObj.response)\n        togglePageAccept(\"grants\");\n}\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\n\n\n//\n/// UI STATE VARS + FUNCTIONS\n//\n\nvar pageAccepted = [];\npageAccepted['login'] = false;\npageAccepted['rules'] = false;\npageAccepted['grants'] = false;\n\nvar _loginAccepted = \"{{{flow.loginAccepted}}}\"; if (_loginAccepted == \"true\") togglePageAccept(\"login\");\nvar _rulesAccepted = \"{{{flow.rulesAccepted}}}\"; if (_rulesAccepted == \"true\") togglePageAccept(\"rules\");\nvar _grantsAccepted = \"{{{flow.grantsAccepted}}}\"; if (_grantsAccepted == \"true\") togglePageAccept(\"grants\");\n\nfunction togglePageAccept(page, setAccept = true)\n{\n    var title;\n    switch(page)\n    {\n        case \"login\": title = \"Loginoplysninger\"; break;\n        case \"rules\": title = \"Forretningsregler\"; break;\n        case \"grants\": title = \"Tilskudssatser\"; break;\n    }\n\n    if (setAccept)\n        pageAccepted[page] = !pageAccepted[page];\n\n    if(pageAccepted[page])\n    {\n        setMenuItemGreen(\"menu_\" + page);\n\n        if (activePage != page)\n            return;\n\n        let pageCap = page.charAt(0).toUpperCase() + page.slice(1);\n        setInnerHTML(\"button\" + pageCap, title + \" godkendt\");\n        setButtonGreen(\"button\" + pageCap);\n        enableGoNext(\"button\" + pageCap + \"_goNext\");\n        document.getElementById(\"toAccept\").value = \"false\";\n    }\n    else\n    {\n        setMenuItemNormal(\"menu_\" + page);\n\n        if (activePage != page)\n            return;\n\n        let pageCap = page.charAt(0).toUpperCase() + page.slice(1);\n        setInnerHTML(\"button\" + pageCap, \"Godkend \" + title.toLowerCase());\n        setButtonNormal(\"button\" + pageCap);\n        disableGoNext(\"button\" + pageCap + \"_goNext\");\n        document.getElementById(\"toAccept\").value = \"true\";\n    }\n}\n\nfunction withdrawPageAccept(page)\n{\n    if(pageAccepted[page])\n        togglePageAccept(page);\n}\n\n\n\n\n\n//\n// PAGE SPECIFIC\n//\n\n// RULES\n\nfunction createRuleJSON(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if(operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid +`\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid +`\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid +`\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid +`\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n\n//\n// VISUAL\n//\n\nfunction enableGoNext(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (!button.classList.contains(\"collapsed\"))\n        return;\n\n    button.classList.remove(\"collapsed\");\n}\nfunction disableGoNext(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (button.classList.contains(\"collapsed\"))\n        return;\n\n    button.classList.add(\"collapsed\");\n}\n\nfunction setButtonGreen(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (button.classList.contains(\"btn-success\"))\n        return;\n    \n    button.classList.remove(\"btn-primary\");\n    button.classList.add(\"btn-success\");\n}\n\nfunction setButtonNormal(objectId)\n{\n    var button = document.getElementById(objectId);\n\n    if (button.classList.contains(\"btn-primary\"))\n        return;\n\n    button.classList.remove(\"btn-success\");\n    button.classList.add(\"btn-primary\");\n}\n\nfunction setMenuItemGreen(objectId)\n{\n    var menuItem = document.getElementById(objectId);\n\n    if(menuItem.classList.contains(\"success\"))\n        return;\n\n    menuItem.classList.add(\"success\");\n\n}\nfunction setMenuItemNormal(objectId)\n{\n    var menuItem = document.getElementById(objectId);\n\n    if (!menuItem.classList.contains(\"success\"))\n        return;\n\n    menuItem.classList.remove(\"success\");\n}\n\nfunction toggleListItemActive(objectId)\n{\n    var listItem = document.getElementById(objectId);\n    listItem.classList.toggle(\"text-primary\");\n    listItem.classList.toggle(\"disabled\");\n}\n\n\n\n\nfunction togglePop(element) {\n    element.classList.toggle(\"show\");\n}\n\n\n\n//\n/// BS functions\n//\nfunction toggleCollapse(objectId)\n{\n    var obj = document.getElementById(objectId);\n\n    if(obj.classList.contains(\"collapse\"))\n        obj.classList.toggle(\"show\");\n\n}",
         "output": "str",
         "x": 550,
-        "y": 760,
+        "y": 920,
         "wires": [
             [
                 "75be0ea8650cbce8"
@@ -5986,7 +5986,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1850,
+        "x": 1890,
         "y": 260,
         "wires": []
     },
@@ -6088,20 +6088,26 @@
                 "t": "eq",
                 "v": "rules",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "start",
+                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 2,
+        "outputs": 3,
         "x": 430,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "5e4531e07ede8e9b"
             ],
             [
                 "87f274742c5ed818"
-            ]
+            ],
+            []
         ]
     },
     {
@@ -6111,7 +6117,7 @@
         "name": "Switch on type of request",
         "info": "",
         "x": 490,
-        "y": 100,
+        "y": 120,
         "wires": []
     },
     {
@@ -6127,7 +6133,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1880,
+        "x": 1920,
         "y": 220,
         "wires": []
     },
@@ -6140,10 +6146,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Loginoplysninger</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">WorkLet loginoplysninger</h6>\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" onchange=\"withdrawPageAccept('login')\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" onchange=\"withdrawPageAccept('login')\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n            \n        </div>\n\n    </div>\n</div>\n\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonLogin\" type=\"button\" onload=\"checkIfAccepted('login')\" onclick=\"postRequest(toJSON(document.getElementById('requestType'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass')))\">\n    Godkend loginoplysninger\n</button>\n\n<button class=\"btn btn-lg btn-dark ml-2 goNext collapsed\" id=\"buttonLogin_goNext\" type=\"button\" onclick=\"setPageContent('rules')\">\n    Gå til forretningsregler\n</button>",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Loginoplysninger</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">WorkLet loginoplysninger</h6>\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" onchange=\"withdrawPageAccept('login')\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" onchange=\"withdrawPageAccept('login')\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n            \n        </div>\n\n    </div>\n</div>\n\n\n<button class=\"btn btn-lg btn-primary\" id=\"buttonLogin\" type=\"button\" onload=\"checkIfAccepted('login')\" onclick=\"postRequest(toJSON(document.getElementById('requestType'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass')))\">\n    Godkend loginoplysninger\n</button>\n\n<button class=\"btn btn-lg btn-primary ml-2 goNext collapsed\" id=\"buttonLogin_goNext\" type=\"button\" onclick=\"setPageContent('rules')\">\n    Gå til forretningsregler\n</button>",
         "output": "str",
         "x": 150,
-        "y": 700,
+        "y": 860,
         "wires": [
             [
                 "4512dee0f4799a12"
@@ -6170,7 +6176,7 @@
         "to": "",
         "reg": false,
         "x": 635,
-        "y": 460,
+        "y": 620,
         "wires": [
             [
                 "02571a4fc1c6d917"
@@ -6187,7 +6193,7 @@
         "action": "str",
         "pretty": false,
         "x": 430,
-        "y": 760,
+        "y": 920,
         "wires": [
             [
                 "0e3b36c1a5093b41"
@@ -6203,10 +6209,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n\n        <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n            <input type=\"hidden\" id=\"requestType\" value=\"rules\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n            \n            {{#payload.rules}}\n            <div class=\"row border-top pb-2 pt-2 \">\n\n\n                <div class=\"col-2 d-flex flex-column justify-content-center\">\n                    <span>{{name}}</span>\n                </div>\n\n                <div class=\"form-floating col\">\n                    <select class=\"form-select\" id=\"operator_{{uid}}\" onchange=\"setInputBox('{{uid}}');withdrawPageAccept('rules')\">\n                        <option value=\"==\">= Skal være lig med</option>\n                        <option value=\"!=\">≠ Må ikke være lig med</option>\n                        <option value=\"<\">< Skal være mindre end</option>\n                        <option value=\">\">> Skal være større end</option>\n                        <option value=\"contains\">{?} Indeholder</option>\n                        <option value=\"!contains\">{!} Indeholder ikke</option>\n                        <option value=\"!null\">[o] Skal være oplyst</option>\n                    </select>\n                    <label for=\"operator_{{uid}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n                </div>\n\n                <div class=\"form-floating col\" id=\"inputContainer_{{uid}}\">\n                    <input type=\"text\" class=\"form-control\" id=\"value_{{uid}}\" placeholder=\"0\" value=\"{{value}}\" onchange=\"withdrawPageAccept('rules')\">\n                    <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n                </div>\n\n\n            </div>\n            {{/payload.rules}}\n\n        </div>\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonRules\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'),document.getElementById('toAccept'){{#payload.rules}},{ 'id': '{{uid}}', 'value': createRuleJSON('{{uid}}') }{{/payload.rules}}))\">\n    Godkend forretningsregler\n</button>\n\n<button class=\"btn btn-lg btn-dark ml-2 goNext collapsed\" id=\"buttonRules_goNext\" type=\"button\" onclick=\"setPageContent('grants')\">\n    Gå til tilskudssatser\n</button>",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n\n        <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n            <input type=\"hidden\" id=\"requestType\" value=\"rules\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n            \n            {{#payload.rules}}\n            <div class=\"row border-top pb-2 pt-2 \">\n\n\n                <div class=\"col-2 d-flex flex-column justify-content-center\">\n                    <span>{{name}}</span>\n                </div>\n\n                <div class=\"form-floating col\">\n                    <select class=\"form-select\" id=\"operator_{{uid}}\" onchange=\"setInputBox('{{uid}}');withdrawPageAccept('rules')\">\n                        <option value=\"==\">= Skal være lig med</option>\n                        <option value=\"!=\">≠ Må ikke være lig med</option>\n                        <option value=\"<\">< Skal være mindre end</option>\n                        <option value=\">\">> Skal være større end</option>\n                        <option value=\"contains\">{?} Indeholder</option>\n                        <option value=\"!contains\">{!} Indeholder ikke</option>\n                        <option value=\"!null\">[o] Skal være oplyst</option>\n                    </select>\n                    <label for=\"operator_{{uid}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n                </div>\n\n                <div class=\"form-floating col\" id=\"inputContainer_{{uid}}\">\n                    <input type=\"text\" class=\"form-control\" id=\"value_{{uid}}\" placeholder=\"0\" value=\"{{value}}\" onchange=\"withdrawPageAccept('rules')\">\n                    <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n                </div>\n\n\n            </div>\n            {{/payload.rules}}\n\n        </div>\n\n    </div>\n</div>\n\n<button class=\"btn btn-lg btn-primary\" id=\"buttonRules\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'),document.getElementById('toAccept'){{#payload.rules}},{ 'id': '{{uid}}', 'value': createRuleJSON('{{uid}}') }{{/payload.rules}}))\">\n    Godkend forretningsregler\n</button>\n\n<button class=\"btn btn-lg btn-primary ml-2 goNext collapsed\" id=\"buttonRules_goNext\" type=\"button\" onclick=\"setPageContent('grants')\">\n    Gå til tilskudssatser\n</button>",
         "output": "str",
         "x": 190,
-        "y": 740,
+        "y": 900,
         "wires": [
             [
                 "106319be762a8105"
@@ -6223,7 +6229,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 160,
-        "y": 460,
+        "y": 620,
         "wires": [
             [
                 "7f0f53a5ddc0b562"
@@ -6250,7 +6256,7 @@
         "to": "",
         "reg": false,
         "x": 390,
-        "y": 460,
+        "y": 620,
         "wires": [
             [
                 "324ded5420115899"
@@ -6277,7 +6283,7 @@
         "to": "",
         "reg": false,
         "x": 390,
-        "y": 420,
+        "y": 580,
         "wires": [
             [
                 "324ded5420115899"
@@ -6296,7 +6302,7 @@
         "template": "<h4>Siden blev ikke fundet</h4>",
         "output": "str",
         "x": 150,
-        "y": 660,
+        "y": 820,
         "wires": [
             [
                 "6c7dc7757cce4e94"
@@ -6312,10 +6318,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n  <div class=\"card-header\">Tilskudssatser</div>\n  <div class=\"card-body\">\n      <h6 class=\"card-subtitle mb-2 text-muted\">Sæt tilskudssatser fra Danmark</h6>\n      <p class=\"card-text\">Kontrollér/sæt og derefter godkendt tilskudssatserne som robotten fratrækker under tilskudsberegningen.</p>\n      \n        <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n            <input type=\"hidden\" id=\"requestType\" value=\"grants\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n\n        </div>\n\n  </div>\n</div>\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonGrants\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'),document.getElementById('toAccept')))\">\n    Godkend tilskudssatser\n</button>\n\n<button class=\"btn btn-lg btn-dark ml-2 goNext collapsed\" id=\"buttonGrants_goNext\" type=\"button\" onclick=\"setPageContent('receipts')\">\n    Gå til fakturaer\n</button>",
+        "template": "<div class=\"card mb-2\">\n  <div class=\"card-header\">Tilskudssatser</div>\n  <div class=\"card-body\">\n      <h6 class=\"card-subtitle mb-2 text-muted\">Sæt tilskudssatser fra Danmark</h6>\n      <p class=\"card-text\">Kontrollér/sæt og derefter godkendt tilskudssatserne som robotten fratrækker under tilskudsberegningen.</p>\n      \n        <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n            <input type=\"hidden\" id=\"requestType\" value=\"grants\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n\n        </div>\n\n  </div>\n</div>\n\n<button class=\"btn btn-lg btn-primary\" id=\"buttonGrants\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'),document.getElementById('toAccept')))\">\n    Godkend tilskudssatser\n</button>\n\n<button class=\"btn btn-lg btn-primary ml-2 goNext collapsed\" id=\"buttonGrants_goNext\" type=\"button\" onclick=\"setPageContent('receipts')\">\n    Gå til fakturaer\n</button>",
         "output": "str",
         "x": 180,
-        "y": 780,
+        "y": 940,
         "wires": [
             [
                 "f90cdacea6132c58"
@@ -6365,7 +6371,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "10143527a5849a63"
@@ -6381,7 +6387,7 @@
         "action": "obj",
         "pretty": false,
         "x": 810,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "237d8785c07228e9"
@@ -6415,7 +6421,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 540,
+        "y": 700,
         "wires": [
             [
                 "62c11658d7cda4de"
@@ -6441,7 +6447,7 @@
         "repair": false,
         "outputs": 2,
         "x": 150,
-        "y": 560,
+        "y": 720,
         "wires": [
             [
                 "f32b827c0ca8c057"
@@ -6471,7 +6477,7 @@
         "to": "",
         "reg": false,
         "x": 580,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "ec5733c98c66b003"
@@ -6520,7 +6526,7 @@
         "name": "(set) rules",
         "info": "",
         "x": 760,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -6543,7 +6549,7 @@
         "to": "",
         "reg": false,
         "x": 790,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "893b4a053c83de51"
@@ -6601,7 +6607,7 @@
         "to": "",
         "reg": false,
         "x": 990,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "fcffca3de5c4448e"
@@ -6647,7 +6653,7 @@
         "to": "",
         "reg": false,
         "x": 1180,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "38e171811e1f3b86"
@@ -6674,7 +6680,7 @@
         "to": "",
         "reg": false,
         "x": 1380,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "396555b6e31f5624"
@@ -6713,7 +6719,7 @@
         "to": "",
         "reg": false,
         "x": 1570,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "53c070f3a6e4c909"
@@ -6729,7 +6735,7 @@
         "action": "str",
         "pretty": false,
         "x": 930,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "b81345536857260d"
@@ -6764,10 +6770,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Fakturaer</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Automatiseret behandling af WorkLet fakturaer</h6>\n        <p class=\"card-text\">Når du har godkendt loginoplysninger, forretningsregler samt tilskudssatser, kan du her søge efter ubehandlede fakturaer. Robotten henter automatisk fakturaer fra WorkLet og beregner anbefalede handlinger baseret på forretningsreglerne samt tilskudssatserne fra Danmark.</p>\n\n    </div>\n</div>\n            \n<input type=\"hidden\" id=\"requestType\" value=\"receipts\">\n\n<button class=\"btn btn-lg btn-dark\" id=\"buttonGrants\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType')))\">\n    Søg efter ubehandlede fakturaer\n</button>\n\n<button class=\"btn btn-lg btn-dark ml-2 goNext collapsed\" id=\"buttonGrants_goNext\" type=\"button\" onclick=\"setPageContent('receipts')\">\n    Gå til anbefalede handlinger\n</button>",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Fakturaer</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Automatiseret behandling af WorkLet fakturaer</h6>\n        <p class=\"card-text\">Når du har godkendt loginoplysninger, forretningsregler samt tilskudssatser, kan du her søge efter ubehandlede fakturaer. Robotten henter automatisk fakturaer fra WorkLet og beregner anbefalede handlinger baseret på forretningsreglerne samt tilskudssatserne fra Danmark.</p>\n\n    </div>\n</div>\n            \n<input type=\"hidden\" id=\"requestType\" value=\"receipts\">\n\n<button class=\"btn btn-lg btn-primary\" id=\"buttonGrants\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType')))\">\n    Søg efter ubehandlede fakturaer\n</button>\n\n<button class=\"btn btn-lg btn-primary ml-2 goNext collapsed\" id=\"buttonGrants_goNext\" type=\"button\" onclick=\"setPageContent('receipts')\">\n    Gå til anbefalede handlinger\n</button>",
         "output": "str",
         "x": 160,
-        "y": 820,
+        "y": 980,
         "wires": [
             [
                 "4e5fef131ac617bb"
@@ -6778,19 +6784,29 @@
         "id": "4e5fef131ac617bb",
         "type": "template",
         "z": "4fd74d0002aa2bc4",
-        "name": "Fakturaer - Manuel behandling",
+        "name": "Fakturaer - Anbefalede handlinger",
         "field": "payload.pages.receipts-recommended",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header no-border-bottom\">Fakturaer - Anbefalede handlinger</div>\n</div>\n\n<div class=\"receiptContainer\">\n\n    <div class=\"card text-white bg-info\" style=\"width: 20rem;\">\n      <div class=\"card-header\">\n        Borger\n\n        <span id=\"togglePop\" onclick=\"togglePop(this)\" class=\"floatr\">\n          <i class=\"fa fa-ellipsis\" aria-hidden=\"true\"></i>\n          <div class=\"popmenu show\">\n              <a href=\"#\">Gå til borger i KP</a>\n          </div>\n        </span>\n\n      </div>\n\n      <div class=\"card-body\">\n        <h4 class=\"card-title\">240194<small class=\"text-light\"> - XXXX</small></h4>\n        <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n\n        <div style=\"display:flex;gap:10px\">\n          <div style=\"display:flex;flex-direction:column\">\n\n            <span class=\"badge\">FORMUE</span>\n            <span class=\"badge bg-light text-dark\">46.789 kr</span>\n\n          </div>\n          <div style=\"display:flex;flex-direction:column\">\n\n            <span class=\"badge\">DANMARK</span>\n            <span class=\"badge bg-light text-dark\">Gruppe 5</span>\n\n          </div>\n        </div>\n        \n\n        <table class=\"table no-border\">\n          <thead>\n            <tr style=\"border-bottom: 1px solid white!important;\">\n              <th scope=\"col\" style=\"padding-bottom: 3px!important;\"><span class=\"badge\">SAGSTYPE</span></th>\n              <th scope=\"col\" style=\"padding-bottom: 3px!important;\"><span class=\"badge\">PERIODE</span></th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr class=\"table-info\">\n              <th scope=\"row\" style=\"padding: 3px 8px!important\">Udvidet<br />helbredstillæg</th>\n              <td style=\"padding: 3px 8px!important\">20-01/2022 -<br />31-12/2022</td>\n            </tr>\n          </tbody>\n        </table>\n\n\n      </div>\n    </div>\n\n    <div style=\"flex-grow: 2;height:500px\">\n\n      <div class=\"card border-secondary mb-1\">\n        <div class=\"card-header\">\n          Faktura\n          <span id=\"togglePop\" onclick=\"togglePop(this)\" class=\"floatr\">\n            <i class=\"fa fa-ellipsis\" aria-hidden=\"true\"></i>\n            <div class=\"popmenu show\">\n                <a href=\"#\">Åbn faktura i WorkLet</a>\n            </div>\n          </span>\n          </div>\n        <div class=\"card-body\">\n          \n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Type</th>\n                <th>Column heading</th>\n                <th>Column heading</th>\n                <th>Column heading</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <th>Active</th>\n                <td>Column content</td>\n                <td>Column content</td>\n                <td>Column content</td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"card mb-2 text-white bg-dark\" style=\"margin-left: 20px;display:flex;flex-direction:row\">\n        <div class=\"card-header no-border-bottom\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">Handling</div>\n        <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n      </div>\n      \n    </div>\n\n</div>",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header no-border-bottom\">Fakturaer - Anbefalede handlinger</div>\n</div>\n\n<div class=\"receiptContainer\">\n\n    <div class=\"card bg-dark text-white\" style=\"width: 20rem;\">\n      <div class=\"card-header\">\n        Borger\n\n        <span id=\"togglePop\" onclick=\"togglePop(this)\" class=\"floatr\">\n          <i class=\"fa fa-ellipsis\" aria-hidden=\"true\"></i>\n          <div class=\"popmenu show\">\n              <a href=\"#\">Gå til borger i KP</a>\n          </div>\n        </span>\n\n      </div>\n\n      <div class=\"card-body\">\n        <h4 class=\"card-title\">240194<small class=\"text-light\"> - XXXX</small></h4>\n        <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n       \n\n        <table class=\"table no-border\">\n          <tbody>\n\n            <tr class=\"table\" style=\"border-top: 1px solid #6E787A!important;\">\n              <th scope=\"row\" class=\"badge\" style=\"text-transform: uppercase\"><i class=\"fa fa-check\" aria-hidden=\"true\" style=\"padding-right: 10px\"></i>\n                <a data-toggle=\"tooltip\" title=\"20-06/2022 - 19-06/2023\" style=\"cursor:default!important\">\n                  Bevilget fodpleje\n                </a>\n              </th>\n            </tr>\n\n            <tr class=\"table\" style=\"border-top: 1px solid #6E787A!important;\">\n              <th scope=\"row\" class=\"badge\" style=\"text-transform: uppercase;color:lightgray\"><i class=\"fa fa-x\" aria-hidden=\"true\" style=\"padding-right: 10px\"></i>\n                <a data-toggle=\"tooltip\" title=\"Ingen gyldig sag foreligger\" style=\"cursor:default!important\">\n                  Udvidet helbredstillæg\n                </a>\n              </th>\n            </tr>\n\n            <tr class=\"table\" style=\"border-top: 1px solid #6E787A!important;\">\n              <th scope=\"row\" class=\"badge\" style=\"text-transform: uppercase\"><i class=\"fa fa-check\" aria-hidden=\"true\" style=\"padding-right: 10px\"></i>\n                <a data-toggle=\"tooltip\" title=\"20-06/2022 - 19-06/2023\" style=\"cursor:default!important\">\n                  Alm. helbredstillæg\n                </a>\n              </th>\n            </tr>\n\n            <tr class=\"table\" style=\"border-top: 1px solid #6E787A!important;border-bottom: 1px solid #6E787A!important\">\n              <th scope=\"row\" class=\"badge\" style=\"text-transform: uppercase\"><i class=\"fa fa-check\" aria-hidden=\"true\" style=\"padding-right: 10px\"></i>\n                <a data-toggle=\"tooltip\" title=\"20-06/2022 - 19-06/2023\" style=\"cursor:default!important\">\n                  Helbredskort\n                </a>\n              </th>\n            </tr>\n\n          </tbody>\n        </table>\n\n        \n        <div style=\"display:flex;gap:10px;justify-content:space-around\">\n\n          <div style=\"display:flex;flex-direction:column;\">\n\n            <span class=\"badge\">FORMUE</span>\n            <span style=\"text-align:center\">\n              <a data-toggle=\"tooltip\" title=\"20-10/2022\" style=\"cursor:default!important\">\n                27.345 kr\n              </a>\n            </span>\n\n          </div>\n          <div style=\"display:flex;flex-direction:column;\">\n\n            <span class=\"badge\">DANMARK</span>\n            <span style=\"text-align:center\">\n              <a data-toggle=\"tooltip\" title=\"20-10/2022\" style=\"cursor:default!important\">\n                Gruppe 5\n              </a>\n            </span>\n\n          </div>\n          <div style=\"display:flex;flex-direction:column;\">\n\n            <span class=\"badge\">TILLÆG</span>\n            <span style=\"text-align:center\">\n              <a data-toggle=\"tooltip\" title=\"20-10/2022\" style=\"cursor:default!important\">\n                85%\n              </a>\n            </span>\n\n          </div>\n        </div>\n\n\n      </div>\n    </div>\n\n    <div style=\"flex-grow: 2;height:500px\">\n\n      <div class=\"card border-secondary mb-1\">\n        <div class=\"card-header\">\n          Faktura\n          <span id=\"togglePop\" onclick=\"togglePop(this)\" class=\"floatr\">\n            <i class=\"fa fa-ellipsis\" aria-hidden=\"true\"></i>\n            <div class=\"popmenu show\">\n                <a href=\"#\">Åbn faktura i WorkLet</a>\n            </div>\n          </span>\n          </div>\n        <div class=\"card-body\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n          \n          <table class=\"table\">\n            <thead class=\"no-border\">\n              <tr>\n                <th><span class=\"badge text-dark\">#</span></th>\n                <th style=\"width: 40%\"><span class=\"badge text-dark\">YDELSE</span></th>\n                <th><span class=\"badge text-dark\" style=\"text-align: right\">SYGESIKRINGSANDEL</span></th>\n                <th><span class=\"badge text-dark\" style=\"text-align: right\">PATIENTANDEL</span></th>\n                <th><span class=\"badge text-dark\" style=\"text-align: right\">HONORAR</span></th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <th>001</th>\n                <td>Behandling i patientens eget hjem</td>\n                <td style=\"text-align: right\">0 kr</td>\n                <td style=\"text-align: right\">450 kr</td>\n                <td style=\"text-align: right\"><strong>450 kr</strong></td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"card mb-2 text-white bg-info\" style=\"margin-left: 20px;display:flex;flex-direction:row\">\n        <div class=\"card-header no-border-bottom\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">Handling</div>\n        <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n      </div>\n      \n    </div>\n\n</div><!-- /receiptContainer -->",
         "output": "str",
-        "x": 230,
-        "y": 860,
+        "x": 240,
+        "y": 1020,
         "wires": [
             [
                 "025f9d87a38e0ab0"
             ]
         ]
+    },
+    {
+        "id": "4e2fa08087409208",
+        "type": "comment",
+        "z": "4fd74d0002aa2bc4",
+        "name": "start",
+        "info": "",
+        "x": 750,
+        "y": 380,
+        "wires": []
     }
 ]
