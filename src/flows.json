@@ -98,7 +98,7 @@
             "64156b428449f87a",
             "8b4e8bc5facd8f90"
         ],
-        "x": 574,
+        "x": 914,
         "y": 139,
         "w": 322,
         "h": 122
@@ -124,7 +124,7 @@
             "6dfadfada71732b7",
             "c0efbe2a4fc25ff6"
         ],
-        "x": 934,
+        "x": 1274,
         "y": 39,
         "w": 672,
         "h": 222
@@ -197,6 +197,85 @@
         "h": 222
     },
     {
+        "id": "287b33b8879cbbbc",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Transform 1 - Kontrollér data",
+        "style": {
+            "fill": "#ffefbf",
+            "label": true,
+            "fill-opacity": "0.66"
+        },
+        "nodes": [
+            "c9e0c48929946d68",
+            "4629d4bebfd2768f",
+            "aea48540dc37e51c",
+            "64bc816ed683fb56",
+            "b01934ac82f070c3",
+            "31392fe7f3a93ccd",
+            "141037f73383a9f6",
+            "78c4e4692985e738",
+            "2cf375bbbada29f9",
+            "12d9ffdfaf71a523",
+            "349a8caa82ed4d5e",
+            "011d535e3ab60636",
+            "71c55498ef71a4c9",
+            "6afaf8f1c596de67",
+            "05096968ae22cc6f",
+            "215c708ef9319356",
+            "c68d4ee2f02ada08",
+            "4c51b10755b92b07",
+            "4e374431cb68ace4",
+            "5e112e4574f64f9b",
+            "ac8390885c3e684c",
+            "046eb82cefda08d4",
+            "6b4df0013a0256a0",
+            "7f450a3e484312bd",
+            "852046d71f487d02",
+            "fa59a67027b60c71",
+            "7d7a7bf5a54224e8",
+            "015eb190e5565e7d",
+            "989112eb96abfdb9",
+            "0a17f837bb4f6cf4",
+            "b81c9fcaa9d3e0d1",
+            "7de3f9d18bf2f9c1",
+            "104d29ffe37f5998"
+        ],
+        "x": 594,
+        "y": 779,
+        "w": 1392,
+        "h": 502
+    },
+    {
+        "id": "6c7a3f8252158db6",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Transform 2 - Sager og tilskud",
+        "style": {
+            "fill": "#ffbfbf",
+            "fill-opacity": "0.66",
+            "label": true
+        },
+        "nodes": [
+            "5d7e42be40e46699",
+            "252ef6cdcba02f65",
+            "9639c713133c8b4b",
+            "c728e9afbea480e9",
+            "b5f7952c5718fafd",
+            "c23d52373f2634a2",
+            "ea041c123c220cca",
+            "042534adf7219de9",
+            "ebfc3d7f7b71a754",
+            "8b251b9d384911a0",
+            "363e103b20db6c80",
+            "5cfe1b69780c58ab"
+        ],
+        "x": 654,
+        "y": 1319,
+        "w": 1172,
+        "h": 302
+    },
+    {
         "id": "becf3086d0307883",
         "type": "junction",
         "z": "8ea344595d9a442a",
@@ -251,7 +330,8 @@
         "id": "7d7a7bf5a54224e8",
         "type": "junction",
         "z": "8ea344595d9a442a",
-        "x": 800,
+        "g": "287b33b8879cbbbc",
+        "x": 820,
         "y": 1160,
         "wires": [
             [
@@ -1088,10 +1168,17 @@
             },
             {
                 "t": "set",
-                "p": "#:(storeInFile)::processedReceipts",
+                "p": "#:(storeInFile)::runHistory",
                 "pt": "global",
-                "to": "[]",
+                "to": "[\t   {\t       \"startTime\": \"2023-01-01\",\t       \"user\": \"Fornavn Efternavn\",\t       \"processedReceipts\": [\t           {\t               \"fid\": \"08dac871-25c4-413f-8ba0-16541ee46e58\",\t               \"uids\": [ \"8ba0-16541ee46e58-2173-1\" ]\t            },\t           {\t               \"fid\": \"08dac877-8745-4ade-8874-d20765b7e147\",\t               \"uids\": [ \"8874-d20765b7e147-0000-1\" ]\t            }\t\t        ],\t       \"skippedReceipts\": []\t\t    }\t]",
                 "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -1164,8 +1251,8 @@
         "z": "8ea344595d9a442a",
         "name": "Kommando: `start`",
         "info": "",
-        "x": 710,
-        "y": 100,
+        "x": 670,
+        "y": 180,
         "wires": []
     },
     {
@@ -1175,7 +1262,7 @@
         "g": "27007b43e1b2750d",
         "name": "[E] Find ny start- og slutdato ud fra seneste kørsel samt dags dato",
         "info": "",
-        "x": 1190,
+        "x": 1530,
         "y": 80,
         "wires": []
     },
@@ -1300,8 +1387,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 1820,
-        "y": 120,
+        "x": 2080,
+        "y": 80,
         "wires": [
             [
                 "df0ed618b5194000"
@@ -1321,8 +1408,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1930,
-        "y": 160,
+        "x": 2150,
+        "y": 120,
         "wires": []
     },
     {
@@ -1333,15 +1420,15 @@
         "name": "",
         "server": "13a90a014adf9bc5",
         "client": "",
-        "x": 1740,
-        "y": 1720,
+        "x": 1580,
+        "y": 1700,
         "wires": []
     },
     {
         "id": "da966ceeba7b23dd",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "name": "Remove CPRs",
+        "name": "Fjern CPR-numre",
         "rules": [
             {
                 "t": "set",
@@ -1363,8 +1450,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
-        "y": 1720,
+        "x": 850,
+        "y": 1700,
         "wires": [
             [
                 "a46e2a0c2cd58d9f"
@@ -1390,7 +1477,7 @@
         "y": 220,
         "wires": [
             [
-                "9ae5a9e08a7d7dc3"
+                "32e2c7f424b85454"
             ]
         ],
         "l": false
@@ -1409,7 +1496,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1270,
+        "x": 1610,
         "y": 220,
         "wires": []
     },
@@ -1440,7 +1527,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
+        "x": 1050,
         "y": 220,
         "wires": [
             [
@@ -1469,7 +1556,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 855,
+        "x": 1195,
         "y": 220,
         "wires": [
             [
@@ -1487,7 +1574,7 @@
         "g": "7de50fe1369c94a7",
         "name": "Sæt tilskudsperioder fra Danmark",
         "info": "",
-        "x": 730,
+        "x": 1070,
         "y": 180,
         "wires": []
     },
@@ -1526,7 +1613,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
+        "x": 1370,
         "y": 180,
         "wires": [
             [
@@ -1542,7 +1629,7 @@
         "g": "27007b43e1b2750d",
         "name": "Hent datoer for seneste kørsel",
         "info": "",
-        "x": 1080,
+        "x": 1420,
         "y": 140,
         "wires": []
     },
@@ -1580,7 +1667,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1300,
+        "x": 1640,
         "y": 180,
         "wires": [
             [
@@ -1616,7 +1703,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1135,
+        "x": 1475,
         "y": 180,
         "wires": [
             [
@@ -1638,7 +1725,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1510,
+        "x": 1850,
         "y": 180,
         "wires": [
             [
@@ -1655,7 +1742,7 @@
         "g": "27007b43e1b2750d",
         "name": "Bestem datoer for ny kørsel",
         "info": "",
-        "x": 1340,
+        "x": 1680,
         "y": 140,
         "wires": []
     },
@@ -1693,7 +1780,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
+        "x": 1370,
         "y": 220,
         "wires": [
             [
@@ -1908,7 +1995,7 @@
         "type": "change",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "name": "Sæt referencer",
+        "name": "Sæt selectors",
         "rules": [
             {
                 "t": "set",
@@ -2442,14 +2529,15 @@
         "id": "c9e0c48929946d68",
         "type": "function",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Hent eller definér liste med behandlede faktura",
-        "func": "//msg.payload = [msg.currentReceipt.antalYdelser];\nvar receipts = global.get(\"processedReceipts\", \"storeInFile\");\nif (typeof receipts != undefined && receipts != null)\n    msg.processedReceipts = receipts;\nelse\n    msg.processedReceipts = [];\nreturn msg;",
+        "func": "//msg.payload = [msg.currentReceipt.antalYdelser];\nvar history = global.get(\"runHistory\", \"storeInFile\");\nif (typeof history != undefined && history != null)\n    msg.runHistory = history;\nelse\n    msg.runHistory = [];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 800,
         "y": 860,
         "wires": [
             [
@@ -2461,6 +2549,7 @@
         "id": "4629d4bebfd2768f",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Sammensæt lister",
         "rules": [
             {
@@ -2476,11 +2565,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
+        "x": 1150,
         "y": 860,
         "wires": [
             [
-                "b01934ac82f070c3"
+                "b01934ac82f070c3",
+                "7de3f9d18bf2f9c1"
             ]
         ],
         "info": "https://try.jsonata.org/wRgtKDrKD"
@@ -2498,17 +2588,18 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1510,
-        "y": 1720,
+        "x": 1350,
+        "y": 1700,
         "wires": []
     },
     {
         "id": "aea48540dc37e51c",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Saml borgere og fakturaer",
         "info": "https://try.jsonata.org/wRgtKDrKD",
-        "x": 1150,
+        "x": 1170,
         "y": 820,
         "wires": []
     },
@@ -2516,6 +2607,7 @@
         "id": "64bc816ed683fb56",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Personlig tillægsprocenter",
         "rules": [
             {
@@ -2531,7 +2623,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
+        "x": 730,
         "y": 1000,
         "wires": [
             [
@@ -2544,6 +2636,7 @@
         "id": "b01934ac82f070c3",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Bevilget tilskud til fodpleje?",
         "rules": [
             {
@@ -2559,7 +2652,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
+        "x": 740,
         "y": 960,
         "wires": [
             [
@@ -2571,9 +2664,10 @@
         "id": "31392fe7f3a93ccd",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Gør KP data maskinelt læsbart",
         "info": "",
-        "x": 730,
+        "x": 750,
         "y": 920,
         "wires": []
     },
@@ -2581,6 +2675,7 @@
         "id": "141037f73383a9f6",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Tildel unikke behandlings-ID'er",
         "rules": [
             {
@@ -2596,7 +2691,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1430,
+        "x": 1450,
         "y": 1040,
         "wires": [
             [
@@ -2609,6 +2704,7 @@
         "id": "78c4e4692985e738",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Helbredstillægsprocenter",
         "rules": [
             {
@@ -2624,7 +2720,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
+        "x": 730,
         "y": 1040,
         "wires": [
             [
@@ -2637,6 +2733,7 @@
         "id": "2cf375bbbada29f9",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Sager",
         "rules": [
             {
@@ -2652,7 +2749,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 650,
+        "x": 670,
         "y": 1080,
         "wires": [
             [
@@ -2665,6 +2762,7 @@
         "id": "12d9ffdfaf71a523",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Formue",
         "rules": [
             {
@@ -2680,7 +2778,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
+        "x": 680,
         "y": 1120,
         "wires": [
             [
@@ -2692,6 +2790,7 @@
         "id": "349a8caa82ed4d5e",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Danmark",
         "rules": [
             {
@@ -2707,7 +2806,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
+        "x": 680,
         "y": 1160,
         "wires": [
             [
@@ -2720,9 +2819,10 @@
         "id": "011d535e3ab60636",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Transformer faktura data (+ fjern unødvendig data)",
         "info": "",
-        "x": 1490,
+        "x": 1510,
         "y": 920,
         "wires": []
     },
@@ -2730,6 +2830,7 @@
         "id": "71c55498ef71a4c9",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Fjern unødvendig data",
         "rules": [
             {
@@ -2745,7 +2846,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1400,
+        "x": 1420,
         "y": 960,
         "wires": [
             [
@@ -2757,6 +2858,7 @@
         "id": "6afaf8f1c596de67",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Fjern tidspunkt fra dato",
         "rules": [
             {
@@ -2772,7 +2874,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1400,
+        "x": 1420,
         "y": 1000,
         "wires": [
             [
@@ -2784,6 +2886,7 @@
         "id": "05096968ae22cc6f",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Bestem behandlingstype",
         "rules": [
             {
@@ -2799,7 +2902,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1410,
+        "x": 1430,
         "y": 1200,
         "wires": [
             [
@@ -2812,6 +2915,7 @@
         "id": "215c708ef9319356",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Hent regler fra global variabel",
         "rules": [
             {
@@ -2827,7 +2931,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1050,
+        "x": 1070,
         "y": 980,
         "wires": [
             [
@@ -2839,9 +2943,10 @@
         "id": "c68d4ee2f02ada08",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Kontroller KP data ud fra regelsæt",
         "info": "",
-        "x": 1060,
+        "x": 1080,
         "y": 940,
         "wires": []
     },
@@ -2849,6 +2954,7 @@
         "id": "5d7e42be40e46699",
         "type": "debug",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "MSG ERRORS",
         "active": true,
         "tosidebar": true,
@@ -2858,14 +2964,15 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 1460,
+        "x": 1180,
+        "y": 1560,
         "wires": []
     },
     {
         "id": "4c51b10755b92b07",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Tjek alle regler mod borgerdata",
         "rules": [
             {
@@ -2881,7 +2988,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1050,
+        "x": 1070,
         "y": 1020,
         "wires": [
             [
@@ -2893,6 +3000,7 @@
         "id": "4e374431cb68ace4",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Find regelbrud",
         "rules": [
             {
@@ -2908,7 +3016,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
+        "x": 1020,
         "y": 1060,
         "wires": [
             [
@@ -2920,6 +3028,7 @@
         "id": "5e112e4574f64f9b",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Fjern borgere som ikke er berettiget",
         "rules": [
             {
@@ -2935,7 +3044,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1060,
+        "x": 1080,
         "y": 1100,
         "wires": [
             [
@@ -2948,6 +3057,7 @@
         "type": "change",
         "z": "8ea344595d9a442a",
         "d": true,
+        "g": "287b33b8879cbbbc",
         "name": "Kontroller sager",
         "rules": [
             {
@@ -2963,7 +3073,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
+        "x": 700,
         "y": 1240,
         "wires": [
             [
@@ -2987,13 +3097,14 @@
         "id": "046eb82cefda08d4",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Find bevilling + sag gældende for hver behandling",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> | $.faktura.behandlinger |\t(\t\t    $uid := uid;\t    $fid := fid;\t    $faktura := $$.payload.faktura[id = $fid];\t    $borger := $$.payload[cpr = $faktura.patientCPR];\t    $type := type;\t\t{\t    \"bevilget\": type = 'A' ?\t                    ($borger.persondata.bevilling ?\t                        true : $borger.persondata.sager\t                                [  \t                                    (type ~> $lowercase ~> $contains(\"udvidet helbredstill\"))\t                                and\t                                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                                and\t                                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                                and\t                                    bevilling = true\t                                ]\t                                    ~> $exists ? true : false)\t                :\t                    ($borger.persondata.sager\t                        [\t                            (type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t                        or\t                            type ~> $lowercase ~> $contains(\"gskort\"))\t                        and\t                            ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                        and\t                            (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                        and\t                            bevilling = true\t                        ]\t                            ~> $exists ? true : false),\t                                \t    \"sag\": $borger.persondata.sager\t                [\t                    titel ~> $lowercase ~> $contains(\"fod\")\t                and\t                    ($type = 'A' ?\t                        (type ~> $lowercase ~> $contains(\"udvidet helbred\"))\t                    :\t                        (type ~> $lowercase ~> $contains(\"almindeligt helbredstill\")\t                    or\t                        type ~> $lowercase ~> $contains(\"gskort\")))\t                and\t                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                and\t                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                and\t                    bevilling = true\t                ]\t\t})|",
+                "to": "$.payload ~> | $.faktura.behandlinger |\t(\t\t    $uid := uid;\t    $fid := fid;\t    $faktura := $$.payload.faktura[id = $fid];\t    $borger := $$.payload[cpr = $faktura.patientCPR];\t    $type := type;\t\t{\t    \"bevilget\": type = 'A' ?\t                    ($borger.persondata.bevilling ?\t                        true : $borger.persondata.sager\t                                [   \t                                    titel ~> $lowercase ~> $contains(\"fod\")\t                                and\t                                    (type ~> $lowercase ~> $contains(\"udvidet helbredstill\"))\t                                and\t                                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                                and\t                                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                                and\t                                    bevilling = true\t                                ]\t                                    ~> $exists ? true : false)\t                :\t                    ($borger.persondata.sager\t                        [\t                            (type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t                        or\t                            type ~> $lowercase ~> $contains(\"gskort\"))\t                        and\t                            ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                        and\t                            (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                        and\t                            bevilling = true\t                        ]\t                            ~> $exists ? true : false),\t                                \t    \"sag\": $borger.persondata.sager\t                [\t                    titel ~> $lowercase ~> $contains(\"fod\")\t                and\t                    ($type = 'A' ?\t                        (type ~> $lowercase ~> $contains(\"udvidet helbred\"))\t                    :\t                        (type ~> $lowercase ~> $contains(\"almindeligt helbredstill\")\t                    or\t                        type ~> $lowercase ~> $contains(\"gskort\")))\t                and\t                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                and\t                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                and\t                    bevilling = true\t                ]\t\t})|",
                 "tot": "jsonata"
             }
         ],
@@ -3002,7 +3113,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1490,
+        "x": 1510,
         "y": 1240,
         "wires": [
             [
@@ -3014,9 +3125,10 @@
         "id": "6b4df0013a0256a0",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Find relevant data for hver behandling på faktura",
         "info": "",
-        "x": 1480,
+        "x": 1500,
         "y": 1160,
         "wires": []
     },
@@ -3024,6 +3136,7 @@
         "id": "7f450a3e484312bd",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Find tillægsprocent gældende for hver faktura",
         "rules": [
             {
@@ -3039,7 +3152,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1470,
+        "x": 1490,
         "y": 1120,
         "wires": [
             [
@@ -3051,9 +3164,10 @@
         "id": "852046d71f487d02",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
         "name": "Find relevant data for hver faktura",
         "info": "",
-        "x": 1430,
+        "x": 1450,
         "y": 1080,
         "wires": []
     },
@@ -3061,6 +3175,7 @@
         "id": "252ef6cdcba02f65",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Tilføj sager + ydelser til handlinger",
         "rules": [
             {
@@ -3076,8 +3191,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 1340,
+        "x": 820,
+        "y": 1400,
         "wires": [
             [
                 "c23d52373f2634a2"
@@ -3089,16 +3204,18 @@
         "id": "9639c713133c8b4b",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Opret sager / ydelser",
         "info": "",
-        "x": 700,
-        "y": 1300,
+        "x": 780,
+        "y": 1360,
         "wires": []
     },
     {
         "id": "c728e9afbea480e9",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Sæt tilskud = pris",
         "rules": [
             {
@@ -3114,8 +3231,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1330,
-        "y": 1380,
+        "x": 1410,
+        "y": 1420,
         "wires": [
             [
                 "ebfc3d7f7b71a754"
@@ -3148,8 +3265,8 @@
         "links": [
             "208bcfa9f6ff7750"
         ],
-        "x": 1475,
-        "y": 1680,
+        "x": 1315,
+        "y": 1660,
         "wires": []
     },
     {
@@ -3158,17 +3275,18 @@
         "z": "8ea344595d9a442a",
         "name": "Klargør data til UI",
         "info": "",
-        "x": 1000,
-        "y": 1680,
+        "x": 840,
+        "y": 1660,
         "wires": []
     },
     {
         "id": "fa59a67027b60c71",
         "type": "comment",
         "z": "8ea344595d9a442a",
-        "name": "Fjern borgere som ikke har gyldig tillægsprocent",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern borgere som ikke har gyldig tillægsprocent?",
         "info": "",
-        "x": 1760,
+        "x": 1780,
         "y": 1100,
         "wires": []
     },
@@ -3176,7 +3294,7 @@
         "id": "a46e2a0c2cd58d9f",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "name": "Beautify names",
+        "name": "Beautify behandlingstitler",
         "rules": [
             {
                 "t": "set",
@@ -3191,8 +3309,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1200,
-        "y": 1720,
+        "x": 1070,
+        "y": 1700,
         "wires": [
             [
                 "8a3db972f8fb7806",
@@ -3213,14 +3331,15 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 80,
+        "x": 880,
+        "y": 40,
         "wires": []
     },
     {
         "id": "b5f7952c5718fafd",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Fjern borgere som ikke har en sag / bevilling",
         "rules": [
             {
@@ -3236,8 +3355,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
-        "y": 1460,
+        "x": 850,
+        "y": 1520,
         "wires": [
             [
                 "c728e9afbea480e9",
@@ -3249,6 +3368,7 @@
         "id": "c23d52373f2634a2",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Find borgere som ikke har en sag / bevilling",
         "rules": [
             {
@@ -3264,8 +3384,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
-        "y": 1420,
+        "x": 850,
+        "y": 1480,
         "wires": [
             [
                 "b5f7952c5718fafd"
@@ -3292,7 +3412,7 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 1380,
+        "y": 1520,
         "wires": [
             []
         ],
@@ -3302,26 +3422,29 @@
         "id": "ea041c123c220cca",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Flyt borgere som ikke har handlinger til \"errors\"",
         "info": "",
-        "x": 780,
-        "y": 1380,
+        "x": 860,
+        "y": 1440,
         "wires": []
     },
     {
         "id": "042534adf7219de9",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Beregn tilskud",
         "info": "",
-        "x": 1310,
-        "y": 1340,
+        "x": 1390,
+        "y": 1380,
         "wires": []
     },
     {
         "id": "ebfc3d7f7b71a754",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Fratræk ydelsesbestemt tillæg fra Danmark (type B + Danmark 1/2)",
         "rules": [
             {
@@ -3337,8 +3460,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1480,
-        "y": 1420,
+        "x": 1560,
+        "y": 1460,
         "wires": [
             [
                 "8b251b9d384911a0"
@@ -3350,13 +3473,14 @@
         "id": "8b251b9d384911a0",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Fratræk 50% (maks 100) ved type A",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t$behandling.type = \"A\" and ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t$behandling.type = \"A\" and ($danmark = 1 or $danmark = 2) and $faktura.ydernummer != \"ydernummermangler\" ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -3365,8 +3489,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1390,
-        "y": 1460,
+        "x": 1470,
+        "y": 1500,
         "wires": [
             [
                 "363e103b20db6c80"
@@ -3378,6 +3502,7 @@
         "id": "363e103b20db6c80",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Begræns tilskud der overstiger prisgrænse ved type A",
         "rules": [
             {
@@ -3393,8 +3518,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1440,
-        "y": 1500,
+        "x": 1520,
+        "y": 1540,
         "wires": [
             [
                 "5cfe1b69780c58ab"
@@ -3406,6 +3531,7 @@
         "id": "5cfe1b69780c58ab",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "6c7a3f8252158db6",
         "name": "Gang med tillægsprocent",
         "rules": [
             {
@@ -3421,14 +3547,146 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1350,
-        "y": 1540,
+        "x": 1430,
+        "y": 1580,
         "wires": [
             [
                 "da966ceeba7b23dd"
             ]
         ],
         "info": "https://try.jsonata.org/re36DEF4i"
+    },
+    {
+        "id": "32e2c7f424b85454",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Sæt currentRunData",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentRunData",
+                "pt": "msg",
+                "to": "{\t    \"startTime\": $millis() ~> $fromMillis,\t    \"user\": \"\",\t    \"processedReceipts\": [],\t    \"skippedReceipts\": []\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 220,
+        "wires": [
+            [
+                "9ae5a9e08a7d7dc3"
+            ]
+        ]
+    },
+    {
+        "id": "015eb190e5565e7d",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "[T] Transformér data, beregn tilskud",
+        "info": "",
+        "x": 760,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "989112eb96abfdb9",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern faktura / behandlinger på faktura som allerede er behandlet",
+        "info": "https://try.jsonata.org/wRgtKDrKD",
+        "x": 1550,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0a17f837bb4f6cf4",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern elementer fra kørselshistorik der er ældre end 6 måneder",
+        "info": "https://try.jsonata.org/wRgtKDrKD",
+        "x": 840,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "b81c9fcaa9d3e0d1",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern allerede behanlede faktura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload @$p .(\t\t{\t    \"test\": $$.runHistory.processedReceipts[fid = $p.faktura.id],\t    \"cpr\": $p.cpr,\t    \"persondata\": $p.persondata,\t    \"faktura\": $p.faktura\t}) ",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1450,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "info": "https://try.jsonata.org/wRgtKDrKD"
+    },
+    {
+        "id": "7de3f9d18bf2f9c1",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1760,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "104d29ffe37f5998",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern behandlinger som allerede er bearbejdet",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.faktura|\t{\t    \"behandlinger\": behandlinger @$b . (\t        ( $b.uid in $$.runHistory.processedReceiptss[id = $b.fid].uid ) = false ?\t            $b )\t}|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1780,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "info": "https://try.jsonata.org/wRgtKDrKD"
     },
     {
         "id": "42de3af98b8ce955",
