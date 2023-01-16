@@ -77,7 +77,7 @@
     {
         "id": "43652557380ac3f3",
         "type": "subflow",
-        "name": "Web GetPageContent",
+        "name": "GetPageContent",
         "info": "",
         "category": "",
         "in": [
@@ -86,15 +86,15 @@
                 "y": 120,
                 "wires": [
                     {
-                        "id": "357f74e2631da4c9"
+                        "id": "f4ed528cde3cabe7"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 1620,
-                "y": 160,
+                "x": 1960,
+                "y": 300,
                 "wires": [
                     {
                         "id": "32eb88cfb3101407",
@@ -110,7 +110,7 @@
     {
         "id": "db94b4c117de2f6a",
         "type": "subflow",
-        "name": "Get Rules",
+        "name": "Get Settings/Rules",
         "info": "",
         "category": "",
         "in": [
@@ -126,11 +126,11 @@
         ],
         "out": [
             {
-                "x": 1100,
-                "y": 120,
+                "x": 1120,
+                "y": 260,
                 "wires": [
                     {
-                        "id": "e31e65af1258f7a2",
+                        "id": "59c7c16b1b5ab941",
                         "port": 0
                     }
                 ]
@@ -482,7 +482,7 @@
         "y": 160,
         "wires": [
             [
-                "32eb88cfb3101407"
+                "b51ae96408813a15"
             ]
         ]
     },
@@ -494,8 +494,7 @@
         "y": 280,
         "wires": [
             [
-                "f6100bedf21eaf46",
-                "edf7c7526a420888"
+                "d4cb17c655b74747"
             ]
         ]
     },
@@ -508,6 +507,18 @@
         "wires": [
             [
                 "a9d6b94d12b279b8"
+            ]
+        ]
+    },
+    {
+        "id": "c49b1da1d0ca8a62",
+        "type": "junction",
+        "z": "db94b4c117de2f6a",
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [
+                "6f9b01d0e9aeace9"
             ]
         ]
     },
@@ -1169,7 +1180,7 @@
                 "f673e8538a4af3d9"
             ],
             [
-                "f4ed528cde3cabe7"
+                "af684cb65465eef9"
             ],
             [
                 "4c886c495ce2fe9d"
@@ -1294,9 +1305,9 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>AutoWorkLet - Randers Kommune</title>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4\" crossorigin=\"anonymous\"></script>\n        <style>{{{css}}}</style>\n    </head>\n    <body id=\"fullPage\">\n<!-- -->\n\n\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" href=\"#\"></a>\n        <a class=\"navbar-brand randers-titel\" href=\"#\"></a>\n        <ul class=\"navbar-nav me-auto\">\n        <li class=\"nav-item\">\n            <a class=\"nav-link{{#payload.activePage.start}} active{{/payload.activePage.start}}\" onclick=\"goToPage('start')\">Start</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link{{#payload.activePage.login}} active{{/payload.activePage.login}}\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link{{#payload.activePage.rules}} active{{/payload.activePage.rules}}\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link{{#payload.activePage.grants}} active{{/payload.activePage.grants}}\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n        </li>\n    </ul>\n    </div>\n</nav>\n\n<div class=\"progress-container collapsed\">\n\n    <div class=\"uppercase fs-10 fw-500 mb-1\" style=\"width:100%;text-align: center;\">Robotten arbejder ... 56%</div>\n\n    <div class=\"progress bg-dark\">\n        <div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%;\"></div>\n    </div>\n\n\n</div>\n\n    \n  \n<div class=\"container site-container mt-3\">\n    <!-- site -->\n\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">{{{payload.pageTitle}}}</li>\n    </ol>\n\n\n    <div id=\"pageContent\">\n        {{{payload.pageContent}}}\n    </div>\n\n    <!-- /site -->\n</div>\n\n\n\n\n<!-- -->\n    </body>\n</html>\n<script>{{{js}}}</script>",
+        "template": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>AutoWorkLet - Randers Kommune</title>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4\" crossorigin=\"anonymous\"></script>\n        <style>{{{css}}}</style>\n    </head>\n    <body id=\"fullPage\">\n<!-- -->\n\n\n{{{payload.pageElements.navbar}}}\n\n<div class=\"progress-container collapsed\">\n\n    <div class=\"uppercase fs-10 fw-500 mb-1\" style=\"width:100%;text-align: center;\">Robotten arbejder ... 56%</div>\n\n    <div class=\"progress bg-dark\">\n        <div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%;\"></div>\n    </div>\n\n\n</div>\n\n    \n  \n<div class=\"container site-container mt-3\">\n    <!-- site -->\n\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">{{{payload.pageTitle}}}</li>\n    </ol>\n\n\n    <div id=\"pageContent\">\n        {{{payload.pageContent}}}\n    </div>\n\n    <!-- /site -->\n</div>\n\n\n\n\n<!-- -->\n    </body>\n</html>\n<script>{{{js}}}</script>",
         "output": "str",
-        "x": 1390,
+        "x": 1690,
         "y": 160,
         "wires": [
             []
@@ -1366,7 +1377,7 @@
         "syntax": "mustache",
         "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n                <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n                <input type=\"hidden\" id=\"pageToAccept\" value=\"rules\">\n                <input type=\"hidden\" id=\"toAccept\" value=\"true\">\n                \n            \n                {{#payload.rules}}\n                <div class=\"row border-top pb-2 pt-2 \">\n\n\n                    <div class=\"col-2 d-flex flex-column justify-content-center\">\n                        <span>{{name}}</span>\n                    </div>\n\n                    <div class=\"form-floating col\">\n                        <select class=\"form-select\" id=\"operator_{{uid}}\" onchange=\"setInputBox('{{uid}}');withdrawPageAccept('rules')\">\n                            <option value=\"==\">= Skal være lig med</option>\n                            <option value=\"!=\">≠ Må ikke være lig med</option>\n                            <option value=\"<\">< Skal være mindre end</option>\n                            <option value=\">\">> Skal være større end</option>\n                            <option value=\"contains\">{?} Indeholder</option>\n                            <option value=\"!contains\">{!} Indeholder ikke</option>\n                            <option value=\"!null\">[o] Skal være oplyst</option>\n                        </select>\n                        <label for=\"operator_{{uid}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n                    </div>\n\n                    <div class=\"form-floating col\" id=\"inputContainer_{{uid}}\">\n                        <input type=\"text\" class=\"form-control\" id=\"value_{{uid}}\" placeholder=\"0\" value=\"{{value}}\" onchange=\"withdrawPageAccept('rules')\">\n                        <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n                    </div>\n\n\n                </div>\n                {{/payload.rules}}\n\n            </div>\n        </div>\n\n        \n        <div class=\"float-right mt-2\">\n            <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'),document.getElementById('pageToAccept'),document.getElementById('toAccept'){{#payload.rules}},{ 'id': '{{uid}}', 'value': createRuleJSON('{{uid}}') }{{/payload.rules}}))\">\n                Godkend forretningsregler\n            </button>\n\n            <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n                Gå til tilskudssatser\n            </button>\n        </div>\n\n    </div>\n</div>",
         "output": "str",
-        "x": 810,
+        "x": 690,
         "y": 240,
         "wires": [
             [
@@ -1400,7 +1411,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
+        "x": 870,
         "y": 240,
         "wires": [
             [
@@ -1429,11 +1440,58 @@
         "type": "subflow:db94b4c117de2f6a",
         "z": "43652557380ac3f3",
         "name": "",
-        "x": 640,
-        "y": 240,
+        "x": 190,
+        "y": 120,
         "wires": [
             [
-                "af684cb65465eef9"
+                "357f74e2631da4c9"
+            ]
+        ]
+    },
+    {
+        "id": "b51ae96408813a15",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.pageElements",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1295,
+        "y": 160,
+        "wires": [
+            [
+                "1d2a94a05f330839"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1d2a94a05f330839",
+        "type": "function",
+        "z": "43652557380ac3f3",
+        "name": "Navbar",
+        "func": "// Set menu html\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" href=\"#\"></a>\n        <a class=\"navbar-brand randers-titel\" href=\"#\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 160,
+        "wires": [
+            [
+                "32eb88cfb3101407"
             ]
         ]
     },
@@ -1441,20 +1499,20 @@
         "id": "88e4c1ff6d0333f9",
         "type": "change",
         "z": "db94b4c117de2f6a",
-        "name": "New rule template",
+        "name": "New setting template",
         "rules": [
             {
                 "t": "set",
-                "p": "payload.rules",
+                "p": "payload.webSettings",
                 "pt": "msg",
-                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
+                "to": "{\t    \"settings\": {\t        \"idleTimeout\": 0\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isConnected\": false,\t        \"activePage\": null\t    },\t\t    \"currentSession\": {\t        \"lastPingMillis\": 0\t    }\t}",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
-                "p": "payload.rulesStr",
+                "p": "payload.webSettingsStr",
                 "pt": "msg",
-                "to": "rules",
+                "to": "payload.webSettings",
                 "tot": "msg"
             }
         ],
@@ -1463,7 +1521,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 420,
         "y": 120,
         "wires": [
             [
@@ -1476,7 +1534,7 @@
         "type": "json",
         "z": "db94b4c117de2f6a",
         "name": "",
-        "property": "payload.rules",
+        "property": "payload.webSettings",
         "action": "obj",
         "pretty": false,
         "x": 850,
@@ -1491,20 +1549,20 @@
         "id": "c69a20e302b88549",
         "type": "change",
         "z": "db94b4c117de2f6a",
-        "name": "Load rules",
+        "name": "Load settings",
         "rules": [
             {
                 "t": "set",
-                "p": "payload.rules",
+                "p": "payload.webSettings",
                 "pt": "msg",
-                "to": "#:(storeInFile)::rules",
+                "to": "#:(storeInFile)::webSettings",
                 "tot": "global"
             },
             {
                 "t": "set",
-                "p": "payload.rulesStr",
+                "p": "payload.webSettingsStr",
                 "pt": "msg",
-                "to": "payload.rules",
+                "to": "payload.webSettings",
                 "tot": "msg"
             }
         ],
@@ -1526,7 +1584,7 @@
         "type": "switch",
         "z": "db94b4c117de2f6a",
         "name": "",
-        "property": "#:(storeInFile)::rules",
+        "property": "#:(storeInFile)::webSettings",
         "propertyType": "global",
         "rules": [
             {
@@ -1558,9 +1616,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "#:(storeInFile)::rules",
+                "p": "#:(storeInFile)::webSettings",
                 "pt": "global",
-                "to": "payload.rules",
+                "to": "payload.webSettings",
                 "tot": "msg"
             }
         ],
@@ -1569,7 +1627,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
+        "x": 640,
         "y": 120,
         "wires": [
             [
@@ -1582,14 +1640,190 @@
         "type": "json",
         "z": "db94b4c117de2f6a",
         "name": "",
-        "property": "payload.rulesStr",
+        "property": "payload.webSettingsStr",
         "action": "str",
         "pretty": false,
         "x": 970,
         "y": 120,
         "wires": [
+            [
+                "54fea94a47d38b83"
+            ]
+        ]
+    },
+    {
+        "id": "13ce2c9a2cb6edf6",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "New rule template",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.rulesStr",
+                "pt": "msg",
+                "to": "payload.rules",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "4e9a3b7807bbafd6"
+            ]
+        ]
+    },
+    {
+        "id": "6f9b01d0e9aeace9",
+        "type": "json",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "payload.rules",
+        "action": "obj",
+        "pretty": false,
+        "x": 850,
+        "y": 260,
+        "wires": [
+            [
+                "59c7c16b1b5ab941"
+            ]
+        ]
+    },
+    {
+        "id": "b0485f8f92d2446e",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "Load rules",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.rules",
+                "pt": "msg",
+                "to": "#:(storeInFile)::rules",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "payload.rulesStr",
+                "pt": "msg",
+                "to": "payload.rules",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "c49b1da1d0ca8a62"
+            ]
+        ]
+    },
+    {
+        "id": "54fea94a47d38b83",
+        "type": "switch",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "#:(storeInFile)::rules",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "b0485f8f92d2446e"
+            ],
+            [
+                "13ce2c9a2cb6edf6"
+            ]
+        ]
+    },
+    {
+        "id": "4e9a3b7807bbafd6",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::rules",
+                "pt": "global",
+                "to": "payload.rules",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 260,
+        "wires": [
+            [
+                "6f9b01d0e9aeace9"
+            ]
+        ]
+    },
+    {
+        "id": "59c7c16b1b5ab941",
+        "type": "json",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "payload.rulesStr",
+        "action": "str",
+        "pretty": false,
+        "x": 970,
+        "y": 260,
+        "wires": [
             []
         ]
+    },
+    {
+        "id": "ae14111b4808cbf3",
+        "type": "comment",
+        "z": "db94b4c117de2f6a",
+        "name": "Load settings",
+        "info": "",
+        "x": 210,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6069256d57690eba",
+        "type": "comment",
+        "z": "db94b4c117de2f6a",
+        "name": "Load Rules",
+        "info": "",
+        "x": 210,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "fc52fed50ca3f697",
@@ -4321,12 +4555,12 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 290,
+        "x": 110,
         "y": 240,
         "wires": [
             [
-                "6e25160476593670",
-                "e76b0758dc45914d"
+                "e76b0758dc45914d",
+                "8d172c16f57e9a2b"
             ]
         ]
     },
@@ -4347,26 +4581,20 @@
                 "t": "eq",
                 "v": "acceptPage",
                 "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "updateRules",
-                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 3,
-        "x": 490,
+        "outputs": 2,
+        "x": 550,
         "y": 240,
         "wires": [
             [
-                "59e078cd4489c0aa"
+                "228b32409a9eb467"
             ],
             [
                 "92fc21540237b9c7"
-            ],
-            []
+            ]
         ]
     },
     {
@@ -4376,8 +4604,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1630,
-        "y": 240,
+        "x": 1850,
+        "y": 260,
         "wires": []
     },
     {
@@ -4439,7 +4667,7 @@
         "type": "subflow:43652557380ac3f3",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 820,
+        "x": 1010,
         "y": 220,
         "wires": [
             [
@@ -4451,7 +4679,7 @@
         "id": "edf7c7526a420888",
         "type": "debug",
         "z": "c28a486ea3e09387",
-        "name": "debug 16",
+        "name": "POST OUTPUT",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -4460,8 +4688,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1640,
-        "y": 300,
+        "x": 1920,
+        "y": 340,
         "wires": []
     },
     {
@@ -4497,7 +4725,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
+        "x": 1210,
         "y": 220,
         "wires": [
             [
@@ -4509,15 +4737,16 @@
         "id": "812838d4fc5ddf48",
         "type": "debug",
         "z": "c28a486ea3e09387",
-        "name": "debug 17",
+        "name": "AFTER RULE CHANGE DEBUG",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1360,
+        "x": 1440,
         "y": 500,
         "wires": []
     },
@@ -4582,8 +4811,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
-        "y": 320,
+        "x": 1210,
+        "y": 300,
         "wires": [
             [
                 "e7b83f0e755d4fdf"
@@ -4616,11 +4845,10 @@
         "y": 320,
         "wires": [
             [
-                "abb73011a817205a"
+                "c6d6dc5b8ef2878b"
             ],
             [
-                "53dbe0297b8bd16d",
-                "846fba8c9b6737f1"
+                "801ba8048f457e32"
             ]
         ]
     },
@@ -4628,17 +4856,17 @@
         "id": "e76b0758dc45914d",
         "type": "debug",
         "z": "c28a486ea3e09387",
-        "name": "debug 18",
+        "name": "POST INPUT",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
-        "y": 340,
+        "x": 380,
+        "y": 380,
         "wires": []
     },
     {
@@ -4683,11 +4911,11 @@
         "syntax": "mustache",
         "template": "@import url(\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\"); /* Bootstrap */\n@import url(\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css\"); /* Bootswatch template */\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\n\na:hover\n{\n    cursor: pointer;\n}\n\n/* Changes to Boostrap CSS */\n.bg-primary {\n    background-color: #325d88!important;\n}\n.border-light\n{\n    border-color: lightgray!important;\n}\n.tab-content\n{\n    border: 1px solid lightgray;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n    border-top-right-radius: 5px;\n}\n.nav-link \n{\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.row\n{\n    display: flex;\n    justify-content: stretch;\n}\n    .row > *\n    {\n        flex-grow: 1;\n    }\n\n\n\nbody\n{\n    background-color: whitesmoke;\n}\n\n\n\n/* Randers design */ \n.randers-logo {\n    background-image: url('https://www.randers.dk/static/logo.svg');\n    background-position: 5px 5px;\n    background-size: 85%;\n    background-repeat: no-repeat;\n    width: 200px;\n    height: 50px;\n}\n\n\n/* Custom style classes */\n.uppercase\n{\n    text-transform: uppercase;\n}\n.fs-10\n{\n    font-size: 10px;\n}\n.fw-500\n{\n    font-weight: 500;\n}\n.border-none, .border-none *\n{\n    border: 0px!important;\n}\n.hidden\n{\n    display: none;\n}\n\n\n/* Custom elements */\n.progress-container\n{\n    background-color: lightgray;\n    padding: 15px 25px;\n}\n.progress-container.collapsed\n{\n    max-height: 0px;\n    overflow: hidden;\n    padding: 0px;\n}\n/*\n.site-container\n{\n}\n*/\n.card-container\n{\n    display: flex;\n    justify-content: stretch;\n    gap: 10px;\n}\n    .card-container .card\n    {\n        flex: 1;\n    }\n.receipt-inner\n{\n    display: flex;\n    gap: 10px;\n}\n    .receipt-inner > *\n    {\n        flex-grow: 1;\n    }\n    .receipt-inner > .citizen-info\n    {\n        max-width: 22.7rem;\n    }\n.pagination-container\n{\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n    .pagination-container > button\n    {\n        height: 38px;\n    }\n.table-header\n{\n    font-size: 10px;\n    text-transform: uppercase;\n    font-weight: 500;\n}",
         "output": "str",
-        "x": 690,
+        "x": 710,
         "y": 920,
         "wires": [
             [
-                "29426a6eb03efe81"
+                "608fbc69e02488cf"
             ]
         ]
     },
@@ -4702,7 +4930,7 @@
         "syntax": "mustache",
         "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{ payload.rulesStr }}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = null;\n\nfunction goToPage(page)\n{\n    postRequest({\"requestType\": \"getPageContent\", \"page\": page});\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    if(pageAccepted[activePage])\n        togglePageAccept(true);\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    togglePageAccept();\n}\n\n\nhandleResponseDynamically['getRules'] = function (responseObj) {\n    if (!responseObj.response)\n        return;\n\n    //togglePageAccept(\"rules\");\n\n    if (responseObj.rules == null)\n        return;\n\n    rules = responseObj.rules;\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\n\n\n\n//\n// PAGE SPECIFIC\n//\nvar pageAccepted = [];\npageAccepted[\"login\"] = false;\npageAccepted[\"rules\"] = false;\npageAccepted[\"grants\"] = false;\n\nfunction togglePageAccept(setOnlyVisually = false)\n{\n    if(!setOnlyVisually)\n        pageAccepted[activePage] = !pageAccepted[activePage];\n    \n    document.getElementById(\"form-group\").classList.toggle(\"has-success\");\n\n    var formElements = document.getElementsByClassName(\"form-control\");\n    var selectElements = document.getElementsByClassName(\"select-control\");\n\n    for (var i = 0; i < formElements.length; i++) {\n        const element = formElements[i];\n        element.classList.toggle(\"is-valid\")\n    }\n    for (var i = 0; i < selectElements.length; i++) {\n        const element = selectElements[i];\n        element.classList.toggle(\"is-valid\")\n    }\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n\n    buttonAccept.classList.toggle(\"btn-primary\");\n    buttonAccept.classList.toggle(\"btn-success\");\n\n    toggleHide(\"button_acceptPage_goNext\");\n}\n\nfunction withdrawPageAccept()\n{\n    if(pageAccepted[activePage])\n        togglePageAccept();\n}\n\n// RULES\n\nfunction createRuleJSON(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\") {\n            setInputBox(element.uid, true);\n            valueInput = document.getElementById(\"value_\" + element.uid);\n        }\n\n        operatorInput.value = element.operator;\n        valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
-        "x": 530,
+        "x": 570,
         "y": 920,
         "wires": [
             [
@@ -4729,8 +4957,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
-        "y": 920,
+        "x": 1070,
+        "y": 1040,
         "wires": [
             [
                 "55d1d622afec35e2"
@@ -4742,8 +4970,8 @@
         "type": "subflow:43652557380ac3f3",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 900,
-        "y": 920,
+        "x": 730,
+        "y": 980,
         "wires": [
             [
                 "ddd0873c9d611a5e"
@@ -4755,7 +4983,7 @@
         "type": "subflow:db94b4c117de2f6a",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 360,
+        "x": 390,
         "y": 920,
         "wires": [
             [
@@ -4786,43 +5014,28 @@
         "name": "UpdateRules",
         "info": "",
         "x": 950,
-        "y": 420,
+        "y": 460,
         "wires": []
     },
     {
         "id": "846fba8c9b6737f1",
         "type": "change",
         "z": "c28a486ea3e09387",
-        "name": "Load rules",
+        "name": "Set msg.rulesChanges + clean payload",
         "rules": [
-            {
-                "t": "delete",
-                "p": "payload.requestType",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload.pageToAccept",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload.toAccept",
-                "pt": "msg"
-            },
             {
                 "t": "set",
                 "p": "ruleChanges",
                 "pt": "msg",
-                "to": "payload",
+                "to": "payload.newRules",
                 "tot": "msg"
             },
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "#:(storeInFile)::rules",
-                "tot": "global"
+                "to": "rules",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -4830,8 +5043,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 460,
+        "x": 860,
+        "y": 500,
         "wires": [
             [
                 "77e8a8e7f5259bfb"
@@ -4877,7 +5090,7 @@
         "to": "",
         "reg": false,
         "x": 960,
-        "y": 500,
+        "y": 540,
         "wires": [
             [
                 "1c365f175b48167a"
@@ -4928,11 +5141,239 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
-        "y": 380,
+        "x": 1210,
+        "y": 360,
         "wires": [
             [
                 "e7b83f0e755d4fdf"
+            ]
+        ]
+    },
+    {
+        "id": "8d172c16f57e9a2b",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "c28a486ea3e09387",
+        "name": "",
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "6e25160476593670"
+            ]
+        ]
+    },
+    {
+        "id": "228b32409a9eb467",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set ActivePage",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.activePage",
+                "pt": "global",
+                "to": "payload.page",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.state.activePage",
+                "pt": "msg",
+                "to": "payload.page",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 220,
+        "wires": [
+            [
+                "59e078cd4489c0aa"
+            ]
+        ]
+    },
+    {
+        "id": "c6d6dc5b8ef2878b",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set login to accepted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.toAcceptValue",
+                "pt": "msg",
+                "to": "payload.toAcceptValue = \"true\" ? true : false",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "webSettings.acceptances.login",
+                "pt": "global",
+                "to": "payload.toAcceptValue",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.acceptances.login",
+                "pt": "msg",
+                "to": "payload.toAcceptValue",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 300,
+        "wires": [
+            [
+                "abb73011a817205a"
+            ]
+        ]
+    },
+    {
+        "id": "801ba8048f457e32",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set rules to accepted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.toAcceptValue",
+                "pt": "msg",
+                "to": "payload.toAcceptValue = \"true\" ? true : false",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "webSettings.acceptances.rules",
+                "pt": "global",
+                "to": "payload.toAcceptValue",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.acceptances.rules",
+                "pt": "msg",
+                "to": "payload.toAcceptValue",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 360,
+        "wires": [
+            [
+                "53dbe0297b8bd16d",
+                "ec82ecfe41364ced"
+            ]
+        ]
+    },
+    {
+        "id": "ec82ecfe41364ced",
+        "type": "switch",
+        "z": "c28a486ea3e09387",
+        "name": "",
+        "property": "payload.toAcceptValue",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "846fba8c9b6737f1"
+            ]
+        ]
+    },
+    {
+        "id": "d4cb17c655b74747",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Clean response object",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.pageContent",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.webSettingsStr",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.pageHTML",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.pageTitle",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1640,
+        "y": 280,
+        "wires": [
+            [
+                "f6100bedf21eaf46",
+                "edf7c7526a420888"
+            ]
+        ]
+    },
+    {
+        "id": "608fbc69e02488cf",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set ActivePage",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.activePage",
+                "pt": "global",
+                "to": "payload.page",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.state.activePage",
+                "pt": "msg",
+                "to": "payload.page",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 920,
+        "wires": [
+            [
+                "29426a6eb03efe81"
             ]
         ]
     },
