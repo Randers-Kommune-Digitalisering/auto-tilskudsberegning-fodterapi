@@ -93,8 +93,8 @@
         ],
         "out": [
             {
-                "x": 2060,
-                "y": 480,
+                "x": 1820,
+                "y": 380,
                 "wires": [
                     {
                         "id": "32eb88cfb3101407",
@@ -110,7 +110,7 @@
     {
         "id": "db94b4c117de2f6a",
         "type": "subflow",
-        "name": "Get Settings/Rules",
+        "name": "Get Settings/Rules/Grants",
         "info": "",
         "category": "",
         "in": [
@@ -119,18 +119,18 @@
                 "y": 100,
                 "wires": [
                     {
-                        "id": "eae97dc11278dc8c"
+                        "id": "d074d283a8713b57"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 1120,
-                "y": 260,
+                "x": 1280,
+                "y": 660,
                 "wires": [
                     {
-                        "id": "59c7c16b1b5ab941",
+                        "id": "d25fc876389031a4",
                         "port": 0
                     }
                 ]
@@ -168,9 +168,9 @@
             "fill-opacity": "0.67"
         },
         "nodes": [
-            "9ae5a9e08a7d7dc3",
             "64156b428449f87a",
-            "8b4e8bc5facd8f90"
+            "8b4e8bc5facd8f90",
+            "632aa75f39860780"
         ],
         "x": 914,
         "y": 139,
@@ -466,8 +466,8 @@
         "id": "269002ef959b2b77",
         "type": "junction",
         "z": "c28a486ea3e09387",
-        "x": 600,
-        "y": 780,
+        "x": 520,
+        "y": 840,
         "wires": [
             [
                 "a71320aa58eef18a"
@@ -478,8 +478,8 @@
         "id": "afc6fa2bb250f63c",
         "type": "junction",
         "z": "43652557380ac3f3",
-        "x": 1620,
-        "y": 260,
+        "x": 1660,
+        "y": 280,
         "wires": [
             [
                 "1d2a94a05f330839"
@@ -490,8 +490,8 @@
         "id": "e7b83f0e755d4fdf",
         "type": "junction",
         "z": "c28a486ea3e09387",
-        "x": 1460,
-        "y": 280,
+        "x": 1800,
+        "y": 420,
         "wires": [
             [
                 "d4cb17c655b74747"
@@ -502,8 +502,8 @@
         "id": "bb96674ebd01af04",
         "type": "junction",
         "z": "db94b4c117de2f6a",
-        "x": 700,
-        "y": 80,
+        "x": 840,
+        "y": 280,
         "wires": [
             [
                 "a9d6b94d12b279b8"
@@ -514,8 +514,8 @@
         "id": "c49b1da1d0ca8a62",
         "type": "junction",
         "z": "db94b4c117de2f6a",
-        "x": 700,
-        "y": 220,
+        "x": 840,
+        "y": 420,
         "wires": [
             [
                 "6f9b01d0e9aeace9"
@@ -531,6 +531,30 @@
         "wires": [
             [
                 "647c902f1fdaa12d"
+            ]
+        ]
+    },
+    {
+        "id": "12011e480eafdc8f",
+        "type": "junction",
+        "z": "db94b4c117de2f6a",
+        "x": 840,
+        "y": 620,
+        "wires": [
+            [
+                "6e9984fcc13cbb0d"
+            ]
+        ]
+    },
+    {
+        "id": "f7635cfda195117f",
+        "type": "junction",
+        "z": "db94b4c117de2f6a",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "eae97dc11278dc8c"
             ]
         ]
     },
@@ -1172,6 +1196,11 @@
             },
             {
                 "t": "eq",
+                "v": "grants",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "start",
                 "vt": "str"
             },
@@ -1181,7 +1210,7 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 5,
+        "outputs": 6,
         "x": 270,
         "y": 240,
         "wires": [
@@ -1189,10 +1218,13 @@
                 "66afcd1514727417"
             ],
             [
-                "f673e8538a4af3d9"
+                "d69d99eee8adcbf6"
             ],
             [
                 "b24facdd74fa8b50"
+            ],
+            [
+                "16bf0e6580aaf246"
             ],
             [
                 "c02e24bfe2197802"
@@ -1213,7 +1245,7 @@
         "syntax": "mustache",
         "template": "<div class=\"card-container mb-3\">\n    <!-- card-container -->\n\n    {{{payload.pageElements.lastRunCard}}}\n    \n    {{{payload.pageElements.manualProcessingCard}}}\n    \n    {{{payload.pageElements.newRunCard}}}\n\n    <!-- /card-container -->\n</div>",
         "output": "str",
-        "x": 1070,
+        "x": 1110,
         "y": 740,
         "wires": [
             [
@@ -1232,8 +1264,8 @@
         "syntax": "mustache",
         "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#home\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#profile\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"home\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title\">240194<small class=\"text-secondary\"> - XXXX</small></h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n\n                    \n                    <button type=\"button\" class=\"btn btn-success disabled mb-1\">Udvidet helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-success disabled mb-1\">Alm. helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-success disabled mb-1\">Udvidet helbredstillæg</button>\n\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"profile\" role=\"tabpanel\">\n                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>\n                </div>\n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n\n        <div class=\"card border-light\">\n            <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #1<span class=\"float-right\">15/01-2023</span></div>\n            <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n            <table class=\"table\">\n                <thead class=\"border-none\">\n                    <tr>\n                    <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td>0001</td>\n                        <th scope=\"row\">Behandling i patients eget hjem</th>\n                        <td>390</td>\n                        <td>0</td>\n                        <td>390</td>\n                    </tr>\n                    <tr class=\"table-warning\">\n                        <td>0001</td>\n                        <th scope=\"row\">Behandling uden tilskud</th>\n                        <td>390</td>\n                        <td>0</td>\n                        <td>390</td>\n                    </tr>\n                </tbody>\n                </table>\n            </div>\n        </div>\n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        <ul class=\"pagination\">\n            <li class=\"page-item disabled\">\n            <a class=\"page-link\" href=\"#\">&laquo;</a>\n            </li>\n            <li class=\"page-item active\">\n            <a class=\"page-link\" href=\"#\">1</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">2</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">3</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">4</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">5</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">&raquo;</a>\n            </li>\n        </ul>\n\n        <button class=\"btn btn-lg btn-light border-light\" type=\"button\">Godkend handlinger</button>\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
-        "x": 710,
-        "y": 80,
+        "x": 550,
+        "y": 60,
         "wires": [
             [
                 "ae78e3fc89996dac"
@@ -1259,7 +1291,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1250,
+        "x": 1290,
         "y": 740,
         "wires": [
             [
@@ -1286,8 +1318,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 930,
-        "y": 80,
+        "x": 1270,
+        "y": 60,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1303,10 +1335,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>AutoWorkLet - Randers Kommune</title>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4\" crossorigin=\"anonymous\"></script>\n        <style>{{{css}}}</style>\n    </head>\n    <body id=\"fullPage\">\n<!-- -->\n\n\n{{{payload.pageElements.navbar}}}\n\n<div class=\"progress-container collapsed\">\n\n    <div class=\"uppercase fs-10 fw-500 mb-1\" style=\"width:100%;text-align: center;\">Robotten arbejder ... 56%</div>\n\n    <div class=\"progress bg-dark\">\n        <div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%;\"></div>\n    </div>\n\n\n</div>\n\n    \n  \n<div class=\"container site-container mt-3\">\n    <!-- site -->\n\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">{{{payload.pageTitle}}}</li>\n    </ol>\n\n\n    <div id=\"pageContent\">\n        {{{payload.pageContent}}}\n    </div>\n\n    <!-- /site -->\n</div>\n\n\n\n\n<!-- -->\n    </body>\n</html>\n<script>{{{js}}}</script>",
+        "template": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>AutoWorkLet - Randers Kommune</title>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4\" crossorigin=\"anonymous\"></script>\n        <style>{{{css}}}</style>\n    </head>\n    <body>\n<div id=\"fullPage\" style=\"width: 100%;height:100%\">\n<!-- -->\n\n\n{{{payload.pageElements.navbar}}}\n\n<div class=\"progress-container collapsed\">\n\n    <div class=\"uppercase fs-10 fw-500 mb-1\" style=\"width:100%;text-align: center;\">Robotten arbejder ... 56%</div>\n\n    <div class=\"progress bg-dark\">\n        <div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%;\"></div>\n    </div>\n\n\n</div>\n\n    \n  \n<div class=\"container site-container mt-3\">\n    <!-- site -->\n\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">{{{payload.pageTitle}}}</li>\n    </ol>\n\n\n    <div id=\"pageContent\">\n        {{{payload.pageContent}}}\n    </div>\n\n    <!-- /site -->\n</div>\n\n\n\n\n\n</div>\n<!-- -->\n\n    <script>{{{js}}}</script>\n    </body>\n</html>",
         "output": "str",
-        "x": 1930,
-        "y": 380,
+        "x": 1810,
+        "y": 320,
         "wires": [
             []
         ]
@@ -1320,10 +1352,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAcceptValue\" value=\"true\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        <div class=\"float-right\">\n            <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest(toJSON(document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAcceptValue'), document.getElementById('workletUser'), document.getElementById('workletPass')))\">\n                Godkend loginoplysninger\n            </button>\n            \n            <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n                Gå til forretningsregler\n            </button>\n        </div>\n\n    </div>\n</div>\n\n",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
         "output": "str",
-        "x": 710,
-        "y": 160,
+        "x": 1070,
+        "y": 140,
         "wires": [
             [
                 "e36e40cecb56969d"
@@ -1349,7 +1381,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 930,
+        "x": 1270,
         "y": 160,
         "wires": [
             [
@@ -1404,27 +1436,11 @@
         ]
     },
     {
-        "id": "c3b92467867e4497",
-        "type": "debug",
-        "z": "43652557380ac3f3",
-        "name": "debug 19",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 800,
-        "wires": []
-    },
-    {
         "id": "f4ed528cde3cabe7",
         "type": "subflow:db94b4c117de2f6a",
         "z": "43652557380ac3f3",
         "name": "",
-        "x": 190,
+        "x": 210,
         "y": 120,
         "wires": [
             [
@@ -1437,14 +1453,14 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Navbar",
-        "func": "// Set menu html\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" href=\"#\"></a>\n        <a class=\"navbar-brand randers-titel\" href=\"#\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\") + \n                (pageAccepted('login') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\") +\n                (pageAccepted('rules') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
+        "func": "// Set menu html\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" onclick=\"goToPage('start')\"></a>\n        <a class=\"navbar-brand randers-titel\" onclick=\"goToPage('start')\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\") + \n                (pageAccepted('login') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\") +\n                (pageAccepted('rules') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1780,
-        "y": 340,
+        "x": 1800,
+        "y": 280,
         "wires": [
             [
                 "32eb88cfb3101407"
@@ -1455,7 +1471,7 @@
         "id": "647c902f1fdaa12d",
         "type": "template",
         "z": "43652557380ac3f3",
-        "name": "element: lastRunStats",
+        "name": "element: lastRunCard",
         "field": "payload.pageElements.lastRunCard",
         "fieldType": "msg",
         "format": "handlebars",
@@ -1493,7 +1509,8 @@
         "y": 200,
         "wires": [
             [
-                "357f74e2631da4c9"
+                "357f74e2631da4c9",
+                "3d1e422ef3b4dbf0"
             ]
         ],
         "l": false
@@ -1502,18 +1519,18 @@
         "id": "e28a947808d42c1c",
         "type": "template",
         "z": "43652557380ac3f3",
-        "name": "element: manualProcessingStats",
+        "name": "element: manualProcessingCard",
         "field": "payload.pageElements.manualProcessingCard",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
         "output": "str",
-        "x": 820,
+        "x": 810,
         "y": 700,
         "wires": [
             [
-                "e4fc06b7c36a80c5"
+                "833c75852163c6a6"
             ]
         ]
     },
@@ -1521,15 +1538,15 @@
         "id": "e4fc06b7c36a80c5",
         "type": "template",
         "z": "43652557380ac3f3",
-        "name": "element: manualProcessingStats",
+        "name": "element: newRunCard",
         "field": "payload.pageElements.newRunCard",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card bg-light border-light\">\n    <div class=\"card-header\">Ny kørsel</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">WorkLet</h4>\n        <p class=\"card-text\">Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-primary border-light\" onclick=\"goToPage('login')\">Gå til loginoplysninger</button>\n        </div>\n    </div>\n</div>",
+        "template": "<div class=\"card bg-light border-light\">\n    <div class=\"card-header\">Ny kørsel</div>\n    <div class=\"card-body\">\n       {{{payload.pageElements.newRunCardBody}}}\n    </div>\n</div>",
         "output": "str",
-        "x": 820,
-        "y": 740,
+        "x": 840,
+        "y": 780,
         "wires": [
             [
                 "4c886c495ce2fe9d"
@@ -1725,8 +1742,7 @@
         "y": 660,
         "wires": [
             [
-                "c02e24bfe2197802",
-                "c3b92467867e4497"
+                "c02e24bfe2197802"
             ]
         ]
     },
@@ -1753,26 +1769,365 @@
         "y": 260,
         "wires": [
             [
-                "927b1a1a92e941cd",
-                "3801a0e74e1a9ed9"
+                "927b1a1a92e941cd"
             ]
         ]
     },
     {
-        "id": "3801a0e74e1a9ed9",
+        "id": "64b34f33550bce8e",
+        "type": "comment",
+        "z": "43652557380ac3f3",
+        "name": "Login",
+        "info": "",
+        "x": 510,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "d69d99eee8adcbf6",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "loginToAccept?",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.pageElements.loginToAccept",
+                "pt": "msg",
+                "to": "payload.webSettings.acceptances.login = true ? false : true",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "d5dda5bcbcb28f81"
+            ]
+        ]
+    },
+    {
+        "id": "d5dda5bcbcb28f81",
+        "type": "switch",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "property": "payload.webSettings.acceptances.login",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "f1b774e14fa10452"
+            ],
+            [
+                "2c36135f9e6b4609"
+            ]
+        ]
+    },
+    {
+        "id": "f4ff9a7a66ddb884",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "page: login",
+        "field": "payload.pageContent",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3 was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating  was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
+        "output": "str",
+        "x": 1070,
+        "y": 180,
+        "wires": [
+            [
+                "e36e40cecb56969d"
+            ]
+        ]
+    },
+    {
+        "id": "f1b774e14fa10452",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "element: loginButtons",
+        "field": "payload.pageElements.loginButtons",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))\">\n        Godkend loginoplysninger\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n        Gå til forretningsregler\n    </button>\n</div>\n",
+        "output": "str",
+        "x": 880,
+        "y": 140,
+        "wires": [
+            [
+                "f673e8538a4af3d9"
+            ]
+        ]
+    },
+    {
+        "id": "2c36135f9e6b4609",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "element: loginButtons",
+        "field": "payload.pageElements.loginButtons",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))\">\n        Loginoplysninger godkendt\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n        Gå til forretningsregler\n    </button>\n</div>\n",
+        "output": "str",
+        "x": 880,
+        "y": 180,
+        "wires": [
+            [
+                "f4ff9a7a66ddb884"
+            ]
+        ]
+    },
+    {
+        "id": "833c75852163c6a6",
+        "type": "function",
+        "z": "43652557380ac3f3",
+        "name": "newRunCard body",
+        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\n\nvar cardTitle =\"Start nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer!\";\nvar buttonText = \"Start robot\";\nvar linkhref = \"run\";\n\n\nif (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-primary border-light\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 780,
+        "wires": [
+            [
+                "e4fc06b7c36a80c5"
+            ]
+        ]
+    },
+    {
+        "id": "3ddbdc7f1b2f9ec5",
+        "type": "comment",
+        "z": "43652557380ac3f3",
+        "name": "Receipts",
+        "info": "",
+        "x": 520,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "25eef4e978cf76c9",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "page: grants",
+        "field": "payload.pageContent",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Tilskudssatser</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt tilskudssatserne fra Danmark</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt tilskudssatserne som robotten fratrækker tilskudsberegningen såfremt borgeren modtager tilskud fra Sygesikring Danmark.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n                <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n                <input type=\"hidden\" id=\"pageToAccept\" value=\"rules\">\n                <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.rulesToAccept}}\">\n            \n                {{{payload.pageElements.grantList}}}\n\n            </div>\n        </div>\n\n        {{{payload.pageElements.grantButtons}}}\n\n    </div>\n</div>",
+        "output": "str",
+        "x": 1290,
+        "y": 360,
+        "wires": [
+            [
+                "40780cb4bb9bca19"
+            ]
+        ]
+    },
+    {
+        "id": "40780cb4bb9bca19",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "set page title",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.pageTitle",
+                "pt": "msg",
+                "to": "Tilskudssatser",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1450,
+        "y": 360,
+        "wires": [
+            [
+                "afc6fa2bb250f63c"
+            ]
+        ]
+    },
+    {
+        "id": "6839897d12a405ac",
+        "type": "switch",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "property": "payload.webSettings.acceptances.grants",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "08ae4c04ae16a403"
+            ],
+            [
+                "04dafd05828f33bf"
+            ]
+        ]
+    },
+    {
+        "id": "ad6ebb9c838e1c6c",
+        "type": "comment",
+        "z": "43652557380ac3f3",
+        "name": "Grants",
+        "info": "",
+        "x": 510,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "04dafd05828f33bf",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "element: grantList",
+        "field": "payload.pageElements.grantList",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{#payload.grants.tilskudsperioder.satser}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{titel}}</span>\n        </div>\n\n        <div class=\"form-floating col was-validated\" id=\"inputContainer_{{wtitel}}_procent\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_procent\" placeholder=\"0\" value=\"{{{tilskud_procent}}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_procent\" style=\"padding-left: 27px\">% af egenbetaling</label>\n        </div>\n\n        <div class=\"form-floating col was-validated\" id=\"inputContainer_{{wtitel}}_maxdkk\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_maxdkk\" placeholder=\"0\" value=\"{{{tilskud_maxdkk}}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_maxdkk\" style=\"padding-left: 27px\">Dog maks kr.</label>\n        </div>\n\n\n    </div>\n{{/payload.grants.tilskudsperioder.satser}}",
+        "output": "str",
+        "x": 870,
+        "y": 380,
+        "wires": [
+            [
+                "955c894fc9dffd45"
+            ]
+        ]
+    },
+    {
+        "id": "08ae4c04ae16a403",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "element: grantList",
+        "field": "payload.pageElements.grantList",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{#payload.grants.tilskudsperioder.satser}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{titel}}</span>\n        </div>\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{wtitel}}_procent\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_procent\" placeholder=\"0\" value=\"{{tilskud_procent}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_procent\" style=\"padding-left: 27px\">% af egenudgift</label>\n        </div>\n\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{wtitel}}_maxdkk\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_maxdkk\" placeholder=\"0\" value=\"{{tilskud_maxdkk}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_maxdkk\" style=\"padding-left: 27px\">Dog maks kr.</label>\n        </div>\n\n    </div>\n{{/payload.grants.tilskudsperioder.satser}}",
+        "output": "str",
+        "x": 870,
+        "y": 340,
+        "wires": [
+            [
+                "2cc90de707d18884"
+            ]
+        ]
+    },
+    {
+        "id": "2cc90de707d18884",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "element: grantButtons",
+        "field": "payload.pageElements.grantButtons",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{{@index}}}') {{/payload.grants.tilskudsperioder.satser}}) } ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
+        "output": "str",
+        "x": 1080,
+        "y": 340,
+        "wires": [
+            [
+                "25eef4e978cf76c9"
+            ]
+        ]
+    },
+    {
+        "id": "955c894fc9dffd45",
+        "type": "template",
+        "z": "43652557380ac3f3",
+        "name": "element: grantButtons",
+        "field": "payload.pageElements.grantButtons",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{{@index}}}') {{/payload.grants.tilskudsperioder.satser}}) } ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
+        "output": "str",
+        "x": 1080,
+        "y": 380,
+        "wires": [
+            [
+                "25eef4e978cf76c9"
+            ]
+        ]
+    },
+    {
+        "id": "16bf0e6580aaf246",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "rulesToAccept?",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.pageElements.grantsToAccept",
+                "pt": "msg",
+                "to": "payload.webSettings.acceptances.grants = true ? false : true",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "6839897d12a405ac"
+            ]
+        ]
+    },
+    {
+        "id": "3d1e422ef3b4dbf0",
         "type": "debug",
         "z": "43652557380ac3f3",
-        "name": "debug 20",
+        "name": "Getting page",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload.rules",
+        "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 360,
+        "x": 190,
+        "y": 460,
         "wires": []
     },
     {
@@ -1801,8 +2156,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 120,
+        "x": 560,
+        "y": 320,
         "wires": [
             [
                 "7e2c077d488fba02"
@@ -1817,8 +2172,8 @@
         "property": "payload.webSettings",
         "action": "obj",
         "pretty": false,
-        "x": 850,
-        "y": 120,
+        "x": 990,
+        "y": 320,
         "wires": [
             [
                 "e31e65af1258f7a2"
@@ -1851,8 +2206,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 80,
+        "x": 530,
+        "y": 280,
         "wires": [
             [
                 "bb96674ebd01af04"
@@ -1877,8 +2232,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 190,
-        "y": 100,
+        "x": 330,
+        "y": 300,
         "wires": [
             [
                 "c69a20e302b88549"
@@ -1907,8 +2262,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 120,
+        "x": 780,
+        "y": 320,
         "wires": [
             [
                 "a9d6b94d12b279b8"
@@ -1923,8 +2278,8 @@
         "property": "payload.webSettingsStr",
         "action": "str",
         "pretty": false,
-        "x": 970,
-        "y": 120,
+        "x": 1110,
+        "y": 320,
         "wires": [
             [
                 "54fea94a47d38b83"
@@ -1957,8 +2312,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 260,
+        "x": 550,
+        "y": 460,
         "wires": [
             [
                 "4e9a3b7807bbafd6"
@@ -1973,8 +2328,8 @@
         "property": "payload.rules",
         "action": "obj",
         "pretty": false,
-        "x": 850,
-        "y": 260,
+        "x": 990,
+        "y": 460,
         "wires": [
             [
                 "59c7c16b1b5ab941"
@@ -2007,8 +2362,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 220,
+        "x": 530,
+        "y": 420,
         "wires": [
             [
                 "c49b1da1d0ca8a62"
@@ -2033,8 +2388,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 190,
-        "y": 240,
+        "x": 330,
+        "y": 440,
         "wires": [
             [
                 "b0485f8f92d2446e"
@@ -2063,8 +2418,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 260,
+        "x": 760,
+        "y": 460,
         "wires": [
             [
                 "6f9b01d0e9aeace9"
@@ -2079,20 +2434,22 @@
         "property": "payload.rulesStr",
         "action": "str",
         "pretty": false,
-        "x": 970,
-        "y": 260,
+        "x": 1110,
+        "y": 460,
         "wires": [
-            []
+            [
+                "f03ed296e7105d6b"
+            ]
         ]
     },
     {
         "id": "ae14111b4808cbf3",
         "type": "comment",
         "z": "db94b4c117de2f6a",
-        "name": "Load settings",
+        "name": "Load web settings",
         "info": "",
-        "x": 210,
-        "y": 60,
+        "x": 370,
+        "y": 260,
         "wires": []
     },
     {
@@ -2101,9 +2458,252 @@
         "z": "db94b4c117de2f6a",
         "name": "Load Rules",
         "info": "",
-        "x": 210,
-        "y": 200,
+        "x": 350,
+        "y": 400,
         "wires": []
+    },
+    {
+        "id": "6aea2a69085ab1fc",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "New grants template",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "{\t      \"periode_fra\": \"2023-01-01\",\t      \"periode_til\": \"2023-12-31\",\t      \"satser\": [\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Journaloptagelse\"\t        },\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Kontrol og/eller eftersyn\"\t        },\t        {\t          \"tilskud_maxdkk\": 111,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse C\"\t        },\t        {\t          \"tilskud_maxdkk\": 81,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Første fodstatus (nyhenvist patient)\"\t        },\t        {\t          \"tilskud_maxdkk\": 66,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fodstatus\"\t        },\t        {\t          \"tilskud_maxdkk\": 55,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fodstatus ved samtidig anden behandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 25,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Opdatering af fodstatus ved skift i risikogruppe\"\t        },\t        {\t          \"tilskud_maxdkk\": 66,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse A\"\t        },\t        {\t          \"tilskud_maxdkk\": 100,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse B\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 1, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 1, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 2, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 2, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 3, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 3, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 125,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Tilretning af indlæg\"\t        },\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandling før påsætning af 1 ny bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 72,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fremstilling og påsætning af 1 ny bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fremstilling og påsætning af bøjler udover 1\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af 1 bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 72,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af 2 bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 96,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af op til 10 bøjler incl.\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Ortheser\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Ortheser fremstilet af sislicone\"\t        },\t        {\t          \"tilskud_maxdkk\": 55,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Sårbehandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 44,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Sårbehandling ved anden samtidig behandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 100,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Behandling uden tilskud\"\t        },\t        {\t          \"tilskud_maxdkk\": 0,\t          \"tilskud_procent\": 0,\t          \"titel\": \"Afstandstillæg uden tilskud\"\t        }\t      ]\t    }",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "$.payload.grants ~> | $.satser |\t(\t{\t    \"wtitel\": titel ~> $replace(\" \", \"\")\t})|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "{\t    \"max_hjemmebehandling\": 9999999999999999,\t    \"max_udekoersel\": 9999999999999999,\t    \"danmark_fratraek_procent\": 50,\t    \"danmark_fratraek_maxdkk\": 100,\t    \"tilskudsperioder\": payload.grants\t}",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.grants.satser",
+                "pt": "msg",
+                "to": "payload.grants.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": tilskud_maxdkk,\t    \"tilskud_procent\": tilskud_procent,\t    \"titel\": titel,\t    \"wtitel\": wtitel\t}",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.grantsStr",
+                "pt": "msg",
+                "to": "payload.grants",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "3f926de50bc6c69f"
+            ]
+        ]
+    },
+    {
+        "id": "6e9984fcc13cbb0d",
+        "type": "json",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "payload.grants",
+        "action": "obj",
+        "pretty": false,
+        "x": 990,
+        "y": 660,
+        "wires": [
+            [
+                "d25fc876389031a4"
+            ]
+        ]
+    },
+    {
+        "id": "590ea89e490dce35",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "Load grants",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "#:(storeInFile)::grants",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "payload.grantsStr",
+                "pt": "msg",
+                "to": "payload.grants",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 620,
+        "wires": [
+            [
+                "12011e480eafdc8f"
+            ]
+        ]
+    },
+    {
+        "id": "f03ed296e7105d6b",
+        "type": "switch",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "#:(storeInFile)::grants",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 640,
+        "wires": [
+            [
+                "590ea89e490dce35"
+            ],
+            [
+                "6aea2a69085ab1fc"
+            ]
+        ]
+    },
+    {
+        "id": "3f926de50bc6c69f",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::grants",
+                "pt": "global",
+                "to": "payload.grants",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 660,
+        "wires": [
+            [
+                "6e9984fcc13cbb0d"
+            ]
+        ]
+    },
+    {
+        "id": "d25fc876389031a4",
+        "type": "json",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "payload.grantsStr",
+        "action": "str",
+        "pretty": false,
+        "x": 1110,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a8802eae2b84b5",
+        "type": "comment",
+        "z": "db94b4c117de2f6a",
+        "name": "Load Grants",
+        "info": "",
+        "x": 350,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d074d283a8713b57",
+        "type": "switch",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "object",
+                "vt": "object"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "f7635cfda195117f"
+            ],
+            [
+                "ff29c1cf4e1ad18a"
+            ]
+        ]
+    },
+    {
+        "id": "ff29c1cf4e1ad18a",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "f7635cfda195117f"
+            ]
+        ]
     },
     {
         "id": "fc52fed50ca3f697",
@@ -2355,7 +2955,7 @@
         "z": "8ea344595d9a442a",
         "name": "Kommando: `start`",
         "info": "",
-        "x": 670,
+        "x": 690,
         "y": 180,
         "wires": []
     },
@@ -2605,42 +3205,6 @@
         "wires": []
     },
     {
-        "id": "9ae5a9e08a7d7dc3",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "7de50fe1369c94a7",
-        "name": "Definér tilskudsperioder",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\t      \"periode_fra\": \"2022-10-01\",\t      \"periode_til\": \"2023-04-01\",\t      \"satser\": [\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Journaloptagelse\"\t        },\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Kontrol og/eller eftersyn\"\t        },\t        {\t          \"tilskud_maxdkk\": 111,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse C\"\t        },\t        {\t          \"tilskud_maxdkk\": 81,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Første fodstatus (nyhenvist patient)\"\t        },\t        {\t          \"tilskud_maxdkk\": 66,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fodstatus\"\t        },\t        {\t          \"tilskud_maxdkk\": 55,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fodstatus ved samtidig anden behandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 25,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Opdatering af fodstatus ved skift i risikogruppe\"\t        },\t        {\t          \"tilskud_maxdkk\": 66,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse A\"\t        },\t        {\t          \"tilskud_maxdkk\": 100,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse B\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 1, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 1, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 2, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 2, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 3, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 3, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 125,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Tilretning af indlæg\"\t        },\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandling før påsætning af 1 ny bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 72,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fremstilling og påsætning af 1 ny bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fremstilling og påsætning af bøjler udover 1\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af 1 bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 72,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af 2 bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 96,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af op til 10 bøjler incl.\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Ortheser\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Ortheser fremstilet af sislicone\"\t        },\t        {\t          \"tilskud_maxdkk\": 55,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Sårbehandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 44,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Sårbehandling ved anden samtidig behandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 100,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Behandling uden tilskud\"\t        },\t        {\t          \"tilskud_maxdkk\": 0,\t          \"tilskud_procent\": 0,\t          \"titel\": \"Afstandstillæg uden tilskud\"\t        }\t      ]\t    }",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> | $.satser |\t(\t{\t    \"wtitel\": titel ~> $replace(\" \", \"\")\t})|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1050,
-        "y": 220,
-        "wires": [
-            [
-                "64156b428449f87a"
-            ]
-        ],
-        "info": "## Define grants from Danmark\r\nThis change node defines an array of relevant grant periods from Health Insurance Danmark.\r\nEach period, contained in a separate object, is structured as such:\r\n\r\n`{\r\n      \"periode_fra\": \"2022-10-01\",\r\n      \"periode_til\": \"2023-04-01\",\r\n      \"satser\": [\r\n        {\r\n          \"tilskud_maxdkk\": 24,\r\n          \"tilskud_procent\": 80,\r\n          \"titel\": \"Journaloptagelse\"\r\n        }\r\n      ]\r\n}`\r\n\r\nCurrent grant rates can be found at https://www.sygeforsikring.dk/tilskud/fodbehandling "
-    },
-    {
         "id": "64156b428449f87a",
         "type": "change",
         "z": "8ea344595d9a442a",
@@ -2651,8 +3215,8 @@
                 "t": "set",
                 "p": "tilskudsInfo",
                 "pt": "msg",
-                "to": "{\t    \"max_hjemmebehandling\": 9999999999999999,\t    \"max_udekoersel\": 9999999999999999,\t    \"danmark_fratraek_procent\": 50,\t    \"danmark_fratraek_maxdkk\": 100,\t    \"tilskudsperioder\": payload\t}",
-                "tot": "jsonata"
+                "to": "payload.grants",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -4679,11 +5243,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
+        "x": 700,
         "y": 220,
         "wires": [
             [
-                "9ae5a9e08a7d7dc3"
+                "632aa75f39860780"
             ]
         ]
     },
@@ -4793,6 +5357,84 @@
         "info": "https://try.jsonata.org/wRgtKDrKD"
     },
     {
+        "id": "f9bcbd578f791941",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tilskudsInfo",
+                "pt": "msg",
+                "to": "{\t    \"max_hjemmebehandling\": 9999999999999999,\t    \"max_udekoersel\": 9999999999999999,\t    \"danmark_fratraek_procent\": 50,\t    \"danmark_fratraek_maxdkk\": 100,\t    \"tilskudsperioder\": payload\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1195,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "l": false,
+        "info": "## Set grant info\r\nThis change node defines the remaining relevant grant information, and copies the grant periods set in last node."
+    },
+    {
+        "id": "7440cf81ac16af08",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "name": "Definér tilskudsperioder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t      \"periode_fra\": \"2022-10-01\",\t      \"periode_til\": \"2023-04-01\",\t      \"satser\": [\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Journaloptagelse\"\t        },\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Kontrol og/eller eftersyn\"\t        },\t        {\t          \"tilskud_maxdkk\": 111,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse C\"\t        },\t        {\t          \"tilskud_maxdkk\": 81,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Første fodstatus (nyhenvist patient)\"\t        },\t        {\t          \"tilskud_maxdkk\": 66,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fodstatus\"\t        },\t        {\t          \"tilskud_maxdkk\": 55,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fodstatus ved samtidig anden behandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 25,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Opdatering af fodstatus ved skift i risikogruppe\"\t        },\t        {\t          \"tilskud_maxdkk\": 66,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse A\"\t        },\t        {\t          \"tilskud_maxdkk\": 100,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandlingsydelse B\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 1, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 1, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 2, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 2, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 200,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 3, enkelt\"\t        },\t        {\t          \"tilskud_maxdkk\": 400,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Indlæg - type 3, par\"\t        },\t        {\t          \"tilskud_maxdkk\": 125,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Tilretning af indlæg\"\t        },\t        {\t          \"tilskud_maxdkk\": 24,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Behandling før påsætning af 1 ny bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 72,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fremstilling og påsætning af 1 ny bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Fremstilling og påsætning af bøjler udover 1\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af 1 bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 72,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af 2 bøjle\"\t        },\t        {\t          \"tilskud_maxdkk\": 96,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Korrektion af op til 10 bøjler incl.\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Ortheser\"\t        },\t        {\t          \"tilskud_maxdkk\": 48,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Ortheser fremstilet af sislicone\"\t        },\t        {\t          \"tilskud_maxdkk\": 55,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Sårbehandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 44,\t          \"tilskud_procent\": 80,\t          \"titel\": \"Sårbehandling ved anden samtidig behandling\"\t        },\t        {\t          \"tilskud_maxdkk\": 100,\t          \"tilskud_procent\": 50,\t          \"titel\": \"Behandling uden tilskud\"\t        },\t        {\t          \"tilskud_maxdkk\": 0,\t          \"tilskud_procent\": 0,\t          \"titel\": \"Afstandstillæg uden tilskud\"\t        }\t      ]\t    }",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.satser |\t(\t{\t    \"wtitel\": titel ~> $replace(\" \", \"\")\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 280,
+        "wires": [
+            [
+                "f9bcbd578f791941"
+            ]
+        ],
+        "info": "## Define grants from Danmark\r\nThis change node defines an array of relevant grant periods from Health Insurance Danmark.\r\nEach period, contained in a separate object, is structured as such:\r\n\r\n`{\r\n      \"periode_fra\": \"2022-10-01\",\r\n      \"periode_til\": \"2023-04-01\",\r\n      \"satser\": [\r\n        {\r\n          \"tilskud_maxdkk\": 24,\r\n          \"tilskud_procent\": 80,\r\n          \"titel\": \"Journaloptagelse\"\r\n        }\r\n      ]\r\n}`\r\n\r\nCurrent grant rates can be found at https://www.sygeforsikring.dk/tilskud/fodbehandling "
+    },
+    {
+        "id": "632aa75f39860780",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "8ea344595d9a442a",
+        "g": "7de50fe1369c94a7",
+        "name": "",
+        "x": 1050,
+        "y": 220,
+        "wires": [
+            [
+                "64156b428449f87a"
+            ]
+        ]
+    },
+    {
         "id": "248d64bf4e74f440",
         "type": "http in",
         "z": "c28a486ea3e09387",
@@ -4801,8 +5443,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 190,
-        "y": 780,
+        "x": 110,
+        "y": 840,
         "wires": [
             [
                 "fc57c59e7b1b413d"
@@ -4818,8 +5460,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 820,
+        "x": 100,
+        "y": 880,
         "wires": [
             [
                 "4070528fbaa047ab"
@@ -4883,8 +5525,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1850,
-        "y": 260,
+        "x": 1970,
+        "y": 460,
         "wires": []
     },
     {
@@ -4906,8 +5548,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 780,
+        "x": 300,
+        "y": 840,
         "wires": [
             [
                 "269002ef959b2b77"
@@ -4933,8 +5575,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 820,
+        "x": 300,
+        "y": 880,
         "wires": [
             [
                 "269002ef959b2b77"
@@ -4946,8 +5588,8 @@
         "type": "subflow:43652557380ac3f3",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 810,
-        "y": 220,
+        "x": 650,
+        "y": 100,
         "wires": [
             [
                 "62bdefaa23262980"
@@ -4967,8 +5609,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1920,
-        "y": 340,
+        "x": 1980,
+        "y": 380,
         "wires": []
     },
     {
@@ -5004,8 +5646,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
-        "y": 220,
+        "x": 1590,
+        "y": 100,
         "wires": [
             [
                 "e7b83f0e755d4fdf"
@@ -5034,8 +5676,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
-        "y": 300,
+        "x": 1590,
+        "y": 280,
         "wires": [
             [
                 "e7b83f0e755d4fdf"
@@ -5059,12 +5701,17 @@
                 "t": "eq",
                 "v": "rules",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "grants",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
-        "x": 790,
+        "outputs": 3,
+        "x": 670,
         "y": 360,
         "wires": [
             [
@@ -5072,6 +5719,9 @@
             ],
             [
                 "801ba8048f457e32"
+            ],
+            [
+                "118d9842141d09ca"
             ]
         ]
     },
@@ -5080,7 +5730,7 @@
         "type": "debug",
         "z": "c28a486ea3e09387",
         "name": "POST INPUT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5088,8 +5738,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 120,
+        "x": 420,
+        "y": 80,
         "wires": []
     },
     {
@@ -5098,8 +5748,8 @@
         "z": "c28a486ea3e09387",
         "name": "GetPageContent",
         "info": "",
-        "x": 800,
-        "y": 180,
+        "x": 640,
+        "y": 60,
         "wires": []
     },
     {
@@ -5108,8 +5758,8 @@
         "z": "c28a486ea3e09387",
         "name": "AcceptPage",
         "info": "",
-        "x": 750,
-        "y": 280,
+        "x": 630,
+        "y": 260,
         "wires": []
     },
     {
@@ -5119,8 +5769,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1210,
-        "y": 980,
+        "x": 1550,
+        "y": 900,
         "wires": []
     },
     {
@@ -5132,10 +5782,10 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url(\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\"); /* Bootstrap */\n@import url(\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css\"); /* Bootswatch template */\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\n\na:hover\n{\n    cursor: pointer;\n}\n\n/* Changes to Boostrap CSS */\n.bg-primary {\n    background-color: #325d88!important;\n}\n.border-light\n{\n    border-color: lightgray!important;\n}\n.tab-content\n{\n    border: 1px solid lightgray;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n    border-top-right-radius: 5px;\n}\n.nav-link \n{\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.row\n{\n    display: flex;\n    justify-content: stretch;\n}\n    .row > *\n    {\n        flex-grow: 1;\n    }\n\n\n\nbody\n{\n    background-color: whitesmoke;\n}\n\n\n\n/* Randers design */ \n.randers-logo {\n    background-image: url('https://www.randers.dk/static/logo.svg');\n    background-position: 5px 5px;\n    background-size: 85%;\n    background-repeat: no-repeat;\n    width: 200px;\n    height: 50px;\n}\n\n\n/* Custom style classes */\n.nav-success \n{\n    color: #65984f!important;\n}\n.nav-success:hover\n{\n    color: #9CC350!important;\n}\n.uppercase\n{\n    text-transform: uppercase;\n}\n.fs-10\n{\n    font-size: 10px;\n}\n.fw-500\n{\n    font-weight: 500;\n}\n.border-none, .border-none *\n{\n    border: 0px!important;\n}\n.hidden\n{\n    display: none;\n}\n\n\n/* Custom elements */\n.progress-container\n{\n    background-color: lightgray;\n    padding: 15px 25px;\n}\n.progress-container.collapsed\n{\n    max-height: 0px;\n    overflow: hidden;\n    padding: 0px;\n}\n/*\n.site-container\n{\n}\n*/\n.card-container\n{\n    display: flex;\n    justify-content: stretch;\n    gap: 10px;\n}\n    .card-container .card\n    {\n        flex: 1;\n    }\n.receipt-inner\n{\n    display: flex;\n    gap: 10px;\n}\n    .receipt-inner > *\n    {\n        flex-grow: 1;\n    }\n    .receipt-inner > .citizen-info\n    {\n        max-width: 22.7rem;\n    }\n.pagination-container\n{\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n    .pagination-container > button\n    {\n        height: 38px;\n    }\n.table-header\n{\n    font-size: 10px;\n    text-transform: uppercase;\n    font-weight: 500;\n}",
+        "template": "@import url(\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\"); /* Bootstrap */\n@import url(\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css\"); /* Bootswatch template */\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\n\na:hover\n{\n    cursor: pointer;\n}\n\n/* Changes to Boostrap CSS */\n.bg-primary {\n    background-color: #325d88!important;\n}\n.border-light\n{\n    border-color: lightgray!important;\n}\n.tab-content\n{\n    border: 1px solid lightgray;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n    border-top-right-radius: 5px;\n}\n.nav-link \n{\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.row\n{\n    display: flex;\n    justify-content: stretch;\n}\n    .row > *\n    {\n        flex-grow: 1;\n    }\n\n\n\nbody\n{\n    background-color: whitesmoke;\n}\n\n\n\n/* Randers design */ \n.randers-logo {\n    background-image: url('https://www.randers.dk/static/logo.svg');\n    background-position: 5px 5px;\n    background-size: 85%;\n    background-repeat: no-repeat;\n    width: 200px;\n    height: 50px;\n}\n\n\n/* Custom style classes */\n.nav-success \n{\n    color: #71b355!important;\n}\n.nav-success:hover\n{\n    color: #a6d151!important;\n}\n.nav-success.active\n{\n    color: #a6d151!important;\n}\n.uppercase\n{\n    text-transform: uppercase;\n}\n.fs-10\n{\n    font-size: 10px;\n}\n.fw-500\n{\n    font-weight: 500;\n}\n.border-none, .border-none *\n{\n    border: 0px!important;\n}\n.hidden\n{\n    display: none;\n}\n\n\n/* Custom elements */\n.progress-container\n{\n    background-color: lightgray;\n    padding: 15px 25px;\n}\n.progress-container.collapsed\n{\n    max-height: 0px;\n    overflow: hidden;\n    padding: 0px;\n}\n/*\n.site-container\n{\n}\n*/\n.card-container\n{\n    display: flex;\n    justify-content: stretch;\n    gap: 10px;\n}\n    .card-container .card\n    {\n        flex: 1;\n    }\n.receipt-inner\n{\n    display: flex;\n    gap: 10px;\n}\n    .receipt-inner > *\n    {\n        flex-grow: 1;\n    }\n    .receipt-inner > .citizen-info\n    {\n        max-width: 22.7rem;\n    }\n.pagination-container\n{\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n    .pagination-container > button\n    {\n        height: 38px;\n    }\n.table-header\n{\n    font-size: 10px;\n    text-transform: uppercase;\n    font-weight: 500;\n}",
         "output": "str",
-        "x": 710,
-        "y": 920,
+        "x": 1070,
+        "y": 840,
         "wires": [
             [
                 "29426a6eb03efe81"
@@ -5151,10 +5801,10 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    postRequest({\"requestType\": \"getPageContent\", \"page\": page});\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"login\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\") {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    postRequest({\"requestType\": \"getPageContent\", \"page\": page});\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"login\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"titel\": rules[grantId].titel,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
-        "x": 570,
-        "y": 920,
+        "x": 930,
+        "y": 840,
         "wires": [
             [
                 "98d7ea7aa5c93ad4"
@@ -5180,8 +5830,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
-        "y": 980,
+        "x": 1310,
+        "y": 900,
         "wires": [
             [
                 "55d1d622afec35e2"
@@ -5193,8 +5843,8 @@
         "type": "subflow:43652557380ac3f3",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 730,
-        "y": 980,
+        "x": 1070,
+        "y": 900,
         "wires": [
             [
                 "ddd0873c9d611a5e"
@@ -5206,8 +5856,8 @@
         "type": "subflow:db94b4c117de2f6a",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 370,
-        "y": 920,
+        "x": 730,
+        "y": 840,
         "wires": [
             [
                 "ac7bdd1609da7c77"
@@ -5220,8 +5870,8 @@
         "z": "c28a486ea3e09387",
         "name": "UpdateRules",
         "info": "",
-        "x": 1050,
-        "y": 540,
+        "x": 930,
+        "y": 460,
         "wires": []
     },
     {
@@ -5257,8 +5907,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1240,
-        "y": 540,
+        "x": 1120,
+        "y": 480,
         "wires": [
             [
                 "1c365f175b48167a"
@@ -5284,8 +5934,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1460,
-        "y": 540,
+        "x": 1340,
+        "y": 480,
         "wires": [
             [
                 "53dbe0297b8bd16d"
@@ -5326,8 +5976,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1650,
-        "y": 480,
+        "x": 1590,
+        "y": 420,
         "wires": [
             [
                 "e7b83f0e755d4fdf"
@@ -5339,7 +5989,7 @@
         "type": "subflow:db94b4c117de2f6a",
         "z": "c28a486ea3e09387",
         "name": "",
-        "x": 150,
+        "x": 170,
         "y": 120,
         "wires": [
             [
@@ -5356,23 +6006,16 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.toAcceptValue",
-                "pt": "msg",
-                "to": "payload.toAcceptValue = \"true\" ? true : false",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "webSettings.acceptances.login",
+                "p": "#:(storeInFile)::webSettings.acceptances.login",
                 "pt": "global",
-                "to": "payload.toAcceptValue",
+                "to": "payload.toAccept",
                 "tot": "msg"
             },
             {
                 "t": "set",
                 "p": "payload.webSettings.acceptances.login",
                 "pt": "msg",
-                "to": "payload.toAcceptValue",
+                "to": "payload.toAccept",
                 "tot": "msg"
             }
         ],
@@ -5381,8 +6024,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
-        "y": 320,
+        "x": 880,
+        "y": 280,
         "wires": [
             [
                 "abb73011a817205a"
@@ -5395,13 +6038,6 @@
         "z": "c28a486ea3e09387",
         "name": "Set rules to accepted",
         "rules": [
-            {
-                "t": "set",
-                "p": "payload.toAccept",
-                "pt": "msg",
-                "to": "(payload.toAccept = \"true\") or (payload.toAccept= true) ? true : false",
-                "tot": "jsonata"
-            },
             {
                 "t": "set",
                 "p": "webSettings.acceptances.rules",
@@ -5422,8 +6058,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
-        "y": 440,
+        "x": 880,
+        "y": 380,
         "wires": [
             [
                 "ec82ecfe41364ced"
@@ -5448,8 +6084,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1050,
-        "y": 480,
+        "x": 930,
+        "y": 420,
         "wires": [
             [
                 "53dbe0297b8bd16d"
@@ -5484,6 +6120,11 @@
                 "t": "delete",
                 "p": "payload.pageTitle",
                 "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.pageElements",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -5491,8 +6132,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1640,
-        "y": 280,
+        "x": 1980,
+        "y": 420,
         "wires": [
             [
                 "f6100bedf21eaf46",
@@ -5510,7 +6151,7 @@
                 "t": "set",
                 "p": "payload.toAccept",
                 "pt": "msg",
-                "to": "payload.toAccept = \"true\" ~> $boolean",
+                "to": "(payload.toAccept = \"true\") or (payload.toAccept= true) ? true : false",
                 "tot": "jsonata"
             }
         ],
@@ -5519,13 +6160,226 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
-        "y": 320,
+        "x": 590,
+        "y": 300,
         "wires": [
             [
                 "92fc21540237b9c7"
             ]
         ]
+    },
+    {
+        "id": "69ef811ebe7083c9",
+        "type": "comment",
+        "z": "c28a486ea3e09387",
+        "name": "UpdateGrants",
+        "info": "",
+        "x": 930,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "492252a377f8d60d",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Merge changes",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t(\t\t$uid := uid;\t$grantUpdate :=  $$.payload.grantUpdates[id = $uid];\t\t{        \t        \"operator\": $grantUpdate.tilskud_maxdkk,\t        \"value\": $grantUpdate.tilskud_procent\t})\t\t|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "payload.grants.tilskudsperioder.satser @$r .(\t\t$getType := function($value, $operator)\t{\t    ($value[$ ~> /^[0-9\\.]{1,}$/m] ~> $boolean) ?\t        \"number\" :\t    ($operator = \"!null\") ? \t        \"bool\"\t};\t\t{\t    \t    \"uid\": $r.uid,\t    \"name\": $r.name,\t    \"variable\": $r.variable,\t    \"operator\": $r.operator,\t    \"value\": $r.value,\t    \"type\": $getType($r.value, $r.operator),\t    \"description\": $r.description\t    \t}\t)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.grants",
+                "pt": "msg",
+                "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t{\t    \"value\": \t        type = \"number\" ?\t            value ~> $number() \t            :\t        type = \"bool\" ?\t            (value = \"true\") or (value = true) ? true : false\t}\t|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 660,
+        "wires": [
+            [
+                "d046f8cb32a0960c"
+            ]
+        ]
+    },
+    {
+        "id": "d046f8cb32a0960c",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::grants",
+                "pt": "global",
+                "to": "payload.grants",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 660,
+        "wires": [
+            [
+                "6154c5e7bbc8bc1a"
+            ]
+        ]
+    },
+    {
+        "id": "6154c5e7bbc8bc1a",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set response",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.page",
+                "pt": "msg",
+                "to": "payload.pageToAccept",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.grantChanges",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.toAccept",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.pageToAccept",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1590,
+        "y": 600,
+        "wires": [
+            [
+                "e7b83f0e755d4fdf"
+            ]
+        ]
+    },
+    {
+        "id": "118d9842141d09ca",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set grants to accepted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.acceptances.grants",
+                "pt": "global",
+                "to": "payload.toAccept",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.acceptances.grants",
+                "pt": "msg",
+                "to": "payload.toAccept",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 560,
+        "wires": [
+            [
+                "f6abba6df8ed7611"
+            ]
+        ]
+    },
+    {
+        "id": "f6abba6df8ed7611",
+        "type": "switch",
+        "z": "c28a486ea3e09387",
+        "name": "",
+        "property": "payload.toAccept",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 930,
+        "y": 600,
+        "wires": [
+            [
+                "6154c5e7bbc8bc1a"
+            ],
+            [
+                "492252a377f8d60d"
+            ]
+        ]
+    },
+    {
+        "id": "4c1121ef6377b795",
+        "type": "comment",
+        "z": "c28a486ea3e09387",
+        "name": "Grants",
+        "info": "",
+        "x": 830,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6ebfb594e20f3f75",
+        "type": "comment",
+        "z": "c28a486ea3e09387",
+        "name": "Rules",
+        "info": "",
+        "x": 830,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "412dc2399a0183b9",
+        "type": "comment",
+        "z": "c28a486ea3e09387",
+        "name": "Login",
+        "info": "",
+        "x": 830,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "42de3af98b8ce955",
