@@ -558,14 +558,14 @@
         ]
     },
     {
-        "id": "03b63fd058a52e24",
+        "id": "97801c386c197805",
         "type": "junction",
-        "z": "43652557380ac3f3",
-        "x": 300,
-        "y": 280,
+        "z": "c28a486ea3e09387",
+        "x": 1660,
+        "y": 740,
         "wires": [
             [
-                "ab622e75bfcfc759"
+                "e7b83f0e755d4fdf"
             ]
         ]
     },
@@ -1532,7 +1532,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 155,
+        "x": 265,
         "y": 440,
         "wires": [
             [
@@ -1550,7 +1550,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
+        "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling.</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
         "output": "str",
         "x": 790,
         "y": 920,
@@ -1569,7 +1569,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card bg-light border-light\">\n    <div class=\"card-header\">Ny kørsel</div>\n    <div class=\"card-body\">\n       {{{payload.pageElements.newRunCardBody}}}\n    </div>\n</div>",
+        "template": "<div class=\"card bg-light {{payload.pageElements.newRunCardClasses}}\">\n    <div class=\"card-header\">Ny kørsel</div>\n    <div class=\"card-body\">\n       {{{payload.pageElements.newRunCardBody}}}\n    </div>\n</div>",
         "output": "str",
         "x": 820,
         "y": 980,
@@ -1732,8 +1732,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 160,
-        "y": 400,
+        "x": 140,
+        "y": 440,
         "wires": [
             [
                 "b51ae96408813a15"
@@ -1931,7 +1931,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "newRunCard body",
-        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\n\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\n\n\nif (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-primary border-light\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nreturn msg;",
+        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\n\nvar classes =\"border-light\";\n\nif (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Gå til faktura-oversigt\";\n    linkhref = \"view-receipts\";\n    classes = \"border-info\";\n}\n\n\n\nif (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-primary border-light\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2111,7 +2111,7 @@
         "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{id}}') {{/payload.grants.tilskudsperioder.satser}}) } ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('run')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
         "output": "str",
         "x": 1300,
-        "y": 600,
+        "y": 560,
         "wires": [
             [
                 "25eef4e978cf76c9"
@@ -2155,7 +2155,7 @@
         "rules": [
             {
                 "t": "gt",
-                "v": "payload.webSettings.currentSession.idleTimout",
+                "v": "payload.webSettings.settings.idleTimeout",
                 "vt": "msg"
             },
             {
@@ -2172,7 +2172,7 @@
                 "69aaa1828fd4b85b"
             ],
             [
-                "03b63fd058a52e24"
+                "ab622e75bfcfc759"
             ]
         ]
     },
@@ -2202,8 +2202,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 280,
+        "x": 420,
+        "y": 240,
         "wires": [
             [
                 "d5e098f6bd51179b"
@@ -2270,6 +2270,13 @@
                 "pt": "msg",
                 "to": "false",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.acceptances",
+                "pt": "global",
+                "to": "payload.webSettings.acceptances",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -2277,8 +2284,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 220,
+        "x": 420,
+        "y": 200,
         "wires": [
             [
                 "ab622e75bfcfc759"
@@ -2483,7 +2490,7 @@
                 "t": "set",
                 "p": "payload.webSettings",
                 "pt": "msg",
-                "to": "{\t    \"settings\": {\t        \"idleTimeout\": 18000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isRunning\": false,\t        \"activePage\": null\t    },\t\t    \"currentSession\": {\t        \"isConnected\": \"n/a\",\t        \"lastPingMillis\": 0\t    }\t}",
+                "to": "{\t    \"settings\": {\t        \"idleTimeout\": 1800000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isRunning\": false,\t        \"activePage\": null\t    },\t\t    \"currentSession\": {\t        \"isConnected\": \"n/a\",\t        \"lastPingMillis\": 0\t    }\t}",
                 "tot": "jsonata"
             },
             {
@@ -3538,7 +3545,8 @@
         "y": 220,
         "wires": [
             [
-                "32e2c7f424b85454"
+                "32e2c7f424b85454",
+                "632aa75f39860780"
             ]
         ],
         "l": false
@@ -5586,6 +5594,7 @@
         "id": "32e2c7f424b85454",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "d": true,
         "name": "Sæt currentRunData",
         "rules": [
             {
@@ -5601,8 +5610,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
-        "y": 220,
+        "x": 720,
+        "y": 240,
         "wires": [
             [
                 "632aa75f39860780"
@@ -6763,44 +6772,17 @@
         "id": "164122de385f07b8",
         "type": "change",
         "z": "c28a486ea3e09387",
+        "d": true,
         "name": "Set response",
         "rules": [
             {
-                "t": "set",
+                "t": "delete",
                 "p": "tempPayload",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "payload.receipts",
-                "pt": "msg",
-                "to": "tempPayload",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload.errors",
-                "pt": "msg",
-                "to": "errors",
-                "tot": "msg"
+                "pt": "flow"
             },
             {
                 "t": "delete",
-                "p": "tempPayload",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "tempMsg",
+                "p": "tempErrors",
                 "pt": "flow"
             },
             {
@@ -6817,9 +6799,7 @@
         "x": 1390,
         "y": 740,
         "wires": [
-            [
-                "0ec77fbd20504057"
-            ]
+            []
         ]
     },
     {
@@ -6834,7 +6814,8 @@
         "y": 740,
         "wires": [
             [
-                "408b2b0cf0a40d41"
+                "408b2b0cf0a40d41",
+                "9bd7893ca5e8079c"
             ]
         ]
     },
@@ -6856,7 +6837,7 @@
         "type": "function",
         "z": "c28a486ea3e09387",
         "name": "Set flow temp MSG object",
-        "func": "flow.set(\"tempMsg\", msg);\nreturn msg;",
+        "func": "flow.set(\"tempMsg\", msg);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6866,7 +6847,8 @@
         "y": 740,
         "wires": [
             [
-                "37a3cab06e740269"
+                "37a3cab06e740269",
+                "4a75493422b652ab"
             ]
         ]
     },
@@ -6875,7 +6857,7 @@
         "type": "function",
         "z": "c28a486ea3e09387",
         "name": "Get flow temp MSG object",
-        "func": "flow.set(\"tempPayload\", msg.payload);\nflow.set(\"tempErrors\", msg.errors);\n\nmsg = flow.get(\"tempMsg\");\nmsg.payload = flow.get(\"tempPayload\");\nmsg.errors = flow.get(\"tempErrors\");\n\nreturn msg;",
+        "func": "flow.set(\"tempPayload\", msg.payload);\nflow.set(\"tempErrors\", msg.errors);\n\nmsg = flow.get(\"tempMsg\");\n\nmsg.payload.receipts = flow.get(\"tempPayload\");\nmsg.payload.errors = flow.get(\"tempErrors\");\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6885,91 +6867,9 @@
         "y": 740,
         "wires": [
             [
-                "164122de385f07b8"
+                "164122de385f07b8",
+                "97801c386c197805"
             ]
-        ]
-    },
-    {
-        "id": "574fc7747fba4ee5",
-        "type": "change",
-        "z": "c28a486ea3e09387",
-        "name": "Set flow var = responseData",
-        "rules": [
-            {
-                "t": "set",
-                "p": "citizenList",
-                "pt": "flow",
-                "to": "payload.responseData",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1360,
-        "y": 820,
-        "wires": [
-            [
-                "e7b83f0e755d4fdf"
-            ]
-        ]
-    },
-    {
-        "id": "0ec77fbd20504057",
-        "type": "json",
-        "z": "c28a486ea3e09387",
-        "name": "",
-        "property": "payload.responseData",
-        "action": "str",
-        "pretty": false,
-        "x": 1370,
-        "y": 780,
-        "wires": [
-            [
-                "574fc7747fba4ee5"
-            ]
-        ]
-    },
-    {
-        "id": "ad6d76bd40dbe4f1",
-        "type": "change",
-        "z": "c28a486ea3e09387",
-        "name": "Set response",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload.page",
-                "pt": "msg",
-                "to": "payload.pageToAccept",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload.grantChanges",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload.toAccept",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload.pageToAccept",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1690,
-        "y": 720,
-        "wires": [
-            []
         ]
     },
     {
@@ -6991,13 +6891,47 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
+        "x": 750,
         "y": 780,
         "wires": [
             [
                 "30b5b930fae41995"
             ]
         ]
+    },
+    {
+        "id": "4a75493422b652ab",
+        "type": "debug",
+        "z": "c28a486ea3e09387",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "9bd7893ca5e8079c",
+        "type": "debug",
+        "z": "c28a486ea3e09387",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 860,
+        "wires": []
     },
     {
         "id": "42de3af98b8ce955",
