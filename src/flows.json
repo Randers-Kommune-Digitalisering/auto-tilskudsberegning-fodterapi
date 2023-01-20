@@ -93,8 +93,8 @@
         ],
         "out": [
             {
-                "x": 1820,
-                "y": 380,
+                "x": 2100,
+                "y": 580,
                 "wires": [
                     {
                         "id": "32eb88cfb3101407",
@@ -478,8 +478,8 @@
         "id": "afc6fa2bb250f63c",
         "type": "junction",
         "z": "43652557380ac3f3",
-        "x": 1660,
-        "y": 280,
+        "x": 1940,
+        "y": 480,
         "wires": [
             [
                 "1d2a94a05f330839"
@@ -526,8 +526,8 @@
         "id": "c02e24bfe2197802",
         "type": "junction",
         "z": "43652557380ac3f3",
-        "x": 660,
-        "y": 660,
+        "x": 920,
+        "y": 860,
         "wires": [
             [
                 "647c902f1fdaa12d"
@@ -555,6 +555,18 @@
         "wires": [
             [
                 "eae97dc11278dc8c"
+            ]
+        ]
+    },
+    {
+        "id": "03b63fd058a52e24",
+        "type": "junction",
+        "z": "43652557380ac3f3",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "ab622e75bfcfc759"
             ]
         ]
     },
@@ -1211,8 +1223,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 6,
-        "x": 270,
-        "y": 240,
+        "x": 450,
+        "y": 480,
         "wires": [
             [
                 "66afcd1514727417"
@@ -1245,8 +1257,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card-container mb-3\">\n    <!-- card-container -->\n\n    {{{payload.pageElements.lastRunCard}}}\n    \n    {{{payload.pageElements.manualProcessingCard}}}\n    \n    {{{payload.pageElements.newRunCard}}}\n\n    <!-- /card-container -->\n</div>",
         "output": "str",
-        "x": 1110,
-        "y": 740,
+        "x": 1390,
+        "y": 940,
         "wires": [
             [
                 "1c7f385619f6a12d"
@@ -1264,8 +1276,8 @@
         "syntax": "mustache",
         "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#home\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#profile\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"home\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title\">240194<small class=\"text-secondary\"> - XXXX</small></h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n\n                    \n                    <button type=\"button\" class=\"btn btn-success disabled mb-1\">Udvidet helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-success disabled mb-1\">Alm. helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-success disabled mb-1\">Udvidet helbredstillæg</button>\n\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"profile\" role=\"tabpanel\">\n                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>\n                </div>\n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n\n        <div class=\"card border-light\">\n            <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #1<span class=\"float-right\">15/01-2023</span></div>\n            <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n            <table class=\"table\">\n                <thead class=\"border-none\">\n                    <tr>\n                    <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                    <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td>0001</td>\n                        <th scope=\"row\">Behandling i patients eget hjem</th>\n                        <td>390</td>\n                        <td>0</td>\n                        <td>390</td>\n                    </tr>\n                    <tr class=\"table-warning\">\n                        <td>0001</td>\n                        <th scope=\"row\">Behandling uden tilskud</th>\n                        <td>390</td>\n                        <td>0</td>\n                        <td>390</td>\n                    </tr>\n                </tbody>\n                </table>\n            </div>\n        </div>\n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        <ul class=\"pagination\">\n            <li class=\"page-item disabled\">\n            <a class=\"page-link\" href=\"#\">&laquo;</a>\n            </li>\n            <li class=\"page-item active\">\n            <a class=\"page-link\" href=\"#\">1</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">2</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">3</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">4</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">5</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">&raquo;</a>\n            </li>\n        </ul>\n\n        <button class=\"btn btn-lg btn-light border-light\" type=\"button\">Godkend handlinger</button>\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
-        "x": 550,
-        "y": 60,
+        "x": 810,
+        "y": 260,
         "wires": [
             [
                 "ae78e3fc89996dac"
@@ -1291,8 +1303,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1290,
-        "y": 740,
+        "x": 1570,
+        "y": 940,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1318,8 +1330,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1270,
-        "y": 60,
+        "x": 1550,
+        "y": 260,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1337,8 +1349,8 @@
         "syntax": "mustache",
         "template": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>AutoWorkLet - Randers Kommune</title>\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4\" crossorigin=\"anonymous\"></script>\n        <style>{{{css}}}</style>\n    </head>\n    <body>\n<div id=\"fullPage\" style=\"width: 100%;height:100%\">\n<!-- -->\n\n\n{{{payload.pageElements.navbar}}}\n\n<div class=\"progress-container collapsed\">\n\n    <div class=\"uppercase fs-10 fw-500 mb-1\" style=\"width:100%;text-align: center;\">Robotten arbejder ... 56%</div>\n\n    <div class=\"progress bg-dark\">\n        <div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%;\"></div>\n    </div>\n\n\n</div>\n\n    \n  \n<div class=\"container site-container mt-3\">\n    <!-- site -->\n\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">{{{payload.pageTitle}}}</li>\n    </ol>\n\n\n    <div id=\"pageContent\">\n        {{{payload.pageContent}}}\n    </div>\n\n    <!-- /site -->\n</div>\n\n\n\n\n\n</div>\n<!-- -->\n\n    <script>{{{js}}}</script>\n    </body>\n</html>",
         "output": "str",
-        "x": 1810,
-        "y": 320,
+        "x": 2090,
+        "y": 520,
         "wires": [
             []
         ]
@@ -1354,8 +1366,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
         "output": "str",
-        "x": 1070,
-        "y": 140,
+        "x": 1390,
+        "y": 340,
         "wires": [
             [
                 "e36e40cecb56969d"
@@ -1381,8 +1393,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1270,
-        "y": 160,
+        "x": 1570,
+        "y": 360,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1400,8 +1412,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Forretningsregler</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt kriterier for tilskud</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt forretningsreglerne som robotten benytter som beslutningsgrundlag.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n                <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n                <input type=\"hidden\" id=\"pageToAccept\" value=\"rules\">\n                <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.rulesToAccept}}\">\n            \n                {{{payload.pageElements.ruleList}}}\n\n            </div>\n        </div>\n\n        {{{payload.pageElements.rulesButtons}}}\n\n    </div>\n</div>",
         "output": "str",
-        "x": 1270,
-        "y": 260,
+        "x": 1570,
+        "y": 460,
         "wires": [
             [
                 "ec0875277dd56ced"
@@ -1427,8 +1439,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1450,
-        "y": 260,
+        "x": 1730,
+        "y": 460,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1444,7 +1456,7 @@
         "y": 120,
         "wires": [
             [
-                "d5e098f6bd51179b"
+                "d64936a739a436db"
             ]
         ]
     },
@@ -1459,8 +1471,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1800,
-        "y": 280,
+        "x": 2080,
+        "y": 480,
         "wires": [
             [
                 "32eb88cfb3101407"
@@ -1478,8 +1490,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card border-light\">\n    <div class=\"card-header\">Seneste kørsel </div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">1 dag siden</h4>\n        <p class=\"card-text\">Robotten kørte sidst i går kl. 14:35.<br />\n                                <div class=\"mt-1\">\n                                <strong>0</strong> fakturaer automatisk behandlet.<br />\n                                <strong>5</strong> fakturaer sat til manuel behandling.</p>\n                            </div>\n    </div>\n</div>",
         "output": "str",
-        "x": 780,
-        "y": 660,
+        "x": 1060,
+        "y": 860,
         "wires": [
             [
                 "e28a947808d42c1c"
@@ -1505,12 +1517,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 175,
-        "y": 200,
+        "x": 235,
+        "y": 500,
         "wires": [
             [
-                "357f74e2631da4c9",
-                "3d1e422ef3b4dbf0"
+                "357f74e2631da4c9"
             ]
         ],
         "l": false
@@ -1526,8 +1537,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
         "output": "str",
-        "x": 810,
-        "y": 700,
+        "x": 1090,
+        "y": 900,
         "wires": [
             [
                 "833c75852163c6a6"
@@ -1545,8 +1556,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card bg-light border-light\">\n    <div class=\"card-header\">Ny kørsel</div>\n    <div class=\"card-body\">\n       {{{payload.pageElements.newRunCardBody}}}\n    </div>\n</div>",
         "output": "str",
-        "x": 840,
-        "y": 780,
+        "x": 1120,
+        "y": 980,
         "wires": [
             [
                 "4c886c495ce2fe9d"
@@ -1559,8 +1570,8 @@
         "z": "43652557380ac3f3",
         "name": "Start",
         "info": "",
-        "x": 730,
-        "y": 620,
+        "x": 1010,
+        "y": 820,
         "wires": []
     },
     {
@@ -1581,8 +1592,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 690,
-        "y": 260,
+        "x": 970,
+        "y": 460,
         "wires": [
             [
                 "8f1889ef41f2b0f2"
@@ -1598,8 +1609,8 @@
         "z": "43652557380ac3f3",
         "name": "Rules",
         "info": "",
-        "x": 510,
-        "y": 220,
+        "x": 770,
+        "y": 420,
         "wires": []
     },
     {
@@ -1613,8 +1624,8 @@
         "syntax": "mustache",
         "template": "{{#payload.rules}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{name}}</span>\n        </div>\n\n        <div class=\"form-floating col was-validated\">\n            <select class=\"form-select\" id=\"operator_{{uid}}\" onchange=\"setInputBox('{{uid}}');withdrawPageAccept('rules')\">\n                <option value=\"==\">= Skal være lig med</option>\n                <option value=\"!=\">≠ Må ikke være lig med</option>\n                <option value=\"<\">< Skal være mindre end</option>\n                <option value=\">\">> Skal være større end</option>\n                <option value=\"contains\">{?} Indeholder</option>\n                <option value=\"!contains\">{!} Indeholder ikke</option>\n                <option value=\"!null\">[o] Skal være oplyst</option>\n            </select>\n            <label for=\"operator_{{uid}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n        </div>\n\n        <div class=\"form-floating col was-validated\" id=\"inputContainer_{{uid}}\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{uid}}\" placeholder=\"0\" value=\"{{value}}\" onchange=\"withdrawPageAccept('rules')\">\n            <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n        </div>\n\n\n    </div>\n{{/payload.rules}}",
         "output": "str",
-        "x": 860,
-        "y": 280,
+        "x": 1140,
+        "y": 480,
         "wires": [
             [
                 "4d85f3207c9d8fa1"
@@ -1632,8 +1643,8 @@
         "syntax": "mustache",
         "template": "{{#payload.rules}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{name}}</span>\n        </div>\n\n        <div class=\"form-floating col\">\n            <select class=\"form-select\" id=\"operator_{{uid}}\" onchange=\"setInputBox('{{uid}}');withdrawPageAccept('rules')\">\n                <option value=\"==\">= Skal være lig med</option>\n                <option value=\"!=\">≠ Må ikke være lig med</option>\n                <option value=\"<\">< Skal være mindre end</option>\n                <option value=\">\">> Skal være større end</option>\n                <option value=\"contains\">{?} Indeholder</option>\n                <option value=\"!contains\">{!} Indeholder ikke</option>\n                <option value=\"!null\">[o] Skal være oplyst</option>\n            </select>\n            <label for=\"operator_{{uid}}\" style=\"padding-left: 27px\">Logisk beregningsmetode</label>\n        </div>\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{uid}}\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{uid}}\" placeholder=\"0\" value=\"{{value}}\" onchange=\"withdrawPageAccept('rules')\">\n            <label for=\"value_{{uid}}\" style=\"padding-left: 27px\">Værdi</label>\n        </div>\n\n\n    </div>\n{{/payload.rules}}",
         "output": "str",
-        "x": 860,
-        "y": 240,
+        "x": 1140,
+        "y": 440,
         "wires": [
             [
                 "26a5a4e0e501d7e9"
@@ -1651,8 +1662,8 @@
         "syntax": "mustache",
         "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'ruleUpdates', 'value': appendRules (null {{#payload.rules}}, createRuleObj('{{uid}}') {{/payload.rules}}) } ))\">\n        Godkend forretningsregler\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til tilskudssatser\n    </button>\n</div>\n",
         "output": "str",
-        "x": 1060,
-        "y": 240,
+        "x": 1360,
+        "y": 440,
         "wires": [
             [
                 "af684cb65465eef9"
@@ -1670,8 +1681,8 @@
         "syntax": "mustache",
         "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'ruleUpdates', 'value': appendRules (null {{#payload.rules}}, createRuleObj('{{uid}}') {{/payload.rules}}) } ))\">\n        Forretningsregler godkendt\n    </button>\n\n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til tilskudssatser\n    </button>\n</div>\n",
         "output": "str",
-        "x": 1060,
-        "y": 280,
+        "x": 1360,
+        "y": 480,
         "wires": [
             [
                 "af684cb65465eef9"
@@ -1704,8 +1715,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 160,
+        "x": 240,
+        "y": 460,
         "wires": [
             [
                 "b51ae96408813a15"
@@ -1738,8 +1749,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
-        "y": 660,
+        "x": 800,
+        "y": 860,
         "wires": [
             [
                 "c02e24bfe2197802"
@@ -1765,8 +1776,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 260,
+        "x": 800,
+        "y": 460,
         "wires": [
             [
                 "927b1a1a92e941cd"
@@ -1779,8 +1790,8 @@
         "z": "43652557380ac3f3",
         "name": "Login",
         "info": "",
-        "x": 510,
-        "y": 120,
+        "x": 770,
+        "y": 320,
         "wires": []
     },
     {
@@ -1802,8 +1813,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 160,
+        "x": 800,
+        "y": 360,
         "wires": [
             [
                 "d5dda5bcbcb28f81"
@@ -1828,8 +1839,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 690,
-        "y": 160,
+        "x": 970,
+        "y": 360,
         "wires": [
             [
                 "f1b774e14fa10452"
@@ -1850,8 +1861,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3 was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating  was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
         "output": "str",
-        "x": 1070,
-        "y": 180,
+        "x": 1390,
+        "y": 380,
         "wires": [
             [
                 "e36e40cecb56969d"
@@ -1869,8 +1880,8 @@
         "syntax": "mustache",
         "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))\">\n        Godkend loginoplysninger\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n        Gå til forretningsregler\n    </button>\n</div>\n",
         "output": "str",
-        "x": 880,
-        "y": 140,
+        "x": 1160,
+        "y": 340,
         "wires": [
             [
                 "f673e8538a4af3d9"
@@ -1888,8 +1899,8 @@
         "syntax": "mustache",
         "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))\">\n        Loginoplysninger godkendt\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n        Gå til forretningsregler\n    </button>\n</div>\n",
         "output": "str",
-        "x": 880,
-        "y": 180,
+        "x": 1160,
+        "y": 380,
         "wires": [
             [
                 "f4ff9a7a66ddb884"
@@ -1907,8 +1918,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 780,
+        "x": 910,
+        "y": 980,
         "wires": [
             [
                 "e4fc06b7c36a80c5"
@@ -1921,8 +1932,8 @@
         "z": "43652557380ac3f3",
         "name": "Receipts",
         "info": "",
-        "x": 520,
-        "y": 20,
+        "x": 780,
+        "y": 220,
         "wires": []
     },
     {
@@ -1934,10 +1945,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Tilskudssatser</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt tilskudssatserne fra Danmark</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt tilskudssatserne som robotten fratrækker tilskudsberegningen såfremt borgeren modtager tilskud fra Sygesikring Danmark.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n                <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n                <input type=\"hidden\" id=\"pageToAccept\" value=\"rules\">\n                <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.rulesToAccept}}\">\n            \n                {{{payload.pageElements.grantList}}}\n\n            </div>\n        </div>\n\n        {{{payload.pageElements.grantButtons}}}\n\n    </div>\n</div>",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Tilskudssatser</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Sæt tilskudssatserne fra Danmark</h6>\n        <p class=\"card-text\">Kontrollér/sæt og derefter godkendt tilskudssatserne som robotten fratrækker tilskudsberegningen såfremt borgeren modtager tilskud fra Sygesikring Danmark.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <div class=\"mt-3 border-bottom\" style=\"padding-left: 15px;padding-right: 15px\">\n                <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n                <input type=\"hidden\" id=\"pageToAccept\" value=\"grants\">\n                <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.grantsToAccept}}\">\n            \n                {{{payload.pageElements.grantList}}}\n\n            </div>\n        </div>\n\n        {{{payload.pageElements.grantButtons}}}\n\n    </div>\n</div>",
         "output": "str",
-        "x": 1290,
-        "y": 360,
+        "x": 1570,
+        "y": 560,
         "wires": [
             [
                 "40780cb4bb9bca19"
@@ -1963,8 +1974,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1450,
-        "y": 360,
+        "x": 1730,
+        "y": 560,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1989,8 +2000,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 690,
-        "y": 360,
+        "x": 970,
+        "y": 560,
         "wires": [
             [
                 "08ae4c04ae16a403"
@@ -2006,8 +2017,8 @@
         "z": "43652557380ac3f3",
         "name": "Grants",
         "info": "",
-        "x": 510,
-        "y": 320,
+        "x": 770,
+        "y": 520,
         "wires": []
     },
     {
@@ -2021,8 +2032,8 @@
         "syntax": "mustache",
         "template": "{{#payload.grants.tilskudsperioder.satser}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{titel}}</span>\n        </div>\n\n        <div class=\"form-floating col was-validated\" id=\"inputContainer_{{wtitel}}_procent\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_procent\" placeholder=\"0\" value=\"{{{tilskud_procent}}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_procent\" style=\"padding-left: 27px\">% af egenbetaling</label>\n        </div>\n\n        <div class=\"form-floating col was-validated\" id=\"inputContainer_{{wtitel}}_maxdkk\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_maxdkk\" placeholder=\"0\" value=\"{{{tilskud_maxdkk}}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_maxdkk\" style=\"padding-left: 27px\">Dog maks kr.</label>\n        </div>\n\n\n    </div>\n{{/payload.grants.tilskudsperioder.satser}}",
         "output": "str",
-        "x": 870,
-        "y": 380,
+        "x": 1150,
+        "y": 580,
         "wires": [
             [
                 "955c894fc9dffd45"
@@ -2038,10 +2049,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{#payload.grants.tilskudsperioder.satser}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{titel}}</span>\n        </div>\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{wtitel}}_procent\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_procent\" placeholder=\"0\" value=\"{{tilskud_procent}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_procent\" style=\"padding-left: 27px\">% af egenudgift</label>\n        </div>\n\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{wtitel}}_maxdkk\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{wtitel}}_maxdkk\" placeholder=\"0\" value=\"{{tilskud_maxdkk}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{wtitel}}_maxdkk\" style=\"padding-left: 27px\">Dog maks kr.</label>\n        </div>\n\n    </div>\n{{/payload.grants.tilskudsperioder.satser}}",
+        "template": "{{#payload.grants.tilskudsperioder.satser}}\n    <div class=\"row border-top pb-2 pt-2 \">\n\n\n        <div class=\"col-2 d-flex flex-column justify-content-center\">\n            <span>{{titel}}</span>\n        </div>\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{id}}_procent\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{id}}_procent\" placeholder=\"0\" value=\"{{tilskud_procent}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{id}}_procent\" style=\"padding-left: 27px\">% af egenudgift</label>\n        </div>\n\n\n        <div class=\"form-floating col\" id=\"inputContainer_{{id}}_maxdkk\">\n            <input type=\"text\" class=\"form-control\" id=\"value_{{id}}_maxdkk\" placeholder=\"0\" value=\"{{tilskud_maxdkk}}\" onchange=\"withdrawPageAccept('grants')\">\n            <label for=\"value_{{id}}_maxdkk\" style=\"padding-left: 27px\">Dog maks kr.</label>\n        </div>\n\n    </div>\n{{/payload.grants.tilskudsperioder.satser}}",
         "output": "str",
-        "x": 870,
-        "y": 340,
+        "x": 1150,
+        "y": 540,
         "wires": [
             [
                 "2cc90de707d18884"
@@ -2057,10 +2068,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{{@index}}}') {{/payload.grants.tilskudsperioder.satser}}) } ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{id}}') {{/payload.grants.tilskudsperioder.satser}}) } ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
         "output": "str",
-        "x": 1080,
-        "y": 340,
+        "x": 1360,
+        "y": 540,
         "wires": [
             [
                 "25eef4e978cf76c9"
@@ -2076,10 +2087,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{{@index}}}') {{/payload.grants.tilskudsperioder.satser}}) } ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-success\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))\">\n        Godkend tilskudssatser\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('grants')\">\n        Gå til ny kørsel\n    </button>\n</div>\n",
         "output": "str",
-        "x": 1080,
-        "y": 380,
+        "x": 1360,
+        "y": 580,
         "wires": [
             [
                 "25eef4e978cf76c9"
@@ -2090,7 +2101,7 @@
         "id": "16bf0e6580aaf246",
         "type": "change",
         "z": "43652557380ac3f3",
-        "name": "rulesToAccept?",
+        "name": "grantsToAccept?",
         "rules": [
             {
                 "t": "set",
@@ -2105,8 +2116,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 360,
+        "x": 810,
+        "y": 560,
         "wires": [
             [
                 "6839897d12a405ac"
@@ -2114,21 +2125,144 @@
         ]
     },
     {
-        "id": "3d1e422ef3b4dbf0",
-        "type": "debug",
+        "id": "b50802089303913c",
+        "type": "switch",
         "z": "43652557380ac3f3",
-        "name": "Getting page",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 190,
-        "y": 460,
-        "wires": []
+        "name": "",
+        "property": "diff",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload.webSettings.currentSession.idleTimout",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "69aaa1828fd4b85b"
+            ],
+            [
+                "03b63fd058a52e24"
+            ]
+        ]
+    },
+    {
+        "id": "ab622e75bfcfc759",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "set lastPingMillis",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.webSettings.currentSession.lastPingMillis",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.currentSession.lastPingMillis",
+                "pt": "global",
+                "to": "payload.webSettings.currentSession.lastPingMillis",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "d5e098f6bd51179b"
+            ]
+        ]
+    },
+    {
+        "id": "d64936a739a436db",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "Check last ping",
+        "rules": [
+            {
+                "t": "set",
+                "p": "now",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "diff",
+                "pt": "msg",
+                "to": "now - payload.webSettings.currentSession.lastPingMillis",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "b50802089303913c"
+            ]
+        ]
+    },
+    {
+        "id": "69aaa1828fd4b85b",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.webSettings.acceptances.login",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.acceptances.rules",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSettings.acceptances.grants",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "ab622e75bfcfc759"
+            ]
+        ]
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -2140,7 +2274,7 @@
                 "t": "set",
                 "p": "payload.webSettings",
                 "pt": "msg",
-                "to": "{\t    \"settings\": {\t        \"idleTimeout\": 0\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isConnected\": false,\t        \"activePage\": null\t    },\t\t    \"currentSession\": {\t        \"lastPingMillis\": 0\t    }\t}",
+                "to": "{\t    \"settings\": {\t        \"idleTimeout\": 1800000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isConnected\": false,\t        \"activePage\": null\t    },\t\t    \"currentSession\": {\t        \"lastPingMillis\": 0\t    }\t}",
                 "tot": "jsonata"
             },
             {
@@ -2491,9 +2625,9 @@
             },
             {
                 "t": "set",
-                "p": "payload.grants.satser",
+                "p": "payload.grants.tilskudsperioder.satser",
                 "pt": "msg",
-                "to": "payload.grants.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": tilskud_maxdkk,\t    \"tilskud_procent\": tilskud_procent,\t    \"titel\": titel,\t    \"wtitel\": wtitel\t}",
+                "to": "payload.grants.tilskudsperioder.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": $g.tilskud_maxdkk,\t    \"tilskud_procent\": $g.tilskud_procent,\t    \"titel\": $g.titel,\t    \"wtitel\": $g.wtitel\t}",
                 "tot": "jsonata"
             },
             {
@@ -5801,7 +5935,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    postRequest({\"requestType\": \"getPageContent\", \"page\": page});\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"login\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"titel\": rules[grantId].titel,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    postRequest({\"requestType\": \"getPageContent\", \"page\": page});\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"login\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
         "x": 930,
         "y": 840,
@@ -6040,7 +6174,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.acceptances.rules",
+                "p": "#:(storeInFile)::webSettings.acceptances.rules",
                 "pt": "global",
                 "to": "payload.toAccept",
                 "tot": "msg"
@@ -6186,23 +6320,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.grants",
+                "p": "payload.grants.tilskudsperioder.satser",
                 "pt": "msg",
-                "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t(\t\t$uid := uid;\t$grantUpdate :=  $$.payload.grantUpdates[id = $uid];\t\t{        \t        \"operator\": $grantUpdate.tilskud_maxdkk,\t        \"value\": $grantUpdate.tilskud_procent\t})\t\t|",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.grants",
-                "pt": "msg",
-                "to": "payload.grants.tilskudsperioder.satser @$r .(\t\t$getType := function($value, $operator)\t{\t    ($value[$ ~> /^[0-9\\.]{1,}$/m] ~> $boolean) ?\t        \"number\" :\t    ($operator = \"!null\") ? \t        \"bool\"\t};\t\t{\t    \t    \"uid\": $r.uid,\t    \"name\": $r.name,\t    \"variable\": $r.variable,\t    \"operator\": $r.operator,\t    \"value\": $r.value,\t    \"type\": $getType($r.value, $r.operator),\t    \"description\": $r.description\t    \t}\t)",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.grants",
-                "pt": "msg",
-                "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t{\t    \"value\": \t        type = \"number\" ?\t            value ~> $number() \t            :\t        type = \"bool\" ?\t            (value = \"true\") or (value = true) ? true : false\t}\t|",
+                "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t(\t\t$uid := uid;\t$grantUpdate :=  $$.payload.grantUpdates[id = $uid];\t\t{        \t    \"tilskud_maxdkk\": $grantUpdate.tilskud_maxdkk ~>$number(),\t    \"tilskud_procent\": $grantUpdate.tilskud_procent ~>$number()\t})\t\t|",
                 "tot": "jsonata"
             }
         ],
@@ -6296,7 +6416,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.acceptances.grants",
+                "p": "#:(storeInFile)::webSettings.acceptances.grants",
                 "pt": "global",
                 "to": "payload.toAccept",
                 "tot": "msg"
