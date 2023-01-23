@@ -130,7 +130,7 @@
                 "y": 660,
                 "wires": [
                     {
-                        "id": "d25fc876389031a4",
+                        "id": "6e9984fcc13cbb0d",
                         "port": 0
                     }
                 ]
@@ -566,6 +566,18 @@
         "wires": [
             [
                 "e7b83f0e755d4fdf"
+            ]
+        ]
+    },
+    {
+        "id": "3bf3c0e0451a2554",
+        "type": "junction",
+        "z": "43652557380ac3f3",
+        "x": 1940,
+        "y": 60,
+        "wires": [
+            [
+                "a2dc4dcc85327a6d"
             ]
         ]
     },
@@ -1236,8 +1248,7 @@
         "y": 440,
         "wires": [
             [
-                "66afcd1514727417",
-                "2e81e1c6738a453f"
+                "b07e0dfc01e164a0"
             ],
             [
                 "d69d99eee8adcbf6"
@@ -1290,9 +1301,9 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#home\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#profile\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"home\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        240194<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n\n                    \n                    <button type=\"button\" class=\"btn btn-light border-success text-black disabled mb-1\">Udvidet helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-light border-success text-black disabled mb-1\">Alm. helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-light border-danger text-black disabled mb-1\">Udvidet helbredstillæg</button>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            30 571 kr\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            Gruppe 1\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            50 %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"profile\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>Fodpleje</td>\n                                <th scope=\"row\">Udvidet helbredstillæg</th>\n                                <td>12-01-2023</td>\n                                <td>31-12-2023</td>\n                            </tr>\n                            <tr>\n                                <td>Alm. helbredstillæg</td>\n                                <th scope=\"row\">Alm. helbredstillæg</th>\n                                <td>12-01-2023</td>\n                                <td>31-12-2023</td>\n                            </tr>\n                            <tr class=\"table-warning\">\n                                <td>Fodpleje</td>\n                                <th scope=\"row\">Udvidet helbredstillæg</th>\n                                <td>12-01-2023</td>\n                                <td>31-12-2023</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </div>\n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            <div class=\"card border-light mb-2\">\n                <!-- Faktura  -->\n\n                <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #1<span class=\"float-right\">15/01-2023</span></div>\n                <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n                    <table class=\"table\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>0001</td>\n                                <th scope=\"row\">Behandling i patients eget hjem</th>\n                                <td>390</td>\n                                <td>0</td>\n                                <td>390</td>\n                            </tr>\n                            <tr class=\"table-warning\">\n                                <td>0001</td>\n                                <th scope=\"row\">Behandling uden tilskud</th>\n                                <td>390</td>\n                                <td>0</td>\n                                <td>390</td>\n                            </tr>\n                        </tbody>\n                    </table>\n\n                </div>\n                \n                <!-- /Faktura -->\n            </div>\n\n            \n            <!-- Handlinger -->\n\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #1</div>\n                <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n            </div>\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #1</div>\n                <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n            </div>\n\n            <!-- /Handlinger -->\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        <ul class=\"pagination\">\n            <li class=\"page-item disabled\">\n            <a class=\"page-link\" href=\"#\">&laquo;</a>\n            </li>\n            <li class=\"page-item active\">\n            <a class=\"page-link\" href=\"#\">1</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">2</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">3</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">4</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">5</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">&raquo;</a>\n            </li>\n        </ul>\n\n        <button class=\"btn btn-lg btn-light border-light\" type=\"button\">Godkend handlinger</button>\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
+        "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#home\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#profile\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"home\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        {{payload.tempData.cpr}}<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n                    <div class=\"d-flex flex-wrap\" style=\"gap: 3px\">\n                        {{{payload.tempData.persondata._sager}}}\n                    </div>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            {{payload.tempData.persondata.formue}} kr\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            {{payload.tempData.persondata._danmark}}\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            {{payload.tempData.persondata._htillaegsprocent}} %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"profile\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\" style=\"margin-left:-8px;margin-right:0px;\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#payload.tempData.persondata.sager}}\n                            <tr>\n                                <td>{{titel}}</td>\n                                <th scope=\"row\">{{type}}</th>\n                                <td>{{fra}}</td>\n                                <td>{{til}}</td>\n                            </tr>\n                            {{/payload.tempData.persondata.sager}}\n                        </tbody>\n                    </table>\n                    \n                </div>\n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            {{#payload.tempData.faktura}}\n            <div class=\"card border-light mb-2\">\n                <!-- Faktura  -->\n\n                <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA<span class=\"float-right\">{{dato}}</span></div>\n                <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n                    <table class=\"table\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#behandlinger}}\n                            <tr>\n                                <td>{{ydelsesnummer}}</td>\n                                <th scope=\"row\">{{titel}} (type {{type}})</th>\n                                <td>{{patientAndel}}</td>\n                                <td>{{sygesikringsAndel}}</td>\n                                <td></td>\n                            </tr>\n                            {{/behandlinger}}\n                        </tbody>\n                    </table>\n\n                </div>\n                \n                <!-- /Faktura -->\n            </div>\n            {{/payload.tempData.faktura}}\n\n            \n            <!-- Handlinger -->\n\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #1</div>\n                <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n            </div>\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #1</div>\n                <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n            </div>\n\n            <!-- /Handlinger -->\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        <ul class=\"pagination\">\n            <li class=\"page-item disabled\">\n            <a class=\"page-link\" href=\"#\">&laquo;</a>\n            </li>\n            <li class=\"page-item active\">\n            <a class=\"page-link\" href=\"#\">1</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">2</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">3</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">4</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">5</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">&raquo;</a>\n            </li>\n        </ul>\n\n        <button class=\"btn btn-lg btn-light border-light\" type=\"button\">Godkend handlinger</button>\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
-        "x": 1010,
+        "x": 1270,
         "y": 240,
         "wires": [
             [
@@ -1551,7 +1562,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling.</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts?r=123')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
+        "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling.</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
         "output": "str",
         "x": 790,
         "y": 920,
@@ -2499,8 +2510,8 @@
         "syntax": "mustache",
         "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#home\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#profile\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"home\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        240194<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n\n                    \n                    <button type=\"button\" class=\"btn btn-light border-success text-black disabled mb-1\">Udvidet helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-light border-success text-black disabled mb-1\">Alm. helbredstillæg</button>\n                    <button type=\"button\" class=\"btn btn-light border-danger text-black disabled mb-1\">Udvidet helbredstillæg</button>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            30 571 kr\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            Gruppe 1\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            50 %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"profile\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>Fodpleje</td>\n                                <th scope=\"row\">Udvidet helbredstillæg</th>\n                                <td>12-01-2023</td>\n                                <td>31-12-2023</td>\n                            </tr>\n                            <tr>\n                                <td>Alm. helbredstillæg</td>\n                                <th scope=\"row\">Alm. helbredstillæg</th>\n                                <td>12-01-2023</td>\n                                <td>31-12-2023</td>\n                            </tr>\n                            <tr class=\"table-warning\">\n                                <td>Fodpleje</td>\n                                <th scope=\"row\">Udvidet helbredstillæg</th>\n                                <td>12-01-2023</td>\n                                <td>31-12-2023</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </div>\n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            <div class=\"card border-light mb-2\">\n                <!-- Faktura  -->\n\n                <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #1<span class=\"float-right\">15/01-2023</span></div>\n                <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n                    <table class=\"table\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>0001</td>\n                                <th scope=\"row\">Behandling i patients eget hjem</th>\n                                <td>390</td>\n                                <td>0</td>\n                                <td>390</td>\n                            </tr>\n                            <tr class=\"table-warning\">\n                                <td>0001</td>\n                                <th scope=\"row\">Behandling uden tilskud</th>\n                                <td>390</td>\n                                <td>0</td>\n                                <td>390</td>\n                            </tr>\n                        </tbody>\n                    </table>\n\n                </div>\n                \n                <!-- /Faktura -->\n            </div>\n\n            \n            <!-- Handlinger -->\n\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #1</div>\n                <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n            </div>\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #1</div>\n                <div style=\"align-self: center;padding-left:10px\">Sag oprettes - alm. helbredstillæg</div>\n            </div>\n\n            <!-- /Handlinger -->\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        <ul class=\"pagination\">\n            <li class=\"page-item disabled\">\n            <a class=\"page-link\" href=\"#\">&laquo;</a>\n            </li>\n            <li class=\"page-item active\">\n            <a class=\"page-link\" href=\"#\">1</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">2</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">3</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">4</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">5</a>\n            </li>\n            <li class=\"page-item\">\n            <a class=\"page-link\" href=\"#\">&raquo;</a>\n            </li>\n        </ul>\n\n        <button class=\"btn btn-lg btn-light border-light\" type=\"button\">Godkend handlinger</button>\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
-        "x": 850,
-        "y": 80,
+        "x": 670,
+        "y": 40,
         "wires": [
             []
         ]
@@ -2509,8 +2520,8 @@
         "id": "b07e0dfc01e164a0",
         "type": "switch",
         "z": "43652557380ac3f3",
-        "name": "Specific receipt?",
-        "property": "payload.receipt",
+        "name": "Specific citizen?",
+        "property": "payload.spec",
         "propertyType": "msg",
         "rules": [
             {
@@ -2524,14 +2535,281 @@
         "repair": false,
         "outputs": 2,
         "x": 740,
-        "y": 200,
+        "y": 240,
         "wires": [
-            [],
-            []
+            [
+                "dabf6a347ccdc582"
+            ],
+            [
+                "93729e19de983eee"
+            ]
         ]
     },
     {
-        "id": "2e81e1c6738a453f",
+        "id": "93729e19de983eee",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.spec",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 260,
+        "wires": [
+            [
+                "dabf6a347ccdc582"
+            ]
+        ]
+    },
+    {
+        "id": "dabf6a347ccdc582",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempData",
+                "pt": "msg",
+                "to": "#:(storeInFile)::webData.citizens-actions",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 20,
+        "wires": [
+            [
+                "1184056262f02591"
+            ]
+        ]
+    },
+    {
+        "id": "1184056262f02591",
+        "type": "function",
+        "z": "43652557380ac3f3",
+        "name": "set temp data obj",
+        "func": "msg.payload.tempData = msg.payload.tempData[msg.payload.spec];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 60,
+        "wires": [
+            [
+                "92b1925b5327ed30"
+            ]
+        ]
+    },
+    {
+        "id": "8adb89ea490e9b67",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "tillaegsprocent",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempData.persondata._htillaegsprocent",
+                "pt": "msg",
+                "to": "payload.tempData.persondata.helbredstillaegsprocent[0].tillaegsprocent",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1480,
+        "y": 40,
+        "wires": [
+            [
+                "b0b8bd30f6fdf461"
+            ]
+        ]
+    },
+    {
+        "id": "92b1925b5327ed30",
+        "type": "switch",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "property": "payload.tempData.persondata.helbredstillaegsprocent",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "array",
+                "vt": "array"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1310,
+        "y": 60,
+        "wires": [
+            [
+                "8adb89ea490e9b67"
+            ],
+            [
+                "5b692df5d4c78b89"
+            ]
+        ]
+    },
+    {
+        "id": "5b692df5d4c78b89",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "tillaegsprocent",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempData.persondata._htillaegsprocent",
+                "pt": "msg",
+                "to": "payload.tempData.persondata.helbredstillaegsprocent.tillaegsprocent",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1480,
+        "y": 80,
+        "wires": [
+            [
+                "b0b8bd30f6fdf461"
+            ]
+        ]
+    },
+    {
+        "id": "b0b8bd30f6fdf461",
+        "type": "switch",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "property": "payload.tempData.persondata.danmarkgruppe",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1670,
+        "y": 60,
+        "wires": [
+            [
+                "1f72e5564103eca8"
+            ],
+            [
+                "5ed1981ab9c124de"
+            ]
+        ]
+    },
+    {
+        "id": "5ed1981ab9c124de",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "danmark",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempData.persondata._danmark",
+                "pt": "msg",
+                "to": "\"Gruppe \" & payload.tempData.persondata.danmarkgruppe",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1820,
+        "y": 80,
+        "wires": [
+            [
+                "3bf3c0e0451a2554"
+            ]
+        ]
+    },
+    {
+        "id": "1f72e5564103eca8",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "danmark",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempData.persondata._danmark",
+                "pt": "msg",
+                "to": "Ej medlem",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1820,
+        "y": 40,
+        "wires": [
+            [
+                "3bf3c0e0451a2554"
+            ]
+        ]
+    },
+    {
+        "id": "a2dc4dcc85327a6d",
+        "type": "function",
+        "z": "43652557380ac3f3",
+        "name": "Sager",
+        "func": "var html = \"\";\n\nfor(var i = 0; i < msg.payload.tempData.persondata.sager.length; i++)\n{\n    const obj = msg.payload.tempData.persondata.sager[i];\n\n\n    var border = obj.aktiv ? \"success\" : \"danger\";\n\n \n        if (!(obj.titel.toLowerCase()).includes(\"fod\") && !(obj.type.toLowerCase()).includes(\"helbredstillægskort\"))\n        {\n            if ((obj.type.toLowerCase()).includes(\"almindeligt helbredstillæg\"))\n                border = \"info\";\n            else\n                continue;\n        }\n\n\n    html += `<button type=\"button\" class=\"btn btn-light border-` + border + ` text-black disabled\">` + obj.type+`</button>`\n\n}\n\nmsg.payload.tempData.persondata._sager = html;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 140,
+        "wires": [
+            [
+                "66afcd1514727417",
+                "20aab18d147c440b"
+            ]
+        ]
+    },
+    {
+        "id": "20aab18d147c440b",
         "type": "debug",
         "z": "43652557380ac3f3",
         "name": "debug 16",
@@ -2542,8 +2820,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1060,
-        "y": 80,
+        "x": 1530,
+        "y": 180,
         "wires": []
     },
     {
@@ -2558,13 +2836,6 @@
                 "pt": "msg",
                 "to": "{\t    \"settings\": {\t        \"idleTimeout\": 1800000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isRunning\": false,\t        \"activePage\": null\t    },\t\t    \"currentSession\": {\t        \"isConnected\": \"n/a\",\t        \"lastPingMillis\": 0\t    }\t    \t}",
                 "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.webSettingsStr",
-                "pt": "msg",
-                "to": "payload.webSettings",
-                "tot": "msg"
             },
             {
                 "t": "set",
@@ -2599,7 +2870,7 @@
         "y": 320,
         "wires": [
             [
-                "e31e65af1258f7a2"
+                "54fea94a47d38b83"
             ]
         ]
     },
@@ -2690,22 +2961,6 @@
         "wires": [
             [
                 "a9d6b94d12b279b8"
-            ]
-        ]
-    },
-    {
-        "id": "e31e65af1258f7a2",
-        "type": "json",
-        "z": "db94b4c117de2f6a",
-        "name": "",
-        "property": "payload.webSettingsStr",
-        "action": "str",
-        "pretty": false,
-        "x": 1110,
-        "y": 320,
-        "wires": [
-            [
-                "54fea94a47d38b83"
             ]
         ]
     },
@@ -2918,13 +3173,6 @@
                 "pt": "msg",
                 "to": "payload.grants.tilskudsperioder.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": $g.tilskud_maxdkk,\t    \"tilskud_procent\": $g.tilskud_procent,\t    \"titel\": $g.titel,\t    \"wtitel\": $g.wtitel\t}",
                 "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.grantsStr",
-                "pt": "msg",
-                "to": "payload.grants",
-                "tot": "msg"
             }
         ],
         "action": "",
@@ -2951,9 +3199,7 @@
         "x": 990,
         "y": 660,
         "wires": [
-            [
-                "d25fc876389031a4"
-            ]
+            []
         ]
     },
     {
@@ -3044,20 +3290,6 @@
             [
                 "6e9984fcc13cbb0d"
             ]
-        ]
-    },
-    {
-        "id": "d25fc876389031a4",
-        "type": "json",
-        "z": "db94b4c117de2f6a",
-        "name": "",
-        "property": "payload.grantsStr",
-        "action": "str",
-        "pretty": false,
-        "x": 1110,
-        "y": 660,
-        "wires": [
-            []
         ]
     },
     {
@@ -4845,7 +5077,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$sager_split := sager\t    ~> $replace(\"\\n\", \"\")\t    ~> $replace(\"\\t\\t\", \"\\t\")\t    ~> $substringAfter(\"\\t\")\t    ~> $split(\"\\t\");\t{\t    \"sager\": $sager_split #$i .(\t\t        /* Hvis kolonne-antal ændrer sig, breaker denne kode */\t\t        $i % 5 = 0 and $i != 0 ?\t        {\t            \"titel\": $sager_split[$i],\t            \t            \"type\": $sager_split[$i+1],\t\t            \"fra\": $sager_split[$i+2]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t            \"til\": $til := ($sager_split[$i+3]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]')),\t\t            \"aktiv\": $til ~> $toMillis() > $millis() ? true : false,\t\t            \"bevilling\": ($sager_split[$i+4] = \"Bevilget\")\t        })\t\t    }\t)|",
+                "to": "$.payload ~> |$.persondata|(\t\t$sager_split := sager\t    ~> $replace(\"\\n\", \"\")\t    ~> $replace(\"\\t\\t\", \"\\t\")\t    ~> $substringAfter(\"\\t\")\t    ~> $split(\"\\t\");\t{\t    \"sager\": $sager_split #$i .(\t\t        /* Hvis kolonne-antal ændrer sig, breaker denne kode */\t\t        $i % 5 = 0 and $i != 0 ?\t        {\t            \"titel\": $sager_split[$i],\t            \t            \"type\": $sager_split[$i+1],\t\t            \"fra\": $sager_split[$i+2]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t            \"til\": $til := ($sager_split[$i+3]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]')),\t\t            \"aktiv\": ($til ~> $boolean()) ? ( $til ~> $toMillis() > $millis() ? true : false ) : true,\t\t            \"bevilling\": ($sager_split[$i+4] = \"Bevilget\")\t        })\t\t    }\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5911,11 +6143,6 @@
                 "t": "delete",
                 "p": "rules",
                 "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "errors",
-                "pt": "msg"
             }
         ],
         "action": "",
@@ -5951,28 +6178,14 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> | $ |\t({\t\t    \"recommended\": true\t\t})|",
+                "to": "$.payload ~> | $ |\t({\t\t    \"recommended\": true, \"archived\": false\t\t})|",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "errors",
                 "pt": "msg",
-                "to": "$.errors ~> | $ |\t({\t\t    \"recommended\": false\t\t})|",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$append(payload, errors)",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> | $ |\t({\t\t    \"archived\": false\t\t})|",
+                "to": "$.errors ~> | $ |\t({\t\t    \"recommended\": false, \"archived\": false\t\t})|",
                 "tot": "jsonata"
             }
         ],
@@ -6364,7 +6577,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response))\n        .then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    goToPage(\"view-receipts\");\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    console.log(\"RESPONSE FROM STARTRUN\");\n\n    goToPage(\"view-receipts\");\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
         "x": 930,
         "y": 1000,
@@ -7083,7 +7296,7 @@
         "type": "debug",
         "z": "c28a486ea3e09387",
         "name": "debug 14",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7100,7 +7313,7 @@
         "type": "debug",
         "z": "c28a486ea3e09387",
         "name": "debug 15",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7205,10 +7418,22 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webData.receipts",
+                "p": "#:(storeInFile)::webData.citizens-actions",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webData.citizens-noactions",
+                "pt": "global",
+                "to": "errors",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "errors",
+                "pt": "msg"
             },
             {
                 "t": "set",
