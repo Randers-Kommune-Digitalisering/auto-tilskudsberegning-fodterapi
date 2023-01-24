@@ -1,4 +1,4 @@
-# :control_knobs: auto-tilskudsberegning-fodterapi
+# ⚙ auto-tilskudsberegning-fodterapi
 
 Automatisk håndtering af tilskud til fodterapi
 
