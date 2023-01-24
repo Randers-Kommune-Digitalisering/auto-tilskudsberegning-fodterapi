@@ -1,7 +1,7 @@
 # :control_knobs: auto-tilskudsberegning-fodterapi
 
 [**Afhængigheder**](#afhængigheder) |
-[**Metoder**](#:clipboard: Metoder) | [**Dataflow**](#dataflow) |
+[**Metoder**](#metoder) | [**Dataflow**](#dataflow) |
 
 
 ## Afhængigheder
