@@ -7,7 +7,7 @@ Automatisk håndtering af tilskud til fodterapi
 ## Afhængigheder
 
 
-Forudsætniger for afvikling
+Forudsætninger for afvikling
 
 > [Node.js 18 og NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 >
@@ -47,11 +47,15 @@ Krav til netværksadgange under afvikling
 graph RL
     KPDB[(Data)] --- KPWEB[KP WebFlade] --> 
   
-    |TXT|E[extract data] -->
+    |TXT|E[scrape data] -->
     |JSON|T{transform data}-->
     |JSON|L[load data] --> KPWEB
 
     WLDB[(Data)] --- WLWEB[Worklet Webflade] -->|TXT| E
+
+    subgraph Laptop
+    E & T & L
+    end
 
     subgraph link til Worklet????
     WLDB & WLWEB
@@ -61,9 +65,7 @@ graph RL
     KPDB & KPWEB
     end
   
-    subgraph Laptop
-    E & T & L
-    end
+
 ```
 
 ### Ressourcer
