@@ -5,8 +5,6 @@ Automatisk håndtering af tilskud til fodterapi
 [**Afhængigheder**](#afhængigheder) |
 [**Metoder**](#metoder) | [**Dataflow**](#dataflow) |
 
----
-
 ## Afhængigheder
 
 ##### De følgende komponenter skal være installeret før afviklingen:
