@@ -33,14 +33,14 @@ Automatiseringsløsningen er opbygget som løst koblet arkitektur hvor data styr
 ### Afhængigheder
 Løsningen er afhængig af en række software komponenter og en række netværksadgange til eksterne ressourcer for at fungere.
 
-Installerede software pakker 
+Krav til installerede software pakker 
 
 :gear: | [Node.js 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  |  [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows)  |   [Puppeteer 18.2.1](https://www.npmjs.com/package/puppeteer/v/18.2.1)
 
-Netværksadgang til eksterne UI komponenter 
+Krav til netværksadgange til eksterne UI komponenter 
 
 :cloud: | https://cdn.jsdelivr.net/npm  |  https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/  | https://cdnjs.cloudflare.com/ajax  |
 
-Netværksadgang til Fagsystemer
+Krav til netværksadgange til Fagsystemer
 
 :cloud: | https://workletnew.snapp.dk/  | https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/ |
