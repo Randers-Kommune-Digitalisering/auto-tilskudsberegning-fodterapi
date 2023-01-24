@@ -1,52 +1,58 @@
-# ![automation-icon] Automatiseret tilskudsberegning til fodterapi
+# 👣 Automatisk håndtering af tilskud til fodterapi
 
-* Beskrivelse??
+| [**Afhængigheder**](#afhængigheder) | [**Metoder**](#metoder) | [**Dataflow**](#dataflow) | [**Ressourcer**](#ressourcer) |
 
-<br> 
+<br>
 
-### ![clipboard-icon] Metoder
+## Afhængigheder
 
-- Fase 1. (**E**xtract) - Data trækkes fra KP WEB(link??) med [Node-Red](https://nodered.org) og [Pupeteer](https://pptr.dev/)
-    
-- Fase 2. (**T**ransform) - Data vaskes og filteres med et sæt JSONata transformationer i [Node-Red](https://nodered.org)
+> **Note**
+> 
+> Forudsætninger for afvikling -->
+> 
+> | [Node.js 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  |  [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows)  |   [Puppeteer 18.2.1](https://www.npmjs.com/package/puppeteer/v/18.2.1)
+> 
+> Nødvendige netværksadgange under afvikling -->
+> 
+> | https://cdn.jsdelivr.net/npm  |  https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/  | https://cdnjs.cloudflare.com/ajax  |
+> 
+> | https://workletnew.snapp.dk/  | https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/ |
 
-- Fase 3. (**L**oad) - Data indsættes i KP WEB(Link) med  [Node-Red](https://nodered.org) og [Pupeteer](https://pptr.dev/)
+<br>
 
-<br> 
+## Metoder
 
-### ![flow-icon] Dataflow
+- (**E**xtract) - Data scrapes fra webfladen af [Kommunernes Pensionssystem](https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/) med [Node-Red](https://nodered.org) og [Pupeteer](https://pptr.dev/)
+- (**T**ransform) - Data vaskes og filteres med et sæt JSONata transformationer i [Node-Red](https://nodered.org)
+- Udstilles på Express.js webflade indbygget i Node-RED
+
+<br>
+
+## Dataflow
 
 ```mermaid
-
-graph RL
+graph LR
     KPDB[(Data)] --- KPWEB[KP WebFlade] --> 
-    
-    |TXT|E[extract data] -->
-    |JSON|T{transform data}-->
-    |JSON|L[load data] --> KPWEB
+
+    |TXT|E[scrape data] -->
+    |JSON|T{transform data}-->Express.js--> FONTAWESOME["fa-gitlab"]
 
     WLDB[(Data)] --- WLWEB[Worklet Webflade] -->|TXT| E
 
-    subgraph link til Worklet????
+    subgraph Laptop
+    E & T & Express.js
+    end
+
+    subgraph Worklet
     WLDB & WLWEB
     end
-  
-    subgraph link til KP???
+
+    subgraph KP
     KPDB & KPWEB
     end
-  
-    subgraph digitalisering.randers.dk/TBA
-    E & T & L
-    end
+    
 ```
 
-<br> 
+### Ressourcer
 
-### ![link-icon] Ressourcer
-- Projekt: ???
-
-
-[automation-icon]: https://api.iconify.design/material-symbols/autopay.svg?height=48&color=orange
-[clipboard-icon]: https://api.iconify.design/line-md/clipboard-list.svg?height=36
-[flow-icon]: https://api.iconify.design/carbon/flow-data.svg?height=36
-[link-icon]: https://api.iconify.design/carbon/copy-link.svg?height=36
+🔗 Projekt: https://github.com/orgs/Randers-Kommune-Digitalisering/projects/1
