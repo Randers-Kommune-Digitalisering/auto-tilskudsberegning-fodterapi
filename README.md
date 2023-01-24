@@ -2,7 +2,7 @@
 
 Automatisk håndtering af tilskud til fodterapi
 
-[**Afhængigheder**](#afhængigheder) | [**Metoder**](#metoder) | [**Dataflow**](#dataflow) |
+[**Afhængigheder**](#afhængigheder) | [**Metoder**](#metoder) | [**Dataflow**](#dataflow) | [**Ressourcer**](#ressourcer) |
 
 ## Afhængigheder
 
