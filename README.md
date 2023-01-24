@@ -5,9 +5,9 @@
 ```mermaid
 flowchart LR
 
-KPDB[(Data)] --- KPWEB[Webflade] -->|Rå borgerdata TXT| E1(Lokal digital<br>assistent) -->|JSON| F
-WLDB[(Data)] --- WLWEB[Webflade] -->|Rå fakturadata TXT| E2(Lokal digital<br>assistent) -->|JSON| F
-F[\Datafilter/]-->T{regelmotor} -->|JSON| UI[Webflade]-->|JSON|T
+KPDB[(Data)] --- KPWEB>Webflade] -->|Rå borgerdata TXT| E1(Lokal digital<br>assistent) -->|JSON| F
+WLDB[(Data)] --- WLWEB>Webflade] -->|Rå fakturadata TXT| E2(Lokal digital<br>assistent) -->|JSON| F
+F[\Datafilter/]-->T{regelmotor} -->|JSON| UI>Webflade]-->|JSON|T
 
 subgraph Lokal Windows Maskine
 E1 & E2 & T & F & UI
