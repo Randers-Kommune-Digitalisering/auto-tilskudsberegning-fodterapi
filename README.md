@@ -35,7 +35,7 @@ graph LR
     KPDB[(Data)] --- KPWEB[KP WebFlade] --> 
 
     |TXT|E[scrape data] -->
-    |JSON|T{transform data}-->Express.js
+    |JSON|T{transform data}-->Express.js--> FONTAWESOME["fa-gitlab"]
 
     WLDB[(Data)] --- WLWEB[Worklet Webflade] -->|TXT| E
 
@@ -50,6 +50,7 @@ graph LR
     subgraph KP
     KPDB & KPWEB
     end
+    
 ```
 
 ### Ressourcer
