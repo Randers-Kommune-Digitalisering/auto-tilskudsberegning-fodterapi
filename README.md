@@ -31,7 +31,7 @@
 ## Dataflow
 
 ```mermaid
-graph RL
+graph LR
     KPDB[(Data)] --- KPWEB[KP WebFlade] --> 
 
     |TXT|E[scrape data] -->
