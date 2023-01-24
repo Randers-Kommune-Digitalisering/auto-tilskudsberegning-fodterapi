@@ -11,8 +11,7 @@ Automatisk håndtering af tilskud til fodterapi
 
 - [Node.js 18 og NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows)
-- Puppeteer ^18.2.1
-- Puppeteer Core ^18.2.1
+- [Puppeteer 18.2.1](https://www.npmjs.com/package/puppeteer/v/18.2.1)
 
 #### Følgende indhold skal være tilgængeligt under afviklingen:
 
