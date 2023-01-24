@@ -7,14 +7,14 @@ Automatisk håndtering af tilskud til fodterapi
 
 ## Afhængigheder
 
-##### De følgende komponenter skal være installeret før afviklingen:
+#### De følgende komponenter skal være installeret før afviklingen:
 
 - [Node.js 18 og NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows)
 - Puppeteer ^18.2.1
 - Puppeteer Core ^18.2.1
 
-##### Følgende indhold skal være tilgængeligt under afviklingen:
+#### Følgende indhold skal være tilgængeligt under afviklingen:
 
 Bootstrap UI komponenter:
 - https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css
