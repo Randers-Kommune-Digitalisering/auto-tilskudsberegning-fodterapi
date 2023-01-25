@@ -170,12 +170,13 @@
         "nodes": [
             "64156b428449f87a",
             "8b4e8bc5facd8f90",
-            "632aa75f39860780"
+            "632aa75f39860780",
+            "c4d293d507b4dfc1"
         ],
-        "x": 914,
-        "y": 139,
+        "x": 574,
+        "y": 99,
         "w": 322,
-        "h": 122
+        "h": 162
     },
     {
         "id": "27007b43e1b2750d",
@@ -198,7 +199,7 @@
             "6dfadfada71732b7",
             "c0efbe2a4fc25ff6"
         ],
-        "x": 1274,
+        "x": 934,
         "y": 39,
         "w": 672,
         "h": 222
@@ -573,11 +574,24 @@
         "id": "3bf3c0e0451a2554",
         "type": "junction",
         "z": "43652557380ac3f3",
-        "x": 1940,
-        "y": 60,
+        "x": 1920,
+        "y": 120,
         "wires": [
             [
                 "a2dc4dcc85327a6d"
+            ]
+        ]
+    },
+    {
+        "id": "b3ecd3ad79094172",
+        "type": "junction",
+        "z": "c28a486ea3e09387",
+        "x": 1660,
+        "y": 880,
+        "wires": [
+            [
+                "e7b83f0e755d4fdf",
+                "88a67de564953b1a"
             ]
         ]
     },
@@ -1248,7 +1262,7 @@
         "y": 440,
         "wires": [
             [
-                "b07e0dfc01e164a0"
+                "7010338c1ded1b8a"
             ],
             [
                 "d69d99eee8adcbf6"
@@ -1301,7 +1315,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#home\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#profile\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"home\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        {{payload.tempData.cpr}}<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n                    <div class=\"d-flex flex-wrap\" style=\"gap: 3px\">\n                        {{{payload.tempData.persondata._sager}}}\n                    </div>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            {{payload.tempData.persondata.formue}} kr\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            {{payload.tempData.persondata._danmark}}\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            {{payload.tempData.persondata._htillaegsprocent}} %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"profile\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\" style=\"margin-left:-8px;margin-right:0px;\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#payload.tempData.persondata.sager}}\n                            <tr>\n                                <td>{{titel}}</td>\n                                <th scope=\"row\">{{type}}</th>\n                                <td>{{fra}}</td>\n                                <td>{{til}}</td>\n                            </tr>\n                            {{/payload.tempData.persondata.sager}}\n                        </tbody>\n                    </table>\n                    \n                </div>\n                \n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            {{{payload.tempData._faktura}}}\n\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        \n        <ul class=\"pagination\">\n            {{{payload.tempData._pagination}}}\n        </ul>\n\n        <button class=\"btn btn-lg btn-light border-light\" type=\"button\">Godkend handlinger</button>\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
+        "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#overblik\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#sager\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"overblik\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        {{payload.tempData.cpr}}<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/person/{{payload.tempData.kpurl}}/overblik\" target=\"_blank\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n                    <div class=\"d-flex flex-wrap\" style=\"gap: 3px\">\n                        {{{payload.tempData.persondata._sager}}}\n                    </div>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            {{payload.tempData.persondata.formue}} kr\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            {{payload.tempData.persondata._danmark}}\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            {{payload.tempData.persondata._htillaegsprocent}} %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"sager\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\" style=\"margin-left:-8px;margin-right:0px;\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#payload.tempData.persondata.sager}}\n                            <tr>\n                                <td>{{titel}}</td>\n                                <th scope=\"row\">{{type}}</th>\n                                <td>{{fra}}</td>\n                                <td>{{til}}</td>\n                            </tr>\n                            {{/payload.tempData.persondata.sager}}\n                        </tbody>\n                    </table>\n                    \n                </div>\n                \n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            {{{payload.tempData._faktura}}}\n\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        \n        <ul class=\"pagination\">\n            {{{payload.tempData._pagination}}}\n        </ul>\n\n        {{{payload.tempData._archive}}}\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
         "x": 1350,
         "y": 240,
@@ -1350,6 +1364,16 @@
                 "pt": "msg",
                 "to": "Fakturaer",
                 "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload.tempData",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.tempDataArray",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -1523,7 +1547,7 @@
         "y": 880,
         "wires": [
             [
-                "e28a947808d42c1c"
+                "c2e78a2e8fd41cb5"
             ]
         ]
     },
@@ -1566,12 +1590,10 @@
         "syntax": "mustache",
         "template": "<div class=\"card border-warning\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">5 fakturaer afventer</h4>\n        <p class=\"card-text\">Efter seneste kørsel er der 5 fakturaer som afventer din behandling.</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>",
         "output": "str",
-        "x": 790,
-        "y": 920,
+        "x": 1270,
+        "y": 860,
         "wires": [
-            [
-                "833c75852163c6a6"
-            ]
+            []
         ]
     },
     {
@@ -2536,8 +2558,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 740,
-        "y": 240,
+        "x": 720,
+        "y": 160,
         "wires": [
             [
                 "dabf6a347ccdc582"
@@ -2566,7 +2588,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 960,
+        "x": 940,
         "y": 260,
         "wires": [
             [
@@ -2582,10 +2604,11 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload.tempData",
+                "p": "payload.tempDataArray",
                 "pt": "msg",
-                "to": "#:(storeInFile)::webData.citizens-actions",
-                "tot": "global"
+                "to": "webData.citizens-actions",
+                "tot": "global",
+                "dc": true
             }
         ],
         "action": "",
@@ -2593,8 +2616,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1020,
-        "y": 20,
+        "x": 970,
+        "y": 80,
         "wires": [
             [
                 "7a64b3858edfdad8"
@@ -2606,14 +2629,14 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "set temp data obj",
-        "func": "msg.payload.tempData = msg.payload.tempData[msg.payload.spec];\nreturn msg;",
+        "func": "msg.payload.tempData = msg.payload.tempDataArray[msg.payload.spec];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1050,
-        "y": 60,
+        "y": 120,
         "wires": [
             [
                 "92b1925b5327ed30"
@@ -2639,8 +2662,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1480,
-        "y": 40,
+        "x": 1460,
+        "y": 100,
         "wires": [
             [
                 "b0b8bd30f6fdf461"
@@ -2667,8 +2690,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1310,
-        "y": 60,
+        "x": 1290,
+        "y": 120,
         "wires": [
             [
                 "8adb89ea490e9b67"
@@ -2697,8 +2720,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1480,
-        "y": 80,
+        "x": 1460,
+        "y": 140,
         "wires": [
             [
                 "b0b8bd30f6fdf461"
@@ -2725,8 +2748,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1670,
-        "y": 60,
+        "x": 1650,
+        "y": 120,
         "wires": [
             [
                 "1f72e5564103eca8"
@@ -2755,8 +2778,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1820,
-        "y": 80,
+        "x": 1800,
+        "y": 140,
         "wires": [
             [
                 "3bf3c0e0451a2554"
@@ -2782,8 +2805,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1820,
-        "y": 40,
+        "x": 1800,
+        "y": 100,
         "wires": [
             [
                 "3bf3c0e0451a2554"
@@ -2801,8 +2824,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1070,
-        "y": 120,
+        "x": 1050,
+        "y": 180,
         "wires": [
             [
                 "9104824190b91e21"
@@ -2814,14 +2837,14 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Fakturaer + handlinger",
-        "func": "var html = \"\";\n\nif (!Array.isArray(msg.payload.tempData.faktura))\n    msg.payload.tempData.faktura = [msg.payload.tempData.faktura];\n\nfor(var i = 0; i < msg.payload.tempData.faktura.length; i++)\n{\n    const obj = msg.payload.tempData.faktura[i];\n\n    var handlinger = \"\";\n\n    if (!Array.isArray(msg.payload.tempData.handlinger))\n        msg.payload.tempData.handlinger = [msg.payload.tempData.handlinger];\n\n    var k = 0;\n    for(var j = 0; j < msg.payload.tempData.handlinger.length; j++)\n    {\n        const h_obj = msg.payload.tempData.handlinger[j];\n        if(h_obj.fid != obj.id)\n        {\n            k++;\n            continue;\n        }\n\n        var handling;\n        if(h_obj.tilskud != null)\n            handling = h_obj.handling + \" - tilskud gives: \" + h_obj.tilskud + \" kr\";\n        else\n            handling = h_obj.handling + \" - \" + (h_obj.type == \"A\" ? \"udvidet helbredstillæg\" : \"alm. helbredstillæg\");\n\n        handlinger += `\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #`+(j+1-k)+`</div>\n                <div style=\"align-self: center;padding-left:10px\">`+handling+`</div>\n            </div>`;\n    }\n\n\n    if (!Array.isArray(obj.behandlinger))\n        obj.behandlinger = [obj.behandlinger];\n\n    var behandlinger = \"\";\n    for (var k = 0; k < obj.behandlinger.length; k++)\n    {\n        var b_obj = obj.behandlinger[k];\n        behandlinger += `<tr>\n                            <td>`+ b_obj.ydelsesnummer+`</td>\n                            <th scope=\"row\">`+ b_obj.titel + ` (type ` + b_obj.type +`)</th>\n                            <td>`+ b_obj.patientAndel +`</td>\n                            <td>`+ b_obj.sygesikringsAndel +`</td>\n                            <th  scope=\"row\">`+ (b_obj.patientAndel + b_obj.sygesikringsAndel) + `</th>\n                        </tr>`;\n    }\n\n\n\n    html += `\n    <div class=\"card border-light mb-2\">\n        <!-- Faktura  -->\n\n        <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #`+i+`<span class=\"float-right\">`+obj.dato+`</span></div>\n        <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n            <table class=\"table\">\n                <thead class=\"border-none\">\n                    <tr>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    `+behandlinger+`\n                </tbody>\n            </table>\n\n        </div>\n\n        <!-- /Faktura -->\n    </div>\n    `;\n\n    html += handlinger;\n\n\n}\n\nmsg.payload.tempData._faktura = html;\n\nreturn msg;",
+        "func": "function round(num) {\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\nvar html = \"\";\n\nif (!Array.isArray(msg.payload.tempData.faktura))\n    msg.payload.tempData.faktura = [msg.payload.tempData.faktura];\n\nfor(var i = 0; i < msg.payload.tempData.faktura.length; i++)\n{\n    const obj = msg.payload.tempData.faktura[i];\n\n    var handlinger = \"\";\n\n    if (!Array.isArray(msg.payload.tempData.handlinger))\n        msg.payload.tempData.handlinger = [msg.payload.tempData.handlinger];\n\n    var k = 0;\n    for(var j = 0; j < msg.payload.tempData.handlinger.length; j++)\n    {\n        const h_obj = msg.payload.tempData.handlinger[j];\n        if(h_obj.fid != obj.id)\n        {\n            k++;\n            continue;\n        }\n\n        var handling;\n        if(h_obj.tilskud != null)\n            handling = h_obj.handling + \" - tilskud gives: \" + round(h_obj.tilskud) + \" kr\";\n        else\n            handling = h_obj.handling + \" - \" + (h_obj.type == \"A\" ? \"udvidet helbredstillæg\" : \"alm. helbredstillæg\");\n\n        handlinger += `\n            <div class=\"card mb-2 border-light header-left\" style=\"\">\n                <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #`+(j+1-k)+`</div>\n                <div style=\"align-self: center;padding-left:10px\">`+handling+`</div>\n            </div>`;\n    }\n\n\n    if (!Array.isArray(obj.behandlinger))\n        obj.behandlinger = [obj.behandlinger];\n\n    var behandlinger = \"\";\n    for (var k = 0; k < obj.behandlinger.length; k++)\n    {\n        var b_obj = obj.behandlinger[k];\n        behandlinger += `<tr>\n                            <td>`+ b_obj.ydelsesnummer+`</td>\n                            <th scope=\"row\">`+ b_obj.titel + ` (type ` + b_obj.type +`)</th>\n                            <td>`+ b_obj.patientAndel +`</td>\n                            <td>`+ b_obj.sygesikringsAndel +`</td>\n                            <th  scope=\"row\">`+ round(b_obj.patientAndel + b_obj.sygesikringsAndel) + `</th>\n                        </tr>`;\n    }\n    behandlinger += `<tr class=\"no-border-bottom\">\n                            <td></td>\n                            <th scope=\"row\"></th>\n                            <td></td>\n                            <td></td>\n                            <th scope=\"row\">`+ round(obj.total) + `</th>\n                        </tr>`;\n\n\n\n    html += `\n    <div class=\"card border-light mb-2\">\n        <!-- Faktura  -->\n\n        <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #`+i+`\n            <span class=\"float-right\">\n                `+obj.dato+`\n                <a href=\"https://workletnew.snapp.dk/receipts/`+obj.id+`\" target=\"_blank\" style=\"padding-left: 10px\">\n                    <span class=\"float-right text-muted\" style=\"margin-top:-1px\"><i class=\"fas fa-sm fa-link\"></i></span>\n                </a>\n            </span>\n        </div>\n        <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n            <table class=\"table\">\n                <thead class=\"border-none\">\n                    <tr>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    `+behandlinger+`\n                </tbody>\n            </table>\n\n        </div>\n\n        <!-- /Faktura -->\n    </div>\n    `;\n\n    html += handlinger;\n\n\n}\n\nmsg.payload.tempData._faktura = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1260,
-        "y": 120,
+        "x": 1240,
+        "y": 180,
         "wires": [
             [
                 "449ee6323dbb0e10"
@@ -2833,17 +2856,17 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Pagination",
-        "func": "var maxCount = 8;\nmaxCount = maxCount > msg.payload.tempDataLength ? msg.payload.tempDataLength : maxCount;\n\nvar countBeforeActive = msg.payload.spec > 4 ? 4 : msg.payload.spec;\nvar countAfterActive = maxCount - countBeforeActive;\n\nvar html = `<ul class=\"pagination\">`;\n\n// Arrow left\nif(countBeforeActive > 0)\n    html += `<li class=\"page-item\">\n             <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) - 1) +`')\">&laquo;</a>\n             </li>`;\n\n// previous\nfor (var i = 0; i < countBeforeActive; i++)\n{\n    var id = -(countBeforeActive - parseInt(msg.payload.spec) - i);\n\n    html += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+id+`')\">`+id+`</a>\n            </li> `;\n}\n\n// active\nhtml += `<li class=\"page-item active\">\n            <a class=\"page-link\">`+ msg.payload.spec + `</a>\n         </li> `;\n\n// after\nfor (var i = 0; i < countAfterActive; i++) {\n    var id = (parseInt(msg.payload.spec) + 1 + i);\n    html += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id +`')\">`+id+ `</a>\n            </li> `;\n}\n\n// Arrow right\nif (countAfterActive > 1)\nhtml += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) + 1) +`')\">&raquo;</a>\n         </li>`;\n\nhtml += `</ul>`;\n\nmsg.payload.tempData._pagination = html;\n\nreturn msg;",
+        "func": "var maxCount = 8;\nmaxCount = maxCount > (parseInt(msg.payload.tempDataLength)-1) ? (parseInt(msg.payload.tempDataLength)-1) : maxCount;\n\nvar countBeforeActive = msg.payload.spec > 4 ? 4 : msg.payload.spec;\nvar countAfterActive = maxCount - countBeforeActive;\nvar countAfterActive = ((countAfterActive + parseInt(msg.payload.spec)) > (parseInt(msg.payload.tempDataLength) - 1)) ? (msg.payload.tempDataLength - msg.payload.spec -1) : countAfterActive;\n\nfunction isArchived (id)\n{\n    return msg.payload.tempDataArray[id].archived;\n}\n\nvar html = `<ul class=\"pagination\">`;\n\n// Arrow left\nif(countBeforeActive > 0)\n    html += `<li class=\"page-item\">\n             <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) - 1) +`')\">&laquo;</a>\n             </li>`;\n\n// previous\nfor (var i = 0; i < countBeforeActive; i++)\n{\n    var id = -(countBeforeActive - parseInt(msg.payload.spec) - i);\n\n    html += `<li class=\"page-item`+(isArchived(id) ? ` archived`:``)+`\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id + `')\">` +(parseInt(id) + 1)+`</a>\n            </li> `;\n}\n\n// active\nhtml += `<li class=\"page-item active` + (isArchived(msg.payload.spec) ? ` archived` : ``) +`\">\n            <a class=\"page-link\">`+ (parseInt(msg.payload.spec)+1) + `</a>\n         </li> `;\n\n// after\nfor (var i = 0; i < countAfterActive; i++) {\n    var id = (parseInt(msg.payload.spec) + 1 + i);\n    html += `<li class=\"page-item` + (isArchived(id) ? ` archived` : ``) +`\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id + `')\">` + (parseInt(id) + 1)+ `</a>\n            </li> `;\n}\n\n// Arrow right\nif (countAfterActive >= 1)\nhtml += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) + 1) +`')\">&raquo;</a>\n         </li>`;\n\nhtml += `</ul>`;\n\nmsg.payload.tempData._pagination = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1490,
-        "y": 120,
+        "x": 1470,
+        "y": 180,
         "wires": [
             [
-                "66afcd1514727417"
+                "3f57e4a3850446e6"
             ]
         ]
     },
@@ -2852,14 +2875,14 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "set tempDataLength",
-        "func": "msg.payload.tempDataLength = msg.payload.tempData.length;\nreturn msg;",
+        "func": "msg.payload.tempDataLength = msg.payload.tempDataArray.length;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1260,
-        "y": 20,
+        "x": 1240,
+        "y": 80,
         "wires": [
             [
                 "1184056262f02591"
@@ -2887,17 +2910,110 @@
         "id": "50420eba13820fd6",
         "type": "function",
         "z": "43652557380ac3f3",
-        "name": "function 1",
-        "func": "\nreturn msg;",
+        "name": "element: manualProcessingCard",
+        "func": "var receiptCount = msg.payload.tempData == null ? 0 : msg.payload.tempData.length;\nvar border = receiptCount > 0 ? `warning` : `light`;\nvar title = receiptCount > 0 ? (receiptCount + ` fakturaer afventer`) : `Ingen fakturaer`;\nvar body = receiptCount > 0 ? \"Efter seneste kørsel er der \"+receiptCount+\" fakturaer som afventer din behandling.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nvar html =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Manuel behandling</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+(receiptCount <= 0 ?` disabled`:``)+`\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se fakturaer</button>\n        </div>\n    </div>\n</div>`;\n\nmsg.payload.pageElements.manualProcessingCard = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
-        "y": 940,
+        "x": 890,
+        "y": 960,
         "wires": [
-            []
+            [
+                "833c75852163c6a6"
+            ]
+        ]
+    },
+    {
+        "id": "faf9929b581fd711",
+        "type": "debug",
+        "z": "43652557380ac3f3",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "c2e78a2e8fd41cb5",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempData",
+                "pt": "msg",
+                "to": "webData.citizens-actions",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 920,
+        "wires": [
+            [
+                "50420eba13820fd6"
+            ]
+        ]
+    },
+    {
+        "id": "3f57e4a3850446e6",
+        "type": "function",
+        "z": "43652557380ac3f3",
+        "name": "Archive button",
+        "func": "var html =\n`<button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"postRequest({'requestType': 'archive', 'id': '`+msg.payload.spec+`'})\">Bekræft manuel behandling</button>`;\nmsg.payload.tempData._archive = html;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 180,
+        "wires": [
+            [
+                "66afcd1514727417"
+            ]
+        ]
+    },
+    {
+        "id": "7010338c1ded1b8a",
+        "type": "switch",
+        "z": "43652557380ac3f3",
+        "name": "Data exists?",
+        "property": "webData.citizens-actions",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "b07e0dfc01e164a0"
+            ],
+            [
+                "7e1f73ec1d40cafe"
+            ]
         ]
     },
     {
@@ -2916,7 +3032,7 @@
             {
                 "t": "set",
                 "p": "payload.webData",
-                "pt": "msg",
+                "pt": "global",
                 "to": "\t{\t    \"workletCreds\": {\t        \"workletUser\": \"\",\t        \"workletPass\": \"\"\t    },\t    \"receipts\": []\t}",
                 "tot": "jsonata"
             }
@@ -2962,13 +3078,6 @@
                 "pt": "msg",
                 "to": "#:(storeInFile)::webSettings",
                 "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload.webSettingsStr",
-                "pt": "msg",
-                "to": "payload.webSettings",
-                "tot": "msg"
             }
         ],
         "action": "",
@@ -3290,13 +3399,6 @@
                 "pt": "msg",
                 "to": "#:(storeInFile)::grants",
                 "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload.grantsStr",
-                "pt": "msg",
-                "to": "payload.grants",
-                "tot": "msg"
             }
         ],
         "action": "",
@@ -3684,10 +3786,11 @@
         "id": "c4d293d507b4dfc1",
         "type": "comment",
         "z": "8ea344595d9a442a",
+        "g": "7de50fe1369c94a7",
         "name": "Kommando: `start`",
         "info": "",
         "x": 690,
-        "y": 180,
+        "y": 140,
         "wires": []
     },
     {
@@ -3697,7 +3800,7 @@
         "g": "27007b43e1b2750d",
         "name": "[E] Find ny start- og slutdato ud fra seneste kørsel samt dags dato",
         "info": "",
-        "x": 1530,
+        "x": 1190,
         "y": 80,
         "wires": []
     },
@@ -3822,7 +3925,7 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 2080,
+        "x": 2060,
         "y": 80,
         "wires": [
             [
@@ -3938,7 +4041,7 @@
         "z": "8ea344595d9a442a",
         "g": "27007b43e1b2750d",
         "name": "MSG",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3946,7 +4049,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1610,
+        "x": 1270,
         "y": 220,
         "wires": []
     },
@@ -3970,7 +4073,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1195,
+        "x": 855,
         "y": 220,
         "wires": [
             [
@@ -3988,7 +4091,7 @@
         "g": "7de50fe1369c94a7",
         "name": "Sæt tilskudsperioder fra Danmark",
         "info": "",
-        "x": 1070,
+        "x": 730,
         "y": 180,
         "wires": []
     },
@@ -4027,7 +4130,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1370,
+        "x": 1030,
         "y": 180,
         "wires": [
             [
@@ -4043,7 +4146,7 @@
         "g": "27007b43e1b2750d",
         "name": "Hent datoer for seneste kørsel",
         "info": "",
-        "x": 1420,
+        "x": 1080,
         "y": 140,
         "wires": []
     },
@@ -4074,6 +4177,13 @@
                 "pt": "msg",
                 "to": "payload.endDate",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "global",
+                "to": "startDate",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -4081,7 +4191,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1640,
+        "x": 1300,
         "y": 180,
         "wires": [
             [
@@ -4117,7 +4227,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1475,
+        "x": 1135,
         "y": 180,
         "wires": [
             [
@@ -4139,12 +4249,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1850,
+        "x": 1510,
         "y": 180,
         "wires": [
             [
                 "99963e2324c780db",
-                "28d8ac05e7f0f65f"
+                "421ea3a3d1ce558a"
             ]
         ],
         "info": "## Define file name\r\nThis JS snippet utilizes the JavaScript date function `toDateString()` as well as some string manipulation to define the name of the JSON file which will be downloaded from Worklet web interface.\r\n\r\nThe name defined is later used to find and read the downloaded file, as the actual file name cannot be set when downloading, nor can it be retrieved as the download is in progress. Therefore, the name must be determined manually to match the naming procedure of Worklet web interface."
@@ -4156,7 +4266,7 @@
         "g": "27007b43e1b2750d",
         "name": "Bestem datoer for ny kørsel",
         "info": "",
-        "x": 1680,
+        "x": 1340,
         "y": 140,
         "wires": []
     },
@@ -4187,6 +4297,13 @@
                 "pt": "msg",
                 "to": "20/11/2022",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "global",
+                "to": "startDate",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -4194,12 +4311,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1370,
+        "x": 1030,
         "y": 220,
         "wires": [
             [
                 "99963e2324c780db",
-                "28d8ac05e7f0f65f"
+                "421ea3a3d1ce558a"
             ]
         ]
     },
@@ -5001,8 +5118,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1610,
-        "y": 1800,
+        "x": 1330,
+        "y": 1700,
         "wires": []
     },
     {
@@ -5674,14 +5791,13 @@
         "id": "f5dbef72792b9011",
         "type": "link out",
         "z": "8ea344595d9a442a",
-        "name": "link out 2",
+        "name": "START response out",
         "mode": "link",
         "links": [
-            "208bcfa9f6ff7750",
             "5c74b689e0aee38b"
         ],
-        "x": 1745,
-        "y": 1860,
+        "x": 1655,
+        "y": 1780,
         "wires": []
     },
     {
@@ -5991,8 +6107,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
-        "y": 240,
+        "x": 440,
+        "y": 80,
         "wires": [
             [
                 "632aa75f39860780"
@@ -6156,7 +6272,7 @@
         "z": "8ea344595d9a442a",
         "g": "7de50fe1369c94a7",
         "name": "",
-        "x": 1050,
+        "x": 710,
         "y": 220,
         "wires": [
             [
@@ -6226,8 +6342,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1330,
-        "y": 1860,
+        "x": 1310,
+        "y": 1780,
         "wires": [
             [
                 "f5dbef72792b9011"
@@ -6240,21 +6356,21 @@
         "z": "8ea344595d9a442a",
         "name": "Clean alt unødvendig data fra msg objekt",
         "info": "",
-        "x": 1260,
-        "y": 1820,
+        "x": 1400,
+        "y": 1740,
         "wires": []
     },
     {
         "id": "4fa04433812ed133",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "name": "Sammensæt errors og payload definér states",
+        "name": "Definér states (archived / recommended)",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> | $ |\t({\t\t    \"recommended\": true, \"archived\": false\t\t})|",
+                "to": "$.payload ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": true,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
                 "tot": "jsonata"
             },
             {
@@ -6270,13 +6386,300 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1050,
-        "y": 1860,
+        "x": 1020,
+        "y": 1780,
         "wires": [
             [
-                "fde5a695bfbd9a7d"
+                "fde5a695bfbd9a7d",
+                "da2711a30be2060a"
             ]
         ]
+    },
+    {
+        "id": "230dad52a43f6b19",
+        "type": "link in",
+        "z": "8ea344595d9a442a",
+        "name": "Archive receipt link in",
+        "links": [
+            "d84057a8cb05b22f"
+        ],
+        "x": 645,
+        "y": 1960,
+        "wires": [
+            [
+                "135dfd2c3c6f4850"
+            ]
+        ]
+    },
+    {
+        "id": "d426a3d9a5cc587d",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1800,
+        "y": 240,
+        "wires": [
+            [
+                "61d78c9d39ac193c"
+            ]
+        ]
+    },
+    {
+        "id": "421ea3a3d1ce558a",
+        "type": "switch",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "#:(storeInFile)::runHistory",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1750,
+        "y": 200,
+        "wires": [
+            [
+                "61d78c9d39ac193c"
+            ],
+            [
+                "d426a3d9a5cc587d"
+            ]
+        ]
+    },
+    {
+        "id": "61d78c9d39ac193c",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "currentRun",
+                "pt": "msg",
+                "to": "(\t$startDate := startDate;\trunHistory[startDate = $startDate] ~> $exists() ?\t\trunHistory[startDate = $startDate]\t:\t{\t    \"startDate\": $startDate,\t    \"endDate\": endDate,\t    \"processedReceipts\": []\t}\t\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2020,
+        "y": 200,
+        "wires": [
+            [
+                "0bca3f33f9d6710a"
+            ]
+        ]
+    },
+    {
+        "id": "0bca3f33f9d6710a",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "(\t    $startDate := startDate;\t\t    (runHistory[startDate = $startDate] ~> $exists()) = false ?\t\t    $append(runHistory, currentRun)\t    :\t    runHistory\t)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2060,
+        "y": 240,
+        "wires": [
+            [
+                "28d8ac05e7f0f65f"
+            ]
+        ]
+    },
+    {
+        "id": "c6c8addcda828038",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempData",
+                "pt": "msg",
+                "to": "webData.citizens-actions",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "tempData",
+                "pt": "msg",
+                "to": "(\t    $num := payload.id ~> $number();\t    tempData[$num].faktura.id\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 2040,
+        "wires": [
+            [
+                "6c4f0dadb67f015e"
+            ]
+        ]
+    },
+    {
+        "id": "135dfd2c3c6f4850",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "startDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "currentRun",
+                "pt": "msg",
+                "to": "(\t    $startDate := startDate;\t    runHistory[startDate = $startDate]\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 2000,
+        "wires": [
+            [
+                "c6c8addcda828038"
+            ]
+        ]
+    },
+    {
+        "id": "6c4f0dadb67f015e",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentRun.processedReceipts",
+                "pt": "msg",
+                "to": "$distinct($append(currentRun.processedReceipts, tempData))",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t\tstartDate = $startDate ?\t{\t\t    \"processedReceipts\": currentRun.processedReceipts\t    \t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 2080,
+        "wires": [
+            [
+                "a2f55ae008b1fee2"
+            ]
+        ]
+    },
+    {
+        "id": "da2711a30be2060a",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "a2f55ae008b1fee2",
+        "type": "link out",
+        "z": "8ea344595d9a442a",
+        "name": "Is archived link out",
+        "mode": "link",
+        "links": [
+            "0ff5c26114374820"
+        ],
+        "x": 1115,
+        "y": 2080,
+        "wires": []
     },
     {
         "id": "248d64bf4e74f440",
@@ -6351,13 +6754,18 @@
                 "t": "eq",
                 "v": "startRun",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "archive",
+                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 3,
+        "outputs": 4,
         "x": 210,
-        "y": 180,
+        "y": 200,
         "wires": [
             [
                 "59e078cd4489c0aa"
@@ -6367,6 +6775,9 @@
             ],
             [
                 "40c9a409b68d13f1"
+            ],
+            [
+                "c888f934919b1eb8"
             ]
         ]
     },
@@ -6453,7 +6864,7 @@
         "type": "debug",
         "z": "c28a486ea3e09387",
         "name": "POST OUTPUT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6582,7 +6993,7 @@
         "type": "debug",
         "z": "c28a486ea3e09387",
         "name": "POST INPUT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6634,7 +7045,7 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "@import url(\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\"); /* Bootstrap */\n@import url(\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css\"); /* Bootswatch template */\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n/* Changes to Boostrap CSS */\n.bg-primary {\n    background-color: #325d88!important;\n}\n.border-light\n{\n    border-color: lightgray!important;\n}\n.tab-content\n{\n    border: 1px solid lightgray;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n    border-top-right-radius: 5px;\n}\n.nav-link \n{\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.row\n{\n    display: flex;\n    justify-content: stretch;\n}\n    .row > *\n    {\n        flex-grow: 1;\n    }\n.d-flex.justify-stretch\n{\n    justify-content: stretch;\n}\n.d-flex.justify-stretch > *{\n    flex-grow: 1;\n}\n\n\n\nbody\n{\n    background-color: whitesmoke;\n}\n\n\n\n/* Randers design */ \n.randers-logo {\n    background-image: url('https://www.randers.dk/static/logo.svg');\n    background-position: 5px 5px;\n    background-size: 85%;\n    background-repeat: no-repeat;\n    width: 200px;\n    height: 50px;\n}\n\n\n/* Custom style classes */\n.nav-success \n{\n    color: #71b355!important;\n}\n.nav-success:hover\n{\n    color: #a6d151!important;\n}\n.nav-success.active\n{\n    color: #a6d151!important;\n}\n.uppercase\n{\n    text-transform: uppercase;\n}\n.fs-10\n{\n    font-size: 10px;\n}\n.fs-11\n{\n    font-size: 11px;\n}\n.fw-500\n{\n    font-weight: 500;\n}\n.border-none, .border-none *\n{\n    border: 0px!important;\n}\n.hidden\n{\n    display: none;\n}\n\n\n/* Custom elements */\n.progress-container\n{\n    background-color: lightgray;\n    padding: 15px 25px;\n}\n.progress-container.collapsed\n{\n    max-height: 0px;\n    overflow: hidden;\n    padding: 0px;\n}\n/*\n.site-container\n{\n}\n*/\n.card-container\n{\n    display: flex;\n    justify-content: stretch;\n    gap: 10px;\n}\n    .card-container .card\n    {\n        flex: 1;\n    }\n.receipt-inner\n{\n    display: flex;\n    gap: 10px;\n    min-height: 40vh;\n}\n    .receipt-inner > *\n    {\n        flex-grow: 1;\n    }\n    .receipt-inner > .citizen-info\n    {\n        max-width: 22.7rem;\n    }\n.pagination-container\n{\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n    .pagination-container > button\n    {\n        height: 38px;\n    }\n.table-header\n{\n    font-size: 10px;\n    text-transform: uppercase;\n    font-weight: 500;\n}\n.card.header-left\n{\n    margin-left: 20px;display:flex;flex-direction:row;\n}\n.card-header.header-left\n{\n    border-top-right-radius: 0px!important;\n    border-bottom: 0px;\n}",
+        "template": "@import url(\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\"); /* Bootstrap */\n@import url(\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css\"); /* Bootswatch template */\n@font-face {\n  font-family: 'password';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);\n}\n\na:hover\n{\n    cursor: pointer;\n}\n\n/* Changes to Boostrap CSS */\n.bg-primary {\n    background-color: #325d88!important;\n}\n.border-light\n{\n    border-color: lightgray!important;\n}\n.tab-content\n{\n    border: 1px solid lightgray;\n    border-bottom-left-radius: 5px;\n    border-bottom-right-radius: 5px;\n    border-top-right-radius: 5px;\n}\n.nav-link \n{\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.row\n{\n    display: flex;\n    justify-content: stretch;\n}\n    .row > *\n    {\n        flex-grow: 1;\n    }\n.d-flex.justify-stretch\n{\n    justify-content: stretch;\n}\n.d-flex.justify-stretch > *{\n    flex-grow: 1;\n}\n.page-item.archived .page-link {\n    background-color: #E9F3DB!important;\n}\n.page-item.archived.active .page-link {\n    background-color: #D8E1CB!important;\n}\n\n\nbody\n{\n    background-color: whitesmoke;\n}\n\n\n\n/* Randers design */ \n.randers-logo {\n    background-image: url('https://www.randers.dk/static/logo.svg');\n    background-position: 5px 5px;\n    background-size: 85%;\n    background-repeat: no-repeat;\n    width: 200px;\n    height: 50px;\n}\n\n\n/* Custom style classes */\n.nav-success \n{\n    color: #71b355!important;\n}\n.nav-success:hover\n{\n    color: #a6d151!important;\n}\n.nav-success.active\n{\n    color: #a6d151!important;\n}\n.uppercase\n{\n    text-transform: uppercase;\n}\n.fs-10\n{\n    font-size: 10px;\n}\n.fs-11\n{\n    font-size: 11px;\n}\n.fw-500\n{\n    font-weight: 500;\n}\n.border-none, .border-none *\n{\n    border: 0px!important;\n}\n.hidden\n{\n    display: none;\n}\n.no-border-bottom\n{\n    border-bottom: 0px!important;\n}\n.no-border-bottom *\n{\n    border-bottom: 0px!important;\n}\n\n/* Custom elements */\n.progress-container\n{\n    background-color: lightgray;\n    padding: 15px 25px;\n}\n.progress-container.collapsed\n{\n    max-height: 0px;\n    overflow: hidden;\n    padding: 0px;\n}\n/*\n.site-container\n{\n}\n*/\n.card-container\n{\n    display: flex;\n    justify-content: stretch;\n    gap: 10px;\n}\n    .card-container .card\n    {\n        flex: 1;\n    }\n.receipt-inner\n{\n    display: flex;\n    gap: 10px;\n    min-height: 40vh;\n}\n    .receipt-inner > *\n    {\n        flex-grow: 1;\n    }\n    .receipt-inner > .citizen-info\n    {\n        max-width: 22.7rem;\n    }\n.pagination-container\n{\n    display: flex;\n    justify-content: center;\n    gap: 10px;\n}\n    .pagination-container > button\n    {\n        height: 38px;\n    }\n.table-header\n{\n    font-size: 10px;\n    text-transform: uppercase;\n    font-weight: 500;\n}\n.card.header-left\n{\n    margin-left: 20px;display:flex;flex-direction:row;\n}\n.card-header.header-left\n{\n    border-top-right-radius: 0px!important;\n    border-bottom: 0px;\n}",
         "output": "str",
         "x": 1070,
         "y": 1000,
@@ -6653,7 +7064,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    console.log(\"RESPONSE FROM STARTRUN\");\n\n    goToPage(\"view-receipts\");\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    //console.log(\"RESPONSE FROM STARTRUN\");\n\n    goToPage(\"view-receipts\");\n}\n\nhandleResponseDynamically['archive'] = function (response) {\n    goToPage(\"view-receipts?spec=\"+response.spec);\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
         "x": 930,
         "y": 1000,
@@ -7301,7 +7712,7 @@
         "id": "5c74b689e0aee38b",
         "type": "link in",
         "z": "c28a486ea3e09387",
-        "name": "START response",
+        "name": "START response in",
         "links": [
             "f5dbef72792b9011"
         ],
@@ -7409,28 +7820,28 @@
         "rules": [
             {
                 "t": "set",
-                "p": "#:(storeInFile)::acceptances.login",
+                "p": "#:(storeInFile)::webSettings.acceptances.login",
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
             },
             {
                 "t": "set",
-                "p": "#:(storeInFile)::acceptances.rules",
+                "p": "#:(storeInFile)::webSettings.acceptances.rules",
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
             },
             {
                 "t": "set",
-                "p": "#:(storeInFile)::acceptances.grants",
+                "p": "#:(storeInFile)::webSettings.acceptances.grants",
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
             },
             {
                 "t": "set",
-                "p": "#:(storeInFile)::state.isRunning",
+                "p": "#:(storeInFile)::webSettings.state.isRunning",
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
@@ -7494,14 +7905,14 @@
         "rules": [
             {
                 "t": "set",
-                "p": "#:(storeInFile)::webData.citizens-actions",
+                "p": "webData.citizens-actions",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             },
             {
                 "t": "set",
-                "p": "#:(storeInFile)::webData.citizens-noactions",
+                "p": "webData.citizens-noactions",
                 "pt": "global",
                 "to": "errors",
                 "tot": "msg"
@@ -7564,6 +7975,169 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "f8bf41fc7dd480f1",
+        "type": "comment",
+        "z": "c28a486ea3e09387",
+        "name": "Archive receipt",
+        "info": "",
+        "x": 600,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "c888f934919b1eb8",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "set as archived",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webData.citizens-actions[msg.payload.id].archived",
+                "pt": "global",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 880,
+        "wires": [
+            [
+                "d84057a8cb05b22f"
+            ]
+        ]
+    },
+    {
+        "id": "d84057a8cb05b22f",
+        "type": "link out",
+        "z": "c28a486ea3e09387",
+        "name": "Archive receipt link out",
+        "mode": "link",
+        "links": [
+            "230dad52a43f6b19"
+        ],
+        "x": 885,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "0ff5c26114374820",
+        "type": "link in",
+        "z": "c28a486ea3e09387",
+        "name": "Is archived link in",
+        "links": [
+            "a2f55ae008b1fee2"
+        ],
+        "x": 1025,
+        "y": 880,
+        "wires": [
+            [
+                "f14efef60b1665fc"
+            ]
+        ]
+    },
+    {
+        "id": "f14efef60b1665fc",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Get webData",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.tempDataArray",
+                "pt": "msg",
+                "to": "webData.citizens-actions",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 880,
+        "wires": [
+            [
+                "d6432bd8a487caa0"
+            ]
+        ]
+    },
+    {
+        "id": "d6432bd8a487caa0",
+        "type": "function",
+        "z": "c28a486ea3e09387",
+        "name": "Next receipt id?",
+        "func": "msg.payload.tempDataLength = msg.payload.tempDataArray.length;\n\nmsg.payload.spec = parseInt(msg.payload.id) >= (msg.payload.tempDataArray.length - 1) ? parseInt(msg.payload.id) : (parseInt(msg.payload.id)+1);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1380,
+        "y": 880,
+        "wires": [
+            [
+                "948eb590f69bd85b"
+            ]
+        ]
+    },
+    {
+        "id": "948eb590f69bd85b",
+        "type": "change",
+        "z": "c28a486ea3e09387",
+        "name": "Set response",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.tempDataArray",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.tempData",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.tempDataLength",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1570,
+        "y": 880,
+        "wires": [
+            [
+                "b3ecd3ad79094172"
+            ]
+        ]
+    },
+    {
+        "id": "88a67de564953b1a",
+        "type": "debug",
+        "z": "c28a486ea3e09387",
+        "name": "debug 20",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1710,
+        "y": 940,
+        "wires": []
     },
     {
         "id": "42de3af98b8ce955",
@@ -9891,9 +10465,7 @@
         "type": "link in",
         "z": "4fd74d0002aa2bc4",
         "name": "START response",
-        "links": [
-            "f5dbef72792b9011"
-        ],
+        "links": [],
         "x": 1175,
         "y": 440,
         "wires": [
