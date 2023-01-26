@@ -2856,7 +2856,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Pagination",
-        "func": "var maxCount = 8;\nmaxCount = maxCount > (parseInt(msg.payload.tempDataLength)-1) ? (parseInt(msg.payload.tempDataLength)-1) : maxCount;\n\nvar countBeforeActive = msg.payload.spec > 4 ? 4 : msg.payload.spec;\nvar countAfterActive = maxCount - countBeforeActive;\nvar countAfterActive = ((countAfterActive + parseInt(msg.payload.spec)) > (parseInt(msg.payload.tempDataLength) - 1)) ? (msg.payload.tempDataLength - msg.payload.spec -1) : countAfterActive;\n\nfunction isArchived (id)\n{\n    return msg.payload.tempDataArray[id].archived;\n}\n\nvar html = `<ul class=\"pagination\">`;\n\n// Arrow left\nif(countBeforeActive > 0)\n    html += `<li class=\"page-item\">\n             <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) - 1) +`')\">&laquo;</a>\n             </li>`;\n\n// previous\nfor (var i = 0; i < countBeforeActive; i++)\n{\n    var id = -(countBeforeActive - parseInt(msg.payload.spec) - i);\n\n    html += `<li class=\"page-item`+(isArchived(id) ? ` archived`:``)+`\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id + `')\">` +(parseInt(id) + 1)+`</a>\n            </li> `;\n}\n\n// active\nhtml += `<li class=\"page-item active` + (isArchived(msg.payload.spec) ? ` archived` : ``) +`\">\n            <a class=\"page-link\">`+ (parseInt(msg.payload.spec)+1) + `</a>\n         </li> `;\n\n// after\nfor (var i = 0; i < countAfterActive; i++) {\n    var id = (parseInt(msg.payload.spec) + 1 + i);\n    html += `<li class=\"page-item` + (isArchived(id) ? ` archived` : ``) +`\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id + `')\">` + (parseInt(id) + 1)+ `</a>\n            </li> `;\n}\n\n// Arrow right\nif (countAfterActive >= 1)\nhtml += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) + 1) +`')\">&raquo;</a>\n         </li>`;\n\nhtml += `</ul>`;\n\nmsg.payload.tempData._pagination = html;\n\nreturn msg;",
+        "func": "var maxCount = 8;\nmaxCount = maxCount > (parseInt(msg.payload.tempDataLength)-1) ? (parseInt(msg.payload.tempDataLength)-1) : maxCount;\n\nvar countBeforeActive = msg.payload.spec > 4 ? 4 : msg.payload.spec;\nvar countAfterActive = maxCount - countBeforeActive;\nvar countAfterActive = ((countAfterActive + parseInt(msg.payload.spec)) > (parseInt(msg.payload.tempDataLength) - 1)) ? (msg.payload.tempDataLength - msg.payload.spec -1) : countAfterActive;\n\nif(countAfterActive < 4 && msg.payload.spec > maxCount-countAfterActive)\n    countBeforeActive = maxCount - countAfterActive;\n\n\nfunction isArchived (id)\n{\n    return msg.payload.tempDataArray[id].archived;\n}\n\nvar html = `<ul class=\"pagination\">`;\n\n// Arrow left\nif(countBeforeActive > 0)\n    html += `<li class=\"page-item\">\n             <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) - 1) +`')\">&laquo;</a>\n             </li>`;\n\n// previous\nfor (var i = 0; i < countBeforeActive; i++)\n{\n    var id = -(countBeforeActive - parseInt(msg.payload.spec) - i);\n\n    html += `<li class=\"page-item`+(isArchived(id) ? ` archived`:``)+`\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id + `')\">` +(parseInt(id) + 1)+`</a>\n            </li> `;\n}\n\n// active\nhtml += `<li class=\"page-item active` + (isArchived(msg.payload.spec) ? ` archived` : ``) +`\">\n            <a class=\"page-link\">`+ (parseInt(msg.payload.spec)+1) + `</a>\n         </li> `;\n\n// after\nfor (var i = 0; i < countAfterActive; i++) {\n    var id = (parseInt(msg.payload.spec) + 1 + i);\n    html += `<li class=\"page-item` + (isArchived(id) ? ` archived` : ``) +`\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ id + `')\">` + (parseInt(id) + 1)+ `</a>\n            </li> `;\n}\n\n// Arrow right\nif (countAfterActive >= 1)\nhtml += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('view-receipts?spec=`+ (parseInt(msg.payload.spec) + 1) +`')\">&raquo;</a>\n         </li>`;\n\nhtml += `</ul>`;\n\nmsg.payload.tempData._pagination = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3035,6 +3035,20 @@
                 "pt": "global",
                 "to": "\t{\t    \"workletCreds\": {\t        \"workletUser\": \"\",\t        \"workletPass\": \"\"\t    },\t    \"receipts\": []\t}",
                 "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.webStates",
+                "pt": "msg",
+                "to": "[\t    {\t        \"title\": \"idle\",\t        \"id\": 0,\t        \"result\": [\"ready\", \"completed\"]\t    },\t    \t    {\t        \"title\": \"running\",\t        \"id\": 1,\t        \"result\": \"busy\"\t    },\t\t    {\t        \"title\": \"unavailable\",\t        \"id\": 2,\t        \"result\": \"no response\"\t    }\t]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.webSteps",
+                "pt": "msg",
+                "to": "[{\"title\":\"initialization\",\"id\":0,\"state\":{},\"lastResult\":null},{\"title\":\"extract-worklet\",\"id\":1,\"state\":{},\"lastResult\":null},{\"title\":\"data-split\",\"id\":2,\"state\":{},\"lastResult\":null},{\"title\":\"extract-kp\",\"id\":3,\"state\":{},\"lastResult\":null},{\"title\":\"transform\",\"id\":4,\"state\":{},\"lastResult\":null},{\"title\":\"load\",\"id\":5,\"state\":{},\"lastResult\":null}]",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -5862,8 +5876,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 40,
+        "x": 1740,
+        "y": 120,
         "wires": []
     },
     {
@@ -6403,8 +6417,8 @@
         "links": [
             "d84057a8cb05b22f"
         ],
-        "x": 645,
-        "y": 1960,
+        "x": 685,
+        "y": 2000,
         "wires": [
             [
                 "135dfd2c3c6f4850"
@@ -6484,7 +6498,7 @@
                 "t": "set",
                 "p": "currentRun",
                 "pt": "msg",
-                "to": "(\t$startDate := startDate;\trunHistory[startDate = $startDate] ~> $exists() ?\t\trunHistory[startDate = $startDate]\t:\t{\t    \"startDate\": $startDate,\t    \"endDate\": endDate,\t    \"processedReceipts\": []\t}\t\t)",
+                "to": "(\t$startDate := startDate;\trunHistory[startDate = $startDate] ~> $exists() ?\t\trunHistory[startDate = $startDate]\t:\t{\t    \"startDate\": $startDate,\t    \"endDate\": endDate,\t    \t    \"processedReceipts\": [],\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
                 "tot": "jsonata"
             }
         ],
@@ -6647,7 +6661,8 @@
         "y": 2080,
         "wires": [
             [
-                "a2f55ae008b1fee2"
+                "a2f55ae008b1fee2",
+                "019ee9d55c7a8758"
             ]
         ]
     },
@@ -6677,8 +6692,62 @@
         "links": [
             "0ff5c26114374820"
         ],
-        "x": 1115,
+        "x": 1295,
         "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "8b757888b921f031",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "name": "Arkivering af individuelle faktura",
+        "info": "",
+        "x": 810,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "45a7f796cd6e87c3",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "name": "Kontrol om alle fakturaer er arkiveret",
+        "info": "",
+        "x": 1180,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "fc1053d3105b2cd0",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "name": "Check if all is archived",
+        "func": "var isAllArchived = true;\n\nvar webData = (global.get(\"webData\"))[\"citizens-actions\"];\nvar count = webData.length;\n\nfor (var i = 0; i > msg.currentRun.processedReceipts.length; i++)\n    if (!webData.includes(msg.currentRun.processedReceipts[i]))\n        isAllArchived = false;\n\nmsg.isArchived = isAllArchived;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 2180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "019ee9d55c7a8758",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 2020,
         "wires": []
     },
     {
@@ -8135,8 +8204,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1710,
-        "y": 940,
+        "x": 1820,
+        "y": 920,
         "wires": []
     },
     {
