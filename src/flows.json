@@ -866,7 +866,7 @@
         "type": "junction",
         "z": "43652557380ac3f3",
         "x": 1920,
-        "y": 120,
+        "y": 80,
         "wires": [
             [
                 "a2dc4dcc85327a6d"
@@ -1661,7 +1661,7 @@
         "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#overblik\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#sager\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"overblik\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        {{payload.tempData.cpr}}<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/person/{{payload.tempData.kpurl}}/overblik\" target=\"_blank\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n                    <div class=\"d-flex flex-wrap\" style=\"gap: 3px\">\n                        {{{payload.tempData.persondata._sager}}}\n                    </div>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            {{payload.tempData.persondata.formue}} kr\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            {{payload.tempData.persondata._danmark}}\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            {{payload.tempData.persondata._htillaegsprocent}} %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"sager\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\" style=\"margin-left:-8px;margin-right:0px;\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#payload.tempData.persondata.sager}}\n                            <tr>\n                                <td>{{titel}}</td>\n                                <th scope=\"row\">{{type}}</th>\n                                <td>{{fra}}</td>\n                                <td>{{til}}</td>\n                            </tr>\n                            {{/payload.tempData.persondata.sager}}\n                        </tbody>\n                    </table>\n                    \n                </div>\n                \n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            {{{payload.tempData._faktura}}}\n\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        \n        <ul class=\"pagination\">\n            {{{payload.tempData._pagination}}}\n        </ul>\n\n        {{{payload.tempData._archive}}}\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
         "x": 1350,
-        "y": 240,
+        "y": 200,
         "wires": [
             [
                 "ae78e3fc89996dac"
@@ -1725,7 +1725,7 @@
         "to": "",
         "reg": false,
         "x": 1650,
-        "y": 240,
+        "y": 200,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -2932,7 +2932,7 @@
         "to": "",
         "reg": false,
         "x": 940,
-        "y": 260,
+        "y": 240,
         "wires": [
             [
                 "dabf6a347ccdc582"
@@ -2960,7 +2960,7 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "7a64b3858edfdad8"
@@ -2978,12 +2978,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1050,
-        "y": 120,
+        "x": 1110,
+        "y": 80,
         "wires": [
             [
-                "92b1925b5327ed30",
-                "181f9b2c93905cbf"
+                "92b1925b5327ed30"
             ]
         ]
     },
@@ -3007,7 +3006,7 @@
         "to": "",
         "reg": false,
         "x": 1460,
-        "y": 100,
+        "y": 60,
         "wires": [
             [
                 "b0b8bd30f6fdf461"
@@ -3035,7 +3034,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1290,
-        "y": 120,
+        "y": 80,
         "wires": [
             [
                 "8adb89ea490e9b67"
@@ -3065,7 +3064,7 @@
         "to": "",
         "reg": false,
         "x": 1460,
-        "y": 140,
+        "y": 100,
         "wires": [
             [
                 "b0b8bd30f6fdf461"
@@ -3093,7 +3092,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1650,
-        "y": 120,
+        "y": 80,
         "wires": [
             [
                 "1f72e5564103eca8"
@@ -3123,7 +3122,7 @@
         "to": "",
         "reg": false,
         "x": 1800,
-        "y": 140,
+        "y": 100,
         "wires": [
             [
                 "3bf3c0e0451a2554"
@@ -3150,7 +3149,7 @@
         "to": "",
         "reg": false,
         "x": 1800,
-        "y": 100,
+        "y": 60,
         "wires": [
             [
                 "3bf3c0e0451a2554"
@@ -3168,8 +3167,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1050,
-        "y": 180,
+        "x": 1190,
+        "y": 140,
         "wires": [
             [
                 "9104824190b91e21"
@@ -3187,8 +3186,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1240,
-        "y": 180,
+        "x": 1380,
+        "y": 140,
         "wires": [
             [
                 "449ee6323dbb0e10"
@@ -3206,8 +3205,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 180,
+        "x": 1590,
+        "y": 140,
         "wires": [
             [
                 "3f57e4a3850446e6"
@@ -3226,7 +3225,7 @@
         "finalize": "",
         "libs": [],
         "x": 1240,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "1184056262f02591"
@@ -3317,14 +3316,14 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Archive button",
-        "func": "var html =\n`<button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"postRequest({'requestType': 'archive', 'id': '`+msg.payload.spec+`'})\">Bekræft manuel behandling</button>`;\nmsg.payload.tempData._archive = html;\n\nreturn msg;",
+        "func": "var html;\n\n\nif(msg.payload.webSettings.state.isLocked)\n\n    html =\n        `<button class=\"btn btn-lg btn-light border-info\" type=\"button\" onclick=\"postRequest({'requestType': 'finish'})\">Afslut behandling</button>`;\n\nelse\n\n    html =\n    `<button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"postRequest({'requestType': 'archive', 'id': '`+msg.payload.spec+`'})\">Bekræft manuel behandling</button>`;\n\n\nmsg.payload.tempData._archive = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1680,
-        "y": 180,
+        "x": 1800,
+        "y": 140,
         "wires": [
             [
                 "66afcd1514727417"
@@ -3359,23 +3358,6 @@
                 "7e1f73ec1d40cafe"
             ]
         ]
-    },
-    {
-        "id": "181f9b2c93905cbf",
-        "type": "debug",
-        "z": "43652557380ac3f3",
-        "name": "debug 22",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1830,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -6526,7 +6508,7 @@
         "type": "function",
         "z": "8ea344595d9a442a",
         "name": "Check if all is archived",
-        "func": "var isAllArchived = true;\n\nvar webData = (global.get(\"webData\"))[\"citizens-actions\"];\nvar count = webData.length;\n\nfor (var i = 0; i > msg.currentRun.processedReceipts.length; i++)\n    if (!webData.includes(msg.currentRun.processedReceipts[i]))\n        isAllArchived = false;\n\nmsg.isArchived = isAllArchived;\n\nreturn msg;",
+        "func": "var isAllArchived = true;\n\nvar webData = (global.get(\"webData\"))[\"citizens-actions\"];\n\nfor (var i = 0; i < webData.length; i++)\n{\n\n    var fakturaer = Array.isArray(webData[i].faktura) ? webData[i].faktura : [webData[i].faktura];\n\n\n    for(var j = 0; j < fakturaer.length; j++)\n        if (!msg.currentRun.processedReceipts.includes(fakturaer[j].id))\n            isAllArchived = false;\n\n\n\n}\n\nmsg.isArchived = isAllArchived;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6536,7 +6518,8 @@
         "y": 2160,
         "wires": [
             [
-                "62b82381ac8d827c"
+                "62b82381ac8d827c",
+                "c6c59a2122b9ea96"
             ]
         ]
     },
@@ -7596,7 +7579,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.state.lastStep",
+                "p": "#:(storeInFile)::webSettings.state.lastStep",
                 "pt": "global",
                 "to": "newStep",
                 "tot": "msg",
@@ -7604,7 +7587,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.lastState",
+                "p": "#:(storeInFile)::webSettings.state.lastState",
                 "pt": "global",
                 "to": "newState",
                 "tot": "msg",
@@ -7633,7 +7616,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.state.lastStep",
+                "p": "#:(storeInFile)::webSettings.state.lastStep",
                 "pt": "global",
                 "to": "newStep",
                 "tot": "msg",
@@ -7641,7 +7624,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.lastState",
+                "p": "#:(storeInFile)::webSettings.state.lastState",
                 "pt": "global",
                 "to": "newState",
                 "tot": "msg",
@@ -7670,7 +7653,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.state.lastStep",
+                "p": "#:(storeInFile)::webSettings.state.lastStep",
                 "pt": "global",
                 "to": "newStep",
                 "tot": "msg",
@@ -7678,7 +7661,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.lastState",
+                "p": "#:(storeInFile)::webSettings.state.lastState",
                 "pt": "global",
                 "to": "newState",
                 "tot": "msg",
@@ -7707,7 +7690,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.state.lastStep",
+                "p": "#:(storeInFile)::webSettings.state.lastStep",
                 "pt": "global",
                 "to": "newStep",
                 "tot": "msg",
@@ -7715,7 +7698,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.lastState",
+                "p": "#:(storeInFile)::webSettings.state.lastState",
                 "pt": "global",
                 "to": "newState",
                 "tot": "msg",
@@ -7744,7 +7727,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.state.lastStep",
+                "p": "#:(storeInFile)::webSettings.state.lastStep",
                 "pt": "global",
                 "to": "newStep",
                 "tot": "msg",
@@ -7752,7 +7735,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.lastState",
+                "p": "#:(storeInFile)::webSettings.state.lastState",
                 "pt": "global",
                 "to": "newState",
                 "tot": "msg",
@@ -7850,6 +7833,77 @@
         "y": 1080,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "c6c59a2122b9ea96",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "1465f5049a0ff71a",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Unlock UI",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.isLocked",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 2380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34ad2484e2633dbb",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 2340,
+        "wires": [
+            [
+                "1465f5049a0ff71a"
+            ]
         ]
     },
     {
