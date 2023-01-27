@@ -155,7 +155,7 @@
             "8b4e8bc5facd8f90",
             "632aa75f39860780"
         ],
-        "x": 274,
+        "x": 334,
         "y": 139,
         "w": 322,
         "h": 122
@@ -181,7 +181,7 @@
             "c0efbe2a4fc25ff6",
             "cdc6201b7c2589f4"
         ],
-        "x": 634,
+        "x": 714,
         "y": 39,
         "w": 692,
         "h": 222
@@ -216,11 +216,12 @@
             "d97f7bbbe0210f54",
             "90acc4726c72125a",
             "d04faa115ea73982",
-            "c9cc2e6cd25fdbd6"
+            "c9cc2e6cd25fdbd6",
+            "dd83f023eff10d0a"
         ],
-        "x": 314,
+        "x": 334,
         "y": 299,
-        "w": 1472,
+        "w": 1492,
         "h": 207
     },
     {
@@ -249,7 +250,7 @@
             "172fe34eeccca8dd",
             "f7835ac1742b0168"
         ],
-        "x": 394,
+        "x": 334,
         "y": 539,
         "w": 1172,
         "h": 222
@@ -297,7 +298,7 @@
             "b81c9fcaa9d3e0d1",
             "104d29ffe37f5998"
         ],
-        "x": 294,
+        "x": 334,
         "y": 799,
         "w": 1392,
         "h": 502
@@ -326,34 +327,10 @@
             "363e103b20db6c80",
             "5cfe1b69780c58ab"
         ],
-        "x": 354,
+        "x": 374,
         "y": 1339,
         "w": 1172,
         "h": 282
-    },
-    {
-        "id": "f5691660d774404b",
-        "type": "group",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "style": {
-            "label": true,
-            "color": "#ffffff",
-            "fill": "#ffefbf",
-            "fill-opacity": "0.64"
-        },
-        "nodes": [
-            "d426a3d9a5cc587d",
-            "421ea3a3d1ce558a",
-            "61d78c9d39ac193c",
-            "0bca3f33f9d6710a",
-            "a87343abb1f1ad70",
-            "172fd055f45774ea"
-        ],
-        "x": 1354,
-        "y": 79,
-        "w": 492,
-        "h": 182
     },
     {
         "id": "380e5c7e0ea3778b",
@@ -375,7 +352,7 @@
             "df5451114247dbd3",
             "4fa04433812ed133"
         ],
-        "x": 454,
+        "x": 374,
         "y": 1659,
         "w": 852,
         "h": 202
@@ -541,11 +518,144 @@
         "h": 142
     },
     {
+        "id": "f5691660d774404b",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "style": {
+            "label": true,
+            "color": "#ffffff",
+            "fill": "#ffefbf",
+            "fill-opacity": "0.64"
+        },
+        "nodes": [
+            "d426a3d9a5cc587d",
+            "421ea3a3d1ce558a",
+            "61d78c9d39ac193c",
+            "0bca3f33f9d6710a",
+            "a87343abb1f1ad70",
+            "172fd055f45774ea",
+            "2833bc30cabd27bb"
+        ],
+        "x": 1454,
+        "y": 79,
+        "w": 532,
+        "h": 182
+    },
+    {
+        "id": "5ed6930775b6db26",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Nyt currentStep i stepHistory",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cbe475f98fa62f86",
+            "3cc273d522069b56",
+            "5bbb4f7992107345"
+        ],
+        "x": 14,
+        "y": 319,
+        "w": 292,
+        "h": 162
+    },
+    {
+        "id": "ec1d36756639ef3a",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Nyt currentStep i stepHistory",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1d290be6d41c9ea4",
+            "6dce378620e80401",
+            "c1567efa25576804"
+        ],
+        "x": 14,
+        "y": 559,
+        "w": 292,
+        "h": 162
+    },
+    {
+        "id": "2429f8a3202d45d1",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Nyt currentStep i stepHistory",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "792bc1326c300849",
+            "fbeec8791e401f92",
+            "f5d7b1d2cde30ea2"
+        ],
+        "x": 1854,
+        "y": 339,
+        "w": 292,
+        "h": 162
+    },
+    {
+        "id": "af21ed65f84f3d9d",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Nyt currentStep i stepHistory",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "2cecfdc6df304e08",
+            "ab0124be3b95b802",
+            "d26270ece4aabe4f"
+        ],
+        "x": 1534,
+        "y": 579,
+        "w": 292,
+        "h": 162
+    },
+    {
+        "id": "1210cc2b799816a4",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Nyt currentStep i stepHistory",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "52672d2e7aed5524",
+            "7d7109a79eab6d87",
+            "09fe76f874087298"
+        ],
+        "x": 14,
+        "y": 819,
+        "w": 292,
+        "h": 162
+    },
+    {
+        "id": "5a789bfdce1d864e",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Nyt currentStep i stepHistory",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "ce55740d945eb1e8",
+            "766334c3b2f18b45",
+            "5f95f50d63ac5fe2"
+        ],
+        "x": 1254,
+        "y": 1659,
+        "w": 292,
+        "h": 162
+    },
+    {
         "id": "d97f7bbbe0210f54",
         "type": "junction",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "x": 640,
+        "x": 680,
         "y": 480,
         "wires": [
             [
@@ -558,11 +668,11 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "g": "9c4f3569ebca5f7b",
-        "x": 1540,
+        "x": 1480,
         "y": 680,
         "wires": [
             [
-                "c9e0c48929946d68"
+                "2cecfdc6df304e08"
             ]
         ]
     },
@@ -571,7 +681,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
-        "x": 1200,
+        "x": 1240,
         "y": 480,
         "wires": [
             [
@@ -584,7 +694,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "g": "287b33b8879cbbbc",
-        "x": 520,
+        "x": 560,
         "y": 1180,
         "wires": [
             [
@@ -782,7 +892,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "g": "27007b43e1b2750d",
-        "x": 1300,
+        "x": 1380,
         "y": 220,
         "wires": [
             [
@@ -794,8 +904,9 @@
         "id": "dd83f023eff10d0a",
         "type": "junction",
         "z": "8ea344595d9a442a",
-        "x": 320,
-        "y": 340,
+        "g": "669e09e244099963",
+        "x": 360,
+        "y": 380,
         "wires": [
             [
                 "d04faa115ea73982"
@@ -811,6 +922,19 @@
         "wires": [
             [
                 "a2f55ae008b1fee2"
+            ]
+        ]
+    },
+    {
+        "id": "2833bc30cabd27bb",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "x": 1960,
+        "y": 220,
+        "wires": [
+            [
+                "cbe475f98fa62f86"
             ]
         ]
     },
@@ -2858,7 +2982,8 @@
         "y": 120,
         "wires": [
             [
-                "92b1925b5327ed30"
+                "92b1925b5327ed30",
+                "181f9b2c93905cbf"
             ]
         ]
     },
@@ -3234,6 +3359,23 @@
                 "7e1f73ec1d40cafe"
             ]
         ]
+    },
+    {
+        "id": "181f9b2c93905cbf",
+        "type": "debug",
+        "z": "43652557380ac3f3",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1830,
+        "y": 40,
+        "wires": []
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -3820,8 +3962,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 640,
+        "x": 1870,
+        "y": 1000,
         "wires": [
             [
                 "86720377ed4f4477"
@@ -3847,27 +3989,6 @@
                 "pt": "global",
                 "to": "2022-11-17",
                 "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::statusCode",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "[\t   {\t       \"startTime\": \"2023-01-01\",\t       \"user\": \"Fornavn Efternavn\",\t       \"processedReceipts\": [\t           {\t               \"fid\": \"08dac871-25c4-413f-8ba0-16541ee46e58\",\t               \"uids\": [ \"8ba0-16541ee46e58-2173-1\" ]\t            },\t           {\t               \"fid\": \"08dac877-8745-4ade-8874-d20765b7e147\",\t               \"uids\": [ \"8874-d20765b7e147-0000-1\" ]\t            }\t\t        ],\t       \"skippedReceipts\": []\t\t    }\t]",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
             }
         ],
         "action": "",
@@ -3875,20 +3996,22 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 210,
-        "y": 680,
+        "x": 1890,
+        "y": 1040,
         "wires": [
-            []
+            [
+                "d01b6dcadf646f99"
+            ]
         ]
     },
     {
         "id": "ee8cf6c18f13350e",
         "type": "comment",
         "z": "8ea344595d9a442a",
-        "name": "TEST SÆT VARIABLER",
+        "name": "TEST SÆT VARIABLER \\n + RESET UI",
         "info": "",
-        "x": 230,
-        "y": 600,
+        "x": 1890,
+        "y": 940,
         "wires": []
     },
     {
@@ -3898,7 +4021,7 @@
         "g": "27007b43e1b2750d",
         "name": "[E] Find ny start- og slutdato ud fra seneste kørsel samt dags dato",
         "info": "",
-        "x": 890,
+        "x": 970,
         "y": 80,
         "wires": []
     },
@@ -3909,7 +4032,7 @@
         "g": "9c4f3569ebca5f7b",
         "name": "[E] Læs relevant persondata fra KP vedr. de pågældende borgere",
         "info": "",
-        "x": 650,
+        "x": 590,
         "y": 580,
         "wires": []
     },
@@ -3920,7 +4043,7 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 1520,
+        "x": 1540,
         "y": 40,
         "wires": [
             [
@@ -3941,7 +4064,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1690,
+        "x": 1730,
         "y": 40,
         "wires": []
     },
@@ -3986,7 +4109,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
+        "x": 490,
         "y": 1740,
         "wires": [
             [
@@ -4038,7 +4161,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 615,
         "y": 220,
         "wires": [
             [
@@ -4056,7 +4179,7 @@
         "g": "7de50fe1369c94a7",
         "name": "Sæt tilskudsperioder fra Danmark",
         "info": "",
-        "x": 430,
+        "x": 490,
         "y": 180,
         "wires": []
     },
@@ -4097,7 +4220,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 730,
+        "x": 810,
         "y": 180,
         "wires": [
             [
@@ -4113,7 +4236,7 @@
         "g": "27007b43e1b2750d",
         "name": "Hent datoer for seneste kørsel",
         "info": "",
-        "x": 780,
+        "x": 860,
         "y": 140,
         "wires": []
     },
@@ -4161,7 +4284,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
+        "x": 1080,
         "y": 180,
         "wires": [
             [
@@ -4197,7 +4320,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 835,
+        "x": 915,
         "y": 180,
         "wires": [
             [
@@ -4219,11 +4342,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1230,
+        "x": 1310,
         "y": 180,
         "wires": [
             [
-                "421ea3a3d1ce558a"
+                "cdc6201b7c2589f4"
             ]
         ],
         "info": "## Define file name\r\nThis JS snippet utilizes the JavaScript date function `toDateString()` as well as some string manipulation to define the name of the JSON file which will be downloaded from Worklet web interface.\r\n\r\nThe name defined is later used to find and read the downloaded file, as the actual file name cannot be set when downloading, nor can it be retrieved as the download is in progress. Therefore, the name must be determined manually to match the naming procedure of Worklet web interface."
@@ -4235,7 +4358,7 @@
         "g": "27007b43e1b2750d",
         "name": "Bestem datoer for ny kørsel",
         "info": "",
-        "x": 1040,
+        "x": 1120,
         "y": 140,
         "wires": []
     },
@@ -4281,7 +4404,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 730,
+        "x": 810,
         "y": 220,
         "wires": [
             [
@@ -4301,7 +4424,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
+        "x": 470,
         "y": 460,
         "wires": [
             [
@@ -4329,7 +4452,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 545,
+        "x": 585,
         "y": 460,
         "wires": [
             [
@@ -4355,7 +4478,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 1350,
+        "x": 1390,
         "y": 440,
         "wires": [
             [
@@ -4372,7 +4495,7 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 1455,
+        "x": 1495,
         "y": 440,
         "wires": [
             [
@@ -4393,7 +4516,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1630,
+        "x": 1670,
         "y": 420,
         "wires": [
             []
@@ -4407,7 +4530,7 @@
         "g": "669e09e244099963",
         "name": "Tjek om filen eksisterer",
         "info": "",
-        "x": 460,
+        "x": 500,
         "y": 420,
         "wires": []
     },
@@ -4418,7 +4541,7 @@
         "g": "669e09e244099963",
         "name": "Download fakturaliste",
         "info": "",
-        "x": 1140,
+        "x": 1180,
         "y": 400,
         "wires": []
     },
@@ -4429,7 +4552,7 @@
         "g": "669e09e244099963",
         "name": "Slet fakturaliste",
         "info": "",
-        "x": 1640,
+        "x": 1680,
         "y": 380,
         "wires": []
     },
@@ -4458,12 +4581,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1505,
+        "x": 1545,
         "y": 440,
         "wires": [
             [
                 "07aa032e7944f93b",
-                "d183f106c2e11bce"
+                "792bc1326c300849"
             ]
         ],
         "l": false,
@@ -4476,7 +4599,7 @@
         "g": "669e09e244099963",
         "name": "Læs fakturaliste",
         "info": "",
-        "x": 1360,
+        "x": 1400,
         "y": 400,
         "wires": []
     },
@@ -4570,7 +4693,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
+        "x": 760,
         "y": 440,
         "wires": [
             [
@@ -4599,7 +4722,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
+        "x": 950,
         "y": 440,
         "wires": [
             [
@@ -4615,7 +4738,7 @@
         "g": "669e09e244099963",
         "name": "Klargør download af faktura ift. datoer",
         "info": "",
-        "x": 790,
+        "x": 830,
         "y": 400,
         "wires": []
     },
@@ -4633,7 +4756,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1670,
+        "x": 1710,
         "y": 460,
         "wires": []
     },
@@ -4643,7 +4766,7 @@
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
         "name": "",
-        "x": 1120,
+        "x": 1160,
         "y": 440,
         "wires": [
             [
@@ -4791,7 +4914,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 530,
+        "x": 470,
         "y": 720,
         "wires": [
             [
@@ -4819,7 +4942,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
+        "x": 440,
         "y": 680,
         "wires": [
             [
@@ -4861,7 +4984,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
+        "x": 690,
         "y": 680,
         "wires": [
             [
@@ -4877,7 +5000,7 @@
         "d": true,
         "g": "9c4f3569ebca5f7b",
         "name": "",
-        "x": 1060,
+        "x": 1000,
         "y": 680,
         "wires": [
             [
@@ -4893,7 +5016,7 @@
         "g": "9c4f3569ebca5f7b",
         "name": "Klargør læsning af persondata fra KP",
         "info": "",
-        "x": 810,
+        "x": 750,
         "y": 640,
         "wires": []
     },
@@ -4904,7 +5027,7 @@
         "g": "9c4f3569ebca5f7b",
         "name": "Læs CPR fra faktura",
         "info": "",
-        "x": 510,
+        "x": 450,
         "y": 640,
         "wires": []
     },
@@ -4928,7 +5051,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1320,
+        "x": 1260,
         "y": 680,
         "wires": [
             [
@@ -4951,7 +5074,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
+        "x": 1350,
         "y": 720,
         "wires": []
     },
@@ -4962,7 +5085,7 @@
         "g": "9c4f3569ebca5f7b",
         "name": "Læs persondata",
         "info": "",
-        "x": 1060,
+        "x": 1000,
         "y": 640,
         "wires": []
     },
@@ -4973,7 +5096,7 @@
         "g": "9c4f3569ebca5f7b",
         "name": "Gem data i midlertidig hukommelse",
         "info": "",
-        "x": 1380,
+        "x": 1320,
         "y": 640,
         "wires": []
     },
@@ -4989,7 +5112,7 @@
                 "type": "msg"
             }
         ],
-        "x": 1040,
+        "x": 980,
         "y": 720,
         "wires": [
             [
@@ -5006,7 +5129,7 @@
         "property": "pupOutputs",
         "action": "",
         "pretty": false,
-        "x": 1135,
+        "x": 1075,
         "y": 720,
         "wires": [
             [
@@ -5027,7 +5150,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 540,
         "y": 880,
         "wires": [
             [
@@ -5055,7 +5178,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
+        "x": 930,
         "y": 880,
         "wires": [
             [
@@ -5078,7 +5201,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
+        "x": 970,
         "y": 1740,
         "wires": []
     },
@@ -5089,7 +5212,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Saml borgere og fakturaer",
         "info": "https://try.jsonata.org/wRgtKDrKD",
-        "x": 910,
+        "x": 950,
         "y": 840,
         "wires": []
     },
@@ -5113,7 +5236,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
+        "x": 470,
         "y": 1020,
         "wires": [
             [
@@ -5142,7 +5265,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
+        "x": 480,
         "y": 980,
         "wires": [
             [
@@ -5157,7 +5280,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Gør KP data maskinelt læsbart",
         "info": "",
-        "x": 450,
+        "x": 490,
         "y": 940,
         "wires": []
     },
@@ -5181,7 +5304,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
+        "x": 1190,
         "y": 1060,
         "wires": [
             [
@@ -5210,7 +5333,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
+        "x": 470,
         "y": 1060,
         "wires": [
             [
@@ -5239,7 +5362,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
+        "x": 410,
         "y": 1100,
         "wires": [
             [
@@ -5268,7 +5391,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 420,
         "y": 1140,
         "wires": [
             [
@@ -5296,7 +5419,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 420,
         "y": 1180,
         "wires": [
             [
@@ -5312,7 +5435,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Transformer faktura data (+ fjern unødvendig data)",
         "info": "",
-        "x": 1210,
+        "x": 1250,
         "y": 940,
         "wires": []
     },
@@ -5336,7 +5459,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1120,
+        "x": 1160,
         "y": 980,
         "wires": [
             [
@@ -5364,7 +5487,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1120,
+        "x": 1160,
         "y": 1020,
         "wires": [
             [
@@ -5392,7 +5515,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
+        "x": 1170,
         "y": 1220,
         "wires": [
             [
@@ -5421,7 +5544,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
+        "x": 810,
         "y": 1000,
         "wires": [
             [
@@ -5436,7 +5559,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Kontroller KP data ud fra regelsæt",
         "info": "",
-        "x": 780,
+        "x": 820,
         "y": 960,
         "wires": []
     },
@@ -5454,7 +5577,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
+        "x": 900,
         "y": 1580,
         "wires": []
     },
@@ -5478,7 +5601,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
+        "x": 810,
         "y": 1040,
         "wires": [
             [
@@ -5506,7 +5629,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
+        "x": 760,
         "y": 1080,
         "wires": [
             [
@@ -5534,7 +5657,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
+        "x": 820,
         "y": 1120,
         "wires": [
             [
@@ -5563,7 +5686,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
+        "x": 440,
         "y": 1260,
         "wires": [
             [
@@ -5592,7 +5715,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1210,
+        "x": 1250,
         "y": 1260,
         "wires": [
             [
@@ -5607,7 +5730,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Find relevant data for hver behandling på faktura",
         "info": "",
-        "x": 1200,
+        "x": 1240,
         "y": 1180,
         "wires": []
     },
@@ -5631,7 +5754,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1190,
+        "x": 1230,
         "y": 1140,
         "wires": [
             [
@@ -5646,7 +5769,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Find relevant data for hver faktura",
         "info": "",
-        "x": 1150,
+        "x": 1190,
         "y": 1100,
         "wires": []
     },
@@ -5670,7 +5793,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
+        "x": 540,
         "y": 1420,
         "wires": [
             [
@@ -5686,7 +5809,7 @@
         "g": "6c7a3f8252158db6",
         "name": "Opret sager / ydelser",
         "info": "",
-        "x": 480,
+        "x": 500,
         "y": 1380,
         "wires": []
     },
@@ -5710,7 +5833,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
+        "x": 1130,
         "y": 1420,
         "wires": [
             [
@@ -5746,7 +5869,7 @@
         "links": [
             "5c74b689e0aee38b"
         ],
-        "x": 1265,
+        "x": 1185,
         "y": 1820,
         "wires": []
     },
@@ -5757,7 +5880,7 @@
         "g": "380e5c7e0ea3778b",
         "name": "Klargør data til UI",
         "info": "",
-        "x": 560,
+        "x": 480,
         "y": 1700,
         "wires": []
     },
@@ -5768,7 +5891,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Fjern borgere som ikke har gyldig tillægsprocent?",
         "info": "",
-        "x": 1480,
+        "x": 1520,
         "y": 1100,
         "wires": []
     },
@@ -5792,7 +5915,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 790,
+        "x": 710,
         "y": 1740,
         "wires": [
             [
@@ -5821,7 +5944,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 550,
+        "x": 570,
         "y": 1540,
         "wires": [
             [
@@ -5850,7 +5973,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 550,
+        "x": 570,
         "y": 1500,
         "wires": [
             [
@@ -5891,7 +6014,7 @@
         "g": "6c7a3f8252158db6",
         "name": "Flyt borgere som ikke har handlinger til \"errors\"",
         "info": "",
-        "x": 560,
+        "x": 580,
         "y": 1460,
         "wires": []
     },
@@ -5902,7 +6025,7 @@
         "g": "6c7a3f8252158db6",
         "name": "Beregn tilskud",
         "info": "",
-        "x": 1090,
+        "x": 1110,
         "y": 1380,
         "wires": []
     },
@@ -5926,7 +6049,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1260,
+        "x": 1280,
         "y": 1460,
         "wires": [
             [
@@ -5955,7 +6078,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
+        "x": 1190,
         "y": 1500,
         "wires": [
             [
@@ -5984,7 +6107,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1220,
+        "x": 1240,
         "y": 1540,
         "wires": [
             [
@@ -6013,7 +6136,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
+        "x": 1150,
         "y": 1580,
         "wires": [
             [
@@ -6029,7 +6152,7 @@
         "g": "287b33b8879cbbbc",
         "name": "[T] Transformér data, beregn tilskud",
         "info": "",
-        "x": 460,
+        "x": 500,
         "y": 840,
         "wires": []
     },
@@ -6040,7 +6163,7 @@
         "g": "287b33b8879cbbbc",
         "name": "Fjern faktura / behandlinger på faktura som allerede er behandlet",
         "info": "https://try.jsonata.org/wRgtKDrKD",
-        "x": 1250,
+        "x": 1290,
         "y": 840,
         "wires": []
     },
@@ -6065,7 +6188,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
+        "x": 1190,
         "y": 880,
         "wires": [
             []
@@ -6093,7 +6216,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1480,
+        "x": 1520,
         "y": 880,
         "wires": [
             []
@@ -6106,7 +6229,7 @@
         "z": "8ea344595d9a442a",
         "g": "7de50fe1369c94a7",
         "name": "",
-        "x": 410,
+        "x": 470,
         "y": 220,
         "wires": [
             [
@@ -6177,11 +6300,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
+        "x": 950,
         "y": 1820,
         "wires": [
             [
-                "f5dbef72792b9011"
+                "f5dbef72792b9011",
+                "ce55740d945eb1e8"
             ]
         ]
     },
@@ -6192,7 +6316,7 @@
         "g": "380e5c7e0ea3778b",
         "name": "Clean alt unødvendig data fra msg objekt",
         "info": "",
-        "x": 1120,
+        "x": 1040,
         "y": 1780,
         "wires": []
     },
@@ -6223,7 +6347,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
+        "x": 660,
         "y": 1820,
         "wires": [
             [
@@ -6244,144 +6368,6 @@
         "wires": [
             [
                 "135dfd2c3c6f4850"
-            ]
-        ]
-    },
-    {
-        "id": "d426a3d9a5cc587d",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "f5691660d774404b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "[]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1500,
-        "y": 220,
-        "wires": [
-            [
-                "61d78c9d39ac193c"
-            ]
-        ]
-    },
-    {
-        "id": "421ea3a3d1ce558a",
-        "type": "switch",
-        "z": "8ea344595d9a442a",
-        "g": "f5691660d774404b",
-        "name": "",
-        "property": "#:(storeInFile)::runHistory",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "nempty"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1430,
-        "y": 160,
-        "wires": [
-            [
-                "61d78c9d39ac193c"
-            ],
-            [
-                "d426a3d9a5cc587d"
-            ]
-        ]
-    },
-    {
-        "id": "61d78c9d39ac193c",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "f5691660d774404b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "#:(storeInFile)::runHistory",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "currentRun",
-                "pt": "msg",
-                "to": "(\t$startDate := startDate;\trunHistory[startDate = $startDate] ~> $exists() ?\t\trunHistory[startDate = $startDate]\t:\t{\t    \"startDate\": $startDate,\t    \"endDate\": endDate,\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1700,
-        "y": 160,
-        "wires": [
-            [
-                "0bca3f33f9d6710a"
-            ]
-        ]
-    },
-    {
-        "id": "0bca3f33f9d6710a",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "f5691660d774404b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "startDate",
-                "pt": "msg",
-                "to": "#:(storeInFile)::lastRunDate",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "(\t    $startDate := startDate;\t\t    (runHistory[startDate = $startDate] ~> $exists()) = false ?\t\t    $append(runHistory, currentRun)\t    :\t    runHistory\t)",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "runHistory",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1740,
-        "y": 220,
-        "wires": [
-            [
-                "dd83f023eff10d0a"
             ]
         ]
     },
@@ -6498,7 +6484,6 @@
         "y": 2160,
         "wires": [
             [
-                "019ee9d55c7a8758",
                 "fc1053d3105b2cd0"
             ]
         ]
@@ -6568,25 +6553,15 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 2000,
-        "wires": []
-    },
-    {
-        "id": "a87343abb1f1ad70",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "f5691660d774404b",
-        "name": "Set currentRun object",
-        "info": "",
-        "x": 1720,
-        "y": 120,
+        "x": 1420,
+        "y": 1860,
         "wires": []
     },
     {
         "id": "3cc273d522069b56",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "g": "5ed6930775b6db26",
         "name": "Add step run history",
         "rules": [
             {
@@ -6594,7 +6569,8 @@
                 "p": "currentStartDate",
                 "pt": "msg",
                 "to": "currentStartDate",
-                "tot": "global"
+                "tot": "global",
+                "dc": true
             },
             {
                 "t": "set",
@@ -6608,14 +6584,22 @@
                 "t": "set",
                 "p": "newStep",
                 "pt": "msg",
-                "to": "payload.webSteps[title = \"initialization\"]",
+                "to": "payload.webSteps[title = \"extract-worklet\"]",
                 "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
             },
             {
                 "t": "set",
                 "p": "newState",
                 "pt": "msg",
-                "to": "payload.webStates[title = \"idle\"]",
+                "to": "payload.webStates[title = \"running\"]",
                 "tot": "jsonata"
             },
             {
@@ -6623,14 +6607,6 @@
                 "p": "newState",
                 "pt": "msg",
                 "to": "newState",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "newState.result",
-                "pt": "msg",
-                "to": "newState.result[0]",
                 "tot": "msg",
                 "dc": true
             },
@@ -6641,6 +6617,13 @@
                 "to": "newState",
                 "tot": "msg",
                 "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
             },
             {
                 "t": "set",
@@ -6671,30 +6654,22 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1780,
-        "y": 640,
+        "x": 160,
+        "y": 400,
         "wires": [
-            []
+            [
+                "5bbb4f7992107345"
+            ]
         ]
-    },
-    {
-        "id": "172fd055f45774ea",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "f5691660d774404b",
-        "name": "Hent runHistory",
-        "info": "",
-        "x": 1460,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "cbe475f98fa62f86",
         "type": "subflow:db94b4c117de2f6a",
         "z": "8ea344595d9a442a",
+        "g": "5ed6930775b6db26",
         "name": "",
-        "x": 1770,
-        "y": 600,
+        "x": 150,
+        "y": 360,
         "wires": [
             [
                 "3cc273d522069b56"
@@ -6740,7 +6715,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
+        "x": 480,
         "y": 380,
         "wires": [
             [
@@ -6784,7 +6759,7 @@
         "g": "669e09e244099963",
         "name": "[E] Download fakturaer for den bestemte tidsperiode",
         "info": "",
-        "x": 530,
+        "x": 570,
         "y": 340,
         "wires": []
     },
@@ -6842,6 +6817,1039 @@
             [
                 "a2f55ae008b1fee2"
             ]
+        ]
+    },
+    {
+        "id": "d426a3d9a5cc587d",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1600,
+        "y": 220,
+        "wires": [
+            [
+                "61d78c9d39ac193c"
+            ]
+        ]
+    },
+    {
+        "id": "421ea3a3d1ce558a",
+        "type": "switch",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "name": "",
+        "property": "#:(storeInFile)::runHistory",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1530,
+        "y": 160,
+        "wires": [
+            [
+                "61d78c9d39ac193c"
+            ],
+            [
+                "d426a3d9a5cc587d"
+            ]
+        ]
+    },
+    {
+        "id": "61d78c9d39ac193c",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "currentRun",
+                "pt": "msg",
+                "to": "(\t$startDate := startDate;\trunHistory[startDate = $startDate] ~> $exists() ?\t\trunHistory[startDate = $startDate]\t:\t{\t    \"startDate\": $startDate,\t    \"endDate\": endDate,\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1800,
+        "y": 160,
+        "wires": [
+            [
+                "0bca3f33f9d6710a"
+            ]
+        ]
+    },
+    {
+        "id": "0bca3f33f9d6710a",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "(\t    $startDate := startDate;\t\t    (runHistory[startDate = $startDate] ~> $exists()) = false ?\t\t    $append(runHistory, currentRun)\t    :\t    runHistory\t)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1840,
+        "y": 220,
+        "wires": [
+            [
+                "2833bc30cabd27bb"
+            ]
+        ]
+    },
+    {
+        "id": "a87343abb1f1ad70",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "name": "Set currentRun object",
+        "info": "",
+        "x": 1820,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "172fd055f45774ea",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "f5691660d774404b",
+        "name": "Hent runHistory",
+        "info": "",
+        "x": 1560,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1d290be6d41c9ea4",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "8ea344595d9a442a",
+        "g": "ec1d36756639ef3a",
+        "name": "",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "6dce378620e80401"
+            ]
+        ]
+    },
+    {
+        "id": "6dce378620e80401",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "ec1d36756639ef3a",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "payload.webSteps[title = \"extract-kp\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "payload.webStates[title = \"running\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.state",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep.lastResult",
+                "pt": "msg",
+                "to": "newStep.state.result",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 640,
+        "wires": [
+            [
+                "c1567efa25576804"
+            ]
+        ]
+    },
+    {
+        "id": "792bc1326c300849",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "8ea344595d9a442a",
+        "g": "2429f8a3202d45d1",
+        "name": "",
+        "x": 1990,
+        "y": 380,
+        "wires": [
+            [
+                "fbeec8791e401f92"
+            ]
+        ]
+    },
+    {
+        "id": "fbeec8791e401f92",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "2429f8a3202d45d1",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "payload.webSteps[title = \"extract-worklet\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "payload.webStates[title = \"idle\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState.result",
+                "pt": "msg",
+                "to": "newState.result[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "newStep.state",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep.lastResult",
+                "pt": "msg",
+                "to": "newStep.state.result",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2000,
+        "y": 420,
+        "wires": [
+            [
+                "f5d7b1d2cde30ea2"
+            ]
+        ]
+    },
+    {
+        "id": "2cecfdc6df304e08",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "8ea344595d9a442a",
+        "g": "af21ed65f84f3d9d",
+        "name": "",
+        "x": 1670,
+        "y": 620,
+        "wires": [
+            [
+                "ab0124be3b95b802"
+            ]
+        ]
+    },
+    {
+        "id": "ab0124be3b95b802",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "af21ed65f84f3d9d",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "payload.webSteps[title = \"extract-kp\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "payload.webStates[title = \"idle\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState.result",
+                "pt": "msg",
+                "to": "newState.result[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "newStep.state",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep.lastResult",
+                "pt": "msg",
+                "to": "newStep.state.result",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1680,
+        "y": 660,
+        "wires": [
+            [
+                "d26270ece4aabe4f"
+            ]
+        ]
+    },
+    {
+        "id": "52672d2e7aed5524",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "8ea344595d9a442a",
+        "g": "1210cc2b799816a4",
+        "name": "",
+        "x": 150,
+        "y": 860,
+        "wires": [
+            [
+                "7d7109a79eab6d87"
+            ]
+        ]
+    },
+    {
+        "id": "7d7109a79eab6d87",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "1210cc2b799816a4",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "payload.webSteps[title = \"transform\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "payload.webStates[title = \"running\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.state",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep.lastResult",
+                "pt": "msg",
+                "to": "newStep.state.result",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 900,
+        "wires": [
+            [
+                "09fe76f874087298"
+            ]
+        ]
+    },
+    {
+        "id": "ce55740d945eb1e8",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "8ea344595d9a442a",
+        "g": "5a789bfdce1d864e",
+        "name": "",
+        "x": 1390,
+        "y": 1700,
+        "wires": [
+            [
+                "766334c3b2f18b45"
+            ]
+        ]
+    },
+    {
+        "id": "766334c3b2f18b45",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "5a789bfdce1d864e",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "payload.webSteps[title = \"transform\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "payload.webStates[title = \"idle\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState.result",
+                "pt": "msg",
+                "to": "newState.result[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "newStep.state",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep.lastResult",
+                "pt": "msg",
+                "to": "newStep.state.result",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 1740,
+        "wires": [
+            [
+                "5f95f50d63ac5fe2"
+            ]
+        ]
+    },
+    {
+        "id": "5f95f50d63ac5fe2",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "5a789bfdce1d864e",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1780,
+        "wires": [
+            [
+                "019ee9d55c7a8758"
+            ]
+        ]
+    },
+    {
+        "id": "09fe76f874087298",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "1210cc2b799816a4",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 170,
+        "y": 940,
+        "wires": [
+            [
+                "c9e0c48929946d68"
+            ]
+        ]
+    },
+    {
+        "id": "c1567efa25576804",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "ec1d36756639ef3a",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 170,
+        "y": 680,
+        "wires": [
+            [
+                "d183f106c2e11bce"
+            ]
+        ]
+    },
+    {
+        "id": "5bbb4f7992107345",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "5ed6930775b6db26",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "dd83f023eff10d0a"
+            ]
+        ]
+    },
+    {
+        "id": "f5d7b1d2cde30ea2",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "2429f8a3202d45d1",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2010,
+        "y": 460,
+        "wires": [
+            [
+                "1d290be6d41c9ea4"
+            ]
+        ]
+    },
+    {
+        "id": "d26270ece4aabe4f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "af21ed65f84f3d9d",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1690,
+        "y": 700,
+        "wires": [
+            [
+                "52672d2e7aed5524"
+            ]
+        ]
+    },
+    {
+        "id": "d01b6dcadf646f99",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::webSettings",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webData",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webStates",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webSteps",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1920,
+        "y": 1080,
+        "wires": [
+            []
         ]
     },
     {
@@ -8099,7 +9107,7 @@
         "z": "c28a486ea3e09387",
         "name": "Reset",
         "info": "",
-        "x": 170,
+        "x": 210,
         "y": 300,
         "wires": []
     },
