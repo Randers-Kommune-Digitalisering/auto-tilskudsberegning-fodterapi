@@ -364,7 +364,9 @@
             "412dc2399a0183b9"
         ],
         "x": 454,
-        "y": 419
+        "y": 419,
+        "w": 1232,
+        "h": 502
     },
     {
         "id": "0e177132df886f4e",
@@ -389,7 +391,9 @@
             "164122de385f07b8"
         ],
         "x": 494,
-        "y": 939
+        "y": 939,
+        "w": 1192,
+        "h": 202
     },
     {
         "id": "e4e7a254403521e9",
@@ -413,7 +417,9 @@
             "6226138fabf9a3b8"
         ],
         "x": 494,
-        "y": 1159
+        "y": 1159,
+        "w": 1192,
+        "h": 122
     },
     {
         "id": "0772648cf2b898d4",
@@ -432,7 +438,9 @@
             "8d172c16f57e9a2b"
         ],
         "x": 14,
-        "y": 519
+        "y": 519,
+        "w": 312,
+        "h": 257
     },
     {
         "id": "dff24743df339ae5",
@@ -450,7 +458,9 @@
             "b0adba24e19779d2"
         ],
         "x": 534,
-        "y": 279
+        "y": 279,
+        "w": 1152,
+        "h": 122
     },
     {
         "id": "0d6121cfccf91882",
@@ -476,7 +486,9 @@
             "269002ef959b2b77"
         ],
         "x": 74,
-        "y": 59
+        "y": 59,
+        "w": 1612,
+        "h": 142
     },
     {
         "id": "5ed6930775b6db26",
@@ -1865,7 +1877,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: navbar",
-        "func": "// Set menu html\n\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized;;\nvar currentRun = currentRunExists ?\n    global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n    : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" onclick=\"goToPage('start')\"></a>\n        <a class=\"navbar-brand randers-titel\" onclick=\"goToPage('start')\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a id=\"nav_start\" class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_login\" class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\") + \n                (pageAccepted('login') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_rules\" class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\") +\n                (pageAccepted('rules') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_grants\" class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>`+\n\n            (receiptsAwaiting && isBeingProcessed ?\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-receipts\" class=\"nav-link`+\n                (isActive('view-receipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n                        </li>`)\n            +\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n                (isActive('view-nograntreceipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-nograntreceipts')\">Ej berettigede borgere</a>\n                        </li>`) : ``)\n            +\n\n            ((!receiptsAwaiting && isBeingProcessed) ? \n            ` <li class=\"nav-item\">\n                    <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\") +\n            (pageAccepted('run') ? \" nav-success\" : \"\")\n            +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n                </li>`\n            :\n            \n            ((pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants')) ?\n            `<li class=\"nav-item\">\n                <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('run')\">`+\n                (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n                +`</a>\n            </li>` : ``))\n            +`\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
+        "func": "// Set menu html\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" onclick=\"goToPage('start')\"></a>\n        <a class=\"navbar-brand randers-titel\" onclick=\"goToPage('start')\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a id=\"nav_start\" class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_login\" class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\") + \n                (pageAccepted('login') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_rules\" class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\") +\n                (pageAccepted('rules') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_grants\" class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>`;\n\n\n\n\nif (isBeingProcessed && !dataExists)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('run')\">Genoptag kørsel</a>\n        </li>`;\n\nelse if (receiptsAwaiting && isBeingProcessed)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_view-receipts\" class=\"nav-link`+\n            (isActive('view-receipts') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n        </li>`\n    +  `<li class=\"nav-item\">\n            <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n            (isActive('view-nograntreceipts') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('view-nograntreceipts')\">Borgere uden bevilling</a>\n        </li>`;\n\nelse if (!receiptsAwaiting && isBeingProcessed)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n        </li>`;\n\nelse if (pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants'))\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('run')\">` +\n            (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n            + `</a>\n        </li>`;\n\n\n/*\n\n            (receiptsAwaiting && isBeingProcessed ?\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-receipts\" class=\"nav-link`+\n                (isActive('view-receipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n                        </li>`)\n            +\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n                (isActive('view-nograntreceipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-nograntreceipts')\">Ej berettigede borgere</a>\n                        </li>`) : ``)\n            +\n\n            ((isBeingProcessed && !dataExists) ? \n                ` <li class=\"nav-item\">\n                                    <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\") +\n                + `\" onclick=\"goToPage('run')\">Genoptag kørsel</a>\n                    </li>`\n                :\n\n\n                ((!receiptsAwaiting && isBeingProcessed) ? \n                ` <li class=\"nav-item\">\n                        <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\") +\n                +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n                    </li>`\n                :\n                \n                ((pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants')) ?\n                `<li class=\"nav-item\">\n                    <a id=\"nav_run\" class=\"nav-link`+\n                    (isActive('run') ? \" active\" : \"\")\n                    +`\" onclick=\"goToPage('run')\">`+\n                    (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n                    +`</a>\n                </li>` : ``))\n            )\n\n*/\nhtml += `\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2312,7 +2324,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "newRunCard body",
-        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\n\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized;;\nvar currentRun = currentRunExists ?\n    global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n    : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nvar rejectedCitizenCount = 0; //global.get(\"webData\")[\"citizens-noactions\"] == null ? 0 : global.get(\"webData\")[\"citizens-noactions\"].length;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        rejectedCitizenCount = global.get(\"webData\")[\"citizens-noactions\"].length;\n\nvar remainingCount = 0;\n\nfor (var i = 0; i < rejectedCitizenCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-noactions\"])[i].archived)\n        remainingCount++;\n\nrejectedCitizenCount = remainingCount;\n\n\nvar cardHeader = \"Ny kørsel\";\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\nvar border = \"light\";\nvar buttonClasses = \" \";\n\nif (receiptsAwaiting || rejectedCitizenCount > 0) {\n    cardHeader = \"Borgere uden gyldig bevilling\";\n    cardTitle = rejectedCitizenCount == 0 ? \"Ingen fakturaer\" : rejectedCitizenCount + \" borgere afventer\";\n    cardText = \"Efter seneste kørsel er der \" + rejectedCitizenCount + \" borgere uden gyldig bevilling som afventer bekræftelse.\";\n    buttonText = \"Se borgere\";\n    buttonClasses += rejectedCitizenCount == 0 ? \"hidden\" : \"\";\n    linkhref = \"view-nograntreceipts\";\n    border = rejectedCitizenCount > 0 ? \"warning\" : \"light\";\n\n}\nelse if(isBeingProcessed)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n    cardText = \"Alle anbefalede handlinger samt ej berretigede borgere er bekræftet. Afslut kørslen nu.\"\n    buttonText = \"Afslut kørsel\";\n    border = \"success\";\n}\n\nelse if (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Vent venligst\";\n    buttonClasses += \"hidden\";\n    linkhref = \"view-receipts\";\n    border = \"info\";\n}\n\nelse if (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar classes = \"border-\" + border;\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+buttonClasses+`\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nmsg.payload.pageElements['newRunCardHeader'] = cardHeader;\nreturn msg;",
+        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nvar rejectedCitizenCount = 0; //global.get(\"webData\")[\"citizens-noactions\"] == null ? 0 : global.get(\"webData\")[\"citizens-noactions\"].length;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        rejectedCitizenCount = global.get(\"webData\")[\"citizens-noactions\"].length;\n\nvar remainingCount = 0;\n\nfor (var i = 0; i < rejectedCitizenCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-noactions\"])[i].archived)\n        remainingCount++;\n\nrejectedCitizenCount = remainingCount;\n\n\nvar cardHeader = \"Ny kørsel\";\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\nvar border = \"light\";\nvar buttonClasses = \" \";\n\n\nif (receiptsAwaiting && isBeingProcessed && !dataExists)\n{\n    cardHeader = \"Genoptag kørsel\";\n    cardTitle = \"Data mangler\";\n    cardText = \"Genoptag kørslen for at hente manglende data.\";\n    linkhref = \"run\";\n    buttonText = \"Genoptag\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount > 0)\n{\n    cardHeader = \"Borgere uden gyldig bevilling\";\n    cardTitle = rejectedCitizenCount == 0 ? \"Ingen fakturaer\" : rejectedCitizenCount + \" borgere afventer\";\n    cardText = \"Efter seneste kørsel er der \" + rejectedCitizenCount + \" borgere uden gyldig bevilling som afventer bekræftelse.\";\n    buttonText = \"Se borgere\";\n    buttonClasses += rejectedCitizenCount == 0 ? \"hidden\" : \"\";\n    linkhref = \"view-nograntreceipts\";\n    border = rejectedCitizenCount > 0 ? \"warning\" : \"light\";\n\n}\nelse if(isBeingProcessed)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n    cardText = \"Alle anbefalede handlinger samt ej berretigede borgere er bekræftet. Afslut kørslen nu.\"\n    buttonText = \"Afslut kørsel\";\n    border = \"success\";\n}\n\nelse if (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Vent venligst\";\n    buttonClasses += \"hidden\";\n    linkhref = \"view-receipts\";\n    border = \"info\";\n}\n\nelse if (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar classes = \"border-\" + border;\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+buttonClasses+`\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nmsg.payload.pageElements['newRunCardHeader'] = cardHeader;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2810,7 +2822,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
+        "x": 1110,
         "y": 640,
         "wires": [
             [
@@ -3235,7 +3247,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: actionsCard",
-        "func": "var receiptCount = 0;\n//var acceptedReceiptCount = 0;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount = global.get(\"webData\")[\"citizens-actions\"].length;\n\nvar remainingCount = 0;\n\nfor(var i = 0; i < receiptCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-actions\"])[i].archived)\n        remainingCount ++;\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceiptCount = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts.length;*/\n\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\n//var remainingCount = receiptCount - acceptedReceiptCount;\nreceiptCount = remainingCount;\n\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized;\nvar currentRun = currentRunExists ?\n                    global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n                    : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isFinialized = currentRunExists ? currentRun.isFinalized : true;\n\nvar border = receiptsAwaiting && receiptCount > 0 ? `info` : `light`;\nvar title = receiptsAwaiting ? (receiptCount + ` borgere afventer`) : `Ingen fakturaer`;\nvar body = receiptsAwaiting ? \"Efter seneste kørsel er der \"+receiptCount+\" borgere med anbefalede handlinger som afventer behandling.\" : !isFinialized ? \"Afslut seneste kørsel til højre når du har bekræftet behandlingen af alle borgere.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nvar html =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        `\n        +\n        (receiptCount > 0 ? `<div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se borgere</button>\n        </div>` : ``)\n        +\n        `\n    </div>\n</div>`;\n\nmsg.payload.pageElements.actionsCard = html;\nreturn msg;",
+        "func": "var receiptCount = 0;\nvar remainingCount = 0;\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nif (dataExists)\n{\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount = global.get(\"webData\")[\"citizens-actions\"].length;\n\n    for (var i = 0; i < receiptCount; i++)\n        if (!(global.get(\"webData\")[\"citizens-actions\"])[i].archived)\n            remainingCount++;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceiptCount = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts.length;*/\n\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\n//var remainingCount = receiptCount - acceptedReceiptCount;\nreceiptCount = remainingCount;\n\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && ( \n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n                    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n                        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n                        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isFinialized = currentRunExists ? currentRun.isFinalized : true;\n\nvar border = (receiptsAwaiting && !dataExists) ? `danger` : receiptsAwaiting && receiptCount > 0 ? `info` : `light`;\nvar title = (receiptsAwaiting && !dataExists) ? \"Genoptag kørsel\" :\n            receiptsAwaiting ? (receiptCount + ` borgere afventer`) : !isFinialized ? `Afslut kørsel` :`Ingen fakturaer`;\nvar body = (receiptsAwaiting && !dataExists) ? \"Seneste kørsel blev ikke afsluttet. Genoptag kørslen for at hente manglende data.\" :\n            receiptsAwaiting ? \"Efter seneste kørsel er der \"+receiptCount+\" borgere med anbefalede handlinger som afventer behandling.\" : !isFinialized ? \"Afslut seneste kørsel til højre når du har bekræftet behandlingen af alle borgere.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nvar html =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        `\n        +\n        (receiptCount > 0 ? `<div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se borgere</button>\n        </div>`\n        : ``)\n        +\n        `\n    </div>\n</div>`;\n\nmsg.payload.pageElements.actionsCard = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3302,7 +3314,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: lastRunCard",
-        "func": "var lastRunObj = null;\n\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1] !== undefined)\n        lastRunObj = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1];\n\n\n\n\n\nvar html = ``;\n\nif (lastRunObj === null)\n{\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Ingen data</h4>\n        </div>\n    </div>`;\n}\n\nelse\n{\n\n\n    var daysSinceRun = parseInt((Date.now() - lastRunObj.timestamp) / 86400000);\n    var dayordays = daysSinceRun > 1 ? \"dage\" : \"dag\";\n\n    var lastRun = daysSinceRun == 0 ? \"Tidligere i dag\" : daysSinceRun + \" \" + dayordays + \" siden\";\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">`+ lastRun + `</h4>\n            <p class=\"card-text\">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString() + `<br />\n                <!--div class=\"mt-1\">\n                    <strong>0</strong> fakturaer automatisk behandlet.<br />\n                    <strong>5</strong> fakturaer sat til manuel behandling.\n                </div-->\n            </p>\n        </div>\n    </div>`;\n}\n\nmsg.payload.pageElements.lastRunCard = html;\nreturn msg;",
+        "func": "var lastRunObj = null;\n\n\n\nvar lastRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? (global.get(\"runHistory\", \"storeInFile\")).length > 0 : true);\n\nvar lastRunObj = lastRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1] !== undefined)\n        lastRunObj = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1];\n\n*/\n\n\n\nvar html = ``;\n\nif (lastRunObj === null)\n{\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Ingen data</h4>\n        </div>\n    </div>`;\n}\n\nelse\n{\n\n\n    var daysSinceRun = parseInt((Date.now() - lastRunObj.timestamp) / 86400000);\n    var dayordays = daysSinceRun > 1 ? \"dage\" : \"dag\";\n\n    var lastRun = daysSinceRun == 0 ? \"Tidligere i dag\" : daysSinceRun + \" \" + dayordays + \" siden\";\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">`+ lastRun + `</h4>\n            <p class=\"card-text\">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString() + `<br />\n                <!--div class=\"mt-1\">\n                    <strong>0</strong> fakturaer automatisk behandlet.<br />\n                    <strong>5</strong> fakturaer sat til manuel behandling.\n                </div-->\n            </p>\n        </div>\n    </div>`;\n}\n\nmsg.payload.pageElements.lastRunCard = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3410,9 +3422,27 @@
         "y": 640,
         "wires": [
             [
-                "4f3852df34ce990f"
+                "4f3852df34ce990f",
+                "4f8b3efda7c334a8"
             ]
         ]
+    },
+    {
+        "id": "4f8b3efda7c334a8",
+        "type": "debug",
+        "z": "43652557380ac3f3",
+        "name": "debug 23",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 680,
+        "wires": []
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -4102,8 +4132,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 1540,
-        "y": 40,
+        "x": 1360,
+        "y": 80,
         "wires": [
             [
                 "df0ed618b5194000"
@@ -4123,8 +4153,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1730,
-        "y": 40,
+        "x": 1550,
+        "y": 80,
         "wires": []
     },
     {
@@ -4284,13 +4314,6 @@
                 "pt": "msg",
                 "to": "Kvitteringer-Thu Nov 17-Sun Nov 20.json",
                 "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "[{\"startDate\":\"17/11/2022\",\"endDate\":\"20/11/2022\",\"timestamp\":1675173953047,\"processedReceipts\":[\"08dac871-25c4-413f-8ba0-16541ee46e58\",\"08dac874-3377-47c3-87e4-2b67a7792be4\",\"08dac877-8745-4ade-8874-d20765b7e147\",\"08dac884-aaf0-48a6-80f0-8a27be1992bc\",\"08dac888-f187-4436-8ba8-a9087ce43435\",\"08dac889-441f-4f19-8167-38959f8cd2d6\",\"08dac88b-595f-4caf-8904-c8998f9996b9\",\"08dac890-7054-4a61-8a3c-075d07d9c70f\",\"08dac89d-3a3d-4a1c-8f52-d3ffc629a33d\",\"08dac8a1-a6a2-48b7-8202-a15ed1382370\",\"08dac8aa-05c3-4989-8b65-d1c91e93c67b\",\"08dac8aa-1d31-4c9a-8fc9-8ce2272bdbe1\",\"08dac938-93de-408f-8c38-e8bd2f1c1828\",\"08dac93a-fed5-4f44-82db-a66c7e1a4774\",\"08dac941-56e1-4594-8a94-6b14f18c34a0\",\"08dac941-695d-4c94-8c63-1ef094465420\",\"08dac951-50d2-4ef3-8cb5-b85d90b7f6b7\",\"08dac95d-08f0-42ce-839e-65824ad4cfb4\",\"08dac95f-1c62-45ee-891c-5f427313d1e9\",\"08dac95f-b6ec-4966-88d0-855844720dca\",\"08dac95f-d5d8-4b04-89c0-aa2aed5f3215\",\"08dac962-c6b6-4369-8a99-1568d1f8731a\",\"08dac965-1ab3-4c2a-8622-5e5ef0614a6b\",\"08dac965-756d-4cdb-8194-b4816b2919fc\",\"08dacaed-f475-49e3-8ed7-13a0e1097abd\",\"08dac94d-62d3-4ad3-8925-0eac833253cc\",\"08dac965-57fe-4665-8dde-be27a60c4392\"],\"allReceiptsProcessed\":true,\"isFinalized\":false,\"currentStep\":{\"title\":\"transform\",\"id\":4,\"state\":{\"title\":\"idle\",\"id\":0,\"result\":\"completed\"},\"lastResult\":\"completed\",\"timestamp\":1675173954112},\"stepHistory\":[{\"title\":\"extract-worklet\",\"id\":1,\"state\":{\"title\":\"running\",\"id\":1,\"result\":\"busy\"},\"lastResult\":\"busy\",\"timestamp\":1675173953049},{\"title\":\"extract-worklet\",\"id\":1,\"state\":{\"title\":\"idle\",\"id\":0,\"result\":\"completed\"},\"lastResult\":\"completed\",\"timestamp\":1675173953063},{\"title\":\"extract-kp\",\"id\":3,\"state\":{\"title\":\"running\",\"id\":1,\"result\":\"busy\"},\"lastResult\":\"busy\",\"timestamp\":1675173953066},{\"title\":\"extract-kp\",\"id\":3,\"state\":{\"title\":\"idle\",\"id\":0,\"result\":\"completed\"},\"lastResult\":\"completed\",\"timestamp\":1675173953117},{\"title\":\"transform\",\"id\":4,\"state\":{\"title\":\"running\",\"id\":1,\"result\":\"busy\"},\"lastResult\":\"busy\",\"timestamp\":1675173953118},{\"title\":\"transform\",\"id\":4,\"state\":{\"title\":\"idle\",\"id\":0,\"result\":\"completed\"},\"lastResult\":\"completed\",\"timestamp\":1675173954112}],\"userName\":\"\"}]",
-                "tot": "json"
             }
         ],
         "action": "",
@@ -6300,23 +6323,17 @@
         "rules": [
             {
                 "t": "set",
-                "p": "startDate",
-                "pt": "msg",
-                "to": "currentStartDate",
-                "tot": "global"
-            },
-            {
-                "t": "set",
                 "p": "runHistory",
                 "pt": "msg",
                 "to": "#:(storeInFile)::runHistory",
-                "tot": "global"
+                "tot": "global",
+                "dc": true
             },
             {
                 "t": "set",
                 "p": "currentRun",
                 "pt": "msg",
-                "to": "(\t    $startDate := startDate;\t    runHistory[startDate = $startDate]\t)",
+                "to": "runHistory[$count(runHistory)-1]",
                 "tot": "jsonata"
             }
         ],
@@ -7865,25 +7882,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "currentStartDate",
-                "pt": "msg",
-                "to": "currentStartDate",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
                 "p": "runHistory",
                 "pt": "msg",
-                "to": "#:(storeInFile)::runHistory",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t\tstartDate = $startDate?\t{\t    \"allReceiptsProcessed\": true\t}\t\t)|",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"allReceiptsProcessed\": true\t}\t\t)|",
                 "tot": "jsonata"
             },
             {
@@ -8454,6 +8455,23 @@
         ]
     },
     {
+        "id": "e0a6f775ac661557",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 24",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 2580,
+        "wires": []
+    },
+    {
         "id": "248d64bf4e74f440",
         "type": "http in",
         "z": "c28a486ea3e09387",
@@ -8852,7 +8870,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    //console.log(\"RESPONSE FROM STARTRUN\");\n\n    goToPage(\"start\");\n}\n\nhandleResponseDynamically['archive'] = function (response) {\n    goToPage(response.page + \"?spec=\"+response.spec);\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    //console.log(\"RESPONSE FROM STARTRUN\");\n\n    goToPage(\"start\");\n}\n\nhandleResponseDynamically['archive'] = function (response) {\n    //goToPage(response.page + \"?spec=\"+response.spec);\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    if (document.getElementById(\"nav_run\") !== null)\n        document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
         "x": 990,
         "y": 100,
@@ -9836,7 +9854,8 @@
         "y": 1240,
         "wires": [
             [
-                "d6432bd8a487caa0"
+                "d6432bd8a487caa0",
+                "948eb590f69bd85b"
             ]
         ]
     },
@@ -9844,6 +9863,7 @@
         "id": "d6432bd8a487caa0",
         "type": "function",
         "z": "c28a486ea3e09387",
+        "d": true,
         "g": "e4e7a254403521e9",
         "name": "Next receipt id?",
         "func": "msg.payload.tempDataLength = msg.tempDataArray.length;\n\nmsg.payload.spec = parseInt(msg.payload.id) >= (msg.tempDataArray.length - 1) ? parseInt(msg.payload.id) : (parseInt(msg.payload.id)+1);\n\nreturn msg;",
@@ -9852,8 +9872,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 1240,
+        "x": 1280,
+        "y": 1200,
         "wires": [
             [
                 "948eb590f69bd85b"
