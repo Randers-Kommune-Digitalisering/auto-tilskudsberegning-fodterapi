@@ -440,7 +440,7 @@
         "x": 14,
         "y": 519,
         "w": 312,
-        "h": 257
+        "h": 264.5
     },
     {
         "id": "dff24743df339ae5",
@@ -902,8 +902,8 @@
         "id": "b840a64a9cf3c187",
         "type": "junction",
         "z": "8ea344595d9a442a",
-        "x": 910,
-        "y": 2500,
+        "x": 1080,
+        "y": 2420,
         "wires": [
             [
                 "a2f55ae008b1fee2"
@@ -942,6 +942,40 @@
         "g": "2122575b3124a7b1",
         "x": 3480,
         "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6fc6a8b8c6d3b766",
+        "type": "junction",
+        "z": "43652557380ac3f3",
+        "x": 1700,
+        "y": 640,
+        "wires": [
+            [
+                "afc6fa2bb250f63c"
+            ]
+        ]
+    },
+    {
+        "id": "53d1fb714bf85e85",
+        "type": "junction",
+        "z": "c28a486ea3e09387",
+        "x": 1660,
+        "y": 1380,
+        "wires": [
+            [
+                "e7b83f0e755d4fdf"
+            ]
+        ]
+    },
+    {
+        "id": "ae6e8f5fb890937e",
+        "type": "junction",
+        "z": "43652557380ac3f3",
+        "x": 1000,
+        "y": 620,
         "wires": [
             []
         ]
@@ -1633,7 +1667,7 @@
                 "16bf0e6580aaf246"
             ],
             [
-                "376d8d8d8d1ffe48"
+                "8b06ecbd2e4c4ecf"
             ],
             [
                 "89f051f162c9b4b6"
@@ -1657,8 +1691,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card-container mb-3\">\n    <!-- card-container -->\n\n    {{{payload.pageElements.lastRunCard}}}\n    \n    {{{payload.pageElements.actionsCard}}}\n    \n    {{{payload.pageElements.newRunCard}}}\n\n    <!-- /card-container -->\n</div>",
         "output": "str",
-        "x": 1090,
-        "y": 1040,
+        "x": 1190,
+        "y": 920,
         "wires": [
             [
                 "1c7f385619f6a12d"
@@ -1703,8 +1737,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1610,
-        "y": 1040,
+        "x": 1590,
+        "y": 920,
         "wires": [
             [
                 "afc6fa2bb250f63c"
@@ -1964,8 +1998,8 @@
         "syntax": "mustache",
         "template": "<div class=\"card {{payload.pageElements.newRunCardClasses}}\">\n    <div class=\"card-header\">{{payload.pageElements.newRunCardHeader}}</div>\n    <div class=\"card-body\">\n       {{{payload.pageElements.newRunCardBody}}}\n    </div>\n</div>",
         "output": "str",
-        "x": 880,
-        "y": 980,
+        "x": 960,
+        "y": 960,
         "wires": [
             [
                 "4c886c495ce2fe9d"
@@ -2324,14 +2358,14 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "newRunCard body",
-        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nvar rejectedCitizenCount = 0; //global.get(\"webData\")[\"citizens-noactions\"] == null ? 0 : global.get(\"webData\")[\"citizens-noactions\"].length;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        rejectedCitizenCount = global.get(\"webData\")[\"citizens-noactions\"].length;\n\nvar remainingCount = 0;\n\nfor (var i = 0; i < rejectedCitizenCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-noactions\"])[i].archived)\n        remainingCount++;\n\nrejectedCitizenCount = remainingCount;\n\n\nvar cardHeader = \"Ny kørsel\";\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\nvar border = \"light\";\nvar buttonClasses = \" \";\n\n\nif (receiptsAwaiting && isBeingProcessed && !dataExists)\n{\n    cardHeader = \"Genoptag kørsel\";\n    cardTitle = \"Data mangler\";\n    cardText = \"Genoptag kørslen for at hente manglende data.\";\n    linkhref = \"run\";\n    buttonText = \"Genoptag\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount > 0)\n{\n    cardHeader = \"Borgere uden gyldig bevilling\";\n    cardTitle = rejectedCitizenCount == 0 ? \"Ingen fakturaer\" : rejectedCitizenCount + \" borgere afventer\";\n    cardText = \"Efter seneste kørsel er der \" + rejectedCitizenCount + \" borgere uden gyldig bevilling som afventer bekræftelse.\";\n    buttonText = \"Se borgere\";\n    buttonClasses += rejectedCitizenCount == 0 ? \"hidden\" : \"\";\n    linkhref = \"view-nograntreceipts\";\n    border = rejectedCitizenCount > 0 ? \"warning\" : \"light\";\n\n}\nelse if(isBeingProcessed)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n    cardText = \"Alle anbefalede handlinger samt ej berretigede borgere er bekræftet. Afslut kørslen nu.\"\n    buttonText = \"Afslut kørsel\";\n    border = \"success\";\n}\n\nelse if (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Vent venligst\";\n    buttonClasses += \"hidden\";\n    linkhref = \"view-receipts\";\n    border = \"info\";\n}\n\nelse if (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar classes = \"border-\" + border;\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+buttonClasses+`\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nmsg.payload.pageElements['newRunCardHeader'] = cardHeader;\nreturn msg;",
+        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nvar rejectedCitizenCount = 0; //global.get(\"webData\")[\"citizens-noactions\"] == null ? 0 : global.get(\"webData\")[\"citizens-noactions\"].length;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        rejectedCitizenCount = global.get(\"webData\")[\"citizens-noactions\"].length;\n\nvar remainingCount = 0;\n\nfor (var i = 0; i < rejectedCitizenCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-noactions\"])[i].archived)\n        remainingCount++;\n\nrejectedCitizenCount = remainingCount;\n\n\nvar cardHeader = \"Ny kørsel\";\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\nvar border = \"light\";\nvar buttonClasses = \" \";\n\n\nif (receiptsAwaiting && isBeingProcessed && !dataExists)\n{\n    cardHeader = \"Genoptag kørsel\";\n    cardTitle = \"Data mangler\";\n    cardText = \"Genoptag kørslen for at hente manglende data.\";\n    linkhref = \"run\";\n    buttonText = \"Genoptag\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount > 0)\n{\n    cardHeader = \"Borgere uden gyldig bevilling\";\n    cardTitle = rejectedCitizenCount == 0 ? \"Ingen fakturaer\" : rejectedCitizenCount + \" borgere afventer\";\n    cardText = \"Efter seneste kørsel er der \" + rejectedCitizenCount + \" borgere uden gyldig bevilling som afventer bekræftelse.\";\n    buttonText = \"Se borgere\";\n    buttonClasses += rejectedCitizenCount == 0 ? \"hidden\" : \"\";\n    linkhref = \"view-nograntreceipts\";\n    border = rejectedCitizenCount > 0 ? \"warning\" : \"light\";\n\n}\nelse if (isBeingProcessed && !receiptsAwaiting)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n    cardText = \"Alle anbefalede handlinger samt ej berretigede borgere er bekræftet. Afslut kørslen nu.\"\n    buttonText = \"Afslut kørsel\";\n    border = \"success\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount == 0)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n        cardText = \"Alle borgere uden bevilling er bekræftet. Bekræft anbefalede handlinger før du afslutter kørslen.\"\n    buttonText = \"Afslut kørsel\";\n    buttonClasses += \"disabled\";\n}\n\nelse if (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Vent venligst\";\n    buttonClasses += \"hidden\";\n    linkhref = \"view-receipts\";\n    border = \"info\";\n}\n\nelse if (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar classes = \"border-\" + border;\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+buttonClasses+`\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nmsg.payload.pageElements['newRunCardHeader'] = cardHeader;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 980,
+        "x": 750,
+        "y": 960,
         "wires": [
             [
                 "e4fc06b7c36a80c5"
@@ -2666,20 +2700,6 @@
             },
             {
                 "t": "set",
-                "p": "payload.webSettings.state.isRunning",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "payload.webSettings.state.isLocked",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
                 "p": "#:(storeInFile)::webSettings",
                 "pt": "global",
                 "to": "payload.webSettings",
@@ -2710,25 +2730,6 @@
         "wires": []
     },
     {
-        "id": "be37498a090cf34b",
-        "type": "template",
-        "z": "43652557380ac3f3",
-        "name": "page: run",
-        "field": "payload.pageContent",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">Kør robot</div>\n    <div class=\"card-body\">\n        <h6 class=\"card-subtitle mb-2 text-muted\">Start søgning efter nye fakturaer</h6>\n        <p class=\"card-text\">Robotten henter først fakturaer fra WorkLet, og beregner derefter potientielle tilskud.</p>\n     \n        {{{payload.pageElements.startRunButton}}}\n        \n    </div>\n</div>",
-        "output": "str",
-        "x": 1340,
-        "y": 640,
-        "wires": [
-            [
-                "c83fdc0290f77ad3"
-            ]
-        ]
-    },
-    {
         "id": "c83fdc0290f77ad3",
         "type": "change",
         "z": "43652557380ac3f3",
@@ -2748,10 +2749,10 @@
         "to": "",
         "reg": false,
         "x": 1590,
-        "y": 640,
+        "y": 620,
         "wires": [
             [
-                "afc6fa2bb250f63c"
+                "6fc6a8b8c6d3b766"
             ]
         ]
     },
@@ -2815,18 +2816,18 @@
         "id": "4f3852df34ce990f",
         "type": "function",
         "z": "43652557380ac3f3",
-        "name": "element: startRunButton",
-        "func": "\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\nfunction allPagesAccepted()\n{\n    return (pageAccepted(\"login\") && pageAccepted(\"rules\") && pageAccepted(\"grants\"));\n}\n\nvar html = \"\";\n\nif(allPagesAccepted())\n\n{\n    if (msg.payload.webSettings.state.isRunning)\n    \n        html = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                    <i class=\"fa-lg fas fa-spinner fa-spin\"></i>\n                </button>`;\n\n    else\n\n        html = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\">\n                    Start ny kørsel\n                </button>`;\n\n}\n\n\nelse\n\n    html = `<button class=\"btn btn-lg btn-secondary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                Start ny kørsel\n            </button>\n            <span class=\"text-danger\" style=\"margin-left: 10px\">OBS: Du kan først starte en ny kørsel, efter du har godkendt loginoplysninger, forretningsregler samt tilskudssatser.</span>`;\n\n\n\nmsg.payload.pageElements['startRunButton'] = html;\nreturn msg;",
+        "name": "page: run",
+        "func": "var dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\nvar receiptsAwaiting = msg.currentRun == null ? false : !msg.currentRun.allReceiptsProcessed;\nvar isFinalized = msg.currentRun == null ? true : msg.currentRun.isFinalized;\n\n\n\n\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\nfunction allPagesAccepted()\n{\n    return (pageAccepted(\"login\") && pageAccepted(\"rules\") && pageAccepted(\"grants\"));\n}\n\nvar header = \"Kør robot\";\nvar subheader =\"Start søgning efter nye fakturaer\";\nvar buttonHtml = \"\";\nvar cardtext =\"Robotten henter først fakturaer fra WorkLet, og beregner derefter potientielle tilskud.\";\n\nif(receiptsAwaiting && !dataExists)\n{\n    \n    header = \"Genoptag kørsel\";\n    subheader = \"Genoptag seneste uafsluttede kørsel\";\n    cardtext = \"Da robotten har været lukket siden kørslen først blev startet, er alt persondata for kørslen tabt. Genoptag kørslen for at hente data.\";\n    \n}\nelse if (receiptsAwaiting && !isFinalized)\n{\n    header = \"Afslut kørsel\";\n    header = \"Afventer bekræftelse af manuel behandling\";\n    cardtext = \"Du kan ikke afslutte kørslen før at du har godkendt manuel behandling af alle borgere med anbefalede handlinger, samt borgere som ikke er tilskudsberrettigede. Gå tilbage til start, og godkend de manglende borgere.\";\n    \n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"\" style=\"width: 300px\" disabled>\n                        Afslut kørsel\n                  </button>`;\n\n}\nelse if (!receiptsAwaiting && !isFinalized)\n{\n\n    header =\"Afslut kørsel\";\n    subheader = \"Afslut seneste kørsel\";\n    cardtext = \"Er du sikker på at du vil afslutte seneste kørsel? Du vil ikke være i stand til at se borgeroplysninger eller anbefalede handlinger når kørslen er afsluttet, og en ny kørsel vil først kunne startes i morgen.\";\n\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"postRequest({'requestType': 'finalize'})\" style=\"width: 300px\">\n                        Afslut kørsel\n                  </button>`;\n\n}\nelse if (msg.payload.webSettings.state.isRunning)\n{\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                    <i class=\"fa-lg fas fa-spinner fa-spin\"></i>\n                    </button>`;\n\n}\nelse if(allPagesAccepted())\n{\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\">\n                Start ny kørsel\n                </button>`;\n\n}\nelse\n    buttonHtml = `<button class=\"btn btn-lg btn-secondary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                Start ny kørsel\n                </button>\n                <span class=\"text-danger\" style=\"margin-left: 10px\">OBS: Du kan først starte en ny kørsel, efter du har godkendt loginoplysninger, forretningsregler samt tilskudssatser.</span>`;\n\n\n\n\n\n\n\nvar html =\n    `<div class=\"card mb-2\">\n        <div class=\"card-header\">`+header+`</div>\n        <div class=\"card-body\">\n            <h6 class=\"card-subtitle mb-2 text-muted\">`+subheader+`</h6>\n            <p class=\"card-text\">`+cardtext+`</p>\n        \n            `+buttonHtml+`\n            \n        </div>\n    </div>`;\n\nmsg.payload.pageContent = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 640,
+        "x": 1360,
+        "y": 620,
         "wires": [
             [
-                "be37498a090cf34b"
+                "c83fdc0290f77ad3"
             ]
         ]
     },
@@ -3404,45 +3405,101 @@
         ]
     },
     {
-        "id": "376d8d8d8d1ffe48",
-        "type": "switch",
+        "id": "8b06ecbd2e4c4ecf",
+        "type": "change",
         "z": "43652557380ac3f3",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
+        "name": "Get history",
         "rules": [
             {
-                "t": "else"
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "currentRun",
+                "pt": "msg",
+                "to": "runHistory[$count(runHistory)-1]",
+                "tot": "jsonata"
             }
         ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 710,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
         "y": 640,
         "wires": [
             [
-                "4f3852df34ce990f",
-                "4f8b3efda7c334a8"
+                "4f3852df34ce990f"
             ]
         ]
     },
     {
-        "id": "4f8b3efda7c334a8",
+        "id": "6a92693b12486425",
+        "type": "change",
+        "z": "43652557380ac3f3",
+        "name": "set page title",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.pageTitle",
+                "pt": "msg",
+                "to": "Afslut kørsel",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1590,
+        "y": 660,
+        "wires": [
+            [
+                "6fc6a8b8c6d3b766"
+            ]
+        ]
+    },
+    {
+        "id": "a54d25eb9adcb591",
         "type": "debug",
         "z": "43652557380ac3f3",
-        "name": "debug 23",
+        "name": "debug 25",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 680,
+        "x": 2000,
+        "y": 760,
         "wires": []
+    },
+    {
+        "id": "ef2a80ca3939f50e",
+        "type": "function",
+        "z": "43652557380ac3f3",
+        "name": "page: run",
+        "func": "var dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\nvar isFinalized = msg.currentRun == null ? true : msg.currentRun.isFinalized;\n\nvar header = \"Kør robot\";\nvar buttonHtml = \"\";\n\nvar html = \"\";\n\nif(isFinalized)\n{\n    html =\n        `<div class=\"card mb-2\">\n        <div class=\"card-header\">Afslut kørsel</div>\n        <div class=\"card-body\">\n            <h6 class=\"card-subtitle mb-2 text-muted\">Kørslen blev afsluttet!</h6>\n            <p class=\"card-text\">Kørslen blev markeret som afsluttet. En ny kørsel vil kunne startes i morgen.</p>\n        \n            <button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"postRequest({'requestType': 'finalize'})\" style=\"width: 300px\" disabled>\n                Afsluttet\n            </button>\n            \n        </div>\n    </div>`;\n}\nelse\n{\n    html =\n    `<div class=\"card mb-2\">\n        <div class=\"card-header\">Afslut kørsel</div>\n        <div class=\"card-body\">\n            <h6 class=\"card-subtitle mb-2 text-muted\">Afslut seneste kørsel</h6>\n            <p class=\"card-text\">Er du sikker på at du vil afslutte seneste kørsel? Du vil ikke være i stand til at se borgeroplysninger eller anbefalede handlinger når kørslen er afsluttet, og en ny kørsel vil først kunne startes i morgen.</p>\n        \n            <button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"postRequest({'requestType': 'finalize'})\" style=\"width: 300px\">\n                Afslut kørsel\n            </button>\n            \n        </div>\n    </div>`;\n}\n\n\nmsg.payload.pageContent = html;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 680,
+        "wires": [
+            [
+                "6a92693b12486425"
+            ]
+        ]
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -6278,10 +6335,11 @@
         "z": "8ea344595d9a442a",
         "name": "Archive receipt link in",
         "links": [
-            "d84057a8cb05b22f"
+            "d84057a8cb05b22f",
+            "87d1c73c93e5b9f7"
         ],
-        "x": 235,
-        "y": 2340,
+        "x": 395,
+        "y": 2260,
         "wires": [
             [
                 "135dfd2c3c6f4850"
@@ -6307,8 +6365,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1020,
-        "y": 2340,
+        "x": 1190,
+        "y": 2260,
         "wires": [
             [
                 "6c4f0dadb67f015e"
@@ -6342,8 +6400,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 2340,
+        "x": 580,
+        "y": 2260,
         "wires": [
             [
                 "f3622da5b8c6dd11"
@@ -6367,7 +6425,7 @@
                 "t": "set",
                 "p": "runHistory",
                 "pt": "msg",
-                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t\tstartDate = $startDate ?\t{\t\t    \"processedReceipts\": currentRun.processedReceipts\t    \t}\t\t)|",
+                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t$endDate := currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t\t    \"processedReceipts\": currentRun.processedReceipts\t    \t}\t\t)|",
                 "tot": "jsonata"
             },
             {
@@ -6384,8 +6442,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 2380,
+        "x": 1200,
+        "y": 2300,
         "wires": [
             [
                 "0fb1a45baf4dcc7c"
@@ -6399,10 +6457,11 @@
         "name": "Is archived link out",
         "mode": "link",
         "links": [
-            "0ff5c26114374820"
+            "0ff5c26114374820",
+            "e0949865938522b8"
         ],
-        "x": 1145,
-        "y": 2460,
+        "x": 1315,
+        "y": 2380,
         "wires": []
     },
     {
@@ -6411,8 +6470,8 @@
         "z": "8ea344595d9a442a",
         "name": "Arkivering af individuelle faktura",
         "info": "",
-        "x": 350,
-        "y": 2300,
+        "x": 510,
+        "y": 2220,
         "wires": []
     },
     {
@@ -6421,8 +6480,8 @@
         "z": "8ea344595d9a442a",
         "name": "Kontrol om alle fakturaer er arkiveret",
         "info": "",
-        "x": 550,
-        "y": 2440,
+        "x": 720,
+        "y": 2360,
         "wires": []
     },
     {
@@ -6436,8 +6495,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 2520,
+        "x": 680,
+        "y": 2440,
         "wires": [
             [
                 "62b82381ac8d827c"
@@ -6685,8 +6744,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 690,
-        "y": 2480,
+        "x": 860,
+        "y": 2400,
         "wires": [
             [
                 "fb02e28cd75e69e8"
@@ -6762,7 +6821,7 @@
                 "t": "set",
                 "p": "currentRun",
                 "pt": "msg",
-                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\trunHistory[isFinalized = false] ~> $exists() ?\t\trunHistory[isFinalized = false]\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    $lastRun.timestamp ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
+                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t:\t$lastRunWasToday ?\t    $lastRun\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    $lastRun.timestamp ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
                 "tot": "jsonata"
             }
         ],
@@ -7681,60 +7740,6 @@
         ]
     },
     {
-        "id": "1465f5049a0ff71a",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "name": "Unlock UI",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::webSettings.state.receiptsAwaiting",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 120,
-        "y": 2120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "34ad2484e2633dbb",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 2080,
-        "wires": [
-            [
-                "1465f5049a0ff71a"
-            ]
-        ]
-    },
-    {
         "id": "0fb1a45baf4dcc7c",
         "type": "change",
         "z": "8ea344595d9a442a",
@@ -7777,8 +7782,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
-        "y": 2480,
+        "x": 660,
+        "y": 2400,
         "wires": [
             [
                 "fc1053d3105b2cd0"
@@ -7807,8 +7812,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 570,
-        "y": 2340,
+        "x": 740,
+        "y": 2260,
         "wires": [
             [
                 "d521a5aad7378097"
@@ -7838,8 +7843,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
-        "y": 2320,
+        "x": 940,
+        "y": 2240,
         "wires": [
             [
                 "c6c8addcda828038"
@@ -7866,8 +7871,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
-        "y": 2360,
+        "x": 940,
+        "y": 2280,
         "wires": [
             [
                 "c6c8addcda828038"
@@ -7901,8 +7906,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
-        "y": 2460,
+        "x": 1070,
+        "y": 2380,
         "wires": [
             [
                 "a2f55ae008b1fee2"
@@ -8455,20 +8460,119 @@
         ]
     },
     {
-        "id": "e0a6f775ac661557",
-        "type": "debug",
+        "id": "c04211aaccb15e0a",
+        "type": "link in",
         "z": "8ea344595d9a442a",
-        "name": "debug 24",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1300,
-        "y": 2580,
+        "name": "Finalize run in",
+        "links": [
+            "f202f5cad72d049b",
+            "2fbf1e644fc53a26"
+        ],
+        "x": 395,
+        "y": 2660,
+        "wires": [
+            [
+                "cb15176764c11180"
+            ]
+        ]
+    },
+    {
+        "id": "3f4a10860acd5500",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "name": "Finalize run",
+        "info": "",
+        "x": 450,
+        "y": 2620,
+        "wires": []
+    },
+    {
+        "id": "cb15176764c11180",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Get history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "currentRun",
+                "pt": "msg",
+                "to": "runHistory[$count(runHistory)-1]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 2660,
+        "wires": [
+            [
+                "72afce271d46b8f9"
+            ]
+        ]
+    },
+    {
+        "id": "72afce271d46b8f9",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "set isFinalized = true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentRun.isFinalized",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t$endDate := currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t\t    \"isFinalized\": true\t    \t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 2660,
+        "wires": [
+            [
+                "25f140a78f720950"
+            ]
+        ]
+    },
+    {
+        "id": "25f140a78f720950",
+        "type": "link out",
+        "z": "8ea344595d9a442a",
+        "name": "Is archived link out",
+        "mode": "link",
+        "links": [
+            "23a573cb9952c0ef"
+        ],
+        "x": 1105,
+        "y": 2660,
         "wires": []
     },
     {
@@ -8553,11 +8657,16 @@
                 "t": "eq",
                 "v": "archive",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "finalize",
+                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 4,
+        "outputs": 5,
         "x": 250,
         "y": 720,
         "wires": [
@@ -8572,6 +8681,9 @@
             ],
             [
                 "6226138fabf9a3b8"
+            ],
+            [
+                "f202f5cad72d049b"
             ]
         ]
     },
@@ -8794,7 +8906,7 @@
         "z": "c28a486ea3e09387",
         "g": "0772648cf2b898d4",
         "name": "POST INPUT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8870,7 +8982,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response) {\n\n    //console.log(\"RESPONSE FROM STARTRUN\");\n\n    goToPage(\"start\");\n}\n\nhandleResponseDynamically['archive'] = function (response) {\n    //goToPage(response.page + \"?spec=\"+response.spec);\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    if (document.getElementById(\"nav_run\") !== null)\n        document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response)\n{\n    //console.log(\"RESPONSE FROM STARTRUN\");\n    goToPage(\"start\");\n}\n\nhandleResponseDynamically['archive'] = function (response)\n{\n    //goToPage(response.page + \"?spec=\"+response.spec);\n    reloadPage();\n}\n\nhandleResponseDynamically['finalize'] = function (response)\n{\n    reloadPage();\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    if (document.getElementById(\"nav_run\") !== null)\n        document.getElementById(\"nav_run\").innerHTML = `Kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n",
         "output": "str",
         "x": 990,
         "y": 100,
@@ -10000,6 +10112,45 @@
         "y": 1060,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "0edb5029cfe338ce",
+        "type": "comment",
+        "z": "c28a486ea3e09387",
+        "name": "Finalize run",
+        "info": "",
+        "x": 590,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "f202f5cad72d049b",
+        "type": "link out",
+        "z": "c28a486ea3e09387",
+        "name": "Finalize run out",
+        "mode": "link",
+        "links": [
+            "c04211aaccb15e0a"
+        ],
+        "x": 535,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "23a573cb9952c0ef",
+        "type": "link in",
+        "z": "c28a486ea3e09387",
+        "name": "Finalize complete link in",
+        "links": [
+            "25f140a78f720950"
+        ],
+        "x": 705,
+        "y": 1380,
+        "wires": [
+            [
+                "53d1fb714bf85e85"
+            ]
         ]
     },
     {
