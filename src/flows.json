@@ -141,6 +141,39 @@
         "color": "#DDAA99"
     },
     {
+        "id": "85ff29bdef7c1aea",
+        "type": "subflow",
+        "name": "StepHistory",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 140,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "792bc1326c300849"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1020,
+                "y": 720,
+                "wires": [
+                    {
+                        "id": "c668c88142f35452",
+                        "port": 1
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
         "id": "7de50fe1369c94a7",
         "type": "group",
         "z": "8ea344595d9a442a",
@@ -191,12 +224,16 @@
             "90acc4726c72125a",
             "d04faa115ea73982",
             "c9cc2e6cd25fdbd6",
-            "dd83f023eff10d0a"
+            "dd83f023eff10d0a",
+            "4424787318323d8e",
+            "023477a667bd9144",
+            "0051afd9266db397",
+            "30cf9105d50bfb07"
         ],
         "x": 334,
-        "y": 299,
+        "y": 279,
         "w": 1492,
-        "h": 207
+        "h": 227
     },
     {
         "id": "9c4f3569ebca5f7b",
@@ -222,7 +259,8 @@
             "86c8180e0274bc8b",
             "402de4b110655edc",
             "172fe34eeccca8dd",
-            "f7835ac1742b0168"
+            "f7835ac1742b0168",
+            "14494b05c46d325b"
         ],
         "x": 334,
         "y": 539,
@@ -270,7 +308,8 @@
             "015eb190e5565e7d",
             "989112eb96abfdb9",
             "b81c9fcaa9d3e0d1",
-            "104d29ffe37f5998"
+            "104d29ffe37f5998",
+            "ca6df1c9d056a924"
         ],
         "x": 334,
         "y": 799,
@@ -362,7 +401,8 @@
             "f6abba6df8ed7611",
             "4c1121ef6377b795",
             "6ebfb594e20f3f75",
-            "412dc2399a0183b9"
+            "412dc2399a0183b9",
+            "0ec8a364f5851f94"
         ],
         "x": 454,
         "y": 419,
@@ -528,24 +568,6 @@
         "h": 162
     },
     {
-        "id": "2429f8a3202d45d1",
-        "type": "group",
-        "z": "8ea344595d9a442a",
-        "name": "Nyt currentStep i stepHistory",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "792bc1326c300849",
-            "fbeec8791e401f92",
-            "f5d7b1d2cde30ea2"
-        ],
-        "x": 1854,
-        "y": 339,
-        "w": 292,
-        "h": 162
-    },
-    {
         "id": "af21ed65f84f3d9d",
         "type": "group",
         "z": "8ea344595d9a442a",
@@ -685,7 +707,7 @@
         "y": 480,
         "wires": [
             [
-                "4003aad4b2b6a9c8"
+                "4424787318323d8e"
             ]
         ]
     },
@@ -883,7 +905,8 @@
         "y": 380,
         "wires": [
             [
-                "d04faa115ea73982"
+                "d04faa115ea73982",
+                "28d8ac05e7f0f65f"
             ]
         ]
     },
@@ -1670,7 +1693,7 @@
         "syntax": "mustache",
         "template": "<div class=\"card-container mb-3\">\n    <!-- card-container -->\n\n    {{{payload.pageElements.lastRunCard}}}\n    \n    {{{payload.pageElements.actionsCard}}}\n    \n    {{{payload.pageElements.newRunCard}}}\n\n    <!-- /card-container -->\n</div>",
         "output": "str",
-        "x": 1190,
+        "x": 1210,
         "y": 920,
         "wires": [
             [
@@ -2302,7 +2325,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))\">\n        Godkend loginoplysninger\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n        Gå til forretningsregler\n    </button>\n</div>\n",
+        "template": "<div class=\"float-right mt-2\">\n    <button class=\"btn btn-lg btn-primary\" id=\"button_acceptPage\" type=\"button\" onclick=\"postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass') ))\">\n        Godkend loginoplysninger\n    </button>\n    \n    <button class=\"btn btn-lg btn-primary ml-2 goNext hidden\" id=\"button_acceptPage_goNext\" type=\"button\" onclick=\"goToPage('rules')\">\n        Gå til forretningsregler\n    </button>\n</div>\n",
         "output": "str",
         "x": 1100,
         "y": 320,
@@ -3054,6 +3077,9 @@
         "propertyType": "msg",
         "rules": [
             {
+                "t": "null"
+            },
+            {
                 "t": "eq",
                 "v": "0",
                 "vt": "num"
@@ -3064,10 +3090,13 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
+        "outputs": 3,
         "x": 1650,
         "y": 140,
         "wires": [
+            [
+                "1f72e5564103eca8"
+            ],
             [
                 "1f72e5564103eca8"
             ],
@@ -3228,7 +3257,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: actionsCard",
-        "func": "var receiptCount = 0;\nvar remainingCount = 0;\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nif (dataExists)\n{\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount = global.get(\"webData\")[\"citizens-actions\"].length;\n\n    for (var i = 0; i < receiptCount; i++)\n        if (!(global.get(\"webData\")[\"citizens-actions\"])[i].archived)\n            remainingCount++;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceiptCount = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts.length;*/\n\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\n//var remainingCount = receiptCount - acceptedReceiptCount;\nreceiptCount = remainingCount;\n\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && ( \n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n                    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n                        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n                        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isFinialized = currentRunExists ? currentRun.isFinalized : true;\n\nvar border = (receiptsAwaiting && !dataExists) ? `danger` : receiptsAwaiting && receiptCount > 0 ? `info` : `light`;\nvar title = (receiptsAwaiting && !dataExists) ? \"Genoptag kørsel\" :\n            receiptsAwaiting ? (receiptCount + ` borgere afventer`) : !isFinialized ? `Afslut kørsel` :`Ingen fakturaer`;\nvar body = (receiptsAwaiting && !dataExists) ? \"Seneste kørsel blev ikke afsluttet. Genoptag kørslen for at hente manglende data.\" :\n            receiptsAwaiting ? \"Efter seneste kørsel er der \"+receiptCount+\" borgere med anbefalede handlinger som afventer behandling.\" : !isFinialized ? \"Afslut seneste kørsel til højre når du har bekræftet behandlingen af alle borgere.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nvar html =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        `\n        +\n        (receiptCount > 0 ? `<div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se borgere</button>\n        </div>`\n        : ``)\n        +\n        `\n    </div>\n</div>`;\n\nmsg.payload.pageElements.actionsCard = html;\nreturn msg;",
+        "func": "var receiptCount = 0;\nvar remainingCount = 0;\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nif (dataExists)\n{\n\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n\n        if (!Array.isArray(global.get(\"webData\")[\"citizens-actions\"]))\n        {\n            var webData = global.get(\"webData\");\n            webData[\"citizens-actions\"] = [webData[\"citizens-actions\"]];\n            global.set(\"webData\", webData);\n        }\n            //global.set(\"webData\")[\"citizens-actions\"] = [global.get(\"webData\")[\"citizens-actions\"])];\n\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount = global.get(\"webData\")[\"citizens-actions\"].length;\n\n    for (var i = 0; i < receiptCount; i++)\n        if (!((global.get(\"webData\")[\"citizens-actions\"])[i]).archived)\n            remainingCount++;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceiptCount = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts.length;*/\n\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\n//var remainingCount = receiptCount - acceptedReceiptCount;\n\n\nreceiptCount = remainingCount;\n\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && ( \n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n                    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n                        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n                        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isFinialized = currentRunExists ? currentRun.isFinalized : true;\n\nvar border = (receiptsAwaiting && !dataExists) ? `danger` : receiptsAwaiting && receiptCount > 0 ? `info` : `light`;\nvar title = (receiptsAwaiting && !dataExists) ? \"Genoptag kørsel\" :\n            receiptsAwaiting ? (receiptCount + ` borgere afventer`) : !isFinialized ? `Afslut kørsel` :`Ingen fakturaer`;\nvar body = (receiptsAwaiting && !dataExists) ? \"Seneste kørsel blev ikke afsluttet. Genoptag kørslen for at hente manglende data.\" :\n            receiptsAwaiting ? \"Efter seneste kørsel er der \"+receiptCount+\" borgere med anbefalede handlinger som afventer behandling.\" : !isFinialized ? \"Afslut seneste kørsel til højre når du har bekræftet behandlingen af alle borgere.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nvar html =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        `\n        +\n        (receiptCount > 0 ? `<div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se borgere</button>\n        </div>`\n        : ``)\n        +\n        `\n    </div>\n</div>`;\n\nmsg.payload.pageElements.actionsCard = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3295,7 +3324,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: lastRunCard",
-        "func": "var lastRunObj = null;\n\n\n\nvar lastRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? (global.get(\"runHistory\", \"storeInFile\")).length > 0 : true);\n\nvar lastRunObj = lastRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1] !== undefined)\n        lastRunObj = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1];\n\n*/\n\n\n\nvar html = ``;\n\nif (lastRunObj === null)\n{\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Ingen data</h4>\n        </div>\n    </div>`;\n}\n\nelse\n{\n\n\n    var daysSinceRun = parseInt((Date.now() - lastRunObj.timestamp) / 86400000);\n    var dayordays = daysSinceRun > 1 ? \"dage\" : \"dag\";\n\n    var lastRun = daysSinceRun == 0 ? \"Tidligere i dag\" : daysSinceRun + \" \" + dayordays + \" siden\";\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">`+ lastRun + `</h4>\n            <p class=\"card-text\">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString() + `<br />\n                <!--div class=\"mt-1\">\n                    <strong>0</strong> fakturaer automatisk behandlet.<br />\n                    <strong>5</strong> fakturaer sat til manuel behandling.\n                </div-->\n            </p>\n        </div>\n    </div>`;\n}\n\nmsg.payload.pageElements.lastRunCard = html;\nreturn msg;",
+        "func": "var lastRunObj = null;\n\n\n\nvar lastRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? (global.get(\"runHistory\", \"storeInFile\")).length > 0 : true);\n\nvar lastRunObj = lastRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1] !== undefined)\n        lastRunObj = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length-1];\n\n*/\n\n\n\nvar html = ``;\n\nif (lastRunObj === null)\n{\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Ingen data</h4>\n        </div>\n    </div>`;\n}\n\nelse\n{\n    //var now = new Date(Date.now());\n    //var lastRunDate = new Date(lastRunObj.timestamp);\n    //var daysSinceRun = parseInt((Date.now() - lastRunObj.timestamp) / 86400000);\n\n    var daysSinceRun = Date.now() - lastRunObj.timestamp;\n    daysSinceRun = Math.ceil(daysSinceRun / (1000 * 3600 * 24)) -1;\n\n\n\n    var dayordays = daysSinceRun > 1 ? \"dage\" : \"dag\";\n\n    var lastRun = daysSinceRun == 0 ? \"Tidligere i dag\" : daysSinceRun + \" \" + dayordays + \" siden\";\n\n    html =\n    `<div class=\"card border-light\">\n        <div class=\"card-header\">Seneste kørsel</div>\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">`+ lastRun + `</h4>\n            <p class=\"card-text\">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString() + `<br />\n                <!--div class=\"mt-1\">\n                    <strong>0</strong> fakturaer automatisk behandlet.<br />\n                    <strong>5</strong> fakturaer sat til manuel behandling.\n                </div-->\n            </p>\n        </div>\n    </div>`;\n}\n\nmsg.payload.pageElements.lastRunCard = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4145,6 +4174,236 @@
         ]
     },
     {
+        "id": "792bc1326c300849",
+        "type": "subflow:db94b4c117de2f6a",
+        "z": "85ff29bdef7c1aea",
+        "name": "",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "c668c88142f35452"
+            ]
+        ]
+    },
+    {
+        "id": "fbeec8791e401f92",
+        "type": "change",
+        "z": "85ff29bdef7c1aea",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentStartDate",
+                "pt": "msg",
+                "to": "currentStartDate",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "payload.webSteps[title = \"extract-worklet\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep",
+                "pt": "msg",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "payload.webStates[title = \"idle\"]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newState",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newState.result",
+                "pt": "msg",
+                "to": "newState.result[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "newStep.state",
+                "pt": "msg",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "newStep.timestamp",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "newStep.lastResult",
+                "pt": "msg",
+                "to": "newStep.state.result",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 120,
+        "wires": [
+            [
+                "f5d7b1d2cde30ea2"
+            ]
+        ]
+    },
+    {
+        "id": "f5d7b1d2cde30ea2",
+        "type": "change",
+        "z": "85ff29bdef7c1aea",
+        "name": "Update webSettings state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.lastStep",
+                "pt": "global",
+                "to": "newStep",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.lastState",
+                "pt": "global",
+                "to": "newState",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c668c88142f35452",
+        "type": "switch",
+        "z": "85ff29bdef7c1aea",
+        "name": "",
+        "property": "stepHistoryChange",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 80,
+        "wires": [
+            [
+                "6cfb9bed6a24be31"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6cfb9bed6a24be31",
+        "type": "switch",
+        "z": "85ff29bdef7c1aea",
+        "name": "",
+        "property": "stepHistoryChange.newStep",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 790,
+        "y": 60,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "14f3b19bf9f1bf91",
+        "type": "comment",
+        "z": "85ff29bdef7c1aea",
+        "name": "New step",
+        "info": "",
+        "x": 1050,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "08c0dac0e5eb2d13",
+        "type": "comment",
+        "z": "85ff29bdef7c1aea",
+        "name": "New state",
+        "info": "",
+        "x": 1060,
+        "y": 300,
+        "wires": []
+    },
+    {
         "id": "9057a712327815d2",
         "type": "comment",
         "z": "8ea344595d9a442a",
@@ -4211,11 +4470,12 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 1360,
-        "y": 80,
+        "x": 1320,
+        "y": 40,
         "wires": [
             [
-                "df0ed618b5194000"
+                "df0ed618b5194000",
+                "f1cf344c059a61b2"
             ]
         ]
     },
@@ -4233,7 +4493,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1550,
-        "y": 80,
+        "y": 40,
         "wires": []
     },
     {
@@ -4365,7 +4625,8 @@
         "y": 220,
         "wires": [
             [
-                "6dfadfada71732b7"
+                "6dfadfada71732b7",
+                "2833bc30cabd27bb"
             ]
         ],
         "info": "## Define file name\r\nThis JS snippet utilizes the JavaScript date function `toDateString()` as well as some string manipulation to define the name of the JSON file which will be downloaded from Worklet web interface.\r\n\r\nThe name defined is later used to find and read the downloaded file, as the actual file name cannot be set when downloading, nor can it be retrieved as the download is in progress. Therefore, the name must be determined manually to match the naming procedure of Worklet web interface."
@@ -4384,6 +4645,7 @@
         "id": "6dfadfada71732b7",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "d": true,
         "name": "TEST DATA",
         "rules": [
             {
@@ -4400,7 +4662,7 @@
         "to": "",
         "reg": false,
         "x": 1790,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "2833bc30cabd27bb"
@@ -4581,7 +4843,7 @@
         "wires": [
             [
                 "07aa032e7944f93b",
-                "792bc1326c300849"
+                "21aa70c86addca5a"
             ]
         ],
         "l": false,
@@ -4708,8 +4970,18 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": false,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t    {\t        \"action\": \"close\"\t    }\t    \t]",
+                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": false,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t    {\t        \"action\": \"close\"\t    }\t    \t]",
                 "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "workletUser",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "workletPass",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -4721,7 +4993,8 @@
         "y": 440,
         "wires": [
             [
-                "15a1703b4a5286c7"
+                "15a1703b4a5286c7",
+                "30cf9105d50bfb07"
             ]
         ],
         "info": "## Set pup commands\r\n\r\nThis change node sets the automation flow JSON needed in PupController API. The flow is hard-coded with variable references to the CSS selectors defined in the preceeding node."
@@ -4743,7 +5016,7 @@
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
         "name": "RECEIPTS",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4765,7 +5038,7 @@
         "y": 440,
         "wires": [
             [
-                "4003aad4b2b6a9c8"
+                "4424787318323d8e"
             ],
             []
         ]
@@ -4984,7 +5257,8 @@
         "wires": [
             [
                 "c8857f0a61f8c92e",
-                "86c8180e0274bc8b"
+                "86c8180e0274bc8b",
+                "14494b05c46d325b"
             ]
         ]
     },
@@ -4992,7 +5266,6 @@
         "id": "c8857f0a61f8c92e",
         "type": "subflow:41d1b8798efe7e15",
         "z": "8ea344595d9a442a",
-        "d": true,
         "g": "9c4f3569ebca5f7b",
         "name": "",
         "x": 1000,
@@ -5033,6 +5306,13 @@
         "g": "9c4f3569ebca5f7b",
         "name": "",
         "rules": [
+            {
+                "t": "move",
+                "p": "pupOutputs.navn",
+                "pt": "msg",
+                "to": "brugernavn",
+                "tot": "msg"
+            },
             {
                 "t": "set",
                 "p": "citizens",
@@ -5099,6 +5379,7 @@
         "id": "86c8180e0274bc8b",
         "type": "credentials",
         "z": "8ea344595d9a442a",
+        "d": true,
         "g": "9c4f3569ebca5f7b",
         "name": "testdata",
         "props": [
@@ -5390,7 +5671,7 @@
         "y": 1140,
         "wires": [
             [
-                "349a8caa82ed4d5e"
+                "ca6df1c9d056a924"
             ]
         ]
     },
@@ -5398,6 +5679,7 @@
         "id": "349a8caa82ed4d5e",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "d": true,
         "g": "287b33b8879cbbbc",
         "name": "Danmark",
         "rules": [
@@ -5415,7 +5697,7 @@
         "to": "",
         "reg": false,
         "x": 420,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "ac8390885c3e684c",
@@ -6331,8 +6613,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
-        "y": 1820,
+        "x": 640,
+        "y": 1780,
         "wires": [
             [
                 "fde5a695bfbd9a7d"
@@ -6663,6 +6945,7 @@
         "id": "d04faa115ea73982",
         "type": "change",
         "z": "8ea344595d9a442a",
+        "d": true,
         "g": "669e09e244099963",
         "name": "WorkLet login",
         "rules": [
@@ -6670,7 +6953,7 @@
                 "t": "set",
                 "p": "workletUser",
                 "pt": "msg",
-                "to": "workletCreds.workletUser",
+                "to": "webData.workletCreds.workletUser",
                 "tot": "global",
                 "dc": true
             },
@@ -6678,9 +6961,19 @@
                 "t": "set",
                 "p": "workletPass",
                 "pt": "msg",
-                "to": "workletCreds.workletPass",
+                "to": "webData.workletCreds.workletPass",
                 "tot": "global",
                 "dc": true
+            },
+            {
+                "t": "delete",
+                "p": "webData.workletCreds.workletUser",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "webData.workletCreds.workletPass",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -6984,132 +7277,6 @@
         "wires": [
             [
                 "c1567efa25576804"
-            ]
-        ]
-    },
-    {
-        "id": "792bc1326c300849",
-        "type": "subflow:db94b4c117de2f6a",
-        "z": "8ea344595d9a442a",
-        "g": "2429f8a3202d45d1",
-        "name": "",
-        "x": 1990,
-        "y": 380,
-        "wires": [
-            [
-                "fbeec8791e401f92"
-            ]
-        ]
-    },
-    {
-        "id": "fbeec8791e401f92",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "2429f8a3202d45d1",
-        "name": "Add step run history",
-        "rules": [
-            {
-                "t": "set",
-                "p": "currentStartDate",
-                "pt": "msg",
-                "to": "currentStartDate",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "#:(storeInFile)::runHistory",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "newStep",
-                "pt": "msg",
-                "to": "payload.webSteps[title = \"extract-worklet\"]",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "newStep",
-                "pt": "msg",
-                "to": "newStep",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "newState",
-                "pt": "msg",
-                "to": "payload.webStates[title = \"idle\"]",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "newState",
-                "pt": "msg",
-                "to": "newState",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "newState.result",
-                "pt": "msg",
-                "to": "newState.result[1]",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "newStep.state",
-                "pt": "msg",
-                "to": "newState",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "newStep.timestamp",
-                "pt": "msg",
-                "to": "$millis()",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "newStep.lastResult",
-                "pt": "msg",
-                "to": "newStep.state.result",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentStartDate;\t$newStep := $$.newStep;\t\tstartDate = $startDate?\t{\t    \"currentStep\": $newStep,\t    \"stepHistory\": $append(stepHistory, $newStep)\t}\t\t)|",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "runHistory",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2000,
-        "y": 420,
-        "wires": [
-            [
-                "f5d7b1d2cde30ea2"
             ]
         ]
     },
@@ -7633,43 +7800,6 @@
         ]
     },
     {
-        "id": "f5d7b1d2cde30ea2",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "2429f8a3202d45d1",
-        "name": "Update webSettings state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::webSettings.state.lastStep",
-                "pt": "global",
-                "to": "newStep",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::webSettings.state.lastState",
-                "pt": "global",
-                "to": "newState",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2010,
-        "y": 460,
-        "wires": [
-            [
-                "1d290be6d41c9ea4"
-            ]
-        ]
-    },
-    {
         "id": "d26270ece4aabe4f",
         "type": "change",
         "z": "8ea344595d9a442a",
@@ -7925,7 +8055,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 580,
         "y": 80,
         "wires": [
             []
@@ -8361,7 +8491,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "30/01/2023",
+                "to": "04/02/2023",
                 "tot": "str"
             }
         ],
@@ -8413,33 +8543,6 @@
             [
                 "2c5bfa6b7a2613ab"
             ]
-        ]
-    },
-    {
-        "id": "c78e79b8a43fd40e",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1100,
-        "y": 40,
-        "wires": [
-            []
         ]
     },
     {
@@ -8564,7 +8667,7 @@
         "z": "8ea344595d9a442a",
         "g": "6c7a3f8252158db6",
         "name": "Fjern duplicates (af Tilføj sag-handlinger)",
-        "func": "for (var i = 0; i < msg.payload.length; i++) {\n    var obj = msg.payload[i];\n\n    var createTypeA = false;\n    var createTypeB = false;\n    //var tempHandlinger = [];\n\n    // Tjek hver borgers handlinger\n\n    if (obj.handlinger !== null && obj.handlinger !== undefined) {\n\n        if (!Array.isArray(obj.handlinger))\n            obj.handlinger = [obj.handlinger];\n\n        for (var j = 0; j < obj.handlinger.length; j++) {\n            if (obj.handlinger[j].handling == \"Opret sag\") {\n                if (obj.handlinger[j].type = \"A\") {\n                    if (createTypeA) {\n                        console.log(\"Another A already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeA = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n\n                else if (obj.handlinger[j].type = \"B\") {\n                    if (createTypeB) {\n                        console.log(\"Another B already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeB = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n            }\n        }\n\n\n        msg.payload[i] = obj;\n\n    }\n\n\n\n}\n\nreturn msg;",
+        "func": "for (var i = 0; i < msg.payload.length; i++) {\n    var obj = msg.payload[i];\n\n    var createTypeA = false;\n    var createTypeB = false;\n    //var tempHandlinger = [];\n\n    // Tjek hver borgers handlinger\n\n    if (obj.handlinger !== null && obj.handlinger !== undefined) {\n\n        if (!Array.isArray(obj.handlinger))\n            obj.handlinger = [obj.handlinger];\n\n        for (var j = 0; j < obj.handlinger.length; j++) {\n            if (obj.handlinger[j].handling == \"Opret sag\") {\n                if (obj.handlinger[j].type = \"A\") {\n                    if (createTypeA) {\n                        //console.log(\"Another A already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeA = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n\n                else if (obj.handlinger[j].type = \"B\") {\n                    if (createTypeB) {\n                        //console.log(\"Another B already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeB = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n            }\n        }\n\n\n        msg.payload[i] = obj;\n\n    }\n\n\n\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8593,6 +8696,323 @@
         "x": 200,
         "y": 1520,
         "wires": []
+    },
+    {
+        "id": "87437eca4cc7eec9",
+        "type": "websocket out",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "server": "13a90a014adf9bc5",
+        "client": "",
+        "x": 1540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f1cf344c059a61b2",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1540,
+        "y": 80,
+        "wires": [
+            [
+                "87437eca4cc7eec9"
+            ]
+        ]
+    },
+    {
+        "id": "966a912086c08955",
+        "type": "subflow:85ff29bdef7c1aea",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "x": 1950,
+        "y": 480,
+        "wires": [
+            [
+                "1d290be6d41c9ea4"
+            ]
+        ]
+    },
+    {
+        "id": "21aa70c86addca5a",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Add step run history",
+        "rules": [
+            {
+                "t": "set",
+                "p": "stepHistoryChange",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "stepHistoryChange.newStep",
+                "pt": "msg",
+                "to": "extract-worklet",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "stepHistoryChange.newState",
+                "pt": "msg",
+                "to": "running",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1980,
+        "y": 440,
+        "wires": [
+            [
+                "966a912086c08955"
+            ]
+        ]
+    },
+    {
+        "id": "72df366e32bdb61f",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 580,
+        "y": 40,
+        "wires": [
+            [
+                "e14341e7aef81e59"
+            ]
+        ]
+    },
+    {
+        "id": "e14341e7aef81e59",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::grants",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::rules",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::webSettings",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webStates",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webSteps",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webData",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4424787318323d8e",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "g": "669e09e244099963",
+        "name": "Findes filen?",
+        "func": "const fs = global.get('fs');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\nmsg.filePath = downloadPath + \"\\\\\" + msg.fileName;\n\nif (fs.existsSync(msg.filePath))\n{\n    msg.fileExists = true;\n    node.status({ fill: \"green\", shape: \"dot\", text: \"Fil blev fundet\" });\n}\nelse\n{\n    msg.fileExists = false;\n    node.status({ fill: \"yellow\", shape: \"dot\", text: \"Fil blev ikke fundet!\" });\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1390,
+        "y": 340,
+        "wires": [
+            [
+                "023477a667bd9144"
+            ]
+        ],
+        "info": "## Check for file\r\nThis JS snippet utilizes global modules `FS` and `Path` to check if the receipt JSON file already exists, or needs to be downloaded."
+    },
+    {
+        "id": "023477a667bd9144",
+        "type": "switch",
+        "z": "8ea344595d9a442a",
+        "g": "669e09e244099963",
+        "name": "",
+        "property": "fileExists",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1495,
+        "y": 340,
+        "wires": [
+            [],
+            [
+                "4003aad4b2b6a9c8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0051afd9266db397",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "669e09e244099963",
+        "name": "Fil blev ikke downloaded",
+        "info": "",
+        "x": 1640,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b1537c2677891d8a",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Kontrollér om der er nogle faktura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30cf9105d50bfb07",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "g": "669e09e244099963",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "14494b05c46d325b",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "ca6df1c9d056a924",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Danmark",
+        "func": "for(var i = 0; i < msg.payload.length; i++)\n\n{\n    const obj = msg.payload[i].persondata;\n\n    var danmarkNum;\n\n    if(obj == null || obj.danmarkgruppe == null)\n        continue;\n\n    if (obj.danmarkgruppe.toLowerCase().includes(\"ja\") && obj.danmarkgruppe.includes(\"1\"))\n        danmarkNum = 1;\n    else if (obj.danmarkgruppe.toLowerCase().includes(\"ja\") && obj.danmarkgruppe.includes(\"2\"))\n        danmarkNum = 2;\n    else if (obj.danmarkgruppe.toLowerCase().includes(\"ja\") && obj.danmarkgruppe.includes(\"5\"))\n        danmarkNum = 5;\n    else\n        danmarkNum = 0;\n\n    obj.danmarkgruppe = danmarkNum;\n    \n\n    /*\n    $.payload ~> |$.persondata|\n(\n{\n    \"danmarkgruppe\": danmarkgruppe\n    ~> $replace(\"Ikke oplyst\", \"0\")\n    ~> $replace(\"Nej\", \"0\")\n    ~> $replace(\"Ja - Gruppe \", \"\")\n    ~> $replace(\"-\", \"0\")\n    ~> $number\n})\n|\n*/\n\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1180,
+        "wires": [
+            [
+                "349a8caa82ed4d5e",
+                "7d7a7bf5a54224e8"
+            ]
+        ]
     },
     {
         "id": "248d64bf4e74f440",
@@ -9218,14 +9638,42 @@
                 "p": "#:(storeInFile)::webSettings.acceptances.login",
                 "pt": "global",
                 "to": "payload.toAccept",
-                "tot": "msg"
+                "tot": "msg",
+                "dc": true
             },
             {
                 "t": "set",
                 "p": "payload.webSettings.acceptances.login",
                 "pt": "msg",
                 "to": "payload.toAccept",
-                "tot": "msg"
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webData.workletCreds.workletUser",
+                "pt": "global",
+                "to": "payload.workletUser",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "webData.workletCreds.workletPass",
+                "pt": "global",
+                "to": "payload.workletPass",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "delete",
+                "p": "payload.workletUser",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.workletPass",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -9237,7 +9685,8 @@
         "y": 500,
         "wires": [
             [
-                "abb73011a817205a"
+                "abb73011a817205a",
+                "0ec8a364f5851f94"
             ]
         ]
     },
@@ -10171,6 +10620,24 @@
                 "53d1fb714bf85e85"
             ]
         ]
+    },
+    {
+        "id": "0ec8a364f5851f94",
+        "type": "debug",
+        "z": "c28a486ea3e09387",
+        "g": "31b5ea0c53a9c4fb",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 460,
+        "wires": []
     },
     {
         "id": "42de3af98b8ce955",
