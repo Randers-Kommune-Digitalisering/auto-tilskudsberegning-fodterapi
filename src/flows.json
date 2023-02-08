@@ -232,39 +232,8 @@
         ],
         "x": 334,
         "y": 279,
-        "w": 1472,
+        "w": 1512,
         "h": 227
-    },
-    {
-        "id": "9c4f3569ebca5f7b",
-        "type": "group",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "style": {
-            "fill": "#bfc7d7",
-            "fill-opacity": "0.67",
-            "label": true
-        },
-        "nodes": [
-            "bc99d7022f61a990",
-            "d183f106c2e11bce",
-            "c2df29c07624e5e0",
-            "c8857f0a61f8c92e",
-            "0df1e3c807393a69",
-            "573bc9a19cb2a144",
-            "70ade91971d73d3b",
-            "81a00971b2ea464e",
-            "3691fee0bd5cd7bc",
-            "5c03893a530479bb",
-            "86c8180e0274bc8b",
-            "402de4b110655edc",
-            "172fe34eeccca8dd",
-            "f7835ac1742b0168"
-        ],
-        "x": 334,
-        "y": 539,
-        "w": 1172,
-        "h": 222
     },
     {
         "id": "6c7a3f8252158db6",
@@ -538,6 +507,35 @@
         "h": 522
     },
     {
+        "id": "9c4f3569ebca5f7b",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "style": {
+            "fill": "#bfc7d7",
+            "fill-opacity": "0.67",
+            "label": true
+        },
+        "nodes": [
+            "bc99d7022f61a990",
+            "d183f106c2e11bce",
+            "c2df29c07624e5e0",
+            "c8857f0a61f8c92e",
+            "0df1e3c807393a69",
+            "573bc9a19cb2a144",
+            "70ade91971d73d3b",
+            "81a00971b2ea464e",
+            "3691fee0bd5cd7bc",
+            "5c03893a530479bb",
+            "172fe34eeccca8dd",
+            "f7835ac1742b0168"
+        ],
+        "x": 334,
+        "y": 539,
+        "w": 1172,
+        "h": 222
+    },
+    {
         "id": "d97f7bbbe0210f54",
         "type": "junction",
         "z": "8ea344595d9a442a",
@@ -547,19 +545,6 @@
         "wires": [
             [
                 "90acc4726c72125a"
-            ]
-        ]
-    },
-    {
-        "id": "172fe34eeccca8dd",
-        "type": "junction",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "x": 1480,
-        "y": 680,
-        "wires": [
-            [
-                "c3932c1fbca91f98"
             ]
         ]
     },
@@ -757,8 +742,7 @@
         "y": 380,
         "wires": [
             [
-                "d04faa115ea73982",
-                "28d8ac05e7f0f65f"
+                "d04faa115ea73982"
             ]
         ]
     },
@@ -812,19 +796,6 @@
         ]
     },
     {
-        "id": "05c5f046beaa0d7d",
-        "type": "junction",
-        "z": "8ea344595d9a442a",
-        "g": "669e09e244099963",
-        "x": 620,
-        "y": 340,
-        "wires": [
-            [
-                "144d6812d5213472"
-            ]
-        ]
-    },
-    {
         "id": "7d7a7bf5a54224e8",
         "type": "junction",
         "z": "8ea344595d9a442a",
@@ -859,6 +830,32 @@
         "wires": [
             [
                 "87437eca4cc7eec9"
+            ]
+        ]
+    },
+    {
+        "id": "172fe34eeccca8dd",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "x": 1480,
+        "y": 680,
+        "wires": [
+            [
+                "c3932c1fbca91f98"
+            ]
+        ]
+    },
+    {
+        "id": "62ce56e92ec4f29b",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "x": 1960,
+        "y": 340,
+        "wires": [
+            [
+                "2359edd9babea1ac",
+                "cb1b489418bfa2d8"
             ]
         ]
     },
@@ -1073,11 +1070,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1140,
-        "y": 380,
+        "x": 960,
+        "y": 440,
         "wires": [
             [
-                "580a9e3166314a22"
+                "ba19f064476425c9"
             ]
         ]
     },
@@ -1086,7 +1083,7 @@
         "type": "function",
         "z": "41d1b8798efe7e15",
         "name": "Solo Controller",
-        "func": "const pup = global.get('puppeteer');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\n\nvar actions = [];\n//var outputs = [];\nvar outputs = {};\n\nconst timeoutMs = 10000;\n\n(async () => {\n\n    const actionList = msg.payload;\n    var actionPerformed;\n\n    for (let i = 0; i < actionList.length; i++) {\n        \n        try {\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const page = (await browser.pages())[msg.pupController.activePage];\n\n            page.setDefaultNavigationTimeout(1000); \n            //page.setDefaultNavigationTimeout(10000);\n\n            var ele = actionList[i];\n            const action = ele.action;\n\n            await page.waitForNetworkIdle();\n\n            switch (action)\n            {\n                case \"launch\":\n                case \"newtab\":\n                    break;\n\n                case \"goto\":\n                    if (ele.url != null)\n                        await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });\n                    else\n                        actionPerformed = ReportError(ele, \"Error: URL was lost\");\n                    break;\n\n                case \"click\":\n                    if(ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"clickifexists\":\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    \n                    const exists = !! await page.$(ele.path);\n\n                    //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if(exists)\n                        await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"type\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if (ele.clear == true || ele.clearInput == true || ele.clear == \"true\" || ele.clearInput == \"true\")\n                        await page.click(ele.path, { clickCount: 3 });\n                    await page.type(ele.path, ele.input);\n                    break;\n\n                case \"select\":\n                    let elemHandler = await page.$(ele.path);\n                    let properties = await elemHandler.getProperties();\n                    for (const property of properties.values())\n                    {\n                        const element = property.asElement();\n                        if (element)\n                        {\n                            let hText = await element.getProperty(\"text\");\n                            let text = await hText.jsonValue();\n                            if (text === ele.input)\n                            {\n                                let hValue = await element.getProperty(\"value\");\n                                let value = await hValue.jsonValue();\n                                await page.select(ele.path, value); // or use 58730\n                                //console.log(`Selected ${text} which is value ${value}.`);\n                            }\n                        }\n                    }\n                    /*\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.select(ele.path, ele.input);\n                    */\n                    break;\n\n                case \"get\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    var content = await page.$eval(ele.path, el => el.innerText);\n                    ele.output = actionList[i].output = content;\n                    break;\n\n                case \"geturl\":\n                    ele.output = actionList[i].output = page.url();\n\n                case \"wait\":\n                    if(ele.ms != null)\n                        await wait(ele.ms);\n                    break;\n\n                case \"close\":\n                    await browser.close();\n                    msg.pupController.browser = null;\n                    msg.pupController.pages = null;\n                    break;\n            }\n\n            ele.succesful = true;\n            actionPerformed = ReportAction(ele);\n            node.send([null, actionPerformed]);\n\n            //if(i == actionList.length-1 && action != \"close\")\n            //    await browser.close();\n            \n            \n        }\n        catch (e)\n        {\n            console.log(\"PupController error: \" + JSON.stringify(e));\n            //node.error(\"Error:\", e);\n            actionList[i].succesful = false;\n            actionPerformed = ReportError(actionList[i], e);\n            \n            node.send([null, actionPerformed]);\n\n            /*if (i == actionList.length - 1 && actionList[i] != \"close\")\n                await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS }).then(browser => browser.close());\n                //await browser.close();*/\n        }\n\n    }\n\n\n    msg.pupOutputs = outputs;\n    node.send([msg, null]);\n})();\n\nasync function wait(_ms)\n{\n    let promise = new Promise((resolve, reject) => {\n        setTimeout(() => resolve(\"done!\"), _ms)\n    });\n    let result = await promise; // wait until the promise resolves (*)\n    //alert(result); // \"done!\"\n}\n\nfunction ReportAction(a, s = true)\n{\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a.action,\n        \"succesful\": s,\n        \"obj\": a\n    });\n\n    if(a.output != null)\n    {\n        var outputName = a.name;\n        var outputObj = a.obj;\n\n        if(outputObj != null && outputObj != \"\")\n        {\n            outputs[outputObj] = outputs[outputObj] == null ? {} : outputs[outputObj];\n            outputs[outputObj][outputName] = a.output;\n        }\n        else\n            outputs[outputName] = a.output;\n        /*\n        outputs.push({\n            \"name\": a.name,\n            \"value\": a.output\n        });*/\n    }\n    return newAction;\n}\n\nfunction ReportError(a, e)\n{\n    console.log(e);\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a,\n        \"succesful\": false,\n        \"error\": e,\n        \"obj\": a\n    });\n    return newAction;\n}\n\nasync function setDownloadBehavior(page) {\n    const client = await page.target().createCDPSession();\n    await client.send('Page.setDownloadBehavior', {\n        behavior: 'allow',\n        downloadPath: downloadPath\n    });\n}\n\n\n\n\n\n\n/*\n(async () => {\n    if (msg.command.url != null)\n        try {\n            //const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.browserWS })\n            //const page = (await browser.pages())[msg.pupController.activePage];\n            const page = (await browser.pages())[msg.activePage];\n\n            await page.waitForNetworkIdle();\n            await page.goto(msg.command.url);\n            msg.succesful = true;\n\n        }\n        catch (e) {\n            console.log(e);\n            msg.succesful = false;\n            msg.error = e;\n        }\n    else {\n        msg.succesful = false;\n        msg.error = \"Error: URL was null\";\n        console.log(msg.error);\n    }\n\n    node.send(msg);\n})();\n*/",
+        "func": "const pup = global.get('puppeteer');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\n\nvar actions = [];\n//var outputs = [];\nvar outputs = {};\n\nconst timeoutMs = 6500;\n\n(async () => {\n\n    const actionList = msg.payload;\n    var actionPerformed;\n\n    for (let i = 0; i < actionList.length; i++) {\n        \n        try {\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const page = (await browser.pages())[msg.pupController.activePage];\n\n            page.setDefaultNavigationTimeout(1000); \n            //page.setDefaultNavigationTimeout(10000);\n\n            var ele = actionList[i];\n            const action = ele.action;\n\n            await page.waitForNetworkIdle();\n\n            switch (action)\n            {\n                case \"launch\":\n                case \"newtab\":\n                    break;\n\n                case \"goto\":\n                    if (ele.url != null)\n                        await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });\n                    else\n                        actionPerformed = ReportError(ele, \"Error: URL was lost\");\n                    break;\n\n                case \"click\":\n                    if(ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"clickifexists\":\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    \n                    const exists = !! await page.$(ele.path);\n\n                    //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if(exists)\n                        await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"type\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if (ele.clear == true || ele.clearInput == true || ele.clear == \"true\" || ele.clearInput == \"true\")\n                        await page.click(ele.path, { clickCount: 3 });\n                    await page.type(ele.path, ele.input);\n                    break;\n\n                case \"select\":\n                    let elemHandler = await page.$(ele.path);\n                    let properties = await elemHandler.getProperties();\n                    for (const property of properties.values())\n                    {\n                        const element = property.asElement();\n                        if (element)\n                        {\n                            let hText = await element.getProperty(\"text\");\n                            let text = await hText.jsonValue();\n                            if (text === ele.input)\n                            {\n                                let hValue = await element.getProperty(\"value\");\n                                let value = await hValue.jsonValue();\n                                await page.select(ele.path, value); // or use 58730\n                                //console.log(`Selected ${text} which is value ${value}.`);\n                            }\n                        }\n                    }\n                    /*\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.select(ele.path, ele.input);\n                    */\n                    break;\n\n                case \"get\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    var content = await page.$eval(ele.path, el => el.innerText);\n                    ele.output = actionList[i].output = content;\n                    break;\n\n                case \"geturl\":\n                    ele.output = actionList[i].output = page.url();\n\n                case \"wait\":\n                    if(ele.ms != null)\n                        await wait(ele.ms);\n                    break;\n\n                case \"close\":\n                    await browser.close();\n                    msg.pupController.browser = null;\n                    msg.pupController.pages = null;\n                    break;\n            }\n\n            ele.succesful = true;\n            actionPerformed = ReportAction(ele);\n            node.send([null, actionPerformed]);\n\n            //if(i == actionList.length-1 && action != \"close\")\n            //    await browser.close();\n            \n            \n        }\n        catch (e)\n        {\n            console.log(\"PupController error: \" + JSON.stringify(e));\n            //node.error(\"Error:\", e);\n            actionList[i].succesful = false;\n            actionPerformed = ReportError(actionList[i], e);\n            \n            node.send([null, actionPerformed]);\n\n            /*if (i == actionList.length - 1 && actionList[i] != \"close\")\n                await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS }).then(browser => browser.close());\n                //await browser.close();*/\n        }\n\n    }\n\n\n    msg.pupOutputs = outputs;\n    node.send([msg, null]);\n})();\n\nasync function wait(_ms)\n{\n    let promise = new Promise((resolve, reject) => {\n        setTimeout(() => resolve(\"done!\"), _ms)\n    });\n    let result = await promise; // wait until the promise resolves (*)\n    //alert(result); // \"done!\"\n}\n\nfunction ReportAction(a, s = true)\n{\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a.action,\n        \"succesful\": s,\n        \"obj\": a\n    });\n\n    if(a.output != null)\n    {\n        var outputName = a.name;\n        var outputObj = a.obj;\n\n        if(outputObj != null && outputObj != \"\")\n        {\n            outputs[outputObj] = outputs[outputObj] == null ? {} : outputs[outputObj];\n            outputs[outputObj][outputName] = a.output;\n        }\n        else\n            outputs[outputName] = a.output;\n        /*\n        outputs.push({\n            \"name\": a.name,\n            \"value\": a.output\n        });*/\n    }\n    return newAction;\n}\n\nfunction ReportError(a, e)\n{\n    console.log(e);\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a,\n        \"succesful\": false,\n        \"error\": e,\n        \"obj\": a\n    });\n    return newAction;\n}\n\nasync function setDownloadBehavior(page) {\n    const client = await page.target().createCDPSession();\n    await client.send('Page.setDownloadBehavior', {\n        behavior: 'allow',\n        downloadPath: downloadPath\n    });\n}\n\n\n\n\n\n\n/*\n(async () => {\n    if (msg.command.url != null)\n        try {\n            //const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.browserWS })\n            //const page = (await browser.pages())[msg.pupController.activePage];\n            const page = (await browser.pages())[msg.activePage];\n\n            await page.waitForNetworkIdle();\n            await page.goto(msg.command.url);\n            msg.succesful = true;\n\n        }\n        catch (e) {\n            console.log(e);\n            msg.succesful = false;\n            msg.error = e;\n        }\n    else {\n        msg.succesful = false;\n        msg.error = \"Error: URL was null\";\n        console.log(msg.error);\n    }\n\n    node.send(msg);\n})();\n*/",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -1178,6 +1175,14 @@
                 "pt": "flow",
                 "to": "msg.pupid+1",
                 "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "totalCount",
+                "pt": "msg",
+                "to": "totalActionCount",
+                "tot": "flow",
+                "dc": true
             }
         ],
         "action": "",
@@ -1485,6 +1490,34 @@
         "y": 80,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "ba19f064476425c9",
+        "type": "change",
+        "z": "41d1b8798efe7e15",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "totalActionCount",
+                "pt": "flow",
+                "to": "pupController.totalActions",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 440,
+        "wires": [
+            [
+                "580a9e3166314a22"
+            ]
         ]
     },
     {
@@ -3461,7 +3494,7 @@
                 "t": "set",
                 "p": "webData",
                 "pt": "global",
-                "to": "\t{\t    \"workletCreds\": {\t        \"workletUser\": \"\",\t        \"workletPass\": \"\"\t    }\t}",
+                "to": "\t{\t    \"workletCreds\": {\t        \"workletUser\": \"\",\t        \"workletPass\": \"\"\t    }, \"startedRunThisInstance\": false\t}",
                 "tot": "jsonata"
             }
         ],
@@ -3524,7 +3557,7 @@
         "y": 280,
         "wires": [
             [
-                "bb96674ebd01af04"
+                "c7471e96ad8de5e4"
             ]
         ]
     },
@@ -3594,7 +3627,7 @@
                 "t": "set",
                 "p": "payload.rules",
                 "pt": "msg",
-                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal følge denne regel\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
+                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal være indenfor formuegrænsen\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
                 "tot": "jsonata"
             },
             {
@@ -4032,6 +4065,33 @@
         ]
     },
     {
+        "id": "c7471e96ad8de5e4",
+        "type": "change",
+        "z": "db94b4c117de2f6a",
+        "name": "set isRunning",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.isRunning",
+                "pt": "global",
+                "to": "$globalContext(\"webData.startedRunThisInstance\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 280,
+        "wires": [
+            [
+                "bb96674ebd01af04"
+            ]
+        ]
+    },
+    {
         "id": "792bc1326c300849",
         "type": "subflow:db94b4c117de2f6a",
         "z": "85ff29bdef7c1aea",
@@ -4282,17 +4342,6 @@
         "wires": []
     },
     {
-        "id": "f7835ac1742b0168",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "[E] Læs relevant persondata fra KP vedr. de pågældende borgere",
-        "info": "",
-        "x": 590,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "2ea70729759d488c",
         "type": "catch",
         "z": "8ea344595d9a442a",
@@ -4373,30 +4422,6 @@
                 "a46e2a0c2cd58d9f"
             ]
         ]
-    },
-    {
-        "id": "b0fc3381ab70ecfb",
-        "type": "credentials",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [
-            {
-                "value": "workletUser",
-                "type": "msg"
-            },
-            {
-                "value": "workletPass",
-                "type": "msg"
-            }
-        ],
-        "x": 235,
-        "y": 220,
-        "wires": [
-            [
-                "632aa75f39860780"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "64156b428449f87a",
@@ -4564,7 +4589,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 1390,
+        "x": 1430,
         "y": 440,
         "wires": [
             [
@@ -4581,7 +4606,7 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 1495,
+        "x": 1535,
         "y": 440,
         "wires": [
             [
@@ -4602,7 +4627,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1690,
+        "x": 1730,
         "y": 440,
         "wires": [
             [
@@ -4642,7 +4667,7 @@
         "g": "669e09e244099963",
         "name": "Slet fakturaliste",
         "info": "",
-        "x": 1700,
+        "x": 1740,
         "y": 400,
         "wires": []
     },
@@ -4671,7 +4696,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1545,
+        "x": 1585,
         "y": 440,
         "wires": [
             [
@@ -4689,7 +4714,7 @@
         "g": "669e09e244099963",
         "name": "Læs fakturaliste",
         "info": "",
-        "x": 1400,
+        "x": 1440,
         "y": 400,
         "wires": []
     },
@@ -4856,7 +4881,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1690,
+        "x": 1730,
         "y": 360,
         "wires": []
     },
@@ -4874,376 +4899,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "bc99d7022f61a990",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Set selectors",
-        "rules": [
-            {
-                "t": "set",
-                "p": "selectors.kp",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.url",
-                "pt": "msg",
-                "to": "https://fagsystem.kommunernespensionssystem.dk/",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.login",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.login.select",
-                "pt": "msg",
-                "to": "[id=\"SelectedAuthenticationUrl\"]",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.login.button",
-                "pt": "msg",
-                "to": ".button",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.inputCPR",
-                "pt": "msg",
-                "to": "#search_box input",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.inputCPR_soegknap",
-                "pt": "msg",
-                "to": "#search_box button",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.personligtillaegsprocent",
-                "pt": "msg",
-                "to": "#person-pension-fakta > tbody > tr:nth-child(5) > td:nth-child(2) > div",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.helbredstillaegsprocent_aabn",
-                "pt": "msg",
-                "to": "#person-pension-fakta > tbody > tr:nth-child(6) > td:nth-child(3) > div > div > span > span",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.helbredstillaegsprocent",
-                "pt": "msg",
-                "to": "#person-pension-fakta > tbody > tr:nth-child(6) > td:nth-child(2) > div",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.danmarkgruppe",
-                "pt": "msg",
-                "to": "#person-oplysninger > tbody > tr:nth-child(6) > td:nth-child(2) > div",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.personligtillaegsprocent_aabn",
-                "pt": "msg",
-                "to": "#person-pension-fakta > tbody > tr:nth-child(5) > td:nth-child(3) > div > div > span > span",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.tillaegsprocent",
-                "pt": "msg",
-                "to": "#history_table",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.tillaegsprocent_luk",
-                "pt": "msg",
-                "to": "#person-pension-fakta div.sc-gPEVay.ceKhsN > div.sc-jlyJG.NUpYs > svg",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.formue",
-                "pt": "msg",
-                "to": "#person-pension-fakta > tbody > tr:nth-child(4) > td:nth-child(2) > div",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.sager",
-                "pt": "msg",
-                "to": "#person_overblik_sager_table",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.lukborger",
-                "pt": "msg",
-                "to": "svg.svg-inline--fa.fa-times.fa-w-11.fa-1x",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "selectors.kp.citizen.bevilling",
-                "pt": "msg",
-                "to": "#app div.tab-content div.tab-content > div > div > div:nth-child(1) > div",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 470,
-        "y": 720,
-        "wires": [
-            [
-                "c2df29c07624e5e0"
-            ]
-        ]
-    },
-    {
-        "id": "d183f106c2e11bce",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "citizens",
-                "pt": "msg",
-                "to": "$distinct(receipts@$A.(\t[\t    {\t        \"cpr\": $A.patientCPR\t    }\t]))",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 680,
-        "wires": [
-            [
-                "bc99d7022f61a990"
-            ]
-        ]
-    },
-    {
-        "id": "c2df29c07624e5e0",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Set pup commands",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 30,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$append(payload, citizens@$A.(\t    [\t        {\t           \"action\": \"type\",\t           \"input\": $A.cpr,\t           \"path\": selectors.kp.inputCPR\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.inputCPR_soegknap\t\t        },\t        {\t            \"action\": \"geturl\",\t            \"name\": \"kpurl\",\t            \"obj\": $A.cpr\t        },\t        {\t            \"action\": \"clickifexists\",\t            \"path\": 'div[class=\"sc-jKVCRD CUfQJ\"]'\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.personligtillaegsprocent_aabn\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"personligtillaegsprocent\",\t           \"path\": selectors.kp.citizen.tillaegsprocent,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.helbredstillaegsprocent_aabn\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"helbredstillaegsprocent\",\t            \"path\": selectors.kp.citizen.tillaegsprocent,\t            \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"bevilling\",\t            \"path\": selectors.kp.citizen.bevilling,\t            \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"sager\",\t           \"path\": selectors.kp.citizen.sager,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"danmarkgruppe\",\t           \"path\": selectors.kp.citizen.danmarkgruppe,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"formue\",\t           \"path\": selectors.kp.citizen.formue,\t           \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.lukborger\t        }\t    ]\t))",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$append(payload,\t{\t    \"action\": \"close\"\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 680,
-        "wires": [
-            [
-                "c8857f0a61f8c92e",
-                "86c8180e0274bc8b"
-            ]
-        ]
-    },
-    {
-        "id": "c8857f0a61f8c92e",
-        "type": "subflow:41d1b8798efe7e15",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "",
-        "x": 1000,
-        "y": 680,
-        "wires": [
-            [
-                "70ade91971d73d3b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "0df1e3c807393a69",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Klargør læsning af persondata fra KP",
-        "info": "",
-        "x": 750,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "573bc9a19cb2a144",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Læs CPR fra faktura",
-        "info": "",
-        "x": 450,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "70ade91971d73d3b",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "pupOutputs.navn",
-                "pt": "msg",
-                "to": "brugernavn",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "citizens",
-                "pt": "msg",
-                "to": "pupOutputs",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1260,
-        "y": 680,
-        "wires": [
-            [
-                "81a00971b2ea464e",
-                "172fe34eeccca8dd"
-            ]
-        ]
-    },
-    {
-        "id": "81a00971b2ea464e",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Borgerliste debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "citizens",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1350,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "3691fee0bd5cd7bc",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Læs persondata",
-        "info": "",
-        "x": 1000,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "5c03893a530479bb",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "Gem data i midlertidig hukommelse",
-        "info": "",
-        "x": 1320,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "86c8180e0274bc8b",
-        "type": "credentials",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "g": "9c4f3569ebca5f7b",
-        "name": "testdata",
-        "props": [
-            {
-                "value": "pupOutputs",
-                "type": "msg"
-            }
-        ],
-        "x": 980,
-        "y": 720,
-        "wires": [
-            [
-                "402de4b110655edc"
-            ]
-        ]
-    },
-    {
-        "id": "402de4b110655edc",
-        "type": "json",
-        "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "",
-        "property": "pupOutputs",
-        "action": "",
-        "pretty": false,
-        "x": 1075,
-        "y": 720,
-        "wires": [
-            [
-                "70ade91971d73d3b"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "8a3db972f8fb7806",
@@ -5363,7 +5018,7 @@
         "y": 220,
         "wires": [
             [
-                "b0fc3381ab70ecfb"
+                "632aa75f39860780"
             ]
         ]
     },
@@ -5933,7 +5588,6 @@
         "id": "d04faa115ea73982",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "d": true,
         "g": "669e09e244099963",
         "name": "WorkLet login",
         "rules": [
@@ -5984,7 +5638,7 @@
         "g": "669e09e244099963",
         "name": "[E] Download fakturaer for den bestemte tidsperiode",
         "info": "",
-        "x": 570,
+        "x": 590,
         "y": 340,
         "wires": []
     },
@@ -6676,7 +6330,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 420,
         "y": 80,
         "wires": [
             []
@@ -6694,7 +6348,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1390,
+        "x": 1430,
         "y": 340,
         "wires": [
             [
@@ -6722,11 +6376,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1495,
+        "x": 1535,
         "y": 340,
         "wires": [
             [
-                "05c5f046beaa0d7d"
+                "62ce56e92ec4f29b"
             ],
             [
                 "4003aad4b2b6a9c8"
@@ -6741,84 +6395,9 @@
         "g": "669e09e244099963",
         "name": "Fil blev ikke downloaded",
         "info": "",
-        "x": 1640,
+        "x": 1680,
         "y": 320,
         "wires": []
-    },
-    {
-        "id": "41b54ba78a798165",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 130,
-        "y": 1040,
-        "wires": [
-            [
-                "d73fa86d9401eebc"
-            ]
-        ]
-    },
-    {
-        "id": "d73fa86d9401eebc",
-        "type": "credentials",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "name": "testdata",
-        "props": [
-            {
-                "value": "receipts",
-                "type": "msg"
-            },
-            {
-                "value": "citizens",
-                "type": "msg"
-            }
-        ],
-        "x": 160,
-        "y": 1080,
-        "wires": [
-            [
-                "2c7762097d92c2e1"
-            ]
-        ]
-    },
-    {
-        "id": "2c7762097d92c2e1",
-        "type": "json",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "property": "citizens",
-        "action": "obj",
-        "pretty": false,
-        "x": 180,
-        "y": 1140,
-        "wires": [
-            [
-                "05aedd9bee8c318f"
-            ]
-        ]
-    },
-    {
-        "id": "05aedd9bee8c318f",
-        "type": "json",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "property": "receipts",
-        "action": "obj",
-        "pretty": false,
-        "x": 190,
-        "y": 1180,
-        "wires": [
-            [
-                "4629d4bebfd2768f"
-            ]
-        ]
     },
     {
         "id": "4629d4bebfd2768f",
@@ -7579,8 +7158,8 @@
                 "t": "set",
                 "p": "currentRun.userName",
                 "pt": "msg",
-                "to": "",
-                "tot": "str"
+                "to": "brugernavn",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -7624,8 +7203,7 @@
         "y": 1940,
         "wires": [
             [
-                "8f4d2dcc4c986825",
-                "6793405f4aaca4d3"
+                "8f4d2dcc4c986825"
             ]
         ]
     },
@@ -7750,23 +7328,6 @@
         ]
     },
     {
-        "id": "6793405f4aaca4d3",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "debug 29",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 2020,
-        "wires": []
-    },
-    {
         "id": "f55297e5ed366346",
         "type": "inject",
         "z": "8ea344595d9a442a",
@@ -7879,7 +7440,9 @@
             "5b599232bb01d1d2",
             "5ee0ef61ccdcafac",
             "75f1aaf5a21e12a8",
-            "f1884a7421b13391"
+            "f1884a7421b13391",
+            "181615f06b564d1e",
+            "7e0e36d833794733"
         ],
         "x": 1825,
         "y": 180,
@@ -8366,8 +7929,7 @@
         "y": 940,
         "wires": [
             [
-                "42e8d0e6b5e55314",
-                "8577415bd92568e6"
+                "42e8d0e6b5e55314"
             ]
         ],
         "l": false
@@ -8386,21 +7948,578 @@
         "wires": []
     },
     {
-        "id": "8577415bd92568e6",
+        "id": "30f14b6f815a98ef",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Send status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "\"Henter persondata fra KP ... \" & percentage & \"%\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "type",
+                "pt": "msg",
+                "to": "update",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 780,
+        "wires": [
+            [
+                "181615f06b564d1e"
+            ]
+        ]
+    },
+    {
+        "id": "181615f06b564d1e",
+        "type": "link out",
+        "z": "8ea344595d9a442a",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "63ec872a76a39ffb"
+        ],
+        "x": 1475,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "70a379ce2563656b",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "name": "Calc %",
+        "func": "var percentage = msg.pupid / msg.totalCount * 100;\npercentage = parseInt(percentage);\n\nmsg.percentage = percentage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 780,
+        "wires": [
+            [
+                "30f14b6f815a98ef"
+            ]
+        ]
+    },
+    {
+        "id": "6e042d4222a1a115",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "name": "Tjek om fakturaliste er tom",
+        "info": "",
+        "x": 170,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "bc99d7022f61a990",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "Set selectors",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectors.kp",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.url",
+                "pt": "msg",
+                "to": "https://fagsystem.kommunernespensionssystem.dk/",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.login",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.login.select",
+                "pt": "msg",
+                "to": "[id=\"SelectedAuthenticationUrl\"]",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.login.button",
+                "pt": "msg",
+                "to": ".button",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.inputCPR",
+                "pt": "msg",
+                "to": "#search_box input",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.inputCPR_soegknap",
+                "pt": "msg",
+                "to": "#search_box button",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.personligtillaegsprocent",
+                "pt": "msg",
+                "to": "#person-pension-fakta > tbody > tr:nth-child(5) > td:nth-child(2) > div",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.helbredstillaegsprocent_aabn",
+                "pt": "msg",
+                "to": "#person-pension-fakta > tbody > tr:nth-child(6) > td:nth-child(3) > div > div > span > span",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.helbredstillaegsprocent",
+                "pt": "msg",
+                "to": "#person-pension-fakta > tbody > tr:nth-child(6) > td:nth-child(2) > div",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.danmarkgruppe",
+                "pt": "msg",
+                "to": "#person-oplysninger > tbody > tr:nth-child(6) > td:nth-child(2) > div",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.personligtillaegsprocent_aabn",
+                "pt": "msg",
+                "to": "#person-pension-fakta > tbody > tr:nth-child(5) > td:nth-child(3) > div > div > span > span",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.tillaegsprocent",
+                "pt": "msg",
+                "to": "#history_table",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.tillaegsprocent_luk",
+                "pt": "msg",
+                "to": "#person-pension-fakta div.sc-gPEVay.ceKhsN > div.sc-jlyJG.NUpYs > svg",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.formue",
+                "pt": "msg",
+                "to": "#person-pension-fakta > tbody > tr:nth-child(4) > td:nth-child(2) > div",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.sager",
+                "pt": "msg",
+                "to": "#person_overblik_sager_table",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.lukborger",
+                "pt": "msg",
+                "to": "svg.svg-inline--fa.fa-times.fa-w-11.fa-1x",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "selectors.kp.citizen.bevilling",
+                "pt": "msg",
+                "to": "#app div.tab-content div.tab-content > div > div > div:nth-child(1) > div",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 720,
+        "wires": [
+            [
+                "c2df29c07624e5e0"
+            ]
+        ]
+    },
+    {
+        "id": "d183f106c2e11bce",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "citizens",
+                "pt": "msg",
+                "to": "$distinct(receipts@$A.(\t[\t    {\t        \"cpr\": $A.patientCPR\t    }\t]))",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 680,
+        "wires": [
+            [
+                "bc99d7022f61a990"
+            ]
+        ]
+    },
+    {
+        "id": "c2df29c07624e5e0",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "Set pup commands",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 30,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$append(payload, citizens@$A.(\t    [\t        {\t           \"action\": \"type\",\t           \"input\": $A.cpr,\t           \"path\": selectors.kp.inputCPR\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.inputCPR_soegknap\t\t        },\t        {\t            \"action\": \"geturl\",\t            \"name\": \"kpurl\",\t            \"obj\": $A.cpr\t        },\t        {\t            \"action\": \"clickifexists\",\t            \"path\": 'div[class=\"sc-jKVCRD CUfQJ\"]'\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.personligtillaegsprocent_aabn\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"personligtillaegsprocent\",\t           \"path\": selectors.kp.citizen.tillaegsprocent,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.helbredstillaegsprocent_aabn\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"helbredstillaegsprocent\",\t            \"path\": selectors.kp.citizen.tillaegsprocent,\t            \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"bevilling\",\t            \"path\": selectors.kp.citizen.bevilling,\t            \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"sager\",\t           \"path\": selectors.kp.citizen.sager,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"danmarkgruppe\",\t           \"path\": selectors.kp.citizen.danmarkgruppe,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"formue\",\t           \"path\": selectors.kp.citizen.formue,\t           \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.lukborger\t        }\t    ]\t))",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$append(payload,\t{\t    \"action\": \"close\"\t}\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 680,
+        "wires": [
+            [
+                "c8857f0a61f8c92e"
+            ]
+        ]
+    },
+    {
+        "id": "c8857f0a61f8c92e",
+        "type": "subflow:41d1b8798efe7e15",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "",
+        "x": 1000,
+        "y": 680,
+        "wires": [
+            [
+                "70ade91971d73d3b"
+            ],
+            [
+                "70a379ce2563656b"
+            ]
+        ]
+    },
+    {
+        "id": "0df1e3c807393a69",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "Klargør læsning af persondata fra KP",
+        "info": "",
+        "x": 750,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "573bc9a19cb2a144",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "Læs CPR fra faktura",
+        "info": "",
+        "x": 450,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "70ade91971d73d3b",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "pupOutputs.navn",
+                "pt": "msg",
+                "to": "brugernavn",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "citizens",
+                "pt": "msg",
+                "to": "pupOutputs",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 680,
+        "wires": [
+            [
+                "81a00971b2ea464e",
+                "172fe34eeccca8dd"
+            ]
+        ]
+    },
+    {
+        "id": "81a00971b2ea464e",
         "type": "debug",
         "z": "8ea344595d9a442a",
-        "name": "debug 32",
-        "active": true,
+        "g": "9c4f3569ebca5f7b",
+        "name": "Borgerliste debug",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "citizens",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 210,
-        "y": 1000,
+        "x": 1350,
+        "y": 720,
         "wires": []
+    },
+    {
+        "id": "3691fee0bd5cd7bc",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "Læs persondata",
+        "info": "",
+        "x": 1000,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5c03893a530479bb",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "Gem data i midlertidig hukommelse",
+        "info": "",
+        "x": 1320,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f7835ac1742b0168",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "9c4f3569ebca5f7b",
+        "name": "[E] Læs relevant persondata fra KP vedr. de pågældende borgere",
+        "info": "",
+        "x": 590,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7e0e36d833794733",
+        "type": "link out",
+        "z": "8ea344595d9a442a",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "63ec872a76a39ffb"
+        ],
+        "x": 2265,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2359edd9babea1ac",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.isRunning",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "currentRun.allReceiptsProcessed",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"allReceiptsProcessed\": true, \"isFinalized\": false\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2055,
+        "y": 360,
+        "wires": [
+            [
+                "08f36899ebeff27b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "08f36899ebeff27b",
+        "type": "link out",
+        "z": "8ea344595d9a442a",
+        "name": "START response out",
+        "mode": "link",
+        "links": [
+            "5c74b689e0aee38b"
+        ],
+        "x": 2135,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cb1b489418bfa2d8",
+        "type": "delay",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1960,
+        "y": 400,
+        "wires": [
+            [
+                "0af59de1688c9df4"
+            ]
+        ]
+    },
+    {
+        "id": "0af59de1688c9df4",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Send status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "Loginoplysninger er muligvis forkerte, ellers fungerer WorkLet webinterface ikke som det skal.",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "type",
+                "pt": "msg",
+                "to": "alert",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "title",
+                "pt": "msg",
+                "to": "Fejl ved hentning af WorkLet fakturaer",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2130,
+        "y": 400,
+        "wires": [
+            [
+                "7e0e36d833794733"
+            ]
+        ]
     },
     {
         "id": "248d64bf4e74f440",
@@ -8609,7 +8728,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1980,
-        "y": 660,
+        "y": 620,
         "wires": []
     },
     {
@@ -8809,7 +8928,7 @@
         "fieldType": "msg",
         "format": "javascript",
         "syntax": "mustache",
-        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response)\n{\n    //console.log(\"RESPONSE FROM STARTRUN\");\n    goToPage(\"start\");\n}\n\nhandleResponseDynamically['archive'] = function (response)\n{\n    //goToPage(response.page + \"?spec=\"+response.spec);\n    reloadPage();\n}\n\nhandleResponseDynamically['finalize'] = function (response)\n{\n    goToPage(\"finalized\");\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    if (document.getElementById(\"nav_run\") !== null)\n        document.getElementById(\"nav_run\").innerHTML = `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n\n\n\n//\n/// WEB SOCKET (node-red)\n//\n\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + \"/ws/worklet\";\n\nfunction wsConnect()\n{\n    console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function (msg)\n    {\n\n        var data = msg.data;\n        const obj = JSON.parse(data);\n        //const obj = data;\n        \n        displayWsMessage(obj);\n        console.log(\"Received WS message: \" + JSON.stringify(obj));\n        \n    }\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m)\n{\n    if (ws) { ws.send(m); }\n}\n\nwsConnect();\n\n\nfunction displayWsMessage(ws)\n{\n    console.log(\"Displaying ws object: \" + ws);\n    console.log(\"Displaying ws object (stringify): \" + JSON.stringify(ws));\n\n    if(ws.type == \"alert\")\n    {\n        var obj = document.getElementById(\"alertBox\");\n\n        if (obj == null) {\n            var html = `\n            <div class=\"alert alert-dismissible alert-warning\" id=\"alertBox\">\n                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>\n                <h4 class=\"alert-heading\" id=\"alertBox-heading\">` + ws.title + `</h4>\n                <p class=\"mb-0\" id=\"alertBox-body\">` + ws.msg + `</p>\n            </div>`;\n            document.getElementById(\"alertParent\").innerHTML = html;\n            return;\n        }\n\n        obj.classList.add(\"alert-warning\");\n        obj.classList.remove(\"hidden\");\n\n        document.getElementById(\"alertBox-heading\").innerHTML = ws.title;\n        document.getElementById(\"alertBox-body\").innerHTML = ws.message;\n    }\n\n    else if(ws.type == \"update\")\n    {\n        var obj = document.getElementById(\"statusText\");\n\n        if(obj != null)\n        {\n            console.log(\"OBJ: \" + JSON.stringify(ws));\n            console.log(\"Type:\" + ws.type);\n            console.log(\"Message: \" + ws.message);\n            obj.classList.remove(\"hidden\");\n            obj.innerHTML = \"Status: \" + ws.message;\n        }\n\n    }\n\n}",
+        "template": "//\n/// INITIALIZE\n//\n\nvar rules = {{{payload.rulesStr}}};\n\n//\n/// SET PAGE CONTENT FUNCTION\n//\n\nvar activePage = \"{{payload.webSettings.state.activePage}}\";\n\nfunction goToPage(page)\n{\n    var pageName = \"\";\n    var paramName = \"\";\n    var paramValue = \"\";\n    // Works with 1 param only \n\n    if(page.includes(\"?\"))\n    {\n        var split = page.split(\"?\");\n        pageName = split[0];\n\n        split = split[1].split(\"=\");\n        paramName = split[0];\n        paramValue = split[1];\n    }\n\n    var obj = {};\n\n    if(pageName == \"\")\n        obj = {\"requestType\": \"getPageContent\", \"page\": page};\n\n    else\n    {\n        obj = { \"requestType\": \"getPageContent\", \"page\": pageName };\n        obj[paramName] = paramValue;\n    }\n\n    postRequest(obj);\n}\n\nfunction setPageContent(pageObj, setHistory = true)\n{\n    setInnerHTML(\"fullPage\", pageObj.html);\n    document.title = \"AutoWorkLet - \" + pageObj.title;\n\n    if(setHistory)\n        window.history.pushState({ \"page\": pageObj }, \"\", \"/\" + pageObj.url);\n\n    activePage = pageObj.url;\n\n    //console.log(\"Setting page content using JS\");\n\n    if (loadPageFunc[pageObj.url] != null)\n        loadPageFunc[pageObj.url]();\n\n}\n\nwindow.onpopstate = function (e)\n{\n    if (e.state)\n        setPageContent(e.state.page, false);\n};\n\n\n\n//\n/// NODE-RED INTEGRATION / COMMUNICATION\n//\n\nfunction toJSON(...vars)\n{\n    var obj = {};\n\n    for (let i = 0; i < vars.length; i++)\n        obj[vars[i].id] = vars[i].value;\n\n    return obj;\n}\n\nfunction postRequest(object)\n{\n    //console.log(\"HTTP request: \" + object);\n    fetch('/worklet/http', {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify(object)\n    })\n        .then(response => response.json())\n        .then(response => handlePostResponse(response));\n        //.then(response => console.log(JSON.stringify(response)));\n}\n\n\nfunction handlePostResponse(responseObject)\n{\n    // Call function depending on request type\n\n    if (handleResponseDynamically[responseObject.requestType] != null)\n        handleResponseDynamically[responseObject.requestType](responseObject);\n        \n    return responseObject;\n}\n\nvar handleResponseDynamically = [];\n\n// Dynamic response handling\n\nhandleResponseDynamically['getPageContent'] = function(response)\n{\n    if(response.page != null)\n        setPageContent(response.page);\n}\n\nhandleResponseDynamically['acceptPage'] = function (response)\n{\n    if(activePage == \"rules\")\n        rules = response.rules;\n\n    reloadPage();\n}\n\nhandleResponseDynamically['startRun'] = function (response)\n{\n    //console.log(\"RESPONSE FROM STARTRUN\");\n    goToPage(\"start\");\n}\n\nhandleResponseDynamically['archive'] = function (response)\n{\n    //goToPage(response.page + \"?spec=\"+response.spec);\n    reloadPage();\n}\n\nhandleResponseDynamically['finalize'] = function (response)\n{\n    goToPage(\"finalized\");\n}\n\n\n//\n/// GENERIC FUNCTIONS\n//\n\nfunction setInnerHTML(objectId, content) {\n    var container = document.getElementById(objectId);\n    container.innerHTML = content;\n}\n\nfunction setStyle(objectId, styleVar, styleValue) {\n    var object = document.getElementById(objectId);\n    object.style[styleVar] = styleValue;\n}\n\nfunction toggleHide(objectId)\n{\n    var object = document.getElementById(objectId);\n    object.classList.toggle(\"hidden\");\n}\nfunction hide(objectId) {\n    var object = document.getElementById(objectId);\n    if(!object.classList.contains(\"hidden\"))\n        object.classList.add(\"hidden\");\n}\nfunction reloadPage()\n{\n    goToPage(activePage);\n}\nfunction roundNumber(num)\n{\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\n//\n// PAGE SPECIFIC\n//\nfunction withdrawPageAccept()\n{\n    var pageTitle = \"\";\n    switch(activePage)\n    {\n        case \"login\": pageTitle = \"loginoplysninger\"; break;\n        case \"rules\": pageTitle = \"forretningsregler\"; break;\n        case \"grants\": pageTitle = \"tilskudssatser\"; break;\n    }\n\n    var elements = document.getElementsByClassName(\"form-floating\");\n    for(var i = 0; i<elements.length;i++)\n        elements[i].classList.remove(\"was-validated\");\n\n    var buttonAccept = document.getElementById(\"button_acceptPage\");\n    buttonAccept.classList.add(\"btn-primary\");\n    buttonAccept.classList.remove(\"btn-success\");\n    buttonAccept.innerHTML = \"Godkend \" + pageTitle;\n\n    document.getElementById(\"toAccept\").value = \"true\";\n\n    hide(\"button_acceptPage_goNext\");\n\n    document.getElementById(\"nav_\" + activePage).classList.remove(\"nav-success\");\n}\n\nfunction startRun()\n{\n    /* Visual */\n\n    var startButton = document.getElementById(\"button_startRun\");\n\n    startButton.disabled = true;\n    startButton.innerHTML = `<i class=\"fa-lg fas fa-spinner fa-spin\"></i>`;\n\n    if (document.getElementById(\"nav_run\") !== null)\n        document.getElementById(\"nav_run\").innerHTML = `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>`;\n\n    /* Node-red */\n    postRequest({\"requestType\": \"startRun\"});\n\n}\n\n\n// RULES\n\nfunction appendRules(...objects)\n{\n    var list = [];\n\n    for (let i = 0; i < objects.length; i++)\n        if(objects[i] != null)\n            list.push(objects[i]);\n\n    return list;\n}\n\nfunction createRuleObj(ruleVar)\n{\n    let ruleOperator = document.getElementById(\"operator_\" + ruleVar).value;\n    let ruleValue = document.getElementById(\"value_\" + ruleVar).value;\n    let returnObj = {\n        \"id\": ruleVar,\n        \"operator\": ruleOperator,\n        \"value\": ruleValue\n    }\n    //console.log(\"Return OBJ: \" + JSON.stringify(returnObj));\n    return returnObj;\n}\n\nfunction setInputBox(uid, truefalse = false)\n{\n    let operator = document.getElementById(\"operator_\" + uid).value;\n    var html = \"\";\n\n    if (operator == \"!null\" || truefalse)\n        html = `<select class=\"form-select\" id=\"value_` + uid + `\" onchange=\"withdrawPageAccept('rules')\">\n                        <option value=\"true\">Ja</option>\n                        <option value=\"false\">Nej</option>\n                </select>\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n    else\n        html = `<input type=\"text\" class=\"form-control\" id=\"value_` + uid + `\" placeholder=\"0\" style=\"color: black\" onchange=\"withdrawPageAccept('rules')\">\n                <label for=\"value_`+ uid + `\" style=\"padding-left: 27px\">Værdi</label>`;\n\n    setInnerHTML(\"inputContainer_\" + uid, html);\n}\n\n// Grants\n\nfunction createGrantObj(grantId)\n{\n\n    let grantDkk = document.getElementById(\"value_\" + grantId + \"_maxdkk\").value;\n    let grantProcent = document.getElementById(\"value_\" + grantId + \"_procent\").value;\n\n    return {\n        \"id\": grantId,\n        \"tilskud_maxdkk\": grantDkk,\n        \"tilskud_procent\": grantProcent\n    }\n}\n\n\n\n//\n/// LATE START / INITIALIZATION\n//\n\nvar landingPage = \"{{{payload.page}}}\";\n\n\n//\n/// ON PAGE LOAD FUNCTIONS\n//\n\nvar loadPageFunc = [];\n\nloadPageFunc[\"rules\"] = function ()\n{\n    //console.log(\"Running load func\");\n    // LOAD rules - update each rule\n    for (let index = 0; index < rules.length; index++)\n    {\n        const element = rules[index];\n\n        //console.log(\"Attempting to update value for '\" + \"operator_\" + element.uid + \"'\");\n\n        var operatorInput = document.getElementById(\"operator_\" + element.uid);\n        //var valueInput = document.getElementById(\"value_\" + element.uid);\n\n        if (element.operator == \"!null\")\n        {\n            setInputBox(element.uid, true);\n            var valueInput = document.getElementById(\"value_\" + element.uid);\n            valueInput.value = element.value;\n        }\n\n        operatorInput.value = element.operator;\n        //valueInput.value = element.value;\n    }\n}\n\nif (loadPageFunc[landingPage] != null)\n    loadPageFunc[landingPage]();\n\n\n\n//\n/// WEB SOCKET (node-red)\n//\n\nvar ws;\nvar wsUri = \"ws:\";\nvar loc = window.location; //console.log(loc);\n\nif (loc.protocol === \"https:\") { wsUri = \"wss:\"; }\n// This needs to point to the web socket in the Node-RED flow\nwsUri += \"//\" + loc.host + \"/ws/worklet\";\n\nfunction wsConnect()\n{\n    //console.log(\"Connecting to \", wsUri);\n    ws = new WebSocket(wsUri);\n    //var line = \"\";    // either uncomment this for a building list of messages\n    ws.onmessage = function (msg)\n    {\n\n        var data = msg.data;\n        const obj = JSON.parse(data);\n        //const obj = data;\n        \n        displayWsMessage(obj);\n        //console.log(\"Received WS message: \" + JSON.stringify(obj));\n        \n    }\n    ws.onopen = function () {\n        // update the status div with the connection status\n        console.log(\"Connected to WS\");\n    }\n    ws.onclose = function () {\n        // update the status div with the connection status\n        console.log(\"WS connection lost\");\n        // in case of lost connection tries to reconnect every 3 secs\n        setTimeout(wsConnect, 3000);\n    }\n}\nfunction PublishWsMessage(m)\n{\n    if (ws) { ws.send(m); }\n}\n\nwsConnect();\n\n\nfunction displayWsMessage(ws)\n{\n    //console.log(\"Displaying ws object: \" + ws);\n    //console.log(\"Displaying ws object (stringify): \" + JSON.stringify(ws));\n\n    if(ws.type == \"alert\")\n    {\n        var obj = document.getElementById(\"alertBox\");\n\n        if (obj == null) {\n            var html = `\n            <div class=\"alert alert-dismissible alert-warning\" id=\"alertBox\">\n                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>\n                <h4 class=\"alert-heading\" id=\"alertBox-heading\">` + ws.title + `</h4>\n                <p class=\"mb-0\" id=\"alertBox-body\">` + ws.msg + `</p>\n            </div>`;\n            document.getElementById(\"alertParent\").innerHTML = html;\n            return;\n        }\n\n        obj.classList.add(\"alert-warning\");\n        obj.classList.remove(\"hidden\");\n\n        document.getElementById(\"alertBox-heading\").innerHTML = ws.title;\n        document.getElementById(\"alertBox-body\").innerHTML = ws.message;\n    }\n\n    else if(ws.type == \"update\")\n    {\n        var obj = document.getElementById(\"statusText\");\n\n        if(obj != null)\n        {\n            obj.classList.remove(\"hidden\");\n            obj.innerHTML = \"Status: \" + ws.message;\n        }\n\n    }\n\n}",
         "output": "str",
         "x": 990,
         "y": 100,
@@ -9513,7 +9632,8 @@
         "name": "START response in",
         "links": [
             "f5dbef72792b9011",
-            "42e8d0e6b5e55314"
+            "42e8d0e6b5e55314",
+            "08f36899ebeff27b"
         ],
         "x": 1025,
         "y": 1060,
