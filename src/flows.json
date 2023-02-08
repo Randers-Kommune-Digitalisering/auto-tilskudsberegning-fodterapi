@@ -781,19 +781,6 @@
         ]
     },
     {
-        "id": "62ce56e92ec4f29b",
-        "type": "junction",
-        "z": "8ea344595d9a442a",
-        "x": 1960,
-        "y": 340,
-        "wires": [
-            [
-                "2359edd9babea1ac",
-                "cb1b489418bfa2d8"
-            ]
-        ]
-    },
-    {
         "id": "6e63b3c396c75d87",
         "type": "websocket-listener",
         "path": "/ws/pup",
@@ -3975,7 +3962,7 @@
                 "t": "set",
                 "p": "#:(storeInFile)::webSettings.state.isRunning",
                 "pt": "global",
-                "to": "$globalContext(\"webData.startedRunThisInstance\")",
+                "to": "$globalContext(\"webSettings.state.isRunning\", \"storeInFile\") = true ?\t$globalContext(\"webData.startedRunThisInstance\") : false",
                 "tot": "jsonata"
             }
         ],
@@ -5888,7 +5875,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "07/02/2023",
+                "to": "08/02/2023",
                 "tot": "str"
             }
         ],
@@ -6099,7 +6086,7 @@
         "name": "WorkLet WebSocket",
         "server": "13a90a014adf9bc5",
         "client": "",
-        "x": 2120,
+        "x": 2220,
         "y": 180,
         "wires": []
     },
@@ -6281,7 +6268,7 @@
         "y": 340,
         "wires": [
             [
-                "62ce56e92ec4f29b"
+                "2359edd9babea1ac"
             ],
             [
                 "4003aad4b2b6a9c8"
@@ -6296,7 +6283,7 @@
         "g": "669e09e244099963",
         "name": "Fil blev ikke downloaded",
         "info": "",
-        "x": 1680,
+        "x": 1710,
         "y": 320,
         "wires": []
     },
@@ -7342,7 +7329,8 @@
             "75f1aaf5a21e12a8",
             "f1884a7421b13391",
             "181615f06b564d1e",
-            "7e0e36d833794733"
+            "7e0e36d833794733",
+            "d0ec6e3e02665e27"
         ],
         "x": 1825,
         "y": 180,
@@ -7452,7 +7440,7 @@
         "links": [
             "63ec872a76a39ffb"
         ],
-        "x": 1985,
+        "x": 1995,
         "y": 240,
         "wires": []
     },
@@ -7708,7 +7696,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\t\"message\": message, \"type\": \"update\"    \t}",
+                "to": "{\t\"message\": message, \"type\": type, \"title\": title   \t}",
                 "tot": "jsonata"
             }
         ],
@@ -7812,7 +7800,8 @@
         "y": 940,
         "wires": [
             [
-                "42e8d0e6b5e55314"
+                "42e8d0e6b5e55314",
+                "d0db0a27f5e322ae"
             ]
         ],
         "l": false
@@ -8092,7 +8081,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": false,\t            \"slowMo\": 30,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
+                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 30,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
                 "tot": "jsonata"
             },
             {
@@ -8258,7 +8247,7 @@
         "links": [
             "63ec872a76a39ffb"
         ],
-        "x": 2265,
+        "x": 2375,
         "y": 400,
         "wires": []
     },
@@ -8270,23 +8259,18 @@
         "rules": [
             {
                 "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.isRunning",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
                 "p": "runHistory",
                 "pt": "msg",
                 "to": "runHistory",
                 "tot": "global",
                 "dc": true
-            },
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::webSettings.state.isRunning",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
             },
             {
                 "t": "set",
@@ -8309,6 +8293,19 @@
                 "to": "runHistory",
                 "tot": "msg",
                 "dc": true
+            },
+            {
+                "t": "set",
+                "p": "tempSettings",
+                "pt": "msg",
+                "to": "#:(storeInFile)::webSettings",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -8316,11 +8313,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2055,
-        "y": 360,
+        "x": 1985,
+        "y": 320,
         "wires": [
             [
-                "08f36899ebeff27b"
+                "08f36899ebeff27b",
+                "9d1561c975212f16",
+                "2c999012fa2d0842"
             ]
         ],
         "l": false
@@ -8337,31 +8336,6 @@
         "x": 2135,
         "y": 360,
         "wires": []
-    },
-    {
-        "id": "cb1b489418bfa2d8",
-        "type": "delay",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "4",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1960,
-        "y": 400,
-        "wires": [
-            [
-                "0af59de1688c9df4"
-            ]
-        ]
     },
     {
         "id": "0af59de1688c9df4",
@@ -8396,8 +8370,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2130,
-        "y": 400,
+        "x": 2250,
+        "y": 460,
         "wires": [
             [
                 "7e0e36d833794733"
@@ -8419,6 +8393,181 @@
         "statusType": "auto",
         "x": 1750,
         "y": 620,
+        "wires": []
+    },
+    {
+        "id": "9d1561c975212f16",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 33",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2130,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "120ca63b126389ba",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.state.isRunning",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::webSettings",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1915,
+        "y": 340,
+        "wires": [
+            [
+                "b1b24a0127716367"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b1b24a0127716367",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "name": "debug 34",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2c999012fa2d0842",
+        "type": "delay",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2220,
+        "y": 420,
+        "wires": [
+            [
+                "0af59de1688c9df4"
+            ]
+        ]
+    },
+    {
+        "id": "d0db0a27f5e322ae",
+        "type": "delay",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 120,
+        "y": 1020,
+        "wires": [
+            [
+                "812e5235b331e002"
+            ]
+        ]
+    },
+    {
+        "id": "812e5235b331e002",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Send status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "Der blev ikke fundet nogle nye fakturaer ved seneste søgning!",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "type",
+                "pt": "msg",
+                "to": "alert",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "title",
+                "pt": "msg",
+                "to": "Ingen nye fakturaer",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 1060,
+        "wires": [
+            [
+                "d0ec6e3e02665e27"
+            ]
+        ]
+    },
+    {
+        "id": "d0ec6e3e02665e27",
+        "type": "link out",
+        "z": "8ea344595d9a442a",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "63ec872a76a39ffb"
+        ],
+        "x": 275,
+        "y": 1000,
         "wires": []
     },
     {
