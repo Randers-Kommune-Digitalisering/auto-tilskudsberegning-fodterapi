@@ -228,11 +228,11 @@
             "4424787318323d8e",
             "023477a667bd9144",
             "0051afd9266db397",
-            "30cf9105d50bfb07"
+            "05c5f046beaa0d7d"
         ],
         "x": 334,
         "y": 279,
-        "w": 1492,
+        "w": 1472,
         "h": 227
     },
     {
@@ -259,62 +259,12 @@
             "86c8180e0274bc8b",
             "402de4b110655edc",
             "172fe34eeccca8dd",
-            "f7835ac1742b0168",
-            "14494b05c46d325b"
+            "f7835ac1742b0168"
         ],
         "x": 334,
         "y": 539,
         "w": 1172,
         "h": 222
-    },
-    {
-        "id": "287b33b8879cbbbc",
-        "type": "group",
-        "z": "8ea344595d9a442a",
-        "name": "Transform 1 - Kontrollér data",
-        "style": {
-            "fill": "#ffefbf",
-            "label": true,
-            "fill-opacity": "0.66"
-        },
-        "nodes": [
-            "c9e0c48929946d68",
-            "4629d4bebfd2768f",
-            "aea48540dc37e51c",
-            "64bc816ed683fb56",
-            "b01934ac82f070c3",
-            "31392fe7f3a93ccd",
-            "141037f73383a9f6",
-            "78c4e4692985e738",
-            "2cf375bbbada29f9",
-            "12d9ffdfaf71a523",
-            "349a8caa82ed4d5e",
-            "011d535e3ab60636",
-            "71c55498ef71a4c9",
-            "6afaf8f1c596de67",
-            "05096968ae22cc6f",
-            "215c708ef9319356",
-            "c68d4ee2f02ada08",
-            "4c51b10755b92b07",
-            "4e374431cb68ace4",
-            "5e112e4574f64f9b",
-            "ac8390885c3e684c",
-            "046eb82cefda08d4",
-            "6b4df0013a0256a0",
-            "7f450a3e484312bd",
-            "852046d71f487d02",
-            "fa59a67027b60c71",
-            "7d7a7bf5a54224e8",
-            "015eb190e5565e7d",
-            "989112eb96abfdb9",
-            "b81c9fcaa9d3e0d1",
-            "104d29ffe37f5998",
-            "ca6df1c9d056a924"
-        ],
-        "x": 334,
-        "y": 799,
-        "w": 1392,
-        "h": 502
     },
     {
         "id": "6c7a3f8252158db6",
@@ -342,7 +292,7 @@
             "eea859cc92e89e3f"
         ],
         "x": 374,
-        "y": 1339,
+        "y": 1359,
         "w": 1172,
         "h": 282
     },
@@ -364,12 +314,18 @@
             "a46e2a0c2cd58d9f",
             "fde5a695bfbd9a7d",
             "df5451114247dbd3",
-            "4fa04433812ed133"
+            "4fa04433812ed133",
+            "f811b83fc07bb1cd",
+            "5f3a3d3e30d3be55",
+            "c7ca8c02a788a41d",
+            "78f7e1718ab3f755",
+            "8f4d2dcc4c986825",
+            "4840de2e1aa54398"
         ],
         "x": 374,
-        "y": 1659,
+        "y": 1679,
         "w": 852,
-        "h": 202
+        "h": 302
     },
     {
         "id": "31b5ea0c53a9c4fb",
@@ -401,8 +357,7 @@
             "f6abba6df8ed7611",
             "4c1121ef6377b795",
             "6ebfb594e20f3f75",
-            "412dc2399a0183b9",
-            "0ec8a364f5851f94"
+            "412dc2399a0183b9"
         ],
         "x": 454,
         "y": 419,
@@ -580,7 +535,7 @@
             "ab0124be3b95b802",
             "d26270ece4aabe4f"
         ],
-        "x": 1534,
+        "x": 1854,
         "y": 579,
         "w": 292,
         "h": 162
@@ -673,6 +628,56 @@
         "h": 182
     },
     {
+        "id": "287b33b8879cbbbc",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Transform 1 - Kontrollér data",
+        "style": {
+            "fill": "#ffefbf",
+            "label": true,
+            "fill-opacity": "0.66"
+        },
+        "nodes": [
+            "4629d4bebfd2768f",
+            "aea48540dc37e51c",
+            "64bc816ed683fb56",
+            "b01934ac82f070c3",
+            "31392fe7f3a93ccd",
+            "141037f73383a9f6",
+            "78c4e4692985e738",
+            "2cf375bbbada29f9",
+            "12d9ffdfaf71a523",
+            "011d535e3ab60636",
+            "71c55498ef71a4c9",
+            "6afaf8f1c596de67",
+            "05096968ae22cc6f",
+            "215c708ef9319356",
+            "c68d4ee2f02ada08",
+            "4c51b10755b92b07",
+            "4e374431cb68ace4",
+            "5e112e4574f64f9b",
+            "046eb82cefda08d4",
+            "6b4df0013a0256a0",
+            "7f450a3e484312bd",
+            "852046d71f487d02",
+            "fa59a67027b60c71",
+            "7d7a7bf5a54224e8",
+            "015eb190e5565e7d",
+            "989112eb96abfdb9",
+            "b81c9fcaa9d3e0d1",
+            "104d29ffe37f5998",
+            "ca6df1c9d056a924",
+            "00a9a4712b97560f",
+            "1ee2c685a74c09b0",
+            "ac26dfbc2efcbb4f",
+            "81cc412d0d2170b9"
+        ],
+        "x": 334,
+        "y": 799,
+        "w": 1392,
+        "h": 522
+    },
+    {
         "id": "d97f7bbbe0210f54",
         "type": "junction",
         "z": "8ea344595d9a442a",
@@ -694,7 +699,7 @@
         "y": 680,
         "wires": [
             [
-                "2cecfdc6df304e08"
+                "c3932c1fbca91f98"
             ]
         ]
     },
@@ -708,19 +713,6 @@
         "wires": [
             [
                 "4424787318323d8e"
-            ]
-        ]
-    },
-    {
-        "id": "7d7a7bf5a54224e8",
-        "type": "junction",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "x": 560,
-        "y": 1180,
-        "wires": [
-            [
-                "215c708ef9319356"
             ]
         ]
     },
@@ -914,8 +906,8 @@
         "id": "b840a64a9cf3c187",
         "type": "junction",
         "z": "8ea344595d9a442a",
-        "x": 1080,
-        "y": 2440,
+        "x": 1340,
+        "y": 2420,
         "wires": [
             [
                 "a2f55ae008b1fee2"
@@ -979,6 +971,45 @@
         "wires": [
             [
                 "e7b83f0e755d4fdf"
+            ]
+        ]
+    },
+    {
+        "id": "05c5f046beaa0d7d",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "g": "669e09e244099963",
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "144d6812d5213472"
+            ]
+        ]
+    },
+    {
+        "id": "7d7a7bf5a54224e8",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "x": 560,
+        "y": 1240,
+        "wires": [
+            [
+                "215c708ef9319356"
+            ]
+        ]
+    },
+    {
+        "id": "4840de2e1aa54398",
+        "type": "junction",
+        "z": "8ea344595d9a442a",
+        "g": "380e5c7e0ea3778b",
+        "x": 1200,
+        "y": 1940,
+        "wires": [
+            [
+                "fde5a695bfbd9a7d"
             ]
         ]
     },
@@ -1206,7 +1237,7 @@
         "type": "function",
         "z": "41d1b8798efe7e15",
         "name": "Solo Controller",
-        "func": "const pup = global.get('puppeteer');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\n\nvar actions = [];\n//var outputs = [];\nvar outputs = {};\n\nconst timeoutMs = 10000;\n\n(async () => {\n\n    const actionList = msg.payload;\n    var actionPerformed;\n\n    for (let i = 0; i < actionList.length; i++) {\n        \n        try {\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const page = (await browser.pages())[msg.pupController.activePage];\n            //page.setDefaultNavigationTimeout(10000);\n\n            var ele = actionList[i];\n            const action = ele.action;\n\n            await page.waitForNetworkIdle();\n\n            switch (action)\n            {\n                case \"launch\":\n                case \"newtab\":\n                    break;\n\n                case \"goto\":\n                    if (ele.url != null)\n                        await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });\n                    else\n                        actionPerformed = ReportError(ele, \"Error: URL was lost\");\n                    break;\n\n                case \"click\":\n                    if(ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"type\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if (ele.clear == true || ele.clearInput == true || ele.clear == \"true\" || ele.clearInput == \"true\")\n                        await page.click(ele.path, { clickCount: 3 });\n                    await page.type(ele.path, ele.input);\n                    break;\n\n                case \"select\":\n                    let elemHandler = await page.$(ele.path);\n                    let properties = await elemHandler.getProperties();\n                    for (const property of properties.values()) {\n                        const element = property.asElement();\n                        if (element) {\n                            let hText = await element.getProperty(\"text\");\n                            let text = await hText.jsonValue();\n                            if (text === ele.input) {\n                                let hValue = await element.getProperty(\"value\");\n                                let value = await hValue.jsonValue();\n                                await page.select(ele.path, value); // or use 58730\n                                console.log(`Selected ${text} which is value ${value}.`);\n                            }\n                        }\n                    }\n                    /*\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.select(ele.path, ele.input);\n                    */\n                    break;\n\n                case \"get\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    var content = await page.$eval(ele.path, el => el.innerText);\n                    ele.output = actionList[i].output = content;\n                    break;\n\n                case \"geturl\":\n                    ele.output = actionList[i].output = page.url();\n\n                case \"wait\":\n                    if(ele.ms != null)\n                        await wait(ele.ms);\n                    break;\n\n                case \"close\":\n                    await browser.close();\n                    msg.pupController.browser = null;\n                    msg.pupController.pages = null;\n                    break;\n            }\n\n            ele.succesful = true;\n            actionPerformed = ReportAction(ele);\n            node.send([null, actionPerformed]);\n\n            //if(i == actionList.length-1 && action != \"close\")\n            //    await browser.close();\n            \n            \n        }\n        catch (e)\n        {\n            console.log(\"PupController error: \" + JSON.stringify(e));\n            //node.error(\"Error:\", e);\n            actionList[i].succesful = false;\n            actionPerformed = ReportError(actionList[i], e);\n            node.send([null, actionPerformed]);\n\n            /*if (i == actionList.length - 1 && actionList[i] != \"close\")\n                await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS }).then(browser => browser.close());\n                //await browser.close();*/\n        }\n\n    }\n\n    msg.pupOutputs = outputs;\n    node.send([msg, null]);\n})();\n\nasync function wait(_ms)\n{\n    let promise = new Promise((resolve, reject) => {\n        setTimeout(() => resolve(\"done!\"), _ms)\n    });\n    let result = await promise; // wait until the promise resolves (*)\n    //alert(result); // \"done!\"\n}\n\nfunction ReportAction(a, s = true)\n{\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a.action,\n        \"succesful\": s,\n        \"obj\": a\n    });\n\n    if(a.output != null)\n    {\n        var outputName = a.name;\n        var outputObj = a.obj;\n\n        if(outputObj != null && outputObj != \"\")\n        {\n            outputs[outputObj] = outputs[outputObj] == null ? {} : outputs[outputObj];\n            outputs[outputObj][outputName] = a.output;\n        }\n        else\n            outputs[outputName] = a.output;\n        /*\n        outputs.push({\n            \"name\": a.name,\n            \"value\": a.output\n        });*/\n    }\n    return newAction;\n}\n\nfunction ReportError(a, e)\n{\n    console.log(e);\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a,\n        \"succesful\": false,\n        \"error\": e,\n        \"obj\": a\n    });\n    return newAction;\n}\n\nasync function setDownloadBehavior(page) {\n    const client = await page.target().createCDPSession();\n    await client.send('Page.setDownloadBehavior', {\n        behavior: 'allow',\n        downloadPath: downloadPath\n    });\n}\n\n\n\n\n\n\n/*\n(async () => {\n    if (msg.command.url != null)\n        try {\n            //const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.browserWS })\n            //const page = (await browser.pages())[msg.pupController.activePage];\n            const page = (await browser.pages())[msg.activePage];\n\n            await page.waitForNetworkIdle();\n            await page.goto(msg.command.url);\n            msg.succesful = true;\n\n        }\n        catch (e) {\n            console.log(e);\n            msg.succesful = false;\n            msg.error = e;\n        }\n    else {\n        msg.succesful = false;\n        msg.error = \"Error: URL was null\";\n        console.log(msg.error);\n    }\n\n    node.send(msg);\n})();\n*/",
+        "func": "const pup = global.get('puppeteer');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\n\nvar actions = [];\n//var outputs = [];\nvar outputs = {};\n\nconst timeoutMs = 10000;\n\n(async () => {\n\n    const actionList = msg.payload;\n    var actionPerformed;\n\n    for (let i = 0; i < actionList.length; i++) {\n\n\n        node.status({ fill: \"yellow\", shape: \"dot\", text: \"Performing action \" +(i+1)+ \"/\" + actionList.length });\n        \n        try {\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const page = (await browser.pages())[msg.pupController.activePage];\n\n            page.setDefaultNavigationTimeout(1000); \n            //page.setDefaultNavigationTimeout(10000);\n\n            var ele = actionList[i];\n            const action = ele.action;\n\n            await page.waitForNetworkIdle();\n\n            switch (action)\n            {\n                case \"launch\":\n                case \"newtab\":\n                    break;\n\n                case \"goto\":\n                    if (ele.url != null)\n                        await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });\n                    else\n                        actionPerformed = ReportError(ele, \"Error: URL was lost\");\n                    break;\n\n                case \"click\":\n                    if(ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"clickifexists\":\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    \n                    const exists = !! await page.$(ele.path);\n\n                    //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if(exists)\n                        await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"type\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if (ele.clear == true || ele.clearInput == true || ele.clear == \"true\" || ele.clearInput == \"true\")\n                        await page.click(ele.path, { clickCount: 3 });\n                    await page.type(ele.path, ele.input);\n                    break;\n\n                case \"select\":\n                    let elemHandler = await page.$(ele.path);\n                    let properties = await elemHandler.getProperties();\n                    for (const property of properties.values())\n                    {\n                        const element = property.asElement();\n                        if (element)\n                        {\n                            let hText = await element.getProperty(\"text\");\n                            let text = await hText.jsonValue();\n                            if (text === ele.input)\n                            {\n                                let hValue = await element.getProperty(\"value\");\n                                let value = await hValue.jsonValue();\n                                await page.select(ele.path, value); // or use 58730\n                                //console.log(`Selected ${text} which is value ${value}.`);\n                            }\n                        }\n                    }\n                    /*\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.select(ele.path, ele.input);\n                    */\n                    break;\n\n                case \"get\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    var content = await page.$eval(ele.path, el => el.innerText);\n                    ele.output = actionList[i].output = content;\n                    break;\n\n                case \"geturl\":\n                    ele.output = actionList[i].output = page.url();\n\n                case \"wait\":\n                    if(ele.ms != null)\n                        await wait(ele.ms);\n                    break;\n\n                case \"close\":\n                    await browser.close();\n                    msg.pupController.browser = null;\n                    msg.pupController.pages = null;\n                    break;\n            }\n\n            ele.succesful = true;\n            actionPerformed = ReportAction(ele);\n            node.send([null, actionPerformed]);\n\n            //if(i == actionList.length-1 && action != \"close\")\n            //    await browser.close();\n            \n            \n        }\n        catch (e)\n        {\n            console.log(\"PupController error: \" + JSON.stringify(e));\n            //node.error(\"Error:\", e);\n            actionList[i].succesful = false;\n            actionPerformed = ReportError(actionList[i], e);\n            node.status({ fill: \"red\", shape: \"dot\", text: \"ERROR at action \" + (i + 1) + \"/\" + actionList.length });\n            node.send([null, actionPerformed]);\n\n            /*if (i == actionList.length - 1 && actionList[i] != \"close\")\n                await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS }).then(browser => browser.close());\n                //await browser.close();*/\n        }\n\n    }\n\n    node.status({ fill: \"yellow\", shape: \"dot\", text: \"Finished all actions (\" + actionList.length + \"/\" + actionList.length + \")\" });\n\n    msg.pupOutputs = outputs;\n    node.send([msg, null]);\n})();\n\nasync function wait(_ms)\n{\n    let promise = new Promise((resolve, reject) => {\n        setTimeout(() => resolve(\"done!\"), _ms)\n    });\n    let result = await promise; // wait until the promise resolves (*)\n    //alert(result); // \"done!\"\n}\n\nfunction ReportAction(a, s = true)\n{\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a.action,\n        \"succesful\": s,\n        \"obj\": a\n    });\n\n    if(a.output != null)\n    {\n        var outputName = a.name;\n        var outputObj = a.obj;\n\n        if(outputObj != null && outputObj != \"\")\n        {\n            outputs[outputObj] = outputs[outputObj] == null ? {} : outputs[outputObj];\n            outputs[outputObj][outputName] = a.output;\n        }\n        else\n            outputs[outputName] = a.output;\n        /*\n        outputs.push({\n            \"name\": a.name,\n            \"value\": a.output\n        });*/\n    }\n    return newAction;\n}\n\nfunction ReportError(a, e)\n{\n    console.log(e);\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a,\n        \"succesful\": false,\n        \"error\": e,\n        \"obj\": a\n    });\n    return newAction;\n}\n\nasync function setDownloadBehavior(page) {\n    const client = await page.target().createCDPSession();\n    await client.send('Page.setDownloadBehavior', {\n        behavior: 'allow',\n        downloadPath: downloadPath\n    });\n}\n\n\n\n\n\n\n/*\n(async () => {\n    if (msg.command.url != null)\n        try {\n            //const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.browserWS })\n            //const page = (await browser.pages())[msg.pupController.activePage];\n            const page = (await browser.pages())[msg.activePage];\n\n            await page.waitForNetworkIdle();\n            await page.goto(msg.command.url);\n            msg.succesful = true;\n\n        }\n        catch (e) {\n            console.log(e);\n            msg.succesful = false;\n            msg.error = e;\n        }\n    else {\n        msg.succesful = false;\n        msg.error = \"Error: URL was null\";\n        console.log(msg.error);\n    }\n\n    node.send(msg);\n})();\n*/",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -1710,7 +1741,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#overblik\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#sager\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"overblik\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        {{payload.tempData.cpr}}<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/person/{{payload.tempData.kpurl}}/overblik\" target=\"_blank\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n                    {{{payload.tempData._bevilling}}}\n\n                    <div class=\"d-flex flex-wrap\" style=\"gap: 3px\">\n                        {{{payload.tempData.persondata._sager}}}\n                    </div>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            {{payload.tempData.persondata._formue}}\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            {{payload.tempData.persondata._danmark}}\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            {{payload.tempData.persondata._htillaegsprocent}} %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"sager\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\" style=\"margin-left:-8px;margin-right:0px;\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#payload.tempData.persondata.sager}}\n                            <tr>\n                                <td>{{titel}}</td>\n                                <th scope=\"row\">{{type}}</th>\n                                <td>{{fra}}</td>\n                                <td>{{til}}</td>\n                            </tr>\n                            {{/payload.tempData.persondata.sager}}\n                        </tbody>\n                    </table>\n                    \n                </div>\n                \n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            {{{payload.tempData._faktura}}}\n\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        \n        <ul class=\"pagination\">\n            {{{payload.tempData._pagination}}}\n        </ul>\n\n        {{{payload.tempData._archive}}}\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
+        "template": "<div class=\"receipt-container\">\n    <!-- receipt-container -->\n\n    <div class=\"receipt-inner\">\n        <!-- receipt-inner -->\n\n        <div class=\"citizen-info\">\n            <!-- citizen-info -->\n\n            <ul class=\"nav nav-tabs\" role=\"tablist\" style=\"padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px\">\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link active\" data-bs-toggle=\"tab\" href=\"#overblik\" aria-selected=\"true\" role=\"tab\">Overblik</a>\n                </li>\n\n                <li class=\"nav-item\" role=\"presentation\">\n                    <a class=\"nav-link\" data-bs-toggle=\"tab\" href=\"#sager\" aria-selected=\"false\" tabindex=\"-1\" role=\"tab\">Alle sager</a>\n                </li>\n            </ul>\n            \n            <div id=\"myTabContent\" class=\"tab-content bg-white p-3\">\n                <div class=\"tab-pane show active\" id=\"overblik\" role=\"tabpanel\">\n\n                    <!-- -->\n                    <h4 class=\"card-title mb-4\">\n                        {{payload.tempData.cpr}}<small class=\"text-secondary\"> - XXXX</small>\n                        <a href=\"https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/person/{{payload.tempData.persondata.kpurl}}/overblik\" target=\"_blank\">\n                            <span class=\"float-right text-muted\"><i class=\"fas fa-2xs fa-link\"></i></span>\n                        </a>\n                    </h4>\n                    <!-- p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p -->\n                    \n                    {{{payload.tempData._bevilling}}}\n\n                    <div class=\"d-flex flex-wrap\" style=\"gap: 3px\">\n                        {{{payload.tempData.persondata._sager}}}\n                    </div>\n\n\n                    <div class=\"d-flex justify-stretch mt-4\" style=\"gap: 3px\">\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">FORMUE</div>\n                            {{payload.tempData.persondata._formue}}\n                        </div>\n\n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">DANMARK</div>\n                            {{payload.tempData.persondata._danmark}}\n                        </div>\n                        \n                        <div class=\"card border-light bg-light mb-2 text-center p-1\">\n                            <div class=\"text-secondary fs-10\">TILLÆGSPROCENT</div>\n                            {{payload.tempData.persondata._htillaegsprocent}} %\n                        </div>\n\n                    </div>\n                \n                    <!-- -->\n                    \n                </div>\n\n                <div class=\"tab-pane\" id=\"sager\" role=\"tabpanel\">\n\n                    <table class=\"table fs-11\" style=\"margin-left:-8px;margin-right:0px;\">\n                        <thead class=\"border-none\">\n                            <tr>\n                            <th scope=\"col\"><span class=\"table-header\">Titel</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Sagstype</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Start</span></th>\n                            <th scope=\"col\"><span class=\"table-header\">Slut</span></th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            {{#payload.tempData.persondata.sager}}\n                            <tr>\n                                <td>{{titel}}</td>\n                                <th scope=\"row\">{{type}}</th>\n                                <td>{{fra}}</td>\n                                <td>{{til}}</td>\n                            </tr>\n                            {{/payload.tempData.persondata.sager}}\n                        </tbody>\n                    </table>\n                    \n                </div>\n                \n            </div>\n\n            <!-- /citizen-info -->\n        </div>\n\n        <div>\n            \n            \n            {{{payload.tempData._faktura}}}\n\n\n        </div>\n\n        \n        \n\n        <!-- /receipt-inner -->\n    </div>\n    \n\n    <div class=\"pagination-container mt-3\">\n\n        \n        <ul class=\"pagination\">\n            {{{payload.tempData._pagination}}}\n        </ul>\n\n        {{{payload.tempData._archive}}}\n\n        </div>\n\n    <!-- /receiptContainer -->\n</div>",
         "output": "str",
         "x": 1430,
         "y": 260,
@@ -1913,7 +1944,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: navbar",
-        "func": "// Set menu html\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" onclick=\"goToPage('start')\"></a>\n        <a class=\"navbar-brand randers-titel\" onclick=\"goToPage('start')\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a id=\"nav_start\" class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_login\" class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\") + \n                (pageAccepted('login') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_rules\" class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\") +\n                (pageAccepted('rules') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_grants\" class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>`;\n\n\n\n\nif (isBeingProcessed && !dataExists)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('run')\">Genoptag kørsel</a>\n        </li>`;\n\nelse if (receiptsAwaiting && isBeingProcessed)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_view-receipts\" class=\"nav-link`+\n            (isActive('view-receipts') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n        </li>`\n    +  `<li class=\"nav-item\">\n            <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n            (isActive('view-nograntreceipts') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('view-nograntreceipts')\">Borgere uden bevilling</a>\n        </li>`;\n\nelse if (!receiptsAwaiting && isBeingProcessed)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n        </li>`;\n\nelse if (pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants'))\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('run')\">` +\n            (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n            + `</a>\n        </li>`;\n\n\n/*\n\n            (receiptsAwaiting && isBeingProcessed ?\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-receipts\" class=\"nav-link`+\n                (isActive('view-receipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n                        </li>`)\n            +\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n                (isActive('view-nograntreceipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-nograntreceipts')\">Ej berettigede borgere</a>\n                        </li>`) : ``)\n            +\n\n            ((isBeingProcessed && !dataExists) ? \n                ` <li class=\"nav-item\">\n                                    <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\") +\n                + `\" onclick=\"goToPage('run')\">Genoptag kørsel</a>\n                    </li>`\n                :\n\n\n                ((!receiptsAwaiting && isBeingProcessed) ? \n                ` <li class=\"nav-item\">\n                        <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\") +\n                +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n                    </li>`\n                :\n                \n                ((pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants')) ?\n                `<li class=\"nav-item\">\n                    <a id=\"nav_run\" class=\"nav-link`+\n                    (isActive('run') ? \" active\" : \"\")\n                    +`\" onclick=\"goToPage('run')\">`+\n                    (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n                    +`</a>\n                </li>` : ``))\n            )\n\n*/\nhtml += `\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
+        "func": "// Set menu html\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nfunction isActive(pageName)\n{\n    return (msg.payload.webSettings.state.activePage == pageName);\n}\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\n\nvar html = `<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" >\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand randers-logo\" onclick=\"goToPage('start')\"></a>\n        <a class=\"navbar-brand randers-titel\" onclick=\"goToPage('start')\"></a>\n        <ul class=\"navbar-nav me-auto\">\n            <li class=\"nav-item\">\n                <a id=\"nav_start\" class=\"nav-link`+\n                (isActive('start') ? \" active\" : \"\")\n                +`\" onclick=\"goToPage('start')\">Start</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_login\" class=\"nav-link`+\n                (isActive('login') ? \" active\" : \"\") + \n                (pageAccepted('login') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('login')\">Loginoplysninger</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_rules\" class=\"nav-link`+\n                (isActive('rules') ? \" active\" : \"\") +\n                (pageAccepted('rules') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('rules')\">Forretningsregler</a>\n            </li>\n            <li class=\"nav-item\">\n                <a id=\"nav_grants\" class=\"nav-link`+\n                (isActive('grants') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\")\n                +`\" onclick=\"goToPage('grants')\">Tilskudssatser</a>\n            </li>`;\n\n\n\n\nif (isBeingProcessed && !dataExists)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('run')\">Genoptag kørsel</a>\n        </li>`;\n\nelse if (receiptsAwaiting && isBeingProcessed)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_view-receipts\" class=\"nav-link`+\n            (isActive('view-receipts') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n        </li>`\n    +  `<li class=\"nav-item\">\n            <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n            (isActive('view-nograntreceipts') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('view-nograntreceipts')\">Borgere uden bevilling</a>\n        </li>`;\n\nelse if (!receiptsAwaiting && isBeingProcessed)\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_view-receipts\" class=\"nav-link`+\n        (isActive('view-receipts') ? \" active\" : \"\")\n        + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n        </li>`\n        + `<li class=\"nav-item\">\n            <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n        (isActive('view-nograntreceipts') ? \" active\" : \"\")\n        + `\" onclick=\"goToPage('view-nograntreceipts')\">Borgere uden bevilling</a>\n        </li>`\n        +\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n        </li>`;\n\nelse if (pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants'))\n    html +=\n        `<li class=\"nav-item\">\n            <a id=\"nav_run\" class=\"nav-link`+\n            (isActive('run') ? \" active\" : \"\")\n            + `\" onclick=\"goToPage('run')\">` +\n            (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n            + `</a>\n        </li>`;\n\n\n/*\n\n            (receiptsAwaiting && isBeingProcessed ?\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-receipts\" class=\"nav-link`+\n                (isActive('view-receipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-receipts')\">Anbefalede handlinger</a>\n                        </li>`)\n            +\n            (`<li class=\"nav-item\">\n                                    <a id=\"nav_view-nograntreceipts\" class=\"nav-link`+\n                (isActive('view-nograntreceipts') ? \" active\" : \"\")\n                + `\" onclick=\"goToPage('view-nograntreceipts')\">Ej berettigede borgere</a>\n                        </li>`) : ``)\n            +\n\n            ((isBeingProcessed && !dataExists) ? \n                ` <li class=\"nav-item\">\n                                    <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\") +\n                (pageAccepted('grants') ? \" nav-success\" : \"\") +\n                + `\" onclick=\"goToPage('run')\">Genoptag kørsel</a>\n                    </li>`\n                :\n\n\n                ((!receiptsAwaiting && isBeingProcessed) ? \n                ` <li class=\"nav-item\">\n                        <a id=\"nav_run\" class=\"nav-link`+\n                (isActive('run') ? \" active\" : \"\") +\n                +`\" onclick=\"goToPage('run')\">Afslut kørsel</a>\n                    </li>`\n                :\n                \n                ((pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants')) ?\n                `<li class=\"nav-item\">\n                    <a id=\"nav_run\" class=\"nav-link`+\n                    (isActive('run') ? \" active\" : \"\")\n                    +`\" onclick=\"goToPage('run')\">`+\n                    (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class=\"fa-lg fas fa-spinner fa-spin\" style=\"margin-left: 10px\"></i>` : `Ny kørsel`)\n                    +`</a>\n                </li>` : ``))\n            )\n\n*/\nhtml += `\n        </ul>\n    </div>\n</nav >`;\n\nmsg.payload.pageElements['navbar'] = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4538,7 +4569,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 1740,
+        "y": 1760,
         "wires": [
             [
                 "a46e2a0c2cd58d9f"
@@ -4773,10 +4804,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1670,
-        "y": 420,
+        "x": 1690,
+        "y": 440,
         "wires": [
-            []
+            [
+                "21aa70c86addca5a"
+            ]
         ],
         "info": "## Delete JSON file\r\n\r\nThis JS snippet utilizes the FS module to delete the JSON file after it has been read to memory."
     },
@@ -4809,8 +4842,8 @@
         "g": "669e09e244099963",
         "name": "Slet fakturaliste",
         "info": "",
-        "x": 1680,
-        "y": 380,
+        "x": 1700,
+        "y": 400,
         "wires": []
     },
     {
@@ -4843,7 +4876,7 @@
         "wires": [
             [
                 "07aa032e7944f93b",
-                "21aa70c86addca5a"
+                "8bc31d06862e8fe2"
             ]
         ],
         "l": false,
@@ -4970,7 +5003,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": false,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t    {\t        \"action\": \"close\"\t    }\t    \t]",
+                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t    {\t        \"action\": \"close\"\t    }\t    \t]",
                 "tot": "jsonata"
             },
             {
@@ -4993,8 +5026,7 @@
         "y": 440,
         "wires": [
             [
-                "15a1703b4a5286c7",
-                "30cf9105d50bfb07"
+                "15a1703b4a5286c7"
             ]
         ],
         "info": "## Set pup commands\r\n\r\nThis change node sets the automation flow JSON needed in PupController API. The flow is hard-coded with variable references to the CSS selectors defined in the preceeding node."
@@ -5024,8 +5056,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1710,
-        "y": 460,
+        "x": 1690,
+        "y": 360,
         "wires": []
     },
     {
@@ -5229,14 +5261,14 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": false,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
+                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 30,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$append(payload, citizens@$A.(\t    [\t        {\t           \"action\": \"type\",\t           \"input\": $A.cpr,\t           \"path\": selectors.kp.inputCPR\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.inputCPR_soegknap\t\t        },\t        {\t            \"action\": \"geturl\",\t            \"name\": \"kpurl\",\t            \"obj\": $A.cpr\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.personligtillaegsprocent_aabn\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"personligtillaegsprocent\",\t           \"path\": selectors.kp.citizen.tillaegsprocent,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.helbredstillaegsprocent_aabn\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"helbredstillaegsprocent\",\t            \"path\": selectors.kp.citizen.tillaegsprocent,\t            \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"bevilling\",\t            \"path\": selectors.kp.citizen.bevilling,\t            \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"sager\",\t           \"path\": selectors.kp.citizen.sager,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"danmarkgruppe\",\t           \"path\": selectors.kp.citizen.danmarkgruppe,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"formue\",\t           \"path\": selectors.kp.citizen.formue,\t           \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.lukborger\t        }\t    ]\t))",
+                "to": "$append(payload, citizens@$A.(\t    [\t        {\t           \"action\": \"type\",\t           \"input\": $A.cpr,\t           \"path\": selectors.kp.inputCPR\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.inputCPR_soegknap\t\t        },\t        {\t            \"action\": \"geturl\",\t            \"name\": \"kpurl\",\t            \"obj\": $A.cpr\t        },\t        {\t            \"action\": \"clickifexists\",\t            \"path\": 'div[class=\"sc-jKVCRD CUfQJ\"]'\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.personligtillaegsprocent_aabn\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"personligtillaegsprocent\",\t           \"path\": selectors.kp.citizen.tillaegsprocent,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"click\",\t           \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.helbredstillaegsprocent_aabn\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"helbredstillaegsprocent\",\t            \"path\": selectors.kp.citizen.tillaegsprocent,\t            \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.tillaegsprocent_luk\t\t        },\t        {\t            \"action\": \"get\",\t            \"name\": \"bevilling\",\t            \"path\": selectors.kp.citizen.bevilling,\t            \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"sager\",\t           \"path\": selectors.kp.citizen.sager,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"danmarkgruppe\",\t           \"path\": selectors.kp.citizen.danmarkgruppe,\t           \"obj\": $A.cpr\t\t        },\t        {\t           \"action\": \"get\",\t           \"name\": \"formue\",\t           \"path\": selectors.kp.citizen.formue,\t           \"obj\": $A.cpr\t\t        },\t        {\t            \"action\": \"click\",\t            \"path\": selectors.kp.citizen.lukborger\t        }\t    ]\t))",
                 "tot": "jsonata"
             },
             {
@@ -5257,8 +5289,7 @@
         "wires": [
             [
                 "c8857f0a61f8c92e",
-                "86c8180e0274bc8b",
-                "14494b05c46d325b"
+                "86c8180e0274bc8b"
             ]
         ]
     },
@@ -5415,55 +5446,6 @@
         "l": false
     },
     {
-        "id": "c9e0c48929946d68",
-        "type": "function",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Hent eller definér liste med behandlede faktura",
-        "func": "//msg.payload = [msg.currentReceipt.antalYdelser];\nvar history = global.get(\"runHistory\", \"storeInFile\");\nif (typeof history != undefined && history != null)\n    msg.runHistory = history;\nelse\n    msg.runHistory = [];\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 880,
-        "wires": [
-            [
-                "4629d4bebfd2768f"
-            ]
-        ]
-    },
-    {
-        "id": "4629d4bebfd2768f",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Sammensæt lister",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "/* Laver array med objekt for hver borger, og tilknytter fakturaer */\t\t$keys(citizens)@$k.{\t\t    \"cpr\": $k,\t    \"persondata\": $lookup(citizens, $k),\t    \"faktura\": receipts[$.patientCPR = $k]\t    \t}\t",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 930,
-        "y": 880,
-        "wires": [
-            [
-                "b01934ac82f070c3"
-            ]
-        ],
-        "info": "https://try.jsonata.org/wRgtKDrKD"
-    },
-    {
         "id": "8a3db972f8fb7806",
         "type": "debug",
         "z": "8ea344595d9a442a",
@@ -5478,373 +5460,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 970,
-        "y": 1740,
-        "wires": []
-    },
-    {
-        "id": "aea48540dc37e51c",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Saml borgere og fakturaer",
-        "info": "https://try.jsonata.org/wRgtKDrKD",
-        "x": 950,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "64bc816ed683fb56",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Personlig tillægsprocenter",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$tillaegsprocent_split := personligtillaegsprocent\t    ~> $replace(\"Personlig tillægsprocent\\tGyldig fra\\tGyldig til\\tAjourføringsdato\\n\", \"\")\t    ~> $split(\"\\n\");\t{\t\t\"personligtillaegsprocent\": $tillaegsprocent_split #$i .{\t\t    \"dato_fra\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[1]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"dato_til\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[2]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"tillaegsprocent\": ($t := (($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[0]\t        ~> $replace(\"%\", \"\")\t        ~> $replace(\"Ingen resultater fundet\", \"0\"));\t          ($t = \"\" ? 0 : $number($t)))\t    }\t\t}\t)|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 470,
-        "y": 1020,
-        "wires": [
-            [
-                "78c4e4692985e738"
-            ]
-        ],
-        "info": "https://try.jsonata.org/4J8IPRU83"
-    },
-    {
-        "id": "b01934ac82f070c3",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Bevilget tilskud til fodpleje?",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|\t{\t\"bevilling\":\t    bevilling \t    ~> $contains(\"Bevilget tilskud til fodpleje\")\t}|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 980,
-        "wires": [
-            [
-                "64bc816ed683fb56"
-            ]
-        ]
-    },
-    {
-        "id": "31392fe7f3a93ccd",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Gør KP data maskinelt læsbart",
-        "info": "",
-        "x": 490,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "141037f73383a9f6",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Tildel unikke behandlings-ID'er",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> | $.faktura |\t({\t\t\"behandlinger\": behandlinger @$b #$i .{\t\t    \"uid\": (id ~> $substring(19,17))\t            & \"-\" & $b.ydelsesnummer\t            & \"-\" & ($i+1),\t\t    \"fid\": id,\t\t    \"titel\": $b.titel,\t    \"ydelsesnummer\": $b.ydelsesnummer,\t    \"ydernummer\": $b.ydernummer,\t    \"behandlingsKategory\": $b.behandlingsKategory,\t    \"pris\": $b.pris,\t    \"kørteKilometer\": $b.kørteKilometer,\t    \"patientAndel\": $b.patientAndel,\t    \"sygesikringsAndel\": $b.sygesikringsAndel\t\t}\t})|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1190,
-        "y": 1060,
-        "wires": [
-            [
-                "7f450a3e484312bd"
-            ]
-        ],
-        "info": "https://try.jsonata.org/zbfWKbpM7"
-    },
-    {
-        "id": "78c4e4692985e738",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Helbredstillægsprocenter",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$tillaegsprocent_split := helbredstillaegsprocent\t    ~> $replace(\"Helbredstillægsprocent\\tGyldig fra\\tGyldig til\\tAjourføringsdato\\n\", \"\")\t    ~> $split(\"\\n\");\t{\t\t\"helbredstillaegsprocent\": $tillaegsprocent_split #$i .{\t\t    \"dato_fra\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[1]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"dato_til\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[2]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"tillaegsprocent\": ($t := (($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[0]\t        ~> $replace(\"%\", \"\")\t        ~> $replace(\"Ingen resultater fundet\", \"0\"));\t          ($t = \"\" ? 0 : $number($t)))\t    }\t\t}\t)|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 470,
-        "y": 1060,
-        "wires": [
-            [
-                "2cf375bbbada29f9"
-            ]
-        ],
-        "info": "https://try.jsonata.org/4J8IPRU83"
-    },
-    {
-        "id": "2cf375bbbada29f9",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Sager",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$sager_split := sager\t    ~> $replace(\"\\n\", \"\")\t    ~> $replace(\"\\t\\t\", \"\\t\")\t    ~> $substringAfter(\"\\t\")\t    ~> $split(\"\\t\");\t{\t    \"sager\": $sager_split #$i .(\t\t        /* Hvis kolonne-antal ændrer sig, breaker denne kode */\t\t        $i % 5 = 0 and $i != 0 ?\t        {\t            \"titel\": $sager_split[$i],\t            \t            \"type\": $sager_split[$i+1],\t\t            \"fra\": $sager_split[$i+2]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t            \"til\": $til := ($sager_split[$i+3]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]')),\t\t            \"aktiv\": ($til ~> $boolean()) ? ( $til ~> $toMillis() > $millis() ? true : false ) : true,\t\t            \"bevilling\": ($sager_split[$i+4] = \"Bevilget\")\t        })\t\t    }\t)|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 1100,
-        "wires": [
-            [
-                "12d9ffdfaf71a523"
-            ]
-        ],
-        "info": "https://try.jsonata.org/4J8IPRU83"
-    },
-    {
-        "id": "12d9ffdfaf71a523",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Formue",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|\t{\t    \"formue\": \t            formue = \"Ikke oplyst\" ?\t                null\t            :\t            formue = \"-\" ?\t                null\t            :\t                (formue\t                ~> $replace(\"-\", \"-1\")\t                ~> $split(\" \"))[0]\t                ~> $replace(\".\", \"\")\t                ~> $replace(\",\", \".\")\t                ~> $number()\t}\t|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 1140,
-        "wires": [
-            [
-                "ca6df1c9d056a924"
-            ]
-        ]
-    },
-    {
-        "id": "349a8caa82ed4d5e",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "g": "287b33b8879cbbbc",
-        "name": "Danmark",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|\t(\t{\t    \"danmarkgruppe\": danmarkgruppe\t    ~> $replace(\"Ikke oplyst\", \"0\")\t    ~> $replace(\"Nej\", \"0\")\t    ~> $replace(\"Ja - Gruppe \", \"\")\t    ~> $replace(\"-\", \"0\")\t    ~> $number\t})\t|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 1220,
-        "wires": [
-            [
-                "ac8390885c3e684c",
-                "7d7a7bf5a54224e8"
-            ]
-        ]
-    },
-    {
-        "id": "011d535e3ab60636",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Transformer faktura data (+ fjern unødvendig data)",
-        "info": "",
-        "x": 1250,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "71c55498ef71a4c9",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern unødvendig data",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.faktura|\t{},\t[\t    \"behandlerNavn\",\t    \"klinikNavn\",\t    \"klinikCVR\",\t    \"behandlerType\",\t    \"patientTelefon\"\t]\t|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1160,
-        "y": 980,
-        "wires": [
-            [
-                "6afaf8f1c596de67"
-            ]
-        ]
-    },
-    {
-        "id": "6afaf8f1c596de67",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern tidspunkt fra dato",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.faktura|\t{\t    \"dato\": (dato\t        ~> $split(\"T\"))[0]\t}\t|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1160,
-        "y": 1020,
-        "wires": [
-            [
-                "141037f73383a9f6"
-            ]
-        ]
-    },
-    {
-        "id": "05096968ae22cc6f",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Bestem behandlingstype",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or\t             titel = 'Behandlingpåklinik' or\t             titel = \"Behandlingudentilskud\") ?\t                'A' : 'B'\t\t})|",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "errors",
-                "pt": "msg",
-                "to": "$.errors ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or\t             titel = 'Behandlingpåklinik' or\t             titel = \"Behandlingudentilskud\") ?\t                'A' : 'B'\t\t})|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1170,
-        "y": 1220,
-        "wires": [
-            [
-                "046eb82cefda08d4"
-            ]
-        ],
-        "info": "https://try.jsonata.org/zbfWKbpM7"
-    },
-    {
-        "id": "215c708ef9319356",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Hent regler fra global variabel",
-        "rules": [
-            {
-                "t": "set",
-                "p": "rules",
-                "pt": "msg",
-                "to": "#:(storeInFile)::rules",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 810,
-        "y": 1000,
-        "wires": [
-            [
-                "4c51b10755b92b07"
-            ]
-        ]
-    },
-    {
-        "id": "c68d4ee2f02ada08",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Kontroller KP data ud fra regelsæt",
-        "info": "",
-        "x": 820,
-        "y": 960,
+        "y": 1760,
         "wires": []
     },
     {
@@ -5862,199 +5478,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 900,
-        "y": 1580,
-        "wires": []
-    },
-    {
-        "id": "4c51b10755b92b07",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Tjek alle regler mod borgerdata",
-        "rules": [
-            {
-                "t": "set",
-                "p": "errors",
-                "pt": "msg",
-                "to": "payload @$p.\t(\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"!null\" ?\t        $value != null\t    :\t    $value = null ?\t        false\t    :\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t};\t{\t    \"cpr\": $p.cpr,\t    \"persondata\": $p.persondata,\t    \"faktura\": $p.faktura,\t\t    \"regelbrud\":\t        rules @$r.\t        (\t            $respectsRule($r, $data := $lookup($p.persondata, $r.variable)) = false ?\t            {\t                \"rule\": $r.name,\t                \"description\": $r.description,\t                \"objectValue\": $data,\t                \"operator\": $r.operator,\t                \"expectedValue\": $r.value,\t                \"isRespected\": $respectsRule($r, $data)\t            }\t        )\t}\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 810,
-        "y": 1040,
-        "wires": [
-            [
-                "4e374431cb68ace4"
-            ]
-        ]
-    },
-    {
-        "id": "4e374431cb68ace4",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Find regelbrud",
-        "rules": [
-            {
-                "t": "set",
-                "p": "errors",
-                "pt": "msg",
-                "to": "errors @$e.\t(\t    $e.regelbrud ~> $boolean ?\t    {\t        \"cpr\": $e.cpr,\t        \"persondata\": $e.persondata,\t        \"faktura\": $e.faktura,\t        \"regelbrud\": $e.regelbrud\t    }\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 1080,
-        "wires": [
-            [
-                "5e112e4574f64f9b"
-            ]
-        ]
-    },
-    {
-        "id": "5e112e4574f64f9b",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern borgere som ikke er berettiget",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload @$p.\t(\t    \t    (errors[cpr = $p.cpr] ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 820,
-        "y": 1120,
-        "wires": [
-            [
-                "71c55498ef71a4c9"
-            ]
-        ]
-    },
-    {
-        "id": "ac8390885c3e684c",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "g": "287b33b8879cbbbc",
-        "name": "Kontroller sager",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.persondata|(\t\t$sagForeligger := function($type, $titel)\t{\t    sager [\t        ($type = 'A' ?\t            type ~> $lowercase ~> $contains($titel)\t        and \t            titel ~> $lowercase ~> $contains(\"fod\")\t            :\t            type ~> $lowercase ~> $contains($titel))\t    and\t        $millis() > (fra ~> $toMillis)\t    and\t        (til ? $millis() < (til ~> $toMillis) : true)\t    and\t        bevilling\t    ] ?\t        true : false\t};\t\t{\t\t    \"udvidetHelbredstillaeg\": $sagForeligger('A', 'udvidet helbredstill'),\t    \"almHelbredstillaeg\": $sagForeligger('B', 'almindeligt helbredstill'),\t    \"helbredskort\": $sagForeligger('B', 'gskort')\t\t}\t\t)|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 1260,
-        "wires": [
-            [
-                "215c708ef9319356"
-            ]
-        ],
-        "info": "https://try.jsonata.org/XMh66GbxR"
-    },
-    {
-        "id": "046eb82cefda08d4",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Find bevilling + sag gældende for hver behandling",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> | $.faktura.behandlinger |\t(\t\t    $uid := uid;\t    $fid := fid;\t    $faktura := $$.payload.faktura[id = $fid];\t    $borger := $$.payload[cpr = $faktura.patientCPR];\t    $type := type;\t\t{\t    \"bevilget\": type = 'A' ?\t                    ($borger.persondata.bevilling ?\t                        true : $borger.persondata.sager\t                                [   \t                                    titel ~> $lowercase ~> $contains(\"fod\")\t                                and\t                                    (type ~> $lowercase ~> $contains(\"udvidet helbredstill\"))\t                                and\t                                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                                and\t                                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                                and\t                                    bevilling = true\t                                ]\t                                    ~> $exists ? true : false)\t                :\t                    ($borger.persondata.sager\t                        [\t                            (type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t                        or\t                            type ~> $lowercase ~> $contains(\"gskort\"))\t                        and\t                            ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                        and\t                            (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                        and\t                            bevilling = true\t                        ]\t                            ~> $exists ? true : false),\t                                \t    \"sag\": $borger.persondata.sager\t                [\t                    titel ~> $lowercase ~> $contains(\"fod\")\t                and\t                    ($type = 'A' ?\t                        (type ~> $lowercase ~> $contains(\"udvidet helbred\"))\t                    :\t                        (type ~> $lowercase ~> $contains(\"almindeligt helbredstill\")\t                    or\t                        type ~> $lowercase ~> $contains(\"gskort\")))\t                and\t                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                and\t                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                and\t                    bevilling = true\t                ]\t\t})|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1250,
-        "y": 1260,
-        "wires": [
-            [
-                "252ef6cdcba02f65"
-            ]
-        ]
-    },
-    {
-        "id": "6b4df0013a0256a0",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Find relevant data for hver behandling på faktura",
-        "info": "",
-        "x": 1240,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "7f450a3e484312bd",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Find tillægsprocent gældende for hver faktura",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> | $.faktura |\t(\t\t    $id := id;\t    /*$borger := $$.payload[faktura.id = $id];*/\t    $borger := $$.payload[$id in faktura.id];\t    $dato := dato;\t\t{\t\t    \"_personligtillaegsprocent\": $borger.persondata.personligtillaegsprocent [\t        ($dato ~> $toMillis) > (dato_fra ~> $toMillis)\t    and\t        (dato_til ~> $boolean ? (($dato ~> $toMillis) < (dato_til ~> $toMillis)) : true)\t    ],\t\t    \"_helbredstillaegsprocent\": $borger.persondata.helbredstillaegsprocent [\t        ($dato ~> $toMillis) > (dato_fra ~> $toMillis)\t    and\t        (dato_til ~> $boolean ? (($dato ~> $toMillis) < (dato_til ~> $toMillis)) : true)\t    ]\t\t})|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1230,
-        "y": 1140,
-        "wires": [
-            [
-                "05096968ae22cc6f"
-            ]
-        ]
-    },
-    {
-        "id": "852046d71f487d02",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Find relevant data for hver faktura",
-        "info": "",
-        "x": 1190,
-        "y": 1100,
+        "y": 1600,
         "wires": []
     },
     {
@@ -6078,11 +5502,10 @@
         "to": "",
         "reg": false,
         "x": 540,
-        "y": 1420,
+        "y": 1440,
         "wires": [
             [
-                "eea859cc92e89e3f",
-                "6e50585cfb059ce1"
+                "eea859cc92e89e3f"
             ]
         ],
         "info": "https://try.jsonata.org/re36DEF4i"
@@ -6095,7 +5518,7 @@
         "name": "Opret sager / ydelser",
         "info": "",
         "x": 500,
-        "y": 1380,
+        "y": 1400,
         "wires": []
     },
     {
@@ -6119,7 +5542,7 @@
         "to": "",
         "reg": false,
         "x": 1130,
-        "y": 1420,
+        "y": 1440,
         "wires": [
             [
                 "ebfc3d7f7b71a754"
@@ -6155,7 +5578,7 @@
             "5c74b689e0aee38b"
         ],
         "x": 1185,
-        "y": 1820,
+        "y": 1840,
         "wires": []
     },
     {
@@ -6166,18 +5589,7 @@
         "name": "Klargør data til UI",
         "info": "",
         "x": 480,
-        "y": 1700,
-        "wires": []
-    },
-    {
-        "id": "fa59a67027b60c71",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern borgere som ikke har gyldig tillægsprocent?",
-        "info": "",
-        "x": 1520,
-        "y": 1100,
+        "y": 1720,
         "wires": []
     },
     {
@@ -6208,7 +5620,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 1740,
+        "y": 1760,
         "wires": [
             [
                 "4fa04433812ed133",
@@ -6237,7 +5649,7 @@
         "to": "",
         "reg": false,
         "x": 570,
-        "y": 1580,
+        "y": 1600,
         "wires": [
             [
                 "c728e9afbea480e9",
@@ -6256,7 +5668,7 @@
                 "t": "set",
                 "p": "errors",
                 "pt": "msg",
-                "to": "$append(errors, payload @$p.\t(\t    ($p.handlinger ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"regelbrud\": \"Ingen gyldig sag blev fundet til behandlingstypen\"\t        /*\"persondata\": $p.persondata,\t        \"faktura\": $p.faktura*/\t    }\t)\t)",
+                "to": "$append(errors, payload @$p.\t(\t    ($p.handlinger ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"regelbrud\": \"Ingen gyldig sag blev fundet til behandlingstypen\",\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)\t)",
                 "tot": "jsonata"
             }
         ],
@@ -6266,7 +5678,7 @@
         "to": "",
         "reg": false,
         "x": 570,
-        "y": 1540,
+        "y": 1560,
         "wires": [
             [
                 "b5f7952c5718fafd"
@@ -6281,7 +5693,7 @@
         "name": "Flyt borgere som ikke har handlinger til \"errors\"",
         "info": "",
         "x": 580,
-        "y": 1500,
+        "y": 1520,
         "wires": []
     },
     {
@@ -6292,7 +5704,7 @@
         "name": "Beregn tilskud",
         "info": "",
         "x": 1110,
-        "y": 1380,
+        "y": 1400,
         "wires": []
     },
     {
@@ -6316,7 +5728,7 @@
         "to": "",
         "reg": false,
         "x": 1280,
-        "y": 1460,
+        "y": 1480,
         "wires": [
             [
                 "8b251b9d384911a0"
@@ -6345,7 +5757,7 @@
         "to": "",
         "reg": false,
         "x": 1190,
-        "y": 1500,
+        "y": 1520,
         "wires": [
             [
                 "363e103b20db6c80"
@@ -6374,7 +5786,7 @@
         "to": "",
         "reg": false,
         "x": 1240,
-        "y": 1540,
+        "y": 1560,
         "wires": [
             [
                 "5cfe1b69780c58ab"
@@ -6403,91 +5815,13 @@
         "to": "",
         "reg": false,
         "x": 1150,
-        "y": 1580,
+        "y": 1600,
         "wires": [
             [
                 "da966ceeba7b23dd"
             ]
         ],
         "info": "https://try.jsonata.org/re36DEF4i"
-    },
-    {
-        "id": "015eb190e5565e7d",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "[T] Transformér data, beregn tilskud",
-        "info": "",
-        "x": 500,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "989112eb96abfdb9",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern faktura / behandlinger på faktura som allerede er behandlet",
-        "info": "https://try.jsonata.org/wRgtKDrKD",
-        "x": 1290,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "b81c9fcaa9d3e0d1",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern allerede behanlede faktura",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload @$p .(\t\t{\t    \"test\": $$.runHistory.processedReceipts[fid = $p.faktura.id],\t    \"cpr\": $p.cpr,\t    \"persondata\": $p.persondata,\t    \"faktura\": $p.faktura\t}) ",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1190,
-        "y": 880,
-        "wires": [
-            []
-        ],
-        "info": "https://try.jsonata.org/wRgtKDrKD"
-    },
-    {
-        "id": "104d29ffe37f5998",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "g": "287b33b8879cbbbc",
-        "name": "Fjern behandlinger som allerede er bearbejdet",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$.payload ~> |$.faktura|\t{\t    \"behandlinger\": behandlinger @$b . (\t        ( $b.uid in $$.runHistory.processedReceiptss[id = $b.fid].uid ) = false ?\t            $b )\t}|",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1520,
-        "y": 880,
-        "wires": [
-            []
-        ],
-        "info": "https://try.jsonata.org/wRgtKDrKD"
     },
     {
         "id": "632aa75f39860780",
@@ -6567,7 +5901,7 @@
         "to": "",
         "reg": false,
         "x": 950,
-        "y": 1820,
+        "y": 1840,
         "wires": [
             [
                 "f5dbef72792b9011",
@@ -6583,7 +5917,7 @@
         "name": "Clean alt unødvendig data fra msg objekt",
         "info": "",
         "x": 1040,
-        "y": 1780,
+        "y": 1800,
         "wires": []
     },
     {
@@ -6614,10 +5948,10 @@
         "to": "",
         "reg": false,
         "x": 640,
-        "y": 1780,
+        "y": 1800,
         "wires": [
             [
-                "fde5a695bfbd9a7d"
+                "5f3a3d3e30d3be55"
             ]
         ]
     },
@@ -6752,7 +6086,7 @@
             "0ff5c26114374820",
             "e0949865938522b8"
         ],
-        "x": 1315,
+        "x": 1395,
         "y": 2420,
         "wires": []
     },
@@ -7286,7 +6620,7 @@
         "z": "8ea344595d9a442a",
         "g": "af21ed65f84f3d9d",
         "name": "",
-        "x": 1670,
+        "x": 1990,
         "y": 620,
         "wires": [
             [
@@ -7398,7 +6732,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1680,
+        "x": 2000,
         "y": 660,
         "wires": [
             [
@@ -7721,7 +7055,7 @@
         "y": 940,
         "wires": [
             [
-                "c9e0c48929946d68"
+                "4629d4bebfd2768f"
             ]
         ]
     },
@@ -7758,7 +7092,8 @@
         "y": 680,
         "wires": [
             [
-                "d183f106c2e11bce"
+                "d183f106c2e11bce",
+                "d73fa86d9401eebc"
             ]
         ]
     },
@@ -7828,7 +7163,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1690,
+        "x": 2010,
         "y": 700,
         "wires": [
             [
@@ -8040,7 +7375,7 @@
         "y": 2400,
         "wires": [
             [
-                "a2f55ae008b1fee2"
+                "b840a64a9cf3c187"
             ]
         ]
     },
@@ -8491,7 +7826,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "04/02/2023",
+                "to": "07/02/2023",
                 "tot": "str"
             }
         ],
@@ -8516,6 +7851,13 @@
         "z": "8ea344595d9a442a",
         "name": "update runHistory",
         "rules": [
+            {
+                "t": "set",
+                "p": "currentRun.isFinalized",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
             {
                 "t": "set",
                 "p": "runHistory",
@@ -8667,35 +8009,19 @@
         "z": "8ea344595d9a442a",
         "g": "6c7a3f8252158db6",
         "name": "Fjern duplicates (af Tilføj sag-handlinger)",
-        "func": "for (var i = 0; i < msg.payload.length; i++) {\n    var obj = msg.payload[i];\n\n    var createTypeA = false;\n    var createTypeB = false;\n    //var tempHandlinger = [];\n\n    // Tjek hver borgers handlinger\n\n    if (obj.handlinger !== null && obj.handlinger !== undefined) {\n\n        if (!Array.isArray(obj.handlinger))\n            obj.handlinger = [obj.handlinger];\n\n        for (var j = 0; j < obj.handlinger.length; j++) {\n            if (obj.handlinger[j].handling == \"Opret sag\") {\n                if (obj.handlinger[j].type = \"A\") {\n                    if (createTypeA) {\n                        //console.log(\"Another A already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeA = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n\n                else if (obj.handlinger[j].type = \"B\") {\n                    if (createTypeB) {\n                        //console.log(\"Another B already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeB = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n            }\n        }\n\n\n        msg.payload[i] = obj;\n\n    }\n\n\n\n}\n\nreturn msg;",
+        "func": "if(msg.payload == null)\n    return msg;\n\nif(!Array.isArray(msg.payload))\n    msg.payload = [msg.payload];\n\nfor (var i = 0; i < msg.payload.length; i++) {\n    var obj = msg.payload[i];\n\n    var createTypeA = false;\n    var createTypeB = false;\n    //var tempHandlinger = [];\n\n    // Tjek hver borgers handlinger\n\n    if (obj.handlinger !== null && obj.handlinger !== undefined) {\n\n        if (!Array.isArray(obj.handlinger))\n            obj.handlinger = [obj.handlinger];\n\n        for (var j = 0; j < obj.handlinger.length; j++) {\n            if (obj.handlinger[j].handling == \"Opret sag\") {\n                if (obj.handlinger[j].type = \"A\") {\n                    if (createTypeA) {\n                        //console.log(\"Another A already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeA = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n\n                else if (obj.handlinger[j].type = \"B\") {\n                    if (createTypeB) {\n                        //console.log(\"Another B already exists for receipt \" + obj.handlinger[j].fid);\n                        obj.handlinger.splice(j, 1);\n                        continue;\n                    }\n                    createTypeB = true;\n                    //tempHandlinger.push(msg.payload.handlinger[j]);\n                }\n            }\n        }\n\n\n        msg.payload[i] = obj;\n\n    }\n\n\n\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 1460,
+        "y": 1480,
         "wires": [
             [
                 "c23d52373f2634a2"
             ]
         ]
-    },
-    {
-        "id": "6e50585cfb059ce1",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "debug 26",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 200,
-        "y": 1520,
-        "wires": []
     },
     {
         "id": "87437eca4cc7eec9",
@@ -8914,7 +8240,9 @@
         "x": 1495,
         "y": 340,
         "wires": [
-            [],
+            [
+                "05c5f046beaa0d7d"
+            ],
             [
                 "4003aad4b2b6a9c8"
             ]
@@ -8933,17 +8261,93 @@
         "wires": []
     },
     {
-        "id": "b1537c2677891d8a",
+        "id": "41b54ba78a798165",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 1040,
+        "wires": [
+            [
+                "d73fa86d9401eebc"
+            ]
+        ]
+    },
+    {
+        "id": "d73fa86d9401eebc",
+        "type": "credentials",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "name": "testdata",
+        "props": [
+            {
+                "value": "receipts",
+                "type": "msg"
+            },
+            {
+                "value": "citizens",
+                "type": "msg"
+            }
+        ],
+        "x": 160,
+        "y": 1080,
+        "wires": [
+            [
+                "2c7762097d92c2e1"
+            ]
+        ]
+    },
+    {
+        "id": "2c7762097d92c2e1",
+        "type": "json",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "citizens",
+        "action": "obj",
+        "pretty": false,
+        "x": 180,
+        "y": 1140,
+        "wires": [
+            [
+                "05aedd9bee8c318f"
+            ]
+        ]
+    },
+    {
+        "id": "05aedd9bee8c318f",
+        "type": "json",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "property": "receipts",
+        "action": "obj",
+        "pretty": false,
+        "x": 190,
+        "y": 1180,
+        "wires": [
+            [
+                "4629d4bebfd2768f"
+            ]
+        ]
+    },
+    {
+        "id": "4629d4bebfd2768f",
         "type": "change",
         "z": "8ea344595d9a442a",
-        "name": "Kontrollér om der er nogle faktura",
+        "g": "287b33b8879cbbbc",
+        "name": "Sammensæt lister",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "",
-                "tot": "str"
+                "to": "/* Laver array med objekt for hver borger, og tilknytter fakturaer */\t\t$keys(citizens)@$k.{\t\t    \"cpr\": $k,\t    \"persondata\": $lookup(citizens, $k),\t    \"faktura\": receipts[$.patientCPR = $k]\t    \t}\t",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -8951,47 +8355,601 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
-        "y": 1920,
+        "x": 450,
+        "y": 920,
         "wires": [
-            []
+            [
+                "00a9a4712b97560f"
+            ]
+        ],
+        "info": "https://try.jsonata.org/wRgtKDrKD"
+    },
+    {
+        "id": "aea48540dc37e51c",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Saml borgere og fakturaer",
+        "info": "",
+        "x": 470,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "64bc816ed683fb56",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Personlig tillægsprocenter",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|(\t\t$tillaegsprocent_split := personligtillaegsprocent\t    ~> $replace(\"Personlig tillægsprocent\\tGyldig fra\\tGyldig til\\tAjourføringsdato\\n\", \"\")\t    ~> $split(\"\\n\");\t{\t\t\"personligtillaegsprocent\": $tillaegsprocent_split #$i .{\t\t    \"dato_fra\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[1]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"dato_til\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[2]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"tillaegsprocent\": ($t := (($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[0]\t        ~> $replace(\"%\", \"\")\t        ~> $replace(\"Ingen resultater fundet\", \"0\"));\t          ($t = \"\" ? 0 : $number($t)))\t    }\t\t}\t)|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 1040,
+        "wires": [
+            [
+                "78c4e4692985e738"
+            ]
+        ],
+        "info": "https://try.jsonata.org/4J8IPRU83"
+    },
+    {
+        "id": "b01934ac82f070c3",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Bevilget tilskud til fodpleje?",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|\t{\t\"bevilling\":\t    bevilling \t    ~> $contains(\"fodpleje\")\t}|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1000,
+        "wires": [
+            [
+                "64bc816ed683fb56"
+            ]
         ]
     },
     {
-        "id": "30cf9105d50bfb07",
-        "type": "debug",
+        "id": "31392fe7f3a93ccd",
+        "type": "comment",
         "z": "8ea344595d9a442a",
-        "g": "669e09e244099963",
-        "name": "debug 31",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1070,
-        "y": 380,
+        "g": "287b33b8879cbbbc",
+        "name": "Gør KP data maskinelt læsbart",
+        "info": "",
+        "x": 490,
+        "y": 960,
         "wires": []
     },
     {
-        "id": "14494b05c46d325b",
-        "type": "debug",
+        "id": "141037f73383a9f6",
+        "type": "change",
         "z": "8ea344595d9a442a",
-        "g": "9c4f3569ebca5f7b",
-        "name": "debug 32",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 620,
+        "g": "287b33b8879cbbbc",
+        "name": "Tildel unikke behandlings-ID'er",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.faktura |\t({\t\t\"behandlinger\": behandlinger @$b #$i .{\t\t    \"uid\": (id ~> $substring(19,17))\t            & \"-\" & $b.ydelsesnummer\t            & \"-\" & ($i+1),\t\t    \"fid\": id,\t\t    \"titel\": $b.titel,\t    \"ydelsesnummer\": $b.ydelsesnummer,\t    \"ydernummer\": $b.ydernummer,\t    \"behandlingsKategory\": $b.behandlingsKategory,\t    \"pris\": $b.pris,\t    \"kørteKilometer\": $b.kørteKilometer,\t    \"patientAndel\": $b.patientAndel,\t    \"sygesikringsAndel\": $b.sygesikringsAndel\t\t}\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 1080,
+        "wires": [
+            [
+                "7f450a3e484312bd"
+            ]
+        ],
+        "info": "https://try.jsonata.org/zbfWKbpM7"
+    },
+    {
+        "id": "78c4e4692985e738",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Helbredstillægsprocenter",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|(\t\t$tillaegsprocent_split := helbredstillaegsprocent\t    ~> $replace(\"Helbredstillægsprocent\\tGyldig fra\\tGyldig til\\tAjourføringsdato\\n\", \"\")\t    ~> $split(\"\\n\");\t{\t\t\"helbredstillaegsprocent\": $tillaegsprocent_split #$i .{\t\t    \"dato_fra\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[1]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"dato_til\": ($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[2]\t        ~> $toMillis('[D01]-[M01]-[Y0001]')\t        ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t    \"tillaegsprocent\": ($t := (($tillaegsprocent_split[$i]\t        ~> $split(\"\\t\"))[0]\t        ~> $replace(\"%\", \"\")\t        ~> $replace(\"Ingen resultater fundet\", \"0\"));\t          ($t = \"\" ? 0 : $number($t)))\t    }\t\t}\t)|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 1080,
+        "wires": [
+            [
+                "2cf375bbbada29f9"
+            ]
+        ],
+        "info": "https://try.jsonata.org/4J8IPRU83"
+    },
+    {
+        "id": "2cf375bbbada29f9",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Sager",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|(\t\t$sager_split := sager\t    ~> $replace(\"\\n\", \"\")\t    ~> $replace(\"\\t\\t\", \"\\t\")\t    ~> $substringAfter(\"\\t\")\t    ~> $split(\"\\t\");\t{\t    \"sager\": $sager_split #$i .(\t\t        /* Hvis kolonne-antal ændrer sig, breaker denne kode */\t\t        $i % 5 = 0 and $i != 0 ?\t        {\t            \"titel\": $sager_split[$i],\t            \t            \"type\": $sager_split[$i+1],\t\t            \"fra\": $sager_split[$i+2]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]'),\t\t            \"til\": $til := ($sager_split[$i+3]\t                ~> $toMillis('[D01]-[M01]-[Y0001]')\t                ~> $fromMillis('[Y0001]-[M01]-[D01]')),\t\t            \"aktiv\": ($til ~> $boolean()) ? ( $til ~> $toMillis() > $millis() ? true : false ) : true,\t\t            \"bevilling\": ($sager_split[$i+4] = \"Bevilget\")\t        })\t\t    }\t)|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1120,
+        "wires": [
+            [
+                "12d9ffdfaf71a523"
+            ]
+        ],
+        "info": "https://try.jsonata.org/4J8IPRU83"
+    },
+    {
+        "id": "12d9ffdfaf71a523",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Formue",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|\t{\t    \"formue\": \t            formue = \"Ikke oplyst\" ?\t                null\t            :\t            formue = \"-\" ?\t                null\t            :\t                (formue\t                ~> $replace(\"-\", \"-1\")\t                ~> $split(\" \"))[0]\t                ~> $replace(\".\", \"\")\t                ~> $replace(\",\", \".\")\t                ~> $number()\t}\t|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 1160,
+        "wires": [
+            [
+                "ca6df1c9d056a924"
+            ]
+        ]
+    },
+    {
+        "id": "011d535e3ab60636",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Transformer faktura data (+ fjern unødvendig data)",
+        "info": "",
+        "x": 1250,
+        "y": 960,
         "wires": []
+    },
+    {
+        "id": "71c55498ef71a4c9",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern unødvendig data",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.faktura|\t{},\t[\t    \"behandlerNavn\",\t    \"klinikNavn\",\t    \"klinikCVR\",\t    \"behandlerType\",\t    \"patientTelefon\"\t]\t|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 1000,
+        "wires": [
+            [
+                "6afaf8f1c596de67"
+            ]
+        ]
+    },
+    {
+        "id": "6afaf8f1c596de67",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern tidspunkt fra dato",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.faktura|\t{\t    \"dato\": (dato\t        ~> $split(\"T\"))[0]\t}\t|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 1040,
+        "wires": [
+            [
+                "141037f73383a9f6"
+            ]
+        ]
+    },
+    {
+        "id": "05096968ae22cc6f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Bestem behandlingstype",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or\t             titel = 'Behandlingpåklinik' or\t             titel = \"Behandlingudentilskud\") ?\t                'A' : 'B'\t\t})|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "$.errors ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or\t             titel = 'Behandlingpåklinik' or\t             titel = \"Behandlingudentilskud\") ?\t                'A' : 'B'\t\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 1240,
+        "wires": [
+            [
+                "046eb82cefda08d4"
+            ]
+        ],
+        "info": "https://try.jsonata.org/zbfWKbpM7"
+    },
+    {
+        "id": "215c708ef9319356",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Hent regler fra global variabel",
+        "rules": [
+            {
+                "t": "set",
+                "p": "rules",
+                "pt": "msg",
+                "to": "#:(storeInFile)::rules",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 1020,
+        "wires": [
+            [
+                "4c51b10755b92b07"
+            ]
+        ]
+    },
+    {
+        "id": "c68d4ee2f02ada08",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Kontroller KP data ud fra regelsæt",
+        "info": "",
+        "x": 820,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "4c51b10755b92b07",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Tjek alle regler mod borgerdata",
+        "rules": [
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "payload @$p.\t(\t$respectsRule := function($rule, $value)\t{\t    $rule.operator = \"!null\" ?\t        $value != null\t    :\t    $value = null ?\t        false\t    :\t    $rule.operator = \"<\" ?\t        $value < $rule.value\t    :\t    $rule.operator = \">\" ?\t        $value > $rule.value\t    :\t    $rule.operator = \"==\" ?\t        $value = $rule.value\t    :\t    $rule.operator = \"!=\" ?\t        $value != $rule.value\t    :\t    $rule.operator = \"contains\" ?\t        ($contains($string($rule.value), $string($value)))\t    :\t    $rule.operator = \"!contains\" ?\t        ($contains($string($rule.value), $string($value)) ? false : true)\t};\t{\t    \"cpr\": $p.cpr,\t    \"persondata\": $p.persondata,\t    \"faktura\": $p.faktura,\t\t    \"regelbrud\":\t        rules @$r.\t        (\t            $respectsRule($r, $data := $lookup($p.persondata, $r.variable)) = false ?\t            {\t                \"rule\": $r.name,\t                \"description\": $r.description,\t                \"objectValue\": $data,\t                \"operator\": $r.operator,\t                \"expectedValue\": $r.value,\t                \"isRespected\": $respectsRule($r, $data)\t            }\t        )\t}\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 1060,
+        "wires": [
+            [
+                "4e374431cb68ace4"
+            ]
+        ]
+    },
+    {
+        "id": "4e374431cb68ace4",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Find regelbrud",
+        "rules": [
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "errors @$e.\t(\t    $e.regelbrud ~> $boolean ?\t    {\t        \"cpr\": $e.cpr,\t        \"persondata\": $e.persondata,\t        \"faktura\": $e.faktura,\t        \"regelbrud\": $e.regelbrud\t    }\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1100,
+        "wires": [
+            [
+                "5e112e4574f64f9b"
+            ]
+        ]
+    },
+    {
+        "id": "5e112e4574f64f9b",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern borgere som ikke er berettiget",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload @$p.\t(\t    \t    (errors[cpr = $p.cpr] ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 1140,
+        "wires": [
+            [
+                "ac26dfbc2efcbb4f"
+            ]
+        ]
+    },
+    {
+        "id": "046eb82cefda08d4",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Find bevilling + sag gældende for hver behandling",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.faktura.behandlinger |\t(\t\t    $uid := uid;\t    $fid := fid;\t    $faktura := $$.payload.faktura[id = $fid];\t    $borger := $$.payload[cpr = $faktura.patientCPR];\t    $type := type;\t\t{\t    \"bevilget\": type = 'A' ?\t                    ($borger.persondata.bevilling ?\t                        true : $borger.persondata.sager\t                                [   \t                                    titel ~> $lowercase ~> $contains(\"fod\")\t                                and\t                                    (type ~> $lowercase ~> $contains(\"udvidet helbredstill\"))\t                                and\t                                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                                and\t                                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                                and\t                                    bevilling = true\t                                ]\t                                    ~> $exists ? true : false)\t                :\t                    ($borger.persondata.sager\t                        [\t                            (type ~> $lowercase ~> $contains(\"almindeligt helbred\")\t                        or\t                            type ~> $lowercase ~> $contains(\"gskort\"))\t                        and\t                            ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                        and\t                            (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                        and\t                            bevilling = true\t                        ]\t                            ~> $exists ? true : false),\t                                \t    \"sag\": $borger.persondata.sager\t                [\t                    titel ~> $lowercase ~> $contains(\"fod\")\t                and\t                    ($type = 'A' ?\t                        (type ~> $lowercase ~> $contains(\"udvidet helbred\"))\t                    :\t                        (type ~> $lowercase ~> $contains(\"almindeligt helbredstill\")\t                    or\t                        type ~> $lowercase ~> $contains(\"gskort\")))\t                and\t                    ($faktura.dato ~> $toMillis) > (fra ~> $toMillis)\t                and\t                    (til ? ($faktura.dato ~> $toMillis) < (til ~> $toMillis) : true)\t                and\t                    bevilling = true\t                ]\t\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1250,
+        "y": 1280,
+        "wires": [
+            [
+                "252ef6cdcba02f65"
+            ]
+        ]
+    },
+    {
+        "id": "6b4df0013a0256a0",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Find relevant data for hver behandling på faktura",
+        "info": "",
+        "x": 1240,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "7f450a3e484312bd",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Find tillægsprocent gældende for hver faktura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> | $.faktura |\t(\t\t    $id := id;\t    /*$borger := $$.payload[faktura.id = $id];*/\t    $borger := $$.payload[$id in faktura.id];\t    $dato := dato;\t\t{\t\t    \"_personligtillaegsprocent\": $borger.persondata.personligtillaegsprocent [\t        ($dato ~> $toMillis) > (dato_fra ~> $toMillis)\t    and\t        (dato_til ~> $boolean ? (($dato ~> $toMillis) < (dato_til ~> $toMillis)) : true)\t    ],\t\t    \"_helbredstillaegsprocent\": $borger.persondata.helbredstillaegsprocent [\t        ($dato ~> $toMillis) > (dato_fra ~> $toMillis)\t    and\t        (dato_til ~> $boolean ? (($dato ~> $toMillis) < (dato_til ~> $toMillis)) : true)\t    ]\t\t})|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 1160,
+        "wires": [
+            [
+                "05096968ae22cc6f"
+            ]
+        ]
+    },
+    {
+        "id": "852046d71f487d02",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Find relevant data for hver faktura",
+        "info": "",
+        "x": 1190,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "fa59a67027b60c71",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern borgere som ikke har gyldig tillægsprocent?",
+        "info": "",
+        "x": 1520,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "015eb190e5565e7d",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "[T] Transformér data, beregn tilskud",
+        "info": "",
+        "x": 500,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "989112eb96abfdb9",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern faktura / behandlinger på faktura som allerede er behandlet",
+        "info": "https://try.jsonata.org/wRgtKDrKD",
+        "x": 1290,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "b81c9fcaa9d3e0d1",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern allerede behanlede faktura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload @$p .(\t\t{\t    \"test\": $$.runHistory.processedReceipts[fid = $p.faktura.id],\t    \"cpr\": $p.cpr,\t    \"persondata\": $p.persondata,\t    \"faktura\": $p.faktura\t}) ",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 900,
+        "wires": [
+            []
+        ],
+        "info": "https://try.jsonata.org/wRgtKDrKD"
+    },
+    {
+        "id": "104d29ffe37f5998",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "d": true,
+        "g": "287b33b8879cbbbc",
+        "name": "Fjern behandlinger som allerede er bearbejdet",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.faktura|\t{\t    \"behandlinger\": behandlinger @$b . (\t        ( $b.uid in $$.runHistory.processedReceiptss[id = $b.fid].uid ) = false ?\t            $b )\t}|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1520,
+        "y": 900,
+        "wires": [
+            []
+        ],
+        "info": "https://try.jsonata.org/wRgtKDrKD"
     },
     {
         "id": "ca6df1c9d056a924",
@@ -9006,13 +8964,311 @@
         "finalize": "",
         "libs": [],
         "x": 420,
+        "y": 1200,
+        "wires": [
+            [
+                "81cc412d0d2170b9"
+            ]
+        ]
+    },
+    {
+        "id": "00a9a4712b97560f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "missingData",
+                "pt": "msg",
+                "to": "receipts @$r.\t(\t    payload[cpr = $r.patientCPR] ~> $exists() = false ?\t    {\t        \"cpr\": $r.patientCPR,\t        \"faktura\": $r,\t        \"regelbrud\": \"Borger-data blev ikke indsamlet korrekt\"\t    }\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 900,
+        "wires": [
+            [
+                "b01934ac82f070c3"
+            ]
+        ]
+    },
+    {
+        "id": "1ee2c685a74c09b0",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Mangler borgere?",
+        "info": "",
+        "x": 730,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "ac26dfbc2efcbb4f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "Saml errors og missingData lister",
+        "rules": [
+            {
+                "t": "set",
+                "p": "errors",
+                "pt": "msg",
+                "to": "$append(errors, missingData)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
         "y": 1180,
         "wires": [
             [
-                "349a8caa82ed4d5e",
+                "71c55498ef71a4c9"
+            ]
+        ]
+    },
+    {
+        "id": "81cc412d0d2170b9",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "287b33b8879cbbbc",
+        "name": "URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$.payload ~> |$.persondata|\t{\t    \"kpurl\": \t            kpurl ~> $contains(\"overblik?pId=\") ?\t                (kpurl ~> $split(\"overblik?pId=\"))[1]\t            :\t            (((kpurl ~> $split(\"/person/\"))[1]) ~> $split(\"/overblik\"))[0]\t}\t|",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1240,
+        "wires": [
+            [
                 "7d7a7bf5a54224e8"
             ]
         ]
+    },
+    {
+        "id": "c3932c1fbca91f98",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Set userName in runHistory",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t$endDate := currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t\t    \"userName\": currentRun.processedReceipts\t    \t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1660,
+        "y": 680,
+        "wires": [
+            [
+                "2cecfdc6df304e08"
+            ]
+        ]
+    },
+    {
+        "id": "f811b83fc07bb1cd",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "380e5c7e0ea3778b",
+        "name": "Kontrol om alle fakturaer er arkiveret",
+        "info": "",
+        "x": 580,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "c7ca8c02a788a41d",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "g": "380e5c7e0ea3778b",
+        "name": "Check if all is archived",
+        "func": "var isAllArchived = true;\n\nvar receiptsActions = [];\nvar receiptsNoActions = [];\n\n/*\nif (global.get(\"webData\") !== undefined)\n{\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptsActions += global.get(\"webData\")[\"citizens-actions\"];\n\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        receiptsNoActions += global.get(\"webData\")[\"citizens-noactions\"];\n\n    if (!Array.isArray(receiptsActions)) receiptsActions = [receiptsActions];\n    if (!Array.isArray(receiptsNoActions)) receiptsNoActions = [receiptsNoActions];\n}\n\nvar allReceipts = [];\n//allReceipts = allReceipts.concat(receiptsActions, receiptsNoActions);\nfor (var i = 0; i < receiptsActions.length; i++)\n    allReceipts.push(receiptsActions[i]);\n    \nfor (var i = 0; i < receiptsNoActions.length; i++)\n    allReceipts.push(receiptsNoActions[i]);\n    \nvar acceptedReceipts;\n\nglobal.set(\"tempTest\", allReceipts);\n*/\nvar acceptedReceipts = msg.currentRun.processedReceipts;\nvar allReceipts = msg.tempData;\n\nif(!Array.isArray(allReceipts))\n    allReceipts = [allReceipts];\n\nif (allReceipts.length == 0 || allReceipts == null)\n{\n    console.log(\"Length = 0 or null is happening!\");\n    msg.isArchived = true;\n    return msg;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceipts = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts;\n*/\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\nvar remainingCount = allReceipts.length - acceptedReceipts.length;\n\nfor (var i = 0; i < allReceipts.length; i++)\n{\n\n    if (allReceipts[i].faktura === null || allReceipts[i].faktura === undefined)\n        continue;\n\n    var fakturaer = Array.isArray(allReceipts[i].faktura) ? allReceipts[i].faktura : [allReceipts[i].faktura];\n\n    for(var j = 0; j < fakturaer.length; j++)\n        if (!acceptedReceipts.includes(fakturaer[j].id))\n            isAllArchived = false;\n}\n\nmsg.isArchived = isAllArchived;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1940,
+        "wires": [
+            [
+                "8f4d2dcc4c986825",
+                "6793405f4aaca4d3"
+            ]
+        ]
+    },
+    {
+        "id": "8f4d2dcc4c986825",
+        "type": "switch",
+        "z": "8ea344595d9a442a",
+        "g": "380e5c7e0ea3778b",
+        "name": "",
+        "property": "isArchived",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 750,
+        "y": 1940,
+        "wires": [
+            [
+                "78f7e1718ab3f755"
+            ],
+            [
+                "4840de2e1aa54398"
+            ]
+        ]
+    },
+    {
+        "id": "5f3a3d3e30d3be55",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "380e5c7e0ea3778b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempData1",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "tempData2",
+                "pt": "msg",
+                "to": "errors",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "tempData",
+                "pt": "msg",
+                "to": "$append(tempData1, tempData2)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "tempData1",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "tempData2",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 1900,
+        "wires": [
+            [
+                "c7ca8c02a788a41d"
+            ]
+        ]
+    },
+    {
+        "id": "78f7e1718ab3f755",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "380e5c7e0ea3778b",
+        "name": "Set allReceiptsProcessed = true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"allReceiptsProcessed\": true\t}\t\t)|",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 1920,
+        "wires": [
+            [
+                "4840de2e1aa54398"
+            ]
+        ]
+    },
+    {
+        "id": "6793405f4aaca4d3",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 2020,
+        "wires": []
     },
     {
         "id": "248d64bf4e74f440",
@@ -9685,8 +9941,7 @@
         "y": 500,
         "wires": [
             [
-                "abb73011a817205a",
-                "0ec8a364f5851f94"
+                "abb73011a817205a"
             ]
         ]
     },
@@ -10620,24 +10875,6 @@
                 "53d1fb714bf85e85"
             ]
         ]
-    },
-    {
-        "id": "0ec8a364f5851f94",
-        "type": "debug",
-        "z": "c28a486ea3e09387",
-        "g": "31b5ea0c53a9c4fb",
-        "name": "debug 29",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "42de3af98b8ce955",
