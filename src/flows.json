@@ -363,7 +363,9 @@
             "948eb590f69bd85b",
             "b3ecd3ad79094172",
             "54254a91e943fb50",
-            "6226138fabf9a3b8"
+            "6226138fabf9a3b8",
+            "f23aa08410fc8960",
+            "419b7ad31525a3a3"
         ],
         "x": 494,
         "y": 1159,
@@ -684,11 +686,12 @@
         "id": "b840a64a9cf3c187",
         "type": "junction",
         "z": "8ea344595d9a442a",
-        "x": 1340,
-        "y": 2420,
+        "x": 1280,
+        "y": 2440,
         "wires": [
             [
-                "a2f55ae008b1fee2"
+                "a2f55ae008b1fee2",
+                "a2cfc0476a5147d6"
             ]
         ]
     },
@@ -796,6 +799,7 @@
         "id": "b93057423dbab117",
         "type": "http in",
         "z": "41d1b8798efe7e15",
+        "d": true,
         "name": "",
         "url": "/pup",
         "method": "get",
@@ -813,6 +817,7 @@
         "id": "5c5841605bcac134",
         "type": "http response",
         "z": "41d1b8798efe7e15",
+        "d": true,
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -871,6 +876,7 @@
         "id": "8646ac73ab639fcd",
         "type": "http in",
         "z": "41d1b8798efe7e15",
+        "d": true,
         "name": "",
         "url": "/puprun",
         "method": "post",
@@ -2173,7 +2179,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "newRunCard body",
-        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nvar rejectedCitizenCount = 0; //global.get(\"webData\")[\"citizens-noactions\"] == null ? 0 : global.get(\"webData\")[\"citizens-noactions\"].length;\nvar receiptCount = 0;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount += global.get(\"webData\")[\"citizens-actions\"].length;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n    {\n        rejectedCitizenCount = global.get(\"webData\")[\"citizens-noactions\"].length;\n        receiptCount += rejectedCitizenCount;\n    }\n\nvar remainingCount = 0;\n\nfor (var i = 0; i < rejectedCitizenCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-noactions\"])[i].archived)\n        remainingCount++;\n\nrejectedCitizenCount = remainingCount;\n\n\n\nvar cardHeader = \"Ny kørsel\";\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\nvar border = \"light\";\nvar buttonClasses = \" \";\n\n\n\nif (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Vent venligst\";\n    buttonClasses += \"hidden\";\n    linkhref = \"view-receipts\";\n    border = \"info\";\n}\nelse if ((receiptsAwaiting && isBeingProcessed && !dataExists) || (receiptsAwaiting && receiptCount == 0))\n{\n    cardHeader = \"Genoptag kørsel\";\n    cardTitle = \"Data mangler\";\n    cardText = \"Genoptag kørslen for at hente manglende data.\";\n    linkhref = \"run\";\n    buttonText = \"Genoptag\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount > 0)\n{\n    cardHeader = \"Borgere uden gyldig bevilling\";\n    cardTitle = rejectedCitizenCount == 0 ? \"Ingen fakturaer\" : rejectedCitizenCount + \" borgere afventer\";\n    cardText = \"Efter seneste kørsel er der \" + rejectedCitizenCount + \" borgere uden gyldig bevilling som afventer bekræftelse.\";\n    buttonText = \"Se borgere\";\n    buttonClasses += rejectedCitizenCount == 0 ? \"hidden\" : \"\";\n    linkhref = \"view-nograntreceipts\";\n    border = rejectedCitizenCount > 0 ? \"warning\" : \"light\";\n\n}\nelse if (isBeingProcessed && !receiptsAwaiting)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n    cardText = \"Alle anbefalede handlinger samt ej berretigede borgere er bekræftet. Afslut kørslen nu.\"\n    buttonText = \"Afslut kørsel\";\n    border = \"success\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount == 0)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n        cardText = \"Alle borgere uden bevilling er bekræftet. Bekræft anbefalede handlinger før du afslutter kørslen.\"\n    buttonText = \"Afslut kørsel\";\n    buttonClasses += \"disabled\";\n}\n\nelse if (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar classes = \"border-\" + border;\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+buttonClasses+`\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nmsg.payload.pageElements['newRunCardHeader'] = cardHeader;\nreturn msg;",
+        "func": "// Set menu html\nconst loginAccepted = msg.payload.webSettings.acceptances.login;\nconst rulesAccepted = msg.payload.webSettings.acceptances.rules;\nconst grantsAccepted = msg.payload.webSettings.acceptances.grants;\nconst isRunning = msg.payload.webSettings.state.isRunning;\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && (\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n        : global.get(\"runHistory\", \"storeInFile\") : null;\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;\n\n\nvar rejectedCitizenCount = 0; //global.get(\"webData\")[\"citizens-noactions\"] == null ? 0 : global.get(\"webData\")[\"citizens-noactions\"].length;\nvar receiptCount = 0;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n    {\n        if (!Array.isArray(global.get(\"webData\")[\"citizens-actions\"]))\n        {\n            var tempWebData = global.get(\"webData\");\n            tempWebData[\"citizens-actions\"] = [tempWebData[\"citizens-actions\"]];\n            global.set(\"webData\", tempWebData);\n        }\n\n        receiptCount += global.get(\"webData\")[\"citizens-actions\"].length;\n    }\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n    {\n        if (!Array.isArray(global.get(\"webData\")[\"citizens-noactions\"])) {\n            var tempWebData = global.get(\"webData\");\n            tempWebData[\"citizens-noactions\"] = [tempWebData[\"citizens-noactions\"]];\n            global.set(\"webData\", tempWebData);\n        }\n\n        rejectedCitizenCount = global.get(\"webData\")[\"citizens-noactions\"].length;\n        receiptCount += rejectedCitizenCount;\n    }\n\nvar remainingCount = 0;\n\nfor (var i = 0; i < rejectedCitizenCount; i++)\n    if (!(global.get(\"webData\")[\"citizens-noactions\"])[i].archived)\n        remainingCount++;\n\nrejectedCitizenCount = remainingCount;\n\n\n\nvar cardHeader = \"Ny kørsel\";\nvar cardTitle =\"Kør nu\";\nvar cardText = \"Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!\";\nvar buttonText = \"Kør robot\";\nvar linkhref = \"run\";\nvar border = \"light\";\nvar buttonClasses = \" \";\n\n\n\nif (isRunning) {\n    cardTitle = \"Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>\";\n    cardText = \"Robotten arbejder på at finde nye fakturaer samt beregne tilskud.\"\n    buttonText = \"Vent venligst\";\n    buttonClasses += \"hidden\";\n    linkhref = \"view-receipts\";\n    border = \"info\";\n}\nelse if ((receiptsAwaiting && isBeingProcessed && !dataExists) || (receiptsAwaiting && receiptCount == 0))\n{\n    cardHeader = \"Genoptag kørsel\";\n    cardTitle = \"Data mangler\";\n    cardText = \"Genoptag kørslen for at hente manglende data.\";\n    linkhref = \"run\";\n    buttonText = \"Genoptag\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount > 0)\n{\n    cardHeader = \"Borgere uden gyldig bevilling\";\n    cardTitle = rejectedCitizenCount == 0 ? \"Ingen fakturaer\" : rejectedCitizenCount + \" borgere afventer\";\n    cardText = \"Efter seneste kørsel er der \" + rejectedCitizenCount + \" borgere uden gyldig bevilling som afventer bekræftelse.\";\n    buttonText = \"Se borgere\";\n    buttonClasses += rejectedCitizenCount == 0 ? \"hidden\" : \"\";\n    linkhref = \"view-nograntreceipts\";\n    border = rejectedCitizenCount > 0 ? \"warning\" : \"light\";\n\n}\nelse if (isBeingProcessed && !receiptsAwaiting)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n    cardText = \"Alle anbefalede handlinger samt ej berretigede borgere er bekræftet. Afslut kørslen nu.\"\n    buttonText = \"Afslut kørsel\";\n    border = \"success\";\n}\n\nelse if (receiptsAwaiting && rejectedCitizenCount == 0)\n{\n    cardHeader = \"Afslut kørsel\";\n    cardTitle = \"Alle borgere behandlet\",\n        cardText = \"Alle borgere uden bevilling er bekræftet. Bekræft anbefalede handlinger før du afslutter kørslen.\"\n    buttonText = \"Afslut kørsel\";\n    buttonClasses += \"disabled\";\n}\n\nelse if (!loginAccepted) {\n    cardTitle = \"Godkend login\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger.\"\n    buttonText = \"Gå til loginoplysninger\";\n    linkhref = \"login\";\n}\n\nelse if (!rulesAccepted) {\n    cardTitle = \"Godkend regelsæt\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende forretningsregler.\"\n    buttonText = \"Gå til forretningsregler\";\n    linkhref = \"rules\";\n}\n\nelse if(!grantsAccepted)\n{\n    cardTitle = \"Godkend tilskudssatser\";\n    cardText = \"Før du kan søge efter nye fakturaer, skal du godkende tilskudssatser.\"\n    buttonText = \"Gå til tilskudssatser\";\n    linkhref = \"grants\";\n}\n\n\nvar classes = \"border-\" + border;\n\nvar html = `<h4 class=\"card-title\">`+cardTitle+`</h4>\n        <p class=\"card-text\">`+cardText+`</p>\n        <div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light`+buttonClasses+`\" onclick=\"goToPage('`+linkhref+`')\">`+buttonText+`</button>\n        </div>`;\n\nmsg.payload.pageElements['newRunCardBody'] = html;\nmsg.payload.pageElements['newRunCardClasses'] = classes;\nmsg.payload.pageElements['newRunCardHeader'] = cardHeader;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2781,7 +2787,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "set temp data obj",
-        "func": "msg.payload.tempData = msg.payload.tempDataArray[msg.payload.spec];\nreturn msg;",
+        "func": "/*\nif (!Array.isArray(msg.payload.tempDataArray))\n{\n    msg.payload.tempData = msg.payload.tempDataArray;\n    msg.payload.tempDataArray = [msg.payload.tempDataArray];\n}\nelse*/\n    msg.payload.tempData = msg.payload.tempDataArray[msg.payload.spec];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2889,12 +2895,12 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "null"
-            },
-            {
                 "t": "eq",
                 "v": "0",
                 "vt": "num"
+            },
+            {
+                "t": "null"
             },
             {
                 "t": "else"
@@ -2910,7 +2916,7 @@
                 "1f72e5564103eca8"
             ],
             [
-                "1f72e5564103eca8"
+                "a1bf4b6b1875b569"
             ],
             [
                 "5ed1981ab9c124de"
@@ -2995,7 +3001,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Fakturaer + handlinger",
-        "func": "if (!Array.isArray(msg.payload.tempData.regelbrud))\n    msg.payload.tempData.regelbrud = [msg.payload.tempData.regelbrud];\n\nvar fejl =\"\";\n    \nif (msg.payload.tempData.regelbrud[0] != null)\n    for (var j = 0; j < msg.payload.tempData.regelbrud.length; j++) {\n        const r_obj = msg.payload.tempData.regelbrud[j];\n\n        var regelbrud = r_obj.rule != null ? r_obj.rule + \": \" + r_obj.description : r_obj; //+ \" (\" + r_obj.objectValue + \" \" + r_obj.operator + \" \" + r_obj.expectedValue + \")\";\n\n        fejl += `<div class=\"card mb-2 border-warning header-left\" style=\"\">\n                    <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">REGELBRUD</div>\n                    <div style=\"align-self: center;padding-left:10px\">`+ regelbrud + `</div>\n                </div>`;\n    }\n\nmsg.payload.tempData._faktura = fejl;\n\nif (msg.payload.tempData.faktura == null)\n    return msg;\n\nfunction round(num) {\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\nvar html = \"\";\n\nif (!Array.isArray(msg.payload.tempData.faktura))\n    msg.payload.tempData.faktura = [msg.payload.tempData.faktura];\n\nfor(var i = 0; i < msg.payload.tempData.faktura.length; i++)\n{\n    const obj = msg.payload.tempData.faktura[i];\n\n    var handlinger = \"\";\n\n    if (!Array.isArray(msg.payload.tempData.handlinger))\n        msg.payload.tempData.handlinger = [msg.payload.tempData.handlinger];\n\n    var k = 0;\n\n    if (msg.payload.tempData.handlinger[0] != null)\n        for(var j = 0; j < msg.payload.tempData.handlinger.length; j++)\n        {\n            const h_obj = msg.payload.tempData.handlinger[j];\n            if(h_obj.fid != obj.id)\n            {\n                k++;\n                continue;\n            }\n\n            var handling;\n            if(h_obj.tilskud != null)\n                handling = h_obj.handling + \" - tilskud gives: \" + round(h_obj.tilskud) + \" kr\";\n            else\n                handling = h_obj.handling + \" - \" + (h_obj.type == \"A\" ? \"udvidet helbredstillæg\" : \"alm. helbredstillæg\");\n\n            handlinger += `\n                <div class=\"card mb-2 border-light header-left\" style=\"\">\n                    <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #`+(j+1-k)+`</div>\n                    <div style=\"align-self: center;padding-left:10px\">`+handling+`</div>\n                </div>`;\n        }\n\n\n    if (obj.behandlinger != null)\n        if (!Array.isArray(obj.behandlinger))\n            obj.behandlinger = [obj.behandlinger];\n\n    var behandlinger = \"\";\n\n    if (obj.behandlinger != null)\n        for (var k = 0; k < obj.behandlinger.length; k++)\n        {\n            var b_obj = obj.behandlinger[k];\n            behandlinger += `<tr>\n                                <td>`+ b_obj.ydelsesnummer+`</td>\n                                <th scope=\"row\">`+ b_obj.titel + ` (type ` + b_obj.type +`)</th>\n                                <td>`+ b_obj.patientAndel +`</td>\n                                <td>`+ b_obj.sygesikringsAndel +`</td>\n                                <th  scope=\"row\">`+ round(b_obj.patientAndel + b_obj.sygesikringsAndel) + `</th>\n                            </tr>`;\n        }\n    behandlinger += `<tr class=\"no-border-bottom\">\n                            <td></td>\n                            <th scope=\"row\"></th>\n                            <td></td>\n                            <td></td>\n                            <th scope=\"row\">`+ round(obj.total) + `</th>\n                    </tr>`;\n\n\n    html += `\n    <div class=\"card border-light mb-2\">\n        <!-- Faktura  -->\n\n        <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #`+(i+1)+`\n            <span class=\"float-right\">\n                `+obj.dato+`\n                <a href=\"http://workletnew.snapp.dk/auth/sign-in/`+obj.id+`\" target=\"_blank\" style=\"padding-left: 10px\">\n                    <span class=\"float-right text-muted\" style=\"margin-top:-1px\"><i class=\"fas fa-sm fa-link\"></i></span>\n                </a>\n            </span>\n        </div>\n        <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n            <table class=\"table\">\n                <thead class=\"border-none\">\n                    <tr>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    `+behandlinger+`\n                </tbody>\n            </table>\n\n        </div>\n\n        <!-- /Faktura -->\n    </div>\n    `;\n\n    html += handlinger;\n\n    if ((msg.payload.tempData.faktura.length - 1) == i)\n        html += fejl;\n\n\n}\n\nmsg.payload.tempData._faktura = html;\n\nreturn msg;",
+        "func": "\nif (msg.payload.tempData == null || msg.payload.tempData == undefined)\n    return msg;\n\nif (!Array.isArray(msg.payload.tempData.regelbrud))\n    msg.payload.tempData.regelbrud = [msg.payload.tempData.regelbrud];\n\nvar fejl =\"\";\n    \nif (msg.payload.tempData.regelbrud[0] != null)\n    for (var j = 0; j < msg.payload.tempData.regelbrud.length; j++) {\n        const r_obj = msg.payload.tempData.regelbrud[j];\n\n        var regelbrud = r_obj.rule != null ? r_obj.rule + \": \" + r_obj.description : r_obj; //+ \" (\" + r_obj.objectValue + \" \" + r_obj.operator + \" \" + r_obj.expectedValue + \")\";\n\n        fejl += `<div class=\"card mb-2 border-warning header-left\" style=\"\">\n                    <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">REGELBRUD</div>\n                    <div style=\"align-self: center;padding-left:10px\">`+ regelbrud + `</div>\n                </div>`;\n    }\n\nmsg.payload.tempData._faktura = fejl;\n\nif (msg.payload.tempData.faktura == null)\n    return msg;\n\nfunction round(num) {\n    return Math.round((num + Number.EPSILON) * 100) / 100;\n}\n\nvar html = \"\";\n\nif (!Array.isArray(msg.payload.tempData.faktura))\n    msg.payload.tempData.faktura = [msg.payload.tempData.faktura];\n\nfor(var i = 0; i < msg.payload.tempData.faktura.length; i++)\n{\n    const obj = msg.payload.tempData.faktura[i];\n\n    var handlinger = \"\";\n\n    if (!Array.isArray(msg.payload.tempData.handlinger))\n        msg.payload.tempData.handlinger = [msg.payload.tempData.handlinger];\n\n    var k = 0;\n\n    if (msg.payload.tempData.handlinger[0] != null)\n        for(var j = 0; j < msg.payload.tempData.handlinger.length; j++)\n        {\n            const h_obj = msg.payload.tempData.handlinger[j];\n            if(h_obj.fid != obj.id)\n            {\n                k++;\n                continue;\n            }\n\n            var handling;\n            if(h_obj.tilskud != null)\n                handling = h_obj.handling + \" - tilskud gives: \" + round(h_obj.tilskud) + \" kr\";\n            else\n                handling = h_obj.handling + \" - \" + (h_obj.type == \"A\" ? \"udvidet helbredstillæg\" : \"alm. helbredstillæg\");\n\n            handlinger += `\n                <div class=\"card mb-2 border-light header-left\" style=\"\">\n                    <div class=\"card-header header-left text-muted fs-10\" style=\"width:20%;border-right: 1px solid rgba(0,0,0,0.125)\">HANDLING #`+(j+1-k)+`</div>\n                    <div style=\"align-self: center;padding-left:10px\">`+handling+`</div>\n                </div>`;\n        }\n\n\n    if (obj.behandlinger != null)\n        if (!Array.isArray(obj.behandlinger))\n            obj.behandlinger = [obj.behandlinger];\n\n    var behandlinger = \"\";\n\n    if (obj.behandlinger != null)\n        for (var k = 0; k < obj.behandlinger.length; k++)\n        {\n            var b_obj = obj.behandlinger[k];\n            behandlinger += `<tr>\n                                <td>`+ b_obj.ydelsesnummer+`</td>\n                                <th scope=\"row\">`+ b_obj.titel + ` (type ` + b_obj.type +`)</th>\n                                <td>`+ b_obj.patientAndel +`</td>\n                                <td>`+ b_obj.sygesikringsAndel +`</td>\n                                <th  scope=\"row\">`+ round(b_obj.patientAndel + b_obj.sygesikringsAndel) + `</th>\n                            </tr>`;\n        }\n    behandlinger += `<tr class=\"no-border-bottom\">\n                            <td></td>\n                            <th scope=\"row\"></th>\n                            <td></td>\n                            <td></td>\n                            <th scope=\"row\">`+ round(obj.total) + `</th>\n                    </tr>`;\n\n\n    html += `\n    <div class=\"card border-light mb-2\">\n        <!-- Faktura  -->\n\n        <div class=\"card-header text-muted fs-10\" style=\"height: 38px\">FAKTURA #`+(i+1)+`\n            <span class=\"float-right\">\n                `+obj.dato+`\n                <a href=\"http://workletnew.snapp.dk/auth/sign-in/`+obj.id+`\" target=\"_blank\" style=\"padding-left: 10px\">\n                    <span class=\"float-right text-muted\" style=\"margin-top:-1px\"><i class=\"fas fa-sm fa-link\"></i></span>\n                </a>\n            </span>\n        </div>\n        <div class=\"card-body p-3\" style=\"padding-top: 0px!important;padding-bottom: 0px!important\">\n\n            <table class=\"table\">\n                <thead class=\"border-none\">\n                    <tr>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelsesnr.</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Ydelse</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Egenbetaling</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Sygesikring</span></th>\n                        <th scope=\"col\"><span class=\"table-header\">Total</span></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    `+behandlinger+`\n                </tbody>\n            </table>\n\n        </div>\n\n        <!-- /Faktura -->\n    </div>\n    `;\n\n    html += handlinger;\n\n    if ((msg.payload.tempData.faktura.length - 1) == i)\n        html += fejl;\n\n\n}\n\nmsg.payload.tempData._faktura = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3014,7 +3020,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Pagination",
-        "func": "var page = msg.payload.page;\n\nvar maxCount = 8;\nmaxCount = maxCount > (parseInt(msg.payload.tempDataLength)-1) ? (parseInt(msg.payload.tempDataLength)-1) : maxCount;\n\nvar countBeforeActive = msg.payload.spec > 4 ? 4 : msg.payload.spec;\nvar countAfterActive = maxCount - countBeforeActive;\nvar countAfterActive = ((countAfterActive + parseInt(msg.payload.spec)) > (parseInt(msg.payload.tempDataLength) - 1)) ? (msg.payload.tempDataLength - msg.payload.spec -1) : countAfterActive;\n\nif(countAfterActive < 4 && msg.payload.spec > maxCount-countAfterActive)\n    countBeforeActive = maxCount - countAfterActive;\n\n\nfunction isArchived (id)\n{\n    return msg.payload.tempDataArray[id].archived;\n}\n\nvar html = `<ul class=\"pagination\">`;\n\n// Arrow left\nif(countBeforeActive > 0)\n    html += `<li class=\"page-item\">\n             <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ (parseInt(msg.payload.spec) - 1) +`')\">&laquo;</a>\n             </li>`;\n\n// previous\nfor (var i = 0; i < countBeforeActive; i++)\n{\n    var id = -(countBeforeActive - parseInt(msg.payload.spec) - i);\n\n    html += `<li class=\"page-item`+(isArchived(id) ? ` archived`:``)+`\">\n            <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ id + `')\">` +(parseInt(id) + 1)+`</a>\n            </li> `;\n}\n\n// active\nhtml += `<li class=\"page-item active` + (isArchived(msg.payload.spec) ? ` archived` : ``) +`\">\n            <a class=\"page-link\">`+ (parseInt(msg.payload.spec)+1) + `</a>\n         </li> `;\n\n// after\nfor (var i = 0; i < countAfterActive; i++) {\n    var id = (parseInt(msg.payload.spec) + 1 + i);\n    html += `<li class=\"page-item` + (isArchived(id) ? ` archived` : ``) +`\">\n            <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ id + `')\">` + (parseInt(id) + 1)+ `</a>\n            </li> `;\n}\n\n// Arrow right\nif (countAfterActive >= 1)\nhtml += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ (parseInt(msg.payload.spec) + 1) +`')\">&raquo;</a>\n         </li>`;\n\nhtml += `</ul>`;\n\nmsg.payload.tempData._pagination = html;\n\nreturn msg;",
+        "func": "var page = msg.payload.page;\n\nvar maxCount = 8;\nmaxCount = maxCount > (parseInt(msg.payload.tempDataLength)-1) ? (parseInt(msg.payload.tempDataLength)-1) : maxCount;\n\nvar countBeforeActive = msg.payload.spec > 4 ? 4 : msg.payload.spec;\nvar countAfterActive = maxCount - countBeforeActive;\nvar countAfterActive = ((countAfterActive + parseInt(msg.payload.spec)) > (parseInt(msg.payload.tempDataLength) - 1)) ? (msg.payload.tempDataLength - msg.payload.spec -1) : countAfterActive;\n\nif(countAfterActive < 4 && msg.payload.spec > maxCount-countAfterActive)\n    countBeforeActive = maxCount - countAfterActive;\n\n\nfunction isArchived (id)\n{\n    if (msg.payload.tempDataArray[id] != null && msg.payload.tempDataArray[id] != undefined)\n        return msg.payload.tempDataArray[id].archived;\n    else return false;\n}\n\nvar html = `<ul class=\"pagination\">`;\n\n// Arrow left\nif(countBeforeActive > 0)\n    html += `<li class=\"page-item\">\n             <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ (parseInt(msg.payload.spec) - 1) +`')\">&laquo;</a>\n             </li>`;\n\n// previous\nfor (var i = 0; i < countBeforeActive; i++)\n{\n    var id = -(countBeforeActive - parseInt(msg.payload.spec) - i);\n\n    html += `<li class=\"page-item`+(isArchived(id) ? ` archived`:``)+`\">\n            <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ id + `')\">` +(parseInt(id) + 1)+`</a>\n            </li> `;\n}\n\n// active\nhtml += `<li class=\"page-item active` + (isArchived(msg.payload.spec) ? ` archived` : ``) +`\">\n            <a class=\"page-link\">`+ (parseInt(msg.payload.spec)+1) + `</a>\n         </li> `;\n\n// after\nfor (var i = 0; i < countAfterActive; i++) {\n    var id = (parseInt(msg.payload.spec) + 1 + i);\n    html += `<li class=\"page-item` + (isArchived(id) ? ` archived` : ``) +`\">\n            <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ id + `')\">` + (parseInt(id) + 1)+ `</a>\n            </li> `;\n}\n\n// Arrow right\nif (countAfterActive >= 1)\nhtml += `<li class=\"page-item\">\n            <a class=\"page-link\" onClick=\"goToPage('`+ page +`?spec=`+ (parseInt(msg.payload.spec) + 1) +`')\">&raquo;</a>\n         </li>`;\n\nhtml += `</ul>`;\n\nmsg.payload.tempData._pagination = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3033,7 +3039,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "set tempDataLength",
-        "func": "msg.payload.tempDataLength = msg.payload.tempDataArray.length;\n\nreturn msg;",
+        "func": "if (!Array.isArray(msg.payload.tempDataArray))\n{\n    msg.payload.tempDataArray = [msg.payload.tempDataArray];\n}\n\nmsg.payload.tempDataLength = msg.payload.tempDataArray.length;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3332,7 +3338,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Formue = null?",
-        "func": "if (msg.payload.tempData !== null && msg.payload.tempData.persondata !== null )\n    msg.payload.tempData.persondata._formue = msg.payload.tempData.persondata.formue == null ? \"Ikke oplyst\" : msg.payload.tempData.persondata.formue + \" kr\";\n    \nreturn msg;",
+        "func": "if (msg.payload.tempData !== null && msg.payload.tempData !== undefined && msg.payload.tempData.persondata !== null  && msg.payload.tempData.persondata !== undefined )\n     msg.payload.tempData.persondata._formue = msg.payload.tempData.persondata.formue == null ? \"Ikke oplyst\" : msg.payload.tempData.persondata.formue + \" kr\";\n    \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4240,8 +4246,7 @@
         "y": 60,
         "wires": [
             [
-                "df0ed618b5194000",
-                "bfc8cafe83059f1f"
+                "df0ed618b5194000"
             ]
         ]
     },
@@ -4519,7 +4524,6 @@
         "y": 440,
         "wires": [
             [
-                "c7424ba7f15131f6",
                 "0f583d6bfaad7d0e",
                 "d183f106c2e11bce"
             ]
@@ -5281,7 +5285,7 @@
                 "t": "set",
                 "p": "errors",
                 "pt": "msg",
-                "to": "$.errors ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": true,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
+                "to": "$.errors ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": false,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
                 "tot": "jsonata"
             }
         ],
@@ -5415,7 +5419,8 @@
         "y": 2300,
         "wires": [
             [
-                "0fb1a45baf4dcc7c"
+                "0fb1a45baf4dcc7c",
+                "ddb21009a7d230d7"
             ]
         ]
     },
@@ -5875,7 +5880,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "08/02/2023",
+                "to": "22/02/2023",
                 "tot": "str"
             }
         ],
@@ -7210,7 +7215,8 @@
         "y": 1920,
         "wires": [
             [
-                "4840de2e1aa54398"
+                "4840de2e1aa54398",
+                "f4671b16c3591245"
             ]
         ]
     },
@@ -7376,7 +7382,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1930,
+        "x": 1970,
         "y": 460,
         "wires": [
             [
@@ -7393,7 +7399,7 @@
         "links": [
             "63ec872a76a39ffb"
         ],
-        "x": 2045,
+        "x": 2085,
         "y": 460,
         "wires": []
     },
@@ -7586,46 +7592,6 @@
         "wires": []
     },
     {
-        "id": "bfc8cafe83059f1f",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "title",
-                "pt": "msg",
-                "to": "Systemfejl",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "type",
-                "pt": "msg",
-                "to": "alert",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "msg",
-                "pt": "msg",
-                "to": "error.message & \" at \" & error.source.type & \" (name: \" & error.source.name & \", id: \" & error.source.id & \")\"",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1720,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "c7424ba7f15131f6",
         "type": "change",
         "z": "8ea344595d9a442a",
@@ -7797,7 +7763,7 @@
         "to": "",
         "reg": false,
         "x": 145,
-        "y": 940,
+        "y": 960,
         "wires": [
             [
                 "42e8d0e6b5e55314",
@@ -7815,8 +7781,8 @@
         "links": [
             "5c74b689e0aee38b"
         ],
-        "x": 195,
-        "y": 940,
+        "x": 225,
+        "y": 960,
         "wires": []
     },
     {
@@ -8413,60 +8379,6 @@
         "wires": []
     },
     {
-        "id": "120ca63b126389ba",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::webSettings.state.isRunning",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(storeInFile)::webSettings",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1915,
-        "y": 340,
-        "wires": [
-            [
-                "b1b24a0127716367"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b1b24a0127716367",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "d": true,
-        "name": "debug 34",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1960,
-        "y": 400,
-        "wires": []
-    },
-    {
         "id": "2c999012fa2d0842",
         "type": "delay",
         "z": "8ea344595d9a442a",
@@ -8567,7 +8479,57 @@
             "63ec872a76a39ffb"
         ],
         "x": 275,
-        "y": 1000,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "f4671b16c3591245",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "a2cfc0476a5147d6",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 36",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "ddb21009a7d230d7",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 37",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 2320,
         "wires": []
     },
     {
@@ -9860,6 +9822,7 @@
         "id": "c888f934919b1eb8",
         "type": "change",
         "z": "c28a486ea3e09387",
+        "d": true,
         "g": "e4e7a254403521e9",
         "name": "set as archived",
         "rules": [
@@ -9984,6 +9947,7 @@
         "id": "54254a91e943fb50",
         "type": "change",
         "z": "c28a486ea3e09387",
+        "d": true,
         "g": "e4e7a254403521e9",
         "name": "set as archived",
         "rules": [
@@ -10035,10 +9999,12 @@
         "y": 1240,
         "wires": [
             [
-                "54254a91e943fb50"
+                "54254a91e943fb50",
+                "419b7ad31525a3a3"
             ],
             [
-                "c888f934919b1eb8"
+                "c888f934919b1eb8",
+                "f23aa08410fc8960"
             ]
         ]
     },
@@ -10095,6 +10061,46 @@
         "wires": [
             [
                 "53d1fb714bf85e85"
+            ]
+        ]
+    },
+    {
+        "id": "419b7ad31525a3a3",
+        "type": "function",
+        "z": "c28a486ea3e09387",
+        "g": "e4e7a254403521e9",
+        "name": "set as archived",
+        "func": "var webData = global.get(\"webData\");\nif (!Array.isArray(webData[\"citizens-actions\"]))\n    webData[\"citizens-actions\"] = [webData[\"citizens-actions\"]];\n\n(webData[\"citizens-actions\"])[msg.payload.id].archived = true;\nglobal.set(\"webData\", webData);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1200,
+        "wires": [
+            [
+                "d84057a8cb05b22f"
+            ]
+        ]
+    },
+    {
+        "id": "f23aa08410fc8960",
+        "type": "function",
+        "z": "c28a486ea3e09387",
+        "g": "e4e7a254403521e9",
+        "name": "set as archived",
+        "func": "var webData = global.get(\"webData\");\nif (!Array.isArray(webData[\"citizens-noactions\"]))\n    webData[\"citizens-noactions\"] = [webData[\"citizens-noactions\"]];\n\n(webData[\"citizens-noactions\"])[msg.payload.id].archived = true;\nglobal.set(\"webData\", webData);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1240,
+        "wires": [
+            [
+                "d84057a8cb05b22f"
             ]
         ]
     }
