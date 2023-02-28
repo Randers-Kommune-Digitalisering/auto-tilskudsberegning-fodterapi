@@ -272,13 +272,12 @@
             "c7ca8c02a788a41d",
             "78f7e1718ab3f755",
             "8f4d2dcc4c986825",
-            "4840de2e1aa54398",
-            "1ac2795f481c336e"
+            "4840de2e1aa54398"
         ],
         "x": 374,
         "y": 1679,
-        "w": 1092,
-        "h": 302
+        "w": 852,
+        "h": 402
     },
     {
         "id": "31b5ea0c53a9c4fb",
@@ -690,8 +689,7 @@
         "y": 2440,
         "wires": [
             [
-                "a2f55ae008b1fee2",
-                "a2cfc0476a5147d6"
+                "a2f55ae008b1fee2"
             ]
         ]
     },
@@ -755,18 +753,6 @@
         "wires": [
             [
                 "fde5a695bfbd9a7d"
-            ]
-        ]
-    },
-    {
-        "id": "3cde6b50323a51ef",
-        "type": "junction",
-        "z": "8ea344595d9a442a",
-        "x": 2040,
-        "y": 120,
-        "wires": [
-            [
-                "87437eca4cc7eec9"
             ]
         ]
     },
@@ -1631,7 +1617,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating\">\n            <input type=\"password\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
         "output": "str",
         "x": 1330,
         "y": 320,
@@ -2125,7 +2111,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3 was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating  was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
+        "template": "<div class=\"card mb-2\">\n    <div class=\"card-header\">WorkLet loginoplysninger</div>\n    <div class=\"card-body\">\n        <p class=\"card-text\">Før du kan søge efter fakturaer, skal du indtaste kommunens loginoplysninger til WorkLet.</p>\n        \n        <div class=\"form-group\" id=\"form-group\">\n            <input type=\"hidden\" id=\"requestType\" value=\"acceptPage\">\n            <input type=\"hidden\" id=\"pageToAccept\" value=\"login\">\n            <input type=\"hidden\" id=\"toAccept\" value=\"{{payload.pageElements.loginToAccept}}\">\n            \n            <div class=\"form-floating mb-3 was-validated\">\n            <input type=\"text\" class=\"form-control\" id=\"workletUser\" placeholder=\"name@example.com\" autocomplete=\"off\">\n            <label for=\"workletUser\">Email addresse</label>\n            </div>\n            <div class=\"form-floating  was-validated\">\n            <input type=\"password\" class=\"form-control\" id=\"workletPass\" placeholder=\"Password\" style=\"font-family: 'password'\">\n            <label for=\"workletPass\">Kodeord</label>\n            </div>\n        </div>\n\n        {{{payload.pageElements.loginButtons}}}\n\n    </div>\n</div>\n\n",
         "output": "str",
         "x": 1330,
         "y": 360,
@@ -4242,8 +4228,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 1620,
-        "y": 60,
+        "x": 2020,
+        "y": 40,
         "wires": [
             [
                 "df0ed618b5194000"
@@ -4263,7 +4249,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1970,
+        "x": 2210,
         "y": 40,
         "wires": []
     },
@@ -4924,8 +4910,8 @@
         "links": [
             "5c74b689e0aee38b"
         ],
-        "x": 1425,
-        "y": 1840,
+        "x": 945,
+        "y": 2040,
         "wires": []
     },
     {
@@ -5248,11 +5234,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 1840,
+        "x": 610,
+        "y": 2040,
         "wires": [
             [
-                "1ac2795f481c336e"
+                "f5dbef72792b9011"
             ]
         ]
     },
@@ -5263,8 +5249,8 @@
         "g": "380e5c7e0ea3778b",
         "name": "Clean alt unødvendig data fra msg objekt",
         "info": "",
-        "x": 1040,
-        "y": 1800,
+        "x": 700,
+        "y": 2000,
         "wires": []
     },
     {
@@ -5419,8 +5405,7 @@
         "y": 2300,
         "wires": [
             [
-                "0fb1a45baf4dcc7c",
-                "ddb21009a7d230d7"
+                "0fb1a45baf4dcc7c"
             ]
         ]
     },
@@ -5434,8 +5419,8 @@
             "0ff5c26114374820",
             "e0949865938522b8"
         ],
-        "x": 1395,
-        "y": 2420,
+        "x": 1345,
+        "y": 2440,
         "wires": []
     },
     {
@@ -5880,7 +5865,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "22/02/2023",
+                "to": "27/02/2023",
                 "tot": "str"
             }
         ],
@@ -6092,7 +6077,7 @@
         "server": "13a90a014adf9bc5",
         "client": "",
         "x": 2220,
-        "y": 180,
+        "y": 80,
         "wires": []
     },
     {
@@ -6100,8 +6085,8 @@
         "type": "subflow:85ff29bdef7c1aea",
         "z": "8ea344595d9a442a",
         "name": "",
-        "x": 1970,
-        "y": 580,
+        "x": 2050,
+        "y": 980,
         "wires": [
             []
         ]
@@ -6139,8 +6124,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2000,
-        "y": 540,
+        "x": 2080,
+        "y": 940,
         "wires": [
             [
                 "966a912086c08955"
@@ -7032,9 +7017,23 @@
         "rules": [
             {
                 "t": "set",
+                "p": "brugernavn",
+                "pt": "msg",
+                "to": "(((brugernavn ~> $split(\":\"))[1]) ~> $split(\"/\"))[0]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "currentRun.userName",
+                "pt": "msg",
+                "to": "brugernavn",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
                 "p": "runHistory",
                 "pt": "msg",
-                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t$endDate := currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t\t    \"userName\": $$.brugernavn\t    \t}\t\t)|",
+                "to": "$.runHistory~> |$|(\t\t$startDate := currentRun.startDate;\t$endDate := currentRun.endDate;\t$userName := $$.brugernavn;\t\t/*startDate = $startDate and endDate = $endDate ?*/\t{\t\t    \"userName\": $userName\t    \t}\t\t)|",
                 "tot": "jsonata"
             },
             {
@@ -7044,13 +7043,6 @@
                 "to": "runHistory",
                 "tot": "msg",
                 "dc": true
-            },
-            {
-                "t": "set",
-                "p": "currentRun.userName",
-                "pt": "msg",
-                "to": "brugernavn",
-                "tot": "msg"
             }
         ],
         "action": "",
@@ -7215,71 +7207,7 @@
         "y": 1920,
         "wires": [
             [
-                "4840de2e1aa54398",
-                "f4671b16c3591245"
-            ]
-        ]
-    },
-    {
-        "id": "f55297e5ed366346",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [
-            {
-                "p": "message",
-                "v": "Der opstod en test fejl!",
-                "vt": "str"
-            },
-            {
-                "p": "title",
-                "v": "Test fejl!!",
-                "vt": "str"
-            },
-            {
-                "p": "type",
-                "v": "alert",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 1810,
-        "y": 80,
-        "wires": [
-            [
-                "ce2b8af41ddd37a2"
-            ]
-        ]
-    },
-    {
-        "id": "1ac2795f481c336e",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "380e5c7e0ea3778b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "webSettings.state.isRunning",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1230,
-        "y": 1840,
-        "wires": [
-            [
-                "f5dbef72792b9011"
+                "4840de2e1aa54398"
             ]
         ]
     },
@@ -7292,36 +7220,6 @@
         "x": 170,
         "y": 40,
         "wires": []
-    },
-    {
-        "id": "5d845493f726cf42",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [
-            {
-                "p": "message",
-                "v": "Henter fakturaer fra WorkLet ...",
-                "vt": "str"
-            },
-            {
-                "p": "type",
-                "v": "update",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 1710,
-        "y": 120,
-        "wires": [
-            [
-                "c7424ba7f15131f6"
-            ]
-        ]
     },
     {
         "id": "63ec872a76a39ffb",
@@ -7338,8 +7236,8 @@
             "7e0e36d833794733",
             "d0ec6e3e02665e27"
         ],
-        "x": 1825,
-        "y": 180,
+        "x": 1905,
+        "y": 80,
         "wires": [
             [
                 "d8fce4eadecd4493"
@@ -7352,8 +7250,8 @@
         "z": "8ea344595d9a442a",
         "name": "RunHistory WiP",
         "info": "",
-        "x": 1980,
-        "y": 520,
+        "x": 2060,
+        "y": 920,
         "wires": []
     },
     {
@@ -7383,7 +7281,7 @@
         "to": "",
         "reg": false,
         "x": 1970,
-        "y": 460,
+        "y": 440,
         "wires": [
             [
                 "427c8a1a563502c8"
@@ -7400,7 +7298,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2085,
-        "y": 460,
+        "y": 440,
         "wires": []
     },
     {
@@ -7477,7 +7375,7 @@
         "to": "",
         "reg": false,
         "x": 1930,
-        "y": 700,
+        "y": 680,
         "wires": [
             [
                 "75f1aaf5a21e12a8"
@@ -7493,8 +7391,8 @@
         "links": [
             "63ec872a76a39ffb"
         ],
-        "x": 2025,
-        "y": 700,
+        "x": 2045,
+        "y": 680,
         "wires": []
     },
     {
@@ -7523,8 +7421,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1890,
-        "y": 1300,
+        "x": 1870,
+        "y": 1280,
         "wires": [
             [
                 "5ee0ef61ccdcafac"
@@ -7540,8 +7438,8 @@
         "links": [
             "63ec872a76a39ffb"
         ],
-        "x": 1985,
-        "y": 1300,
+        "x": 1975,
+        "y": 1280,
         "wires": []
     },
     {
@@ -7570,8 +7468,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1710,
-        "y": 1620,
+        "x": 1690,
+        "y": 1600,
         "wires": [
             [
                 "f1884a7421b13391"
@@ -7588,69 +7486,8 @@
             "63ec872a76a39ffb"
         ],
         "x": 1805,
-        "y": 1620,
+        "y": 1600,
         "wires": []
-    },
-    {
-        "id": "c7424ba7f15131f6",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "name": "Send status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "message",
-                "pt": "msg",
-                "to": "Henter persondata fra KP ...",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "type",
-                "pt": "msg",
-                "to": "update",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1890,
-        "y": 120,
-        "wires": [
-            [
-                "3cde6b50323a51ef"
-            ]
-        ]
-    },
-    {
-        "id": "ce2b8af41ddd37a2",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "name": "Send status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\t\"message\": message, \"type\": \"update\"    \t}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1950,
-        "y": 80,
-        "wires": [
-            [
-                "3cde6b50323a51ef"
-            ]
-        ]
     },
     {
         "id": "d8fce4eadecd4493",
@@ -7671,8 +7508,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1930,
-        "y": 180,
+        "x": 2010,
+        "y": 80,
         "wires": [
             [
                 "87437eca4cc7eec9"
@@ -8213,8 +8050,8 @@
         "links": [
             "63ec872a76a39ffb"
         ],
-        "x": 2375,
-        "y": 400,
+        "x": 2295,
+        "y": 360,
         "wires": []
     },
     {
@@ -8279,12 +8116,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1985,
-        "y": 320,
+        "x": 1915,
+        "y": 340,
         "wires": [
             [
                 "08f36899ebeff27b",
-                "9d1561c975212f16",
                 "2c999012fa2d0842"
             ]
         ],
@@ -8299,8 +8135,8 @@
         "links": [
             "5c74b689e0aee38b"
         ],
-        "x": 2135,
-        "y": 360,
+        "x": 2025,
+        "y": 320,
         "wires": []
     },
     {
@@ -8336,8 +8172,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2250,
-        "y": 460,
+        "x": 2180,
+        "y": 360,
         "wires": [
             [
                 "7e0e36d833794733"
@@ -8362,23 +8198,6 @@
         "wires": []
     },
     {
-        "id": "9d1561c975212f16",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "debug 33",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2130,
-        "y": 260,
-        "wires": []
-    },
-    {
         "id": "2c999012fa2d0842",
         "type": "delay",
         "z": "8ea344595d9a442a",
@@ -8395,8 +8214,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 2220,
-        "y": 420,
+        "x": 2030,
+        "y": 360,
         "wires": [
             [
                 "0af59de1688c9df4"
@@ -8480,56 +8299,6 @@
         ],
         "x": 275,
         "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "f4671b16c3591245",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "debug 35",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
-        "y": 2040,
-        "wires": []
-    },
-    {
-        "id": "a2cfc0476a5147d6",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "debug 36",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1250,
-        "y": 2500,
-        "wires": []
-    },
-    {
-        "id": "ddb21009a7d230d7",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "debug 37",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1560,
-        "y": 2320,
         "wires": []
     },
     {
