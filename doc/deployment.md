@@ -7,36 +7,72 @@ Her beskrives plan samt instruktioner for deployment af WorkLet automatiseringsv
 Formålet med dette dokument er at sikre en ensartet og korrekt installation og deployment af automatiseringsværktøjet samt dets dependencies. Deploymenten tager udgangspunkt i at værktøjet skal køre lokalt på én enkelt PC, med mulighed for at tilgå værktøjet fra flere brugere, hvor data for seneste kørsler vil blive delt imellem. 
 
 ## Deployment vejledning
-1. Installér Node.js 18.14.0 LTS fra [Node.js officielle website](https://nodejs.org/en/).
+1. Aktiver administrator tilstand.
 
-2. Kontrollér installationen af Node.js og NPM i PowerShell.
-	`node --version; npm --version`
+2. Lokalisér *Delte filer* mappen ved at indtaste efter `%public%` i Windows søgefelt.
+
+3. Opret 4 nye mapper, og døb dem hhv. `.node-red`, `.node-js`, `.npm`, og `.npm-cache`.
+
+4. Installér Node.js 18.14.0 LTS fra [Node.js officielle website](https://nodejs.org/en/download) i  `.node-js` mappen.
+
+5. Kontrollér installationen af Node.js i PowerShell.
+	`node --version`
+
+6. Skift npm installationssti i Powershell.
+	```
+	npm config set prefix $env:PUBLIC\.npm
+	npm config set cache $env:PUBLIC\.npm-cache
+	```
+
+7. Tilgå *Rediger systemmiljøvariablerne* via Windows søgefelt.
+
+8. Redigér i brugermiljøvariablen **Path** 
+	Ændr `C:\Users\Brugernavn\AppData\Roaming\npm` til `%PUBLIC%\.npm`
+
+	***OBS**: Miljøvariblen skal ændres for ALLE brugere som skal have adgang til Node-red på den aktuelle PC.*
 	
-3. Installér node-red i PowerShell.
+9. Kontrollér installationen af npm i PowerShell.
+	`npm --version`
+	
+10. Installér node-red i PowerShell.
 	`npm install -g --unsafe-perm node-red`
 
-4. Klon Git repository til node-red projekt via SSH (opsætning af Git krævet).
-	`git@github.com:Randers-Kommune-Digitalisering/auto-tilskudsberegning-fodterapi.git`
-
-5. Installer Puppeteer i PowerShell
+11. Installer Puppeteer i PowerShell
 	`npm install puppeteer`
 
-6. Opret mappe på fællesdrev F:\WorkLet\node-red-data\. 
-
-7. Kopier **settings.js** fra *.node-red* mappen i Windows' *%homepath%* / %userprofile%* mappe. Indsæt den kopierede fil i den nye mappe på fællesdrev.
-
-8. Opdater **settings.js** med følgende ændringer:
+14. Opdater `.npm\node_modules\node-red\settings.js` med følgende ændringer:
 	 a. Under *functionGlobalContext* (linje ~463) indsættes:
-	`puppeteer:  require('puppeteer'), path: require('path'), fs: require('fs')`
+	```
+	puppeteer:  require('puppeteer'),
+	path: require('path'),
+	fs: require('fs')
+	```
 	b. Under *contextStorage* (linje ~310) indsættes
-	`storeInFile: { module: "localfilesystem", config: { dir:	"F:\WorkLet\node-red-data\" } }`
+	```
+	default: {
+		module: "memory"
+	},
+	storeInFile: {
+		module: "localfilesystem",
+		config: {
+			dir: "C:\Users\Public\.node-red"
+		}
+	}
+	```
+	c. Lige under *contextStorage* ændres *exportGlobalContextKeys* til *true*
+	`exportGlobalContextKeys: true`
 
-*OBS*:  ContextStorage ændringer er **ikke** testet. Dir ændres med henblik på at give adgang fra flere brugere.
+12. Start Node-red i .node-red mappen
+	 `node-red -u $env:PUBLIC\.node-red`
+	 
+15. Klon Git repository til node-red projekt via SSH (opsætning af Git krævet).
+	`git@github.com:Randers-Kommune-Digitalisering/auto-tilskudsberegning-fodterapi.git`
+	
 
 ## Daglig drift vejledning
 For at automatiseringsværktøjet kan køre, skal node-red først være startet op i en terminal, f.eks. [Windows Terminal](https://www.microsoft.com/store/productId/9N0DX20HK701) eller Windows PowerShell. 
-1. Start node-red med specifik settings.js definition
-	`node-red --settings F:\WorkLet\node-red-data\settings.js`
+1. Start node-red med specifik brugersti
+	`node-red -u $env:PUBLIC\.node-red`
 	
 2. Åbn automatiseringsværktøjets webflade i din browser
 	`http://localhost:1880/worklet` - [link](http://localhost:1880/worklet)
