@@ -58,7 +58,7 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 	storeInFile: {
 		module: "localfilesystem",
 		config: {
-			dir: "C:\Users\Public\.node-red"
+			dir: "C:\\Users\\Public\\.node-red"
 		}
 	}
 	```
