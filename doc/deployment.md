@@ -11,7 +11,7 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 
 2. Lokalisér *Delte filer* mappen ved at indtaste efter `%public%` i Windows søgefelt.
 
-3. Opret 4 nye mapper, og døb dem hhv. `.node-red`, `.node-js`, `.npm`, og `.npm-cache`.
+3. Opret 5 nye mapper, og døb dem hhv. `.node-red`, `.node-js`, `.npm`, og `.npm-cache`,  `.puppeteer`.
 
 4. Installér Node.js 18.14.0 LTS fra [Node.js officielle website](https://nodejs.org/en/download) i  `.node-js` mappen.
 
@@ -29,17 +29,19 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 8. Redigér i brugermiljøvariablen **Path** 
 	Ændr `C:\Users\Brugernavn\AppData\Roaming\npm` til `%PUBLIC%\.npm`
 
-	***OBS**: Miljøvariblen skal ændres for ALLE brugere som skal have adgang til Node-red på den aktuelle PC.*
+9. Opret en ny brugermiljøvariabel med navnet *PUPPETEER_DOWNLOAD_PATH* og sæt værdien til `%PUBLIC%\.puppeteer`.
+10. Opret en ny brugermiljøvariabel med navnet *NODE_PATH* og sæt værdien til `%PUBLIC%\.npm\node_modules`
+
+	***OBS**: Miljøvariblerne skal ændres for ALLE brugere som skal have adgang til Node-red på den aktuelle PC.*
 	
-9. Kontrollér installationen af npm i PowerShell.
+11. Kontrollér installationen af npm i PowerShell.
 	`npm --version`
 	
-10. Installér node-red i PowerShell.
+12. Installér node-red i PowerShell.
 	`npm install -g --unsafe-perm node-red`
 
-11. Installer Puppeteer i PowerShell
-	`npm install -g puppeteer`
-	`npm install -g puppeteer-core`
+13. Installer Puppeteer i PowerShell
+	`npm install -g --unsafe-perm puppeteer`
 
 14. Opdater `.npm\node_modules\node-red\settings.js` med følgende ændringer:
 	 a. Under *functionGlobalContext* (linje ~463) indsættes:
@@ -63,10 +65,10 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 	c. Lige under *contextStorage* ændres *exportGlobalContextKeys* til *true*
 	`exportGlobalContextKeys: true`
 
-12. Start Node-red i .node-red mappen
+15. Start Node-red i .node-red mappen
 	 `node-red -u $env:PUBLIC\.node-red`
 	 
-15. Klon Git repository til node-red projekt via SSH (opsætning af Git krævet).
+16. Klon Git repository til node-red projekt via SSH (opsætning af Git krævet).
 	`git@github.com:Randers-Kommune-Digitalisering/auto-tilskudsberegning-fodterapi.git`
 	
 
@@ -81,3 +83,6 @@ For at automatiseringsværktøjet kan køre, skal node-red først være startet 
 3. Benyt automatiseringsværktøjet efter instrukserne på webfladen.
 
 4. Afslut terminalen som node-red er åbnet i, eller luk computeren som benyttes til formålet.
+
+
+
