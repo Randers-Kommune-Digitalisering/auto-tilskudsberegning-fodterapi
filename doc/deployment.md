@@ -39,6 +39,7 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 
 11. Installer Puppeteer i PowerShell
 	`npm install -g puppeteer`
+	`npm install -g puppeteer-core`
 
 14. Opdater `.npm\node_modules\node-red\settings.js` med følgende ændringer:
 	 a. Under *functionGlobalContext* (linje ~463) indsættes:
