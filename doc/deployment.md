@@ -10,7 +10,7 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 ## Deployment
 1. Aktiver administrator tilstand.
 
-2. Lokalisér *Delte filer* mappen ved at indtaste efter `%public%` i Windows søgefelt.
+2. Lokalisér *Delte filer* mappen ved at indtaste `%public%` i Windows søgefelt, eller i adressefeltet i Stifinder.
 
 3. Opret 5 nye mapper, og døb dem hhv. `.node-red`, `.node-js`, `.npm`, og `.npm-cache`,  `.puppeteer`.
 
@@ -81,7 +81,7 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 	
 ### For andre brugere på samme PC
 1. Aktiver administrator-adgang
-1. Kopier **Start Worklet Robot** genvej, samt **Åbn Worklet Robot Interface** fra `%public%\.node-red` til brugerens skrivebord.
+1. Kopier **Start Worklet Robot** genvej, samt **Åbn Worklet Robot Interface** fra `%PUBLIC%\.node-red` til brugerens skrivebord.
 7. Tilgå *Rediger systemmiljøvariablerne* via Windows søgefelt.
 
 8. Redigeé brugermiljøvariablen **Path** 
