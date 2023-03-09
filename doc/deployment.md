@@ -80,11 +80,12 @@ Formålet med dette dokument er at sikre en ensartet og korrekt installation og 
 	Alternativt kan [flows.js downloades/kopieres fra Git repositoriet](https://github.com/Randers-Kommune-Digitalisering/auto-tilskudsberegning-fodterapi/blob/main/src/flows.json) og derefter importeres manuelt i Node-red.
 	
 ### For andre brugere på samme PC
+1. Aktiver administrator-adgang
 1. Kopier **Start Worklet Robot** genvej, samt **Åbn Worklet Robot Interface** fra `%public%\.node-red` til brugerens skrivebord.
 7. Tilgå *Rediger systemmiljøvariablerne* via Windows søgefelt.
 
-8. Redigér i brugermiljøvariablen **Path** 
-	Ændr `C:\Users\Brugernavn\AppData\Roaming\npm` til `%PUBLIC%\.npm`
+8. Redigeé brugermiljøvariablen **Path** 
+	 Tilføj `%PUBLIC%\.npm`
 
 9. Opret en ny brugermiljøvariabel med navnet *PUPPETEER_DOWNLOAD_PATH* og sæt værdien til `%PUBLIC%\.puppeteer` *(dette trin kan muligvis springes over - ikke testet)*.
 10. Opret en ny brugermiljøvariabel med navnet *NODE_PATH* og sæt værdien til `%PUBLIC%\.npm\node_modules`
