@@ -4666,7 +4666,7 @@
             ]
         ],
         "l": false,
-        "info": "## Set grant info\r\nThis change node defines the remaining relevant grant information, and copies the grant periods set in last node."
+        "info": "## Copy grant info\r\nThis change node copies the grant set from the payload into the msg object as msg.tilskudsInfo."
     },
     {
         "id": "8b4e8bc5facd8f90",
@@ -5175,7 +5175,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t{\t    \"tilskud\": $behandling.pris\t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t\t$behandling.type = \"B\" ?\t{\t    \"tilskud\": $behandling.patientAndel\t}\t:\t{\t    \"tilskud\": $behandling.pris\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5479,7 +5479,8 @@
             [
                 "64156b428449f87a"
             ]
-        ]
+        ],
+        "info": "# Get Settings/Rules/Grants\r\n\r\nGets (or sets) the current ruleset from global context and stores it in the msg object.\r\nIf no existing data is found, new data is created from templates which are found inside the subflow itself.\r\n\r\nSubflow was originially intended to only load a single element into the payload, however to speed up development,\r\nall three elements were merged into a single subflow. This means that the subflow is heavily referenced and loads\r\nunneccessary data in multiple occasions."
     },
     {
         "id": "fde5a695bfbd9a7d",
@@ -5894,7 +5895,8 @@
             [
                 "61d78c9d39ac193c"
             ]
-        ]
+        ],
+        "info": "## Set global.runHistory\r\nSets an empty list in global context stored in file."
     },
     {
         "id": "421ea3a3d1ce558a",
@@ -5924,7 +5926,8 @@
             [
                 "d426a3d9a5cc587d"
             ]
-        ]
+        ],
+        "info": "## Get runHistory switch\r\nChecks if there is a run history stored in memory (in global context)."
     },
     {
         "id": "61d78c9d39ac193c",
@@ -6183,7 +6186,8 @@
             [
                 "61d78c9d39ac193c"
             ]
-        ]
+        ],
+        "info": "## get runHistory\r\nCopies the run history stored in file to msg.runHistory."
     },
     {
         "id": "56f4f81f3f45559e",
@@ -6195,7 +6199,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "15/03/2023",
+                "to": "08/03/2023",
                 "tot": "str"
             }
         ],
@@ -6212,7 +6216,7 @@
             ]
         ],
         "l": false,
-        "info": "## Set grant info\r\nThis change node defines the remaining relevant grant information, and copies the grant periods set in last node."
+        "info": "## Custom deployment date\r\nThis change node defines the starting date for a run, if no runs are found in the run history.\r\nIt is used for testing, as well as for running the flow for the first time after deployment."
     },
     {
         "id": "0315b599de1a9914",
