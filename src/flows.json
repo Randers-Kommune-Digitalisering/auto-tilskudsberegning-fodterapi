@@ -570,11 +570,11 @@
             "df4e89fda20fa7db",
             "d426a3d9a5cc587d",
             "421ea3a3d1ce558a",
-            "61d78c9d39ac193c",
             "a87343abb1f1ad70",
             "172fd055f45774ea",
             "619dc0bbb1fdf120",
-            "0315b599de1a9914"
+            "0315b599de1a9914",
+            "35e66215df68100f"
         ],
         "x": 714,
         "y": 99,
@@ -3070,7 +3070,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "page: run",
-        "func": "var dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\nvar receiptsAwaiting = msg.currentRun == null ? false : !msg.currentRun.allReceiptsProcessed;\nvar isFinalized = msg.currentRun == null ? true : msg.currentRun.isFinalized;\n\nvar receiptCount = 0;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount += global.get(\"webData\")[\"citizens-actions\"].length;\n        \nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined) \n        receiptCount += global.get(\"webData\")[\"citizens-noactions\"].length;\n\n\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\nfunction allPagesAccepted()\n{\n    return (pageAccepted(\"login\") && pageAccepted(\"rules\") && pageAccepted(\"grants\"));\n}\n\nvar header = \"Kør robot\";\nvar subheader =\"Start søgning efter nye fakturaer\";\nvar buttonHtml = \"\";\nvar cardtext =\"Robotten henter først fakturaer fra WorkLet, og beregner derefter potientielle tilskud.\";\n\nif (msg.payload.webSettings.state.isRunning) {\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                    <i class=\"fa-lg fas fa-spinner fa-spin\"></i>\n                  </button>`;\n\n}\nelse if((receiptsAwaiting && !dataExists) || (receiptsAwaiting && receiptCount == 0))\n{\n    \n    header = \"Genoptag kørsel\";\n    subheader = \"Genoptag seneste uafsluttede kørsel\";\n    cardtext = \"Da robotten har været lukket siden kørslen først blev startet, er alt persondata for kørslen tabt. Genoptag kørslen for at hente data.\";\n\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\">\n                        Genoptag kørsel\n                  </button>`;\n\n    \n}\nelse if (receiptsAwaiting && !isFinalized)\n{\n    header = \"Afslut kørsel\";\n    header = \"Afventer bekræftelse af manuel behandling\";\n    cardtext = \"Du kan ikke afslutte kørslen før at du har godkendt manuel behandling af alle borgere med anbefalede handlinger, samt borgere som ikke er tilskudsberrettigede. Gå tilbage til start, og godkend de manglende borgere.\";\n    \n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"\" style=\"width: 300px\" disabled>\n                        Afslut kørsel\n                  </button>`;\n\n}\nelse if (!receiptsAwaiting && !isFinalized)\n{\n\n    header =\"Afslut kørsel\";\n    subheader = \"Afslut seneste kørsel\";\n    cardtext = \"Er du sikker på at du vil afslutte seneste kørsel? Du vil ikke være i stand til at se borgeroplysninger eller anbefalede handlinger når kørslen er afsluttet, og en ny kørsel vil først kunne startes i morgen.\";\n\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"postRequest({'requestType': 'finalize'})\" style=\"width: 300px\">\n                        Afslut kørsel\n                  </button>`;\n\n}\nelse if(allPagesAccepted())\n{\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\">\n                    Start ny kørsel\n                  </button>`;\n\n}\nelse\n    buttonHtml = `<button class=\"btn btn-lg btn-secondary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                Start ny kørsel\n                </button>\n                <span class=\"text-danger\" style=\"margin-left: 10px\">OBS: Du kan først starte en ny kørsel, efter du har godkendt loginoplysninger, forretningsregler samt tilskudssatser.</span>`;\n\n\n\nvar html =\n    `<div class=\"card mb-2\">\n        <div class=\"card-header\">`+header+`</div>\n        <div class=\"card-body\">\n            <h6 class=\"card-subtitle mb-2 text-muted\">`+subheader+`</h6>\n            <p class=\"card-text\">`+cardtext+`</p>\n        \n            `+buttonHtml+`\n\n            <span class=\"text-info hidden\" id=\"statusText\" style=\"margin-left: 10px\">Status: Starter kørsel</span>\n            \n        </div>\n    </div>`;\n\nmsg.payload.pageContent = html;\nreturn msg;",
+        "func": "var dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\nvar receiptsAwaiting = msg.currentRun == null ? false : !msg.currentRun.allReceiptsProcessed;\nvar isFinalized = msg.currentRun == null ? true : msg.currentRun.isFinalized;\n\nvar receiptCount = 0;\n\nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount += global.get(\"webData\")[\"citizens-actions\"].length;\n        \nif (global.get(\"webData\") !== undefined)\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined) \n        receiptCount += global.get(\"webData\")[\"citizens-noactions\"].length;\n\n\nfunction pageAccepted(pageName)\n{\n    return (msg.payload.webSettings.acceptances[pageName]);\n}\nfunction allPagesAccepted()\n{\n    return (pageAccepted(\"login\") && pageAccepted(\"rules\") && pageAccepted(\"grants\"));\n}\n\nvar header = \"Kør robot\";\nvar subheader =\"Start søgning efter nye fakturaer\";\nvar buttonHtml = \"\";\nvar cardtext =\"Robotten henter først fakturaer fra WorkLet, og beregner derefter potientielle tilskud.\";\n\nif (msg.payload.webSettings.state.isRunning) {\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                    <i class=\"fa-lg fas fa-spinner fa-spin\"></i>\n                  </button>`;\n\n}\nelse if((receiptsAwaiting && !dataExists) || (receiptsAwaiting && receiptCount == 0))\n{\n    \n    header = \"Genoptag kørsel\";\n    subheader = \"Genoptag seneste uafsluttede kørsel\";\n    cardtext = \"Da robotten har været lukket siden kørslen først blev startet, er alt persondata for kørslen tabt. Genoptag kørslen for at hente data.\";\n\n    if (allPagesAccepted())\n        buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\">\n                            Genoptag kørsel\n                    </button>`;\n    else\n        buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                            Genoptag kørsel\n                    </button>`;\n\n\n    \n}\nelse if (receiptsAwaiting && !isFinalized)\n{\n    header = \"Afslut kørsel\";\n    header = \"Afventer bekræftelse af manuel behandling\";\n    cardtext = \"Du kan ikke afslutte kørslen før at du har godkendt manuel behandling af alle borgere med anbefalede handlinger, samt borgere som ikke er tilskudsberrettigede. Gå tilbage til start, og godkend de manglende borgere.\";\n    \n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"\" style=\"width: 300px\" disabled>\n                        Afslut kørsel\n                  </button>`;\n\n}\nelse if (!receiptsAwaiting && !isFinalized)\n{\n\n    header =\"Afslut kørsel\";\n    subheader = \"Afslut seneste kørsel\";\n    cardtext = \"Er du sikker på at du vil afslutte seneste kørsel? Du vil ikke være i stand til at se borgeroplysninger eller anbefalede handlinger når kørslen er afsluttet, og en ny kørsel vil først kunne startes i morgen.\";\n\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_finalizeRun\" type=\"button\" onclick=\"postRequest({'requestType': 'finalize'})\" style=\"width: 300px\">\n                        Afslut kørsel\n                  </button>`;\n\n}\nelse if(allPagesAccepted())\n{\n    buttonHtml = `<button class=\"btn btn-lg btn-primary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\">\n                    Start ny kørsel\n                  </button>`;\n\n}\nelse\n    buttonHtml = `<button class=\"btn btn-lg btn-secondary ml-2 btn-lg\" id=\"button_startRun\" type=\"button\" onclick=\"startRun()\" style=\"width: 300px\" disabled>\n                Start ny kørsel\n                </button>\n                <span class=\"text-danger\" style=\"margin-left: 10px\">OBS: Du kan først starte en ny kørsel, efter du har godkendt loginoplysninger, forretningsregler samt tilskudssatser.</span>`;\n\n\n\nvar html =\n    `<div class=\"card mb-2\">\n        <div class=\"card-header\">`+header+`</div>\n        <div class=\"card-body\">\n            <h6 class=\"card-subtitle mb-2 text-muted\">`+subheader+`</h6>\n            <p class=\"card-text\">`+cardtext+`</p>\n        \n            `+buttonHtml+`\n\n            <span class=\"text-info hidden\" id=\"statusText\" style=\"margin-left: 10px\">Status: Starter kørsel</span>\n            \n        </div>\n    </div>`;\n\nmsg.payload.pageContent = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3840,7 +3840,7 @@
                 "t": "set",
                 "p": "payload.rules",
                 "pt": "msg",
-                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 93000,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal være indenfor formuegrænsen\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
+                "to": "[\t    {\t        \"uid\": \"formuegraense\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"<\",\t        \"value\": 95800,\t        \"type\": \"number\",\t        \"description\": \"Borgerens formue skal være indenfor formuegrænsen\",\t        \"error\": \"Borgerens formue bryder formue-reglen\"\t    },\t    {\t        \"uid\": \"formueoplyst\",\t        \"name\": \"Formue\",\t        \"variable\": \"formue\",\t        \"operator\": \"!null\",\t        \"value\": true,\t        \"type\": \"bool\",\t        \"description\": \"Borgerens formue skal være oplyst til UDK\",\t        \"isSystemRule\": true\t    }\t]",
                 "tot": "jsonata"
             },
             {
@@ -4666,7 +4666,7 @@
             ]
         ],
         "l": false,
-        "info": "## Set grant info\r\nThis change node defines the remaining relevant grant information, and copies the grant periods set in last node."
+        "info": "## Copy grant info\r\nThis change node copies the grant set from the payload into the msg object as msg.tilskudsInfo."
     },
     {
         "id": "8b4e8bc5facd8f90",
@@ -5175,7 +5175,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t{\t    \"tilskud\": $behandling.pris\t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t\t$behandling.type = \"B\" ?\t{\t    \"tilskud\": $behandling.patientAndel\t}\t:\t{\t    \"tilskud\": $behandling.pris\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5390,7 +5390,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t$behandling.type = \"A\" and ($danmark = 1 or $danmark = 2) and $faktura.ydernummer != \"ydernummermangler\" ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t$behandling.type = \"A\" and ($danmark = 1 or $danmark = 2) and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5479,7 +5479,8 @@
             [
                 "64156b428449f87a"
             ]
-        ]
+        ],
+        "info": "# Get Settings/Rules/Grants\r\n\r\nGets (or sets) the current ruleset from global context and stores it in the msg object.\r\nIf no existing data is found, new data is created from templates which are found inside the subflow itself.\r\n\r\nSubflow was originially intended to only load a single element into the payload, however to speed up development,\r\nall three elements were merged into a single subflow. This means that the subflow is heavily referenced and loads\r\nunneccessary data in multiple occasions."
     },
     {
         "id": "fde5a695bfbd9a7d",
@@ -5892,9 +5893,10 @@
         "y": 300,
         "wires": [
             [
-                "61d78c9d39ac193c"
+                "35e66215df68100f"
             ]
-        ]
+        ],
+        "info": "## Set global.runHistory\r\nSets an empty list in global context stored in file."
     },
     {
         "id": "421ea3a3d1ce558a",
@@ -5924,35 +5926,8 @@
             [
                 "d426a3d9a5cc587d"
             ]
-        ]
-    },
-    {
-        "id": "61d78c9d39ac193c",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "44e7408f9fee1e77",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "currentRun",
-                "pt": "msg",
-                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t:\t$lastRunWasToday ?\t    $lastRun\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    $lastRun.timestamp ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
-                "tot": "jsonata"
-            }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1190,
-        "y": 260,
-        "wires": [
-            [
-                "0315b599de1a9914"
-            ]
-        ]
+        "info": "## Get runHistory switch\r\nChecks if there is a run history stored in memory (in global context)."
     },
     {
         "id": "a87343abb1f1ad70",
@@ -6181,9 +6156,10 @@
         "y": 240,
         "wires": [
             [
-                "61d78c9d39ac193c"
+                "35e66215df68100f"
             ]
-        ]
+        ],
+        "info": "## get runHistory\r\nCopies the run history stored in file to msg.runHistory."
     },
     {
         "id": "56f4f81f3f45559e",
@@ -6195,7 +6171,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "15/03/2023",
+                "to": "10/03/2023",
                 "tot": "str"
             }
         ],
@@ -6212,7 +6188,7 @@
             ]
         ],
         "l": false,
-        "info": "## Set grant info\r\nThis change node defines the remaining relevant grant information, and copies the grant periods set in last node."
+        "info": "## Custom deployment date\r\nThis change node defines the starting date for a run, if no runs are found in the run history.\r\nIt is used for testing, as well as for running the flow for the first time after deployment."
     },
     {
         "id": "0315b599de1a9914",
@@ -8338,44 +8314,6 @@
                 "tot": "bool"
             },
             {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "runHistory",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "currentRun.allReceiptsProcessed",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "runHistory",
-                "pt": "msg",
-                "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"allReceiptsProcessed\": true, \"isFinalized\": false\t}\t\t)|",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "runHistory",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "tempSettings",
-                "pt": "msg",
-                "to": "#:(storeInFile)::webSettings",
-                "tot": "global",
-                "dc": true
-            },
-            {
                 "t": "delete",
                 "p": "payload",
                 "pt": "msg"
@@ -8390,8 +8328,8 @@
         "y": 400,
         "wires": [
             [
-                "08f36899ebeff27b",
-                "2c999012fa2d0842"
+                "2c999012fa2d0842",
+                "08f36899ebeff27b"
             ]
         ],
         "l": false
@@ -8588,6 +8526,88 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "35e66215df68100f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "44e7408f9fee1e77",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentRun",
+                "pt": "msg",
+                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t:\t$lastRunWasToday ?\t    $lastRun\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    ($lastRun.timestamp + 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 260,
+        "wires": [
+            [
+                "0315b599de1a9914"
+            ]
+        ]
+    },
+    {
+        "id": "85ee348d7ad26701",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "[{\"startDate\":\"09/03/2023\",\"endDate\":\"09/03/2023\",\"timestamp\":1678320000000,\"processedReceipts\":[\"08db2073-bd56-4326-8a65-ee3a28f1577a\",\"08db207c-e6ab-439d-8ede-2cff209819d0\",\"08db2082-8ae0-4ac2-8029-ea435ef36d89\",\"08db2085-4842-4b09-81ec-173ecfedc48f\",\"08db2085-693f-4a86-8c87-13e50ffc66e0\",\"08db208e-6f10-4930-888d-de66d5a4e7f3\",\"08db2090-2efb-4a45-8341-f2f64e2cd5c8\",\"08db2094-5646-49a2-8b0e-38d88a5492a1\",\"08db2095-6e11-41c6-89ff-acca0cb96d7c\",\"08db2095-b76a-4740-8a39-14ce2f87b893\",\"08db2099-06d2-44a7-882e-5f3e3c5dd192\",\"08db209c-47d9-4b92-8619-05dc0c1d5e21\",\"08db209d-d362-4f07-8a58-77a56c81848d\",\"08db20a2-266c-430a-88ee-c9bf9b03d16d\",\"08db20a5-c930-4f22-8e48-9116690d4ce8\",\"08db20ae-bffd-4021-8312-8ba04b182e28\",\"08db2087-8ff8-454b-8c86-2d5c90974acb\",\"08db209e-872b-494e-8787-9c5c5ec95c31\",\"08db20a5-9b27-416c-8e51-6d00c7614934\"],\"allReceiptsProcessed\":true,\"isFinalized\":true,\"currentStep\":{},\"stepHistory\":[],\"userName\":\" Søren Langbo Slotø Thomassen \"}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb81774441337f6e",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "85ee348d7ad26701"
+            ]
+        ]
     },
     {
         "id": "248d64bf4e74f440",
