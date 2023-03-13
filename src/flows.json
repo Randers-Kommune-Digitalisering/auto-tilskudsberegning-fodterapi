@@ -8556,60 +8556,6 @@
         ]
     },
     {
-        "id": "85ee348d7ad26701",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global",
-                "to": "[{\"startDate\":\"09/03/2023\",\"endDate\":\"09/03/2023\",\"timestamp\":1678320000000,\"processedReceipts\":[\"08db2073-bd56-4326-8a65-ee3a28f1577a\",\"08db207c-e6ab-439d-8ede-2cff209819d0\",\"08db2082-8ae0-4ac2-8029-ea435ef36d89\",\"08db2085-4842-4b09-81ec-173ecfedc48f\",\"08db2085-693f-4a86-8c87-13e50ffc66e0\",\"08db208e-6f10-4930-888d-de66d5a4e7f3\",\"08db2090-2efb-4a45-8341-f2f64e2cd5c8\",\"08db2094-5646-49a2-8b0e-38d88a5492a1\",\"08db2095-6e11-41c6-89ff-acca0cb96d7c\",\"08db2095-b76a-4740-8a39-14ce2f87b893\",\"08db2099-06d2-44a7-882e-5f3e3c5dd192\",\"08db209c-47d9-4b92-8619-05dc0c1d5e21\",\"08db209d-d362-4f07-8a58-77a56c81848d\",\"08db20a2-266c-430a-88ee-c9bf9b03d16d\",\"08db20a5-c930-4f22-8e48-9116690d4ce8\",\"08db20ae-bffd-4021-8312-8ba04b182e28\",\"08db2087-8ff8-454b-8c86-2d5c90974acb\",\"08db209e-872b-494e-8787-9c5c5ec95c31\",\"08db20a5-9b27-416c-8e51-6d00c7614934\"],\"allReceiptsProcessed\":true,\"isFinalized\":true,\"currentStep\":{},\"stepHistory\":[],\"userName\":\" Søren Langbo Slotø Thomassen \"}]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 360,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cb81774441337f6e",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 180,
-        "wires": [
-            [
-                "85ee348d7ad26701"
-            ]
-        ]
-    },
-    {
         "id": "248d64bf4e74f440",
         "type": "http in",
         "z": "c28a486ea3e09387",
