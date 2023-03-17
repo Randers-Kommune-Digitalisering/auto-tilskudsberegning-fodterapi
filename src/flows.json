@@ -3212,7 +3212,8 @@
         "y": 120,
         "wires": [
             [
-                "d4601eb0c82d44dc"
+                "d4601eb0c82d44dc",
+                "f59dd9b884698e8a"
             ]
         ]
     },
@@ -3676,7 +3677,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Helbredstillægsprocent",
-        "func": "// payload.tempData.faktura._helbredstillaegsprocent.tillaegsprocent\n\nvar faktura = Array.isArray(msg.payload.tempData.faktura) ? msg.payload.tempData.faktura[0] : msg.payload.tempData.faktura;\nvar hprocent = 0;\n\nif (faktura._helbredstillaegsprocent != null && faktura._helbredstillaegsprocent != undefined)\n    hprocent = Array.isArray(faktura._helbredstillaegsprocent) ? faktura._helbredstillaegsprocent[0] : faktura._helbredstillaegsprocent;\n    \nelse\n    hprocent = Array.isArray(msg.payload.tempData.persondata.helbredstillaegsprocent) ?\n               msg.payload.tempData.persondata.helbredstillaegsprocent[0] :\n               msg.payload.tempData.persondata.helbredstillaegsprocent;\n\nmsg.payload.tempData.persondata._htillaegsprocent = hprocent.tillaegsprocent;\n\nreturn msg;",
+        "func": "// payload.tempData.faktura._helbredstillaegsprocent.tillaegsprocent\n\nvar faktura = Array.isArray(msg.payload.tempData.faktura) ? msg.payload.tempData.faktura[0] : msg.payload.tempData.faktura;\nvar hprocent = 0;\n\nif (faktura._helbredstillaegsprocent != null && faktura._helbredstillaegsprocent != undefined)\n    hprocent = Array.isArray(faktura._helbredstillaegsprocent) ? faktura._helbredstillaegsprocent[0] : faktura._helbredstillaegsprocent;\n    \nelse\n    hprocent = Array.isArray(msg.payload.tempData.persondata.helbredstillaegsprocent) ?\n               msg.payload.tempData.persondata.helbredstillaegsprocent[0] :\n               msg.payload.tempData.persondata.helbredstillaegsprocent;\n\nmsg.payload.tempData.persondata._htillaegsprocent = (hprocent == null || hprocent == undefined) ? 0 : hprocent.tillaegsprocent;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3689,6 +3690,22 @@
                 "b0b8bd30f6fdf461"
             ]
         ]
+    },
+    {
+        "id": "f59dd9b884698e8a",
+        "type": "debug",
+        "z": "43652557380ac3f3",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2190,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -6171,7 +6188,7 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "10/03/2023",
+                "to": "16/03/2023",
                 "tot": "str"
             }
         ],
