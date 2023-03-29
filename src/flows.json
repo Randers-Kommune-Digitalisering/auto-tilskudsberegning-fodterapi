@@ -173,7 +173,7 @@
             "632aa75f39860780"
         ],
         "x": 334,
-        "y": 219,
+        "y": 259,
         "w": 322,
         "h": 122
     },
@@ -213,7 +213,7 @@
             "023477a667bd9144"
         ],
         "x": 334,
-        "y": 399,
+        "y": 439,
         "w": 1512,
         "h": 207
     },
@@ -243,8 +243,8 @@
             "eea859cc92e89e3f"
         ],
         "x": 374,
-        "y": 1619,
-        "w": 1172,
+        "y": 1659,
+        "w": 1232,
         "h": 282
     },
     {
@@ -267,14 +267,13 @@
             "df5451114247dbd3",
             "4fa04433812ed133",
             "f811b83fc07bb1cd",
-            "5f3a3d3e30d3be55",
             "c7ca8c02a788a41d",
             "78f7e1718ab3f755",
             "8f4d2dcc4c986825",
             "4840de2e1aa54398"
         ],
         "x": 374,
-        "y": 1939,
+        "y": 1979,
         "w": 852,
         "h": 402
     },
@@ -482,7 +481,7 @@
             "6cfa59d7c02c8c82"
         ],
         "x": 334,
-        "y": 1059,
+        "y": 1099,
         "w": 1142,
         "h": 522
     },
@@ -511,28 +510,9 @@
             "f7835ac1742b0168"
         ],
         "x": 334,
-        "y": 639,
+        "y": 679,
         "w": 1172,
         "h": 222
-    },
-    {
-        "id": "3fd0647603ec528e",
-        "type": "group",
-        "z": "8ea344595d9a442a",
-        "name": "",
-        "style": {
-            "stroke": "#ffC000",
-            "label": true
-        },
-        "nodes": [
-            "72df366e32bdb61f",
-            "e14341e7aef81e59",
-            "c9559b185b3f221b"
-        ],
-        "x": 54,
-        "y": 19,
-        "w": 472,
-        "h": 122
     },
     {
         "id": "00256f937180f75a",
@@ -548,7 +528,7 @@
             "df0ed618b5194000"
         ],
         "x": 1794,
-        "y": 19,
+        "y": 59,
         "w": 412,
         "h": 82
     },
@@ -577,7 +557,7 @@
             "35e66215df68100f"
         ],
         "x": 714,
-        "y": 99,
+        "y": 139,
         "w": 952,
         "h": 242
     },
@@ -596,7 +576,7 @@
             "87437eca4cc7eec9"
         ],
         "x": 1724,
-        "y": 119,
+        "y": 159,
         "w": 482,
         "h": 82
     },
@@ -618,7 +598,7 @@
             "5b599232bb01d1d2"
         ],
         "x": 1874,
-        "y": 219,
+        "y": 259,
         "w": 262,
         "h": 82
     },
@@ -643,7 +623,7 @@
             "2c999012fa2d0842"
         ],
         "x": 1874,
-        "y": 319,
+        "y": 359,
         "w": 272,
         "h": 162
     },
@@ -665,7 +645,7 @@
             "427c8a1a563502c8"
         ],
         "x": 1874,
-        "y": 499,
+        "y": 539,
         "w": 262,
         "h": 82
     },
@@ -687,7 +667,7 @@
             "75f1aaf5a21e12a8"
         ],
         "x": 1874,
-        "y": 739,
+        "y": 779,
         "w": 262,
         "h": 82
     },
@@ -709,7 +689,7 @@
             "5ee0ef61ccdcafac"
         ],
         "x": 1874,
-        "y": 1499,
+        "y": 1539,
         "w": 262,
         "h": 82
     },
@@ -730,7 +710,7 @@
             "96c62bac832126e6"
         ],
         "x": 1714,
-        "y": 999,
+        "y": 1039,
         "w": 252,
         "h": 142
     },
@@ -752,7 +732,7 @@
             "f1884a7421b13391"
         ],
         "x": 1874,
-        "y": 1819,
+        "y": 1859,
         "w": 262,
         "h": 82
     },
@@ -788,7 +768,7 @@
             "cbd06ead16ce268d"
         ],
         "x": 354,
-        "y": 2519,
+        "y": 2559,
         "w": 1032,
         "h": 302
     },
@@ -813,7 +793,7 @@
             "25f140a78f720950"
         ],
         "x": 354,
-        "y": 2839,
+        "y": 2879,
         "w": 792,
         "h": 122
     },
@@ -838,8 +818,59 @@
             "d0ec6e3e02665e27"
         ],
         "x": 4,
-        "y": 979,
+        "y": 1019,
         "w": 262,
+        "h": 162
+    },
+    {
+        "id": "3fd0647603ec528e",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "Udviklerværktøj",
+        "style": {
+            "stroke": "#ffC000",
+            "label": true
+        },
+        "nodes": [
+            "72df366e32bdb61f",
+            "e14341e7aef81e59",
+            "c9559b185b3f221b",
+            "2d3128d22fb1c532",
+            "40785040f06925f6",
+            "e1a765292dfcc859",
+            "b5badb44837098f9"
+        ],
+        "x": 54,
+        "y": 3239,
+        "w": 232,
+        "h": 222
+    },
+    {
+        "id": "bb5f1c24606d30f1",
+        "type": "group",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "style": {
+            "fill": "#ff0000",
+            "fill-opacity": "0.5",
+            "label": true
+        },
+        "nodes": [
+            "058dd19a1031a295",
+            "ba775987982c42fc",
+            "53225eb49fe0ac22",
+            "5f4c45329970fab2",
+            "1dce62fb28ae79dd",
+            "1ff45df4387920c6",
+            "8d14dd9c7f3d7896",
+            "a89a3d18c7ac4270",
+            "fa1612c70b1b3ea7",
+            "c8ade2cefd45991f",
+            "84370f778b40a70d"
+        ],
+        "x": 74,
+        "y": 39,
+        "w": 582,
         "h": 162
     },
     {
@@ -848,7 +879,7 @@
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
         "x": 680,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "90acc4726c72125a"
@@ -861,7 +892,7 @@
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
         "x": 1240,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "4424787318323d8e"
@@ -997,7 +1028,7 @@
         "z": "8ea344595d9a442a",
         "g": "669e09e244099963",
         "x": 360,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "d04faa115ea73982"
@@ -1010,10 +1041,11 @@
         "z": "8ea344595d9a442a",
         "g": "954337fe9fd2e7cc",
         "x": 1280,
-        "y": 2780,
+        "y": 2820,
         "wires": [
             [
-                "a2f55ae008b1fee2"
+                "a2f55ae008b1fee2",
+                "d2046b01f19e1166"
             ]
         ]
     },
@@ -1022,7 +1054,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 1740,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "ca4cd4b46c05bb1d"
@@ -1059,7 +1091,7 @@
         "z": "8ea344595d9a442a",
         "g": "287b33b8879cbbbc",
         "x": 560,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "215c708ef9319356"
@@ -1072,10 +1104,11 @@
         "z": "8ea344595d9a442a",
         "g": "380e5c7e0ea3778b",
         "x": 1200,
-        "y": 2200,
+        "y": 2240,
         "wires": [
             [
-                "fde5a695bfbd9a7d"
+                "fde5a695bfbd9a7d",
+                "e3a48c9fa5b8b4d4"
             ]
         ]
     },
@@ -1085,7 +1118,7 @@
         "z": "8ea344595d9a442a",
         "g": "9c4f3569ebca5f7b",
         "x": 1480,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "c3932c1fbca91f98"
@@ -1097,7 +1130,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 1720,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "79b58433839fe40a"
@@ -1109,7 +1142,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 280,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "dd83f023eff10d0a"
@@ -1121,7 +1154,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 1900,
-        "y": 600,
+        "y": 640,
         "wires": [
             [
                 "bcdc17ee1f8d6c4b"
@@ -1133,7 +1166,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 280,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "d183f106c2e11bce"
@@ -1145,7 +1178,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 1660,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "125f7071b2eb302c"
@@ -1157,7 +1190,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 280,
-        "y": 940,
+        "y": 980,
         "wires": [
             [
                 "6f70a9263a101b22"
@@ -1169,7 +1202,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 540,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "ea475d83f62dd34b"
@@ -1181,7 +1214,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 280,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             [
                 "4629d4bebfd2768f"
@@ -1193,7 +1226,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 1520,
-        "y": 1580,
+        "y": 1620,
         "wires": [
             [
                 "3c3ead5abc0c6168"
@@ -1205,7 +1238,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 320,
-        "y": 1620,
+        "y": 1660,
         "wires": [
             [
                 "252ef6cdcba02f65"
@@ -1217,7 +1250,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 1580,
-        "y": 1900,
+        "y": 1940,
         "wires": [
             [
                 "92b00035cd1abc44"
@@ -1229,7 +1262,7 @@
         "type": "junction",
         "z": "8ea344595d9a442a",
         "x": 320,
-        "y": 1940,
+        "y": 1980,
         "wires": [
             [
                 "da966ceeba7b23dd"
@@ -1242,7 +1275,7 @@
         "z": "8ea344595d9a442a",
         "g": "954337fe9fd2e7cc",
         "x": 500,
-        "y": 2700,
+        "y": 2740,
         "wires": [
             [
                 "0fb1a45baf4dcc7c"
@@ -3212,8 +3245,7 @@
         "y": 120,
         "wires": [
             [
-                "d4601eb0c82d44dc",
-                "f59dd9b884698e8a"
+                "d4601eb0c82d44dc"
             ]
         ]
     },
@@ -3323,8 +3355,7 @@
         "y": 260,
         "wires": [
             [
-                "9104824190b91e21",
-                "57d5f559d630f8e6"
+                "9104824190b91e21"
             ]
         ]
     },
@@ -3656,23 +3687,6 @@
         ]
     },
     {
-        "id": "57d5f559d630f8e6",
-        "type": "debug",
-        "z": "43652557380ac3f3",
-        "name": "Loaded data",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.tempData",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1430,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "d4601eb0c82d44dc",
         "type": "function",
         "z": "43652557380ac3f3",
@@ -3690,22 +3704,6 @@
                 "b0b8bd30f6fdf461"
             ]
         ]
-    },
-    {
-        "id": "f59dd9b884698e8a",
-        "type": "debug",
-        "z": "43652557380ac3f3",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2190,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "88e4c1ff6d0333f9",
@@ -4558,7 +4556,7 @@
         "name": "Start robot",
         "info": "",
         "x": 160,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -4569,7 +4567,7 @@
         "name": "[E] Find ny start- og slutdato ud fra seneste kørsel samt dags dato",
         "info": "",
         "x": 970,
-        "y": 140,
+        "y": 180,
         "wires": []
     },
     {
@@ -4581,7 +4579,7 @@
         "scope": null,
         "uncaught": false,
         "x": 1880,
-        "y": 60,
+        "y": 100,
         "wires": [
             [
                 "df0ed618b5194000"
@@ -4603,7 +4601,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 2070,
-        "y": 60,
+        "y": 100,
         "wires": []
     },
     {
@@ -4648,7 +4646,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 2020,
+        "y": 2060,
         "wires": [
             [
                 "a46e2a0c2cd58d9f"
@@ -4676,7 +4674,7 @@
         "to": "",
         "reg": false,
         "x": 615,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "56f4f81f3f45559e"
@@ -4693,7 +4691,7 @@
         "name": "Sæt tilskudsperioder fra Danmark",
         "info": "",
         "x": 490,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -4709,7 +4707,7 @@
         "finalize": "",
         "libs": [],
         "x": 1570,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "2833bc30cabd27bb",
@@ -4726,7 +4724,7 @@
         "name": "Find uafsluttet kørsel eller skab ny",
         "info": "",
         "x": 1240,
-        "y": 220,
+        "y": 260,
         "wires": []
     },
     {
@@ -4742,7 +4740,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 560,
+        "y": 600,
         "wires": [
             [
                 "bc7b13ac2323540b"
@@ -4770,7 +4768,7 @@
         "repair": false,
         "outputs": 2,
         "x": 585,
-        "y": 560,
+        "y": 600,
         "wires": [
             [
                 "144d6812d5213472"
@@ -4796,7 +4794,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 1430,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "fa861baf7265d3be"
@@ -4813,7 +4811,7 @@
         "action": "obj",
         "pretty": false,
         "x": 1535,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "6558b47eb74e6c0c"
@@ -4834,7 +4832,7 @@
         "finalize": "",
         "libs": [],
         "x": 1730,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "0f583d6bfaad7d0e",
@@ -4851,7 +4849,7 @@
         "name": "Tjek om filen eksisterer",
         "info": "",
         "x": 500,
-        "y": 520,
+        "y": 560,
         "wires": []
     },
     {
@@ -4862,7 +4860,7 @@
         "name": "Download fakturaliste",
         "info": "",
         "x": 1180,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -4873,7 +4871,7 @@
         "name": "Slet fakturaliste",
         "info": "",
         "x": 1740,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -4902,7 +4900,7 @@
         "to": "",
         "reg": false,
         "x": 1585,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "07aa032e7944f93b",
@@ -4920,7 +4918,7 @@
         "name": "Læs fakturaliste",
         "info": "",
         "x": 1440,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -5014,7 +5012,7 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "6a7f540f9f08ded4"
@@ -5053,7 +5051,7 @@
         "to": "",
         "reg": false,
         "x": 950,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "15a1703b4a5286c7"
@@ -5069,7 +5067,7 @@
         "name": "Klargør download af faktura ift. datoer",
         "info": "",
         "x": 830,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -5087,7 +5085,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1730,
-        "y": 460,
+        "y": 500,
         "wires": []
     },
     {
@@ -5097,7 +5095,7 @@
         "g": "669e09e244099963",
         "name": "",
         "x": 1160,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "4424787318323d8e"
@@ -5120,7 +5118,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 970,
-        "y": 2020,
+        "y": 2060,
         "wires": []
     },
     {
@@ -5138,7 +5136,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 900,
-        "y": 1860,
+        "y": 1900,
         "wires": []
     },
     {
@@ -5162,7 +5160,7 @@
         "to": "",
         "reg": false,
         "x": 540,
-        "y": 1700,
+        "y": 1740,
         "wires": [
             [
                 "eea859cc92e89e3f"
@@ -5178,7 +5176,7 @@
         "name": "Opret sager / ydelser",
         "info": "",
         "x": 500,
-        "y": 1660,
+        "y": 1700,
         "wires": []
     },
     {
@@ -5202,7 +5200,7 @@
         "to": "",
         "reg": false,
         "x": 1130,
-        "y": 1700,
+        "y": 1740,
         "wires": [
             [
                 "ebfc3d7f7b71a754"
@@ -5220,7 +5218,7 @@
             "30b5b930fae41995"
         ],
         "x": 115,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "632aa75f39860780"
@@ -5238,7 +5236,7 @@
             "5c74b689e0aee38b"
         ],
         "x": 945,
-        "y": 2300,
+        "y": 2340,
         "wires": []
     },
     {
@@ -5249,7 +5247,7 @@
         "name": "Klargør data til UI",
         "info": "",
         "x": 480,
-        "y": 1980,
+        "y": 2020,
         "wires": []
     },
     {
@@ -5280,7 +5278,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 2020,
+        "y": 2060,
         "wires": [
             [
                 "4fa04433812ed133",
@@ -5309,7 +5307,7 @@
         "to": "",
         "reg": false,
         "x": 570,
-        "y": 1860,
+        "y": 1900,
         "wires": [
             [
                 "c728e9afbea480e9",
@@ -5338,7 +5336,7 @@
         "to": "",
         "reg": false,
         "x": 570,
-        "y": 1820,
+        "y": 1860,
         "wires": [
             [
                 "b5f7952c5718fafd"
@@ -5353,7 +5351,7 @@
         "name": "Flyt borgere som ikke har handlinger til \"errors\"",
         "info": "",
         "x": 580,
-        "y": 1780,
+        "y": 1820,
         "wires": []
     },
     {
@@ -5364,7 +5362,7 @@
         "name": "Beregn tilskud",
         "info": "",
         "x": 1110,
-        "y": 1660,
+        "y": 1700,
         "wires": []
     },
     {
@@ -5378,7 +5376,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$danmarkSats := $$.tilskudsInfo.tilskudsperioder.satser[wtitel = $behandling.titel];\t$danmarkProcent := tilskud * ($danmarkSats.tilskud_procent / 100);\t$danmarkMax := $danmarkSats.tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t$behandling.type = \"B\" and ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$danmarkSats := $$.tilskudsInfo.tilskudsperioder.satser[wtitel = $behandling.titel];\t$danmarkProcent := tilskud * ($danmarkSats.tilskud_procent / 100);\t$danmarkMax := $danmarkSats.tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"B\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t    \t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5388,7 +5386,7 @@
         "to": "",
         "reg": false,
         "x": 1280,
-        "y": 1740,
+        "y": 1780,
         "wires": [
             [
                 "8b251b9d384911a0"
@@ -5401,13 +5399,13 @@
         "type": "change",
         "z": "8ea344595d9a442a",
         "g": "6c7a3f8252158db6",
-        "name": "Fratræk 50% (maks 100) ved type A",
+        "name": "Fratræk 50% (maks 100) ved type A + Danmark 1/2",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t$behandling.type = \"A\" and ($danmark = 1 or $danmark = 2) and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"A\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|\t\t\t/*and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?*/",
                 "tot": "jsonata"
             }
         ],
@@ -5416,8 +5414,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1190,
-        "y": 1780,
+        "x": 1230,
+        "y": 1820,
         "wires": [
             [
                 "363e103b20db6c80"
@@ -5430,13 +5428,13 @@
         "type": "change",
         "z": "8ea344595d9a442a",
         "g": "6c7a3f8252158db6",
-        "name": "Begræns tilskud der overstiger prisgrænse ved type A",
+        "name": "Begræns tilskud der overstiger prisgrænse ved type A + uautoriseret type B",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_max_hjemme := $$.tilskudsInfo.max_hjemmebehandling;\t$tilskud_max_ude := $$.tilskudsInfo.max_udekoersel;\t\t$behandling.type = \"A\" ?\t{\t\t    \"tilskud\": (titel = \"Behandlingipatientsegethjem\") ?\t                    (tilskud > $tilskud_max_hjemme ? $tilskud_max_hjemme : tilskud)\t                    :\t                    (tilskud > $tilskud_max_ude ? $tilskud_max_ude : tilskud)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_max_hjemme := $$.tilskudsInfo.max_hjemmebehandling;\t$tilskud_max_ude := $$.tilskudsInfo.max_udekoersel;\t\t    $behandling.type = \"A\" \tor\t        ($behandling.type = \"B\"\t    and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null)) ?\t{\t\t    \"tilskud\": (titel = \"Behandlingipatientsegethjem\") ?\t                    (tilskud > $tilskud_max_hjemme ? $tilskud_max_hjemme : tilskud)\t                    :\t                    (tilskud > $tilskud_max_ude ? $tilskud_max_ude : tilskud)\t    \t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5445,8 +5443,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1240,
-        "y": 1820,
+        "x": 1310,
+        "y": 1860,
         "wires": [
             [
                 "5cfe1b69780c58ab"
@@ -5475,7 +5473,7 @@
         "to": "",
         "reg": false,
         "x": 1150,
-        "y": 1860,
+        "y": 1900,
         "wires": [
             [
                 "ac2d9ca641a094e8",
@@ -5491,7 +5489,7 @@
         "g": "7de50fe1369c94a7",
         "name": "",
         "x": 470,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "64156b428449f87a"
@@ -5563,7 +5561,7 @@
         "to": "",
         "reg": false,
         "x": 610,
-        "y": 2300,
+        "y": 2340,
         "wires": [
             [
                 "f5dbef72792b9011"
@@ -5578,7 +5576,7 @@
         "name": "Clean alt unødvendig data fra msg objekt",
         "info": "",
         "x": 700,
-        "y": 2260,
+        "y": 2300,
         "wires": []
     },
     {
@@ -5609,10 +5607,10 @@
         "to": "",
         "reg": false,
         "x": 640,
-        "y": 2060,
+        "y": 2100,
         "wires": [
             [
-                "5f3a3d3e30d3be55"
+                "c7ca8c02a788a41d"
             ]
         ]
     },
@@ -5627,7 +5625,7 @@
             "87d1c73c93e5b9f7"
         ],
         "x": 395,
-        "y": 2600,
+        "y": 2640,
         "wires": [
             [
                 "135dfd2c3c6f4850"
@@ -5655,7 +5653,7 @@
         "to": "",
         "reg": false,
         "x": 1190,
-        "y": 2600,
+        "y": 2640,
         "wires": [
             [
                 "6c4f0dadb67f015e"
@@ -5691,7 +5689,7 @@
         "to": "",
         "reg": false,
         "x": 580,
-        "y": 2600,
+        "y": 2640,
         "wires": [
             [
                 "f3622da5b8c6dd11"
@@ -5734,7 +5732,7 @@
         "to": "",
         "reg": false,
         "x": 1200,
-        "y": 2640,
+        "y": 2680,
         "wires": [
             [
                 "cbd06ead16ce268d"
@@ -5753,7 +5751,7 @@
             "e0949865938522b8"
         ],
         "x": 1345,
-        "y": 2780,
+        "y": 2820,
         "wires": []
     },
     {
@@ -5764,7 +5762,7 @@
         "name": "Arkivering af individuelle faktura",
         "info": "",
         "x": 510,
-        "y": 2560,
+        "y": 2600,
         "wires": []
     },
     {
@@ -5775,7 +5773,7 @@
         "name": "Kontrol om alle fakturaer er arkiveret",
         "info": "",
         "x": 720,
-        "y": 2700,
+        "y": 2740,
         "wires": []
     },
     {
@@ -5791,7 +5789,7 @@
         "finalize": "",
         "libs": [],
         "x": 680,
-        "y": 2780,
+        "y": 2820,
         "wires": [
             [
                 "62b82381ac8d827c"
@@ -5838,7 +5836,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "28d8ac05e7f0f65f"
@@ -5853,7 +5851,7 @@
         "name": "[E] Download fakturaer for den bestemte tidsperiode",
         "info": "",
         "x": 590,
-        "y": 440,
+        "y": 480,
         "wires": []
     },
     {
@@ -5876,7 +5874,7 @@
         "repair": false,
         "outputs": 2,
         "x": 870,
-        "y": 2760,
+        "y": 2800,
         "wires": [
             [
                 "fb02e28cd75e69e8"
@@ -5907,7 +5905,7 @@
         "to": "",
         "reg": false,
         "x": 880,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "35e66215df68100f"
@@ -5935,7 +5933,7 @@
         "repair": false,
         "outputs": 2,
         "x": 790,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "619dc0bbb1fdf120"
@@ -5954,7 +5952,7 @@
         "name": "Set currentRun object",
         "info": "",
         "x": 1200,
-        "y": 180,
+        "y": 220,
         "wires": []
     },
     {
@@ -5965,7 +5963,7 @@
         "name": "Hent runHistory",
         "info": "",
         "x": 820,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -6013,7 +6011,7 @@
         "to": "",
         "reg": false,
         "x": 660,
-        "y": 2740,
+        "y": 2780,
         "wires": [
             [
                 "fc1053d3105b2cd0"
@@ -6044,7 +6042,7 @@
         "repair": false,
         "outputs": 2,
         "x": 740,
-        "y": 2600,
+        "y": 2640,
         "wires": [
             [
                 "d521a5aad7378097"
@@ -6076,7 +6074,7 @@
         "to": "",
         "reg": false,
         "x": 940,
-        "y": 2580,
+        "y": 2620,
         "wires": [
             [
                 "c6c8addcda828038"
@@ -6105,7 +6103,7 @@
         "to": "",
         "reg": false,
         "x": 940,
-        "y": 2620,
+        "y": 2660,
         "wires": [
             [
                 "c6c8addcda828038"
@@ -6141,7 +6139,7 @@
         "to": "",
         "reg": false,
         "x": 1090,
-        "y": 2740,
+        "y": 2780,
         "wires": [
             [
                 "b840a64a9cf3c187"
@@ -6170,7 +6168,7 @@
         "to": "",
         "reg": false,
         "x": 960,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "35e66215df68100f"
@@ -6188,7 +6186,14 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "16/03/2023",
+                "to": "27/03/2023",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "presetEndDate",
+                "pt": "msg",
+                "to": "27/03/2023",
                 "tot": "str"
             }
         ],
@@ -6198,7 +6203,7 @@
         "to": "",
         "reg": false,
         "x": 685,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "421ea3a3d1ce558a"
@@ -6243,10 +6248,11 @@
         "to": "",
         "reg": false,
         "x": 1390,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
-                "2c5bfa6b7a2613ab"
+                "2c5bfa6b7a2613ab",
+                "5ab8f6b07a5e86d8"
             ]
         ]
     },
@@ -6261,7 +6267,7 @@
             "2fbf1e644fc53a26"
         ],
         "x": 395,
-        "y": 2920,
+        "y": 2960,
         "wires": [
             [
                 "cb15176764c11180"
@@ -6276,7 +6282,7 @@
         "name": "Finalize run",
         "info": "",
         "x": 450,
-        "y": 2880,
+        "y": 2920,
         "wires": []
     },
     {
@@ -6308,7 +6314,7 @@
         "to": "",
         "reg": false,
         "x": 570,
-        "y": 2920,
+        "y": 2960,
         "wires": [
             [
                 "72afce271d46b8f9"
@@ -6341,7 +6347,8 @@
                 "p": "#:(storeInFile)::runHistory",
                 "pt": "global",
                 "to": "runHistory",
-                "tot": "msg"
+                "tot": "msg",
+                "dc": true
             },
             {
                 "t": "set",
@@ -6357,7 +6364,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 2920,
+        "y": 2960,
         "wires": [
             [
                 "25f140a78f720950"
@@ -6375,7 +6382,7 @@
             "23a573cb9952c0ef"
         ],
         "x": 1105,
-        "y": 2920,
+        "y": 2960,
         "wires": []
     },
     {
@@ -6391,7 +6398,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 1740,
+        "y": 1780,
         "wires": [
             [
                 "c23d52373f2634a2"
@@ -6407,7 +6414,7 @@
         "server": "13a90a014adf9bc5",
         "client": "",
         "x": 2080,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -6417,7 +6424,7 @@
         "g": "b95a594cf23c004f",
         "name": "",
         "x": 1810,
-        "y": 1100,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -6457,95 +6464,11 @@
         "to": "",
         "reg": false,
         "x": 1840,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             [
                 "966a912086c08955"
             ]
-        ]
-    },
-    {
-        "id": "72df366e32bdb61f",
-        "type": "inject",
-        "z": "8ea344595d9a442a",
-        "g": "3fd0647603ec528e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 100,
-        "wires": [
-            [
-                "e14341e7aef81e59"
-            ]
-        ]
-    },
-    {
-        "id": "e14341e7aef81e59",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "3fd0647603ec528e",
-        "name": "",
-        "rules": [
-            {
-                "t": "delete",
-                "p": "#:(storeInFile)::grants",
-                "pt": "global"
-            },
-            {
-                "t": "delete",
-                "p": "#:(storeInFile)::rules",
-                "pt": "global"
-            },
-            {
-                "t": "delete",
-                "p": "#:(storeInFile)::runHistory",
-                "pt": "global"
-            },
-            {
-                "t": "delete",
-                "p": "#:(storeInFile)::webSettings",
-                "pt": "global"
-            },
-            {
-                "t": "delete",
-                "p": "webStates",
-                "pt": "global"
-            },
-            {
-                "t": "delete",
-                "p": "webSteps",
-                "pt": "global"
-            },
-            {
-                "t": "delete",
-                "p": "webData",
-                "pt": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 100,
-        "wires": [
-            []
         ]
     },
     {
@@ -6561,7 +6484,7 @@
         "finalize": "",
         "libs": [],
         "x": 1430,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "023477a667bd9144"
@@ -6589,7 +6512,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1535,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "2359edd9babea1ac"
@@ -6621,7 +6544,7 @@
         "to": "",
         "reg": false,
         "x": 450,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "00a9a4712b97560f"
@@ -6637,7 +6560,7 @@
         "name": "Saml borgere og fakturaer",
         "info": "",
         "x": 470,
-        "y": 1140,
+        "y": 1180,
         "wires": []
     },
     {
@@ -6661,7 +6584,7 @@
         "to": "",
         "reg": false,
         "x": 470,
-        "y": 1300,
+        "y": 1340,
         "wires": [
             [
                 "78c4e4692985e738"
@@ -6690,10 +6613,11 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
-                "64bc816ed683fb56"
+                "64bc816ed683fb56",
+                "6b01003a6c66d013"
             ]
         ]
     },
@@ -6705,7 +6629,7 @@
         "name": "Gør KP data maskinelt læsbart",
         "info": "",
         "x": 490,
-        "y": 1220,
+        "y": 1260,
         "wires": []
     },
     {
@@ -6729,7 +6653,7 @@
         "to": "",
         "reg": false,
         "x": 1190,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "7f450a3e484312bd"
@@ -6758,7 +6682,7 @@
         "to": "",
         "reg": false,
         "x": 470,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "2cf375bbbada29f9"
@@ -6787,7 +6711,7 @@
         "to": "",
         "reg": false,
         "x": 410,
-        "y": 1380,
+        "y": 1420,
         "wires": [
             [
                 "12d9ffdfaf71a523"
@@ -6816,7 +6740,7 @@
         "to": "",
         "reg": false,
         "x": 420,
-        "y": 1420,
+        "y": 1460,
         "wires": [
             [
                 "ca6df1c9d056a924"
@@ -6831,7 +6755,7 @@
         "name": "Transformer faktura data (+ fjern unødvendig data)",
         "info": "",
         "x": 1250,
-        "y": 1220,
+        "y": 1260,
         "wires": []
     },
     {
@@ -6855,7 +6779,7 @@
         "to": "",
         "reg": false,
         "x": 1160,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
                 "6afaf8f1c596de67"
@@ -6883,7 +6807,7 @@
         "to": "",
         "reg": false,
         "x": 1160,
-        "y": 1300,
+        "y": 1340,
         "wires": [
             [
                 "141037f73383a9f6"
@@ -6918,7 +6842,7 @@
         "to": "",
         "reg": false,
         "x": 1170,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "046eb82cefda08d4"
@@ -6947,7 +6871,7 @@
         "to": "",
         "reg": false,
         "x": 810,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "4c51b10755b92b07"
@@ -6962,7 +6886,7 @@
         "name": "Kontroller KP data ud fra regelsæt",
         "info": "",
         "x": 820,
-        "y": 1240,
+        "y": 1280,
         "wires": []
     },
     {
@@ -6986,7 +6910,7 @@
         "to": "",
         "reg": false,
         "x": 810,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "4e374431cb68ace4"
@@ -7014,7 +6938,7 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 1360,
+        "y": 1400,
         "wires": [
             [
                 "5e112e4574f64f9b"
@@ -7042,7 +6966,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "ac26dfbc2efcbb4f"
@@ -7070,7 +6994,7 @@
         "to": "",
         "reg": false,
         "x": 1250,
-        "y": 1540,
+        "y": 1580,
         "wires": [
             [
                 "dc943787affd67f4",
@@ -7086,7 +7010,7 @@
         "name": "Find relevant data for hver behandling på faktura",
         "info": "",
         "x": 1240,
-        "y": 1460,
+        "y": 1500,
         "wires": []
     },
     {
@@ -7110,7 +7034,7 @@
         "to": "",
         "reg": false,
         "x": 1230,
-        "y": 1420,
+        "y": 1460,
         "wires": [
             [
                 "6cfa59d7c02c8c82"
@@ -7125,7 +7049,7 @@
         "name": "Find relevant data for hver faktura",
         "info": "",
         "x": 1190,
-        "y": 1380,
+        "y": 1420,
         "wires": []
     },
     {
@@ -7136,7 +7060,7 @@
         "name": "[T] Transformér data, beregn tilskud",
         "info": "",
         "x": 500,
-        "y": 1100,
+        "y": 1140,
         "wires": []
     },
     {
@@ -7152,7 +7076,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 1460,
+        "y": 1500,
         "wires": [
             [
                 "81cc412d0d2170b9"
@@ -7180,7 +7104,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "b01934ac82f070c3"
@@ -7195,7 +7119,7 @@
         "name": "Mangler borgere?",
         "info": "",
         "x": 730,
-        "y": 1120,
+        "y": 1160,
         "wires": []
     },
     {
@@ -7219,7 +7143,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 1440,
+        "y": 1480,
         "wires": [
             [
                 "71c55498ef71a4c9"
@@ -7247,7 +7171,7 @@
         "to": "",
         "reg": false,
         "x": 410,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "7d7a7bf5a54224e8"
@@ -7296,7 +7220,7 @@
         "to": "",
         "reg": false,
         "x": 1660,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "19bdc53204115899",
@@ -7312,7 +7236,7 @@
         "name": "Kontrol om alle fakturaer er arkiveret",
         "info": "",
         "x": 580,
-        "y": 2120,
+        "y": 2160,
         "wires": []
     },
     {
@@ -7321,14 +7245,14 @@
         "z": "8ea344595d9a442a",
         "g": "380e5c7e0ea3778b",
         "name": "Check if all is archived",
-        "func": "var isAllArchived = true;\n\nvar receiptsActions = [];\nvar receiptsNoActions = [];\n\n/*\nif (global.get(\"webData\") !== undefined)\n{\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptsActions += global.get(\"webData\")[\"citizens-actions\"];\n\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        receiptsNoActions += global.get(\"webData\")[\"citizens-noactions\"];\n\n    if (!Array.isArray(receiptsActions)) receiptsActions = [receiptsActions];\n    if (!Array.isArray(receiptsNoActions)) receiptsNoActions = [receiptsNoActions];\n}\n\nvar allReceipts = [];\n//allReceipts = allReceipts.concat(receiptsActions, receiptsNoActions);\nfor (var i = 0; i < receiptsActions.length; i++)\n    allReceipts.push(receiptsActions[i]);\n    \nfor (var i = 0; i < receiptsNoActions.length; i++)\n    allReceipts.push(receiptsNoActions[i]);\n    \nvar acceptedReceipts;\n\nglobal.set(\"tempTest\", allReceipts);\n*/\nvar acceptedReceipts = msg.currentRun.processedReceipts;\nvar allReceipts = msg.tempData;\n\nif(!Array.isArray(allReceipts))\n    allReceipts = [allReceipts];\n\nif (allReceipts.length == 0 || allReceipts == null)\n{\n    console.log(\"Length = 0 or null is happening!\");\n    msg.isArchived = true;\n    return msg;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceipts = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts;\n*/\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\nvar remainingCount = allReceipts.length - acceptedReceipts.length;\n\nfor (var i = 0; i < allReceipts.length; i++)\n{\n\n    if (allReceipts[i].faktura === null || allReceipts[i].faktura === undefined)\n        continue;\n\n    var fakturaer = Array.isArray(allReceipts[i].faktura) ? allReceipts[i].faktura : [allReceipts[i].faktura];\n\n    for(var j = 0; j < fakturaer.length; j++)\n        if (!acceptedReceipts.includes(fakturaer[j].id))\n            isAllArchived = false;\n}\n\nmsg.isArchived = isAllArchived;\n\nreturn msg;",
+        "func": "\nvar acceptedReceipts = msg.currentRun.processedReceipts;\nif(!Array.isArray(acceptedReceipts)) acceptedReceipts = [acceptedReceipts];\n\nvar allReceipts = msg.receipts;\nif (!Array.isArray(allReceipts)) allReceipts = [allReceipts];\n\nvar remainingCount = allReceipts.length - acceptedReceipts.length;\n\nmsg.isArchived = !(remainingCount > 0);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 2200,
+        "y": 2240,
         "wires": [
             [
                 "8f4d2dcc4c986825"
@@ -7355,67 +7279,13 @@
         "repair": false,
         "outputs": 2,
         "x": 750,
-        "y": 2200,
+        "y": 2240,
         "wires": [
             [
                 "78f7e1718ab3f755"
             ],
             [
                 "4840de2e1aa54398"
-            ]
-        ]
-    },
-    {
-        "id": "5f3a3d3e30d3be55",
-        "type": "change",
-        "z": "8ea344595d9a442a",
-        "g": "380e5c7e0ea3778b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "tempData1",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "tempData2",
-                "pt": "msg",
-                "to": "errors",
-                "tot": "global",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "tempData",
-                "pt": "msg",
-                "to": "$append(tempData1, tempData2)",
-                "tot": "jsonata"
-            },
-            {
-                "t": "delete",
-                "p": "tempData1",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "tempData2",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 520,
-        "y": 2160,
-        "wires": [
-            [
-                "c7ca8c02a788a41d"
             ]
         ]
     },
@@ -7448,23 +7318,12 @@
         "to": "",
         "reg": false,
         "x": 970,
-        "y": 2180,
+        "y": 2220,
         "wires": [
             [
                 "4840de2e1aa54398"
             ]
         ]
-    },
-    {
-        "id": "c9559b185b3f221b",
-        "type": "comment",
-        "z": "8ea344595d9a442a",
-        "g": "3fd0647603ec528e",
-        "name": "RESET ALT",
-        "info": "",
-        "x": 170,
-        "y": 60,
-        "wires": []
     },
     {
         "id": "63ec872a76a39ffb",
@@ -7483,7 +7342,7 @@
             "d0ec6e3e02665e27"
         ],
         "x": 1765,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "d8fce4eadecd4493",
@@ -7499,7 +7358,7 @@
         "name": "RunHistory WiP",
         "info": "",
         "x": 1820,
-        "y": 1040,
+        "y": 1080,
         "wires": []
     },
     {
@@ -7530,7 +7389,7 @@
         "to": "",
         "reg": false,
         "x": 1970,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "427c8a1a563502c8"
@@ -7548,7 +7407,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2095,
-        "y": 540,
+        "y": 580,
         "wires": []
     },
     {
@@ -7579,7 +7438,7 @@
         "to": "",
         "reg": false,
         "x": 1970,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "5b599232bb01d1d2"
@@ -7597,7 +7456,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2095,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -7628,7 +7487,7 @@
         "to": "",
         "reg": false,
         "x": 1970,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "75f1aaf5a21e12a8"
@@ -7646,7 +7505,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2095,
-        "y": 780,
+        "y": 820,
         "wires": []
     },
     {
@@ -7677,7 +7536,7 @@
         "to": "",
         "reg": false,
         "x": 1970,
-        "y": 1540,
+        "y": 1580,
         "wires": [
             [
                 "5ee0ef61ccdcafac"
@@ -7695,7 +7554,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2095,
-        "y": 1540,
+        "y": 1580,
         "wires": []
     },
     {
@@ -7726,7 +7585,7 @@
         "to": "",
         "reg": false,
         "x": 1970,
-        "y": 1860,
+        "y": 1900,
         "wires": [
             [
                 "f1884a7421b13391"
@@ -7744,7 +7603,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2095,
-        "y": 1860,
+        "y": 1900,
         "wires": []
     },
     {
@@ -7768,7 +7627,7 @@
         "to": "",
         "reg": false,
         "x": 1880,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "87437eca4cc7eec9"
@@ -7794,7 +7653,7 @@
         "repair": false,
         "outputs": 2,
         "x": 410,
-        "y": 980,
+        "y": 1020,
         "wires": [
             [
                 "96eacaac34db6202"
@@ -7860,7 +7719,7 @@
         "to": "",
         "reg": false,
         "x": 115,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "42e8d0e6b5e55314",
@@ -7880,7 +7739,7 @@
             "5c74b689e0aee38b"
         ],
         "x": 195,
-        "y": 1020,
+        "y": 1060,
         "wires": []
     },
     {
@@ -7910,7 +7769,7 @@
         "to": "",
         "reg": false,
         "x": 1310,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "181615f06b564d1e"
@@ -7927,7 +7786,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 1415,
-        "y": 880,
+        "y": 920,
         "wires": []
     },
     {
@@ -7942,7 +7801,7 @@
         "finalize": "",
         "libs": [],
         "x": 1160,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "30f14b6f815a98ef"
@@ -7956,7 +7815,7 @@
         "name": "Tjek om fakturaliste er tom",
         "info": "",
         "x": 470,
-        "y": 940,
+        "y": 980,
         "wires": []
     },
     {
@@ -8099,7 +7958,7 @@
         "to": "",
         "reg": false,
         "x": 470,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "c2df29c07624e5e0"
@@ -8127,7 +7986,7 @@
         "to": "",
         "reg": false,
         "x": 440,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "bc99d7022f61a990"
@@ -8169,7 +8028,7 @@
         "to": "",
         "reg": false,
         "x": 690,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "c8857f0a61f8c92e"
@@ -8183,7 +8042,7 @@
         "g": "9c4f3569ebca5f7b",
         "name": "",
         "x": 1000,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "70ade91971d73d3b"
@@ -8201,7 +8060,7 @@
         "name": "Klargør læsning af persondata fra KP",
         "info": "",
         "x": 750,
-        "y": 740,
+        "y": 780,
         "wires": []
     },
     {
@@ -8212,7 +8071,7 @@
         "name": "Læs CPR fra faktura",
         "info": "",
         "x": 450,
-        "y": 740,
+        "y": 780,
         "wires": []
     },
     {
@@ -8243,7 +8102,7 @@
         "to": "",
         "reg": false,
         "x": 1220,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "81a00971b2ea464e",
@@ -8266,7 +8125,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1230,
-        "y": 820,
+        "y": 860,
         "wires": []
     },
     {
@@ -8277,7 +8136,7 @@
         "name": "Læs persondata",
         "info": "",
         "x": 1000,
-        "y": 740,
+        "y": 780,
         "wires": []
     },
     {
@@ -8288,7 +8147,7 @@
         "name": "Gem data i midlertidig hukommelse",
         "info": "",
         "x": 1280,
-        "y": 740,
+        "y": 780,
         "wires": []
     },
     {
@@ -8299,7 +8158,7 @@
         "name": "[E] Læs relevant persondata fra KP vedr. de pågældende borgere",
         "info": "",
         "x": 590,
-        "y": 680,
+        "y": 720,
         "wires": []
     },
     {
@@ -8313,7 +8172,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 2105,
-        "y": 440,
+        "y": 480,
         "wires": []
     },
     {
@@ -8342,7 +8201,7 @@
         "to": "",
         "reg": false,
         "x": 1915,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "2c999012fa2d0842",
@@ -8362,7 +8221,7 @@
             "5c74b689e0aee38b"
         ],
         "x": 2005,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -8400,7 +8259,7 @@
         "to": "",
         "reg": false,
         "x": 1990,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "7e0e36d833794733"
@@ -8426,7 +8285,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 2030,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "0af59de1688c9df4"
@@ -8452,7 +8311,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 90,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             [
                 "812e5235b331e002"
@@ -8494,7 +8353,7 @@
         "to": "",
         "reg": false,
         "x": 120,
-        "y": 1100,
+        "y": 1140,
         "wires": [
             [
                 "d0ec6e3e02665e27"
@@ -8512,7 +8371,7 @@
             "63ec872a76a39ffb"
         ],
         "x": 225,
-        "y": 1100,
+        "y": 1140,
         "wires": []
     },
     {
@@ -8536,7 +8395,7 @@
         "to": "",
         "reg": false,
         "x": 1435,
-        "y": 1420,
+        "y": 1460,
         "wires": [
             [
                 "05096968ae22cc6f"
@@ -8555,7 +8414,7 @@
                 "t": "set",
                 "p": "currentRun",
                 "pt": "msg",
-                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t:\t$lastRunWasToday ?\t    $lastRun\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    $lastRun.timestamp ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
+                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t/*$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;*/\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t/*:\t$lastRunWasToday ?\t    $lastRun*/\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    (($lastRun.endDate ~> $toMillis('[D01]/[M01]/[Y0001]')) + 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t                    \t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
                 "tot": "jsonata"
             }
         ],
@@ -8565,12 +8424,648 @@
         "to": "",
         "reg": false,
         "x": 1190,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
-                "0315b599de1a9914"
+                "0315b599de1a9914",
+                "5ab8f6b07a5e86d8"
             ]
         ]
+    },
+    {
+        "id": "5ab8f6b07a5e86d8",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "## STARTING RUN",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1610,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d2046b01f19e1166",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "## ARCHIVING",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1530,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "e3a48c9fa5b8b4d4",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "FINALIZING UI",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "e1a765292dfcc859",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 3420,
+        "wires": [
+            [
+                "b5badb44837098f9"
+            ]
+        ]
+    },
+    {
+        "id": "b5badb44837098f9",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "set runHistory",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 3420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "72df366e32bdb61f",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 3320,
+        "wires": [
+            [
+                "e14341e7aef81e59"
+            ]
+        ]
+    },
+    {
+        "id": "e14341e7aef81e59",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "Reset ALL",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::grants",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::rules",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "#:(storeInFile)::webSettings",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webStates",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webSteps",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webData",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 170,
+        "y": 3320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c9559b185b3f221b",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "RESET ALT",
+        "info": "",
+        "x": 170,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "2d3128d22fb1c532",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 3360,
+        "wires": [
+            [
+                "40785040f06925f6"
+            ]
+        ]
+    },
+    {
+        "id": "40785040f06925f6",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "3fd0647603ec528e",
+        "name": "Reset webData",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "webStates",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webSteps",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "webData",
+                "pt": "global"
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.acceptances.login",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 3360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "058dd19a1031a295",
+        "type": "comment",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "RESET robot ved fejl",
+        "info": "",
+        "x": 210,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ba775987982c42fc",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "GENOPTAG SENESTE KØRSEL",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "53225eb49fe0ac22"
+            ]
+        ]
+    },
+    {
+        "id": "53225eb49fe0ac22",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistoryBackup",
+                "pt": "global",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.acceptances.login",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "delete",
+                "p": "webData",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 475,
+        "y": 120,
+        "wires": [
+            [
+                "5f4c45329970fab2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5f4c45329970fab2",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "function 2",
+        "func": "if(!Array.isArray(msg.runHistory))\n    msg.runHistory = [msg.runHistory];\n\nvar runHistory = msg.runHistory;\n\nrunHistory[runHistory.length - 1].isFinalized = false;\nrunHistory[runHistory.length - 1].allReceiptsProcessed = false;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 515,
+        "y": 120,
+        "wires": [
+            [
+                "1dce62fb28ae79dd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1dce62fb28ae79dd",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 120,
+        "wires": [
+            [
+                "1ff45df4387920c6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1ff45df4387920c6",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "Robot RESET",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 120,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "aa3ea19c4462cb7e",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 780,
+        "y": 60,
+        "wires": [
+            [
+                "ce4f6a48e231c44c"
+            ]
+        ]
+    },
+    {
+        "id": "ce4f6a48e231c44c",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "name": "Retrieve runHistory backup",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "#:(storeInFile)::runHistoryBackup",
+                "tot": "global",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d14dd9c7f3d7896",
+        "type": "inject",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "AFSLUT SENESTE KØRSEL",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "a89a3d18c7ac4270"
+            ]
+        ]
+    },
+    {
+        "id": "a89a3d18c7ac4270",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistoryBackup",
+                "pt": "global",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "runHistory",
+                "pt": "msg",
+                "to": "#:(storeInFile)::runHistory",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::webSettings.acceptances.login",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "delete",
+                "p": "webData",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 475,
+        "y": 160,
+        "wires": [
+            [
+                "fa1612c70b1b3ea7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "fa1612c70b1b3ea7",
+        "type": "function",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "function 3",
+        "func": "if(!Array.isArray(msg.runHistory))\n    msg.runHistory = [msg.runHistory];\n\nvar runHistory = msg.runHistory;\n\nrunHistory[runHistory.length - 1].isFinalized = true;\nrunHistory[runHistory.length - 1].allReceiptsProcessed = true;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 515,
+        "y": 160,
+        "wires": [
+            [
+                "c8ade2cefd45991f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c8ade2cefd45991f",
+        "type": "change",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::runHistory",
+                "pt": "global",
+                "to": "runHistory",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 160,
+        "wires": [
+            [
+                "84370f778b40a70d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "84370f778b40a70d",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "g": "bb5f1c24606d30f1",
+        "name": "Robot RESET",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 160,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6b01003a6c66d013",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 250,
+        "y": 1360,
+        "wires": []
     },
     {
         "id": "248d64bf4e74f440",
