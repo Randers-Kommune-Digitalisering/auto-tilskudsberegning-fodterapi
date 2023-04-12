@@ -310,7 +310,9 @@
             "412dc2399a0183b9"
         ],
         "x": 454,
-        "y": 419
+        "y": 419,
+        "w": 1232,
+        "h": 502
     },
     {
         "id": "0e177132df886f4e",
@@ -335,7 +337,9 @@
             "164122de385f07b8"
         ],
         "x": 494,
-        "y": 939
+        "y": 939,
+        "w": 1192,
+        "h": 202
     },
     {
         "id": "e4e7a254403521e9",
@@ -361,7 +365,9 @@
             "419b7ad31525a3a3"
         ],
         "x": 494,
-        "y": 1159
+        "y": 1159,
+        "w": 1192,
+        "h": 122
     },
     {
         "id": "0772648cf2b898d4",
@@ -380,7 +386,9 @@
             "8d172c16f57e9a2b"
         ],
         "x": 14,
-        "y": 519
+        "y": 519,
+        "w": 312,
+        "h": 264.5
     },
     {
         "id": "dff24743df339ae5",
@@ -398,7 +406,9 @@
             "b0adba24e19779d2"
         ],
         "x": 534,
-        "y": 279
+        "y": 279,
+        "w": 1152,
+        "h": 122
     },
     {
         "id": "0d6121cfccf91882",
@@ -424,7 +434,9 @@
             "269002ef959b2b77"
         ],
         "x": 74,
-        "y": 59
+        "y": 59,
+        "w": 1612,
+        "h": 142
     },
     {
         "id": "287b33b8879cbbbc",
@@ -828,8 +840,8 @@
             "e1a765292dfcc859",
             "b5badb44837098f9"
         ],
-        "x": 54,
-        "y": 3239,
+        "x": 14,
+        "y": 439,
         "w": 232,
         "h": 222
     },
@@ -1241,7 +1253,8 @@
         "y": 1940,
         "wires": [
             [
-                "92b00035cd1abc44"
+                "92b00035cd1abc44",
+                "97b819954a422102"
             ]
         ]
     },
@@ -1286,7 +1299,6 @@
         "id": "b93057423dbab117",
         "type": "http in",
         "z": "41d1b8798efe7e15",
-        "d": true,
         "name": "",
         "url": "/pup",
         "method": "get",
@@ -1304,7 +1316,6 @@
         "id": "5c5841605bcac134",
         "type": "http response",
         "z": "41d1b8798efe7e15",
-        "d": true,
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1363,7 +1374,6 @@
         "id": "8646ac73ab639fcd",
         "type": "http in",
         "z": "41d1b8798efe7e15",
-        "d": true,
         "name": "",
         "url": "/puprun",
         "method": "post",
@@ -1464,7 +1474,7 @@
         "type": "function",
         "z": "41d1b8798efe7e15",
         "name": "Solo Controller",
-        "func": "const pup = global.get('puppeteer');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\n\nvar actions = [];\n//var outputs = [];\nvar outputs = {};\n\nconst timeoutMs = 6500;\n\n(async () => {\n\n    const actionList = msg.payload;\n    var actionPerformed;\n\n    for (let i = 0; i < actionList.length; i++) {\n        \n        try {\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const page = (await browser.pages())[msg.pupController.activePage];\n\n            page.setDefaultNavigationTimeout(1000); \n            //page.setDefaultNavigationTimeout(10000);\n\n            var ele = actionList[i];\n            const action = ele.action;\n\n            await page.waitForNetworkIdle();\n\n            switch (action)\n            {\n                case \"launch\":\n                case \"newtab\":\n                    break;\n\n                case \"goto\":\n                    if (ele.url != null)\n                        await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });\n                    else\n                        actionPerformed = ReportError(ele, \"Error: URL was lost\");\n                    break;\n\n                case \"click\":\n                    if(ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"clickifexists\":\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    \n                    const exists = !! await page.$(ele.path);\n\n                    //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if(exists)\n                        await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"type\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if (ele.clear == true || ele.clearInput == true || ele.clear == \"true\" || ele.clearInput == \"true\")\n                        await page.click(ele.path, { clickCount: 3 });\n                    await page.type(ele.path, ele.input);\n                    break;\n\n                case \"select\":\n                    let elemHandler = await page.$(ele.path);\n                    let properties = await elemHandler.getProperties();\n                    for (const property of properties.values())\n                    {\n                        const element = property.asElement();\n                        if (element)\n                        {\n                            let hText = await element.getProperty(\"text\");\n                            let text = await hText.jsonValue();\n                            if (text === ele.input)\n                            {\n                                let hValue = await element.getProperty(\"value\");\n                                let value = await hValue.jsonValue();\n                                await page.select(ele.path, value); // or use 58730\n                                //console.log(`Selected ${text} which is value ${value}.`);\n                            }\n                        }\n                    }\n                    /*\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.select(ele.path, ele.input);\n                    */\n                    break;\n\n                case \"get\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    var content = await page.$eval(ele.path, el => el.innerText);\n                    ele.output = actionList[i].output = content;\n                    break;\n\n                case \"geturl\":\n                    ele.output = actionList[i].output = page.url();\n\n                case \"wait\":\n                    if(ele.ms != null)\n                        await wait(ele.ms);\n                    break;\n\n                case \"close\":\n                    await browser.close();\n                    msg.pupController.browser = null;\n                    msg.pupController.pages = null;\n                    break;\n            }\n\n            ele.succesful = true;\n            actionPerformed = ReportAction(ele);\n            node.send([null, actionPerformed]);\n\n            //if(i == actionList.length-1 && action != \"close\")\n            //    await browser.close();\n            \n            \n        }\n        catch (e)\n        {\n            console.log(\"PupController error: \" + JSON.stringify(e));\n            //node.error(\"Error:\", e);\n            actionList[i].succesful = false;\n            actionPerformed = ReportError(actionList[i], e);\n            \n            node.send([null, actionPerformed]);\n\n            /*if (i == actionList.length - 1 && actionList[i] != \"close\")\n                await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS }).then(browser => browser.close());\n                //await browser.close();*/\n        }\n\n    }\n\n\n    msg.pupOutputs = outputs;\n    node.send([msg, null]);\n})();\n\nasync function wait(_ms)\n{\n    let promise = new Promise((resolve, reject) => {\n        setTimeout(() => resolve(\"done!\"), _ms)\n    });\n    let result = await promise; // wait until the promise resolves (*)\n    //alert(result); // \"done!\"\n}\n\nfunction ReportAction(a, s = true)\n{\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a.action,\n        \"succesful\": s,\n        \"obj\": a\n    });\n\n    if(a.output != null)\n    {\n        var outputName = a.name;\n        var outputObj = a.obj;\n\n        if(outputObj != null && outputObj != \"\")\n        {\n            outputs[outputObj] = outputs[outputObj] == null ? {} : outputs[outputObj];\n            outputs[outputObj][outputName] = a.output;\n        }\n        else\n            outputs[outputName] = a.output;\n        /*\n        outputs.push({\n            \"name\": a.name,\n            \"value\": a.output\n        });*/\n    }\n    return newAction;\n}\n\nfunction ReportError(a, e)\n{\n    console.log(e);\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a,\n        \"succesful\": false,\n        \"error\": e,\n        \"obj\": a\n    });\n    return newAction;\n}\n\nasync function setDownloadBehavior(page) {\n    const client = await page.target().createCDPSession();\n    await client.send('Page.setDownloadBehavior', {\n        behavior: 'allow',\n        downloadPath: downloadPath\n    });\n}\n\n\n\n\n\n\n/*\n(async () => {\n    if (msg.command.url != null)\n        try {\n            //const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.browserWS })\n            //const page = (await browser.pages())[msg.pupController.activePage];\n            const page = (await browser.pages())[msg.activePage];\n\n            await page.waitForNetworkIdle();\n            await page.goto(msg.command.url);\n            msg.succesful = true;\n\n        }\n        catch (e) {\n            console.log(e);\n            msg.succesful = false;\n            msg.error = e;\n        }\n    else {\n        msg.succesful = false;\n        msg.error = \"Error: URL was null\";\n        console.log(msg.error);\n    }\n\n    node.send(msg);\n})();\n*/",
+        "func": "const pup = global.get('puppeteer');\nconst path = global.get('path');\nconst downloadPath = path.resolve('./download');\n\nvar actions = [];\n//var outputs = [];\nvar outputs = {};\n\nconst timeoutMs = 6500;\n\n(async () => {\n\n    const actionList = msg.payload;\n    var actionPerformed;\n\n    for (let i = 0; i < actionList.length; i++) {\n        \n        try {\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const page = (await browser.pages())[msg.pupController.activePage];\n\n            page.setDefaultNavigationTimeout(1000); \n            //page.setDefaultNavigationTimeout(10000);\n\n            var ele = actionList[i];\n            const action = ele.action;\n\n            await page.waitForNetworkIdle();\n\n            switch (action)\n            {\n                case \"launch\":\n                case \"newtab\":\n                    break;\n\n                case \"goto\":\n                    if (ele.url != null)\n                        await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });\n                    else\n                        actionPerformed = ReportError(ele, \"Error: URL was lost\");\n                    break;\n\n                case \"click\":\n                    if(ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"clickifexists\":\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        setDownloadBehavior(page);\n                    \n                    const exists = !! await page.$(ele.path);\n\n                    //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if(exists)\n                        await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));\n\n                    if (ele.isDownload == true || ele.isDownload == \"true\")\n                        await page.waitForNetworkIdle();\n                    break;\n\n                case \"type\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    if (ele.clear == true || ele.clearInput == true || ele.clear == \"true\" || ele.clearInput == \"true\")\n                        await page.click(ele.path, { clickCount: 3 });\n                    await page.type(ele.path, ele.input);\n                    break;\n\n                case \"select\":\n                    //let elemHandler = await page.$(ele.path).then(x => console.log(\n                        //console.log(\"ELEMENT HANDLE FOUND: \" + x)));\n                    let properties = await page.$(ele.path).then(elemHandler => elemHandler.getProperties());\n                    for (const property of properties.values())\n                    {\n                        const element = property.asElement();\n                        if (element)\n                        {\n                            let hText = await element.getProperty(\"text\");\n                            let text = await hText.jsonValue();\n                            if (text === ele.input)\n                            {\n                                let hValue = await element.getProperty(\"value\");\n                                let value = await hValue.jsonValue();\n                                await page.select(ele.path, value); // or use 58730\n                                //console.log(`Selected ${text} which is value ${value}.`);\n                            }\n                        }\n                    }\n                    /*\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    await page.select(ele.path, ele.input);\n                    */\n                    break;\n\n                case \"get\":\n                    await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });\n                    var content = await page.$eval(ele.path, el => el.innerText);\n                    ele.output = actionList[i].output = content;\n                    break;\n\n                case \"geturl\":\n                    ele.output = actionList[i].output = page.url();\n                    break;\n                /*\n                case \"login\":\n                    var login_username = ele.username;\n                    var login_password = ele.password;\n                    await page.authenticate({ 'username': 'YOUR_BASIC_AUTH_USERNAME', 'password': 'YOUR_BASIC_AUTH_PASSWORD' });\n                    break;\n                */\n                case \"wait\":\n                    if(ele.ms != null)\n                        await wait(ele.ms);\n                    break;\n\n                case \"close\":\n                    await browser.close();\n                    msg.pupController.browser = null;\n                    msg.pupController.pages = null;\n                    break;\n            }\n\n            ele.succesful = true;\n            actionPerformed = ReportAction(ele);\n            node.send([null, actionPerformed]);\n\n            //if(i == actionList.length-1 && action != \"close\")\n            //    await browser.close();\n            \n            \n        }\n        catch (e)\n        {\n            console.log(\"PupController error: \" + JSON.stringify(e));\n            //node.error(\"Error:\", e);\n            actionList[i].succesful = false;\n            actionPerformed = ReportError(actionList[i], e);\n            \n            node.send([null, actionPerformed]);\n\n            /*if (i == actionList.length - 1 && actionList[i] != \"close\")\n                await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS }).then(browser => browser.close());\n                //await browser.close();*/\n        }\n\n    }\n\n\n    msg.pupOutputs = outputs;\n    node.send([msg, null]);\n})();\n\nasync function wait(_ms)\n{\n    let promise = new Promise((resolve, reject) => {\n        setTimeout(() => resolve(\"done!\"), _ms)\n    });\n    let result = await promise; // wait until the promise resolves (*)\n    //alert(result); // \"done!\"\n}\n\nfunction ReportAction(a, s = true)\n{\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a.action,\n        \"succesful\": s,\n        \"obj\": a\n    });\n\n    if(a.output != null)\n    {\n        var outputName = a.name;\n        var outputObj = a.obj;\n\n        if(outputObj != null && outputObj != \"\")\n        {\n            outputs[outputObj] = outputs[outputObj] == null ? {} : outputs[outputObj];\n            outputs[outputObj][outputName] = a.output;\n        }\n        else\n            outputs[outputName] = a.output;\n        /*\n        outputs.push({\n            \"name\": a.name,\n            \"value\": a.output\n        });*/\n    }\n    return newAction;\n}\n\nfunction ReportError(a, e)\n{\n    console.log(e);\n    var newAction;\n    actions.push(newAction = {\n        \"action\": a,\n        \"succesful\": false,\n        \"error\": e,\n        \"obj\": a\n    });\n    return newAction;\n}\n\nasync function setDownloadBehavior(page) {\n    const client = await page.target().createCDPSession();\n    await client.send('Page.setDownloadBehavior', {\n        behavior: 'allow',\n        downloadPath: downloadPath\n    });\n}\n\n\n\n\n\n\n/*\n(async () => {\n    if (msg.command.url != null)\n        try {\n            //const browser = await pup.connect({ \"browserWSEndpoint\": msg.pupController.browserWS })\n            const browser = await pup.connect({ \"browserWSEndpoint\": msg.browserWS })\n            //const page = (await browser.pages())[msg.pupController.activePage];\n            const page = (await browser.pages())[msg.activePage];\n\n            await page.waitForNetworkIdle();\n            await page.goto(msg.command.url);\n            msg.succesful = true;\n\n        }\n        catch (e) {\n            console.log(e);\n            msg.succesful = false;\n            msg.error = e;\n        }\n    else {\n        msg.succesful = false;\n        msg.error = \"Error: URL was null\";\n        console.log(msg.error);\n    }\n\n    node.send(msg);\n})();\n*/",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -3426,7 +3436,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "element: actionsCard",
-        "func": "var receiptCount = 0;\nvar remainingCount = 0;\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nif (dataExists)\n{\n\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n\n        if (!Array.isArray(global.get(\"webData\")[\"citizens-actions\"]))\n        {\n            var webData = global.get(\"webData\");\n            webData[\"citizens-actions\"] = [webData[\"citizens-actions\"]];\n            global.set(\"webData\", webData);\n        }\n            //global.set(\"webData\")[\"citizens-actions\"] = [global.get(\"webData\")[\"citizens-actions\"])];\n\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount = global.get(\"webData\")[\"citizens-actions\"].length;\n\n    for (var i = 0; i < receiptCount; i++)\n        if (!((global.get(\"webData\")[\"citizens-actions\"])[i]).archived)\n            remainingCount++;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceiptCount = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts.length;*/\n\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\n//var remainingCount = receiptCount - acceptedReceiptCount;\n\n\n//receiptCount = remainingCount;\nvar html = ``;\n\nif (msg.payload.webSettings.state.isRunning)\n{\n    html = `<div class=\"card border-light\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">Ingen handlinger</h4>\n        <p class=\"card-text\">Vent venligst på at robotten bliver færdig med at arbejde...</p>\n        </div>\n    </div>`;\n    msg.payload.pageElements.actionsCard = html;\n    return msg;\n}\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && ( \n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n                    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n                        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n                        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isFinialized = currentRunExists ? currentRun.isFinalized : true;\n\nvar border = (receiptsAwaiting && !dataExists) || (receiptsAwaiting && receiptCount == 0) ? `danger` : receiptsAwaiting && receiptCount > 0 ? `info` : `light`;\nvar title =  (receiptsAwaiting && !dataExists) || (receiptsAwaiting && receiptCount == 0) ? \"Genoptag kørsel\" :\n              receiptsAwaiting ? (remainingCount + ` borgere afventer`) : !isFinialized ? `Afslut kørsel` :`Ingen fakturaer`;\nvar body =   (receiptsAwaiting && !dataExists) || (receiptsAwaiting && remainingCount == 0) ? \"Seneste kørsel blev ikke afsluttet. Genoptag kørslen for at hente manglende data.\" :\n              receiptsAwaiting ? \"Efter seneste kørsel er der \"+remainingCount+\" borgere med anbefalede handlinger som afventer behandling.\" : !isFinialized ? \"Afslut seneste kørsel til højre når du har bekræftet behandlingen af alle borgere.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nhtml =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        `\n        +\n        (remainingCount > 0 ? `<div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se borgere</button>\n        </div>`\n        : ``)\n        +\n        `\n    </div>\n</div>`;\n\nmsg.payload.pageElements.actionsCard = html;\nreturn msg;",
+        "func": "var receiptCount = 0;\nvar totalReceiptCount = 0;\nvar remainingCount = 0;\n\nvar dataExists = global.get(\"webData\") !== null && global.get(\"webData\") !== undefined;\n\nif (dataExists)\n{\n\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n\n        if (!Array.isArray(global.get(\"webData\")[\"citizens-actions\"]))\n        {\n            var webData = global.get(\"webData\");\n            webData[\"citizens-actions\"] = [webData[\"citizens-actions\"]];\n            global.set(\"webData\", webData);\n        }\n            //global.set(\"webData\")[\"citizens-actions\"] = [global.get(\"webData\")[\"citizens-actions\"])];\n\n    if (global.get(\"webData\")[\"citizens-actions\"] !== undefined)\n        receiptCount = global.get(\"webData\")[\"citizens-actions\"].length;\n\n\n    if (global.get(\"webData\")[\"citizens-noactions\"] !== undefined)\n        totalReceiptCount = receiptCount + global.get(\"webData\")[\"citizens-noactions\"].length;\n\n    for (var i = 0; i < receiptCount; i++)\n        if (!((global.get(\"webData\")[\"citizens-actions\"])[i]).archived)\n            remainingCount++;\n}\n\n/*\nif (global.get(\"runHistory\", \"storeInFile\") !== undefined)\n    if (global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1] !== undefined)\n        acceptedReceiptCount = global.get(\"runHistory\", \"storeInFile\")[global.get(\"runHistory\", \"storeInFile\").length - 1].processedReceipts.length;*/\n\n\n//typeof global.get(\"webData\") == undefined || !Array.isArray(global.get(\"webData\")[\"citizens-actions\"]) ? 0 : global.get(\"webData\")[\"citizens-actions\"].length;\n//var remainingCount = receiptCount - acceptedReceiptCount;\n\n\n//receiptCount = remainingCount;\nvar html = ``;\n\nif (msg.payload.webSettings.state.isRunning)\n{\n    html = `<div class=\"card border-light\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">Ingen handlinger</h4>\n        <p class=\"card-text\">Vent venligst på at robotten bliver færdig med at arbejde...</p>\n        </div>\n    </div>`;\n    msg.payload.pageElements.actionsCard = html;\n    return msg;\n}\n\nvar currentRunExists = global.get(\"runHistory\", \"storeInFile\") !== null && global.get(\"runHistory\", \"storeInFile\") !== undefined && ( \n    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ? !(global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]).isFinalized : !(global.get(\"runHistory\", \"storeInFile\")).isFinalized);\n\nvar currentRun = currentRunExists ?\n                    Array.isArray(global.get(\"runHistory\", \"storeInFile\")) ?\n                        global.get(\"runHistory\", \"storeInFile\")[(global.get(\"runHistory\", \"storeInFile\")).length - 1]\n                        : global.get(\"runHistory\", \"storeInFile\") : null;\n\n\nconst receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;\nconst isFinialized = currentRunExists ? currentRun.isFinalized : true;\n\nvar border = (receiptsAwaiting && !dataExists) || (receiptsAwaiting && totalReceiptCount == 0) ? `danger` : receiptsAwaiting && receiptCount > 0 ? `info` : `light`;\nvar title =  (receiptsAwaiting && !dataExists) || (receiptsAwaiting && totalReceiptCount == 0) ? \"Genoptag kørsel\" :\n              receiptsAwaiting ? (remainingCount + ` borgere afventer`) : !isFinialized ? `Afslut kørsel` :`Ingen fakturaer`;\nvar body = (receiptsAwaiting && !dataExists) || (receiptsAwaiting && totalReceiptCount == 0) ? \"Seneste kørsel blev ikke afsluttet. Genoptag kørslen for at hente manglende data.\" :\n              receiptsAwaiting ? \"Efter seneste kørsel er der \"+remainingCount+\" borgere med anbefalede handlinger som afventer behandling.\" : !isFinialized ? \"Afslut seneste kørsel til højre når du har bekræftet behandlingen af alle borgere.\" : \"Start en ny kørsel for at finde fakturaer som afventer behandling.\";\n\nhtml =\n`<div class=\"card border-`+border+`\">\n    <div class=\"card-header\">Anbefalede handlinger</div>\n    <div class=\"card-body\">\n        <h4 class=\"card-title\">`+title+`</h4>\n        <p class=\"card-text\">`+ body+`</p>\n        `\n        +\n        (remainingCount > 0 ? `<div class=\"d-grid\">\n            <button class=\"btn btn-lg btn-light border-light\" type=\"button\" onclick=\"goToPage('view-receipts')\">Se borgere</button>\n        </div>`\n        : ``)\n        +\n        `\n    </div>\n</div>`;\n\nmsg.payload.pageElements.actionsCard = html;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3679,7 +3689,7 @@
         "type": "function",
         "z": "43652557380ac3f3",
         "name": "Helbredstillægsprocent",
-        "func": "// payload.tempData.faktura._helbredstillaegsprocent.tillaegsprocent\n\nvar faktura = Array.isArray(msg.payload.tempData.faktura) ? msg.payload.tempData.faktura[0] : msg.payload.tempData.faktura;\nvar hprocent = 0;\n\nif (faktura._helbredstillaegsprocent != null && faktura._helbredstillaegsprocent != undefined)\n    hprocent = Array.isArray(faktura._helbredstillaegsprocent) ? faktura._helbredstillaegsprocent[0] : faktura._helbredstillaegsprocent;\n    \nelse\n    hprocent = Array.isArray(msg.payload.tempData.persondata.helbredstillaegsprocent) ?\n               msg.payload.tempData.persondata.helbredstillaegsprocent[0] :\n               msg.payload.tempData.persondata.helbredstillaegsprocent;\n\nmsg.payload.tempData.persondata._htillaegsprocent = (hprocent == null || hprocent == undefined) ? 0 : hprocent.tillaegsprocent;\n\nreturn msg;",
+        "func": "// payload.tempData.faktura._helbredstillaegsprocent.tillaegsprocent\n\nif (msg.payload.tempData.faktura == undefined || msg.payload.tempData.persondata == undefined)\n    return msg;\n\n\nvar faktura = Array.isArray(msg.payload.tempData.faktura) ? msg.payload.tempData.faktura[0] : msg.payload.tempData.faktura;\nvar hprocent = 0;\n\nif (faktura._helbredstillaegsprocent != null && faktura._helbredstillaegsprocent != undefined)\n    hprocent = Array.isArray(faktura._helbredstillaegsprocent) ? faktura._helbredstillaegsprocent[0] : faktura._helbredstillaegsprocent;\n    \nelse\n    hprocent = Array.isArray(msg.payload.tempData.persondata.helbredstillaegsprocent) ?\n               msg.payload.tempData.persondata.helbredstillaegsprocent[0] :\n               msg.payload.tempData.persondata.helbredstillaegsprocent;\n\nmsg.payload.tempData.persondata._htillaegsprocent = (hprocent == null || hprocent == undefined) ? 0 : hprocent.tillaegsprocent;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4699,7 +4709,8 @@
         "wires": [
             [
                 "2833bc30cabd27bb",
-                "a534a873bebc25b6"
+                "a534a873bebc25b6",
+                "4f8ccb830206b86d"
             ]
         ],
         "info": "## Define file name\r\nThis JS snippet utilizes the JavaScript date function `toDateString()` as well as some string manipulation to define the name of the JSON file which will be downloaded from Worklet web interface.\r\n\r\nThe name defined is later used to find and read the downloaded file, as the actual file name cannot be set when downloading, nor can it be retrieved as the download is in progress. Therefore, the name must be determined manually to match the naming procedure of Worklet web interface."
@@ -4824,7 +4835,8 @@
         "wires": [
             [
                 "0f583d6bfaad7d0e",
-                "26de970dcfce1beb"
+                "26de970dcfce1beb",
+                "6dacc4751f492eab"
             ]
         ],
         "info": "## Delete JSON file\r\n\r\nThis JS snippet utilizes the FS module to delete the JSON file after it has been read to memory."
@@ -5019,7 +5031,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t    {\t        \"action\": \"close\"\t    }\t    \t]",
+                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 50,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 10000\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t    {\t        \"action\": \"close\"\t    }\t    \t]",
                 "tot": "jsonata"
             },
             {
@@ -5097,7 +5109,7 @@
         "z": "8ea344595d9a442a",
         "g": "380e5c7e0ea3778b",
         "name": "Transform debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5115,7 +5127,7 @@
         "z": "8ea344595d9a442a",
         "g": "6c7a3f8252158db6",
         "name": "MSG ERRORS",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5178,7 +5190,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t\t$behandling.type = \"B\" ?\t{\t    \"tilskud\": $behandling.patientAndel\t}\t:\t{\t    \"tilskud\": $behandling.pris\t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t\t$behandling.type = \"B\" ?\t{\t    \"tilskud\": $behandling.patientAndel,\t    \"beregning\": ($behandling.patientAndel & \" kr\")\t}\t:\t{\t    \"tilskud\": $behandling.pris,\t    \"beregning\": ($behandling.pris & \" kr\")\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5364,7 +5376,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$danmarkSats := $$.tilskudsInfo.tilskudsperioder.satser[wtitel = $behandling.titel];\t$danmarkProcent := tilskud * ($danmarkSats.tilskud_procent / 100);\t$danmarkMax := $danmarkSats.tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"B\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t    \t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$danmarkSats := $$.tilskudsInfo.tilskudsperioder.satser[wtitel = $behandling.titel];\t$danmarkProcent := tilskud * ($danmarkSats.tilskud_procent / 100);\t$danmarkMax := $danmarkSats.tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"B\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t    \t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent),\t    \"beregning\": beregning & \" -\" & ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent) & \" (Danmark)\"\t    \t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5393,7 +5405,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"A\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)\t    \t}\t\t)|\t\t\t/*and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?*/",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"A\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent),\t    \"beregning\": beregning & \" -\" & ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent) & \" (Danmark)\"\t    \t}\t\t)|\t\t\t/*and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?*/",
                 "tot": "jsonata"
             }
         ],
@@ -5422,7 +5434,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_max_hjemme := $$.tilskudsInfo.max_hjemmebehandling;\t$tilskud_max_ude := $$.tilskudsInfo.max_udekoersel;\t\t    $behandling.type = \"A\" \tor\t        ($behandling.type = \"B\"\t    and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null)) ?\t{\t\t    \"tilskud\": (titel = \"Behandlingipatientsegethjem\") ?\t                    (tilskud > $tilskud_max_hjemme ? $tilskud_max_hjemme : tilskud)\t                    :\t                    (tilskud > $tilskud_max_ude ? $tilskud_max_ude : tilskud)\t    \t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_max_hjemme := $$.tilskudsInfo.max_hjemmebehandling;\t$tilskud_max_ude := $$.tilskudsInfo.max_udekoersel;\t\t    $behandling.type = \"A\" \tor\t        ($behandling.type = \"B\"\t    and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null)) ?\t{\t\t    \"tilskud\": (titel = \"Behandlingipatientsegethjem\") ?\t                    (tilskud > $tilskud_max_hjemme ? $tilskud_max_hjemme : tilskud)\t                    :\t                    (tilskud > $tilskud_max_ude ? $tilskud_max_ude : tilskud),\t    \"beregning\": beregning & \" = overstiger takst, derfor nedsat til \" & tilskud\t    \t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -5451,7 +5463,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\t{\t    \"tilskud\": tilskud * ($faktura._helbredstillaegsprocent.tillaegsprocent / 100)\t}\t\t)|",
+                "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\t{\t    \"tilskud\": tilskud * ($faktura._helbredstillaegsprocent.tillaegsprocent / 100),\t    \"beregning\": beregning & \" * \" & ($faktura._helbredstillaegsprocent.tillaegsprocent / 100) & \" = \" & tilskud & \" kr\"\t}\t\t)|",
                 "tot": "jsonata"
             }
         ],
@@ -6174,15 +6186,16 @@
                 "t": "set",
                 "p": "presetStartDate",
                 "pt": "msg",
-                "to": "29/03/2023",
+                "to": "04/04/2023",
                 "tot": "str"
             },
             {
                 "t": "set",
                 "p": "presetEndDate",
                 "pt": "msg",
-                "to": "27/03/2023",
-                "tot": "str"
+                "to": "presetStartDate",
+                "tot": "msg",
+                "dc": true
             }
         ],
         "action": "",
@@ -6239,8 +6252,7 @@
         "y": 300,
         "wires": [
             [
-                "2c5bfa6b7a2613ab",
-                "5ab8f6b07a5e86d8"
+                "2c5bfa6b7a2613ab"
             ]
         ]
     },
@@ -6985,7 +6997,8 @@
         "wires": [
             [
                 "dc943787affd67f4",
-                "e1e1f0e8189c47e5"
+                "e1e1f0e8189c47e5",
+                "c4cfcf10fce7bd98"
             ]
         ]
     },
@@ -7991,7 +8004,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[\t    {\t        \"action\": \"launch\",\t        \"parameters\":\t        {\t            \"headless\": true,\t            \"slowMo\": 30,\t            \"ignoreHTTPSErrors\": true,\t            \"defaultViewport\": null\t        }\t    },\t   {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t},\t   {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t\t},\t   {\t       \"action\": \"click\",\t       \"path\": \".button\"\t\t},\t\t{\t\t\t\"action\": \"get\",\t\t\t\"name\": \"navn\",\t\t\t\"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t\t}\t]",
+                "to": "[\t    {\t       \"action\": \"launch\",\t       \"parameters\":\t        {\t           \"headless\": true,\t           \"slowMo\": 25,\t           \"ignoreHTTPSErrors\": true,\t           \"defaultViewport\": null\t        }\t    },\t\t    {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t    },\t    \t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t    },\t        \t    {\t        \"action\": \"wait\",\t        \"ms\": 500\t    },\t\t    {\t       \"action\": \"click\",\t       \"path\": \".button\"\t    },\t\t    {\t       \"action\": \"get\",\t       \"name\": \"navn\",\t       \"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t    }\t]",
                 "tot": "jsonata"
             },
             {
@@ -8093,7 +8106,8 @@
         "wires": [
             [
                 "81a00971b2ea464e",
-                "172fe34eeccca8dd"
+                "172fe34eeccca8dd",
+                "98bc3b2a3f851a56"
             ]
         ]
     },
@@ -8401,7 +8415,7 @@
                 "t": "set",
                 "p": "currentRun",
                 "pt": "msg",
-                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t/*$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;*/\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t/*:\t$lastRunWasToday ?\t    $lastRun*/\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    (($lastRun.endDate ~> $toMillis('[D01]/[M01]/[Y0001]')) + 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t\t    \"endDate\":  ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t                    \t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
+                "to": "(\t$lastRun :=     runHistory[$count(runHistory)-1]\t ~> $exists() ? runHistory[$count(runHistory)-1];\t\t/*$lastRunWasToday := $lastRun ~> $exists ? ( $fromMillis($millis(), '[M01]/[D01]/[Y0001]') = $fromMillis($lastRun.timestamp, '[M01]/[D01]/[Y0001]') ) : false;*/\t\trunHistory[isFinalized = false] ~> $exists() ?\t    runHistory[isFinalized = false]\t/*:\t$lastRunWasToday ?\t    $lastRun*/\t:\t{\t    \"startDate\": $lastRun ~> $exists() ?\t                    (($lastRun.endDate ~> $toMillis('[D01]/[M01]/[Y0001]')) + 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]')\t                        : \t                    presetStartDate,\t\t    \"endDate\": ($millis() - 86400000) ~> $fromMillis('[D01]/[M01]/[Y0001]'), /* 86400000 ms = 1 day */\t                    \t    \"timestamp\": $millis(),\t    \t    \"processedReceipts\": [],\t\t    \"allReceiptsProcessed\": false,\t    \"isFinalized\": false,\t\t    \"currentStep\": {},\t    \"stepHistory\": [],\t    \"userName\": \"\"\t}\t)",
                 "tot": "jsonata"
             }
         ],
@@ -8414,34 +8428,16 @@
         "y": 300,
         "wires": [
             [
-                "0315b599de1a9914",
-                "5ab8f6b07a5e86d8"
+                "0315b599de1a9914"
             ]
         ]
-    },
-    {
-        "id": "5ab8f6b07a5e86d8",
-        "type": "debug",
-        "z": "8ea344595d9a442a",
-        "name": "## STARTING RUN",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1610,
-        "y": 100,
-        "wires": []
     },
     {
         "id": "d2046b01f19e1166",
         "type": "debug",
         "z": "8ea344595d9a442a",
         "name": "## ARCHIVING",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8492,8 +8488,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 3420,
+        "x": 120,
+        "y": 620,
         "wires": [
             [
                 "b5badb44837098f9"
@@ -8520,8 +8516,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 3420,
+        "x": 140,
+        "y": 620,
         "wires": [
             []
         ]
@@ -8548,8 +8544,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 3320,
+        "x": 120,
+        "y": 520,
         "wires": [
             [
                 "e14341e7aef81e59"
@@ -8604,8 +8600,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 170,
-        "y": 3320,
+        "x": 130,
+        "y": 520,
         "wires": [
             []
         ]
@@ -8617,8 +8613,8 @@
         "g": "3fd0647603ec528e",
         "name": "RESET ALT",
         "info": "",
-        "x": 170,
-        "y": 3280,
+        "x": 130,
+        "y": 480,
         "wires": []
     },
     {
@@ -8643,8 +8639,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 3360,
+        "x": 120,
+        "y": 560,
         "wires": [
             [
                 "40785040f06925f6"
@@ -8686,8 +8682,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 3360,
+        "x": 140,
+        "y": 560,
         "wires": [
             []
         ]
@@ -8892,7 +8888,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
+        "x": 1020,
         "y": 60,
         "wires": [
             []
@@ -9037,6 +9033,91 @@
         "y": 160,
         "wires": [],
         "l": false
+    },
+    {
+        "id": "4f8ccb830206b86d",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1780,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6dacc4751f492eab",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1930,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "98bc3b2a3f851a56",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1590,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c4cfcf10fce7bd98",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1580,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "97b819954a422102",
+        "type": "debug",
+        "z": "8ea344595d9a442a",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1740,
+        "y": 1960,
+        "wires": []
     },
     {
         "id": "248d64bf4e74f440",
