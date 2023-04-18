@@ -1,6 +1,5 @@
 *.backup
 .npm
 node_modules
-settings.js
 .config.*
 package-lock.json
