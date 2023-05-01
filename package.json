@@ -1,16 +1,5 @@
 {
-    "name": "workletautomatisering",
-    "description": "New",
-    "version": "0.0.1",
-    "dependencies": {
-        "node-red": "^3.0.2",
-        "node-red-contrib-credentials": "~0.2.2",
-        "puppeteer": "^18.2.1"
-    },
-    "node-red": {
-        "settings": {
-            "flowFile": "src/flows.json",
-            "credentialsFile": "src/flows_cred.json"
-        }
-    }
+  "dependencies": {
+    "puppeteer": "^19.9.1"
+  }
 }
