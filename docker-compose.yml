@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  browserless:
+    image: browserless/chrome:1.58-chrome-stable
+    restart: always
+    networks:
+      - node_red
+    ports:
+      - "3000:3000"
+    container_name: "browserless"
+    
+    
   node-red:
     build: node-red
     networks:
