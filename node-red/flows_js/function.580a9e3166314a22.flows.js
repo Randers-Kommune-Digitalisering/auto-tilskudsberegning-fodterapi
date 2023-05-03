@@ -8,7 +8,16 @@ const Node = {
   "noerr": 0,
   "initialize": "",
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "pup",
+      "module": "puppeteer"
+    },
+    {
+      "var": "path",
+      "module": "path"
+    }
+  ],
   "x": 1340,
   "y": 360,
   "wires": [
@@ -23,9 +32,9 @@ const Node = {
   "_order": 77
 }
 
-Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  const pup = global.get('puppeteer');
-  const path = global.get('path');
+Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
+  //const pup = global.get('puppeteer');
+  //const path = global.get('path');
   const downloadPath = path.resolve('./download');
   
   var actions = [];
@@ -221,7 +230,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   function ReportError(a, e)
   {
-      console.log(e);
+      console.log("Puppeteer error:" + e);
       var newAction;
       actions.push(newAction = {
           "action": a,

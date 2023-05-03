@@ -8,7 +8,12 @@ const Node = {
   "noerr": 0,
   "initialize": "",
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "pup",
+      "module": "puppeteer"
+    }
+  ],
   "x": 960,
   "y": 440,
   "wires": [
@@ -19,8 +24,8 @@ const Node = {
   "_order": 76
 }
 
-Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  const pup = global.get('puppeteer');
+Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {
+  //const pup = global.get('puppeteer');
   (async () => {
   
       var commands = msg.pupController.commands;
@@ -31,10 +36,16 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
           if (msg.pupController.browser == null && e.action == "launch")
           {
-              msg.pupController.browser = await pup.launch(e.parameters);
-              msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
-              //await NewPage(e.name != null ? e.name : "main");
-              await AddInitialPage(e.name != null ? e.name : "initial");
+              try
+              {
+                  msg.pupController.browser = await pup.connect({ browserWSEndpoint: 'wss://browserlesss:3000' });
+                  msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
+                  await AddInitialPage(e.name != null ? e.name : "initial");
+              }
+              catch (error)
+              {
+                  console.log("Puppeteer error: " + error);
+              };
           }
   
           else if(e.action == "newtab")
@@ -43,19 +54,29 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
       if(msg.pupController.browser == null)
       {
-          msg.pupController.browser = await pup.launch({});
-          msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
+          try
+          {
+              msg.pupController.browser = await pup.connect({ browserWSEndpoint: 'wss://browserlesss:3000' });
+              msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
+          }
+          catch (error)
+          {
+              console.log("Puppeteer error: " + error);
+          };
       }
   
-      msg.pupController.activePage = 0; //((await (msg.pupController.browser.pages()).length) - 1);
+      msg.pupController.activePage = 0;
+      
+      //((await (msg.pupController.browser.pages()).length) - 1);
       /*
       {
           "page": (await msg.pupController.browser.pages())[(await msg.pupController.browser.pages()).length - 1],
           "po":msg.pupController.pages[msg.pupController.pages.length - 1]
       }*/
-      msg.pupController.totalActions = commands.length;
   
+      msg.pupController.totalActions = commands.length;
       node.send(msg);
+  
   })();
   
   async function NewPage(name) {
@@ -81,14 +102,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
               "url": url
           });
   }
-  
-  /*
-  async function LaunchBrowser(e)
-  {
-      const browser = await pup.launch(e.parameters);
-      return browser.wsEndpoint();
-  }
-  */
 }
 
 module.exports = Node;
