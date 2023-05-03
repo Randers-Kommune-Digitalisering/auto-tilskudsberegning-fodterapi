@@ -22,7 +22,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.login",
+      "p": "webSettings.acceptances.login",
       "pt": "global",
       "to": "false",
       "tot": "bool"

@@ -9,7 +9,16 @@ const Node = {
   "noerr": 0,
   "initialize": "",
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "fs",
+      "module": "fs"
+    },
+    {
+      "var": "path",
+      "module": "path"
+    }
+  ],
   "x": 470,
   "y": 600,
   "wires": [
@@ -26,9 +35,9 @@ Node.info = `
 This JS snippet utilizes global modules \`FS\` and \`Path\` to check if the receipt JSON file already exists, or needs to be downloaded.
 `
 
-Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  const fs = global.get('fs');
-  const path = global.get('path');
+Node.func = async function (node, msg, RED, context, flow, global, env, util, fs, path) {
+  //const fs = global.get('fs');
+  //const path = global.get('path');
   const downloadPath = path.resolve('./download');
   msg.filePath = downloadPath + "\\" + msg.fileName;
   
