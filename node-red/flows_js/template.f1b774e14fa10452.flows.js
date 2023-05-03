@@ -16,12 +16,12 @@ const Node = {
       "f673e8538a4af3d9"
     ]
   ],
-  "_order": 138
+  "_order": 169
 }
 
 Node.template = `
 <div class="float-right mt-2">
-    <button class="btn btn-lg btn-primary" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass') ))">
+    <button class="btn btn-lg btn-primary" id="button_acceptPage" type="submit" onclick="">
         Godkend loginoplysninger
     </button>
     

@@ -16,11 +16,24 @@ const Node = {
       "25eef4e978cf76c9"
     ]
   ],
-  "_order": 161
+  "_order": 192
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
+  var html = `<div class="float-right mt-2">
+                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) + `>
+                      Tilskudssatser godkendt
+                  </button>
   
+                  <button class="btn btn-lg btn-primary ml-2 goNext" id="button_acceptPage_goNext" type="button" onclick="goToPage('grants')">
+                      Gå til ny kørsel
+                  </button>
+              </div>`;
+  
+  msg.payload.pageElements['grantButtons'] = html;
+  return msg;
+  
+  /*
   
   function pageAccepted(pageName)
   {
@@ -36,7 +49,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if(allPagesAccepted())
   
       html = `<div class="float-right mt-2">
-                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{id}}') {{/payload.grants.tilskudsperioder.satser}}) } ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) +`>
+                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) +`>
                       Godkend tilskudssatser
                   </button>
                   
@@ -50,7 +63,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
       html = `<div class="float-right mt-2">
                   <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'grantUpdates', 'value': appendRules (null {{#payload.grants.tilskudsperioder.satser}}, createGrantObj('{{id}}') {{/payload.grants.tilskudsperioder.satser}}) } ))">
-                      Godkend tilskudssatser
+                      Tilskudssatser godkendt
                   </button>
                   
                   <button class="btn btn-lg btn-secondary ml-2 goNext" id="button_acceptPage_goNext" type="button" onclick="goToPage('run')" disabled>
@@ -62,6 +75,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   msg.payload.pageElements['grantButtons'] = html;
   return msg;
+  */
 }
 
 module.exports = Node;

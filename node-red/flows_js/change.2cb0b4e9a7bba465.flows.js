@@ -1,0 +1,45 @@
+const Node = {
+  "id": "2cb0b4e9a7bba465",
+  "type": "change",
+  "z": "5bb3204aef17c104",
+  "g": "80bf7be9c257b2b0",
+  "name": "Merge changes",
+  "rules": [
+    {
+      "t": "set",
+      "p": "payload.rules",
+      "pt": "msg",
+      "to": "$.payload.rules ~> | $ |\t(\t\t\t$ruleChange := $$.ruleUpdates[id = uid];\t/*$lookup($$.ruleChanges, uid);*/\t\t$uid := uid;\t$ruleUpdate :=  $$.payload.ruleUpdates[id = $uid];\t\t{        \t        \"operator\": $ruleUpdate.operator,\t        \"value\": $ruleUpdate.value\t})\t\t|",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "payload.rules",
+      "pt": "msg",
+      "to": "payload.rules @$r .(\t\t$getType := function($value, $operator)\t{\t    ($value[$ ~> /^[0-9\\.]{1,}$/m] ~> $boolean) ?\t        \"number\" :\t    ($operator = \"!null\") ? \t        \"bool\"\t};\t\t{\t    \t    \"uid\": $r.uid,\t    \"name\": $r.name,\t    \"variable\": $r.variable,\t    \"operator\": $r.operator,\t    \"value\": $r.value,\t    \"type\": $getType($r.value, $r.operator),\t    \"description\": $r.description\t    \t}\t)",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "payload.rules",
+      "pt": "msg",
+      "to": "$.payload.rules ~> | $ |\t{\t    \"value\": \t        type = \"number\" ?\t            value ~> $number() \t            :\t        type = \"bool\" ?\t            (value = \"true\") or (value = true) ? true : false\t}\t|",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 1120,
+  "y": 700,
+  "wires": [
+    [
+      "a93344c168258f4e"
+    ]
+  ],
+  "_order": 427
+}
+
+module.exports = Node;

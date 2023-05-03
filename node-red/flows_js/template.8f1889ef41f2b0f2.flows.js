@@ -16,7 +16,7 @@ const Node = {
       "26a5a4e0e501d7e9"
     ]
   ],
-  "_order": 128
+  "_order": 159
 }
 
 Node.template = `
@@ -29,7 +29,7 @@ Node.template = `
         </div>
 
         <div class="form-floating col">
-            <select class="form-select" id="operator_{{uid}}" onchange="setInputBox('{{uid}}');withdrawPageAccept('rules')">
+            <select class="form-select" id="operator_{{uid}}" onchange="setInputBox('{{uid}}');">
                 <option value="==">= Skal være lig med</option>
                 <option value="!=">≠ Må ikke være lig med</option>
                 <option value="<">< Skal være mindre end</option>
@@ -42,7 +42,7 @@ Node.template = `
         </div>
 
         <div class="form-floating col" id="inputContainer_{{uid}}">
-            <input type="text" class="form-control" id="value_{{uid}}" placeholder="0" value="{{value}}" onchange="withdrawPageAccept('rules')">
+            <input type="text" class="form-control" id="value_{{uid}}" placeholder="0" value="{{value}}">
             <label for="value_{{uid}}" style="padding-left: 27px">Værdi</label>
         </div>
 
