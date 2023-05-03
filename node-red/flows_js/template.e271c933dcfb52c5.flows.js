@@ -15,7 +15,7 @@ const Node = {
       "c8f4a55e7618b7e2"
     ]
   ],
-  "_order": 96
+  "_order": 95
 }
 
 Node.template = `
@@ -25,16 +25,6 @@ Node.template = `
 
 function actionList() {
     return [
-        {
-            "action": "launch",
-            "parameters":
-            {
-                "headless": false,
-                "slowMo": 50,
-                "ignoreHTTPSErrors": true,
-                "defaultViewport": null
-            }
-        },
         {
             "action": "goto",
             "url": ""
@@ -71,7 +61,9 @@ function actionList() {
             "ms": 1000
         },
         {
-            "action": "close"
+            "action": "authenticate",
+            "username": "",
+            "password": ""
         }
     ];
 };

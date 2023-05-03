@@ -21,7 +21,7 @@ const Node = {
       "7fd11086984ad7a2"
     ]
   ],
-  "_order": 390
+  "_order": 399
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {
@@ -34,7 +34,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       
       await msg.page.goto('https://example.com/');
   
-      
+  
   
   
       await msg.page.waitForSelector("h1", { waitUntil: 'domcontentloaded', timeout: 6000 });

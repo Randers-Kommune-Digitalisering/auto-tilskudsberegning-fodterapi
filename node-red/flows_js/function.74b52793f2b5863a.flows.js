@@ -1,8 +1,8 @@
 const Node = {
-  "id": "1a32f920705bb1bc",
+  "id": "74b52793f2b5863a",
   "type": "function",
   "z": "41d1b8798efe7e15",
-  "name": "Initialize?",
+  "name": "Initialize? backup",
   "func": "",
   "outputs": 1,
   "noerr": 0,
@@ -14,14 +14,12 @@ const Node = {
       "module": "puppeteer"
     }
   ],
-  "x": 960,
-  "y": 440,
+  "x": 630,
+  "y": 580,
   "wires": [
-    [
-      "ba19f064476425c9"
-    ]
+    []
   ],
-  "_order": 76
+  "_order": 103
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {
@@ -38,8 +36,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           {
               try
               {
-                  msg.pupController.browser = await pup.connect({ browserWSEndpoint: 'wss://browserlesss:3000' });
-                  msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
+                  msg.pupController.browser = msg.pupController.browser ? msg.pupController.browser : await pup.connect({ browserWSEndpoint: msg.browserWS });
+                  //msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
                   await AddInitialPage(e.name != null ? e.name : "initial");
               }
               catch (error)
@@ -56,8 +54,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       {
           try
           {
-              msg.pupController.browser = await pup.connect({ browserWSEndpoint: 'wss://browserlesss:3000' });
-              msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
+              msg.pupController.browser = await pup.connect({ browserWSEndpoint: msg.browserWS });
+              //msg.pupController.browserWS = await msg.pupController.browser.wsEndpoint();
           }
           catch (error)
           {

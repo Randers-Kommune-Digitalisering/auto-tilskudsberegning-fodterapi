@@ -18,8 +18,8 @@ const Node = {
       "module": "path"
     }
   ],
-  "x": 1340,
-  "y": 360,
+  "x": 1140,
+  "y": 460,
   "wires": [
     [
       "cb4ea3ccf7541c86",
@@ -29,7 +29,7 @@ const Node = {
       "2fd098a8190ef089"
     ]
   ],
-  "_order": 77
+  "_order": 76
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
@@ -51,64 +51,65 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       for (let i = 0; i < actionList.length; i++) {
           
           try {
-              const browser = await pup.connect({ "browserWSEndpoint": msg.pupController.browserWS })
-              const page = (await browser.pages())[msg.pupController.activePage];
+              //const browser = msg.pupController.browser; //? msg.pupController.browser : await pup.connect({ "browserWSEndpoint": msg.browserWS });
+              //const page = (await msg.pupController.browser.pages())[msg.pupController.activePage];
+              
+              console.log("page found:" + msg.pupController.page);
   
-              page.setDefaultNavigationTimeout(1000); 
+              msg.pupController.page.setDefaultNavigationTimeout(1000); 
               //page.setDefaultNavigationTimeout(10000);
   
               var ele = actionList[i];
               const action = ele.action;
   
-              await page.waitForNetworkIdle();
+              await msg.pupController.page.waitForNetworkIdle();
   
               switch (action)
               {
-                  case "launch":
                   case "newtab":
                       break;
   
                   case "goto":
                       if (ele.url != null)
-                          await page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });
+                          await msg.pupController.page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });
                       else
                           actionPerformed = ReportError(ele, "Error: URL was lost");
                       break;
   
                   case "click":
                       if(ele.isDownload == true || ele.isDownload == "true")
-                          setDownloadBehavior(page);
-                      await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-                      await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
+                          setDownloadBehavior(msg.pupController.page);
+                      await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
                       if (ele.isDownload == true || ele.isDownload == "true")
-                          await page.waitForNetworkIdle();
+                          await msg.pupController.page.waitForNetworkIdle();
                       break;
   
                   case "clickifexists":
                       if (ele.isDownload == true || ele.isDownload == "true")
-                          setDownloadBehavior(page);
+                          setDownloadBehavior(msg.pupController.page);
                       
-                      const exists = !! await page.$(ele.path);
+                      const exists = !! await msg.pupController.page.$(ele.path);
   
                       //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       if(exists)
-                          await page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
+                          await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
   
                       if (ele.isDownload == true || ele.isDownload == "true")
-                          await page.waitForNetworkIdle();
+                          await msg.pupController.page.waitForNetworkIdle();
                       break;
   
                   case "type":
-                      await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+                      await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       if (ele.clear == true || ele.clearInput == true || ele.clear == "true" || ele.clearInput == "true")
-                          await page.click(ele.path, { clickCount: 3 });
-                      await page.type(ele.path, ele.input);
+                          await msg.pupController.page.click(ele.path, { clickCount: 3 });
+                      await msg.pupController.page.type(ele.path, ele.input);
                       break;
   
                   case "select":
                       //let elemHandler = await page.$(ele.path).then(x => console.log(
                           //console.log("ELEMENT HANDLE FOUND: " + x)));
-                      let properties = await page.$(ele.path).then(elemHandler => elemHandler.getProperties());
+                      let properties = await msg.pupController.page.$(ele.path).then(elemHandler => elemHandler.getProperties());
                       for (const property of properties.values())
                       {
                           const element = property.asElement();
@@ -120,7 +121,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                               {
                                   let hValue = await element.getProperty("value");
                                   let value = await hValue.jsonValue();
-                                  await page.select(ele.path, value); // or use 58730
+                                  await msg.pupController.page.select(ele.path, value); // or use 58730
                                   //console.log(`Selected ${text} which is value ${value}.`);
                               }
                           }
@@ -132,30 +133,27 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "get":
-                      await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-                      var content = await page.$eval(ele.path, el => el.innerText);
+                      await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+                      var content = await msg.pupController.page.$eval(ele.path, el => el.innerText);
                       ele.output = actionList[i].output = content;
                       break;
   
                   case "geturl":
-                      ele.output = actionList[i].output = page.url();
+                      ele.output = actionList[i].output = msg.pupController.page.url();
                       break;
-                  /*
-                  case "login":
+  
+                  case "authenticate":
                       var login_username = ele.username;
                       var login_password = ele.password;
-                      await page.authenticate({ 'username': 'YOUR_BASIC_AUTH_USERNAME', 'password': 'YOUR_BASIC_AUTH_PASSWORD' });
+                      await msg.pupController.page.authenticate({ 'username': login_username, 'password': login_password });
                       break;
-                  */
+  
                   case "wait":
                       if(ele.ms != null)
                           await wait(ele.ms);
                       break;
   
-                  case "close":
-                      await browser.close();
-                      msg.pupController.browser = null;
-                      msg.pupController.pages = null;
+                  default:
                       break;
               }
   
@@ -176,10 +174,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
               actionPerformed = ReportError(actionList[i], e);
               
               node.send([null, actionPerformed]);
-  
-              /*if (i == actionList.length - 1 && actionList[i] != "close")
-                  await pup.connect({ "browserWSEndpoint": msg.pupController.browserWS }).then(browser => browser.close());
-                  //await browser.close();*/
           }
   
       }
@@ -248,40 +242,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           downloadPath: downloadPath
       });
   }
-  
-  
-  
-  
-  
-  
-  /*
-  (async () => {
-      if (msg.command.url != null)
-          try {
-              //const browser = await pup.connect({ "browserWSEndpoint": msg.pupController.browserWS })
-              const browser = await pup.connect({ "browserWSEndpoint": msg.browserWS })
-              //const page = (await browser.pages())[msg.pupController.activePage];
-              const page = (await browser.pages())[msg.activePage];
-  
-              await page.waitForNetworkIdle();
-              await page.goto(msg.command.url);
-              msg.succesful = true;
-  
-          }
-          catch (e) {
-              console.log(e);
-              msg.succesful = false;
-              msg.error = e;
-          }
-      else {
-          msg.succesful = false;
-          msg.error = "Error: URL was null";
-          console.log(msg.error);
-      }
-  
-      node.send(msg);
-  })();
-  */
 }
 
 module.exports = Node;
