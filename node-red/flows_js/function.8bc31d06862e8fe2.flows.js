@@ -9,7 +9,16 @@ const Node = {
   "noerr": 0,
   "initialize": "",
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "fs",
+      "module": "fs"
+    },
+    {
+      "var": "path",
+      "module": "path"
+    }
+  ],
   "x": 1730,
   "y": 580,
   "wires": [
@@ -20,7 +29,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 231
+  "_order": 228
 }
 
 Node.info = `
@@ -29,10 +38,8 @@ Node.info = `
 This JS snippet utilizes the FS module to delete the JSON file after it has been read to memory.
 `
 
-Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  const fs = global.get('fs');
-  const path = global.get('path');
-  const downloadPath = path.resolve('./download');
+Node.func = async function (node, msg, RED, context, flow, global, env, util, fs, path) {
+  const downloadPath = path.resolve('/tmp/');
   msg.filePath = downloadPath + "\\" + msg.fileName;
   
   fs.unlinkSync(msg.filePath);

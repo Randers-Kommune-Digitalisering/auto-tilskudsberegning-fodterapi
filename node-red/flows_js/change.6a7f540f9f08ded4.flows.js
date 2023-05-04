@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 10000\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    }\t    \t]",
+      "to": "[\t    {\t        \"action\": \"goto\",\t        \"url\": selectors.worklet.url\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 10000\t    },\t    \t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginUser,\t        \"input\": workletUser\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.loginPass,\t        \"input\": workletPass\t    },\t    \t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.loginButton\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerFrom\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.startDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.datePickerTo\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.worklet.datePickerActive,\t        \"input\": currentRun.endDate,\t        \"clear\": true\t    },\t\t    {\t        \"action\": \"click\",\t        \"path\": selectors.worklet.header\t    },\t\t    {\t        \"action\": \"click\",\t        \"isDownload\": true,\t        \"path\": selectors.worklet.downloadButton\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 7000\t    }\t    \t]",
       "tot": "jsonata"
     },
     {
@@ -32,11 +32,12 @@ const Node = {
   "y": 580,
   "wires": [
     [
-      "15a1703b4a5286c7"
+      "15a1703b4a5286c7",
+      "7dcef7cb5258af3a"
     ]
   ],
   "info": "",
-  "_order": 238
+  "_order": 235
 }
 
 Node.info = `

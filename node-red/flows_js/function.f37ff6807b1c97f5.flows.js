@@ -1,8 +1,8 @@
 const Node = {
-  "id": "bf0c9a817340c014",
+  "id": "f37ff6807b1c97f5",
   "type": "function",
-  "z": "41d1b8798efe7e15",
-  "name": "function 7",
+  "z": "a1b347492c77827f",
+  "name": "function 9",
   "func": "",
   "outputs": 1,
   "noerr": 0,
@@ -14,14 +14,14 @@ const Node = {
       "module": "puppeteer"
     }
   ],
-  "x": 760,
-  "y": 880,
+  "x": 680,
+  "y": 280,
   "wires": [
     [
-      "5a08428bae31216a"
+      "29de403389b82a83"
     ]
   ],
-  "_order": 105
+  "_order": 488
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {
@@ -33,6 +33,15 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       
       
       await msg.page.goto('https://example.com/');
+  
+  
+  
+  
+      await msg.page.waitForSelector("h1", { waitUntil: 'domcontentloaded', timeout: 6000 });
+      var content = await msg.page.$eval("h1", el => el.innerText);
+      //ele.output = actionList[i].output = content;
+  
+      msg.output = content;
   
   
   }

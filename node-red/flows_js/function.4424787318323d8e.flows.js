@@ -23,11 +23,12 @@ const Node = {
   "y": 480,
   "wires": [
     [
-      "023477a667bd9144"
+      "023477a667bd9144",
+      "c126d4622cb3bb88"
     ]
   ],
   "info": "",
-  "_order": 295
+  "_order": 292
 }
 
 Node.info = `
@@ -36,9 +37,7 @@ This JS snippet utilizes global modules \`FS\` and \`Path\` to check if the rece
 `
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, fs, path) {
-  //const fs = global.get('fs');
-  //const path = global.get('path');
-  const downloadPath = path.resolve('./download');
+  const downloadPath = path.resolve('/auto-tilskudsberegning-fodterapi');
   msg.filePath = downloadPath + "\\" + msg.fileName;
   
   if (fs.existsSync(msg.filePath))

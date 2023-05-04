@@ -29,13 +29,13 @@ const Node = {
       "2fd098a8190ef089"
     ]
   ],
-  "_order": 76
+  "_order": 77
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
   //const pup = global.get('puppeteer');
   //const path = global.get('path');
-  const downloadPath = path.resolve('./download');
+  const downloadPath = path.resolve('/tmp/');
   
   var actions = [];
   //var outputs = [];
@@ -53,11 +53,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           try {
               //const browser = msg.pupController.browser; //? msg.pupController.browser : await pup.connect({ "browserWSEndpoint": msg.browserWS });
               //const page = (await msg.pupController.browser.pages())[msg.pupController.activePage];
-              
-              console.log("page found:" + msg.pupController.page);
   
-              msg.pupController.page.setDefaultNavigationTimeout(1000); 
-              //page.setDefaultNavigationTimeout(10000);
+              msg.pupController.page.setDefaultNavigationTimeout(1000);
   
               var ele = actionList[i];
               const action = ele.action;

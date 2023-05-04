@@ -27,7 +27,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 227
+  "_order": 224
 }
 
 Node.info = `
@@ -36,9 +36,7 @@ This JS snippet utilizes global modules \`FS\` and \`Path\` to check if the rece
 `
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, fs, path) {
-  //const fs = global.get('fs');
-  //const path = global.get('path');
-  const downloadPath = path.resolve('./download');
+  const downloadPath = path.resolve('/tmp/');
   msg.filePath = downloadPath + "\\" + msg.fileName;
   
   if (fs.existsSync(msg.filePath))
