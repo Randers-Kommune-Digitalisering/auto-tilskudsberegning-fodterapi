@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 740,
-  "y": 820,
+  "x": 820,
+  "y": 1040,
   "wires": [
     [
       "61e225ff94fa03d5"

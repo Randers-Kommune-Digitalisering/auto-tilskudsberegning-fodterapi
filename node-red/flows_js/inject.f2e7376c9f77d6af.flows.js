@@ -1,5 +1,5 @@
 const Node = {
-  "id": "c494d6c59d99c3e4",
+  "id": "f2e7376c9f77d6af",
   "type": "inject",
   "z": "a1b347492c77827f",
   "name": "",
@@ -9,14 +9,14 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 450,
-  "y": 1260,
+  "x": 350,
+  "y": 600,
   "wires": [
     [
-      "f6bfc9feb87e3cbb"
+      "1682e479ac1b68fb"
     ]
   ],
-  "_order": 492
+  "_order": 497
 }
 
 module.exports = Node;
