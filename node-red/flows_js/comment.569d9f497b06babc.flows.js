@@ -3,12 +3,12 @@ const Node = {
   "type": "comment",
   "z": "8ea344595d9a442a",
   "g": "669e09e244099963",
-  "name": "Læs fakturaliste",
+  "name": "Sæt fakturaliste",
   "info": "",
-  "x": 1440,
-  "y": 540,
+  "x": 1400,
+  "y": 520,
   "wires": [],
-  "_order": 233
+  "_order": 227
 }
 
 module.exports = Node;

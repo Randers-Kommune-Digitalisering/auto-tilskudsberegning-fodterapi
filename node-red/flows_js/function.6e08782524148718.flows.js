@@ -25,7 +25,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
                       Tilskudssatser godkendt
                   </button>
   
-                  <button class="btn btn-lg btn-primary ml-2 goNext" id="button_acceptPage_goNext" type="button" onclick="goToPage('grants')">
+                  <button class="btn btn-lg btn-primary ml-2 goNext" id="button_acceptPage_goNext" type="button" onclick="goToPage('run')">
                       Gå til ny kørsel
                   </button>
               </div>`;

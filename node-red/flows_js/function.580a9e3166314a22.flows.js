@@ -35,12 +35,13 @@ const Node = {
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
   //const pup = global.get('puppeteer');
   //const path = global.get('path');
-  const downloadPath = path.resolve('/tmp/');
+  //const downloadPath = path.resolve('/tmp/');
   
   var actions = [];
   //var outputs = [];
   var outputs = {};
   
+  const loadTimeoutMs = 30000;
   const timeoutMs = 6500;
   
   (async () => {
@@ -53,8 +54,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           try {
               //const browser = msg.pupController.browser; //? msg.pupController.browser : await pup.connect({ "browserWSEndpoint": msg.browserWS });
               //const page = (await msg.pupController.browser.pages())[msg.pupController.activePage];
-  
-              msg.pupController.page.setDefaultNavigationTimeout(1000);
+              //msg.pupController.page.setDefaultNavigationTimeout(1000);
   
               var ele = actionList[i];
               const action = ele.action;
@@ -68,14 +68,14 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                   case "goto":
                       if (ele.url != null)
-                          await msg.pupController.page.goto(ele.url, { waitUntil: 'load', timeout: timeoutMs });
+                          await msg.pupController.page.goto(ele.url, { waitUntil: 'load', timeout: loadTimeoutMs });
                       else
                           actionPerformed = ReportError(ele, "Error: URL was lost");
                       break;
   
                   case "click":
-                      if(ele.isDownload == true || ele.isDownload == "true")
-                          setDownloadBehavior(msg.pupController.page);
+                      //if(ele.isDownload == true || ele.isDownload == "true")
+                      //    setDownloadBehavior(msg.pupController.page);
                       await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
                       if (ele.isDownload == true || ele.isDownload == "true")
@@ -83,8 +83,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "clickifexists":
-                      if (ele.isDownload == true || ele.isDownload == "true")
-                          setDownloadBehavior(msg.pupController.page);
+                      //if (ele.isDownload == true || ele.isDownload == "true")
+                      //    setDownloadBehavior(msg.pupController.page);
                       
                       const exists = !! await msg.pupController.page.$(ele.path);
   
@@ -232,13 +232,13 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       return newAction;
   }
   
-  async function setDownloadBehavior(page) {
+  /*async function setDownloadBehavior(page) {
       const client = await page.target().createCDPSession();
       await client.send('Page.setDownloadBehavior', {
           behavior: 'allow',
           downloadPath: downloadPath
       });
-  }
+  }*/
 }
 
 module.exports = Node;

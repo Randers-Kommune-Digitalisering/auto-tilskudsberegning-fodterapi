@@ -23,17 +23,16 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1585,
-  "y": 580,
+  "x": 1410,
+  "y": 560,
   "wires": [
     [
       "07aa032e7944f93b",
-      "8bc31d06862e8fe2"
+      "3d1bf849f7c2772e"
     ]
   ],
-  "l": false,
   "info": "",
-  "_order": 232
+  "_order": 226
 }
 
 Node.info = `

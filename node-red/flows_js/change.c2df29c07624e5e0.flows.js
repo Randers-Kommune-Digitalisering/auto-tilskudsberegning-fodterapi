@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[\t    {\t       \"action\": \"goto\",\t       \"url\": \"https://fagsystem.kommunernespensionssystem.dk/\"\t\t    },\t    \t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"select\",\t       \"path\": \"[id=\\\"SelectedAuthenticationUrl\\\"]\",\t       \"input\": \"Randers Kommune\"\t    },\t        \t    {\t        \"action\": \"wait\",\t        \"ms\": 500\t    },\t\t    {\t        \"action\": \"authenticate\",\t        \"username\": payload.webData.dqCreds.dqUser,\t        \"password\": payload.webData.dqCreds.dqPass\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 500\t    },\t\t\t    {\t       \"action\": \"click\",\t       \"path\": \".button\"\t    },\t\t    {\t       \"action\": \"get\",\t       \"name\": \"navn\",\t       \"path\": \"div[class=\\\"sc-iwsKbI sc-gqjmRU yImXU\\\"]\"\t    }\t]",
+      "to": "[\t    {\t       \"action\": \"goto\",\t       \"url\": selectors.kp.url\t\t    },\t    \t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"select\",\t       \"path\": selectors.kp.login.select,\t       \"input\": \"Randers Kommune\"\t    },\t        \t    {\t        \"action\": \"wait\",\t        \"ms\": 500\t    },\t\t    {\t       \"action\": \"click\",\t       \"path\": selectors.kp.login.button\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.kp.login.dqUser,\t        \"input\": dqUser\t    },\t    {\t        \"action\": \"type\",\t        \"path\": selectors.kp.login.dqPass,\t        \"input\": dqPass\t    },\t    {\t        \"action\": \"click\",\t        \"path\": selectors.kp.login.dqButton\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"get\",\t       \"name\": \"navn\",\t       \"path\": selectors.kp.dqUsername\t    }\t]",
       "tot": "jsonata"
     },
     {
@@ -25,14 +25,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 690,
-  "y": 820,
+  "x": 850,
+  "y": 800,
   "wires": [
     [
-      "c8857f0a61f8c92e"
+      "c8857f0a61f8c92e",
+      "379b43d54da16b5f"
     ]
   ],
-  "_order": 349
+  "_order": 340
 }
 
 module.exports = Node;

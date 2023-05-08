@@ -6,9 +6,9 @@ const Node = {
   "name": "Download fakturaliste",
   "info": "",
   "x": 1180,
-  "y": 540,
+  "y": 520,
   "wires": [],
-  "_order": 230
+  "_order": 224
 }
 
 module.exports = Node;
