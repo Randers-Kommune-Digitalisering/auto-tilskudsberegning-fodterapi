@@ -5,18 +5,18 @@ const Node = {
   "name": "",
   "field": "payload",
   "fieldType": "msg",
-  "format": "handlebars",
+  "format": "javascript",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 780,
+  "x": 840,
   "y": 600,
   "wires": [
     [
       "205f7d19d746c611"
     ]
   ],
-  "_order": 499
+  "_order": 497
 }
 
 Node.template = `
