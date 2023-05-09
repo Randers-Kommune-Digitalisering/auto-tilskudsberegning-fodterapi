@@ -2,7 +2,7 @@ const Node = {
   "id": "9c4f3569ebca5f7b",
   "type": "group",
   "z": "8ea344595d9a442a",
-  "name": "",
+  "name": "Extract 2 - KP",
   "style": {
     "fill": "#bfc7d7",
     "fill-opacity": "0.67",
@@ -21,12 +21,16 @@ const Node = {
     "5c03893a530479bb",
     "172fe34eeccca8dd",
     "f7835ac1742b0168",
-    "d82ec2b88042626f"
+    "d82ec2b88042626f",
+    "6e042d4222a1a115",
+    "6f70a9263a101b22",
+    "c6c6bffeb57369e7",
+    "763d5d3a56706a02"
   ],
-  "x": 334,
-  "y": 679,
-  "w": 1172,
-  "h": 222,
+  "x": 314,
+  "y": 759,
+  "w": 1392,
+  "h": 308,
   "_order": 12
 }
 

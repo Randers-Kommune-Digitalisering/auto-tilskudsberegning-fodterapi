@@ -1,14 +1,14 @@
 const Node = {
-  "id": "d5a462980f4852cf",
+  "id": "9f80170bfbf7fbf6",
   "type": "comment",
   "z": "8ea344595d9a442a",
   "g": "669e09e244099963",
-  "name": "Tjek om filen eksisterer",
+  "name": "Retry",
   "info": "",
-  "x": 500,
-  "y": 560,
+  "x": 1030,
+  "y": 580,
   "wires": [],
-  "_order": 223
+  "_order": 398
 }
 
 module.exports = Node;

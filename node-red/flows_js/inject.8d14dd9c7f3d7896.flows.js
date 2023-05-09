@@ -10,14 +10,14 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 240,
+  "x": 200,
   "y": 160,
   "wires": [
     [
       "a89a3d18c7ac4270"
     ]
   ],
-  "_order": 376
+  "_order": 375
 }
 
 module.exports = Node;

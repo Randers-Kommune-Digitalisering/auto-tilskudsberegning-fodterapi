@@ -1,32 +1,34 @@
 const Node = {
-  "id": "023477a667bd9144",
+  "id": "bbd6119019e8240a",
   "type": "switch",
   "z": "8ea344595d9a442a",
-  "g": "669e09e244099963",
   "name": "",
-  "property": "fileExists",
+  "property": "workletRetryCount",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "false"
+      "t": "lte",
+      "v": "3",
+      "vt": "str"
     },
     {
-      "t": "true"
+      "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 1375,
-  "y": 480,
+  "x": 170,
+  "y": 500,
   "wires": [
     [
-      "2359edd9babea1ac"
+      "d04faa115ea73982"
     ],
-    []
+    [
+      "2359edd9babea1ac"
+    ]
   ],
-  "l": false,
-  "_order": 284
+  "_order": 392
 }
 
 module.exports = Node;

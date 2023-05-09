@@ -27,7 +27,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::runHistory",
+      "p": "runHistory",
       "pt": "global",
       "to": "runHistory",
       "tot": "msg",
@@ -39,15 +39,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1660,
-  "y": 820,
+  "x": 1940,
+  "y": 960,
   "wires": [
-    [
-      "19bdc53204115899",
-      "763d5d3a56706a02"
-    ]
+    []
   ],
-  "_order": 313
+  "_order": 312
 }
 
 module.exports = Node;

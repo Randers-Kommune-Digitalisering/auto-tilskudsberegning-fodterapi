@@ -5,8 +5,8 @@ const Node = {
   "g": "380e5c7e0ea3778b",
   "name": "Clean alt unødvendig data fra msg objekt",
   "info": "",
-  "x": 700,
-  "y": 2300,
+  "x": 640,
+  "y": 2360,
   "wires": [],
   "_order": 250
 }

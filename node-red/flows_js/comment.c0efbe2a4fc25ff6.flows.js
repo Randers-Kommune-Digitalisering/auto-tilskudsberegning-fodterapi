@@ -5,10 +5,10 @@ const Node = {
   "g": "44e7408f9fee1e77",
   "name": "[E] Find ny start- og slutdato ud fra seneste kørsel samt dags dato",
   "info": "",
-  "x": 970,
+  "x": 950,
   "y": 180,
   "wires": [],
-  "_order": 216
+  "_order": 217
 }
 
 module.exports = Node;

@@ -5,10 +5,10 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "Transformer faktura data (+ fjern unødvendig data)",
   "info": "",
-  "x": 1250,
-  "y": 1260,
+  "x": 1230,
+  "y": 1280,
   "wires": [],
-  "_order": 294
+  "_order": 293
 }
 
 module.exports = Node;

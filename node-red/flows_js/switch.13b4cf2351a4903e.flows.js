@@ -2,6 +2,7 @@ const Node = {
   "id": "13b4cf2351a4903e",
   "type": "switch",
   "z": "8ea344595d9a442a",
+  "g": "c6e3f804080c4f10",
   "name": "",
   "property": "percentage",
   "propertyType": "msg",
@@ -15,14 +16,14 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 1,
-  "x": 1170,
-  "y": 920,
+  "x": 1290,
+  "y": 960,
   "wires": [
     [
       "30f14b6f815a98ef"
     ]
   ],
-  "_order": 389
+  "_order": 388
 }
 
 module.exports = Node;

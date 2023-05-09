@@ -2,6 +2,7 @@ const Node = {
   "id": "70a379ce2563656b",
   "type": "function",
   "z": "8ea344595d9a442a",
+  "g": "c6e3f804080c4f10",
   "name": "Calc %",
   "func": "",
   "outputs": 1,
@@ -9,14 +10,14 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 1040,
-  "y": 920,
+  "x": 1160,
+  "y": 960,
   "wires": [
     [
       "13b4cf2351a4903e"
     ]
   ],
-  "_order": 336
+  "_order": 335
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {

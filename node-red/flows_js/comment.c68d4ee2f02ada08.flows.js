@@ -5,10 +5,10 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "Kontroller KP data ud fra regelsæt",
   "info": "",
-  "x": 820,
-  "y": 1280,
+  "x": 800,
+  "y": 1300,
   "wires": [],
-  "_order": 299
+  "_order": 298
 }
 
 module.exports = Node;

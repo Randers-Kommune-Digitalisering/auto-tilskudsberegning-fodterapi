@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[\t    {\t       \"action\": \"goto\",\t       \"url\": selectors.kp.url\t\t    },\t    \t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"select\",\t       \"path\": selectors.kp.login.select,\t       \"input\": \"Randers Kommune\"\t    },\t        \t    {\t        \"action\": \"wait\",\t        \"ms\": 500\t    },\t\t    {\t       \"action\": \"click\",\t       \"path\": selectors.kp.login.button\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.kp.login.dqUser,\t        \"input\": dqUser\t    },\t    {\t        \"action\": \"type\",\t        \"path\": selectors.kp.login.dqPass,\t        \"input\": dqPass\t    },\t    {\t        \"action\": \"click\",\t        \"path\": selectors.kp.login.dqButton\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"get\",\t       \"name\": \"navn\",\t       \"path\": selectors.kp.dqUsername\t    }\t]",
+      "to": "[\t    {\t       \"action\": \"goto\",\t       \"url\": selectors.kp.url\t\t    },\t    \t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"select\",\t       \"path\": selectors.kp.login.select,\t       \"input\": \"Randers Kommune\"\t    },\t        \t    {\t        \"action\": \"wait\",\t        \"ms\": 500\t    },\t\t    {\t       \"action\": \"click\",\t       \"path\": selectors.kp.login.button\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t        \"action\": \"type\",\t        \"path\": selectors.kp.login.dqUser,\t        \"input\": \"randers\\\\\" & dqUser\t    },\t    {\t        \"action\": \"type\",\t        \"path\": selectors.kp.login.dqPass,\t        \"input\": dqPass\t    },\t    {\t        \"action\": \"click\",\t        \"path\": selectors.kp.login.dqButton\t    },\t\t    {\t        \"action\": \"wait\",\t        \"ms\": 5000\t    },\t\t    {\t       \"action\": \"get\",\t       \"name\": \"navn\",\t       \"path\": selectors.kp.dqUsername\t    }\t]",
       "tot": "jsonata"
     },
     {
@@ -25,15 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 850,
-  "y": 800,
+  "x": 910,
+  "y": 920,
   "wires": [
     [
-      "c8857f0a61f8c92e",
-      "379b43d54da16b5f"
+      "c8857f0a61f8c92e"
     ]
   ],
-  "_order": 340
+  "_order": 339
 }
 
 module.exports = Node;

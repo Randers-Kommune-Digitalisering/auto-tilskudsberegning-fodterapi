@@ -5,8 +5,8 @@ const Node = {
   "g": "669e09e244099963",
   "name": "Download fakturaliste",
   "info": "",
-  "x": 1180,
-  "y": 520,
+  "x": 1080,
+  "y": 480,
   "wires": [],
   "_order": 224
 }

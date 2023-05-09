@@ -2,16 +2,16 @@ const Node = {
   "id": "d0ec6e3e02665e27",
   "type": "link out",
   "z": "8ea344595d9a442a",
-  "g": "13424c114a577170",
-  "name": "link out 8",
+  "g": "c6c6bffeb57369e7",
+  "name": "Status OUT 4",
   "mode": "link",
   "links": [
     "63ec872a76a39ffb"
   ],
-  "x": 225,
-  "y": 1140,
+  "x": 705,
+  "y": 1000,
   "wires": [],
-  "_order": 356
+  "_order": 355
 }
 
 module.exports = Node;

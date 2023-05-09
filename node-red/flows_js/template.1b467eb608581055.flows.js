@@ -16,7 +16,7 @@ const Node = {
       "a24fe5893104c4c6"
     ]
   ],
-  "_order": 500
+  "_order": 508
 }
 
 Node.template = `
@@ -57,7 +57,7 @@ module.exports = async ({ page }) => {
 
   // Download receipts
   await page.waitForSelector("button[class='btn btn-primary btn-block primary-color']", { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-  await page.click("button[class='btn btn-primary btn-block primary-color']");
+  //await page.click("button[class='btn btn-primary btn-block primary-color']");
 
 };
 `

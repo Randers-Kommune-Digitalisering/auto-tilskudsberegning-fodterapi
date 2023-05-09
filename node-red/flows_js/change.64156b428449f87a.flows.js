@@ -18,7 +18,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 615,
+  "x": 595,
   "y": 340,
   "wires": [
     [
@@ -27,7 +27,7 @@ const Node = {
   ],
   "l": false,
   "info": "",
-  "_order": 220
+  "_order": 221
 }
 
 Node.info = `

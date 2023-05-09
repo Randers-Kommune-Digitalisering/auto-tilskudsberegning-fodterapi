@@ -3,15 +3,15 @@ const Node = {
   "type": "link out",
   "z": "8ea344595d9a442a",
   "g": "20ed2134d81b57c8",
-  "name": "link out 7",
+  "name": "Status OUT 2",
   "mode": "link",
   "links": [
     "63ec872a76a39ffb"
   ],
-  "x": 2105,
-  "y": 480,
+  "x": 255,
+  "y": 660,
   "wires": [],
-  "_order": 349
+  "_order": 348
 }
 
 module.exports = Node;

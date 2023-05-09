@@ -5,7 +5,7 @@ const Node = {
   "g": "954337fe9fd2e7cc",
   "name": "Arkivering af individuelle faktura",
   "info": "",
-  "x": 510,
+  "x": 480,
   "y": 2600,
   "wires": [],
   "_order": 257

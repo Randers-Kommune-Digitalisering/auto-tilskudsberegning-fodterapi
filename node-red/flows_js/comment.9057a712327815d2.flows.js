@@ -4,10 +4,10 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Start robot",
   "info": "",
-  "x": 160,
+  "x": 130,
   "y": 300,
   "wires": [],
-  "_order": 215
+  "_order": 216
 }
 
 module.exports = Node;

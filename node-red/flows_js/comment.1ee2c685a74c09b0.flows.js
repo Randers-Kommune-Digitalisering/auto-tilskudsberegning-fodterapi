@@ -6,9 +6,9 @@ const Node = {
   "name": "Mangler borgere?",
   "info": "",
   "x": 730,
-  "y": 1160,
+  "y": 1180,
   "wires": [],
-  "_order": 310
+  "_order": 309
 }
 
 module.exports = Node;
