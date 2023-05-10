@@ -28,7 +28,7 @@ const Node = {
     ],
     []
   ],
-  "_order": 100
+  "_order": 97
 }
 
 module.exports = Node;
