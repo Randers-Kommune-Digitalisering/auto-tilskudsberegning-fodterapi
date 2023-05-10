@@ -6,9 +6,9 @@ const Node = {
   "name": "Opret sager / ydelser",
   "info": "",
   "x": 440,
-  "y": 1940,
+  "y": 2260,
   "wires": [],
-  "_order": 233
+  "_order": 239
 }
 
 module.exports = Node;

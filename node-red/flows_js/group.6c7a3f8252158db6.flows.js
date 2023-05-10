@@ -5,8 +5,9 @@ const Node = {
   "name": "Transform 2 - Sager og tilskud",
   "style": {
     "fill": "#ffbfbf",
-    "fill-opacity": "0.66",
-    "label": true
+    "fill-opacity": "0.6",
+    "label": true,
+    "color": "#7f7f7f"
   },
   "nodes": [
     "5d7e42be40e46699",
@@ -21,11 +22,14 @@ const Node = {
     "8b251b9d384911a0",
     "363e103b20db6c80",
     "5cfe1b69780c58ab",
-    "eea859cc92e89e3f"
+    "eea859cc92e89e3f",
+    "0f1814cf075141f5",
+    "05736816d263afd3",
+    "b8be542477cd90d8"
   ],
   "x": 314,
-  "y": 1899,
-  "w": 1232,
+  "y": 2219,
+  "w": 1492,
   "h": 282,
   "_order": 9
 }

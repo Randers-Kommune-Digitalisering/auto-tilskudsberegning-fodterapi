@@ -9,6 +9,16 @@ const Node = {
       "t": "delete",
       "p": "rules",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "citizens",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "receipts",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -17,13 +27,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1590,
-  "y": 1680,
+  "y": 2020,
   "wires": [
     [
       "6a807a12e672b751"
     ]
   ],
-  "_order": 401
+  "_order": 402
 }
 
 module.exports = Node;

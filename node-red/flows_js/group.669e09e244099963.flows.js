@@ -6,8 +6,9 @@ const Node = {
   "style": {
     "stroke": "#777777",
     "label": true,
-    "fill": "#bfdbef",
-    "fill-opacity": "0.67"
+    "fill": "#ffefbf",
+    "fill-opacity": "0.6",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "c931f08e3a54e2f2",
@@ -27,13 +28,12 @@ const Node = {
     "405c756777b7fe27",
     "2a408a6dd01eaf95",
     "9f80170bfbf7fbf6",
-    "88dc6a55a45a4048",
-    "922e8d584a739969"
+    "88dc6a55a45a4048"
   ],
   "x": 314,
-  "y": 639,
+  "y": 679,
   "w": 1152,
-  "h": 268,
+  "h": 242,
   "_order": 8
 }
 

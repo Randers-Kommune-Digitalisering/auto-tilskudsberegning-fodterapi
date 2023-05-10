@@ -6,9 +6,9 @@ const Node = {
   "name": "Kontroller KP data ud fra regelsæt",
   "info": "",
   "x": 800,
-  "y": 1480,
+  "y": 1820,
   "wires": [],
-  "_order": 296
+  "_order": 301
 }
 
 module.exports = Node;

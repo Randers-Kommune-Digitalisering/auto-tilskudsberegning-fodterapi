@@ -6,9 +6,9 @@ const Node = {
   "name": "Hent runHistory",
   "info": "",
   "x": 700,
-  "y": 240,
+  "y": 280,
   "wires": [],
-  "_order": 264
+  "_order": 269
 }
 
 module.exports = Node;

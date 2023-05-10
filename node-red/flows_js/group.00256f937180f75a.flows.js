@@ -2,16 +2,19 @@ const Node = {
   "id": "00256f937180f75a",
   "type": "group",
   "z": "8ea344595d9a442a",
-  "name": "",
+  "name": "ERROR CATCH",
   "style": {
     "stroke": "#ff0000",
-    "label": true
+    "label": true,
+    "fill": "#ffbfbf",
+    "fill-opacity": "0.16",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "2ea70729759d488c",
     "df0ed618b5194000"
   ],
-  "x": 1294,
+  "x": 1134,
   "y": 39,
   "w": 412,
   "h": 82,

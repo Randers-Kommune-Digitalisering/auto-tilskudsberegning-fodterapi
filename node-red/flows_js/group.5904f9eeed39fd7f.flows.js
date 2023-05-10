@@ -5,9 +5,10 @@ const Node = {
   "name": "Status - WorkLet fejl",
   "style": {
     "label": true,
-    "stroke": "#a4a4a4",
-    "fill": "#d1d1d1",
-    "fill-opacity": "0.3"
+    "stroke": "#0070c0",
+    "fill": "#bfdbef",
+    "fill-opacity": "0.3",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "265ca7421f0c6bf3",
@@ -16,8 +17,8 @@ const Node = {
     "d6f134b2674d8205",
     "4ed5eb2896771598"
   ],
-  "x": 1354,
-  "y": 399,
+  "x": 1374,
+  "y": 439,
   "w": 272,
   "h": 162,
   "_order": 34

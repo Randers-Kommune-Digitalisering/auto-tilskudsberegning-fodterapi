@@ -4,7 +4,11 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Status - KP progress %",
   "style": {
-    "label": true
+    "label": true,
+    "fill": "#bfdbef",
+    "fill-opacity": "0.3",
+    "stroke": "#0070c0",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "70a379ce2563656b",
@@ -12,9 +16,9 @@ const Node = {
     "30f14b6f815a98ef",
     "181615f06b564d1e"
   ],
-  "x": 1154,
-  "y": 1159,
-  "w": 502,
+  "x": 1174,
+  "y": 1459,
+  "w": 512,
   "h": 82,
   "_order": 33
 }

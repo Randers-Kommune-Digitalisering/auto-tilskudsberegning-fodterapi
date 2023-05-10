@@ -17,7 +17,7 @@ const Node = {
     "84a086d2a1606b01",
     "265ca7421f0c6bf3"
   ],
-  "x": 685,
+  "x": 645,
   "y": 80,
   "wires": [
     [
@@ -25,7 +25,7 @@ const Node = {
       "87437eca4cc7eec9"
     ]
   ],
-  "_order": 315
+  "_order": 320
 }
 
 module.exports = Node;

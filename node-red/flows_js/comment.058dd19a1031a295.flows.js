@@ -6,9 +6,9 @@ const Node = {
   "name": "RESET robot ved fejl",
   "info": "",
   "x": 450,
-  "y": 3380,
+  "y": 3760,
   "wires": [],
-  "_order": 365
+  "_order": 369
 }
 
 module.exports = Node;

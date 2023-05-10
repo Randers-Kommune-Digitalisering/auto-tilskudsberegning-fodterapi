@@ -6,9 +6,9 @@ const Node = {
   "name": "[E] Find ny start- og slutdato ud fra seneste kørsel samt dags dato",
   "info": "",
   "x": 850,
-  "y": 200,
+  "y": 240,
   "wires": [],
-  "_order": 218
+  "_order": 224
 }
 
 module.exports = Node;

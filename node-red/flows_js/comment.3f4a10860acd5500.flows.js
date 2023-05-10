@@ -5,10 +5,10 @@ const Node = {
   "g": "59d040b48f8f3dda",
   "name": "Finalize run",
   "info": "",
-  "x": 420,
+  "x": 1290,
   "y": 3120,
   "wires": [],
-  "_order": 274
+  "_order": 279
 }
 
 module.exports = Node;

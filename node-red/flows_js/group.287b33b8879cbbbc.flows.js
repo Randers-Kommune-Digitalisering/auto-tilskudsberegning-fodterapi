@@ -4,9 +4,10 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Transform 1 - Kontrollér data",
   "style": {
-    "fill": "#ffefbf",
+    "fill": "#ffbfbf",
     "label": true,
-    "fill-opacity": "0.66"
+    "fill-opacity": "0.6",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "4629d4bebfd2768f",
@@ -45,7 +46,7 @@ const Node = {
     "41ae36f0133c6410"
   ],
   "x": 314,
-  "y": 1319,
+  "y": 1659,
   "w": 1432,
   "h": 482,
   "_order": 11

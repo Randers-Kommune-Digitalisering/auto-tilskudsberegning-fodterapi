@@ -5,10 +5,10 @@ const Node = {
   "g": "380e5c7e0ea3778b",
   "name": "Kontrol om alle fakturaer er arkiveret",
   "info": "",
-  "x": 520,
-  "y": 2420,
+  "x": 470,
+  "y": 2760,
   "wires": [],
-  "_order": 311
+  "_order": 316
 }
 
 module.exports = Node;

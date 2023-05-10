@@ -5,10 +5,10 @@ const Node = {
   "g": "7de50fe1369c94a7",
   "name": "Sæt tilskudsperioder fra Danmark",
   "info": "",
-  "x": 290,
-  "y": 140,
+  "x": 330,
+  "y": 280,
   "wires": [],
-  "_order": 223
+  "_order": 229
 }
 
 module.exports = Node;

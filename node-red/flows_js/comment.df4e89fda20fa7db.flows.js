@@ -6,9 +6,9 @@ const Node = {
   "name": "Find uafsluttet kørsel eller skab ny",
   "info": "",
   "x": 1120,
-  "y": 240,
+  "y": 280,
   "wires": [],
-  "_order": 224
+  "_order": 230
 }
 
 module.exports = Node;

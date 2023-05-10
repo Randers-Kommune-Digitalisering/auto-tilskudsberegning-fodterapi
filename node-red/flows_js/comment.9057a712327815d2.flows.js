@@ -4,10 +4,10 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Start robot fra web UI",
   "info": "",
-  "x": 140,
-  "y": 60,
+  "x": 180,
+  "y": 200,
   "wires": [],
-  "_order": 217
+  "_order": 223
 }
 
 module.exports = Node;

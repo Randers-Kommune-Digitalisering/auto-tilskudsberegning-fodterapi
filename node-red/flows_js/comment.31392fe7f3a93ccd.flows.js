@@ -6,9 +6,9 @@ const Node = {
   "name": "Gør KP data maskinelt læsbart",
   "info": "",
   "x": 470,
-  "y": 1480,
+  "y": 1820,
   "wires": [],
-  "_order": 286
+  "_order": 291
 }
 
 module.exports = Node;

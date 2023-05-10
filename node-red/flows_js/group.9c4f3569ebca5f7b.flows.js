@@ -4,9 +4,11 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Extract 2 - KP",
   "style": {
-    "fill": "#bfc7d7",
-    "fill-opacity": "0.67",
-    "label": true
+    "fill": "#ffefbf",
+    "fill-opacity": "0.6",
+    "label": true,
+    "stroke": "#777777",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "bc99d7022f61a990",
@@ -24,14 +26,14 @@ const Node = {
     "d82ec2b88042626f",
     "6e042d4222a1a115",
     "6f70a9263a101b22",
-    "c6c6bffeb57369e7",
     "da332df99f96d858",
-    "804a992aa9529ec6"
+    "804a992aa9529ec6",
+    "efcb46cbef4c2fda"
   ],
   "x": 314,
-  "y": 959,
+  "y": 1179,
   "w": 1372,
-  "h": 308,
+  "h": 262,
   "_order": 12
 }
 

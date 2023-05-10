@@ -6,9 +6,9 @@ const Node = {
   "name": "RESET ALT",
   "info": "",
   "x": 150,
-  "y": 3380,
+  "y": 3760,
   "wires": [],
-  "_order": 362
+  "_order": 366
 }
 
 module.exports = Node;

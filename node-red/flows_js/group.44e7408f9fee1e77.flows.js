@@ -2,13 +2,13 @@ const Node = {
   "id": "44e7408f9fee1e77",
   "type": "group",
   "z": "8ea344595d9a442a",
-  "name": "",
+  "name": "Initialiser 2 - Kørselshistorik",
   "style": {
     "label": true,
-    "color": "#777777",
+    "color": "#7f7f7f",
     "stroke": "#777777",
-    "fill": "#ffff7f",
-    "fill-opacity": "0.63"
+    "fill": "#e3f3d3",
+    "fill-opacity": "0.6"
   },
   "nodes": [
     "c0efbe2a4fc25ff6",
@@ -25,7 +25,7 @@ const Node = {
     "40a2d9ad69e69c69"
   ],
   "x": 594,
-  "y": 159,
+  "y": 199,
   "w": 1052,
   "h": 222,
   "_order": 14

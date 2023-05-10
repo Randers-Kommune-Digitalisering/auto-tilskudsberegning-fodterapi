@@ -4,14 +4,18 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Status - Kontrollerer data",
   "style": {
-    "label": true
+    "label": true,
+    "fill": "#bfdbef",
+    "fill-opacity": "0.3",
+    "stroke": "#0070c0",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "19bdc53204115899",
     "75f1aaf5a21e12a8"
   ],
-  "x": 1814,
-  "y": 1039,
+  "x": 1714,
+  "y": 1179,
   "w": 262,
   "h": 82,
   "_order": 19

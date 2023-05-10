@@ -7,52 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "delete",
-      "p": "workletUser",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "workletPass",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
       "p": "tilskudsInfo",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "filename",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "filePath",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "receipts",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "citizens",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "selectors",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "pupOutputs",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "rules",
       "pt": "msg"
     }
   ],
@@ -61,14 +16,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 550,
-  "y": 2600,
+  "x": 1170,
+  "y": 2800,
   "wires": [
     [
       "f5dbef72792b9011"
     ]
   ],
-  "_order": 248
+  "_order": 254
 }
 
 module.exports = Node;
