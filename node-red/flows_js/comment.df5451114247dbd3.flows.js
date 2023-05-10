@@ -6,9 +6,9 @@ const Node = {
   "name": "Clean alt unødvendig data fra msg objekt",
   "info": "",
   "x": 640,
-  "y": 2360,
+  "y": 2560,
   "wires": [],
-  "_order": 250
+  "_order": 249
 }
 
 module.exports = Node;

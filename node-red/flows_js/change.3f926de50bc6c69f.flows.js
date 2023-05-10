@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::grants",
+      "p": "grants",
       "pt": "global",
       "to": "payload.grants",
       "tot": "msg"

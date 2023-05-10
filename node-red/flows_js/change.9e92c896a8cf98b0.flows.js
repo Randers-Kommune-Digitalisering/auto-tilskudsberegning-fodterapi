@@ -2,14 +2,14 @@ const Node = {
   "id": "9e92c896a8cf98b0",
   "type": "change",
   "z": "41d1b8798efe7e15",
-  "name": "Set browser settings",
+  "name": "Set msg.browserless",
   "rules": [
     {
       "t": "set",
-      "p": "browserWS",
+      "p": "browserless",
       "pt": "msg",
-      "to": "ws://browserless:3000",
-      "tot": "str"
+      "to": "{\t   \"browserWSEndpoint\": \"ws://browserless:3000/\",\t   \"ignoreHTTPSErrors\": true,\t   \"ignoreDefaultArgs\": true\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -24,7 +24,7 @@ const Node = {
       "d68baf48942491dd"
     ]
   ],
-  "_order": 102
+  "_order": 103
 }
 
 module.exports = Node;

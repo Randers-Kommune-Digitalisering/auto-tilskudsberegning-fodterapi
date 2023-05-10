@@ -6,9 +6,9 @@ const Node = {
   "name": "Flyt borgere som ikke har handlinger til \"errors\"",
   "info": "",
   "x": 520,
-  "y": 1860,
+  "y": 2060,
   "wires": [],
-  "_order": 242
+  "_order": 241
 }
 
 module.exports = Node;

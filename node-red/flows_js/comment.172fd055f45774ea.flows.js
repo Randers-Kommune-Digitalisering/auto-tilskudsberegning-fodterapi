@@ -5,10 +5,10 @@ const Node = {
   "g": "44e7408f9fee1e77",
   "name": "Hent runHistory",
   "info": "",
-  "x": 800,
+  "x": 700,
   "y": 240,
   "wires": [],
-  "_order": 266
+  "_order": 264
 }
 
 module.exports = Node;

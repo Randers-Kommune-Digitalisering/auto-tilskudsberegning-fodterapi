@@ -5,10 +5,10 @@ const Node = {
   "g": "44e7408f9fee1e77",
   "name": "Find uafsluttet kørsel eller skab ny",
   "info": "",
-  "x": 1220,
-  "y": 260,
+  "x": 1120,
+  "y": 240,
   "wires": [],
-  "_order": 223
+  "_order": 224
 }
 
 module.exports = Node;

@@ -6,9 +6,9 @@ const Node = {
   "name": "[T] Transformér data, beregn tilskud",
   "info": "",
   "x": 480,
-  "y": 1160,
+  "y": 1360,
   "wires": [],
-  "_order": 306
+  "_order": 304
 }
 
 module.exports = Node;

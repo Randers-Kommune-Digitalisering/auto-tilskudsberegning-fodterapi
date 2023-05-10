@@ -7,6 +7,11 @@ const Node = {
   "rules": [
     {
       "t": "delete",
+      "p": "payload",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
       "p": "workletUser",
       "pt": "msg"
     },
@@ -19,6 +24,31 @@ const Node = {
       "t": "delete",
       "p": "selectors",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "headers",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "redirectList",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "statusCode",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "responseUrl",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "retry",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -26,15 +56,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1650,
-  "y": 560,
+  "x": 1310,
+  "y": 760,
   "wires": [
     [
       "656c42a8e7fcae6f"
     ]
   ],
   "info": "",
-  "_order": 387
+  "_order": 383
 }
 
 Node.info = `

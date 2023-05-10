@@ -5,9 +5,9 @@ const Node = {
   "name": "Retry WorkLet",
   "info": "",
   "x": 130,
-  "y": 460,
+  "y": 660,
   "wires": [],
-  "_order": 391
+  "_order": 387
 }
 
 module.exports = Node;

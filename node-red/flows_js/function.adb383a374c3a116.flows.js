@@ -18,8 +18,7 @@ const Node = {
   "y": 520,
   "wires": [
     [
-      "ba19f064476425c9",
-      "7328ce9d71a4c7dd"
+      "ba19f064476425c9"
     ]
   ],
   "_order": 106
@@ -28,7 +27,7 @@ const Node = {
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {
   try
   {
-      msg.pupController.browser = await pup.connect({ browserWSEndpoint: 'ws://browserless:3000' });
+      msg.pupController.browser = await pup.connect(msg.pupController.browserless);
       msg.pupController.page = (await msg.pupController.browser.pages())[0];
   }
   catch (error)

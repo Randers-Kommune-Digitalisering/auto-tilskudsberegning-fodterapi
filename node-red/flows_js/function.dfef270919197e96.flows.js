@@ -20,6 +20,9 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
+  if (msg.payload.tempData == undefined || msg.payload.tempData == null ||  msg.payload.tempData.persondata == null)
+      return msg;
+  
   msg.payload.tempData._bevilling = msg.payload.tempData.persondata.bevilling ? `<div class="mb-3 text-success"><i class="fas fa-check"></i> Bevilget tilskud til fodpleje</div>` : ``;
   return msg;
 }

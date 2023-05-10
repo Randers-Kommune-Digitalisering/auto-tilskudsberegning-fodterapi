@@ -6,11 +6,11 @@ const Node = {
   "method": "GET",
   "ret": "txt",
   "paytoqs": "ignore",
-  "url": "http://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/",
+  "url": "http://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/saml/login",
   "tls": "",
-  "persist": false,
+  "persist": true,
   "proxy": "",
-  "insecureHTTPParser": true,
+  "insecureHTTPParser": false,
   "authType": "",
   "senderr": false,
   "headers": [],
@@ -21,7 +21,7 @@ const Node = {
       "35d9d09a1818e444"
     ]
   ],
-  "_order": 510
+  "_order": 519
 }
 
 module.exports = Node;

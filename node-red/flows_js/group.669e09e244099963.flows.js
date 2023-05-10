@@ -10,16 +10,13 @@ const Node = {
     "fill-opacity": "0.67"
   },
   "nodes": [
-    "07d87534c4e0bbea",
     "c931f08e3a54e2f2",
     "6558b47eb74e6c0c",
     "569d9f497b06babc",
     "144d6812d5213472",
-    "bb143ed21df0febf",
     "07aa032e7944f93b",
     "d04faa115ea73982",
     "c9cc2e6cd25fdbd6",
-    "dd83f023eff10d0a",
     "234ef29b39321d1a",
     "023615f3ddd064ad",
     "656c42a8e7fcae6f",
@@ -34,8 +31,8 @@ const Node = {
     "922e8d584a739969"
   ],
   "x": 314,
-  "y": 439,
-  "w": 1492,
+  "y": 639,
+  "w": 1152,
   "h": 268,
   "_order": 8
 }

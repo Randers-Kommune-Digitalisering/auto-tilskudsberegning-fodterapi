@@ -4,13 +4,13 @@ const Node = {
   "z": "8ea344595d9a442a",
   "g": "669e09e244099963",
   "name": "",
-  "property": "payload",
-  "propertyType": "msg",
+  "property": "$count( payload.kvitteringer )",
+  "propertyType": "jsonata",
   "rules": [
     {
-      "t": "istype",
-      "v": "object",
-      "vt": "object"
+      "t": "gt",
+      "v": "0",
+      "vt": "num"
     },
     {
       "t": "else"
@@ -19,8 +19,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 1210,
-  "y": 520,
+  "x": 850,
+  "y": 720,
   "wires": [
     [
       "6558b47eb74e6c0c"
@@ -29,7 +29,7 @@ const Node = {
       "35a80d61fabc8e31"
     ]
   ],
-  "_order": 393
+  "_order": 389
 }
 
 module.exports = Node;

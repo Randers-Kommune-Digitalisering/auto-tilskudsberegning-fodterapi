@@ -1,14 +1,14 @@
 const Node = {
-  "id": "a87343abb1f1ad70",
+  "id": "7646d4eed9321290",
   "type": "comment",
   "z": "8ea344595d9a442a",
   "g": "44e7408f9fee1e77",
-  "name": "Set currentRun object",
+  "name": "Slet unødvendig data",
   "info": "",
-  "x": 1180,
-  "y": 220,
+  "x": 1460,
+  "y": 240,
   "wires": [],
-  "_order": 265
+  "_order": 399
 }
 
 module.exports = Node;

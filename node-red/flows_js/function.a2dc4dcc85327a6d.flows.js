@@ -20,7 +20,7 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  if (msg.payload.tempData == undefined || msg.payload.tempData.persondata.sager == null || !Array.isArray(msg.payload.tempData.persondata.sager))
+  if (msg.payload.tempData == undefined || msg.payload.tempData.persondata == null || msg.payload.tempData.persondata.sager == null || !Array.isArray(msg.payload.tempData.persondata.sager))
       return msg;
   
   var html = "";

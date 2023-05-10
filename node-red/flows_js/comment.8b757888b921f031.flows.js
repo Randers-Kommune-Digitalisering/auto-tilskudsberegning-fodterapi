@@ -6,9 +6,9 @@ const Node = {
   "name": "Arkivering af individuelle faktura",
   "info": "",
   "x": 480,
-  "y": 2600,
+  "y": 2800,
   "wires": [],
-  "_order": 257
+  "_order": 256
 }
 
 module.exports = Node;

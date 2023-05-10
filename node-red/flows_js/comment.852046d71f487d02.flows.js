@@ -5,10 +5,10 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "Find relevant data for hver faktura",
   "info": "",
-  "x": 1170,
-  "y": 1440,
+  "x": 1190,
+  "y": 1540,
   "wires": [],
-  "_order": 305
+  "_order": 303
 }
 
 module.exports = Node;

@@ -6,9 +6,9 @@ const Node = {
   "name": "Læs CPR fra faktura",
   "info": "",
   "x": 430,
-  "y": 840,
+  "y": 1040,
   "wires": [],
-  "_order": 342
+  "_order": 340
 }
 
 module.exports = Node;

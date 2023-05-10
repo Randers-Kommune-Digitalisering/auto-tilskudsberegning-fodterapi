@@ -6,9 +6,9 @@ const Node = {
   "name": "Klargør data til UI",
   "info": "",
   "x": 420,
-  "y": 2080,
+  "y": 2280,
   "wires": [],
-  "_order": 238
+  "_order": 237
 }
 
 module.exports = Node;

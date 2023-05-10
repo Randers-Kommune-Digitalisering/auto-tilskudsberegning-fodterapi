@@ -5,10 +5,10 @@ const Node = {
   "g": "669e09e244099963",
   "name": "Retry",
   "info": "",
-  "x": 1030,
-  "y": 580,
+  "x": 670,
+  "y": 780,
   "wires": [],
-  "_order": 398
+  "_order": 394
 }
 
 module.exports = Node;

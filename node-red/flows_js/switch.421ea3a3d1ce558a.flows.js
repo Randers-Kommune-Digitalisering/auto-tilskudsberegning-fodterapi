@@ -17,7 +17,7 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 770,
+  "x": 670,
   "y": 280,
   "wires": [
     [
@@ -28,7 +28,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 264
+  "_order": 263
 }
 
 Node.info = `

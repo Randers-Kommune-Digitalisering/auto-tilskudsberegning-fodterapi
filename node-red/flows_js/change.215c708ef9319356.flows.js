@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "rules",
       "pt": "msg",
-      "to": "#:(storeInFile)::rules",
+      "to": "rules",
       "tot": "global"
     }
   ],
@@ -19,13 +19,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 790,
-  "y": 1340,
+  "y": 1560,
   "wires": [
     [
       "4c51b10755b92b07"
     ]
   ],
-  "_order": 297
+  "_order": 295
 }
 
 module.exports = Node;

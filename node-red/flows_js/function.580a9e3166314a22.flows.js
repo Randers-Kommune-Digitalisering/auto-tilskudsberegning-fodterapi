@@ -29,7 +29,7 @@ const Node = {
       "2fd098a8190ef089"
     ]
   ],
-  "_order": 78
+  "_order": 80
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
@@ -52,9 +52,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       for (let i = 0; i < actionList.length; i++) {
           
           try {
-              //const browser = msg.pupController.browser; //? msg.pupController.browser : await pup.connect({ "browserWSEndpoint": msg.browserWS });
-              //const page = (await msg.pupController.browser.pages())[msg.pupController.activePage];
-              //msg.pupController.page.setDefaultNavigationTimeout(1000);
   
               var ele = actionList[i];
               const action = ele.action;
@@ -74,21 +71,14 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "click":
-                      //if(ele.isDownload == true || ele.isDownload == "true")
-                      //    setDownloadBehavior(msg.pupController.page);
                       await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
                       if (ele.isDownload == true || ele.isDownload == "true")
                           await msg.pupController.page.waitForNetworkIdle();
                       break;
   
-                  case "clickifexists":
-                      //if (ele.isDownload == true || ele.isDownload == "true")
-                      //    setDownloadBehavior(msg.pupController.page);
-                      
+                  case "clickifexists":                    
                       const exists = !! await msg.pupController.page.$(ele.path);
-  
-                      //wait page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       if(exists)
                           await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
   
@@ -104,8 +94,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "select":
-                      //let elemHandler = await page.$(ele.path).then(x => console.log(
-                          //console.log("ELEMENT HANDLE FOUND: " + x)));
                       let properties = await msg.pupController.page.$(ele.path).then(elemHandler => elemHandler.getProperties());
                       for (const property of properties.values())
                       {
@@ -118,15 +106,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                               {
                                   let hValue = await element.getProperty("value");
                                   let value = await hValue.jsonValue();
-                                  await msg.pupController.page.select(ele.path, value); // or use 58730
-                                  //console.log(`Selected ${text} which is value ${value}.`);
+                                  await msg.pupController.page.select(ele.path, value);
                               }
                           }
                       }
-                      /*
-                      await page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-                      await page.select(ele.path, ele.input);
-                      */
                       break;
   
                   case "get":
@@ -154,20 +137,20 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
               }
   
+              // Action completed
+  
               ele.succesful = true;
               actionPerformed = ReportAction(ele);
-              node.send([null, actionPerformed]);
   
-              //if(i == actionList.length-1 && action != "close")
-              //    await browser.close();
-              
+              node.send([null, actionPerformed]);
               
           }
           catch (e)
           {
-              console.log("PupController error: " + JSON.stringify(e));
-              //node.error("Error:", e);
+              // Error caught
+  
               actionList[i].succesful = false;
+              actionList[i].error = e;
               actionPerformed = ReportError(actionList[i], e);
               
               node.send([null, actionPerformed]);
@@ -210,18 +193,13 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           }
           else
               outputs[outputName] = a.output;
-          /*
-          outputs.push({
-              "name": a.name,
-              "value": a.output
-          });*/
       }
       return newAction;
   }
   
   function ReportError(a, e)
   {
-      console.log("Puppeteer error:" + e);
+      console.log("PupController error:" + e);
       var newAction;
       actions.push(newAction = {
           "action": a,
@@ -231,14 +209,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       });
       return newAction;
   }
-  
-  /*async function setDownloadBehavior(page) {
-      const client = await page.target().createCDPSession();
-      await client.send('Page.setDownloadBehavior', {
-          behavior: 'allow',
-          downloadPath: downloadPath
-      });
-  }*/
 }
 
 module.exports = Node;

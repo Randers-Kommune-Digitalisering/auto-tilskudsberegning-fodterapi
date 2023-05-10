@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.grants",
       "pt": "msg",
-      "to": "#:(storeInFile)::grants",
+      "to": "grants",
       "tot": "global"
     }
   ],

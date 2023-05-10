@@ -17,8 +17,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 1030,
-  "y": 620,
+  "x": 670,
+  "y": 820,
   "wires": [
     [
       "9577047d423aebb4"
@@ -27,7 +27,7 @@ const Node = {
       "405c756777b7fe27"
     ]
   ],
-  "_order": 394
+  "_order": 390
 }
 
 module.exports = Node;

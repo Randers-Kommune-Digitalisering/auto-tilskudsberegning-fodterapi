@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.webSettings",
       "pt": "msg",
-      "to": "#:(storeInFile)::webSettings",
+      "to": "webSettings",
       "tot": "global"
     },
     {

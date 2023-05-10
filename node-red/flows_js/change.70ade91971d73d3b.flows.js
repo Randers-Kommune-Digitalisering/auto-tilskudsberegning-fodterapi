@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "8ea344595d9a442a",
   "g": "9c4f3569ebca5f7b",
-  "name": "",
+  "name": "Set msg.citizens",
   "rules": [
     {
       "t": "move",
@@ -25,15 +25,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1460,
-  "y": 840,
+  "x": 1220,
+  "y": 1040,
   "wires": [
     [
       "81a00971b2ea464e",
-      "172fe34eeccca8dd"
+      "da332df99f96d858"
     ]
   ],
-  "_order": 343
+  "_order": 341
 }
 
 module.exports = Node;

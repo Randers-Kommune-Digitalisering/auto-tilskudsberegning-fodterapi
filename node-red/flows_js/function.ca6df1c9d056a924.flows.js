@@ -11,18 +11,18 @@ const Node = {
   "finalize": "",
   "libs": [],
   "x": 400,
-  "y": 1520,
+  "y": 1720,
   "wires": [
     [
       "81cc412d0d2170b9"
     ]
   ],
-  "_order": 307
+  "_order": 305
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if(msg.payload == null)
-      return;
+      return msg;
   
   if(!Array.isArray(msg.payload))
       msg.payload = [msg.payload];

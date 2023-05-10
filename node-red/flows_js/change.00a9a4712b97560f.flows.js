@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "missingData",
       "pt": "msg",
-      "to": "receipts @$r.\t(\t    payload[cpr = $r.patientCPR] ~> $exists() = false ?\t    {\t        \"cpr\": $r.patientCPR,\t        \"faktura\": $r,\t        \"regelbrud\": \"Borger-data blev ikke indsamlet korrekt\"\t    }\t)",
+      "to": "receipts @$r.\t(\t    (payload[cpr = $r.patientCPR] ~> $exists() = false)\t or (payload[cpr = $r.patientCPR].personligtillaegsprocent ~> $exists() = false) ?\t    {\t        \"cpr\": $r.patientCPR,\t        \"faktura\": $r,\t        \"regelbrud\": \"Borger-data blev ikke indsamlet korrekt. Borger findes muligvis ikke i KP.\"\t    }\t)",
       "tot": "jsonata"
     }
   ],
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 740,
-  "y": 1220,
+  "x": 760,
+  "y": 1400,
   "wires": [
     [
       "b01934ac82f070c3"
     ]
   ],
-  "_order": 308
+  "_order": 306
 }
 
 module.exports = Node;
