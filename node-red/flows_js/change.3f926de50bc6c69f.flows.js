@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::grants",
+      "p": "grants",
       "pt": "global",
       "to": "payload.grants",
       "tot": "msg"
@@ -24,7 +24,7 @@ const Node = {
       "6e9984fcc13cbb0d"
     ]
   ],
-  "_order": 195
+  "_order": 135
 }
 
 module.exports = Node;

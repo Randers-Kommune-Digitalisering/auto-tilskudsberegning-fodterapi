@@ -5,8 +5,8 @@ const Node = {
   "g": "6c7a3f8252158db6",
   "name": "Flyt borgere som ikke har handlinger til \"errors\"",
   "info": "",
-  "x": 580,
-  "y": 1820,
+  "x": 520,
+  "y": 2380,
   "wires": [],
   "_order": 244
 }

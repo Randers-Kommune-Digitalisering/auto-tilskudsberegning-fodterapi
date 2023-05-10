@@ -6,9 +6,9 @@ const Node = {
   "name": "Transformer faktura data (+ fjern unødvendig data)",
   "info": "",
   "x": 1250,
-  "y": 1260,
+  "y": 1700,
   "wires": [],
-  "_order": 297
+  "_order": 293
 }
 
 module.exports = Node;

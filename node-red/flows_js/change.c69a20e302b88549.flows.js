@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.webSettings",
       "pt": "msg",
-      "to": "#:(storeInFile)::webSettings",
+      "to": "webSettings",
       "tot": "global"
     },
     {
@@ -31,7 +31,7 @@ const Node = {
       "c7471e96ad8de5e4"
     ]
   ],
-  "_order": 180
+  "_order": 120
 }
 
 module.exports = Node;

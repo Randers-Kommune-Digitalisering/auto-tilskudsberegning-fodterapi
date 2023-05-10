@@ -5,10 +5,10 @@ const Node = {
   "g": "bb5f1c24606d30f1",
   "name": "RESET robot ved fejl",
   "info": "",
-  "x": 210,
-  "y": 80,
+  "x": 450,
+  "y": 3760,
   "wires": [],
-  "_order": 371
+  "_order": 366
 }
 
 module.exports = Node;

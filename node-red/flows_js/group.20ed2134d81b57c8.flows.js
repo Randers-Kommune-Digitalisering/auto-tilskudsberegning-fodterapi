@@ -2,14 +2,13 @@ const Node = {
   "id": "20ed2134d81b57c8",
   "type": "group",
   "z": "8ea344595d9a442a",
+  "name": "Status - WorkLet fejl",
   "style": {
-    "stroke": "#999999",
-    "stroke-opacity": "1",
-    "fill": "none",
-    "fill-opacity": "1",
     "label": true,
-    "label-position": "nw",
-    "color": "#a4a4a4"
+    "fill": "#bfdbef",
+    "fill-opacity": "0.3",
+    "stroke": "#0070c0",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "7e0e36d833794733",
@@ -18,11 +17,11 @@ const Node = {
     "0af59de1688c9df4",
     "2c999012fa2d0842"
   ],
-  "x": 1874,
-  "y": 359,
+  "x": 314,
+  "y": 939,
   "w": 272,
   "h": 162,
-  "_order": 22
+  "_order": 16
 }
 
 module.exports = Node;

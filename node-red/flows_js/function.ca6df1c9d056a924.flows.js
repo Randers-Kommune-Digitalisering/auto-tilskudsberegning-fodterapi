@@ -10,19 +10,19 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 420,
-  "y": 1500,
+  "x": 400,
+  "y": 2060,
   "wires": [
     [
       "81cc412d0d2170b9"
     ]
   ],
-  "_order": 311
+  "_order": 307
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if(msg.payload == null)
-      return;
+      return msg;
   
   if(!Array.isArray(msg.payload))
       msg.payload = [msg.payload];

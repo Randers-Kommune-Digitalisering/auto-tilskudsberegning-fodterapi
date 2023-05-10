@@ -16,7 +16,7 @@ const Node = {
       "e4fc06b7c36a80c5"
     ]
   ],
-  "_order": 131
+  "_order": 172
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -108,9 +108,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   else if (receiptsAwaiting && rejectedCitizenCount > 0)
   {
-      cardHeader = "Borgere uden gyldig bevilling";
+      cardHeader = "Borgere uden anbefalede handlinger";
       cardTitle = rejectedCitizenCount == 0 ? "Ingen fakturaer" : rejectedCitizenCount + " borgere afventer";
-      cardText = "Efter seneste kørsel er der " + rejectedCitizenCount + " borgere uden gyldig bevilling som afventer bekræftelse.";
+      cardText = "Efter seneste kørsel er der " + rejectedCitizenCount + " borgere uden anbefalede handlinger som afventer bekræftelse.";
       buttonText = "Se borgere";
       buttonClasses += rejectedCitizenCount == 0 ? "hidden" : "";
       linkhref = "view-nograntreceipts";
@@ -130,7 +130,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   {
       cardHeader = "Afslut kørsel";
       cardTitle = "Alle borgere behandlet",
-          cardText = "Alle borgere uden bevilling er bekræftet. Bekræft anbefalede handlinger før du afslutter kørslen."
+          cardText = "Alle borgere uden anbefalede handlinger er bekræftet. Bekræft anbefalede handlinger før du afslutter kørslen."
       buttonText = "Afslut kørsel";
       buttonClasses += "disabled";
   }

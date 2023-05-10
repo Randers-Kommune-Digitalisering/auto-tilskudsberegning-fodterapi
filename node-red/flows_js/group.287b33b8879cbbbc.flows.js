@@ -4,9 +4,10 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Transform 1 - Kontrollér data",
   "style": {
-    "fill": "#ffefbf",
+    "fill": "#ffbfbf",
     "label": true,
-    "fill-opacity": "0.66"
+    "fill-opacity": "0.6",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "4629d4bebfd2768f",
@@ -38,13 +39,17 @@ const Node = {
     "1ee2c685a74c09b0",
     "ac26dfbc2efcbb4f",
     "81cc412d0d2170b9",
-    "6cfa59d7c02c8c82"
+    "6cfa59d7c02c8c82",
+    "1c2c61f5f0782be2",
+    "11fbf451edf0f10a",
+    "6a807a12e672b751",
+    "41ae36f0133c6410"
   ],
-  "x": 334,
-  "y": 1099,
-  "w": 1142,
-  "h": 522,
-  "_order": 16
+  "x": 314,
+  "y": 1659,
+  "w": 1432,
+  "h": 482,
+  "_order": 10
 }
 
 module.exports = Node;

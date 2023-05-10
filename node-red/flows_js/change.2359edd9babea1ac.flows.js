@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.isRunning",
+      "p": "webSettings.state.isRunning",
       "pt": "global",
       "to": "false",
       "tot": "bool"
@@ -23,8 +23,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1915,
-  "y": 440,
+  "x": 355,
+  "y": 1020,
   "wires": [
     [
       "2c999012fa2d0842",
@@ -32,7 +32,7 @@ const Node = {
     ]
   ],
   "l": false,
-  "_order": 353
+  "_order": 349
 }
 
 module.exports = Node;

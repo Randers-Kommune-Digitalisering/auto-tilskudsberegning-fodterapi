@@ -5,10 +5,10 @@ const Node = {
   "g": "9c4f3569ebca5f7b",
   "name": "Læs CPR fra faktura",
   "info": "",
-  "x": 450,
-  "y": 780,
+  "x": 430,
+  "y": 1260,
   "wires": [],
-  "_order": 346
+  "_order": 342
 }
 
 module.exports = Node;

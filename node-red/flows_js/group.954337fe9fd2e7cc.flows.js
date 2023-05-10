@@ -2,14 +2,13 @@ const Node = {
   "id": "954337fe9fd2e7cc",
   "type": "group",
   "z": "8ea344595d9a442a",
+  "g": "e9cda06203cf61a9",
+  "name": "WEB - Arkivér faktura",
   "style": {
-    "stroke": "#999999",
-    "stroke-opacity": "1",
-    "fill": "none",
-    "fill-opacity": "1",
     "label": true,
-    "label-position": "nw",
-    "color": "#a4a4a4"
+    "fill": "#bfbfbf",
+    "fill-opacity": "0.16",
+    "color": "#3f3f3f"
   },
   "nodes": [
     "230dad52a43f6b19",
@@ -29,11 +28,11 @@ const Node = {
     "b840a64a9cf3c187",
     "cbd06ead16ce268d"
   ],
-  "x": 354,
-  "y": 2559,
+  "x": 144,
+  "y": 3079,
   "w": 1032,
   "h": 302,
-  "_order": 28
+  "_order": 22
 }
 
 module.exports = Node;

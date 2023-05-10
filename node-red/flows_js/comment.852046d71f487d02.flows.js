@@ -6,9 +6,9 @@ const Node = {
   "name": "Find relevant data for hver faktura",
   "info": "",
   "x": 1190,
-  "y": 1420,
+  "y": 1880,
   "wires": [],
-  "_order": 309
+  "_order": 305
 }
 
 module.exports = Node;

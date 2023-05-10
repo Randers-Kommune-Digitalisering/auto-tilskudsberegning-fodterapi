@@ -5,10 +5,10 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "[T] Transformér data, beregn tilskud",
   "info": "",
-  "x": 500,
-  "y": 1140,
+  "x": 480,
+  "y": 1700,
   "wires": [],
-  "_order": 310
+  "_order": 306
 }
 
 module.exports = Node;

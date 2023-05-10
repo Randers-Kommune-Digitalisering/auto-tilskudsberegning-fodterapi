@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.grants",
       "pt": "msg",
-      "to": "#:(storeInFile)::grants",
+      "to": "grants",
       "tot": "global"
     }
   ],
@@ -24,7 +24,7 @@ const Node = {
       "12011e480eafdc8f"
     ]
   ],
-  "_order": 193
+  "_order": 133
 }
 
 module.exports = Node;

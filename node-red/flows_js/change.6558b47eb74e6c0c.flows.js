@@ -11,11 +11,6 @@ const Node = {
       "pt": "msg",
       "to": "payload.kvitteringer",
       "tot": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload",
-      "pt": "msg"
     }
   ],
   "action": "",
@@ -23,17 +18,16 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1585,
-  "y": 580,
+  "x": 1050,
+  "y": 760,
   "wires": [
     [
       "07aa032e7944f93b",
-      "8bc31d06862e8fe2"
+      "3d1bf849f7c2772e"
     ]
   ],
-  "l": false,
   "info": "",
-  "_order": 226
+  "_order": 229
 }
 
 Node.info = `

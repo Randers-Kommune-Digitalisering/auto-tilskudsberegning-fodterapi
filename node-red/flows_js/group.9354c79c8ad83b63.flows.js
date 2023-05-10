@@ -2,24 +2,23 @@ const Node = {
   "id": "9354c79c8ad83b63",
   "type": "group",
   "z": "8ea344595d9a442a",
+  "name": "Status - Kontrollerer data",
   "style": {
-    "stroke": "#999999",
-    "stroke-opacity": "1",
-    "fill": "none",
-    "fill-opacity": "1",
     "label": true,
-    "label-position": "nw",
-    "color": "#a4a4a4"
+    "fill": "#bfdbef",
+    "fill-opacity": "0.3",
+    "stroke": "#0070c0",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "19bdc53204115899",
     "75f1aaf5a21e12a8"
   ],
-  "x": 1874,
-  "y": 779,
+  "x": 1714,
+  "y": 1179,
   "w": 262,
   "h": 82,
-  "_order": 24
+  "_order": 18
 }
 
 module.exports = Node;

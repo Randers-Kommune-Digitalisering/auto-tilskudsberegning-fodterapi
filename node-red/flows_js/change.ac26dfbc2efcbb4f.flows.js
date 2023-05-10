@@ -11,6 +11,11 @@ const Node = {
       "pt": "msg",
       "to": "$append(errors, missingData)",
       "tot": "jsonata"
+    },
+    {
+      "t": "delete",
+      "p": "missingData",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -18,14 +23,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 820,
-  "y": 1480,
+  "x": 800,
+  "y": 2060,
   "wires": [
     [
       "71c55498ef71a4c9"
     ]
   ],
-  "_order": 314
+  "_order": 310
 }
 
 module.exports = Node;

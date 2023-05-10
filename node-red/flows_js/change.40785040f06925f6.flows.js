@@ -22,7 +22,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.login",
+      "p": "webSettings.acceptances.login",
       "pt": "global",
       "to": "false",
       "tot": "bool"
@@ -33,12 +33,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 140,
-  "y": 560,
+  "x": 160,
+  "y": 3840,
   "wires": [
     []
   ],
-  "_order": 370
+  "_order": 365
 }
 
 module.exports = Node;

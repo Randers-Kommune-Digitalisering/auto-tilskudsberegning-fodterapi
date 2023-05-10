@@ -16,8 +16,8 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.url",
       "pt": "msg",
-      "to": "https://fagsystem.kommunernespensionssystem.dk/",
-      "tot": "str"
+      "to": "KP_URL",
+      "tot": "env"
     },
     {
       "t": "set",
@@ -130,6 +130,34 @@ const Node = {
       "pt": "msg",
       "to": "#app div.tab-content div.tab-content > div > div > div:nth-child(1) > div",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "selectors.kp.dqUsername",
+      "pt": "msg",
+      "to": "div[class=\"sc-iwsKbI sc-gqjmRU yImXU\"]",
+      "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "selectors.kp.login.dqUser",
+      "pt": "msg",
+      "to": "#userNameInput",
+      "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "selectors.kp.login.dqPass",
+      "pt": "msg",
+      "to": "#passwordInput",
+      "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "selectors.kp.login.dqButton",
+      "pt": "msg",
+      "to": "#submitButton",
+      "tot": "str"
     }
   ],
   "action": "",
@@ -137,14 +165,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 470,
-  "y": 860,
+  "x": 750,
+  "y": 1300,
   "wires": [
     [
-      "c2df29c07624e5e0"
+      "d82ec2b88042626f"
     ]
   ],
-  "_order": 341
+  "_order": 337
 }
 
 module.exports = Node;

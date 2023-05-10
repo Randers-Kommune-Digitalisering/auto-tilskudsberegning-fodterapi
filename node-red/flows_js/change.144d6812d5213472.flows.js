@@ -88,15 +88,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 760,
-  "y": 580,
+  "x": 420,
+  "y": 800,
   "wires": [
     [
-      "6a7f540f9f08ded4"
+      "023615f3ddd064ad"
     ]
   ],
   "info": "",
-  "_order": 228
+  "_order": 231
 }
 
 Node.info = `

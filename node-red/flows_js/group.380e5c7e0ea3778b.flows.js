@@ -4,9 +4,10 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Tranform 3 - Klargør til UI",
   "style": {
-    "fill": "#dbcbe7",
+    "fill": "#ffbfbf",
     "label": true,
-    "fill-opacity": "0.64"
+    "fill-opacity": "0.6",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "da966ceeba7b23dd",
@@ -15,18 +16,19 @@ const Node = {
     "b51fbf12da5aebba",
     "a46e2a0c2cd58d9f",
     "fde5a695bfbd9a7d",
-    "df5451114247dbd3",
     "4fa04433812ed133",
     "f811b83fc07bb1cd",
     "c7ca8c02a788a41d",
     "78f7e1718ab3f755",
     "8f4d2dcc4c986825",
-    "4840de2e1aa54398"
+    "4840de2e1aa54398",
+    "3d6a07919281ed94",
+    "83aa8df00f62fd2e"
   ],
-  "x": 374,
-  "y": 1979,
-  "w": 852,
-  "h": 402,
+  "x": 304,
+  "y": 2579,
+  "w": 1012,
+  "h": 267,
   "_order": 9
 }
 

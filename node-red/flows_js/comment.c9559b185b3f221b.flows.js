@@ -5,10 +5,10 @@ const Node = {
   "g": "3fd0647603ec528e",
   "name": "RESET ALT",
   "info": "",
-  "x": 130,
-  "y": 480,
+  "x": 150,
+  "y": 3760,
   "wires": [],
-  "_order": 368
+  "_order": 363
 }
 
 module.exports = Node;

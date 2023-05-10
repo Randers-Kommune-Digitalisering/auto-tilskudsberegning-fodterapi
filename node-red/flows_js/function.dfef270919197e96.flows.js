@@ -16,10 +16,13 @@ const Node = {
       "66afcd1514727417"
     ]
   ],
-  "_order": 174
+  "_order": 215
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
+  if (msg.payload.tempData == undefined || msg.payload.tempData == null ||  msg.payload.tempData.persondata == null)
+      return msg;
+  
   msg.payload.tempData._bevilling = msg.payload.tempData.persondata.bevilling ? `<div class="mb-3 text-success"><i class="fas fa-check"></i> Bevilget tilskud til fodpleje</div>` : ``;
   return msg;
 }

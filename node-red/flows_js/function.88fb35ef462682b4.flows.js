@@ -16,12 +16,12 @@ const Node = {
       "af684cb65465eef9"
     ]
   ],
-  "_order": 153
+  "_order": 194
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var html = `<div class="float-right mt-2">
-                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'ruleUpdates', 'value': appendRules (null {{#payload.rules}}, createRuleObj('{{uid}}') {{/payload.rules}}) } ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled`:``)+`>
+                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) +`>
                       Forretningsregler godkendt
                   </button>
   

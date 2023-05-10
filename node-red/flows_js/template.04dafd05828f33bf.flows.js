@@ -17,7 +17,7 @@ const Node = {
       "6e08782524148718"
     ]
   ],
-  "_order": 137
+  "_order": 178
 }
 
 Node.template = `
@@ -30,12 +30,12 @@ Node.template = `
         </div>
 
         <div class="form-floating col was-validated" id="inputContainer_{{id}}_procent">
-            <input type="text" class="form-control" id="value_{{id}}_procent" placeholder="0" value="{{{tilskud_procent}}}" onchange="withdrawPageAccept('grants')">
+            <input type="text" class="form-control" id="value_{{id}}_procent" placeholder="0" value="{{{tilskud_procent}}}" disabled>
             <label for="value_{{id}}_procent" style="padding-left: 27px">% af egenbetaling</label>
         </div>
 
         <div class="form-floating col was-validated" id="inputContainer_{{id}}_maxdkk">
-            <input type="text" class="form-control" id="value_{{id}}_maxdkk" placeholder="0" value="{{{tilskud_maxdkk}}}" onchange="withdrawPageAccept('grants')">
+            <input type="text" class="form-control" id="value_{{id}}_maxdkk" placeholder="0" value="{{{tilskud_maxdkk}}}" disabled>
             <label for="value_{{id}}_maxdkk" style="padding-left: 27px">Dog maks kr.</label>
         </div>
 

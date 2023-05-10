@@ -5,10 +5,10 @@ const Node = {
   "g": "954337fe9fd2e7cc",
   "name": "Arkivering af individuelle faktura",
   "info": "",
-  "x": 510,
-  "y": 2600,
+  "x": 300,
+  "y": 3120,
   "wires": [],
-  "_order": 259
+  "_order": 258
 }
 
 module.exports = Node;
