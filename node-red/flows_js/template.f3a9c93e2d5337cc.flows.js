@@ -17,12 +17,168 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 427
+  "_order": 430
 }
 
 Node.template = `
 //
-/// INITIALIZE
+// HTTP Request
+//
+
+// Function to send encrypted data to backend
+// This function will automatically retrieve missing public key before sending data
+
+async function encryptedPostRequest(request, data) {
+    // If there is no public key, retrieve it
+    await
+        getPublicKeyAsync()
+            .catch(error => console.log("Error importing public key: " + error))
+
+            // Encrypt data
+            .then(publicKey => encryptDataAsync(publicKey, data))
+            .catch(error => console.log("Error encrypting data: " + error))
+
+            // Send encrypted data to backend
+            .then(encryptedData => postRequestAsync(request, encryptedData))
+            .catch(error => console.log("HTTP post error: " + error))
+
+            // Handle HTTP response
+            .then(response => handlePostResponse(response));
+
+}
+
+// Post request async - not encrypted, for requests containing data use encryptedPostRequest instead
+
+async function postRequestAsync(request, data = {}, handleResponse = false)
+{
+    const response = await fetch("/worklet/http", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "requestType": request,
+            "data": data
+        })
+    });
+
+    const responseObj = (handleResponse) ?
+        await response.json().then(response => handlePostResponse(response))
+    :
+        await response.json();
+
+    return responseObj;
+}
+
+//
+// Crypto
+//
+
+var _publicKey = null;
+
+// Import
+
+async function getPublicKeyAsync(forceImport = false)
+{
+    const importedKey =
+        // Request public key if missing
+        (_publicKey == null || _publicKey == undefined || forceImport) ?
+
+            await
+                // Get public key (HTTP request)
+                postRequestAsync("getPublicKey")
+                    .catch(error => console.log("HTTP getPublicKey request error: " + error))
+
+                    // Get the PEM string from the response variable in HTTP response object
+                    .then(response => response.pem)
+
+                    // Import key from PEM string
+                    .then(response => importKeyAsync(response))
+                    .catch(error => console.log("Import key error: " + error))
+
+                    // Set and return public key as cryptoKey object
+                    .then(keyObject => {
+                        _publicKey = keyObject;
+                        return keyObject;
+                    })
+
+            // If key already exists, return it instead
+            : _publicKey;
+
+    return importedKey;
+
+}
+
+// Function for importing key and converting to cryptoKey object - Do not call this function directly, use importPublicKeyAsync();
+
+async function importKeyAsync(pemKey)
+{
+    // Fetch the ArrayBuffer of the key
+    const keyString = pemKey
+        .replace("-----BEGIN PUBLIC KEY-----", "")
+        .replace("-----END PUBLIC KEY-----", "")
+        .replace(/\\n/g, "");
+    const keyBuffer = Uint8Array.from(atob(keyString), c => c.charCodeAt(0)).buffer;
+
+    //const response = await fetch(pemKey); 
+    //const keyBuffer = await response.arrayBuffer();
+
+    // Import the key using the Web Crypto API
+    const crypto = window.crypto.subtle;
+    const importedKey = await crypto.importKey(
+        "spki",
+        keyBuffer,
+        {
+            name: "RSA-OAEP",
+            hash: "SHA-256"
+        },
+        true,
+        ["encrypt"]
+    );
+
+    return importedKey;
+}
+
+// Encrypt
+
+async function encryptDataAsync(publicKey, data)
+{
+    if (publicKey == null || publicKey == undefined) {
+        console.log("Attempted to encrypt data but public key was null or undefined");
+        return;
+    }
+
+    // Convert the data to a Uint8Array
+    const dataString = JSON.stringify(data);
+    
+    const dataBuffer = new TextEncoder().encode(dataString);
+
+    // Encrypt the data using the public key
+    const crypto = window.crypto.subtle;
+    const encryptedData = await crypto.encrypt(
+        {
+            name: "RSA-OAEP"
+        },
+        publicKey,
+        dataBuffer
+    );
+
+    var base64String;
+    try {
+    // Return the encrypted data as a base64-encoded string
+
+        base64String = btoa(String.fromCharCode(...new Uint8Array(encryptedData)));
+    }
+    catch(error)
+    {
+        console.log("base 64 error:" + error);
+    }
+
+    return base64String;
+}
+
+//
+/// RULES
 //
 
 var rules = {{{payload.rulesStr}}};
@@ -61,7 +217,7 @@ function goToPage(page)
         obj[paramName] = paramValue;
     }
 
-    postRequest(obj);
+    encryptedPostRequest("encryptedRequest", obj);
 }
 
 function setPageContent(pageObj, setHistory = true)
@@ -73,8 +229,6 @@ function setPageContent(pageObj, setHistory = true)
         window.history.pushState({ "page": pageObj }, "", "/" + pageObj.url);
 
     activePage = pageObj.url;
-
-    //console.log("Setting page content using JS");
 
     if (loadPageFunc[pageObj.url] != null)
         loadPageFunc[pageObj.url]();
@@ -103,6 +257,8 @@ function toJSON(...vars)
     return obj;
 }
 
+/* // DEPRECATED FUNCTION //
+
 function postRequest(object)
 {
     //console.log("HTTP request: " + object);
@@ -118,10 +274,12 @@ function postRequest(object)
         .then(response => handlePostResponse(response));
         //.then(response => console.log(JSON.stringify(response)));
 }
+*/
 
 
 function handlePostResponse(responseObject)
 {
+    console.log("HANDLING RESPONSE FROM: " + responseObject.requestType)
     // Call function depending on request type
 
     if (handleResponseDynamically[responseObject.requestType] != null)
@@ -185,15 +343,19 @@ function toggleHide(objectId)
     var object = document.getElementById(objectId);
     object.classList.toggle("hidden");
 }
-function hide(objectId) {
+
+function hide(objectId)
+{
     var object = document.getElementById(objectId);
     if(!object.classList.contains("hidden"))
         object.classList.add("hidden");
 }
+
 function reloadPage()
 {
     goToPage(activePage);
 }
+
 function roundNumber(num)
 {
     return Math.round((num + Number.EPSILON) * 100) / 100;
@@ -216,7 +378,7 @@ function startRun()
         document.getElementById("nav_run").innerHTML = \`Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>\`;
 
     /* Node-red */
-    postRequest({"requestType": "startRun"});
+    postRequestAsync("startRun", {}, true);
 
 }
 
@@ -298,7 +460,6 @@ var loadPageFunc = [];
 
 loadPageFunc["rules"] = function ()
 {
-    //console.log("Running load func");
     // LOAD rules - update each rule
     for (let index = 0; index < rules.length; index++)
     {

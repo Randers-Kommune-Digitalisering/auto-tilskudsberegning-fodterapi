@@ -16,12 +16,12 @@ const Node = {
       "25eef4e978cf76c9"
     ]
   ],
-  "_order": 193
+  "_order": 196
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var html = `<div class="float-right mt-2">
-                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) + `>
+                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequestAsync(document.getElementById('requestType').value, toJSON( document.getElementById('pageToAccept'), document.getElementById('toAccept') ), true)"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) + `>
                       Tilskudssatser godkendt
                   </button>
   

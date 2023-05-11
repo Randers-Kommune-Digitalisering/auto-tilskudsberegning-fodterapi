@@ -31,16 +31,21 @@ const Node = {
       "t": "eq",
       "v": "finalize",
       "vt": "str"
+    },
+    {
+      "t": "eq",
+      "v": "getPublicKey",
+      "vt": "str"
     }
   ],
   "checkall": "false",
   "repair": false,
-  "outputs": 5,
+  "outputs": 6,
   "x": 250,
-  "y": 720,
+  "y": 840,
   "wires": [
     [
-      "44922854196c3e51"
+      "cf322c8f7ca77194"
     ],
     [
       "0d73a26952f54d44"
@@ -53,9 +58,12 @@ const Node = {
     ],
     [
       "d78f10d6944b0f6e"
+    ],
+    [
+      "3e3a2119b6ce7876"
     ]
   ],
-  "_order": 413
+  "_order": 417
 }
 
 module.exports = Node;

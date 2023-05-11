@@ -7,9 +7,9 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload.toAccept",
+      "p": "payload.data.toAccept",
       "pt": "msg",
-      "to": "(payload.toAccept = \"true\") or (payload.toAccept= true) ? true : false",
+      "to": "(payload.data.toAccept = \"true\") or (payload.data.toAccept= true) ? true : false",
       "tot": "jsonata"
     }
   ],
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 590,
+  "x": 610,
   "y": 520,
   "wires": [
     [
       "3456ccc4ad7af954"
     ]
   ],
-  "_order": 440
+  "_order": 443
 }
 
 module.exports = Node;

@@ -7,16 +7,16 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.rules",
+      "p": "webSettings.acceptances.rules",
       "pt": "global",
-      "to": "payload.toAccept",
+      "to": "payload.data.toAccept",
       "tot": "msg"
     },
     {
       "t": "set",
       "p": "payload.webSettings.acceptances.rules",
       "pt": "msg",
-      "to": "payload.toAccept",
+      "to": "payload.data.toAccept",
       "tot": "msg"
     }
   ],
@@ -32,7 +32,7 @@ const Node = {
       "a4eb1bf064248281"
     ]
   ],
-  "_order": 437
+  "_order": 440
 }
 
 module.exports = Node;

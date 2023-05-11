@@ -4,7 +4,7 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "80bf7be9c257b2b0",
   "name": "",
-  "property": "payload.toAccept",
+  "property": "payload.data.toAccept",
   "propertyType": "msg",
   "rules": [
     {
@@ -27,7 +27,7 @@ const Node = {
       "0084de49d60936b1"
     ]
   ],
-  "_order": 446
+  "_order": 449
 }
 
 module.exports = Node;

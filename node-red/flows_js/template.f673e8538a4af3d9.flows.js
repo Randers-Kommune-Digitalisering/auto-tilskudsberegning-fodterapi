@@ -16,11 +16,11 @@ const Node = {
       "e36e40cecb56969d"
     ]
   ],
-  "_order": 148
+  "_order": 151
 }
 
 Node.template = `
-<form onsubmit="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass'), document.getElementById('dqUser'), document.getElementById('dqPass')  ))">
+<form onsubmit="encryptedPostRequest('encryptedRequest', toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass'), document.getElementById('dqUser'), document.getElementById('dqPass')  ))">
 <div class="card mb-2">
     <div class="card-header">DQ loginoplysninger</div>
     <div class="card-body">
@@ -48,11 +48,7 @@ Node.template = `
     <div class="card-body">
         <p class="card-text">Her skal du indtaste kommunens loginoplysninger til WorkLet.</p>
         
-        <div class="form-group" id="form-group">
-            <input type="hidden" id="requestType" value="acceptPage">
-            <input type="hidden" id="pageToAccept" value="login">
-            <input type="hidden" id="toAccept" value="{{payload.pageElements.loginToAccept}}">
-            
+        <div class="form-group" id="form-group">            
             <div class="form-floating mb-3">
             <input type="text" class="form-control" id="workletUser" placeholder="name@example.com" autocomplete="off" required>
             <label for="workletUser">Email addresse</label>

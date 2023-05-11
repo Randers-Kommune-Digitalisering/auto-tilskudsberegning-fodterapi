@@ -1,18 +1,29 @@
 const Node = {
-  "id": "bab1c55322b4ffc1",
+  "id": "25799a4501f2e643",
   "type": "change",
   "z": "5bb3204aef17c104",
   "g": "80bf7be9c257b2b0",
   "name": "Set response",
   "rules": [
     {
-      "t": "delete",
-      "p": "payload.workletUser",
-      "pt": "msg"
+      "t": "set",
+      "p": "payload.page",
+      "pt": "msg",
+      "to": "payload.data.pageToAccept",
+      "tot": "msg",
+      "dc": true
+    },
+    {
+      "t": "set",
+      "p": "payload.toAccept",
+      "pt": "msg",
+      "to": "payload.data.pageToAccept",
+      "tot": "msg",
+      "dc": true
     },
     {
       "t": "delete",
-      "p": "payload.workletPass",
+      "p": "payload.data",
       "pt": "msg"
     }
   ],
@@ -28,7 +39,7 @@ const Node = {
       "e5908679bccd13f4"
     ]
   ],
-  "_order": 420
+  "_order": 486
 }
 
 module.exports = Node;

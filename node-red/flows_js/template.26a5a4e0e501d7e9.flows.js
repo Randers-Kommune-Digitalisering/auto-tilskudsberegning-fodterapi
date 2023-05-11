@@ -16,12 +16,12 @@ const Node = {
       "af684cb65465eef9"
     ]
   ],
-  "_order": 161
+  "_order": 164
 }
 
 Node.template = `
 <div class="float-right mt-2">
-    <button class="btn btn-lg btn-primary" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'ruleUpdates', 'value': appendRules (null {{#payload.rules}}, createRuleObj('{{uid}}') {{/payload.rules}}) } ))">
+    <button class="btn btn-lg btn-primary" id="button_acceptPage" type="button" onclick="postRequestAsync(document.getElementById('requestType').value, toJSON( document.getElementById('pageToAccept'), document.getElementById('toAccept'), { 'id': 'ruleUpdates', 'value': appendRules (null {{#payload.rules}}, createRuleObj('{{uid}}') {{/payload.rules}}) } ), true)">
         Godkend forretningsregler
     </button>
     

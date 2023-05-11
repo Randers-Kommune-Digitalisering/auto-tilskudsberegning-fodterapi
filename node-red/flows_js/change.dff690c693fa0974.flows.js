@@ -9,22 +9,12 @@ const Node = {
       "t": "set",
       "p": "payload.page",
       "pt": "msg",
-      "to": "payload.pageToAccept",
+      "to": "payload.data.pageToAccept",
       "tot": "msg"
     },
     {
       "t": "delete",
-      "p": "payload.ruleChanges",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.toAccept",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.pageToAccept",
+      "p": "payload.data",
       "pt": "msg"
     }
   ],
@@ -40,7 +30,7 @@ const Node = {
       "e5908679bccd13f4"
     ]
   ],
-  "_order": 434
+  "_order": 437
 }
 
 module.exports = Node;

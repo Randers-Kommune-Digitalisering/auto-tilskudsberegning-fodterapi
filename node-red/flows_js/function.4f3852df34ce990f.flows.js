@@ -16,7 +16,7 @@ const Node = {
       "c83fdc0290f77ad3"
     ]
   ],
-  "_order": 192
+  "_order": 195
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -92,7 +92,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       subheader = "Afslut seneste kørsel";
       cardtext = "Er du sikker på at du vil afslutte seneste kørsel? Du vil ikke være i stand til at se borgeroplysninger eller anbefalede handlinger når kørslen er afsluttet, og en ny kørsel vil først kunne startes i morgen.";
   
-      buttonHtml = `<button class="btn btn-lg btn-primary ml-2 btn-lg" id="button_finalizeRun" type="button" onclick="postRequest({'requestType': 'finalize'})" style="width: 300px">
+      buttonHtml = `<button class="btn btn-lg btn-primary ml-2 btn-lg" id="button_finalizeRun" type="button" onclick="encryptedPostRequest("encryptedRequest", {'requestType': 'finalize'})" style="width: 300px">
                           Afslut kørsel
                     </button>`;
   

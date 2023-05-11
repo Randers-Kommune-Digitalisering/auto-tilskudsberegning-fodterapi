@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload.grants.tilskudsperioder.satser",
       "pt": "msg",
-      "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t(\t\t$uid := id;\t{        \t    \"tilskud_maxdkk\": $$.payload.grantUpdates[$uid].tilskud_maxdkk ~>$number(),\t    \"tilskud_procent\": $$.payload.grantUpdates[$uid].tilskud_procent ~>$number()\t})\t\t|",
+      "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t(\t\t$uid := id;\t{        \t    \"tilskud_maxdkk\": $$.payload.data.grantUpdates[$uid].tilskud_maxdkk ~>$number(),\t    \"tilskud_procent\": $$.payload.data.grantUpdates[$uid].tilskud_procent ~>$number()\t})\t\t|",
       "tot": "jsonata"
     }
   ],
@@ -25,7 +25,7 @@ const Node = {
       "05e2ac4bd75206d3"
     ]
   ],
-  "_order": 442
+  "_order": 445
 }
 
 module.exports = Node;

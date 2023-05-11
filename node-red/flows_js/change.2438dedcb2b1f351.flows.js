@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "webSettings.acceptances.login",
       "pt": "global",
-      "to": "payload.toAccept",
+      "to": "payload.data.toAccept",
       "tot": "msg",
       "dc": true
     },
@@ -17,7 +17,7 @@ const Node = {
       "t": "set",
       "p": "payload.webSettings.acceptances.login",
       "pt": "msg",
-      "to": "payload.toAccept",
+      "to": "payload.data.toAccept",
       "tot": "msg",
       "dc": true
     },
@@ -25,7 +25,7 @@ const Node = {
       "t": "set",
       "p": "webData.workletCreds.workletUser",
       "pt": "global",
-      "to": "payload.workletUser",
+      "to": "payload.data.workletUser",
       "tot": "msg",
       "dc": true
     },
@@ -33,7 +33,7 @@ const Node = {
       "t": "set",
       "p": "webData.workletCreds.workletPass",
       "pt": "global",
-      "to": "payload.workletPass",
+      "to": "payload.data.workletPass",
       "tot": "msg",
       "dc": true
     },
@@ -41,7 +41,7 @@ const Node = {
       "t": "set",
       "p": "webData.dqCreds.dqUser",
       "pt": "global",
-      "to": "payload.dqUser",
+      "to": "payload.data.dqUser",
       "tot": "msg",
       "dc": true
     },
@@ -49,29 +49,9 @@ const Node = {
       "t": "set",
       "p": "webData.dqCreds.dqPass",
       "pt": "global",
-      "to": "payload.dqPass",
+      "to": "payload.data.dqPass",
       "tot": "msg",
       "dc": true
-    },
-    {
-      "t": "delete",
-      "p": "payload.workletUser",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.workletPass",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.dqUser",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.dqPass",
-      "pt": "msg"
     }
   ],
   "action": "",
@@ -83,10 +63,10 @@ const Node = {
   "y": 500,
   "wires": [
     [
-      "bab1c55322b4ffc1"
+      "25799a4501f2e643"
     ]
   ],
-  "_order": 436
+  "_order": 439
 }
 
 module.exports = Node;
