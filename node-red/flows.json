@@ -6375,7 +6375,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.isRunning",
+                "p": "#:(storeInFile)::webSettings.state.isRunning",
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
@@ -9842,7 +9842,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "webSettings.acceptances.login",
+                "p": "#:(storeInFile)::webSettings.acceptances.login",
                 "pt": "global",
                 "to": "payload.toAccept",
                 "tot": "msg",
@@ -10468,7 +10468,7 @@
             },
             {
                 "t": "set",
-                "p": "webSettings.state.isBeingProcessed",
+                "p": "#:(storeInFile)::webSettings.state.isBeingProcessed",
                 "pt": "msg",
                 "to": "true",
                 "tot": "bool"

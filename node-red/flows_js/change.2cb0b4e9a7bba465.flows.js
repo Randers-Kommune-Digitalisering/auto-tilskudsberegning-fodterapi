@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload.rules",
       "pt": "msg",
-      "to": "$.payload.rules ~> | $ |\t(\t\t\t$ruleChange := $$.ruleUpdates[id = uid];\t/*$lookup($$.ruleChanges, uid);*/\t\t$uid := uid;\t$ruleUpdate :=  $$.payload.ruleUpdates[id = $uid];\t\t{        \t        \"operator\": $ruleUpdate.operator,\t        \"value\": $ruleUpdate.value\t})\t\t|",
+      "to": "$.payload.rules ~> | $ |\t(\t\t$uid := uid;\t$ruleUpdate :=  $$.payload.data.ruleUpdates[id = $uid];\t\t{        \t        \"operator\": $ruleUpdate.operator,\t        \"value\": $ruleUpdate.value\t})\t\t|",
       "tot": "jsonata"
     },
     {
@@ -32,14 +32,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1120,
+  "x": 1140,
   "y": 700,
   "wires": [
     [
       "a93344c168258f4e"
     ]
   ],
-  "_order": 432
+  "_order": 438
 }
 
 module.exports = Node;

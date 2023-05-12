@@ -17,7 +17,7 @@ const Node = {
       "62b82381ac8d827c"
     ]
   ],
-  "_order": 260
+  "_order": 265
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -25,42 +25,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   var receiptsActions = [];
   var receiptsNoActions = [];
-  
-  /*
-  if (global.get("webData") !== undefined)
-  {
-      if (global.get("webData")["citizens-actions"] !== undefined)
-          receiptsActions += global.get("webData")["citizens-actions"];
-  
-      if (global.get("webData")["citizens-noactions"] !== undefined)
-          receiptsNoActions += global.get("webData")["citizens-noactions"];
-  
-      if (!Array.isArray(receiptsActions)) receiptsActions = [receiptsActions];
-      if (!Array.isArray(receiptsNoActions)) receiptsNoActions = [receiptsNoActions];
-  }
-  
-  var allReceipts = [];
-  //allReceipts = allReceipts.concat(receiptsActions, receiptsNoActions);
-  for (var i = 0; i < receiptsActions.length; i++)
-      allReceipts.push(receiptsActions[i]);
-      
-  for (var i = 0; i < receiptsNoActions.length; i++)
-      allReceipts.push(receiptsNoActions[i]);
-      
-  var acceptedReceipts;
-  
-  global.set("tempTest", allReceipts);
-  */
   var acceptedReceipts = msg.currentRun.processedReceipts;
   var allReceipts = msg.tempData;
   
-  /*
-  if (global.get("runHistory", "storeInFile") !== undefined)
-      if (global.get("runHistory", "storeInFile")[global.get("runHistory", "storeInFile").length - 1] !== undefined)
-          acceptedReceipts = global.get("runHistory", "storeInFile")[global.get("runHistory", "storeInFile").length - 1].processedReceipts;
-  */
-  
-  //typeof global.get("webData") == undefined || !Array.isArray(global.get("webData")["citizens-actions"]) ? 0 : global.get("webData")["citizens-actions"].length;
   var remainingCount = allReceipts.length - acceptedReceipts.length;
   
   for (var i = 0; i < allReceipts.length; i++)
@@ -73,7 +40,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
       for(var j = 0; j < fakturaer.length; j++)
           if (!acceptedReceipts.includes(fakturaer[j].id))
+          {
+              console.log("Found ID: " + fakturaer[j].id + " which was NOT processed");
               isAllArchived = false;
+          }
   }
   
   msg.isArchived = isAllArchived;

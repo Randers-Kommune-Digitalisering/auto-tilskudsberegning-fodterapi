@@ -4,7 +4,7 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "80bf7be9c257b2b0",
   "name": "",
-  "property": "payload.toAccept",
+  "property": "payload.data.toAccept",
   "propertyType": "msg",
   "rules": [
     {
@@ -17,7 +17,7 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 930,
+  "x": 950,
   "y": 640,
   "wires": [
     [
@@ -27,7 +27,7 @@ const Node = {
       "2cb0b4e9a7bba465"
     ]
   ],
-  "_order": 438
+  "_order": 444
 }
 
 module.exports = Node;

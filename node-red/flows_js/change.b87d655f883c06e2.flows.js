@@ -9,14 +9,14 @@ const Node = {
       "t": "set",
       "p": "#:(storeInFile)::webSettings.acceptances.grants",
       "pt": "global",
-      "to": "payload.toAccept",
+      "to": "payload.data.toAccept",
       "tot": "msg"
     },
     {
       "t": "set",
       "p": "payload.webSettings.acceptances.grants",
       "pt": "msg",
-      "to": "payload.toAccept",
+      "to": "payload.data.toAccept",
       "tot": "msg"
     }
   ],
@@ -25,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 880,
+  "x": 900,
   "y": 780,
   "wires": [
     [
       "fc8d7d5784276add"
     ]
   ],
-  "_order": 445
+  "_order": 451
 }
 
 module.exports = Node;

@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::grants",
+      "p": "grants",
       "pt": "global",
       "to": "payload.grants",
       "tot": "msg"
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1340,
+  "x": 1360,
   "y": 880,
   "wires": [
     [
       "c65983061fd02508"
     ]
   ],
-  "_order": 443
+  "_order": 449
 }
 
 module.exports = Node;

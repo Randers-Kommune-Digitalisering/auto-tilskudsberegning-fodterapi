@@ -4,7 +4,7 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "80bf7be9c257b2b0",
   "name": "",
-  "property": "payload.pageToAccept",
+  "property": "payload.data.pageToAccept",
   "propertyType": "msg",
   "rules": [
     {
@@ -26,7 +26,7 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 3,
-  "x": 670,
+  "x": 690,
   "y": 580,
   "wires": [
     [
@@ -39,7 +39,7 @@ const Node = {
       "b87d655f883c06e2"
     ]
   ],
-  "_order": 421
+  "_order": 427
 }
 
 module.exports = Node;

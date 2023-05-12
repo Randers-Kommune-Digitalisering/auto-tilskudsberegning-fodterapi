@@ -9,14 +9,16 @@ const Node = {
       "p": "payload.rules",
       "pt": "msg",
       "to": "#:(storeInFile)::rules",
-      "tot": "global"
+      "tot": "global",
+      "dc": true
     },
     {
       "t": "set",
       "p": "payload.rulesStr",
       "pt": "msg",
       "to": "payload.rules",
-      "tot": "msg"
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -31,7 +33,7 @@ const Node = {
       "c49b1da1d0ca8a62"
     ]
   ],
-  "_order": 125
+  "_order": 129
 }
 
 module.exports = Node;

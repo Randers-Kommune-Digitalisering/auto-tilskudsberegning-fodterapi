@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "runHistory",
       "pt": "msg",
-      "to": "runHistory",
+      "to": "#:(storeInFile)::runHistory",
       "tot": "global",
       "dc": true
     },
@@ -20,7 +20,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "webSettings.state.isRunning",
+      "p": "#:(storeInFile)::webSettings.state.isRunning",
       "pt": "global",
       "to": "false",
       "tot": "bool"
@@ -41,7 +41,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "runHistory",
+      "p": "#:(storeInFile)::runHistory",
       "pt": "global",
       "to": "runHistory",
       "tot": "msg",
@@ -61,7 +61,7 @@ const Node = {
       "d0db0a27f5e322ae"
     ]
   ],
-  "_order": 331
+  "_order": 336
 }
 
 module.exports = Node;

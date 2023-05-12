@@ -5,14 +5,13 @@ const Node = {
   "g": "63b598a9c0a41f91",
   "name": "",
   "x": 170,
-  "y": 600,
+  "y": 700,
   "wires": [
     [
-      "698e2e606a74f2c4",
-      "78f36110bb0eae44"
+      "698e2e606a74f2c4"
     ]
   ],
-  "_order": 435
+  "_order": 441
 }
 
 module.exports = Node;

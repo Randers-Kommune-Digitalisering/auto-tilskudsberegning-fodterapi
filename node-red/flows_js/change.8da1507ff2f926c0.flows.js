@@ -28,6 +28,36 @@ const Node = {
       "t": "delete",
       "p": "payload.pageElements",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "payload.webData",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "payload.webStates",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "payload.webSteps",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "payload.webSettings",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "payload.grants",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "payload.data",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -43,7 +73,7 @@ const Node = {
       "d529fc0a0d82838e"
     ]
   ],
-  "_order": 439
+  "_order": 445
 }
 
 module.exports = Node;

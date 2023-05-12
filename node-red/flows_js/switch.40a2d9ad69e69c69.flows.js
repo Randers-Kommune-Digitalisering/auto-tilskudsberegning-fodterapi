@@ -4,7 +4,7 @@ const Node = {
   "z": "8ea344595d9a442a",
   "g": "44e7408f9fee1e77",
   "name": "startDate < endDate?",
-  "property": "(currentRun.startDate ~> $toMillis(\"[D01]/[M01]/[Y0001]\")) < (currentRun.endDate ~> $toMillis(\"[D01]/[M01]/[Y0001]\"))",
+  "property": "(currentRun.startDate ~> $toMillis(\"[D01]/[M01]/[Y0001]\")) <= (currentRun.endDate ~> $toMillis(\"[D01]/[M01]/[Y0001]\"))",
   "propertyType": "jsonata",
   "rules": [
     {
@@ -27,7 +27,7 @@ const Node = {
       "e14ffe4e7fa755d0"
     ]
   ],
-  "_order": 402
+  "_order": 407
 }
 
 module.exports = Node;

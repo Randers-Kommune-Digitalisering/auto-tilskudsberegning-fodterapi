@@ -16,16 +16,16 @@ const Node = {
       "af684cb65465eef9"
     ]
   ],
-  "_order": 194
+  "_order": 198
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var html = `<div class="float-right mt-2">
-                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequest( toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept') ))"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) +`>
+                  <button class="btn btn-lg btn-success" id="button_acceptPage" type="button" onclick="postRequestAsync(document.getElementById('requestType').value, toJSON( document.getElementById('pageToAccept'), document.getElementById('toAccept') ), true);lockButton(this.id)"`+ ((msg.payload.webSettings.state.isRunning) ? ` disabled` : ``) +`>
                       Forretningsregler godkendt
                   </button>
   
-                  <button class="btn btn-lg btn-primary ml-2 goNext" id="button_acceptPage_goNext" type="button" onclick="goToPage('grants')">
+                  <button class="btn btn-lg btn-primary ml-2 goNext" id="button_acceptPage_goNext" type="button" onclick="goToPage('grants');lockButton(this.id)">
                       Gå til tilskudssatser
                   </button>
               </div>`;

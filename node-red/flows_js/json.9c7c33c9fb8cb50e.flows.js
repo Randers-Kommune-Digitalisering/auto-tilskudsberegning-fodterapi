@@ -1,0 +1,20 @@
+const Node = {
+  "id": "9c7c33c9fb8cb50e",
+  "type": "json",
+  "z": "5bb3204aef17c104",
+  "g": "63b598a9c0a41f91",
+  "name": "",
+  "property": "payload.data",
+  "action": "obj",
+  "pretty": true,
+  "x": 250,
+  "y": 560,
+  "wires": [
+    [
+      "780d218ed88acd1b"
+    ]
+  ],
+  "_order": 485
+}
+
+module.exports = Node;
