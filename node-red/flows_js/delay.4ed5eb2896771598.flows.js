@@ -5,7 +5,7 @@ const Node = {
   "g": "5904f9eeed39fd7f",
   "name": "",
   "pauseType": "delay",
-  "timeout": "1",
+  "timeout": "0.3",
   "timeoutUnits": "seconds",
   "rate": "1",
   "nbRateUnits": "1",
@@ -16,14 +16,14 @@ const Node = {
   "drop": false,
   "allowrate": false,
   "outputs": 1,
-  "x": 1530,
+  "x": 1540,
   "y": 520,
   "wires": [
     [
       "d6f134b2674d8205"
     ]
   ],
-  "_order": 410
+  "_order": 412
 }
 
 module.exports = Node;

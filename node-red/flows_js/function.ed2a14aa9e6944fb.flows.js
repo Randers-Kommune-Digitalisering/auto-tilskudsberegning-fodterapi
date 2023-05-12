@@ -17,7 +17,7 @@ const Node = {
       "33ee436ad9ead077"
     ]
   ],
-  "_order": 475
+  "_order": 478
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -25,7 +25,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if (!Array.isArray(webData["citizens-noactions"]))
       webData["citizens-noactions"] = [webData["citizens-noactions"]];
   
-  (webData["citizens-noactions"])[msg.payload.id].archived = true;
+  (webData["citizens-noactions"])[msg.payload.data.id].archived = true;
   global.set("webData", webData);
   return msg;
 }

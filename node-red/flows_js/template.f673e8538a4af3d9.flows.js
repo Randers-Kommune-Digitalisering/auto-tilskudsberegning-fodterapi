@@ -16,11 +16,11 @@ const Node = {
       "e36e40cecb56969d"
     ]
   ],
-  "_order": 151
+  "_order": 152
 }
 
 Node.template = `
-<form onsubmit="encryptedPostRequest('encryptedRequest', toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass'), document.getElementById('dqUser'), document.getElementById('dqPass')  ))">
+<form onsubmit="encryptedPostRequest('encryptedRequest', toJSON( document.getElementById('requestType'), document.getElementById('pageToAccept'), document.getElementById('toAccept'), document.getElementById('workletUser'), document.getElementById('workletPass'), document.getElementById('dqUser'), document.getElementById('dqPass')  ));return false">
 <div class="card mb-2">
     <div class="card-header">DQ loginoplysninger</div>
     <div class="card-body">

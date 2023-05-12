@@ -8,15 +8,17 @@ const Node = {
       "t": "set",
       "p": "payload.webSettings",
       "pt": "msg",
-      "to": "webSettings",
-      "tot": "global"
+      "to": "#:(storeInFile)::webSettings",
+      "tot": "global",
+      "dc": true
     },
     {
       "t": "set",
       "p": "payload.webData",
       "pt": "msg",
       "to": "webData",
-      "tot": "global"
+      "tot": "global",
+      "dc": true
     }
   ],
   "action": "",
@@ -31,7 +33,7 @@ const Node = {
       "c7471e96ad8de5e4"
     ]
   ],
-  "_order": 123
+  "_order": 124
 }
 
 module.exports = Node;

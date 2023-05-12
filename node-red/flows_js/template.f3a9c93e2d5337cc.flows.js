@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 430
+  "_order": 433
 }
 
 Node.template = `
@@ -209,15 +209,15 @@ function goToPage(page)
     var obj = {};
 
     if(pageName == "")
-        obj = {"requestType": "getPageContent", "page": page};
+        obj = {"page": page};
 
     else
     {
-        obj = { "requestType": "getPageContent", "page": pageName };
+        obj = { "page": pageName };
         obj[paramName] = paramValue;
     }
 
-    encryptedPostRequest("encryptedRequest", obj);
+    postRequestAsync("getPageContent", obj, true);
 }
 
 function setPageContent(pageObj, setHistory = true)
@@ -327,6 +327,12 @@ handleResponseDynamically['finalize'] = function (response)
 //
 /// GENERIC FUNCTIONS
 //
+
+function lockButton(objectId)
+{
+    var button = document.getElementById(objectId);
+    button.disabled = true;
+}
 
 function setInnerHTML(objectId, content) {
     var container = document.getElementById(objectId);

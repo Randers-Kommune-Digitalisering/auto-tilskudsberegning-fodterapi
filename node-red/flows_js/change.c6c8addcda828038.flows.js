@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "tempData",
       "pt": "msg",
-      "to": "(\t    $num := payload.id ~> $number();\t    tempDataArray[$num].faktura.id\t)",
+      "to": "(\t    $num := payload.data.id ~> $number();\t    tempDataArray[$num].faktura.id\t)",
       "tot": "jsonata"
     }
   ],
@@ -25,7 +25,7 @@ const Node = {
       "6c4f0dadb67f015e"
     ]
   ],
-  "_order": 257
+  "_order": 259
 }
 
 module.exports = Node;

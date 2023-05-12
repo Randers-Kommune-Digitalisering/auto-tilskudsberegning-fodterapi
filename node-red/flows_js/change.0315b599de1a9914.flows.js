@@ -21,7 +21,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "runHistory",
+      "p": "#:(storeInFile)::runHistory",
       "pt": "global",
       "to": "runHistory",
       "tot": "msg",
@@ -40,7 +40,7 @@ const Node = {
       "8e98d587893f156c"
     ]
   ],
-  "_order": 277
+  "_order": 279
 }
 
 module.exports = Node;

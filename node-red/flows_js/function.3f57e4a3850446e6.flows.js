@@ -16,7 +16,7 @@ const Node = {
       "dfef270919197e96"
     ]
   ],
-  "_order": 211
+  "_order": 212
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -39,11 +39,11 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   if(allIsArchived)
       html =
-          `<button class="btn btn-lg btn-light border-light" type="button" onclick="goToPage('start')">Gå til oversigt</button>`;
+          `<button id="buttonReturnStart" class="btn btn-lg btn-light border-light" type="button" onclick="goToPage('start');lockButton(this.id)">Gå til oversigt</button>`;
   
   else
       html =
-          `<button class="btn btn-lg btn-light border-light` +(isArchived ? ` disabled ` : ``)+`" type="button" onclick="postRequest({'requestType': 'archive', 'id': '`+msg.payload.spec+`'})">Bekræft manuel behandling</button>`;
+          `<button id="buttonArchiveReceipt" class="btn btn-lg btn-light border-light` +(isArchived ? ` disabled ` : ``)+`" type="button" onclick="postRequestAsync('archive', {'id': '`+msg.payload.spec+`'}, true);lockButton(this.id)">Bekræft manuel behandling</button>`;
   
   
   msg.payload.tempData._archive = html;

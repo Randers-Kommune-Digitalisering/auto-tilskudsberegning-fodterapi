@@ -7,17 +7,19 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "webSettings.acceptances.rules",
+      "p": "#:(storeInFile)::webSettings.acceptances.rules",
       "pt": "global",
       "to": "payload.data.toAccept",
-      "tot": "msg"
+      "tot": "msg",
+      "dc": true
     },
     {
       "t": "set",
       "p": "payload.webSettings.acceptances.rules",
       "pt": "msg",
       "to": "payload.data.toAccept",
-      "tot": "msg"
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -25,14 +27,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 880,
+  "x": 900,
   "y": 600,
   "wires": [
     [
       "a4eb1bf064248281"
     ]
   ],
-  "_order": 440
+  "_order": 443
 }
 
 module.exports = Node;

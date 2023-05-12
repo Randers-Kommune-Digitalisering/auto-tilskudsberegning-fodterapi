@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "webSettings.acceptances.login",
+      "p": "#:(storeInFile)::webSettings.acceptances.login",
       "pt": "global",
       "to": "payload.data.toAccept",
       "tot": "msg",
@@ -59,14 +59,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 880,
+  "x": 900,
   "y": 500,
   "wires": [
     [
       "25799a4501f2e643"
     ]
   ],
-  "_order": 439
+  "_order": 442
 }
 
 module.exports = Node;
