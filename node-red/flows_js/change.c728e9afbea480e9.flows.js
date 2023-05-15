@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t\t$behandling.type = \"B\" ?\t{\t    \"tilskud\": $behandling.patientAndel,\t    \"beregning\": ($behandling.patientAndel & \" kr\")\t}\t:\t{\t    \"tilskud\": $behandling.pris,\t    \"beregning\": ($behandling.pris & \" kr\")\t}\t\t)|",
+      "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\thandling = \"Opret sag\" ? {} : \t\t$behandling.type = \"B\" ?\t{\t    \"tilskud\": $value := $behandling.patientAndel,\t    \"beregning\": [\t        {\t            \"beskrivelse\": \"Sæt startværdi til behandlingens pris\",\t            \"operation\": \"=\",\t            \"veardi\": $value,\t            \"total\": $value\t        }\t    ]\t}\t:\t{\t    \"tilskud\": $value := $behandling.pris,\t    \"beregning\": [\t        {\t            \"beskrivelse\": \"Sæt startværdi til behandlingens pris\",\t            \"operation\": \"=\",\t            \"veardi\": $value,\t            \"total\": $value\t        }\t    ]\t}\t\t)|",
       "tot": "jsonata"
     }
   ],
@@ -26,7 +26,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 242
+  "_order": 249
 }
 
 Node.info = `

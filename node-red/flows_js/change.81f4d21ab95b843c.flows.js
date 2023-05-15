@@ -1,5 +1,5 @@
 const Node = {
-  "id": "c65983061fd02508",
+  "id": "81f4d21ab95b843c",
   "type": "change",
   "z": "5bb3204aef17c104",
   "g": "80bf7be9c257b2b0",
@@ -10,7 +10,16 @@ const Node = {
       "p": "payload.page",
       "pt": "msg",
       "to": "payload.data.pageToAccept",
-      "tot": "msg"
+      "tot": "msg",
+      "dc": true
+    },
+    {
+      "t": "set",
+      "p": "payload.toAccept",
+      "pt": "msg",
+      "to": "payload.data.toAccept",
+      "tot": "msg",
+      "dc": true
     },
     {
       "t": "delete",
@@ -24,13 +33,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1610,
-  "y": 820,
+  "y": 660,
   "wires": [
     [
       "e5908679bccd13f4"
     ]
   ],
-  "_order": 450
+  "_order": 491
 }
 
 module.exports = Node;

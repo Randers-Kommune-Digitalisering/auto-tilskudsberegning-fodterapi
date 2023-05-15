@@ -13,18 +13,20 @@ const Node = {
     "698e2e606a74f2c4",
     "78f36110bb0eae44",
     "14f03be866dc4bec",
+    "c6e0fde72ed6d7d4",
+    "b03981321f760769",
+    "db4e7291ad20dfe2",
+    "6c9877402be6ea5d",
+    "66e8727cab71c2f3",
+    "3018380268452884",
     "70fb91ddec980afe",
     "9c7c33c9fb8cb50e",
-    "780d218ed88acd1b",
-    "3641e43ccd705cfd",
-    "e394dddd55ed3509",
-    "c6e0fde72ed6d7d4",
-    "b03981321f760769"
+    "780d218ed88acd1b"
   ],
   "x": 14,
   "y": 359,
   "w": 432,
-  "h": 532,
+  "h": 412,
   "_order": 27
 }
 

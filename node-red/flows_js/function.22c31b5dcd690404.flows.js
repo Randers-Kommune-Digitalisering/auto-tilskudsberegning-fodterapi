@@ -10,13 +10,13 @@ const Node = {
   "finalize": "",
   "libs": [],
   "x": 760,
-  "y": 1000,
+  "y": 1160,
   "wires": [
     [
       "50420eba13820fd6"
     ]
   ],
-  "_order": 214
+  "_order": 218
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -69,17 +69,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   else
   {
-      //var now = new Date(Date.now());
-      //var lastRunDate = new Date(lastRunObj.timestamp);
-      //var daysSinceRun = parseInt((Date.now() - lastRunObj.timestamp) / 86400000);
-  
       var daysSinceRun = Date.now() - lastRunObj.timestamp;
       daysSinceRun = Math.ceil(daysSinceRun / (1000 * 3600 * 24)) -1;
   
-  
-  
       var dayordays = daysSinceRun > 1 ? "dage" : "dag";
-  
       var lastRun = daysSinceRun == 0 ? "Tidligere i dag" : daysSinceRun + " " + dayordays + " siden";
   
       html =
@@ -89,10 +82,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
               <h4 class="card-title">`+ lastRun + `</h4>
               <p class="card-text">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString() + `<br />
                   <!--div class="mt-1">
-                      <strong>0</strong> fakturaer automatisk behandlet.<br />
-                      <strong>5</strong> fakturaer sat til manuel behandling.
+                      <strong>`+ lastRunObj.processedReceipts.length +`</strong> fakturaer behandlet.<br />
                   </div-->
               </p>
+              <a onclick="goToPage('run-history')">Se kørselshistorik</a>
           </div>
       </div>`;
   }

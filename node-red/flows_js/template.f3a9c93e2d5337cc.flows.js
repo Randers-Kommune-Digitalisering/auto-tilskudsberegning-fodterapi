@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 433
+  "_order": 440
 }
 
 Node.template = `
@@ -257,31 +257,24 @@ function toJSON(...vars)
     return obj;
 }
 
-/* // DEPRECATED FUNCTION //
-
-function postRequest(object)
-{
-    //console.log("HTTP request: " + object);
-    fetch('/worklet/http', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(object)
-    })
-        .then(response => response.json())
-        .then(response => handlePostResponse(response));
-        //.then(response => console.log(JSON.stringify(response)));
-}
-*/
-
+// Handle HTTP responses (all)
 
 function handlePostResponse(responseObject)
 {
-    console.log("HANDLING RESPONSE FROM: " + responseObject.requestType)
-    // Call function depending on request type
+    console.log(JSON.stringify(responseObject));
+    
+    // Check if OK
+    if (responseObject.statusCode != 200)
+        console.log("GET request error code " + responseObject.statusCode);
 
+    // Check if unauthorized -> reaquire public key
+    if(responseObject.statusCode == 401)
+    {
+        console.log("Public key is unauthorized.");
+        getPublicKeyAsync(true).then(key => reloadPage());
+    }
+
+    // Call function depending on request type
     if (handleResponseDynamically[responseObject.requestType] != null)
         handleResponseDynamically[responseObject.requestType](responseObject);
         

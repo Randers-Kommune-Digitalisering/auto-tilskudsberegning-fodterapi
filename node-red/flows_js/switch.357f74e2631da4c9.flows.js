@@ -43,6 +43,11 @@ const Node = {
     },
     {
       "t": "eq",
+      "v": "run-history",
+      "vt": "str"
+    },
+    {
+      "t": "eq",
       "v": "start",
       "vt": "str"
     },
@@ -52,7 +57,7 @@ const Node = {
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 9,
+  "outputs": 10,
   "x": 350,
   "y": 560,
   "wires": [
@@ -78,13 +83,16 @@ const Node = {
       "381970c176b042aa"
     ],
     [
+      "74cd38d81e06eb6b"
+    ],
+    [
       "c02e24bfe2197802"
     ],
     [
       "7e1f73ec1d40cafe"
     ]
   ],
-  "_order": 146
+  "_order": 150
 }
 
 module.exports = Node;

@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\t{\t    \"tilskud\": tilskud * ($faktura._helbredstillaegsprocent.tillaegsprocent / 100),\t    \"beregning\": beregning & \" * \" & ($faktura._helbredstillaegsprocent.tillaegsprocent / 100) & \" = \" & tilskud & \" kr\"\t}\t\t)|",
+      "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t\t{\t    \"tilskud\": $value := (tilskud * ($faktura._helbredstillaegsprocent.tillaegsprocent / 100)),\t    \t    \"beregning\": $append(beregning, [\t        {\t            \"beskrivelse\": \"Gang med tillægsprocent\",\t            \"operation\": \"*\",\t            \"veardi\": ($faktura._helbredstillaegsprocent.tillaegsprocent / 100),\t            \"total\": $value\t        }\t    ])\t}\t\t)|",
       "tot": "jsonata"
     }
   ],
@@ -26,7 +26,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 254
+  "_order": 261
 }
 
 Node.info = `
