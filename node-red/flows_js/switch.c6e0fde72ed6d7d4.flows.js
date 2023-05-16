@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "5bb3204aef17c104",
   "g": "63b598a9c0a41f91",
-  "name": "",
+  "name": "is request encrypted?",
   "property": "payload.requestType",
   "propertyType": "msg",
   "rules": [
@@ -19,17 +19,17 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 90,
-  "y": 520,
+  "x": 540,
+  "y": 340,
   "wires": [
     [
       "70fb91ddec980afe"
     ],
     [
-      "14f03be866dc4bec"
+      "f81c185d41a53618"
     ]
   ],
-  "_order": 488
+  "_order": 485
 }
 
 module.exports = Node;

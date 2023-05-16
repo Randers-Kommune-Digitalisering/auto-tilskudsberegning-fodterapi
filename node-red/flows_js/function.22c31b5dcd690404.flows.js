@@ -9,20 +9,18 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 760,
+  "x": 800,
   "y": 1160,
   "wires": [
     [
       "50420eba13820fd6"
     ]
   ],
-  "_order": 218
+  "_order": 216
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var lastRunObj = null;
-  
-  
   
   var lastRunExists = global.get("runHistory", "storeInFile") !== null && global.get("runHistory", "storeInFile") !== undefined && (
       Array.isArray(global.get("runHistory", "storeInFile")) ? (global.get("runHistory", "storeInFile")).length > 0 : true);
@@ -31,15 +29,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       Array.isArray(global.get("runHistory", "storeInFile")) ?
           global.get("runHistory", "storeInFile")[(global.get("runHistory", "storeInFile")).length - 1]
           : global.get("runHistory", "storeInFile") : null;
-  
-  /*
-  if (global.get("runHistory", "storeInFile") !== undefined)
-      if (global.get("runHistory", "storeInFile")[global.get("runHistory", "storeInFile").length-1] !== undefined)
-          lastRunObj = global.get("runHistory", "storeInFile")[global.get("runHistory", "storeInFile").length-1];
-  
-  */
-  
-  
   
   var html = ``;
   /*

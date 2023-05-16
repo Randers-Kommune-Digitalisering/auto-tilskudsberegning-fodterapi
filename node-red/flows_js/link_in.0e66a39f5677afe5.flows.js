@@ -6,15 +6,15 @@ const Node = {
   "links": [
     "6c9877402be6ea5d"
   ],
-  "x": 1875,
-  "y": 680,
+  "x": 1795,
+  "y": 620,
   "wires": [
     [
-      "8da1507ff2f926c0",
-      "cbf14ef532b94960"
+      "cbf14ef532b94960",
+      "e5908679bccd13f4"
     ]
   ],
-  "_order": 492
+  "_order": 488
 }
 
 module.exports = Node;

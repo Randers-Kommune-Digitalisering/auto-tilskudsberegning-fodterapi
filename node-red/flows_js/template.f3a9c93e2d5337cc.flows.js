@@ -17,10 +17,13 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 440
+  "_order": 442
 }
 
 Node.template = `
+var landingPage = "{{{payload.page}}}";
+var rules = {};
+
 //
 // HTTP Request
 //
@@ -39,7 +42,7 @@ async function encryptedPostRequest(request, data) {
             .catch(error => console.log("Error encrypting data: " + error))
 
             // Send encrypted data to backend
-            .then(encryptedData => postRequestAsync(request, encryptedData))
+            .then(encryptedData => postRequestAsync(request, encryptedData, false))
             .catch(error => console.log("HTTP post error: " + error))
 
             // Handle HTTP response
@@ -49,7 +52,7 @@ async function encryptedPostRequest(request, data) {
 
 // Post request async - not encrypted, for requests containing data use encryptedPostRequest instead
 
-async function postRequestAsync(request, data = {}, handleResponse = false)
+async function postRequestAsync(request, data = {}, handleResponse = true)
 {
     const response = await fetch("/worklet/http", {
         method: "POST",
@@ -120,9 +123,6 @@ async function importKeyAsync(pemKey)
         .replace(/\\n/g, "");
     const keyBuffer = Uint8Array.from(atob(keyString), c => c.charCodeAt(0)).buffer;
 
-    //const response = await fetch(pemKey); 
-    //const keyBuffer = await response.arrayBuffer();
-
     // Import the key using the Web Crypto API
     const crypto = window.crypto.subtle;
     const importedKey = await crypto.importKey(
@@ -144,8 +144,8 @@ async function importKeyAsync(pemKey)
 async function encryptDataAsync(publicKey, data)
 {
     if (publicKey == null || publicKey == undefined) {
-        console.log("Attempted to encrypt data but public key was null or undefined");
-        return;
+        console.log("Attempted to encrypt data but public key was null or undefined. Retrieving new public key.");
+        await getPublicKeyAsync();
     }
 
     // Convert the data to a Uint8Array
@@ -177,11 +177,6 @@ async function encryptDataAsync(publicKey, data)
     return base64String;
 }
 
-//
-/// RULES
-//
-
-var rules = {{{payload.rulesStr}}};
 
 //
 /// SET PAGE CONTENT FUNCTION
@@ -261,7 +256,8 @@ function toJSON(...vars)
 
 function handlePostResponse(responseObject)
 {
-    console.log(JSON.stringify(responseObject));
+    if(responseObject.requestType != "getPageContent")
+    console.log("Response: \\n"+JSON.stringify(responseObject));
     
     // Check if OK
     if (responseObject.statusCode != 200)
@@ -281,14 +277,17 @@ function handlePostResponse(responseObject)
     return responseObject;
 }
 
-var handleResponseDynamically = [];
 
-// Dynamic response handling
+//
+/// Dynamic response handling
+//
+
+var handleResponseDynamically = [];
 
 handleResponseDynamically['getPageContent'] = function(response)
 {
-    if(response.page != null)
-        setPageContent(response.page);
+    if(response.data != null)
+        setPageContent(response.data);
 }
 
 handleResponseDynamically['acceptPage'] = function (response)
@@ -301,7 +300,6 @@ handleResponseDynamically['acceptPage'] = function (response)
 
 handleResponseDynamically['startRun'] = function (response)
 {
-    //console.log("RESPONSE FROM STARTRUN");
     goToPage("start");
 }
 
@@ -315,6 +313,7 @@ handleResponseDynamically['finalize'] = function (response)
 {
     goToPage("finalized");
 }
+
 
 
 //
@@ -360,6 +359,8 @@ function roundNumber(num)
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
+
+
 //
 // START RUN
 //
@@ -382,7 +383,33 @@ function startRun()
 }
 
 
-// RULES
+
+//
+/// RULES
+//
+
+function loadRules()
+{
+    // LOAD rules - update each rule
+    for (let index = 0; index < rules.length; index++)
+    {
+        const element = rules[index];
+        //console.log("Attempting to update value for '" + "operator_" + element.uid + "'");
+
+        var operatorInput = document.getElementById("operator_" + element.uid);
+        //var valueInput = document.getElementById("value_" + element.uid);
+
+        if (element.operator == "!null")
+        {
+            setInputBox(element.uid, true);
+            var valueInput = document.getElementById("value_" + element.uid);
+            valueInput.value = element.value;
+        }
+
+        operatorInput.value = element.operator;
+        //valueInput.value = element.value;
+    }
+}
 
 function appendRules(...objects)
 {
@@ -443,14 +470,6 @@ function createGrantObj(grantId)
 }
 
 
-
-//
-/// LATE START / INITIALIZATION
-//
-
-var landingPage = "{{{payload.page}}}";
-
-
 //
 /// ON PAGE LOAD FUNCTIONS
 //
@@ -459,26 +478,16 @@ var loadPageFunc = [];
 
 loadPageFunc["rules"] = function ()
 {
-    // LOAD rules - update each rule
-    for (let index = 0; index < rules.length; index++)
-    {
-        const element = rules[index];
-
-        //console.log("Attempting to update value for '" + "operator_" + element.uid + "'");
-
-        var operatorInput = document.getElementById("operator_" + element.uid);
-        //var valueInput = document.getElementById("value_" + element.uid);
-
-        if (element.operator == "!null")
+    if (!Array.isArray(rules) && Object.keys(rules).length === 0)
+        postRequestAsync("getRules").then(response =>
         {
-            setInputBox(element.uid, true);
-            var valueInput = document.getElementById("value_" + element.uid);
-            valueInput.value = element.value;
-        }
+            console.log("This runs");
+            rules = response.rules;
+            loadRules();
+        });
+    else
+        loadRules();
 
-        operatorInput.value = element.operator;
-        //valueInput.value = element.value;
-    }
 }
 
 if (loadPageFunc[landingPage] != null)

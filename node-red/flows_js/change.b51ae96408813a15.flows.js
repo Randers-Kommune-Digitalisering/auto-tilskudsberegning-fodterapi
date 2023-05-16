@@ -2,7 +2,7 @@ const Node = {
   "id": "b51ae96408813a15",
   "type": "change",
   "z": "43652557380ac3f3",
-  "name": "",
+  "name": "set pageElements = {}",
   "rules": [
     {
       "t": "set",
@@ -17,15 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 265,
-  "y": 560,
+  "x": 160,
+  "y": 360,
   "wires": [
     [
       "357f74e2631da4c9"
     ]
   ],
-  "l": false,
-  "_order": 162
+  "_order": 160
 }
 
 module.exports = Node;

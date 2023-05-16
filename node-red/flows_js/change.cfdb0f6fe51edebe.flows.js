@@ -1,0 +1,31 @@
+const Node = {
+  "id": "cfdb0f6fe51edebe",
+  "type": "change",
+  "z": "5bb3204aef17c104",
+  "name": "",
+  "rules": [
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{\t    \"requestType\": payload.requestType,\t    \"statusCode\": payload.statusCode,\t    \"data\": payload.data\t}",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 2080,
+  "y": 720,
+  "wires": [
+    [
+      "952bb78592e2ca1e",
+      "d529fc0a0d82838e"
+    ]
+  ],
+  "_order": 500
+}
+
+module.exports = Node;

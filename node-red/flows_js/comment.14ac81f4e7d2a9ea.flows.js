@@ -4,10 +4,10 @@ const Node = {
   "z": "5bb3204aef17c104",
   "name": "Get public key",
   "info": "",
-  "x": 590,
-  "y": 1480,
+  "x": 350,
+  "y": 1760,
   "wires": [],
-  "_order": 486
+  "_order": 483
 }
 
 module.exports = Node;

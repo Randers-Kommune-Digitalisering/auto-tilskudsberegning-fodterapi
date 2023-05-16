@@ -9,22 +9,23 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 750,
+  "x": 790,
   "y": 1240,
   "wires": [
     [
       "e4fc06b7c36a80c5"
     ]
   ],
-  "_order": 180
+  "_order": 178
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  // Set menu html
-  const loginAccepted = msg.payload.webSettings.acceptances.login;
-  const rulesAccepted = msg.payload.webSettings.acceptances.rules;
-  const grantsAccepted = msg.payload.webSettings.acceptances.grants;
-  const isRunning = msg.payload.webSettings.state.isRunning;
+  const webSettings =     global.get("webSettings", "storeInFile");
+  const loginAccepted =   webSettings.acceptances.login;
+  const rulesAccepted =   webSettings.acceptances.rules;
+  const grantsAccepted =  webSettings.acceptances.grants;
+  
+  const isRunning =       webSettings.state.isRunning;
   
   var dataExists = global.get("webData") !== null && global.get("webData") !== undefined;
   

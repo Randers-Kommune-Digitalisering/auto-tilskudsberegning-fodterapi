@@ -12,11 +12,11 @@ const Node = {
       "tot": "jsonata"
     },
     {
-      "t": "set",
-      "p": "payload.rulesStr",
+      "t": "move",
+      "p": "payload.rules",
       "pt": "msg",
-      "to": "payload.rules",
-      "tot": "msg"
+      "to": "#:(storeInFile)::rules",
+      "tot": "global"
     }
   ],
   "action": "",
@@ -24,14 +24,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 550,
-  "y": 460,
+  "x": 630,
+  "y": 280,
   "wires": [
     [
-      "4e9a3b7807bbafd6"
+      "c2e6e14b9d4019b7"
     ]
   ],
-  "_order": 131
+  "_order": 141
 }
 
 module.exports = Node;

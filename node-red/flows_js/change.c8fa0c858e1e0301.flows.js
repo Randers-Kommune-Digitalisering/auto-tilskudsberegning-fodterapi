@@ -3,28 +3,14 @@ const Node = {
   "type": "change",
   "z": "5bb3204aef17c104",
   "g": "473e95a14e971e50",
-  "name": "Set response",
+  "name": "Set payload.data to { url, title, html }",
   "rules": [
     {
       "t": "set",
-      "p": "payload.page",
+      "p": "payload.data",
       "pt": "msg",
-      "to": "{ \"url\": payload.page }",
+      "to": "{\t    \"url\": payload.data.page,\t    \"title\": payload.pageTitle,\t    \"html\": payload.bodyHTML\t}",
       "tot": "jsonata"
-    },
-    {
-      "t": "set",
-      "p": "payload.page.html",
-      "pt": "msg",
-      "to": "payload.bodyHTML",
-      "tot": "msg"
-    },
-    {
-      "t": "set",
-      "p": "payload.page.title",
-      "pt": "msg",
-      "to": "payload.pageTitle",
-      "tot": "msg"
     }
   ],
   "action": "",
@@ -32,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1610,
-  "y": 360,
+  "x": 700,
+  "y": 640,
   "wires": [
     [
-      "e5908679bccd13f4"
+      "9a872468c9750fb4"
     ]
   ],
-  "_order": 433
+  "_order": 435
 }
 
 module.exports = Node;

@@ -2,21 +2,15 @@ const Node = {
   "id": "ab622e75bfcfc759",
   "type": "change",
   "z": "43652557380ac3f3",
-  "name": "set lastPingMillis",
+  "g": "55635bddfbbcf6e4",
+  "name": "update ping",
   "rules": [
-    {
-      "t": "set",
-      "p": "payload.webSettings.currentSession.lastPingMillis",
-      "pt": "msg",
-      "to": "$millis()",
-      "tot": "jsonata"
-    },
     {
       "t": "set",
       "p": "#:(storeInFile)::webSettings.currentSession.lastPingMillis",
       "pt": "global",
-      "to": "payload.webSettings.currentSession.lastPingMillis",
-      "tot": "msg"
+      "to": "$millis()",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -24,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 420,
-  "y": 360,
+  "x": 470,
+  "y": 160,
   "wires": [
     [
       "d5e098f6bd51179b"
     ]
   ],
-  "_order": 192
+  "_order": 190
 }
 
 module.exports = Node;

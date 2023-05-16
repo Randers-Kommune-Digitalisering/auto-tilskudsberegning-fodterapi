@@ -1,15 +1,15 @@
 const Node = {
-  "id": "4e9a3b7807bbafd6",
+  "id": "6d10daaa212ccfab",
   "type": "change",
-  "z": "db94b4c117de2f6a",
+  "z": "43652557380ac3f3",
   "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::rules",
-      "pt": "global",
-      "to": "payload.rules",
-      "tot": "msg"
+      "p": "payload.statusCode",
+      "pt": "msg",
+      "to": "303",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -17,14 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 760,
-  "y": 460,
+  "x": 380,
+  "y": 1120,
   "wires": [
     [
-      "6f9b01d0e9aeace9"
+      "7e1f73ec1d40cafe"
     ]
   ],
-  "_order": 135
+  "_order": 233
 }
 
 module.exports = Node;

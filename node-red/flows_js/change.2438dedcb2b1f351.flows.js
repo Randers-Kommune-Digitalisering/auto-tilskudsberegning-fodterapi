@@ -3,20 +3,12 @@ const Node = {
   "type": "change",
   "z": "5bb3204aef17c104",
   "g": "80bf7be9c257b2b0",
-  "name": "Set login to accepted",
+  "name": "Set login to accepted + populate webData with login credentials",
   "rules": [
     {
       "t": "set",
       "p": "#:(storeInFile)::webSettings.acceptances.login",
       "pt": "global",
-      "to": "payload.data.toAccept",
-      "tot": "msg",
-      "dc": true
-    },
-    {
-      "t": "set",
-      "p": "payload.webSettings.acceptances.login",
-      "pt": "msg",
       "to": "payload.data.toAccept",
       "tot": "msg",
       "dc": true
@@ -59,14 +51,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 900,
-  "y": 500,
+  "x": 790,
+  "y": 780,
   "wires": [
     [
       "0219fed7920fde2c"
     ]
   ],
-  "_order": 448
+  "_order": 447
 }
 
 module.exports = Node;

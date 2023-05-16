@@ -2,7 +2,6 @@ const Node = {
   "id": "698e2e606a74f2c4",
   "type": "switch",
   "z": "5bb3204aef17c104",
-  "g": "63b598a9c0a41f91",
   "name": "",
   "property": "payload.requestType",
   "propertyType": "msg",
@@ -41,11 +40,11 @@ const Node = {
   "checkall": "false",
   "repair": false,
   "outputs": 6,
-  "x": 370,
-  "y": 700,
+  "x": 110,
+  "y": 1360,
   "wires": [
     [
-      "cf322c8f7ca77194"
+      "44922854196c3e51"
     ],
     [
       "0d73a26952f54d44"
@@ -63,7 +62,7 @@ const Node = {
       "3e3a2119b6ce7876"
     ]
   ],
-  "_order": 427
+  "_order": 429
 }
 
 module.exports = Node;

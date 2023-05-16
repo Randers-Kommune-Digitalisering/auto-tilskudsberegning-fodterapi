@@ -9,8 +9,9 @@ const Node = {
       "t": "set",
       "p": "tilskudsInfo",
       "pt": "msg",
-      "to": "payload.grants",
-      "tot": "msg"
+      "to": "#:(storeInFile)::grants",
+      "tot": "global",
+      "dc": true
     }
   ],
   "action": "",
@@ -27,7 +28,7 @@ const Node = {
   ],
   "l": false,
   "info": "",
-  "_order": 237
+  "_order": 239
 }
 
 Node.info = `

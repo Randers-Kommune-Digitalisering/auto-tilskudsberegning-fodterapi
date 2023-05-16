@@ -9,14 +9,14 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 760,
+  "x": 800,
   "y": 1200,
   "wires": [
     [
       "833c75852163c6a6"
     ]
   ],
-  "_order": 215
+  "_order": 213
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -28,7 +28,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   if (dataExists)
   {
-  
       if (global.get("webData")["citizens-actions"] !== undefined)
   
           if (!Array.isArray(global.get("webData")["citizens-actions"]))
@@ -37,7 +36,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
               webData["citizens-actions"] = [webData["citizens-actions"]];
               global.set("webData", webData);
           }
-              //global.set("webData")["citizens-actions"] = [global.get("webData")["citizens-actions"])];
   
       if (global.get("webData")["citizens-actions"] !== undefined)
           receiptCount = global.get("webData")["citizens-actions"].length;
@@ -51,20 +49,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
               remainingCount++;
   }
   
-  /*
-  if (global.get("runHistory", "storeInFile") !== undefined)
-      if (global.get("runHistory", "storeInFile")[global.get("runHistory", "storeInFile").length - 1] !== undefined)
-          acceptedReceiptCount = global.get("runHistory", "storeInFile")[global.get("runHistory", "storeInFile").length - 1].processedReceipts.length;*/
-  
-  
-  //typeof global.get("webData") == undefined || !Array.isArray(global.get("webData")["citizens-actions"]) ? 0 : global.get("webData")["citizens-actions"].length;
-  //var remainingCount = receiptCount - acceptedReceiptCount;
-  
-  
-  //receiptCount = remainingCount;
   var html = ``;
   
-  if (msg.payload.webSettings.state.isRunning)
+  let webState = global.get("webSettings", "storeInFile")["state"];
+  if (webState.isRunning)
   {
       html = `<div class="card border-light">
       <div class="card-header">Anbefalede handlinger</div>

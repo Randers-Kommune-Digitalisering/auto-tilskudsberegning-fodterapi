@@ -2,12 +2,12 @@ const Node = {
   "id": "f1a8802eae2b84b5",
   "type": "comment",
   "z": "db94b4c117de2f6a",
-  "name": "Load Grants",
+  "name": "Set Grants",
   "info": "",
-  "x": 350,
-  "y": 600,
+  "x": 420,
+  "y": 360,
   "wires": [],
-  "_order": 144
+  "_order": 147
 }
 
 module.exports = Node;

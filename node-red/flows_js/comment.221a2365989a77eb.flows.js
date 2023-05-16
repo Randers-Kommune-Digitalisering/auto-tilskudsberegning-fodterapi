@@ -5,10 +5,10 @@ const Node = {
   "g": "80bf7be9c257b2b0",
   "name": "Login",
   "info": "",
-  "x": 850,
-  "y": 460,
+  "x": 610,
+  "y": 740,
   "wires": [],
-  "_order": 460
+  "_order": 457
 }
 
 module.exports = Node;

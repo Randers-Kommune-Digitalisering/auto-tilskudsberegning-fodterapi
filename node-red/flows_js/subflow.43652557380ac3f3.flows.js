@@ -6,11 +6,11 @@ const Node = {
   "category": "",
   "in": [
     {
-      "x": 60,
-      "y": 240,
+      "x": 40,
+      "y": 60,
       "wires": [
         {
-          "id": "f4ed528cde3cabe7"
+          "id": "d64936a739a436db"
         }
       ]
     }
