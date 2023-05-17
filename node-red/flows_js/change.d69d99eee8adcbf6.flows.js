@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.pageElements.loginToAccept",
       "pt": "msg",
-      "to": "payload.webSettings.acceptances.login = true ? false : true",
+      "to": "($globalContext(\"webSettings\", \"storeInFile\")).acceptances.login = true ? false : true",
       "tot": "jsonata"
     }
   ],
@@ -24,7 +24,7 @@ const Node = {
       "d5dda5bcbcb28f81"
     ]
   ],
-  "_order": 173
+  "_order": 174
 }
 
 module.exports = Node;

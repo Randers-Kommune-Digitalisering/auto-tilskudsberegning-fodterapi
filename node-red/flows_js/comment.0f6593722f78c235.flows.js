@@ -5,10 +5,10 @@ const Node = {
   "g": "80bf7be9c257b2b0",
   "name": "AcceptPage",
   "info": "",
-  "x": 330,
+  "x": 530,
   "y": 760,
   "wires": [],
-  "_order": 439
+  "_order": 440
 }
 
 module.exports = Node;

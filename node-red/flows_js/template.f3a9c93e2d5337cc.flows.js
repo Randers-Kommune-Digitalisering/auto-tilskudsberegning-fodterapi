@@ -17,11 +17,12 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 442
+  "_order": 443
 }
 
 Node.template = `
-var landingPage = "{{{payload.page}}}";
+var landingPage = "{{{payload.data.page}}}";
+var activePage = landingPage;
 var rules = {};
 
 //
@@ -31,7 +32,8 @@ var rules = {};
 // Function to send encrypted data to backend
 // This function will automatically retrieve missing public key before sending data
 
-async function encryptedPostRequest(request, data) {
+async function encryptedPostRequest(request, data)
+{
     // If there is no public key, retrieve it
     await
         getPublicKeyAsync()
@@ -47,7 +49,6 @@ async function encryptedPostRequest(request, data) {
 
             // Handle HTTP response
             .then(response => handlePostResponse(response));
-
 }
 
 // Post request async - not encrypted, for requests containing data use encryptedPostRequest instead
@@ -93,10 +94,10 @@ async function getPublicKeyAsync(forceImport = false)
                     .catch(error => console.log("HTTP getPublicKey request error: " + error))
 
                     // Get the PEM string from the response variable in HTTP response object
-                    .then(response => response.pem)
+                    .then(response => response.data.pem)
 
                     // Import key from PEM string
-                    .then(response => importKeyAsync(response))
+                    .then(pemKey => importKeyAsync(pemKey))
                     .catch(error => console.log("Import key error: " + error))
 
                     // Set and return public key as cryptoKey object
@@ -182,8 +183,6 @@ async function encryptDataAsync(publicKey, data)
 /// SET PAGE CONTENT FUNCTION
 //
 
-var activePage = "{{payload.webSettings.state.activePage}}";
-
 function goToPage(page)
 {
     var pageName = "";
@@ -257,7 +256,7 @@ function toJSON(...vars)
 function handlePostResponse(responseObject)
 {
     if(responseObject.requestType != "getPageContent")
-    console.log("Response: \\n"+JSON.stringify(responseObject));
+        console.log("Response: \\n"+JSON.stringify(responseObject));
     
     // Check if OK
     if (responseObject.statusCode != 200)
@@ -278,6 +277,7 @@ function handlePostResponse(responseObject)
 }
 
 
+
 //
 /// Dynamic response handling
 //
@@ -292,9 +292,6 @@ handleResponseDynamically['getPageContent'] = function(response)
 
 handleResponseDynamically['acceptPage'] = function (response)
 {
-    if(activePage == "rules")
-        rules = response.rules;
-
     reloadPage();
 }
 
@@ -305,7 +302,6 @@ handleResponseDynamically['startRun'] = function (response)
 
 handleResponseDynamically['archive'] = function (response)
 {
-    //goToPage(response.page + "?spec="+response.spec);
     reloadPage();
 }
 
@@ -351,6 +347,7 @@ function hide(objectId)
 
 function reloadPage()
 {
+    console.log("Reload page works");
     goToPage(activePage);
 }
 
@@ -477,12 +474,11 @@ function createGrantObj(grantId)
 var loadPageFunc = [];
 
 loadPageFunc["rules"] = function ()
-{
+{    
     if (!Array.isArray(rules) && Object.keys(rules).length === 0)
         postRequestAsync("getRules").then(response =>
         {
-            console.log("This runs");
-            rules = response.rules;
+            rules = response.data.rules;
             loadRules();
         });
     else

@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.pageElements.grantsToAccept",
       "pt": "msg",
-      "to": "payload.webSettings.acceptances.grants = true ? false : true",
+      "to": "($globalContext(\"webSettings\", \"storeInFile\")).acceptances.grants = true ? false : true",
       "tot": "jsonata"
     }
   ],
@@ -24,7 +24,7 @@ const Node = {
       "6839897d12a405ac"
     ]
   ],
-  "_order": 188
+  "_order": 189
 }
 
 module.exports = Node;

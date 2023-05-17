@@ -4,8 +4,8 @@ const Node = {
   "z": "8ea344595d9a442a",
   "g": "954337fe9fd2e7cc",
   "name": "",
-  "property": "payload.webSettings.state.activePage",
-  "propertyType": "msg",
+  "property": "#:(storeInFile)::webSettings.state.activePage",
+  "propertyType": "global",
   "rules": [
     {
       "t": "eq",
@@ -31,7 +31,7 @@ const Node = {
       "609b3d8d3bfd669e"
     ]
   ],
-  "_order": 282
+  "_order": 283
 }
 
 module.exports = Node;
