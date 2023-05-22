@@ -2,7 +2,7 @@ const Node = {
   "id": "63b598a9c0a41f91",
   "type": "group",
   "z": "5bb3204aef17c104",
-  "name": "HTTP Request In",
+  "name": "POST In",
   "style": {
     "fill": "#ffbfbf",
     "fill-opacity": "0.65",

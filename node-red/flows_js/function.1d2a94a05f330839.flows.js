@@ -20,8 +20,9 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
+  // Get data
+  
   const webSettings = global.get("webSettings", "storeInFile");
-  // Set menu html
   
   var dataExists = global.get("webData") !== null && global.get("webData") !== undefined;
   
@@ -35,7 +36,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   const receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;
   const isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;
-  
   
   function isActive(pageName)
   {
