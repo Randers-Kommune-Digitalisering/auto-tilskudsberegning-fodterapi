@@ -83,7 +83,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
                       <strong>`+ lastRunObj.processedReceipts.length +`</strong> fakturaer behandlet.<br />
                   </div-->
               </p>
-              <a onclick="goToPage('run-history')">Se kørselshistorik</a>
+  
+              <div class="d-grid">
+                  <button class="btn btn-lg btn-light border-light" onclick="goToPage('run-history')">Se kørselshistorik</button>
+              </div>
           </div>
       </div>`;
   }
