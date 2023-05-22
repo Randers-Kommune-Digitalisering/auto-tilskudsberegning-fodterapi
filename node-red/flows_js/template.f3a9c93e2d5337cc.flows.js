@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 443
+  "_order": 446
 }
 
 Node.template = `
@@ -484,6 +484,16 @@ loadPageFunc["rules"] = function ()
     else
         loadRules();
 
+}
+
+loadPageFunc["run-history"] = function ()
+{
+    const tds = document.getElementsByClassName("isFinalized");
+    console.log("Found " + tds.length);
+    for (let index = 0; index < tds.length; index++) {
+        const element = tds[index];
+        element.innerHTML = element.innerHTML == "true" ? "Ja" : "Nej";
+    }
 }
 
 if (loadPageFunc[landingPage] != null)

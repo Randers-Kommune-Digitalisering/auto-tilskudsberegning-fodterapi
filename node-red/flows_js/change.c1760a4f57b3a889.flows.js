@@ -1,15 +1,14 @@
 const Node = {
-  "id": "405c756777b7fe27",
+  "id": "c1760a4f57b3a889",
   "type": "change",
-  "z": "8ea344595d9a442a",
-  "g": "669e09e244099963",
-  "name": "workletRetryCount +1",
+  "z": "43652557380ac3f3",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "workletRetryCount",
+      "p": "runHistoryReverse",
       "pt": "msg",
-      "to": "workletRetryCount+1",
+      "to": "$globalContext(\"runHistory\", \"storeInFile\") ~> $reverse",
       "tot": "jsonata"
     }
   ],
@@ -18,14 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 900,
-  "y": 880,
+  "x": 780,
+  "y": 1020,
   "wires": [
     [
-      "88dc6a55a45a4048"
+      "74cd38d81e06eb6b"
     ]
   ],
-  "_order": 406
+  "_order": 235
 }
 
 module.exports = Node;

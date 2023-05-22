@@ -1,13 +1,12 @@
 const Node = {
-  "id": "fde5a695bfbd9a7d",
+  "id": "affc57c023ce09ab",
   "type": "change",
-  "z": "8ea344595d9a442a",
-  "g": "380e5c7e0ea3778b",
-  "name": "Clean MSG",
+  "z": "43652557380ac3f3",
+  "name": "",
   "rules": [
     {
       "t": "delete",
-      "p": "tilskudsInfo",
+      "p": "runHistoryReverse",
       "pt": "msg"
     }
   ],
@@ -16,14 +15,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1170,
-  "y": 2800,
+  "x": 1270,
+  "y": 1020,
   "wires": [
     [
-      "f5dbef72792b9011"
+      "ff453a59f2b2253f"
     ]
   ],
-  "_order": 268
+  "_order": 236
 }
 
 module.exports = Node;

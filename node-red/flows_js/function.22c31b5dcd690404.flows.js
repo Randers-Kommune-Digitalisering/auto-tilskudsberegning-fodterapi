@@ -20,6 +20,16 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
+  function days_between(date1, date2)
+  {
+      // The number of milliseconds in one day
+      const ONE_DAY = 1000 * 60 * 60 * 24;
+      // Calculate the difference in milliseconds
+      const differenceMs = Math.abs(date1 - date2);
+      // Convert back to days and return
+      return Math.round(differenceMs / ONE_DAY);
+  }
+  
   var lastRunObj = null;
   
   var lastRunExists = global.get("runHistory", "storeInFile") !== null && global.get("runHistory", "storeInFile") !== undefined && (
@@ -58,8 +68,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   else
   {
-      var daysSinceRun = Date.now() - lastRunObj.timestamp;
-      daysSinceRun = Math.ceil(daysSinceRun / (1000 * 3600 * 24)) -1;
+      var daysSinceRun = days_between(Date.now(), lastRunObj.timestamp);
   
       var dayordays = daysSinceRun > 1 ? "dage" : "dag";
       var lastRun = daysSinceRun == 0 ? "Tidligere i dag" : daysSinceRun + " " + dayordays + " siden";
@@ -69,7 +78,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
           <div class="card-header">Seneste kørsel</div>
           <div class="card-body">
               <h4 class="card-title">`+ lastRun + `</h4>
-              <p class="card-text">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString() + `<br />
+              <p class="card-text">Robotten kørte sidst d. `+ new Date(lastRunObj.timestamp).toLocaleString('en-GB', { timeZone: 'CET' }) + `<br />
                   <!--div class="mt-1">
                       <strong>`+ lastRunObj.processedReceipts.length +`</strong> fakturaer behandlet.<br />
                   </div-->

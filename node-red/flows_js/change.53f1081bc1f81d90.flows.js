@@ -1,9 +1,9 @@
 const Node = {
-  "id": "f462cfb8de682697",
+  "id": "53f1081bc1f81d90",
   "type": "change",
   "z": "8ea344595d9a442a",
-  "g": "c6c6bffeb57369e7",
-  "name": "Opdater runHistory",
+  "g": "9c4f3569ebca5f7b",
+  "name": "KP Login \\n + Opdater runHistory",
   "rules": [
     {
       "t": "set",
@@ -12,18 +12,6 @@ const Node = {
       "to": "#:(storeInFile)::runHistory",
       "tot": "global",
       "dc": true
-    },
-    {
-      "t": "delete",
-      "p": "payload",
-      "pt": "msg"
-    },
-    {
-      "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.isRunning",
-      "pt": "global",
-      "to": "false",
-      "tot": "bool"
     },
     {
       "t": "set",
@@ -36,7 +24,7 @@ const Node = {
       "t": "set",
       "p": "runHistory",
       "pt": "msg",
-      "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"allReceiptsProcessed\": true, \"isFinalized\": false\t}\t\t)|",
+      "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"dqUser\": ($globalContext(\"webData\")).dqCreds.dqUser\t}\t\t)|",
       "tot": "jsonata"
     },
     {
@@ -46,6 +34,22 @@ const Node = {
       "to": "runHistory",
       "tot": "msg",
       "dc": true
+    },
+    {
+      "t": "set",
+      "p": "dqUser",
+      "pt": "msg",
+      "to": "webData.dqCreds.dqUser",
+      "tot": "global",
+      "dc": true
+    },
+    {
+      "t": "set",
+      "p": "dqPass",
+      "pt": "msg",
+      "to": "webData.dqCreds.dqPass",
+      "tot": "global",
+      "dc": true
     }
   ],
   "action": "",
@@ -53,15 +57,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 470,
-  "y": 1500,
+  "x": 780,
+  "y": 1340,
   "wires": [
     [
-      "42e8d0e6b5e55314",
-      "d0db0a27f5e322ae"
+      "c2df29c07624e5e0"
     ]
   ],
-  "_order": 348
+  "_order": 428
 }
 
 module.exports = Node;
