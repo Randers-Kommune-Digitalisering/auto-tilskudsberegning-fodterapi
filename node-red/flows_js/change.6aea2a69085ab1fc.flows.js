@@ -31,6 +31,13 @@ const Node = {
       "pt": "msg",
       "to": "payload.grants.tilskudsperioder.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": $g.tilskud_maxdkk,\t    \"tilskud_procent\": $g.tilskud_procent,\t    \"titel\": $g.titel,\t    \"wtitel\": $g.wtitel\t}",
       "tot": "jsonata"
+    },
+    {
+      "t": "move",
+      "p": "payload.grants",
+      "pt": "msg",
+      "to": "#:(storeInFile)::grants",
+      "tot": "global"
     }
   ],
   "action": "",
@@ -38,14 +45,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 560,
-  "y": 660,
+  "x": 640,
+  "y": 420,
   "wires": [
     [
-      "3f926de50bc6c69f"
+      "c5e60849ee87774c"
     ]
   ],
-  "_order": 135
+  "_order": 146
 }
 
 module.exports = Node;

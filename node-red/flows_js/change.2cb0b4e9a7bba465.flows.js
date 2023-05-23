@@ -6,6 +6,13 @@ const Node = {
   "name": "Merge changes",
   "rules": [
     {
+      "t": "move",
+      "p": "#:(storeInFile)::rules",
+      "pt": "global",
+      "to": "payload.rules",
+      "tot": "msg"
+    },
+    {
       "t": "set",
       "p": "payload.rules",
       "pt": "msg",
@@ -25,6 +32,13 @@ const Node = {
       "pt": "msg",
       "to": "$.payload.rules ~> | $ |\t{\t    \"value\": \t        type = \"number\" ?\t            value ~> $number() \t            :\t        type = \"bool\" ?\t            (value = \"true\") or (value = true) ? true : false\t}\t|",
       "tot": "jsonata"
+    },
+    {
+      "t": "move",
+      "p": "rules",
+      "pt": "msg",
+      "to": "#:(storeInFile)::rules",
+      "tot": "global"
     }
   ],
   "action": "",
@@ -32,14 +46,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1140,
-  "y": 700,
+  "x": 1100,
+  "y": 980,
   "wires": [
     [
-      "a93344c168258f4e"
+      "8086c52505c2c8d5"
     ]
   ],
-  "_order": 438
+  "_order": 450
 }
 
 module.exports = Node;

@@ -17,11 +17,11 @@ const Node = {
       "88fb35ef462682b4"
     ]
   ],
-  "_order": 163
+  "_order": 166
 }
 
 Node.template = `
-{{#payload.rules}}
+{{#global[storeInFile].rules}}
     <div class="row border-top pb-2 pt-2 ">
 
 
@@ -49,7 +49,7 @@ Node.template = `
 
 
     </div>
-{{/payload.rules}}
+{{/global[storeInFile].rules}}
 `
 
 module.exports = Node;

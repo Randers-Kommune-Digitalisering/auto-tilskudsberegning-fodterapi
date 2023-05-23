@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "43652557380ac3f3",
   "name": "",
-  "property": "payload.page",
+  "property": "payload.data.page",
   "propertyType": "msg",
   "rules": [
     {
@@ -43,6 +43,11 @@ const Node = {
     },
     {
       "t": "eq",
+      "v": "run-history",
+      "vt": "str"
+    },
+    {
+      "t": "eq",
       "v": "start",
       "vt": "str"
     },
@@ -52,9 +57,9 @@ const Node = {
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 9,
-  "x": 350,
-  "y": 560,
+  "outputs": 10,
+  "x": 310,
+  "y": 600,
   "wires": [
     [
       "13e976910d5e9707"
@@ -78,13 +83,16 @@ const Node = {
       "381970c176b042aa"
     ],
     [
+      "c1760a4f57b3a889"
+    ],
+    [
       "c02e24bfe2197802"
     ],
     [
-      "7e1f73ec1d40cafe"
+      "6d10daaa212ccfab"
     ]
   ],
-  "_order": 146
+  "_order": 150
 }
 
 module.exports = Node;

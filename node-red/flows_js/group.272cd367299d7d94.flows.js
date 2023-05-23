@@ -2,7 +2,7 @@ const Node = {
   "id": "272cd367299d7d94",
   "type": "group",
   "z": "5bb3204aef17c104",
-  "name": "Endpoint",
+  "name": "GET In",
   "style": {
     "fill": "#bfbfbf",
     "fill-opacity": "0.54",
@@ -18,8 +18,8 @@ const Node = {
     "f3a9c93e2d5337cc",
     "33a5408283cc22ce",
     "67aaa3b96a0a8b4d",
-    "306fb32a0fb09c60",
-    "3a1909c9e2eb5089"
+    "3a1909c9e2eb5089",
+    "d8e8bb51b22cdc0c"
   ],
   "x": 74,
   "y": 59,

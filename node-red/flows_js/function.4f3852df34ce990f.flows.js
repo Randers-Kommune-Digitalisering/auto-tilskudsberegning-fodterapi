@@ -9,14 +9,14 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 1360,
+  "x": 1340,
   "y": 760,
   "wires": [
     [
       "c83fdc0290f77ad3"
     ]
   ],
-  "_order": 196
+  "_order": 199
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -37,7 +37,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   function pageAccepted(pageName)
   {
-      return (msg.payload.webSettings.acceptances[pageName]);
+      return ((global.get("webSettings", "storeInFile")).acceptances[pageName]);
   }
   function allPagesAccepted()
   {
@@ -49,7 +49,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var buttonHtml = "";
   var cardtext ="Robotten henter først fakturaer fra WorkLet, og beregner derefter potientielle tilskud.";
   
-  if (msg.payload.webSettings.state.isRunning) {
+  if ((global.get("webSettings", "storeInFile")).state.isRunning) {
       buttonHtml = `<button class="btn btn-lg btn-primary ml-2 btn-lg" id="button_startRun" type="button" onclick="startRun()" style="width: 300px" disabled>
                       <i class="fa-lg fas fa-spinner fa-spin"></i>
                     </button>`;
@@ -92,7 +92,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       subheader = "Afslut seneste kørsel";
       cardtext = "Er du sikker på at du vil afslutte seneste kørsel? Du vil ikke være i stand til at se borgeroplysninger eller anbefalede handlinger når kørslen er afsluttet, og en ny kørsel vil først kunne startes i morgen.";
   
-      buttonHtml = `<button class="btn btn-lg btn-primary ml-2 btn-lg" id="button_finalizeRun" type="button" onclick="encryptedPostRequest('encryptedRequest', {'requestType': 'finalize'})" style="width: 300px">
+      buttonHtml = `<button class="btn btn-lg btn-primary ml-2 btn-lg" id="button_finalizeRun" type="button" onclick="postRequestAsync('finalize', {}, true)" style="width: 300px">
                           Afslut kørsel
                     </button>`;
   

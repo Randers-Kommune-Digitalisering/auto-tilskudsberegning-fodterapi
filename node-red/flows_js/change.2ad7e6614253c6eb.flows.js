@@ -12,14 +12,6 @@ const Node = {
       "to": "payload.data.toAccept",
       "tot": "msg",
       "dc": true
-    },
-    {
-      "t": "set",
-      "p": "payload.webSettings.acceptances.rules",
-      "pt": "msg",
-      "to": "payload.data.toAccept",
-      "tot": "msg",
-      "dc": true
     }
   ],
   "action": "",
@@ -27,14 +19,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 900,
-  "y": 600,
+  "x": 860,
+  "y": 880,
   "wires": [
     [
       "a4eb1bf064248281"
     ]
   ],
-  "_order": 443
+  "_order": 452
 }
 
 module.exports = Node;

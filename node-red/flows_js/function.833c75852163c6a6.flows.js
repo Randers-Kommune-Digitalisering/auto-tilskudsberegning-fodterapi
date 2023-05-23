@@ -10,21 +10,24 @@ const Node = {
   "finalize": "",
   "libs": [],
   "x": 750,
-  "y": 1080,
+  "y": 1240,
   "wires": [
     [
       "e4fc06b7c36a80c5"
     ]
   ],
-  "_order": 176
+  "_order": 179
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  // Set menu html
-  const loginAccepted = msg.payload.webSettings.acceptances.login;
-  const rulesAccepted = msg.payload.webSettings.acceptances.rules;
-  const grantsAccepted = msg.payload.webSettings.acceptances.grants;
-  const isRunning = msg.payload.webSettings.state.isRunning;
+  // Hent data
+  
+  const webSettings =     global.get("webSettings", "storeInFile");
+  const loginAccepted =   webSettings.acceptances.login;
+  const rulesAccepted =   webSettings.acceptances.rules;
+  const grantsAccepted =  webSettings.acceptances.grants;
+  
+  const isRunning =       webSettings.state.isRunning;
   
   var dataExists = global.get("webData") !== null && global.get("webData") !== undefined;
   
@@ -38,7 +41,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   const receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;
   const isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;
-  
   
   var rejectedCitizenCount = 0; //global.get("webData")["citizens-noactions"] == null ? 0 : global.get("webData")["citizens-noactions"].length;
   var receiptCount = 0;
@@ -59,7 +61,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if (global.get("webData") !== undefined)
       if (global.get("webData")["citizens-noactions"] !== undefined)
       {
-          if (!Array.isArray(global.get("webData")["citizens-noactions"])) {
+          if (!Array.isArray(global.get("webData")["citizens-noactions"]))
+          {
               var tempWebData = global.get("webData");
               tempWebData["citizens-noactions"] = [tempWebData["citizens-noactions"]];
               global.set("webData", tempWebData);
@@ -77,8 +80,11 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   rejectedCitizenCount = remainingCount;
   
+  //
+  // States
+  //
   
-  
+  // Robotten er klar til at køre (login + regler + tilskud accepteret)
   var cardHeader = "Ny kørsel";
   var cardTitle ="Kør nu";
   var cardText = "Robotten er nu klar til at søge efter nye fakturaer og beregne tilskud!";
@@ -87,9 +93,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var border = "light";
   var buttonClasses = " ";
   
-  
-  
-  if (isRunning) {
+  // Robotten kører pt.
+  if (isRunning)
+  {
       cardTitle = "Robotten arbejder ... <i class='float-right fa-md fas fa-spinner fa-spin' style='margin-right: 5px'></i>";
       cardText = "Robotten arbejder på at finde nye fakturaer samt beregne tilskud."
       buttonText = "Vent venligst";
@@ -97,6 +103,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       linkhref = "view-receipts";
       border = "info";
   }
+  
+  // Data mangler fra uafsluttet kørsel 
   else if ((receiptsAwaiting && isBeingProcessed && !dataExists) || (receiptsAwaiting && receiptCount == 0))
   {
       cardHeader = "Genoptag kørsel";
@@ -106,6 +114,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       buttonText = "Genoptag";
   }
   
+  // Borgere uden anbefalede handlinger afventer behandling
   else if (receiptsAwaiting && rejectedCitizenCount > 0)
   {
       cardHeader = "Borgere uden anbefalede handlinger";
@@ -117,6 +126,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       border = rejectedCitizenCount > 0 ? "warning" : "light";
   
   }
+  
+  // Der er ikke flere borgere at behandle
   else if (isBeingProcessed && !receiptsAwaiting)
   {
       cardHeader = "Afslut kørsel";
@@ -126,6 +137,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       border = "success";
   }
   
+  // Der er ikke flere borgere uden anbefalede handlinger at behandle, men der er stadig borgere med handlinger
   else if (receiptsAwaiting && rejectedCitizenCount == 0)
   {
       cardHeader = "Afslut kørsel";
@@ -135,6 +147,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       buttonClasses += "disabled";
   }
   
+  // Ingen state - Afventer login 
   else if (!loginAccepted) {
       cardTitle = "Godkend login";
       cardText = "Før du kan søge efter nye fakturaer, skal du godkende loginoplysninger."
@@ -142,6 +155,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       linkhref = "login";
   }
   
+  // Login accepteret - afventer regler
   else if (!rulesAccepted) {
       cardTitle = "Godkend regelsæt";
       cardText = "Før du kan søge efter nye fakturaer, skal du godkende forretningsregler."
@@ -149,6 +163,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       linkhref = "rules";
   }
   
+  // Regler accepteret - afventer tilskud
   else if(!grantsAccepted)
   {
       cardTitle = "Godkend tilskudssatser";
@@ -157,6 +172,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
       linkhref = "grants";
   }
   
+  //
+  // Sammensæt HTML
+  //
   
   var classes = "border-" + border;
   

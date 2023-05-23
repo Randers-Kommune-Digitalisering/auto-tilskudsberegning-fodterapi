@@ -17,20 +17,6 @@ const Node = {
       "pt": "global",
       "to": "[{\"title\":\"initialization\",\"id\":0,\"state\":{},\"lastResult\":null},{\"title\":\"extract-worklet\",\"id\":1,\"state\":{},\"lastResult\":null},{\"title\":\"data-split\",\"id\":2,\"state\":{},\"lastResult\":null},{\"title\":\"extract-kp\",\"id\":3,\"state\":{},\"lastResult\":null},{\"title\":\"transform\",\"id\":4,\"state\":{},\"lastResult\":null},{\"title\":\"load\",\"id\":5,\"state\":{},\"lastResult\":null}]",
       "tot": "json"
-    },
-    {
-      "t": "set",
-      "p": "payload.webStates",
-      "pt": "msg",
-      "to": "webStates",
-      "tot": "global"
-    },
-    {
-      "t": "set",
-      "p": "payload.webSteps",
-      "pt": "msg",
-      "to": "webSteps",
-      "tot": "global"
     }
   ],
   "action": "",
@@ -38,14 +24,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 830,
-  "y": 120,
+  "x": 1230,
+  "y": 260,
   "wires": [
-    [
-      "eae97dc11278dc8c"
-    ]
+    []
   ],
-  "_order": 144
+  "_order": 139
 }
 
 module.exports = Node;

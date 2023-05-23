@@ -17,10 +17,14 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 433
+  "_order": 446
 }
 
 Node.template = `
+var landingPage = "{{{payload.data.page}}}";
+var activePage = landingPage;
+var rules = {};
+
 //
 // HTTP Request
 //
@@ -28,7 +32,8 @@ Node.template = `
 // Function to send encrypted data to backend
 // This function will automatically retrieve missing public key before sending data
 
-async function encryptedPostRequest(request, data) {
+async function encryptedPostRequest(request, data)
+{
     // If there is no public key, retrieve it
     await
         getPublicKeyAsync()
@@ -39,17 +44,16 @@ async function encryptedPostRequest(request, data) {
             .catch(error => console.log("Error encrypting data: " + error))
 
             // Send encrypted data to backend
-            .then(encryptedData => postRequestAsync(request, encryptedData))
+            .then(encryptedData => postRequestAsync(request, encryptedData, false))
             .catch(error => console.log("HTTP post error: " + error))
 
             // Handle HTTP response
             .then(response => handlePostResponse(response));
-
 }
 
 // Post request async - not encrypted, for requests containing data use encryptedPostRequest instead
 
-async function postRequestAsync(request, data = {}, handleResponse = false)
+async function postRequestAsync(request, data = {}, handleResponse = true)
 {
     const response = await fetch("/worklet/http", {
         method: "POST",
@@ -90,10 +94,10 @@ async function getPublicKeyAsync(forceImport = false)
                     .catch(error => console.log("HTTP getPublicKey request error: " + error))
 
                     // Get the PEM string from the response variable in HTTP response object
-                    .then(response => response.pem)
+                    .then(response => response.data.pem)
 
                     // Import key from PEM string
-                    .then(response => importKeyAsync(response))
+                    .then(pemKey => importKeyAsync(pemKey))
                     .catch(error => console.log("Import key error: " + error))
 
                     // Set and return public key as cryptoKey object
@@ -120,9 +124,6 @@ async function importKeyAsync(pemKey)
         .replace(/\\n/g, "");
     const keyBuffer = Uint8Array.from(atob(keyString), c => c.charCodeAt(0)).buffer;
 
-    //const response = await fetch(pemKey); 
-    //const keyBuffer = await response.arrayBuffer();
-
     // Import the key using the Web Crypto API
     const crypto = window.crypto.subtle;
     const importedKey = await crypto.importKey(
@@ -144,8 +145,8 @@ async function importKeyAsync(pemKey)
 async function encryptDataAsync(publicKey, data)
 {
     if (publicKey == null || publicKey == undefined) {
-        console.log("Attempted to encrypt data but public key was null or undefined");
-        return;
+        console.log("Attempted to encrypt data but public key was null or undefined. Retrieving new public key.");
+        await getPublicKeyAsync();
     }
 
     // Convert the data to a Uint8Array
@@ -177,17 +178,10 @@ async function encryptDataAsync(publicKey, data)
     return base64String;
 }
 
-//
-/// RULES
-//
-
-var rules = {{{payload.rulesStr}}};
 
 //
 /// SET PAGE CONTENT FUNCTION
 //
-
-var activePage = "{{payload.webSettings.state.activePage}}";
 
 function goToPage(page)
 {
@@ -257,64 +251,57 @@ function toJSON(...vars)
     return obj;
 }
 
-/* // DEPRECATED FUNCTION //
-
-function postRequest(object)
-{
-    //console.log("HTTP request: " + object);
-    fetch('/worklet/http', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(object)
-    })
-        .then(response => response.json())
-        .then(response => handlePostResponse(response));
-        //.then(response => console.log(JSON.stringify(response)));
-}
-*/
-
+// Handle HTTP responses (all)
 
 function handlePostResponse(responseObject)
 {
-    console.log("HANDLING RESPONSE FROM: " + responseObject.requestType)
-    // Call function depending on request type
+    if(responseObject.requestType != "getPageContent")
+        console.log("Response: \\n"+JSON.stringify(responseObject));
+    
+    // Check if OK
+    if (responseObject.statusCode != 200)
+        console.log("GET request error code " + responseObject.statusCode);
 
+    // Check if unauthorized -> reaquire public key
+    if(responseObject.statusCode == 401)
+    {
+        console.log("Public key is unauthorized.");
+        getPublicKeyAsync(true).then(key => reloadPage());
+    }
+
+    // Call function depending on request type
     if (handleResponseDynamically[responseObject.requestType] != null)
         handleResponseDynamically[responseObject.requestType](responseObject);
         
     return responseObject;
 }
 
-var handleResponseDynamically = [];
 
-// Dynamic response handling
+
+//
+/// Dynamic response handling
+//
+
+var handleResponseDynamically = [];
 
 handleResponseDynamically['getPageContent'] = function(response)
 {
-    if(response.page != null)
-        setPageContent(response.page);
+    if(response.data != null)
+        setPageContent(response.data);
 }
 
 handleResponseDynamically['acceptPage'] = function (response)
 {
-    if(activePage == "rules")
-        rules = response.rules;
-
     reloadPage();
 }
 
 handleResponseDynamically['startRun'] = function (response)
 {
-    //console.log("RESPONSE FROM STARTRUN");
     goToPage("start");
 }
 
 handleResponseDynamically['archive'] = function (response)
 {
-    //goToPage(response.page + "?spec="+response.spec);
     reloadPage();
 }
 
@@ -322,6 +309,7 @@ handleResponseDynamically['finalize'] = function (response)
 {
     goToPage("finalized");
 }
+
 
 
 //
@@ -359,6 +347,7 @@ function hide(objectId)
 
 function reloadPage()
 {
+    console.log("Reload page works");
     goToPage(activePage);
 }
 
@@ -366,6 +355,8 @@ function roundNumber(num)
 {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
+
+
 
 //
 // START RUN
@@ -389,7 +380,33 @@ function startRun()
 }
 
 
-// RULES
+
+//
+/// RULES
+//
+
+function loadRules()
+{
+    // LOAD rules - update each rule
+    for (let index = 0; index < rules.length; index++)
+    {
+        const element = rules[index];
+        //console.log("Attempting to update value for '" + "operator_" + element.uid + "'");
+
+        var operatorInput = document.getElementById("operator_" + element.uid);
+        //var valueInput = document.getElementById("value_" + element.uid);
+
+        if (element.operator == "!null")
+        {
+            setInputBox(element.uid, true);
+            var valueInput = document.getElementById("value_" + element.uid);
+            valueInput.value = element.value;
+        }
+
+        operatorInput.value = element.operator;
+        //valueInput.value = element.value;
+    }
+}
 
 function appendRules(...objects)
 {
@@ -450,14 +467,6 @@ function createGrantObj(grantId)
 }
 
 
-
-//
-/// LATE START / INITIALIZATION
-//
-
-var landingPage = "{{{payload.page}}}";
-
-
 //
 /// ON PAGE LOAD FUNCTIONS
 //
@@ -465,26 +474,25 @@ var landingPage = "{{{payload.page}}}";
 var loadPageFunc = [];
 
 loadPageFunc["rules"] = function ()
-{
-    // LOAD rules - update each rule
-    for (let index = 0; index < rules.length; index++)
-    {
-        const element = rules[index];
-
-        //console.log("Attempting to update value for '" + "operator_" + element.uid + "'");
-
-        var operatorInput = document.getElementById("operator_" + element.uid);
-        //var valueInput = document.getElementById("value_" + element.uid);
-
-        if (element.operator == "!null")
+{    
+    if (!Array.isArray(rules) && Object.keys(rules).length === 0)
+        postRequestAsync("getRules").then(response =>
         {
-            setInputBox(element.uid, true);
-            var valueInput = document.getElementById("value_" + element.uid);
-            valueInput.value = element.value;
-        }
+            rules = response.data.rules;
+            loadRules();
+        });
+    else
+        loadRules();
 
-        operatorInput.value = element.operator;
-        //valueInput.value = element.value;
+}
+
+loadPageFunc["run-history"] = function ()
+{
+    const tds = document.getElementsByClassName("isFinalized");
+    console.log("Found " + tds.length);
+    for (let index = 0; index < tds.length; index++) {
+        const element = tds[index];
+        element.innerHTML = element.innerHTML == "true" ? "Ja" : "Nej";
     }
 }
 

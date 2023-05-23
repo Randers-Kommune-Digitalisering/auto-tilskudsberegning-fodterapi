@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload.pem",
+      "p": "payload.data.pem",
       "pt": "msg",
       "to": "publicPem",
       "tot": "flow",
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 620,
-  "y": 1520,
+  "x": 460,
+  "y": 1800,
   "wires": [
     [
       "08bcab4b9d4c1cd1"
     ]
   ],
-  "_order": 482
+  "_order": 488
 }
 
 module.exports = Node;

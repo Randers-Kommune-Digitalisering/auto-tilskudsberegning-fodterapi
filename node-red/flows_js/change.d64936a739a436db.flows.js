@@ -2,7 +2,8 @@ const Node = {
   "id": "d64936a739a436db",
   "type": "change",
   "z": "43652557380ac3f3",
-  "name": "Check last ping",
+  "g": "55635bddfbbcf6e4",
+  "name": "Calc time diff since last ping",
   "rules": [
     {
       "t": "set",
@@ -13,9 +14,17 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "last",
+      "pt": "msg",
+      "to": "#:(storeInFile)::webSettings.currentSession.lastPingMillis",
+      "tot": "global",
+      "dc": true
+    },
+    {
+      "t": "set",
       "p": "diff",
       "pt": "msg",
-      "to": "now - payload.webSettings.currentSession.lastPingMillis",
+      "to": "now - last",
       "tot": "jsonata"
     }
   ],
@@ -24,14 +33,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 180,
-  "y": 300,
+  "x": 240,
+  "y": 60,
   "wires": [
     [
-      "b50802089303913c"
+      "805559d138018359"
     ]
   ],
-  "_order": 189
+  "_order": 192
 }
 
 module.exports = Node;

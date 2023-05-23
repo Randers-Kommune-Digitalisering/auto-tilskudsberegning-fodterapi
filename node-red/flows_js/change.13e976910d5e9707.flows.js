@@ -2,7 +2,7 @@ const Node = {
   "id": "13e976910d5e9707",
   "type": "change",
   "z": "43652557380ac3f3",
-  "name": "",
+  "name": "Get citizens-actions",
   "rules": [
     {
       "t": "set",
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 790,
+  "x": 750,
   "y": 120,
   "wires": [
     [
       "7010338c1ded1b8a"
     ]
   ],
-  "_order": 215
+  "_order": 218
 }
 
 module.exports = Node;

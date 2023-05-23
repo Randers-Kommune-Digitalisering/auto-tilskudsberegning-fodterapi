@@ -2,7 +2,7 @@ const Node = {
   "id": "c7471e96ad8de5e4",
   "type": "change",
   "z": "db94b4c117de2f6a",
-  "name": "set isRunning",
+  "name": "set webSettings.state.isRunning",
   "rules": [
     {
       "t": "set",
@@ -17,14 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 740,
-  "y": 280,
+  "x": 690,
+  "y": 120,
   "wires": [
     [
       "bb96674ebd01af04"
     ]
   ],
-  "_order": 145
+  "_order": 149
 }
 
 module.exports = Node;

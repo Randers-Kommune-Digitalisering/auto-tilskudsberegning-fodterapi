@@ -17,11 +17,11 @@ const Node = {
       "6e08782524148718"
     ]
   ],
-  "_order": 182
+  "_order": 185
 }
 
 Node.template = `
-{{#payload.grants.tilskudsperioder.satser}}
+{{#global[storeInFile].grants.tilskudsperioder.satser}}
     <div class="row border-top pb-2 pt-2 ">
 
 
@@ -41,7 +41,7 @@ Node.template = `
 
 
     </div>
-{{/payload.grants.tilskudsperioder.satser}}
+{{/global[storeInFile].grants.tilskudsperioder.satser}}
 `
 
 module.exports = Node;

@@ -2,7 +2,7 @@ const Node = {
   "id": "88e4c1ff6d0333f9",
   "type": "change",
   "z": "db94b4c117de2f6a",
-  "name": "New setting template",
+  "name": "New setting + webData template",
   "rules": [
     {
       "t": "set",
@@ -12,10 +12,17 @@ const Node = {
       "tot": "jsonata"
     },
     {
+      "t": "move",
+      "p": "payload.webSettings",
+      "pt": "msg",
+      "to": "#:(storeInFile)::webSettings",
+      "tot": "global"
+    },
+    {
       "t": "set",
       "p": "webData",
       "pt": "global",
-      "to": "\t{\t    \"workletCreds\": {\t        \"workletUser\": \"\",\t        \"workletPass\": \"\"\t    }, \"startedRunThisInstance\": false\t}",
+      "to": "\t{\t    \"workletCreds\": {},\t    \"dqCreds\": {},\t    \"startedRunThisInstance\": false\t}",
       "tot": "jsonata"
     }
   ],
@@ -24,14 +31,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 560,
-  "y": 320,
+  "x": 690,
+  "y": 160,
   "wires": [
     [
-      "7e2c077d488fba02"
+      "bb96674ebd01af04"
     ]
   ],
-  "_order": 122
+  "_order": 140
 }
 
 module.exports = Node;

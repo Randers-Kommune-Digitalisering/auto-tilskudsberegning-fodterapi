@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"A\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent),\t    \"beregning\": beregning & \" -\" & ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent) & \" (Danmark)\"\t    \t}\t\t)|\t\t\t/*and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?*/",
+      "to": "$.payload ~> |$.handlinger|(\t\t$uid := uid;\t$behandling := $$.payload.faktura.behandlinger[uid = $uid];\t$fid := $behandling.fid;\t$faktura := $$.payload.faktura[id = $fid];\t$borger := $$.payload[cpr = $faktura.patientCPR];\t$danmark := $borger.persondata.danmarkgruppe;\t\t$tilskud_maxdkk := $$.tilskudsInfo.danmark_fratraek_maxdkk;\t$tilskud_procent := $$.tilskudsInfo.danmark_fratraek_procent;\t$danmarkProcent := tilskud * ($tilskud_procent / 100);\t$danmarkMax := $tilskud_maxdkk;\t\t$danmarkTilskud := $danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent;\t\t\t    $behandling.type = \"A\"\tand ($danmark = 1 or $danmark = 2) ?\t{\t\t    \"tilskud\": $value := (tilskud - ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent)),\t    \"beregning\": $append(beregning, [\t        {\t            \"beskrivelse\": \"Fratræk 50% (maks 100) ved type A + Danmark 1/2\",\t            \"operation\": \"-\",\t            \"veardi\": ($danmarkProcent > $danmarkMax ? $danmarkMax : $danmarkProcent),\t            \"total\": $value\t        }\t    ])\t    \t}\t\t)|\t\t\t/*and ($faktura.ydernummer != \"ydernummermangler\" and $faktura.ydernummer != null) ?*/",
       "tot": "jsonata"
     }
   ],
@@ -26,7 +26,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 252
+  "_order": 264
 }
 
 Node.info = `

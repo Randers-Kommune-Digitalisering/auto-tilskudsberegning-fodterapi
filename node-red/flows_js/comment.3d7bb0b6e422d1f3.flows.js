@@ -5,10 +5,10 @@ const Node = {
   "g": "63492761a85db852",
   "name": "Archive receipt",
   "info": "",
-  "x": 600,
-  "y": 1200,
+  "x": 460,
+  "y": 1480,
   "wires": [],
-  "_order": 465
+  "_order": 471
 }
 
 module.exports = Node;

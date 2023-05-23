@@ -4,8 +4,8 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "63492761a85db852",
   "name": "",
-  "property": "payload.webSettings.state.activePage",
-  "propertyType": "msg",
+  "property": "#:(storeInFile)::webSettings.state.activePage",
+  "propertyType": "global",
   "rules": [
     {
       "t": "eq",
@@ -21,8 +21,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 570,
-  "y": 1240,
+  "x": 430,
+  "y": 1520,
   "wires": [
     [
       "0deb9ccc1ccfa1cd",
@@ -33,7 +33,7 @@ const Node = {
       "ed2a14aa9e6944fb"
     ]
   ],
-  "_order": 472
+  "_order": 478
 }
 
 module.exports = Node;

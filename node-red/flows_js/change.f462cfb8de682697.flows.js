@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "8ea344595d9a442a",
   "g": "c6c6bffeb57369e7",
-  "name": "",
+  "name": "Opdater runHistory",
   "rules": [
     {
       "t": "set",
@@ -53,7 +53,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 540,
+  "x": 470,
   "y": 1500,
   "wires": [
     [
@@ -61,7 +61,7 @@ const Node = {
       "d0db0a27f5e322ae"
     ]
   ],
-  "_order": 336
+  "_order": 348
 }
 
 module.exports = Node;

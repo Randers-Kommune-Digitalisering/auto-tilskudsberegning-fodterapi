@@ -2,7 +2,6 @@ const Node = {
   "id": "698e2e606a74f2c4",
   "type": "switch",
   "z": "5bb3204aef17c104",
-  "g": "63b598a9c0a41f91",
   "name": "",
   "property": "payload.requestType",
   "propertyType": "msg",
@@ -36,16 +35,26 @@ const Node = {
       "t": "eq",
       "v": "getPublicKey",
       "vt": "str"
+    },
+    {
+      "t": "eq",
+      "v": "getRules",
+      "vt": "str"
+    },
+    {
+      "t": "eq",
+      "v": "getGrants",
+      "vt": "str"
     }
   ],
   "checkall": "false",
   "repair": false,
-  "outputs": 6,
-  "x": 230,
-  "y": 820,
+  "outputs": 8,
+  "x": 110,
+  "y": 1360,
   "wires": [
     [
-      "cf322c8f7ca77194"
+      "44922854196c3e51"
     ],
     [
       "0d73a26952f54d44"
@@ -61,9 +70,13 @@ const Node = {
     ],
     [
       "3e3a2119b6ce7876"
-    ]
+    ],
+    [
+      "2257035b57b40ae8"
+    ],
+    []
   ],
-  "_order": 420
+  "_order": 433
 }
 
 module.exports = Node;

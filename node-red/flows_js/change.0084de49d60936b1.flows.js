@@ -6,11 +6,25 @@ const Node = {
   "name": "Merge changes",
   "rules": [
     {
+      "t": "move",
+      "p": "#:(storeInFile)::grants",
+      "pt": "global",
+      "to": "payload.grants",
+      "tot": "msg"
+    },
+    {
       "t": "set",
       "p": "payload.grants.tilskudsperioder.satser",
       "pt": "msg",
       "to": "$.payload.grants.tilskudsperioder.satser ~> | $ |\t(\t\t$uid := id;\t{        \t    \"tilskud_maxdkk\": $$.payload.data.grantUpdates[$uid].tilskud_maxdkk ~>$number(),\t    \"tilskud_procent\": $$.payload.data.grantUpdates[$uid].tilskud_procent ~>$number()\t})\t\t|",
       "tot": "jsonata"
+    },
+    {
+      "t": "move",
+      "p": "payload.grants",
+      "pt": "msg",
+      "to": "#:(storeInFile)::grants",
+      "tot": "global"
     }
   ],
   "action": "",
@@ -18,14 +32,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1140,
-  "y": 880,
+  "x": 1100,
+  "y": 1160,
   "wires": [
     [
-      "05e2ac4bd75206d3"
+      "3bd8bc1a401ce6cb"
     ]
   ],
-  "_order": 448
+  "_order": 456
 }
 
 module.exports = Node;

@@ -3,8 +3,8 @@ const Node = {
   "type": "switch",
   "z": "43652557380ac3f3",
   "name": "",
-  "property": "payload.webSettings.acceptances.grants",
-  "propertyType": "msg",
+  "property": "#:(storeInFile)::webSettings.acceptances.grants",
+  "propertyType": "global",
   "rules": [
     {
       "t": "false"
@@ -26,7 +26,7 @@ const Node = {
       "04dafd05828f33bf"
     ]
   ],
-  "_order": 180
+  "_order": 183
 }
 
 module.exports = Node;

@@ -10,14 +10,14 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 780,
-  "y": 1200,
+  "x": 640,
+  "y": 1480,
   "wires": [
     [
       "33ee436ad9ead077"
     ]
   ],
-  "_order": 477
+  "_order": 483
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -25,7 +25,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if (!Array.isArray(webData["citizens-actions"]))
       webData["citizens-actions"] = [webData["citizens-actions"]];
   
-  (webData["citizens-actions"])[msg.payload.id].archived = true;
+  (webData["citizens-actions"])[msg.payload.data.id].archived = true;
   global.set("webData", webData);
   return msg;
 }

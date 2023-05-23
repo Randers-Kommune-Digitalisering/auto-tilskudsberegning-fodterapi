@@ -2,7 +2,6 @@ const Node = {
   "id": "d82ec2b88042626f",
   "type": "change",
   "z": "8ea344595d9a442a",
-  "g": "9c4f3569ebca5f7b",
   "name": "KP login",
   "rules": [
     {
@@ -27,14 +26,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 740,
-  "y": 1340,
+  "x": 840,
+  "y": 1500,
   "wires": [
-    [
-      "c2df29c07624e5e0"
-    ]
+    []
   ],
-  "_order": 388
+  "_order": 429
 }
 
 module.exports = Node;

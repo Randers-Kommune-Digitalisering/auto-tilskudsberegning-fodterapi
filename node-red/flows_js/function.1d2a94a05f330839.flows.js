@@ -16,11 +16,13 @@ const Node = {
       "32eb88cfb3101407"
     ]
   ],
-  "_order": 157
+  "_order": 160
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  // Set menu html
+  // Get data
+  
+  const webSettings = global.get("webSettings", "storeInFile");
   
   var dataExists = global.get("webData") !== null && global.get("webData") !== undefined;
   
@@ -35,14 +37,13 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   const receiptsAwaiting = currentRunExists ? !currentRun.allReceiptsProcessed : false;
   const isBeingProcessed = currentRunExists ? !currentRun.isFinalized : false;
   
-  
   function isActive(pageName)
   {
-      return (msg.payload.webSettings.state.activePage == pageName);
+      return (webSettings.state.activePage == pageName);
   }
   function pageAccepted(pageName)
   {
-      return (msg.payload.webSettings.acceptances[pageName]);
+      return (webSettings.acceptances[pageName]);
   }
   
   var html = `<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
@@ -86,7 +87,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
           receiptCount += global.get("webData")["citizens-noactions"].length;
   
   
-  if (msg.payload.webSettings.state.isRunning )
+  if (webSettings.state.isRunning )
           html +=
               `<li class="nav-item">
               <a id="nav_run" class="nav-link`+
@@ -95,6 +96,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
               `Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>`
               + `</a>
           </li>`;
+          
   else if ((isBeingProcessed && !dataExists) || (receiptsAwaiting && receiptCount == 0))
       html +=
           `<li class="nav-item">
@@ -141,56 +143,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
               <a id="nav_run" class="nav-link`+
               (isActive('run') ? " active" : "")
               + `" onclick="goToPage('run')">` +
-              (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>` : `Ny kørsel`)
+              (webSettings.state.isRunning ? `Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>` : `Ny kørsel`)
               + `</a>
           </li>`;
   
-  
-  /*
-  
-              (receiptsAwaiting && isBeingProcessed ?
-              (`<li class="nav-item">
-                                      <a id="nav_view-receipts" class="nav-link`+
-                  (isActive('view-receipts') ? " active" : "")
-                  + `" onclick="goToPage('view-receipts')">Anbefalede handlinger</a>
-                          </li>`)
-              +
-              (`<li class="nav-item">
-                                      <a id="nav_view-nograntreceipts" class="nav-link`+
-                  (isActive('view-nograntreceipts') ? " active" : "")
-                  + `" onclick="goToPage('view-nograntreceipts')">Ej berettigede borgere</a>
-                          </li>`) : ``)
-              +
-  
-              ((isBeingProcessed && !dataExists) ? 
-                  ` <li class="nav-item">
-                                      <a id="nav_run" class="nav-link`+
-                  (isActive('run') ? " active" : "") +
-                  (pageAccepted('grants') ? " nav-success" : "") +
-                  + `" onclick="goToPage('run')">Genoptag kørsel</a>
-                      </li>`
-                  :
-  
-  
-                  ((!receiptsAwaiting && isBeingProcessed) ? 
-                  ` <li class="nav-item">
-                          <a id="nav_run" class="nav-link`+
-                  (isActive('run') ? " active" : "") +
-                  +`" onclick="goToPage('run')">Afslut kørsel</a>
-                      </li>`
-                  :
-                  
-                  ((pageAccepted('login') && pageAccepted('rules') && pageAccepted('grants')) ?
-                  `<li class="nav-item">
-                      <a id="nav_run" class="nav-link`+
-                      (isActive('run') ? " active" : "")
-                      +`" onclick="goToPage('run')">`+
-                      (msg.payload.webSettings.state.isRunning ? `Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>` : `Ny kørsel`)
-                      +`</a>
-                  </li>` : ``))
-              )
-  
-  */
   html += `
           </ul>
       </div>
