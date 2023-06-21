@@ -2,7 +2,7 @@ const Node = {
   "id": "5904f9eeed39fd7f",
   "type": "group",
   "z": "8ea344595d9a442a",
-  "name": "Status - WorkLet fejl",
+  "name": "Status - Har kørt",
   "style": {
     "label": true,
     "stroke": "#0070c0",
