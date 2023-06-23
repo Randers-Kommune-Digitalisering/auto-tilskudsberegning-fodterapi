@@ -8,16 +8,23 @@ const Node = {
       "t": "set",
       "p": "presetStartDate",
       "pt": "msg",
-      "to": "14/05/2023",
+      "to": "01/06/2023",
       "tot": "str"
     },
     {
       "t": "set",
       "p": "presetEndDate",
       "pt": "msg",
-      "to": "presetStartDate",
-      "tot": "msg",
+      "to": "15/06/2023",
+      "tot": "str",
       "dc": true
+    },
+    {
+      "t": "set",
+      "p": "maxDaysPerRun",
+      "pt": "msg",
+      "to": "1",
+      "tot": "str"
     }
   ],
   "action": "",
