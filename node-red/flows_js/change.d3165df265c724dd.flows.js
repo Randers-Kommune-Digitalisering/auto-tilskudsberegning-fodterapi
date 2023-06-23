@@ -13,6 +13,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "stdout.timestamp",
+      "pt": "msg",
+      "to": "",
+      "tot": "date"
+    },
+    {
+      "t": "set",
       "p": "stdout.phase",
       "pt": "msg",
       "to": "initialize",
