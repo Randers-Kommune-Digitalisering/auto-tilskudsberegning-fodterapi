@@ -20,8 +20,12 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  // payload.tempData.faktura._helbredstillaegsprocent.tillaegsprocent
-  
+  if (msg.payload.tempData.persondata == null || msg.payload.tempData.persondata == undefined)
+  {
+      msg.payload.tempData.persondata = { "_htillaegsprocent": 0 };
+      return msg;
+  }
+  else
   if (msg.payload.tempData.faktura == undefined || msg.payload.tempData.persondata == undefined)
       return msg;
   
