@@ -5,7 +5,7 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "[T] Transformér data, beregn tilskud",
   "info": "",
-  "x": 480,
+  "x": 440,
   "y": 1700,
   "wires": [],
   "_order": 337

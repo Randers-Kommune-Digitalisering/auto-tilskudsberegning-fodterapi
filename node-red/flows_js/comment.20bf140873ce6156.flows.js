@@ -4,7 +4,7 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Retry E1",
   "info": "",
-  "x": 140,
+  "x": 100,
   "y": 760,
   "wires": [],
   "_order": 414

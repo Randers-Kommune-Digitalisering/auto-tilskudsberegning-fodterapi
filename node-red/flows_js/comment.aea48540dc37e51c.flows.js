@@ -5,7 +5,7 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "Saml borgere og fakturaer",
   "info": "",
-  "x": 450,
+  "x": 410,
   "y": 1740,
   "wires": [],
   "_order": 316

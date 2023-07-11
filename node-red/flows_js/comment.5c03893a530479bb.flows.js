@@ -5,7 +5,7 @@ const Node = {
   "g": "9c4f3569ebca5f7b",
   "name": "Gem data i midlertidig hukommelse",
   "info": "",
-  "x": 1360,
+  "x": 1320,
   "y": 1220,
   "wires": [],
   "_order": 377

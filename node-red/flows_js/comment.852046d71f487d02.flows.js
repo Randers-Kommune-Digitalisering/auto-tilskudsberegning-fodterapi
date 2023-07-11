@@ -5,7 +5,7 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "Find relevant data for hver faktura",
   "info": "",
-  "x": 1190,
+  "x": 1150,
   "y": 1880,
   "wires": [],
   "_order": 336

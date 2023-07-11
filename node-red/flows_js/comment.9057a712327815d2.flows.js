@@ -4,7 +4,7 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Start robot fra web UI",
   "info": "",
-  "x": 180,
+  "x": 140,
   "y": 200,
   "wires": [],
   "_order": 251

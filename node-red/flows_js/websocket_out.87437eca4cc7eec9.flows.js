@@ -6,7 +6,7 @@ const Node = {
   "name": "WorkLet WebSocket",
   "server": "13a90a014adf9bc5",
   "client": "",
-  "x": 960,
+  "x": 920,
   "y": 80,
   "wires": [],
   "_order": 312

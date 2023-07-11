@@ -5,7 +5,7 @@ const Node = {
   "g": "669e09e244099963",
   "name": "[E] Download fakturaer for den bestemte tidsperiode",
   "info": "",
-  "x": 530,
+  "x": 490,
   "y": 720,
   "wires": [],
   "_order": 293

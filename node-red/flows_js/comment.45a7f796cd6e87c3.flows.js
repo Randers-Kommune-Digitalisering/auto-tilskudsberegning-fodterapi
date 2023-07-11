@@ -5,7 +5,7 @@ const Node = {
   "g": "954337fe9fd2e7cc",
   "name": "Kontrol om alle fakturaer er arkiveret",
   "info": "",
-  "x": 510,
+  "x": 470,
   "y": 3260,
   "wires": [],
   "_order": 290

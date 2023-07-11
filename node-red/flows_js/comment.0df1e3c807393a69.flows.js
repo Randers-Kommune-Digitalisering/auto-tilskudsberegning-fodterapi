@@ -5,7 +5,7 @@ const Node = {
   "g": "9c4f3569ebca5f7b",
   "name": "Klargør læsning af persondata fra KP",
   "info": "",
-  "x": 830,
+  "x": 790,
   "y": 1240,
   "wires": [],
   "_order": 372

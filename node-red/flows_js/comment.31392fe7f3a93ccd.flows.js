@@ -5,7 +5,7 @@ const Node = {
   "g": "287b33b8879cbbbc",
   "name": "Gør KP data maskinelt læsbart",
   "info": "",
-  "x": 470,
+  "x": 430,
   "y": 1820,
   "wires": [],
   "_order": 319

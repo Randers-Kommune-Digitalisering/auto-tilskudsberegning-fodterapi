@@ -5,7 +5,7 @@ const Node = {
   "g": "6c7a3f8252158db6",
   "name": "Slet unødvendig data",
   "info": "",
-  "x": 1680,
+  "x": 1640,
   "y": 2420,
   "wires": [],
   "_order": 438

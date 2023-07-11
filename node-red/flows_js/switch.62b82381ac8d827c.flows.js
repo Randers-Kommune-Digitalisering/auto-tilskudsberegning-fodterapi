@@ -17,7 +17,7 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 660,
+  "x": 620,
   "y": 3320,
   "wires": [
     [

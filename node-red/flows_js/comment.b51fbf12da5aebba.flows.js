@@ -5,7 +5,7 @@ const Node = {
   "g": "380e5c7e0ea3778b",
   "name": "Klargør data til UI",
   "info": "",
-  "x": 420,
+  "x": 380,
   "y": 2620,
   "wires": [],
   "_order": 271

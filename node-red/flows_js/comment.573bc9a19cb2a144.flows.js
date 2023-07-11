@@ -5,7 +5,7 @@ const Node = {
   "g": "9c4f3569ebca5f7b",
   "name": "Læs CPR fra faktura",
   "info": "",
-  "x": 430,
+  "x": 390,
   "y": 1260,
   "wires": [],
   "_order": 373

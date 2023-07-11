@@ -5,7 +5,7 @@ const Node = {
   "g": "44e7408f9fee1e77",
   "name": "Hent runHistory",
   "info": "",
-  "x": 700,
+  "x": 660,
   "y": 280,
   "wires": [],
   "_order": 297

@@ -5,7 +5,7 @@ const Node = {
   "g": "6c7a3f8252158db6",
   "name": "Flyt borgere som ikke har handlinger til \"errors\"",
   "info": "",
-  "x": 520,
+  "x": 480,
   "y": 2380,
   "wires": [],
   "_order": 275

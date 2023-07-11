@@ -5,7 +5,7 @@ const Node = {
   "g": "44e7408f9fee1e77",
   "name": "Find uafsluttet kørsel eller skab ny",
   "info": "",
-  "x": 1120,
+  "x": 1080,
   "y": 280,
   "wires": [],
   "_order": 258

@@ -5,7 +5,7 @@ const Node = {
   "g": "3fd0647603ec528e",
   "name": "RESET ALT",
   "info": "",
-  "x": 150,
+  "x": 1000,
   "y": 3760,
   "wires": [],
   "_order": 393

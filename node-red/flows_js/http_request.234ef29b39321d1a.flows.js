@@ -22,7 +22,7 @@ const Node = {
       "valueValue": "application/javascript"
     }
   ],
-  "x": 690,
+  "x": 650,
   "y": 760,
   "wires": [
     [

@@ -5,7 +5,7 @@ const Node = {
   "g": "bb5f1c24606d30f1",
   "name": "RESET robot ved fejl",
   "info": "",
-  "x": 450,
+  "x": 410,
   "y": 3760,
   "wires": [],
   "_order": 396
