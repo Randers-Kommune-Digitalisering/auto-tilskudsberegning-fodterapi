@@ -101,7 +101,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.citizen.tillaegsprocent_luk",
       "pt": "msg",
-      "to": "#person-pension-fakta div.sc-gPEVay.ceKhsN > div.sc-jlyJG.NUpYs > svg",
+      "to": "svg[class=\"svg-inline--fa fa-xmark close-button\"]",
       "tot": "str"
     },
     {
@@ -122,7 +122,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.citizen.lukborger",
       "pt": "msg",
-      "to": "svg.svg-inline--fa.fa-times.fa-w-11.fa-1x",
+      "to": "svg.svg-inline--fa.fa-xmark.fa-1x",
       "tot": "str"
     },
     {
@@ -143,7 +143,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.dqUsername",
       "pt": "msg",
-      "to": "div[class=\"sc-iwsKbI sc-gqjmRU yImXU\"]",
+      "to": "div[class=\\\"Layout__ContentContainer-cetblr-8 Layout__ContentContainerWithFlexRow-cetblr-10 knWRCb\\\"]",
       "tot": "str"
     },
     {
