@@ -3,7 +3,9 @@ const Node = {
   "type": "catch",
   "z": "d4c4c4565d1e740c",
   "name": "",
-  "scope": [],
+  "scope": [
+    "edcb5fc148fcf7f8"
+  ],
   "uncaught": false,
   "x": 970,
   "y": 200,
