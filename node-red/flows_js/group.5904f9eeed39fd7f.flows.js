@@ -2,7 +2,7 @@ const Node = {
   "id": "5904f9eeed39fd7f",
   "type": "group",
   "z": "8ea344595d9a442a",
-  "name": "Status - WorkLet fejl",
+  "name": "Status - Ingen nye fakturaer",
   "style": {
     "label": true,
     "stroke": "#0070c0",
@@ -17,11 +17,11 @@ const Node = {
     "d6f134b2674d8205",
     "4ed5eb2896771598"
   ],
-  "x": 1374,
+  "x": 954,
   "y": 439,
   "w": 272,
   "h": 162,
-  "_order": 31
+  "_order": 32
 }
 
 module.exports = Node;

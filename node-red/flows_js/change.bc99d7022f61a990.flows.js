@@ -127,6 +127,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "kp_lukborger",
+      "pt": "flow",
+      "to": "selectors.kp.citizen.lukborger",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
       "p": "selectors.kp.citizen.bevilling",
       "pt": "msg",
       "to": "#app div.tab-content div.tab-content > div > div > div:nth-child(1) > div",
@@ -173,7 +180,7 @@ const Node = {
       "53f1081bc1f81d90"
     ]
   ],
-  "_order": 354
+  "_order": 368
 }
 
 module.exports = Node;

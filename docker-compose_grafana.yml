@@ -1,0 +1,97 @@
+# docker compose -f docker-compose_grafana.yml up --build --force-recreate
+version: "3.9"
+
+volumes:
+
+ prometheus_data: {}
+ grafana_data: {}
+
+services:
+
+  node-red:
+    build: node-red
+    networks:
+      - node_red
+    ports:
+      - "1880:1880"
+    environment:
+      #GIT_BRANCH: ${GIT_BRANCH}
+      DB_USER: root
+      DB_PASS: pass
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: demo
+      WORKLET_AUTH: ${WORKLET_AUTH}
+      WORKLET_USER: ${WORKLET_USER}
+      WORKLET_PASS: ${WORKLET_PASS}
+      KP_URL: ${KP_URL}
+      # Miljøvariablen FLOWS fortæller Node-RED IDEet hvilket flow.json den skal åbne og gemme ændringer i ved deploy.
+      FLOWS: "/data/flows.json"
+      # Bind mount fra codespace til den kørende containers /data.
+      # Gør det muligt at deploye flowkode direkte fra IDE og bruge git til at comitte ændringerne til repo.
+    volumes:
+      - "./node-red/:/data" 
+    depends_on: 
+      - grafana
+
+  prometheus:
+    image: prom/prometheus
+    restart: always
+    volumes:
+      - ./prometheus:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    networks:
+      - node_red
+  
+  grafana:
+    image: grafana/grafana
+    user: '472'
+    restart: always
+    #environment:
+      #GF_INSTALL_PLUGINS: 'grafana-clock-panel,grafana-simple-json-datasource'
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    env_file:
+      - ./grafana/config.monitoring
+    ports:
+      - 3000:3000
+    networks:
+      - node_red
+    depends_on:
+      - prometheus
+
+  db:
+    image: mariadb:10.6.11
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: pass
+      MARIADB_DATABASE: demo
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root --password=pass
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 55
+    networks:
+      - node_red
+
+  browserless:
+    image: browserless/chrome:1.58-chrome-stable
+    restart: always
+    networks:
+      - node_red
+    ports:
+      - "8080:3000"
+    container_name: "browserless"    
+
+networks: 
+  node_red:
+    name: node_red
