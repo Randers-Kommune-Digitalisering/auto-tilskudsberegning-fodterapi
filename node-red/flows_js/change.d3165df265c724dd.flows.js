@@ -2,6 +2,7 @@ const Node = {
   "id": "d3165df265c724dd",
   "type": "change",
   "z": "8ea344595d9a442a",
+  "g": "dcf0bfca32bf2ffa",
   "name": "Set stdout",
   "rules": [
     {
@@ -29,8 +30,24 @@ const Node = {
       "t": "set",
       "p": "stdout.action",
       "pt": "msg",
-      "to": "runHistory[isFinalized = false] ~> $exists() ?\t    \"Kørsel genoptaget\"\t:   \"Kørsel skabt\"",
+      "to": "currentRun.isFinalized ?\t    \"Skab kørsel\"\t:   \"Genoptag kørsel\"",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "stdout.startdate",
+      "pt": "msg",
+      "to": "currentRun.startDate",
+      "tot": "msg",
+      "dc": true
+    },
+    {
+      "t": "set",
+      "p": "stdout.enddate",
+      "pt": "msg",
+      "to": "currentRun.endDate",
+      "tot": "msg",
+      "dc": true
     },
     {
       "t": "set",
@@ -45,14 +62,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 760,
+  "x": 1540,
   "y": 480,
   "wires": [
     [
       "4057cf82e6442f23"
     ]
   ],
-  "_order": 433
+  "_order": 443
 }
 
 module.exports = Node;
