@@ -9,18 +9,18 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 260,
-  "y": 460,
+  "x": 420,
+  "y": 500,
   "wires": [
     [
       "e0b84cc4d249697c"
     ]
   ],
-  "_order": 605
+  "_order": 610
 }
 
 Node.template = `
-CREATE TABLE IF NOT EXISTS runHistory (
+CREATE TABLE IF NOT EXISTS {{{tablename}}} (
     uid int NOT NULL AUTO_INCREMENT,
     runStarted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     lastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

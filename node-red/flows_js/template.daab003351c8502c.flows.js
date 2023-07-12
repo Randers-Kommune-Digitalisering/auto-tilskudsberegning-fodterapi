@@ -9,18 +9,18 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 260,
-  "y": 580,
+  "x": 420,
+  "y": 800,
   "wires": [
     [
       "7639627758e90548"
     ]
   ],
-  "_order": 606
+  "_order": 611
 }
 
 Node.template = `
-CREATE TABLE IF NOT EXISTS receipts (
+CREATE TABLE IF NOT EXISTS {{{tablename}}} (
     uid VARCHAR(255) NOT NULL,
     runUid INT NOT NULL,
     lastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

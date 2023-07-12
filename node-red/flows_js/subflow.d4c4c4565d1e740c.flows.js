@@ -21,19 +21,19 @@ const Node = {
       "y": 100,
       "wires": [
         {
-          "id": "076ff355c5b536f3",
-          "port": 0
-        },
-        {
           "id": "bab9102c9ce6a406",
           "port": 0
         },
         {
-          "id": "258b8355268c9ff7",
+          "id": "4f4086d3fdf571db",
           "port": 0
         },
         {
-          "id": "4f4086d3fdf571db",
+          "id": "076ff355c5b536f3",
+          "port": 0
+        },
+        {
+          "id": "258b8355268c9ff7",
           "port": 0
         }
       ]

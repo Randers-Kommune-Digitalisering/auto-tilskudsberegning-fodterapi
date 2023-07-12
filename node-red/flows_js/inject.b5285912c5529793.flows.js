@@ -9,7 +9,7 @@ const Node = {
     },
     {
       "p": "tablename",
-      "v": "testtable",
+      "v": "receipts",
       "vt": "str"
     }
   ],
@@ -27,7 +27,7 @@ const Node = {
       "bd35b2c70ae0b5e6"
     ]
   ],
-  "_order": 603
+  "_order": 608
 }
 
 module.exports = Node;
