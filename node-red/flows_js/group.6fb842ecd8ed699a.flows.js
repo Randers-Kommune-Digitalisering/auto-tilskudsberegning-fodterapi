@@ -1,7 +1,7 @@
 const Node = {
   "id": "6fb842ecd8ed699a",
   "type": "group",
-  "z": "f99fd88fa65c74b9",
+  "z": "1260b784fb72ac25",
   "name": "stdout - Database status",
   "style": {
     "stroke": "#ffcf3f",
@@ -13,11 +13,11 @@ const Node = {
     "fec1b5aeb8229e26",
     "20c890d07977e208"
   ],
-  "x": 614,
-  "y": 839,
+  "x": 674,
+  "y": 459,
   "w": 192,
   "h": 122,
-  "_order": 59
+  "_order": 60
 }
 
 module.exports = Node;

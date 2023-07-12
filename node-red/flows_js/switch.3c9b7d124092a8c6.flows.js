@@ -1,8 +1,8 @@
 const Node = {
   "id": "3c9b7d124092a8c6",
   "type": "switch",
-  "z": "f99fd88fa65c74b9",
-  "name": "",
+  "z": "1260b784fb72ac25",
+  "name": "Fejl?",
   "property": "error",
   "propertyType": "msg",
   "rules": [
@@ -18,8 +18,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 930,
-  "y": 800,
+  "x": 990,
+  "y": 420,
   "wires": [
     [
       "d309e8b7788ef6e6"
@@ -28,7 +28,7 @@ const Node = {
       "bada7986c68c36e2"
     ]
   ],
-  "_order": 630
+  "_order": 297
 }
 
 module.exports = Node;

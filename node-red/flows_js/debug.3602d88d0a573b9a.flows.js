@@ -1,7 +1,7 @@
 const Node = {
   "id": "3602d88d0a573b9a",
   "type": "debug",
-  "z": "f99fd88fa65c74b9",
+  "z": "1260b784fb72ac25",
   "name": "Retries failed",
   "active": true,
   "tosidebar": true,
@@ -11,10 +11,10 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1110,
-  "y": 640,
+  "x": 1170,
+  "y": 260,
   "wires": [],
-  "_order": 635
+  "_order": 302
 }
 
 module.exports = Node;

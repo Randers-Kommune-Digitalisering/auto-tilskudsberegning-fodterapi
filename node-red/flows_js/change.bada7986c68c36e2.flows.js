@@ -1,7 +1,7 @@
 const Node = {
   "id": "bada7986c68c36e2",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
+  "z": "1260b784fb72ac25",
   "name": "Set retry config",
   "rules": [
     {
@@ -24,14 +24,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 960,
-  "y": 860,
+  "x": 1020,
+  "y": 480,
   "wires": [
     [
       "9cea483dce20d028"
     ]
   ],
-  "_order": 636
+  "_order": 303
 }
 
 module.exports = Node;

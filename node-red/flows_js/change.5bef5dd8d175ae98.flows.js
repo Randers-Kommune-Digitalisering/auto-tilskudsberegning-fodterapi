@@ -1,7 +1,7 @@
 const Node = {
   "id": "5bef5dd8d175ae98",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
+  "z": "1260b784fb72ac25",
   "name": "Forespørgsel \\n variabler",
   "rules": [
     {
@@ -17,14 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 190,
-  "y": 500,
+  "x": 250,
+  "y": 120,
   "wires": [
     [
       "bec87c9a0abe1062"
     ]
   ],
-  "_order": 623
+  "_order": 293
 }
 
 module.exports = Node;

@@ -1,16 +1,16 @@
 const Node = {
   "id": "5fa39f3eefa34099",
   "type": "link out",
-  "z": "f99fd88fa65c74b9",
+  "z": "1260b784fb72ac25",
   "name": "Retry DB 1 OUT",
   "mode": "link",
   "links": [
     "63bbafc49c13d975"
   ],
-  "x": 1195,
-  "y": 600,
+  "x": 1255,
+  "y": 220,
   "wires": [],
-  "_order": 633
+  "_order": 300
 }
 
 module.exports = Node;

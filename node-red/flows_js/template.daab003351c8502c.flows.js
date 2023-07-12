@@ -1,7 +1,7 @@
 const Node = {
   "id": "daab003351c8502c",
   "type": "template",
-  "z": "f99fd88fa65c74b9",
+  "z": "1260b784fb72ac25",
   "name": "Forespørgsel ↓\\n Opret tabel til faktura-ID'er",
   "field": "sql",
   "fieldType": "msg",
@@ -9,14 +9,14 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 440,
-  "y": 800,
+  "x": 500,
+  "y": 420,
   "wires": [
     [
       "7639627758e90548"
     ]
   ],
-  "_order": 617
+  "_order": 289
 }
 
 Node.template = `
