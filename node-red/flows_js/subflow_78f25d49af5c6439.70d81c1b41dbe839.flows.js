@@ -1,0 +1,19 @@
+const Node = {
+  "id": "70d81c1b41dbe839",
+  "type": "subflow:78f25d49af5c6439",
+  "z": "f99fd88fa65c74b9",
+  "name": "",
+  "x": 930,
+  "y": 600,
+  "wires": [
+    [
+      "fb97e1bdd0478a6e"
+    ],
+    [
+      "3602d88d0a573b9a"
+    ]
+  ],
+  "_order": 632
+}
+
+module.exports = Node;
