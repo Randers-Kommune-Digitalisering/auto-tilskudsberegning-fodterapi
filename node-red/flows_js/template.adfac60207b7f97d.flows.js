@@ -16,11 +16,11 @@ const Node = {
       "e150e731ba93b80f"
     ]
   ],
-  "_order": 656
+  "_order": 657
 }
 
 Node.template = `
-SELECT 1 FROM runHistory ORDER BY runStarted ASC
+SELECT * FROM runHistory ORDER BY runStarted ASC LIMIT 1
 `
 
 module.exports = Node;

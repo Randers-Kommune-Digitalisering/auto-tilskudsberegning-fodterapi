@@ -44,7 +44,28 @@ const Node = {
       "t": "set",
       "p": "stdout.message",
       "pt": "msg",
-      "to": "payload.length > 0  ? \t    \"Run entry found\" :\t    \"No run entry found\"",
+      "to": "$count(payload) > 0  ? \t    \"Run entry found\" :\t    \"No run entry found\"",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "stdout.finalized",
+      "pt": "msg",
+      "to": "$count(payload) > 0  ?\t(payload[0].isFinalized = 1 ? true : false)",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "stdout.startdate",
+      "pt": "msg",
+      "to": "$count(payload) > 0  ?\t($split(payload[0].startDate ~> $string, 'T'))[0] ~> $replace('\"', '')",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "payload.endDate",
+      "pt": "msg",
+      "to": "$count(payload) > 0  ?\t($split(payload[0].endDate ~> $string, 'T'))[0] ~> $replace('\"', '')",
       "tot": "jsonata"
     },
     {
@@ -67,7 +88,7 @@ const Node = {
       "b69a4cfbb8e39c0e"
     ]
   ],
-  "_order": 660
+  "_order": 661
 }
 
 module.exports = Node;

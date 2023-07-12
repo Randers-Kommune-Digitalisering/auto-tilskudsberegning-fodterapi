@@ -4,8 +4,7 @@ const Node = {
   "z": "8ea344595d9a442a",
   "name": "Link in START",
   "links": [
-    "48787abb96e28b68",
-    "30b5b930fae41995"
+    "fb46adcf35f27b62"
   ],
   "x": 55,
   "y": 240,
@@ -14,7 +13,7 @@ const Node = {
       "632aa75f39860780"
     ]
   ],
-  "_order": 334
+  "_order": 335
 }
 
 module.exports = Node;

@@ -2,28 +2,28 @@ const Node = {
   "id": "8ed3ae75929488b9",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "name": "Sæt værdier for \\n startdato og slutdato",
+  "name": "Sæt værdier for start- og slutdato, \\n samt max antal dage per kørsel",
   "rules": [
     {
       "t": "set",
       "p": "presetStartDate",
       "pt": "flow",
-      "to": "01/08/2023",
+      "to": "2023-07-01",
       "tot": "str"
     },
     {
       "t": "set",
       "p": "presetEndDate",
-      "pt": "msg",
-      "to": "31/12/2023",
+      "pt": "flow",
+      "to": "2023-12-31",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "payload",
-      "pt": "msg",
-      "to": "",
-      "tot": "str"
+      "p": "maxDaysPerRun",
+      "pt": "flow",
+      "to": "2",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -31,14 +31,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 260,
+  "x": 300,
   "y": 200,
   "wires": [
     [
       "4aa6361c40990e55"
     ]
   ],
-  "_order": 665
+  "_order": 666
 }
 
 module.exports = Node;
