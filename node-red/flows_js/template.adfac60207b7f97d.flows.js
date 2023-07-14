@@ -1,7 +1,7 @@
 const Node = {
   "id": "adfac60207b7f97d",
   "type": "template",
-  "z": "f99fd88fa65c74b9",
+  "z": "fd98a6615193936d",
   "name": "Forespørgsel ↓\\n Find seneste kørsel",
   "field": "sql",
   "fieldType": "msg",
@@ -9,18 +9,18 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 490,
-  "y": 320,
+  "x": 550,
+  "y": 780,
   "wires": [
     [
       "e150e731ba93b80f"
     ]
   ],
-  "_order": 657
+  "_order": 328
 }
 
 Node.template = `
-SELECT * FROM runHistory ORDER BY runStarted ASC LIMIT 1
+SELECT * FROM {{tablename}} ORDER BY {{orderby}} {{order}} LIMIT 1
 `
 
 module.exports = Node;

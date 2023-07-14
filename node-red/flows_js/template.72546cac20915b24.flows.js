@@ -1,7 +1,7 @@
 const Node = {
   "id": "72546cac20915b24",
   "type": "template",
-  "z": "f99fd88fa65c74b9",
+  "z": "fd98a6615193936d",
   "name": "Forespørgsel ↓\\n Opret ny kørsel",
   "field": "sql",
   "fieldType": "msg",
@@ -9,14 +9,14 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 480,
-  "y": 800,
+  "x": 540,
+  "y": 1280,
   "wires": [
     [
       "52221fcdcd45c9a9"
     ]
   ],
-  "_order": 664
+  "_order": 333
 }
 
 Node.template = `

@@ -1,14 +1,14 @@
 const Node = {
-  "id": "74900ec3915e8773",
+  "id": "292cd22eca9d655d",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "name": "Konverter til obj",
+  "name": "Sæt kørsel flow vars",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
-      "pt": "msg",
-      "to": "payload[0]",
+      "p": "currentRun",
+      "pt": "flow",
+      "to": "payload",
       "tot": "msg",
       "dc": true
     }
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 480,
-  "y": 560,
+  "x": 1080,
+  "y": 280,
   "wires": [
     [
-      "13fd6673e6b6091c"
+      "3892c0b6ac8a6421"
     ]
   ],
-  "_order": 665
+  "_order": 730
 }
 
 module.exports = Node;

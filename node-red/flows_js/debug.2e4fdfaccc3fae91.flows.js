@@ -1,20 +1,20 @@
 const Node = {
-  "id": "63965cc14df7b8a4",
+  "id": "2e4fdfaccc3fae91",
   "type": "debug",
-  "z": "8ea344595d9a442a",
-  "name": "HISTORY BUGG???",
+  "z": "fd98a6615193936d",
+  "name": "No gap in dates for receipts",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "$globalContext(\"runHistory\")",
+  "complete": "\"Robot is up to date with most recent receipts\"",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 2100,
-  "y": 580,
+  "x": 1140,
+  "y": 1160,
   "wires": [],
-  "_order": 506
+  "_order": 385
 }
 
 module.exports = Node;

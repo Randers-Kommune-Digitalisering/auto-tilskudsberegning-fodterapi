@@ -1,7 +1,7 @@
 const Node = {
   "id": "778cbbfaf654737e",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
+  "z": "fd98a6615193936d",
   "name": "Hent DQ bruger",
   "rules": [
     {
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 240,
-  "y": 800,
+  "x": 300,
+  "y": 1280,
   "wires": [
     [
       "72546cac20915b24"
     ]
   ],
-  "_order": 675
+  "_order": 338
 }
 
 module.exports = Node;

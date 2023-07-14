@@ -1,9 +1,9 @@
 const Node = {
   "id": "cde9e5d83ad62f78",
   "type": "switch",
-  "z": "f99fd88fa65c74b9",
+  "z": "fd98a6615193936d",
   "name": "startDate < endDate?",
-  "property": "(payload.startDate ~> $toMillis(\"[Y0001]-[M01]-[D01]\"))\t<=\t(payload.endDate ~> $toMillis(\"[Y0001]-[M01]-[D01]\"))",
+  "property": "(newRun.startDate ~> $toMillis(\"[Y0001]-[M01]-[D01]\"))\t<=\t(newRun.endDate ~> $toMillis(\"[Y0001]-[M01]-[D01]\"))",
   "propertyType": "jsonata",
   "rules": [
     {
@@ -16,15 +16,17 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 760,
-  "y": 660,
+  "x": 820,
+  "y": 1160,
   "wires": [
-    [],
+    [
+      "2e4fdfaccc3fae91"
+    ],
     [
       "778cbbfaf654737e"
     ]
   ],
-  "_order": 672
+  "_order": 336
 }
 
 module.exports = Node;

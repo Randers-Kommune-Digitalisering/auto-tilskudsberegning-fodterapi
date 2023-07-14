@@ -1,7 +1,7 @@
 const Node = {
   "id": "f99fd88fa65c74b9",
   "type": "tab",
-  "label": "MySQL test",
+  "label": "New Main Test",
   "disabled": false,
   "info": "",
   "env": [],

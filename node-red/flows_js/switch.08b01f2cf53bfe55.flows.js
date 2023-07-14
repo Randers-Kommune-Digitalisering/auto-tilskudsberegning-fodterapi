@@ -1,7 +1,7 @@
 const Node = {
   "id": "08b01f2cf53bfe55",
   "type": "switch",
-  "z": "f99fd88fa65c74b9",
+  "z": "fd98a6615193936d",
   "name": "Findes \\n seneste kørsel?",
   "property": "payload",
   "propertyType": "msg",
@@ -16,17 +16,17 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 240,
-  "y": 580,
+  "x": 300,
+  "y": 1080,
   "wires": [
     [
-      "74900ec3915e8773"
+      "4be3c7a4e52b0559"
     ],
     [
       "9b18f59ef273e1e5"
     ]
   ],
-  "_order": 662
+  "_order": 331
 }
 
 module.exports = Node;

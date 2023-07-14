@@ -1,7 +1,7 @@
 const Node = {
   "id": "b774851ac4da1d88",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
+  "z": "fd98a6615193936d",
   "g": "c9499957e45fd066",
   "name": "Set stdout",
   "rules": [
@@ -77,14 +77,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 760,
-  "y": 880,
+  "x": 820,
+  "y": 1360,
   "wires": [
     [
       "491b41b3e63c7795"
     ]
   ],
-  "_order": 677
+  "_order": 349
 }
 
 module.exports = Node;

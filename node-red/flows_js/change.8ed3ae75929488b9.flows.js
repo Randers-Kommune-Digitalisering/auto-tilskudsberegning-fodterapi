@@ -7,21 +7,21 @@ const Node = {
     {
       "t": "set",
       "p": "presetStartDate",
-      "pt": "flow",
+      "pt": "msg",
       "to": "2023-07-01",
       "tot": "str"
     },
     {
       "t": "set",
       "p": "presetEndDate",
-      "pt": "flow",
+      "pt": "msg",
       "to": "2023-12-31",
       "tot": "str"
     },
     {
       "t": "set",
       "p": "maxDaysPerRun",
-      "pt": "flow",
+      "pt": "msg",
       "to": "2",
       "tot": "num"
     }
@@ -32,13 +32,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 300,
-  "y": 200,
+  "y": 280,
   "wires": [
     [
-      "4aa6361c40990e55"
+      "83ef073999308905"
     ]
   ],
-  "_order": 666
+  "_order": 726
 }
 
 module.exports = Node;
