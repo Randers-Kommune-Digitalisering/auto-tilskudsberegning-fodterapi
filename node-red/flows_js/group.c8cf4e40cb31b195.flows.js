@@ -4,13 +4,17 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "SLUT",
   "style": {
-    "label": true
+    "label": true,
+    "stroke": "none",
+    "stroke-opacity": "0.5",
+    "fill": "#ffefbf",
+    "fill-opacity": "0.6"
   },
   "nodes": [
     "85554097fa34d1e5"
   ],
   "x": 1754,
-  "y": 719,
+  "y": 1539,
   "w": 82,
   "h": 82,
   "_order": 70

@@ -1,0 +1,38 @@
+const Node = {
+  "id": "5194fc6c80f0bf57",
+  "type": "change",
+  "z": "f99fd88fa65c74b9",
+  "g": "dd8bf1dc973547ed",
+  "name": "Set msg.citizens",
+  "rules": [
+    {
+      "t": "set",
+      "p": "citizens",
+      "pt": "msg",
+      "to": "$distinct(receipts@$A.(\t[\t    {\t        \"cpr\": $A.patientCPR\t    }\t]))",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "citizen_count",
+      "pt": "msg",
+      "to": "citizens ~> $count()",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 340,
+  "y": 1140,
+  "wires": [
+    [
+      "3934dae1f2a65428"
+    ]
+  ],
+  "_order": 785
+}
+
+module.exports = Node;

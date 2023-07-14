@@ -17,7 +17,7 @@ const Node = {
       "t": "set",
       "p": "currentRun.allReceiptsProcessed",
       "pt": "msg",
-      "to": "true",
+      "to": "false",
       "tot": "bool"
     },
     {
@@ -64,7 +64,7 @@ const Node = {
       "c2df29c07624e5e0"
     ]
   ],
-  "_order": 589
+  "_order": 600
 }
 
 module.exports = Node;
