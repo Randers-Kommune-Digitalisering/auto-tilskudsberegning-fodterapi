@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "f99fd88fa65c74b9",
   "g": "dd8bf1dc973547ed",
-  "name": "Empty?",
+  "name": "Tom?",
   "property": "citizens",
   "propertyType": "msg",
   "rules": [
@@ -17,8 +17,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 320,
-  "y": 1240,
+  "x": 190,
+  "y": 1360,
   "wires": [
     [
       "2035a8a2bc6a42fe"
@@ -27,7 +27,7 @@ const Node = {
       "ab1b901746eee10d"
     ]
   ],
-  "_order": 796
+  "_order": 854
 }
 
 module.exports = Node;

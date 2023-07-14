@@ -5,10 +5,10 @@ const Node = {
   "g": "dd8bf1dc973547ed",
   "name": "Gem data i midlertidig hukommelse",
   "info": "",
-  "x": 1280,
-  "y": 1080,
+  "x": 1160,
+  "y": 1200,
   "wires": [],
-  "_order": 793
+  "_order": 851
 }
 
 module.exports = Node;

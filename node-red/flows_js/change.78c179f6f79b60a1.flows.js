@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "dd8bf1dc973547ed",
-  "name": "Set selectors",
+  "name": "Sæt selectors",
   "rules": [
     {
       "t": "set",
@@ -173,14 +173,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 670,
-  "y": 1200,
+  "x": 560,
+  "y": 1320,
   "wires": [
     [
       "318540cd3e77687e"
     ]
   ],
-  "_order": 784
+  "_order": 842
 }
 
 module.exports = Node;

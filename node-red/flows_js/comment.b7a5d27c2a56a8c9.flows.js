@@ -5,10 +5,10 @@ const Node = {
   "g": "dcb33bd7556b5033",
   "name": "Slet unødvendig data",
   "info": "",
-  "x": 1220,
-  "y": 520,
+  "x": 1100,
+  "y": 640,
   "wires": [],
-  "_order": 759
+  "_order": 817
 }
 
 module.exports = Node;

@@ -4,7 +4,7 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Extract 2 - KP",
   "style": {
-    "fill": "#ffefbf",
+    "fill": "#bfdbef",
     "fill-opacity": "0.6",
     "label": true,
     "stroke": "none",
@@ -30,11 +30,11 @@ const Node = {
     "2035a8a2bc6a42fe",
     "faaed8adf43cf1ee"
   ],
-  "x": 234,
-  "y": 1019,
+  "x": 114,
+  "y": 1139,
   "w": 1412,
   "h": 262,
-  "_order": 73
+  "_order": 75
 }
 
 module.exports = Node;

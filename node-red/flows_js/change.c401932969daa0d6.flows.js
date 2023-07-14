@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "dd8bf1dc973547ed",
-  "name": "Clean msg",
+  "name": "Rens msg",
   "rules": [
     {
       "t": "delete",
@@ -41,14 +41,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1470,
-  "y": 1160,
+  "x": 1360,
+  "y": 1280,
   "wires": [
     [
       "cfa41228349c2035"
     ]
   ],
-  "_order": 797
+  "_order": 855
 }
 
 module.exports = Node;

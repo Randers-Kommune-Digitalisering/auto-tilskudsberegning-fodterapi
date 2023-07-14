@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "dd8bf1dc973547ed",
-  "name": "Set pup commands",
+  "name": "Sæt pup commands",
   "rules": [
     {
       "t": "set",
@@ -25,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 690,
-  "y": 1240,
+  "x": 580,
+  "y": 1360,
   "wires": [
     [
       "a92cee9aae85d513"
     ]
   ],
-  "_order": 786
+  "_order": 844
 }
 
 module.exports = Node;

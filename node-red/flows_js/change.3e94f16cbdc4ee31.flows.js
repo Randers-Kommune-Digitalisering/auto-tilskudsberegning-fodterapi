@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "dcb33bd7556b5033",
-  "name": "Clean msg",
+  "name": "Rens msg",
   "rules": [
     {
       "t": "delete",
@@ -61,15 +61,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1190,
-  "y": 560,
+  "x": 1060,
+  "y": 680,
   "wires": [
     [
       "c8abac1ce4458e1a"
     ]
   ],
   "info": "",
-  "_order": 767
+  "_order": 825
 }
 
 Node.info = `

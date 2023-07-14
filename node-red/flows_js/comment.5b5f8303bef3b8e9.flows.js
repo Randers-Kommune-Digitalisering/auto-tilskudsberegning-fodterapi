@@ -5,10 +5,10 @@ const Node = {
   "g": "dd8bf1dc973547ed",
   "name": "[E] Læs relevant persondata fra KP vedr. de pågældende borgere",
   "info": "",
-  "x": 490,
-  "y": 1060,
+  "x": 370,
+  "y": 1180,
   "wires": [],
-  "_order": 794
+  "_order": 852
 }
 
 module.exports = Node;
