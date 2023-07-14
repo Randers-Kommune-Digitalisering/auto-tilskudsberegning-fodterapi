@@ -2,7 +2,7 @@ const Node = {
   "id": "c52d8b49b2f9bb4e",
   "type": "change",
   "z": "fd98a6615193936d",
-  "name": "Flyt newRun til payload",
+  "name": "Rens svar + \\n Flyt newRun til payload",
   "rules": [
     {
       "t": "set",
@@ -38,7 +38,7 @@ const Node = {
       "9656e49e15c33931"
     ]
   ],
-  "_order": 345
+  "_order": 356
 }
 
 module.exports = Node;

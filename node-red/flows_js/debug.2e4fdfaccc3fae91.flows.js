@@ -2,7 +2,7 @@ const Node = {
   "id": "2e4fdfaccc3fae91",
   "type": "debug",
   "z": "fd98a6615193936d",
-  "name": "No gap in dates for receipts",
+  "name": "Startdato er større end slutdato",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,10 +11,10 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1140,
+  "x": 1150,
   "y": 1160,
   "wires": [],
-  "_order": 385
+  "_order": 396
 }
 
 module.exports = Node;

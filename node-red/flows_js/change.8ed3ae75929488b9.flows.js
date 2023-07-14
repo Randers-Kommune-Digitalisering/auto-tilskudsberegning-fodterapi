@@ -2,6 +2,7 @@ const Node = {
   "id": "8ed3ae75929488b9",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "2324a12126e9564c",
   "name": "Sæt værdier for start- og slutdato, \\n samt max antal dage per kørsel",
   "rules": [
     {
@@ -31,14 +32,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 300,
-  "y": 280,
+  "x": 400,
+  "y": 240,
   "wires": [
     [
       "83ef073999308905"
     ]
   ],
-  "_order": 726
+  "_order": 738
 }
 
 module.exports = Node;

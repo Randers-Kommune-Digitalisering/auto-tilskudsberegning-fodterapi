@@ -2,6 +2,7 @@ const Node = {
   "id": "292cd22eca9d655d",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "2324a12126e9564c",
   "name": "Sæt kørsel flow vars",
   "rules": [
     {
@@ -18,14 +19,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1080,
-  "y": 280,
+  "x": 1180,
+  "y": 240,
   "wires": [
     [
-      "3892c0b6ac8a6421"
+      "3892c0b6ac8a6421",
+      "714da3a00ef445ae"
     ]
   ],
-  "_order": 730
+  "_order": 739
 }
 
 module.exports = Node;

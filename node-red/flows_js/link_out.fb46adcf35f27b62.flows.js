@@ -2,6 +2,7 @@ const Node = {
   "id": "fb46adcf35f27b62",
   "type": "link out",
   "z": "5bb3204aef17c104",
+  "d": true,
   "g": "8c06b11e392189b4",
   "name": "Link to START",
   "mode": "link",
@@ -11,7 +12,7 @@ const Node = {
   "x": 775,
   "y": 1340,
   "wires": [],
-  "_order": 644
+  "_order": 656
 }
 
 module.exports = Node;

@@ -1,14 +1,15 @@
 const Node = {
-  "id": "c35eb0158661ac41",
+  "id": "d7a64a896d5baa55",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "name": "",
+  "g": "dcb33bd7556b5033",
+  "name": "workletRetryCount +1",
   "rules": [
     {
       "t": "set",
-      "p": "topic",
+      "p": "workletRetryCount",
       "pt": "msg",
-      "to": "payload[0] ~> $exists() ? payload[0]",
+      "to": "workletRetryCount+1",
       "tot": "jsonata"
     }
   ],
@@ -17,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 610,
-  "y": 1320,
+  "x": 820,
+  "y": 680,
   "wires": [
     [
-      "8b2a0098388ba501"
+      "895eca1d8e0c5c47"
     ]
   ],
-  "_order": 729
+  "_order": 762
 }
 
 module.exports = Node;

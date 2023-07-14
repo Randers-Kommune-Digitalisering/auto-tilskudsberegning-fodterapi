@@ -1,20 +1,21 @@
 const Node = {
-  "id": "8b2a0098388ba501",
+  "id": "c72e1c79ad619d95",
   "type": "debug",
   "z": "f99fd88fa65c74b9",
-  "name": "debug 4",
+  "g": "1c2c618bca5bc5cc",
+  "name": "stdout",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "topic ~> $exists()",
-  "targetType": "jsonata",
+  "complete": "stdout",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 800,
-  "y": 1320,
+  "x": 1500,
+  "y": 740,
   "wires": [],
-  "_order": 728
+  "_order": 767
 }
 
 module.exports = Node;
