@@ -51,7 +51,7 @@ services:
     networks:
       - node_red
     ports:
-      - "8080:3000"
+      - "3000:3000"
     container_name: "browserless"    
 networks: 
   node_red:

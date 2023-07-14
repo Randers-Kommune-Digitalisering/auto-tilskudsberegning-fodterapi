@@ -62,7 +62,7 @@ services:
     env_file:
       - ./grafana/config.monitoring
     ports:
-      - 3000:3000
+      - 3030:3000
     networks:
       - node_red
     depends_on:
@@ -89,7 +89,7 @@ services:
     networks:
       - node_red
     ports:
-      - "8080:3000"
+      - "3000:3000"
     container_name: "browserless"    
 
 networks: 
