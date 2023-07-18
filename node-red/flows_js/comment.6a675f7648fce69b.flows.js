@@ -4,8 +4,8 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Slet unødvendig data",
   "info": "",
-  "x": 860,
-  "y": 2760,
+  "x": 1200,
+  "y": 2720,
   "wires": [],
   "_order": 933
 }

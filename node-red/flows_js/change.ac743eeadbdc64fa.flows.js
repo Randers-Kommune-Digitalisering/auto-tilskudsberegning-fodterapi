@@ -6,14 +6,6 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "data",
-      "pt": "msg",
-      "to": "ruleEngineData",
-      "tot": "flow",
-      "dc": true
-    },
-    {
-      "t": "set",
       "p": "payload.data",
       "pt": "msg",
       "to": "$flowContext('ruleEngineData') ~> $lookup(payload.rules.name)",
@@ -32,7 +24,7 @@ const Node = {
       "4c6c28841e624ff7"
     ]
   ],
-  "_order": 946
+  "_order": 945
 }
 
 module.exports = Node;

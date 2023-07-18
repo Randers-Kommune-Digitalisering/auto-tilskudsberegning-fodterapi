@@ -4,8 +4,8 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Find relevant data for hver behandling på faktura",
   "info": "",
-  "x": 360,
-  "y": 2740,
+  "x": 840,
+  "y": 2700,
   "wires": [],
   "_order": 928
 }

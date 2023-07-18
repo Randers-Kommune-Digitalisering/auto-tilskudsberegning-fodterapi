@@ -4,7 +4,7 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Kontrollér metrics inden initialisering?",
   "info": "",
-  "x": 550,
+  "x": 510,
   "y": 140,
   "wires": [],
   "_order": 937

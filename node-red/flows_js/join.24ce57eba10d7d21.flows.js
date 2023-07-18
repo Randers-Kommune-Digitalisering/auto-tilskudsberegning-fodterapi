@@ -3,7 +3,7 @@ const Node = {
   "type": "join",
   "z": "f99fd88fa65c74b9",
   "g": "f0775df5510c6dd0",
-  "name": "",
+  "name": "Saml borgere",
   "mode": "custom",
   "build": "array",
   "property": "payload",
@@ -19,7 +19,7 @@ const Node = {
   "reduceInit": "",
   "reduceInitType": "",
   "reduceFixup": "",
-  "x": 1210,
+  "x": 1240,
   "y": 1980,
   "wires": [
     [

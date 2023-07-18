@@ -3,14 +3,14 @@ const Node = {
   "type": "split",
   "z": "f99fd88fa65c74b9",
   "g": "f0775df5510c6dd0",
-  "name": "",
+  "name": "Split hver borger",
   "splt": "\\n",
   "spltType": "str",
   "arraySplt": 1,
   "arraySpltType": "len",
   "stream": false,
   "addname": "",
-  "x": 1210,
+  "x": 1240,
   "y": 1900,
   "wires": [
     [

@@ -5,8 +5,8 @@ const Node = {
   "g": "dc2c5977964e03db",
   "name": "Kontroller KP data ud fra regelsæt",
   "info": "",
-  "x": 1780,
-  "y": 2340,
+  "x": 1480,
+  "y": 2680,
   "wires": [],
   "_order": 913
 }
