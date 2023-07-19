@@ -2,6 +2,7 @@ const Node = {
   "id": "5b3e4a67258b56fe",
   "type": "split",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Split hver regel",
   "splt": "\\n",
   "spltType": "str",
@@ -9,14 +10,14 @@ const Node = {
   "arraySpltType": "len",
   "stream": false,
   "addname": "",
-  "x": 660,
+  "x": 640,
   "y": 2380,
   "wires": [
     [
       "fa6a961f40812458"
     ]
   ],
-  "_order": 945
+  "_order": 940
 }
 
 module.exports = Node;

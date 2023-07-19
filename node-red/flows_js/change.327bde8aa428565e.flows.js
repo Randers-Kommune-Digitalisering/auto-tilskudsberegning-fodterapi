@@ -32,13 +32,11 @@ const Node = {
   "y": 1920,
   "wires": [
     [
-      "f0b80857d84536fb",
-      "93b93458806ecf6a",
-      "c345156e31e8a149"
+      "93b93458806ecf6a"
     ]
   ],
   "info": "",
-  "_order": 905
+  "_order": 908
 }
 
 Node.info = `

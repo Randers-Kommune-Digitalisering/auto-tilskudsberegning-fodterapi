@@ -2,6 +2,7 @@ const Node = {
   "id": "ef684373719a9a76",
   "type": "join",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Saml kontrollerede regler",
   "mode": "auto",
   "build": "merged",
@@ -18,14 +19,14 @@ const Node = {
   "reduceInit": "",
   "reduceInitType": "",
   "reduceFixup": "",
-  "x": 1610,
+  "x": 1590,
   "y": 2320,
   "wires": [
     [
       "3b8853197340a335"
     ]
   ],
-  "_order": 949
+  "_order": 944
 }
 
 module.exports = Node;

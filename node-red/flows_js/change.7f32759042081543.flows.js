@@ -2,6 +2,7 @@ const Node = {
   "id": "7f32759042081543",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Hent regler fra global variabel",
   "rules": [
     {
@@ -18,14 +19,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 290,
+  "x": 270,
   "y": 2340,
   "wires": [
     [
       "9555170ffc1e871f"
     ]
   ],
-  "_order": 943
+  "_order": 938
 }
 
 module.exports = Node;

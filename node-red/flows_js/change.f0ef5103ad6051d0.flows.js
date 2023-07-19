@@ -2,6 +2,7 @@ const Node = {
   "id": "f0ef5103ad6051d0",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "d36913bfb8e8092b",
   "name": "Bestem behandlingstype",
   "rules": [
     {
@@ -24,15 +25,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 770,
-  "y": 2740,
+  "x": 750,
+  "y": 2600,
   "wires": [
     [
       "2581c0834b49114e"
     ]
   ],
   "info": "",
-  "_order": 928
+  "_order": 926
 }
 
 Node.info = `

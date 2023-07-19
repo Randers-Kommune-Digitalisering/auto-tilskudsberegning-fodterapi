@@ -2,6 +2,7 @@ const Node = {
   "id": "e014bcc27739004d",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Find borgere med regelbrud",
   "rules": [
     {
@@ -24,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1280,
+  "x": 1260,
   "y": 2380,
   "wires": [
     [
       "ef684373719a9a76"
     ]
   ],
-  "_order": 950
+  "_order": 945
 }
 
 module.exports = Node;

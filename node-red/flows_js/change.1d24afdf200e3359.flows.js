@@ -2,6 +2,7 @@ const Node = {
   "id": "1d24afdf200e3359",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Par regel med data",
   "rules": [
     {
@@ -24,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 930,
+  "x": 910,
   "y": 2380,
   "wires": [
     [
       "ffab9ecbb1965be1"
     ]
   ],
-  "_order": 947
+  "_order": 942
 }
 
 module.exports = Node;

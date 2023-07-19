@@ -2,7 +2,7 @@ const Node = {
   "id": "d66585c0891e5910",
   "type": "inject",
   "z": "f99fd88fa65c74b9",
-  "name": "",
+  "name": "DROP runHistory",
   "props": [
     {
       "p": "sql",
@@ -15,14 +15,14 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 590,
+  "x": 540,
   "y": 60,
   "wires": [
     [
       "ff818ce163a33c9b"
     ]
   ],
-  "_order": 955
+  "_order": 950
 }
 
 module.exports = Node;

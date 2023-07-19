@@ -2,6 +2,7 @@ const Node = {
   "id": "2581c0834b49114e",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "d36913bfb8e8092b",
   "name": "Find bevilling + sag gældende for hver behandling",
   "rules": [
     {
@@ -17,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 850,
-  "y": 2780,
+  "x": 830,
+  "y": 2640,
   "wires": [
     [
-      "e71fef321ed63090"
+      "ecf55b9fc7a69637"
     ]
   ],
-  "_order": 929
+  "_order": 927
 }
 
 module.exports = Node;

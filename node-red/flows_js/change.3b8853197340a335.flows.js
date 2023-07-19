@@ -2,6 +2,7 @@ const Node = {
   "id": "3b8853197340a335",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Genopret msg data fra flow vars",
   "rules": [
     {
@@ -29,14 +30,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1630,
+  "x": 1610,
   "y": 2360,
   "wires": [
     [
       "3b3f7f6304da71bd"
     ]
   ],
-  "_order": 951
+  "_order": 946
 }
 
 module.exports = Node;

@@ -2,6 +2,7 @@ const Node = {
   "id": "3b3f7f6304da71bd",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Fjern borgere med regelbrud",
   "rules": [
     {
@@ -17,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1620,
+  "x": 1600,
   "y": 2400,
   "wires": [
     [
-      "e225e65898ad9249"
+      "c76f71ac3a0507af"
     ]
   ],
-  "_order": 952
+  "_order": 947
 }
 
 module.exports = Node;

@@ -2,6 +2,7 @@ const Node = {
   "id": "9555170ffc1e871f",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "7259557bf9adb316",
   "name": "Find data som regler vedrører",
   "rules": [
     {
@@ -17,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 290,
+  "x": 270,
   "y": 2380,
   "wires": [
     [
       "21beda132648a953"
     ]
   ],
-  "_order": 942
+  "_order": 937
 }
 
 module.exports = Node;

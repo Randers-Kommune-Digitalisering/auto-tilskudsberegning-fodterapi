@@ -2,12 +2,13 @@ const Node = {
   "id": "db9b0160d9fdb906",
   "type": "group",
   "z": "f99fd88fa65c74b9",
-  "name": "Transform 2 - Sager og tilskud",
+  "name": "Transform 4 - Opret handlinger (Opret sag / Tilføj ydelse) for hver behandling",
   "style": {
-    "fill": "#ffbfbf",
+    "fill": "#dbcbe7",
     "fill-opacity": "0.6",
     "label": true,
-    "color": "#7f7f7f"
+    "color": "#7f7f7f",
+    "stroke": "none"
   },
   "nodes": [
     "f397ca465aaaa01d",

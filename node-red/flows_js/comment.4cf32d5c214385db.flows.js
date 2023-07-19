@@ -2,12 +2,13 @@ const Node = {
   "id": "4cf32d5c214385db",
   "type": "comment",
   "z": "f99fd88fa65c74b9",
+  "g": "d36913bfb8e8092b",
   "name": "Find relevant data for hver faktura",
   "info": "",
-  "x": 290,
-  "y": 2700,
+  "x": 270,
+  "y": 2560,
   "wires": [],
-  "_order": 932
+  "_order": 930
 }
 
 module.exports = Node;
