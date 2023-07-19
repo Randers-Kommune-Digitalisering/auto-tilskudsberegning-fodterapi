@@ -2,21 +2,27 @@ const Node = {
   "id": "aa3004cbebbe6a81",
   "type": "inject",
   "z": "f99fd88fa65c74b9",
-  "name": "",
-  "props": [],
+  "name": "TEST START",
+  "props": [
+    {
+      "p": "currentRun",
+      "v": "{\"startDate\":\"2023-07-07\",\"endDate\":\"2023-07-08\",\"runFinalized\":false,\"allReceiptsProcessed\":false}",
+      "vt": "json"
+    }
+  ],
   "repeat": "",
   "crontab": "",
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 110,
-  "y": 300,
+  "x": 850,
+  "y": 440,
   "wires": [
     [
-      "8ed3ae75929488b9"
+      "0ea069e2e9e7cb96"
     ]
   ],
-  "_order": 841
+  "_order": 845
 }
 
 module.exports = Node;

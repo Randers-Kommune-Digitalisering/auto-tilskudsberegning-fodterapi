@@ -11,6 +11,16 @@ const Node = {
       "pt": "msg",
       "to": "/* Laver array med objekt for hver borger, og tilknytter fakturaer */\t\t$keys(citizens) @$k.\t{\t    \"cpr\": $k,\t    \"persondata\": $lookup(citizens, $k),\t    \"faktura\": receipts[$.patientCPR = $k]\t}\t",
       "tot": "jsonata"
+    },
+    {
+      "t": "delete",
+      "p": "citizens",
+      "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "receipts",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -22,11 +32,13 @@ const Node = {
   "y": 1920,
   "wires": [
     [
-      "f0b80857d84536fb"
+      "f0b80857d84536fb",
+      "93b93458806ecf6a",
+      "c345156e31e8a149"
     ]
   ],
   "info": "",
-  "_order": 901
+  "_order": 905
 }
 
 Node.info = `

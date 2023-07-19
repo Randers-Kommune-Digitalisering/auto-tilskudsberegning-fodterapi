@@ -2,6 +2,7 @@ const Node = {
   "id": "f0b80857d84536fb",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "d": true,
   "g": "f0775df5510c6dd0",
   "name": "Find borgere uden persondata",
   "rules": [
@@ -25,7 +26,7 @@ const Node = {
       "57c822776ccc4195"
     ]
   ],
-  "_order": 910
+  "_order": 914
 }
 
 module.exports = Node;

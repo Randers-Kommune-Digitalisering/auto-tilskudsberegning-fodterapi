@@ -11,6 +11,11 @@ const Node = {
       "pt": "msg",
       "to": "$.payload ~> | $.faktura |\t({\t\t\"behandlinger\": behandlinger @$b #$i .{\t\t    \"uid\": (id ~> $substring(19,17))\t            & \"-\" & $b.ydelsesnummer\t            & \"-\" & ($i+1),\t\t    \"fid\": id,\t\t    \"titel\": $b.titel,\t    \"ydelsesnummer\": $b.ydelsesnummer,\t    \"ydernummer\": $b.ydernummer,\t    \"behandlingsKategory\": $b.behandlingsKategory,\t    \"pris\": $b.pris,\t    \"kørteKilometer\": $b.kørteKilometer,\t    \"patientAndel\": $b.patientAndel,\t    \"sygesikringsAndel\": $b.sygesikringsAndel\t\t}\t})|",
       "tot": "jsonata"
+    },
+    {
+      "t": "delete",
+      "p": "payload.patientTelefon",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -26,7 +31,7 @@ const Node = {
     ]
   ],
   "info": "",
-  "_order": 922
+  "_order": 926
 }
 
 Node.info = `

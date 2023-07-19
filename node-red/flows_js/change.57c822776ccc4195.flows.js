@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload @$p.\t(\t    ( errorList[cpr = $p.cpr] ~> $exists ) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)",
+      "to": "payload @ $p .\t(\t    ( errorList[cpr = $p.cpr] ~> $exists ) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)",
       "tot": "jsonata"
     }
   ],
@@ -25,7 +25,7 @@ const Node = {
       "ea091f7bde0f1f10"
     ]
   ],
-  "_order": 912
+  "_order": 916
 }
 
 module.exports = Node;
