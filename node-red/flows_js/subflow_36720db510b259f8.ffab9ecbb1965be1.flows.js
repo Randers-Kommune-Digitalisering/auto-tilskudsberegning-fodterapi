@@ -15,14 +15,14 @@ const Node = {
       "type": "json"
     }
   ],
-  "x": 1270,
-  "y": 2460,
+  "x": 1230,
+  "y": 2340,
   "wires": [
     [
       "e014bcc27739004d"
     ]
   ],
-  "_order": 953
+  "_order": 945
 }
 
 module.exports = Node;

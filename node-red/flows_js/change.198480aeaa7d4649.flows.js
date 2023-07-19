@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[{\"cpr\":123,\"persondata\":{\"formue\":90000}},{\"cpr\":321,\"persondata\":{\"formue\":91000}},{\"cpr\":400,\"persondata\":{\"tillaegsprocent\":50}},{\"cpr\":999,\"persondata\":{\"formue\":null}}]",
+      "to": "[{\"cpr\":\"123\",\"persondata\":{\"formue\":90000}},{\"cpr\":\"321\",\"persondata\":{\"formue\":99000}},{\"cpr\":\"400\",\"persondata\":{\"tillaegsprocent\":50}},{\"cpr\":\"999\",\"persondata\":{\"formue\":null}}]",
       "tot": "json"
     }
   ],
@@ -24,7 +24,7 @@ const Node = {
       "eae6f78dab0e6ec7"
     ]
   ],
-  "_order": 940
+  "_order": 938
 }
 
 module.exports = Node;

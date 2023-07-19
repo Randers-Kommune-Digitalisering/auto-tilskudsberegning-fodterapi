@@ -7,8 +7,8 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "citizens_missingData",
-      "pt": "flow",
+      "p": "errorList",
+      "pt": "msg",
       "to": "receipts @$r.\t(\t    (payload[cpr = $r.patientCPR] ~> $exists() = false)\t or (payload[cpr = $r.patientCPR].personligtillaegsprocent ~> $exists() = false) ?\t    {\t        \"cpr\": $r.patientCPR,\t        \"faktura\": $r,\t        \"regelbrud\": \"Borger-data blev ikke indsamlet korrekt. Borger findes muligvis ikke i KP.\"\t    }\t)",
       "tot": "jsonata"
     }

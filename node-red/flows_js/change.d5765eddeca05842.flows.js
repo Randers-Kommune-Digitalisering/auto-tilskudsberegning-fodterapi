@@ -7,22 +7,10 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "errors",
+      "p": "errorList",
       "pt": "msg",
-      "to": "payload[$.dataParsed = false]",
+      "to": "$append( errorList, payload[ $.dataParsed = false ] )",
       "tot": "jsonata"
-    },
-    {
-      "t": "set",
-      "p": "errors",
-      "pt": "msg",
-      "to": "$append(errors, $flowContext('citizens_missingData'))",
-      "tot": "jsonata"
-    },
-    {
-      "t": "delete",
-      "p": "citizens_missingData",
-      "pt": "flow"
     }
   ],
   "action": "",

@@ -3,10 +3,10 @@ const Node = {
   "type": "join",
   "z": "f99fd88fa65c74b9",
   "name": "Saml kontrollerede regler",
-  "mode": "custom",
-  "build": "array",
-  "property": "payload",
-  "propertyType": "msg",
+  "mode": "auto",
+  "build": "merged",
+  "property": "",
+  "propertyType": "full",
   "key": "topic",
   "joiner": "\\n",
   "joinerType": "str",
@@ -19,11 +19,13 @@ const Node = {
   "reduceInitType": "",
   "reduceFixup": "",
   "x": 1610,
-  "y": 2460,
+  "y": 2340,
   "wires": [
-    []
+    [
+      "3b8853197340a335"
+    ]
   ],
-  "_order": 956
+  "_order": 946
 }
 
 module.exports = Node;

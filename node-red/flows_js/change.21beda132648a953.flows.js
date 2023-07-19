@@ -2,7 +2,7 @@ const Node = {
   "id": "21beda132648a953",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "name": "Forbered split -> flyt lister",
+  "name": "Flyt data fra msg til flow vars",
   "rules": [
     {
       "t": "move",
@@ -24,6 +24,13 @@ const Node = {
       "pt": "msg",
       "to": "payload",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "errorList",
+      "pt": "flow",
+      "to": "[]",
+      "tot": "json"
     }
   ],
   "action": "",
@@ -31,14 +38,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 650,
-  "y": 2460,
+  "x": 620,
+  "y": 2340,
   "wires": [
     [
       "5b3e4a67258b56fe"
     ]
   ],
-  "_order": 949
+  "_order": 941
 }
 
 module.exports = Node;
