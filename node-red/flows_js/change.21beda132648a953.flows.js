@@ -27,11 +27,11 @@ const Node = {
       "tot": "msg"
     },
     {
-      "t": "set",
+      "t": "move",
       "p": "errorList",
-      "pt": "flow",
-      "to": "[]",
-      "tot": "json"
+      "pt": "msg",
+      "to": "errorList",
+      "tot": "flow"
     }
   ],
   "action": "",
