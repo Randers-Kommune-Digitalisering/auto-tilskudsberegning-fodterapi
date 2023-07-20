@@ -1,8 +1,7 @@
 const Node = {
   "id": "db02f6eff234296c",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
-  "g": "db9b0160d9fdb906",
+  "z": "6f0ff2a58c316519",
   "name": "Fratræk ydelsesbestemt tillæg fra Danmark (type B + Danmark 1/2)",
   "rules": [
     {
@@ -18,15 +17,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1060,
-  "y": 3060,
+  "x": 640,
+  "y": 200,
   "wires": [
     [
       "5de7c412a8066a20"
     ]
   ],
   "info": "",
-  "_order": 889
+  "_order": 478
 }
 
 Node.info = `

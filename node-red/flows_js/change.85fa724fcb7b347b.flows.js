@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload @$p.\t(\t    ($p.handlinger ~> $exists) ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura,\t        \"handlinger\": $p.handlinger\t    }\t)",
+      "to": "payload @ $p .\t(\t    ( $p.handlinger ~> $exists ) ?\t    {\t        \"cpr\": $p.cpr,\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura,\t        \"handlinger\": $p.handlinger\t    }\t)",
       "tot": "jsonata"
     }
   ],
@@ -18,15 +18,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 350,
-  "y": 3180,
+  "x": 770,
+  "y": 3060,
   "wires": [
     [
-      "dd226f5e05407cf6",
-      "f397ca465aaaa01d"
+      "f397ca465aaaa01d",
+      "ba3f8cab79489d83"
     ]
   ],
-  "_order": 885
+  "_order": 890
 }
 
 module.exports = Node;

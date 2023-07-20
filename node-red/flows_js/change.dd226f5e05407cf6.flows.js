@@ -1,8 +1,7 @@
 const Node = {
   "id": "dd226f5e05407cf6",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
-  "g": "db9b0160d9fdb906",
+  "z": "6f0ff2a58c316519",
   "name": "Sæt tilskud = pris",
   "rules": [
     {
@@ -18,15 +17,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 910,
-  "y": 3020,
+  "x": 450,
+  "y": 140,
   "wires": [
     [
       "db02f6eff234296c"
     ]
   ],
   "info": "",
-  "_order": 884
+  "_order": 477
 }
 
 Node.info = `

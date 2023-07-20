@@ -7,9 +7,9 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "errors",
-      "pt": "msg",
-      "to": "$append(errors, payload @$p.\t(\t    ($p.handlinger ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"regelbrud\": \"Ingen gyldig sag blev fundet til behandlingstypen\",\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)\t)",
+      "p": "errorList",
+      "pt": "flow",
+      "to": "$flowContext('errorList')\t~> $append( payload @ $p .\t(\t    ($p.handlinger ~> $exists) = false ?\t    {\t        \"cpr\": $p.cpr,\t        \"regelbrud\": \"Ingen gyldig sag blev fundet til behandlingstypen\",\t        \"persondata\": $p.persondata,\t        \"faktura\": $p.faktura\t    }\t)\t)",
       "tot": "jsonata"
     }
   ],
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 350,
-  "y": 3140,
+  "x": 770,
+  "y": 3020,
   "wires": [
     [
       "85fa724fcb7b347b"
     ]
   ],
-  "_order": 886
+  "_order": 891
 }
 
 module.exports = Node;

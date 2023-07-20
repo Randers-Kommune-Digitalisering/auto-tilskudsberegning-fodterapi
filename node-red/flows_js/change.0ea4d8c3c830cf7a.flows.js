@@ -1,8 +1,7 @@
 const Node = {
   "id": "0ea4d8c3c830cf7a",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
-  "g": "db9b0160d9fdb906",
+  "z": "6f0ff2a58c316519",
   "name": "Gang med tillægsprocent",
   "rules": [
     {
@@ -18,15 +17,13 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 930,
-  "y": 3180,
+  "x": 610,
+  "y": 380,
   "wires": [
-    [
-      "31519626c80614f6"
-    ]
+    []
   ],
   "info": "",
-  "_order": 892
+  "_order": 481
 }
 
 Node.info = `

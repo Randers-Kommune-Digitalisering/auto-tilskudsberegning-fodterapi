@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "errorList",
       "pt": "msg",
-      "to": "(\t$index := payload.dataValidation[ $.allRulesRespected = false ].dataIndex;\t$cpr := payload.inputObject.cpr [ $index ];\t\t$index != null ?\t$cpr @ $cpr .\t(\t{\t    \"cpr\": $cpr,\t    \"regelbrud\": payload.inputObject.rules.name & ( payload.inputObject.rules.description ? \": \" & payload.inputObject.rules.description )\t}\t    ~> $append(citizenReceiptData[$index])\t    ~> $merge\t)\t)",
+      "to": "(\t$index := payload.dataValidation[ $.allRulesRespected = false ].dataIndex;\t$cpr := payload.inputObject.cpr [ $index ];\t\t$index != null ?\t$cpr @ $cpr .\t(\t{\t    \"cpr\": $cpr,\t    \"regelbrud\": payload.inputObject.rules.name & ( payload.inputObject.rules.description ? \": \" & payload.inputObject.rules.description )\t}\t    ~> $append(($flowContext('citizenReceiptData'))[$index])\t    ~> $merge\t)\t)",
       "tot": "jsonata"
     },
     {
@@ -32,7 +32,7 @@ const Node = {
       "ef684373719a9a76"
     ]
   ],
-  "_order": 945
+  "_order": 946
 }
 
 module.exports = Node;

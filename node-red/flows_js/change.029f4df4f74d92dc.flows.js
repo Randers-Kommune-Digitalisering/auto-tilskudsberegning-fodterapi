@@ -1,8 +1,7 @@
 const Node = {
   "id": "029f4df4f74d92dc",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
-  "g": "db9b0160d9fdb906",
+  "z": "6f0ff2a58c316519",
   "name": "Begræns tilskud der overstiger prisgrænse ved type A + uautoriseret type B",
   "rules": [
     {
@@ -18,15 +17,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1090,
-  "y": 3140,
+  "x": 730,
+  "y": 320,
   "wires": [
     [
       "0ea4d8c3c830cf7a"
     ]
   ],
   "info": "",
-  "_order": 891
+  "_order": 480
 }
 
 Node.info = `

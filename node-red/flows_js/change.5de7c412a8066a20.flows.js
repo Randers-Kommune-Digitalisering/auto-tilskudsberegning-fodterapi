@@ -1,8 +1,7 @@
 const Node = {
   "id": "5de7c412a8066a20",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
-  "g": "db9b0160d9fdb906",
+  "z": "6f0ff2a58c316519",
   "name": "Fratræk 50% (maks 100) ved type A + Danmark 1/2",
   "rules": [
     {
@@ -18,15 +17,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1010,
-  "y": 3100,
+  "x": 630,
+  "y": 260,
   "wires": [
     [
       "029f4df4f74d92dc"
     ]
   ],
   "info": "",
-  "_order": 890
+  "_order": 479
 }
 
 Node.info = `

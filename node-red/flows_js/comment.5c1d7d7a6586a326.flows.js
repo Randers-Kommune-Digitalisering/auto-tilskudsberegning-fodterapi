@@ -3,12 +3,12 @@ const Node = {
   "type": "comment",
   "z": "f99fd88fa65c74b9",
   "g": "db9b0160d9fdb906",
-  "name": "Flyt borgere som ikke har handlinger til \"errors\"",
+  "name": "Flyt borgere som ikke har handlinger til errorList",
   "info": "",
-  "x": 360,
-  "y": 3100,
+  "x": 780,
+  "y": 2980,
   "wires": [],
-  "_order": 887
+  "_order": 892
 }
 
 module.exports = Node;
