@@ -4,10 +4,10 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Kontrollér metrics inden initialisering?",
   "info": "",
-  "x": 510,
-  "y": 140,
+  "x": 410,
+  "y": 160,
   "wires": [],
-  "_order": 936
+  "_order": 937
 }
 
 module.exports = Node;

@@ -40,7 +40,12 @@ const Node = {
   "env": [],
   "meta": {},
   "color": "#DDAA99",
-  "_order": 5
+  "status": {
+    "x": 1760,
+    "y": 100,
+    "wires": []
+  },
+  "_order": 6
 }
 
 module.exports = Node;

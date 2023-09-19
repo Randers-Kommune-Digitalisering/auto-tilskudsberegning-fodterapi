@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "f0775df5510c6dd0",
-  "name": "Saml parsing-fejl med \\n \"missingData\" liste",
+  "name": "Saml parsing-fejl \\n med errorList",
   "rules": [
     {
       "t": "set",
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1600,
+  "x": 1590,
   "y": 1920,
   "wires": [
     [
       "75ecdbad0ee90501"
     ]
   ],
-  "_order": 920
+  "_order": 921
 }
 
 module.exports = Node;

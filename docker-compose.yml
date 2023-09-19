@@ -18,6 +18,9 @@ services:
       WORKLET_USER: ${WORKLET_USER}
       WORKLET_PASS: ${WORKLET_PASS}
       KP_URL: ${KP_URL}
+
+      DQ_TESTPASS: ${DQ_TESTPASS}
+      DQ_TESTUSER: ${DQ_TESTUSER}
       
       # Miljøvariablen FLOWS fortæller Node-RED IDEet hvilket flow.json den skal åbne og gemme ændringer i ved deploy.
       FLOWS: "/data/flows.json"

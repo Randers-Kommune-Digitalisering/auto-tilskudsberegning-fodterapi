@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "f0775df5510c6dd0",
-  "name": "Fjern borgere som mangler data",
+  "name": "Fjern borgere fra errorList",
   "rules": [
     {
       "t": "set",
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1630,
+  "x": 1610,
   "y": 1980,
   "wires": [
     [
       "51be442e43fd3854"
     ]
   ],
-  "_order": 957
+  "_order": 958
 }
 
 module.exports = Node;

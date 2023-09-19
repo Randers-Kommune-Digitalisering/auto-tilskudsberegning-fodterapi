@@ -9,16 +9,16 @@ const Node = {
       "t": "set",
       "p": "dqUser",
       "pt": "msg",
-      "to": "",
-      "tot": "str",
+      "to": "DQ_TESTUSER",
+      "tot": "env",
       "dc": true
     },
     {
       "t": "set",
       "p": "dqPass",
       "pt": "msg",
-      "to": "",
-      "tot": "str",
+      "to": "DQ_TESTPASS",
+      "tot": "env",
       "dc": true
     }
   ],
@@ -34,7 +34,7 @@ const Node = {
       "78c179f6f79b60a1"
     ]
   ],
-  "_order": 883
+  "_order": 884
 }
 
 module.exports = Node;

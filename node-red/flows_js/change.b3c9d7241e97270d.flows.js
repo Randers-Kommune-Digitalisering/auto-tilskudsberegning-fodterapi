@@ -40,6 +40,13 @@ const Node = {
       "to": "succesful",
       "tot": "msg",
       "dc": true
+    },
+    {
+      "t": "set",
+      "p": "stdout.error",
+      "pt": "msg",
+      "to": "error.message",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -54,7 +61,7 @@ const Node = {
       "2648acd11d0a1179"
     ]
   ],
-  "_order": 885
+  "_order": 886
 }
 
 module.exports = Node;
