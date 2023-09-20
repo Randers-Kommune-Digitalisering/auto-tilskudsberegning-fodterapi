@@ -36,7 +36,7 @@ const Node = {
     "keywords": "node-red, rule checker, rule engine, rule respect, arbitrary data, data validation"
   },
   "color": "#DDAA99",
-  "_order": 16
+  "_order": 15
 }
 
 Node.info = `

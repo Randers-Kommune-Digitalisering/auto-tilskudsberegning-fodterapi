@@ -1,26 +1,26 @@
 const Node = {
-  "id": "bd35b2c70ae0b5e6",
+  "id": "6c21cd1b6fdd2be5",
   "type": "template",
   "z": "f99fd88fa65c74b9",
-  "name": "Forespørgsel ↓\\n Slet eksisterende tabel ved deploy",
+  "name": "",
   "field": "sql",
   "fieldType": "msg",
-  "format": "sql",
+  "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 540,
-  "y": 4060,
+  "x": 460,
+  "y": 3760,
   "wires": [
     [
-      "5298b18f1a031c6e"
+      "d31a8798c093ed42"
     ]
   ],
-  "_order": 818
+  "_order": 975
 }
 
 Node.template = `
-DROP TABLE IF EXISTS {{tablename}}
+SELECT * FROM runHistory
 `
 
 module.exports = Node;

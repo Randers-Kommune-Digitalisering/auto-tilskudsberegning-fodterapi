@@ -18,7 +18,7 @@ const Node = {
     "Succes",
     "Fejl"
   ],
-  "_order": 823
+  "_order": 832
 }
 
 module.exports = Node;

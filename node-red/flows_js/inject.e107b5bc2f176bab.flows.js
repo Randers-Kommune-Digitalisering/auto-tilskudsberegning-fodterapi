@@ -1,12 +1,14 @@
 const Node = {
-  "id": "eb422e8eff0d29a7",
+  "id": "e107b5bc2f176bab",
   "type": "inject",
   "z": "f99fd88fa65c74b9",
   "name": "",
   "props": [
     {
-      "p": "sql",
-      "v": "DROP TABLE runHistory",
+      "p": "payload"
+    },
+    {
+      "p": "topic",
       "vt": "str"
     }
   ],
@@ -15,14 +17,16 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 450,
-  "y": 4280,
+  "payload": "",
+  "payloadType": "date",
+  "x": 260,
+  "y": 3760,
   "wires": [
     [
-      "863489804329f9e0"
+      "6c21cd1b6fdd2be5"
     ]
   ],
-  "_order": 825
+  "_order": 972
 }
 
 module.exports = Node;

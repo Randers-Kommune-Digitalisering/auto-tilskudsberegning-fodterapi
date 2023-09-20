@@ -3,15 +3,13 @@ const Node = {
   "type": "link out",
   "z": "f99fd88fa65c74b9",
   "g": "0644ae6c3d5c62e8",
-  "name": "START response out",
-  "mode": "link",
-  "links": [
-    "5c74b689e0aee38b"
-  ],
+  "name": "MAIN Link Call IN",
+  "mode": "return",
+  "links": [],
   "x": 1125,
   "y": 3520,
   "wires": [],
-  "_order": 900
+  "_order": 906
 }
 
 module.exports = Node;
