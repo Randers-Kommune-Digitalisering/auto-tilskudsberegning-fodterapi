@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.isRunning",
+      "p": "webSettings.state.isRunning",
       "pt": "global",
       "to": "$globalContext(\"webSettings.state.isRunning\") = true ?\t$globalContext(\"webData.startedRunThisInstance\") : false",
       "tot": "jsonata"
@@ -24,7 +24,7 @@ const Node = {
       "bb96674ebd01af04"
     ]
   ],
-  "_order": 256
+  "_order": 250
 }
 
 module.exports = Node;

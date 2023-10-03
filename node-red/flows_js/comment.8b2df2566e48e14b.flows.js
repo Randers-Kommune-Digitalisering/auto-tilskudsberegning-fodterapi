@@ -6,9 +6,9 @@ const Node = {
   "name": "Split og parse rådata",
   "info": "",
   "x": 1250,
-  "y": 1860,
+  "y": 2000,
   "wires": [],
-  "_order": 910
+  "_order": 901
 }
 
 module.exports = Node;

@@ -11,27 +11,16 @@ const Node = {
   "finalize": "",
   "libs": [],
   "x": 270,
-  "y": 3520,
+  "y": 3660,
   "wires": [
     [
       "a4ac9ad0e5e23387"
     ]
   ],
-  "_order": 893
+  "_order": 884
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  
-  /*var acceptedReceipts = flow.get("currentRun").processedReceipts;
-  if(!Array.isArray(acceptedReceipts)) acceptedReceipts = [acceptedReceipts];
-  
-  var allReceipts = msg.receipts;
-  if (!Array.isArray(allReceipts)) allReceipts = [allReceipts];
-  
-  var remainingCount = allReceipts.length - acceptedReceipts.length;
-  
-  msg.isArchived = !(remainingCount > 0);*/
-  
   var allReceiptsArchived = true;
   
   for (let i = 0; i < msg.payload.length; i++)

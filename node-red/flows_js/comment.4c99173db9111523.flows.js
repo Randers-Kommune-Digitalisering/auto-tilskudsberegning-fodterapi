@@ -6,9 +6,9 @@ const Node = {
   "name": "Kontrol om alle fakturaer er arkiveret",
   "info": "",
   "x": 310,
-  "y": 3480,
+  "y": 3620,
   "wires": [],
-  "_order": 892
+  "_order": 883
 }
 
 module.exports = Node;

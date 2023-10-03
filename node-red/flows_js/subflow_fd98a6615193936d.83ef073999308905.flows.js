@@ -5,7 +5,7 @@ const Node = {
   "g": "2324a12126e9564c",
   "name": "Initialiser kørsel \\n Opret tabeller, find seneste kørsel, bestem datoer",
   "x": 810,
-  "y": 240,
+  "y": 380,
   "wires": [
     [
       "292cd22eca9d655d"
@@ -18,7 +18,7 @@ const Node = {
     "Succes",
     "Fejl"
   ],
-  "_order": 813
+  "_order": 805
 }
 
 module.exports = Node;

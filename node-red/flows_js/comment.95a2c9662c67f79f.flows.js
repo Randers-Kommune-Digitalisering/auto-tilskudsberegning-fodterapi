@@ -6,9 +6,9 @@ const Node = {
   "name": "Gem data i midlertidig hukommelse",
   "info": "",
   "x": 1160,
-  "y": 1200,
+  "y": 1340,
   "wires": [],
-  "_order": 852
+  "_order": 844
 }
 
 module.exports = Node;

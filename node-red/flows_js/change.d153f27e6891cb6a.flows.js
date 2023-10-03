@@ -2,6 +2,7 @@ const Node = {
   "id": "d153f27e6891cb6a",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "62e182e14c1bade4",
   "name": "TEST \\n ======== \\n SÆT REGLER",
   "rules": [
     {
@@ -17,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1460,
-  "y": 300,
+  "x": 760,
+  "y": 140,
   "wires": [
     [
-      "714da3a00ef445ae"
+      "065921460d01af70"
     ]
   ],
-  "_order": 925
+  "_order": 951
 }
 
 module.exports = Node;

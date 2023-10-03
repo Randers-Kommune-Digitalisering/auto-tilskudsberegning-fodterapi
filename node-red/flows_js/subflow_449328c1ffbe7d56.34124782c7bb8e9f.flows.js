@@ -5,7 +5,7 @@ const Node = {
   "g": "f0775df5510c6dd0",
   "name": "Konvertér persondata",
   "x": 1260,
-  "y": 1940,
+  "y": 2080,
   "wires": [
     [
       "8df225ccc38c3063"
@@ -18,7 +18,7 @@ const Node = {
     "Konverteret data",
     "Fejl ved konvertering"
   ],
-  "_order": 905
+  "_order": 896
 }
 
 module.exports = Node;

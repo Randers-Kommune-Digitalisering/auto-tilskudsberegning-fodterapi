@@ -6,9 +6,9 @@ const Node = {
   "name": "[E] Læs relevant persondata fra KP vedr. de pågældende borgere",
   "info": "",
   "x": 370,
-  "y": 1180,
+  "y": 1320,
   "wires": [],
-  "_order": 853
+  "_order": 845
 }
 
 module.exports = Node;

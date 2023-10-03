@@ -6,9 +6,9 @@ const Node = {
   "name": "[E] Hent data fra WorkLet og KP",
   "info": "",
   "x": 270,
-  "y": 520,
+  "y": 660,
   "wires": [],
-  "_order": 921
+  "_order": 912
 }
 
 module.exports = Node;

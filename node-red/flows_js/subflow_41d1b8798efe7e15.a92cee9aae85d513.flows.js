@@ -5,7 +5,7 @@ const Node = {
   "g": "dd8bf1dc973547ed",
   "name": "",
   "x": 840,
-  "y": 1320,
+  "y": 1460,
   "wires": [
     [
       "4348924059d378e8"
@@ -19,7 +19,7 @@ const Node = {
     "Alle handlinger fuldført",
     "Én handling fuldført"
   ],
-  "_order": 846
+  "_order": 838
 }
 
 module.exports = Node;

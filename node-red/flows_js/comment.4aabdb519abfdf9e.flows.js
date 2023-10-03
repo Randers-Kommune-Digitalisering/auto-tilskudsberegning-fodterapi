@@ -6,9 +6,9 @@ const Node = {
   "name": "Kontrollér konverteret data mod regelsæt",
   "info": "",
   "x": 300,
-  "y": 2300,
+  "y": 2440,
   "wires": [],
-  "_order": 911
+  "_order": 902
 }
 
 module.exports = Node;

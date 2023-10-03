@@ -3,13 +3,13 @@ const Node = {
   "type": "junction",
   "z": "f99fd88fa65c74b9",
   "x": 1400,
-  "y": 560,
+  "y": 700,
   "wires": [
     [
       "d6c9313e5ddb3245"
     ]
   ],
-  "_order": 173
+  "_order": 170
 }
 
 module.exports = Node;

@@ -5,9 +5,9 @@ const Node = {
   "name": "Kontrollér metrics inden initialisering?",
   "info": "",
   "x": 410,
-  "y": 160,
+  "y": 300,
   "wires": [],
-  "_order": 924
+  "_order": 915
 }
 
 module.exports = Node;

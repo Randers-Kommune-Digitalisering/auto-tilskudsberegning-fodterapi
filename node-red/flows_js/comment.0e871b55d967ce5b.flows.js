@@ -6,9 +6,9 @@ const Node = {
   "name": "Slet unødvendig data",
   "info": "",
   "x": 1040,
-  "y": 3480,
+  "y": 3620,
   "wires": [],
-  "_order": 896
+  "_order": 887
 }
 
 module.exports = Node;

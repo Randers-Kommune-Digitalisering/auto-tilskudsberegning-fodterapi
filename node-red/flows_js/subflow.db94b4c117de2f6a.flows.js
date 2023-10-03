@@ -1,7 +1,7 @@
 const Node = {
   "id": "db94b4c117de2f6a",
   "type": "subflow",
-  "name": "Set Settings/Rules/Grants",
+  "name": "Set Settings/Grants",
   "info": "",
   "category": "",
   "in": [

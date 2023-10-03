@@ -5,13 +5,13 @@ const Node = {
   "g": "db9b0160d9fdb906",
   "name": "Tilskudsberegner",
   "x": 1150,
-  "y": 3020,
+  "y": 3160,
   "wires": [
     [
       "31519626c80614f6"
     ]
   ],
-  "_order": 952
+  "_order": 942
 }
 
 module.exports = Node;
