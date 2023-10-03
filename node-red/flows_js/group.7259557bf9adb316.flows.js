@@ -8,7 +8,8 @@ const Node = {
     "stroke-opacity": "0.5",
     "label": true,
     "fill": "#dbcbe7",
-    "fill-opacity": "0.6"
+    "fill-opacity": "0.6",
+    "color": "#7f7f7f"
   },
   "nodes": [
     "4aabdb519abfdf9e",
@@ -29,7 +30,7 @@ const Node = {
   "y": 2399,
   "w": 1732,
   "h": 182,
-  "_order": 90
+  "_order": 89
 }
 
 module.exports = Node;

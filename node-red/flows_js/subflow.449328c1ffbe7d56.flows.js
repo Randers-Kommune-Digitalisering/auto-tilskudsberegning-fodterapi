@@ -44,7 +44,7 @@ const Node = {
     "Parsed",
     "Error"
   ],
-  "_order": 13
+  "_order": 12
 }
 
 module.exports = Node;
