@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "db94b4c117de2f6a",
   "name": "",
-  "property": "#:(storeInFile)::rules",
+  "property": "rules",
   "propertyType": "global",
   "rules": [
     {

@@ -1,9 +1,14 @@
 const Node = {
-  "id": "86c92f68f7f0e799",
+  "id": "2b5d682182085307",
   "type": "change",
   "z": "fd98a6615193936d",
   "name": "Rens svar",
   "rules": [
+    {
+      "t": "delete",
+      "p": "payload",
+      "pt": "msg"
+    },
     {
       "t": "delete",
       "p": "error",
@@ -11,7 +16,7 @@ const Node = {
     },
     {
       "t": "delete",
-      "p": "tablename",
+      "p": "sql",
       "pt": "msg"
     }
   ],
@@ -20,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1220,
+  "x": 1080,
   "y": 780,
   "wires": [
     [
       "e5cbc73704c9f1be"
     ]
   ],
-  "_order": 392
+  "_order": 429
 }
 
 module.exports = Node;

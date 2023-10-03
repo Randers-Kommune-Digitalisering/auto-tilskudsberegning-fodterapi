@@ -15,7 +15,7 @@ const Node = {
       "t": "move",
       "p": "payload.rules",
       "pt": "msg",
-      "to": "#:(storeInFile)::rules",
+      "to": "rules",
       "tot": "global"
     }
   ],

@@ -36,7 +36,7 @@ const Node = {
       "t": "move",
       "p": "payload.grants",
       "pt": "msg",
-      "to": "#:(storeInFile)::grants",
+      "to": "grants",
       "tot": "global"
     }
   ],

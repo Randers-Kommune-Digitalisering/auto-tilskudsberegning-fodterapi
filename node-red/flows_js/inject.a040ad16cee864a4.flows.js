@@ -2,7 +2,6 @@ const Node = {
   "id": "a040ad16cee864a4",
   "type": "inject",
   "z": "f99fd88fa65c74b9",
-  "d": true,
   "name": "TEST DATA",
   "props": [
     {
@@ -23,7 +22,7 @@ const Node = {
       "a3b3a2d94e283241"
     ]
   ],
-  "_order": 966
+  "_order": 947
 }
 
 module.exports = Node;

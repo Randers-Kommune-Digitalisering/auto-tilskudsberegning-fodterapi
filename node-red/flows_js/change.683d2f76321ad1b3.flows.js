@@ -2,7 +2,6 @@ const Node = {
   "id": "683d2f76321ad1b3",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "d": true,
   "name": "====== \\n TEST DATA \\n ======",
   "rules": [
     {
@@ -25,7 +24,7 @@ const Node = {
       "93b93458806ecf6a"
     ]
   ],
-  "_order": 961
+  "_order": 942
 }
 
 module.exports = Node;

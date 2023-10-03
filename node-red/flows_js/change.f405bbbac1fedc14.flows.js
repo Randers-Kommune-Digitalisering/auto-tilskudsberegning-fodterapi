@@ -13,6 +13,11 @@ const Node = {
       "t": "delete",
       "p": "tablename",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "config",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -25,7 +30,7 @@ const Node = {
   "wires": [
     []
   ],
-  "_order": 486
+  "_order": 467
 }
 
 module.exports = Node;

@@ -1,20 +1,20 @@
 const Node = {
-  "id": "5da88f31d30175d4",
+  "id": "cceb02e44d73642a",
   "type": "debug",
   "z": "fd98a6615193936d",
-  "name": "Retries failed",
+  "name": "debug 11",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "\"All retries failed for \" & tablename & \" CREATE TABLE query\"",
-  "targetType": "jsonata",
+  "complete": "true",
+  "targetType": "full",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1190,
-  "y": 920,
+  "x": 1230,
+  "y": 100,
   "wires": [],
-  "_order": 413
+  "_order": 425
 }
 
 module.exports = Node;

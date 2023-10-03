@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "#:(storeInFile)::webSettings.state.isRunning",
       "pt": "global",
-      "to": "$globalContext(\"webSettings.state.isRunning\", \"storeInFile\") = true ?\t$globalContext(\"webData.startedRunThisInstance\") : false",
+      "to": "$globalContext(\"webSettings.state.isRunning\") = true ?\t$globalContext(\"webData.startedRunThisInstance\") : false",
       "tot": "jsonata"
     }
   ],

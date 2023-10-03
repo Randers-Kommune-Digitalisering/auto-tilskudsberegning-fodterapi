@@ -15,7 +15,7 @@ const Node = {
       "t": "move",
       "p": "payload.webSettings",
       "pt": "msg",
-      "to": "#:(storeInFile)::webSettings",
+      "to": "webSettings",
       "tot": "global"
     },
     {
