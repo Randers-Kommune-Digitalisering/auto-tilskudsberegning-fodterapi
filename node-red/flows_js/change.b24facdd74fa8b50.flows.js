@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.pageElements.rulesToAccept",
       "pt": "msg",
-      "to": "($globalContext(\"webSettings\", \"storeInFile\")).acceptances.rules = true ? false : true",
+      "to": "($globalContext(\"webSettings\")).acceptances.rules = true ? false : true",
       "tot": "jsonata"
     }
   ],

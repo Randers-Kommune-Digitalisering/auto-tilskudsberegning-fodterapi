@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "runHistory",
       "pt": "msg",
-      "to": "#:(storeInFile)::runHistory",
+      "to": "runHistory",
       "tot": "global",
       "dc": true
     },

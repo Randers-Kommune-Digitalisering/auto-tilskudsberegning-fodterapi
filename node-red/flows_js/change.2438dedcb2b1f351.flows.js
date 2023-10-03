@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.login",
+      "p": "webSettings.acceptances.login",
       "pt": "global",
       "to": "payload.data.toAccept",
       "tot": "msg",

@@ -32,7 +32,7 @@ Node.template = `
             
             <div class="form-floating mb-3 was-validated">
             <input type="text" class="form-control" id="dqUser" placeholder="{{payload.webData.dqCreds.dqUser}}" autocomplete="off" disabled>
-            <label for="dqUser">{{payload.webData.dqCreds.dqUser}}</label>
+            <label for="dqUser">{{global.webData.dqCreds.dqUser}}</label>
             </div>
             <div class="form-floating  was-validated">
             <input type="password" class="form-control" id="dqPass" placeholder="Password" style="font-family: 'password'" disabled>
@@ -54,7 +54,7 @@ Node.template = `
             
             <div class="form-floating mb-3 was-validated">
             <input type="text" class="form-control" id="workletUser" placeholder="{{payload.webData.workletCreds.workletUser}}" autocomplete="off" disabled>
-            <label for="workletUser">{{payload.webData.workletCreds.workletUser}}</label>
+            <label for="workletUser">{{global.webData.workletCreds.workletUser}}</label>
             </div>
             <div class="form-floating  was-validated">
             <input type="password" class="form-control" id="workletPass" placeholder="Password" style="font-family: 'password'" disabled>

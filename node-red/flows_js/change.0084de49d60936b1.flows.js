@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "move",
-      "p": "#:(storeInFile)::grants",
+      "p": "grants",
       "pt": "global",
       "to": "payload.grants",
       "tot": "msg"
@@ -23,7 +23,7 @@ const Node = {
       "t": "move",
       "p": "payload.grants",
       "pt": "msg",
-      "to": "#:(storeInFile)::grants",
+      "to": "grants",
       "tot": "global"
     }
   ],

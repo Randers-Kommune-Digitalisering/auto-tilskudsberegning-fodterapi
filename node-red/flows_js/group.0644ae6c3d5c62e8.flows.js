@@ -7,7 +7,8 @@ const Node = {
     "fill": "#ffbfbf",
     "label": true,
     "fill-opacity": "0.6",
-    "color": "#7f7f7f"
+    "color": "#7f7f7f",
+    "stroke": "none"
   },
   "nodes": [
     "12aaf79106e4db8d",

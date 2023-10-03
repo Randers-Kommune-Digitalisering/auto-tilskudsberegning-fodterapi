@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "43652557380ac3f3",
   "name": "",
-  "property": "#:(storeInFile)::webSettings.acceptances.rules",
+  "property": "webSettings.acceptances.rules",
   "propertyType": "global",
   "rules": [
     {

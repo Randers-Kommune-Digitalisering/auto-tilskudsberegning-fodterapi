@@ -3,7 +3,7 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "62e182e14c1bade4",
-  "name": "TEST \\n ======== \\n SÆT REGLER",
+  "name": "Set rules",
   "rules": [
     {
       "t": "set",
@@ -18,7 +18,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 760,
+  "x": 740,
   "y": 140,
   "wires": [
     [
