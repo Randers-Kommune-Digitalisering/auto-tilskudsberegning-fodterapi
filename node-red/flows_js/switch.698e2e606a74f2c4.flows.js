@@ -2,7 +2,7 @@ const Node = {
   "id": "698e2e606a74f2c4",
   "type": "switch",
   "z": "5bb3204aef17c104",
-  "name": "",
+  "name": "POST",
   "property": "payload.requestType",
   "propertyType": "msg",
   "rules": [
@@ -76,7 +76,7 @@ const Node = {
     ],
     []
   ],
-  "_order": 693
+  "_order": 720
 }
 
 module.exports = Node;
