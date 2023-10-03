@@ -21,7 +21,7 @@ const Node = {
 }
 
 Node.template = `
-{{#global[storeInFile].rules}}
+{{#global.rules}}
     <div class="row border-top pb-2 pt-2 ">
 
 
@@ -49,7 +49,7 @@ Node.template = `
 
 
     </div>
-{{/global[storeInFile].rules}}
+{{/global.rules}}
 `
 
 module.exports = Node;

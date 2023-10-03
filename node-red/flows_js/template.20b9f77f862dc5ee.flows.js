@@ -50,6 +50,23 @@ a:hover
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
+.nav-item
+{
+    background-color: #ffffff32;
+    border-radius: 5px;
+
+    padding-left:5px;
+    padding-right:5px;
+}
+    .nav-item:not(:first-child)
+    {
+        margin-left: 5px;
+    }
+.nav-item:hover
+{
+    background-color: #ffffff52;
+    transition-duration: 200ms;
+}
 .nav-link 
 {
     padding-left: 20px;
@@ -68,17 +85,18 @@ a:hover
 {
     justify-content: stretch;
 }
-.d-flex.justify-stretch > *{
+.d-flex.justify-stretch > *
+{
     flex-grow: 1;
 }
-.page-item.archived .page-link {
+.page-item.archived .page-link
+{
     background-color: #E9F3DB!important;
 }
-.page-item.archived.active .page-link {
+.page-item.archived.active .page-link
+{
     background-color: #D8E1CB!important;
 }
-
-
 body
 {
     background-color: whitesmoke;

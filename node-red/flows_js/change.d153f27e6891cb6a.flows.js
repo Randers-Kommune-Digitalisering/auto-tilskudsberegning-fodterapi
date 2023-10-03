@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "rules",
       "pt": "global",
-      "to": "[{\"name\":\"Oplyst formue\",\"variable\":\"formue\",\"operator\":\"!null\",\"value\":true,\"description\":\"Borgerens formue skal være oplyst til UDK\"},{\"name\":\"Formuegrænse\",\"variable\":\"formue\",\"operator\":\"<\",\"value\":95800,\"description\":\"Borgerens formue skal være indenfor formuegrænsen\"}]",
+      "to": "[{\"uid\":0,\"name\":\"Oplyst formue\",\"variable\":\"formue\",\"operator\":\"!null\",\"value\":true,\"description\":\"Borgerens formue skal være oplyst til UDK\"},{\"uid\":1,\"name\":\"Formuegrænse\",\"variable\":\"formue\",\"operator\":\"<\",\"value\":95800,\"description\":\"Borgerens formue skal være indenfor formuegrænsen\"}]",
       "tot": "json"
     }
   ],
