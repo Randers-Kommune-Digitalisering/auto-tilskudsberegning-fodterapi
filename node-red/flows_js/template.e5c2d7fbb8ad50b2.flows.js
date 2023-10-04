@@ -48,15 +48,15 @@ Node.template = `
     </ol>
 
     <div id="alertParent">
-        <div class="alert alert-dismissible hidden" id="alertBox">
+        <div class="alert alert-dismissible alert-warning hidden" id="alertBox">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <h4 class="alert-heading" id="alertBox-heading">Warning!</h4>
-            <p class="mb-0" id="alertBox-body">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+            <p class="mb-0" id="alertBox-body">Message.</p>
         </div>
     </div>
 
     <div id="pageContent">
-        {{{payload.pageContent}}}
+        {{{payload}}}
     </div>
 
     <!-- /site -->

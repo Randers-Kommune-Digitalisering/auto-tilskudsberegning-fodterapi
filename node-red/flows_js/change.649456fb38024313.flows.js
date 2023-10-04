@@ -6,6 +6,13 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "metrics.values.displayname",
+      "pt": "msg",
+      "to": "Kommunernes Pensionssystem",
+      "tot": "str"
+    },
+    {
+      "t": "set",
       "p": "metrics.values.name",
       "pt": "msg",
       "to": "status_kp",
@@ -53,7 +60,7 @@ const Node = {
       "7e263e94bbeb2e08"
     ]
   ],
-  "_order": 467
+  "_order": 470
 }
 
 module.exports = Node;

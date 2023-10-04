@@ -6,16 +6,16 @@ const Node = {
   "name": "Fejl v/ initialisering",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "true",
   "targetType": "full",
   "statusVal": "",
   "statusType": "auto",
-  "x": 910,
+  "x": 900,
   "y": 440,
   "wires": [],
-  "_order": 798
+  "_order": 801
 }
 
 module.exports = Node;

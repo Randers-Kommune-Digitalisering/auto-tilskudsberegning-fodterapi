@@ -6,6 +6,13 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "metrics.values.displayname",
+      "pt": "msg",
+      "to": "WorkLet",
+      "tot": "str"
+    },
+    {
+      "t": "set",
       "p": "metrics.values.name",
       "pt": "msg",
       "to": "status_worklet",
@@ -52,7 +59,7 @@ const Node = {
       "878e53f437fe7500"
     ]
   ],
-  "_order": 460
+  "_order": 463
 }
 
 module.exports = Node;
