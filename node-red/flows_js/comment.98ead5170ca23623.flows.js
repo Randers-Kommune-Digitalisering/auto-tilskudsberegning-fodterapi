@@ -5,10 +5,10 @@ const Node = {
   "g": "db28c2d0ad9574a4",
   "name": "Asynchronous encryption",
   "info": "",
-  "x": 1550,
-  "y": 280,
+  "x": 1490,
+  "y": 100,
   "wires": [],
-  "_order": 772
+  "_order": 743
 }
 
 module.exports = Node;

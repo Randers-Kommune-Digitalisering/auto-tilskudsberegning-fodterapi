@@ -8,7 +8,7 @@ const Node = {
   "rules": [
     {
       "t": "eq",
-      "v": "getPageContent",
+      "v": "getMetrics",
       "vt": "str"
     },
     {
@@ -54,7 +54,7 @@ const Node = {
   "y": 1360,
   "wires": [
     [
-      "44922854196c3e51"
+      "46db975f6e21fe45"
     ],
     [
       "0d73a26952f54d44"
@@ -76,7 +76,7 @@ const Node = {
     ],
     []
   ],
-  "_order": 720
+  "_order": 693
 }
 
 module.exports = Node;

@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload.data.page",
+      "p": "url",
       "pt": "msg",
       "to": "start",
       "tot": "str"
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 380,
+  "x": 330,
   "y": 100,
   "wires": [
     [
       "3a1909c9e2eb5089"
     ]
   ],
-  "_order": 722
+  "_order": 695
 }
 
 module.exports = Node;
