@@ -14,7 +14,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::runHistory",
+      "p": "runHistory",
       "pt": "global",
       "to": "runHistory",
       "tot": "msg",

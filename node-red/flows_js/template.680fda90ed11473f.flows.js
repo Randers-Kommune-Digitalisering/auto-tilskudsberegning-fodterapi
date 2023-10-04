@@ -23,8 +23,8 @@ Node.template = `
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
     <div class="container-fluid">
 
-        <a class="navbar-brand randers-logo" onclick="goToPage('start')"></a>
-        <a class="navbar-brand randers-titel" onclick="goToPage('start')"></a>
+        <a class="navbar-brand randers-logo" href="/start"></a>
+        <a class="navbar-brand randers-titel" href="/start"></a>
 
         <ul class="navbar-nav me-auto">
 

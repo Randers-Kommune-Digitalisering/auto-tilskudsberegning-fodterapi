@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "webElements.navBar.items",
       "pt": "msg",
-      "to": "[{\"title\":\"Start\",\"url\":\"start\"},{\"title\":\"Loginoplysninger\",\"url\":\"login\"},{\"title\":\"Forretningsregler\",\"url\":\"rules\"},{\"title\":\"Tilskudssatser\",\"url\":\"grants\"},{\"title\":\"Kør robot\",\"url\":\"startrun\"}]",
+      "to": "[{\"title\":\"Start\",\"url\":\"start\"},{\"title\":\"Hjælp\",\"url\":\"help\"}]",
       "tot": "json"
     }
   ],

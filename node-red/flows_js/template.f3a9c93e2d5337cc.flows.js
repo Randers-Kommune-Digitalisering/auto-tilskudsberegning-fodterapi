@@ -180,64 +180,6 @@ async function encryptDataAsync(publicKey, data)
 
 
 //
-/// SET PAGE CONTENT FUNCTION
-//
-
-function goToPage(page)
-{
-    var pageName = "";
-    var paramName = "";
-    var paramValue = "";
-    // Works with 1 param only 
-
-    if(page.includes("?"))
-    {
-        var split = page.split("?");
-        pageName = split[0];
-
-        split = split[1].split("=");
-        paramName = split[0];
-        paramValue = split[1];
-    }
-
-    var obj = {};
-
-    if(pageName == "")
-        obj = {"page": page};
-
-    else
-    {
-        obj = { "page": pageName };
-        obj[paramName] = paramValue;
-    }
-
-    postRequestAsync("getPageContent", obj, true);
-}
-
-function setPageContent(pageObj, setHistory = true)
-{
-    setInnerHTML("fullPage", pageObj.html);
-    document.title = "AutoWorkLet - " + pageObj.title;
-
-    if(setHistory)
-        window.history.pushState({ "page": pageObj }, "", "/" + pageObj.url);
-
-    activePage = pageObj.url;
-
-    if (loadPageFunc[pageObj.url] != null)
-        loadPageFunc[pageObj.url]();
-
-}
-
-window.onpopstate = function (e)
-{
-    if (e.state)
-        setPageContent(e.state.page, false);
-};
-
-
-
-//
 /// NODE-RED INTEGRATION / COMMUNICATION
 //
 
@@ -284,12 +226,6 @@ function handlePostResponse(responseObject)
 
 var handleResponseDynamically = [];
 
-handleResponseDynamically['getPageContent'] = function(response)
-{
-    if(response.data != null)
-        setPageContent(response.data);
-}
-
 handleResponseDynamically['acceptPage'] = function (response)
 {
     reloadPage();
@@ -297,7 +233,7 @@ handleResponseDynamically['acceptPage'] = function (response)
 
 handleResponseDynamically['startRun'] = function (response)
 {
-    goToPage("start");
+    loadPage("start");
 }
 
 handleResponseDynamically['archive'] = function (response)
@@ -307,7 +243,7 @@ handleResponseDynamically['archive'] = function (response)
 
 handleResponseDynamically['finalize'] = function (response)
 {
-    goToPage("finalized");
+    loadPage("finalized");
 }
 
 
@@ -315,6 +251,11 @@ handleResponseDynamically['finalize'] = function (response)
 //
 /// GENERIC FUNCTIONS
 //
+
+function loadPage(pageurl)
+{
+    window.location.href = "/" + pageurl;
+}
 
 function lockButton(objectId)
 {

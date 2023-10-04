@@ -38,14 +38,22 @@ Node.template = `
 
 <!-- NAV BAR -->
 {{{webElements.navBar.html}}}
+
+<!--div class="progress-container">
+    <div class="uppercase fs-10 fw-500 mb-1" style="width:100%;text-align: center;">Robotten arbejder ... 56%</div>
+
+    <div class="progress bg-dark">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+    </div>
+</div-->
     
   
 <div class="container site-container mt-3">
     <!-- site -->
 
-    <ol class="breadcrumb">
+    <!--ol class="breadcrumb">
         <li class="breadcrumb-item active">{{webElements.pageTitle}}</li>
-    </ol>
+    </ol-->
 
     <div id="alertParent">
         <div class="alert alert-dismissible alert-warning hidden" id="alertBox">

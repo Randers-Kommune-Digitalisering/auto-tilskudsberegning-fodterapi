@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "webElements.metrics",
       "pt": "msg",
-      "to": "$globalContext(\"metrics\") @ $metric . {\t    \"name\": $metric.displayname,\t    \"isAvailable\": $avail := ($metric.value = 1 ? true : false),\t    \"message\": $avail ? \"OK ✔️\" : \"Ingen forbindelse ⭕\"\t}",
+      "to": "$globalContext(\"metrics\") @ $metric . {\t    \"name\": $metric.displayname,\t    \"isAvailable\": $avail := ($metric.value = 1 ? true : false),\t    \"message\": $avail ? \"OK ✔️\" : \"Ingen forbindelse ⭕\",\t    \"border\": $avail ? \"success\" : \"secondary\"\t}",
       "tot": "jsonata"
     }
   ],
@@ -28,8 +28,7 @@ const Node = {
   "y": 1240,
   "wires": [
     [
-      "11d389fe09aac0b0",
-      "c51487801a7c8472"
+      "87f88a6b75c29d1e"
     ]
   ],
   "_order": 356
