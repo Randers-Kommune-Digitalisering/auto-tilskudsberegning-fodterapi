@@ -2,6 +2,7 @@ const Node = {
   "id": "7d8b672f8473813d",
   "type": "debug",
   "z": "1e8ab76213a40efe",
+  "d": true,
   "name": "New metric",
   "active": true,
   "tosidebar": true,
@@ -11,10 +12,10 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1310,
+  "x": 1150,
   "y": 220,
   "wires": [],
-  "_order": 462
+  "_order": 470
 }
 
 module.exports = Node;

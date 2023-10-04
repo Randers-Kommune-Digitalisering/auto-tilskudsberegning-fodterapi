@@ -9,7 +9,7 @@ const Node = {
   "rules": [
     {
       "t": "gt",
-      "v": "#:(storeInFile)::webSettings.settings.idleTimeout",
+      "v": "webSettings.settings.idleTimeout",
       "vt": "global"
     },
     {
@@ -29,7 +29,7 @@ const Node = {
       "86eb6019517b9ed1"
     ]
   ],
-  "_order": 331
+  "_order": 333
 }
 
 module.exports = Node;

@@ -7,7 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.currentSession.lastPingMillis",
+      "p": "webSettings.currentSession.lastPingMillis",
       "pt": "global",
       "to": "$millis()",
       "tot": "jsonata"
@@ -25,7 +25,7 @@ const Node = {
       "b1903faba20bc63a"
     ]
   ],
-  "_order": 332
+  "_order": 334
 }
 
 module.exports = Node;

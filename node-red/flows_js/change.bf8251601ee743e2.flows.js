@@ -7,21 +7,21 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.login",
+      "p": "webSettings.acceptances.login",
       "pt": "global",
       "to": "false",
       "tot": "bool"
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.rules",
+      "p": "webSettings.acceptances.rules",
       "pt": "global",
       "to": "false",
       "tot": "bool"
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.acceptances.grants",
+      "p": "webSettings.acceptances.grants",
       "pt": "global",
       "to": "false",
       "tot": "bool"
@@ -39,7 +39,7 @@ const Node = {
       "86eb6019517b9ed1"
     ]
   ],
-  "_order": 334
+  "_order": 336
 }
 
 module.exports = Node;

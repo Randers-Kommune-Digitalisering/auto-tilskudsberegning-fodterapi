@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.webSettings",
       "pt": "msg",
-      "to": "{\t    \"settings\": {\t        \"idleTimeout\": 1800000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isRunning\": false,\t        \"lastStep\": {},\t        \"lastState\": {}\t    },\t\t    \"currentSession\": {\t        \"isConnected\": \"n/a\",\t        \"lastPingMillis\": 0\t    }\t    \t}",
+      "to": "{\t    \"settings\": {\t        \"idleTimeout\": 1800000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isRunning\": false\t    }\t    \t}",
       "tot": "jsonata"
     },
     {
@@ -22,7 +22,7 @@ const Node = {
       "t": "set",
       "p": "webData",
       "pt": "global",
-      "to": "\t{\t    \"workletCreds\": {},\t    \"dqCreds\": {},\t    \"startedRunThisInstance\": false\t}",
+      "to": "\t{\t    \"workletCreds\": {},\t    \"dqCreds\": {}\t}",
       "tot": "jsonata"
     }
   ],
@@ -38,7 +38,7 @@ const Node = {
       "bb96674ebd01af04"
     ]
   ],
-  "_order": 237
+  "_order": 242
 }
 
 module.exports = Node;

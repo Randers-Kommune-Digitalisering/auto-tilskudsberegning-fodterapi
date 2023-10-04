@@ -16,7 +16,7 @@ const Node = {
       "t": "set",
       "p": "last",
       "pt": "msg",
-      "to": "#:(storeInFile)::webSettings.currentSession.lastPingMillis",
+      "to": "webSettings.currentSession.lastPingMillis",
       "tot": "global",
       "dc": true
     },
@@ -40,7 +40,7 @@ const Node = {
       "c38a05895faed5f5"
     ]
   ],
-  "_order": 333
+  "_order": 335
 }
 
 module.exports = Node;

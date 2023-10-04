@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "metrics",
+      "to": "metrics.values",
       "tot": "msg"
     }
   ],
@@ -17,14 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1320,
+  "x": 1160,
   "y": 180,
   "wires": [
     [
       "8008a4b9643723c7"
     ]
   ],
-  "_order": 469
+  "_order": 475
 }
 
 module.exports = Node;
