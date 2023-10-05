@@ -2,7 +2,7 @@ const Node = {
   "id": "680fda90ed11473f",
   "type": "template",
   "z": "43652557380ac3f3",
-  "name": "navBar template",
+  "name": "navBar HTML",
   "field": "webElements.navBar.html",
   "fieldType": "msg",
   "format": "handlebars",
@@ -16,17 +16,15 @@ const Node = {
       "99b89b32d8cb3d57"
     ]
   ],
-  "_order": 348
+  "_order": 351
 }
 
 Node.template = `
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
-    <div class="container-fluid">
 
         <a class="navbar-brand randers-logo" href="/start"></a>
-        <a class="navbar-brand randers-titel" href="/start"></a>
 
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav navbar-expand-lg me-auto">
 
             {{#webElements.navBar.items}}
             <li class="nav-item {{active}}">
@@ -35,7 +33,6 @@ Node.template = `
             {{/webElements.navBar.items}}
 
         </ul>
-    </div>
 </nav >
 `
 

@@ -9,20 +9,20 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 630,
+  "x": 950,
   "y": 1240,
   "wires": [
     [
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 355
+  "_order": 358
 }
 
 Node.template = `
 <div class="card-container mb-3">
-    <!-- card-container -->
 
+    <!-- metrics -->
     {{#webElements.metrics}}
     <div class="card border-{{border}}">
         <div class="card-header border-none">
@@ -31,17 +31,24 @@ Node.template = `
         </div>
     </div>
     {{/webElements.metrics}}
+    <!-- /metrics -->
 
-    <!-- /card-container -->
 </div>
-
 <div class="card-container mb-3">
-    <!-- card-container -->
 
+  <!-- run status -->
   {{#webElements.currentRun}}
   <div class="card border-light mb-3">
     <div class="card-header">{{title}}</div>
     <div class="card-body">
+
+      {{#allowRun}}
+      <div class="float-right">
+        <a class="btn btn-primary fs-13 p-3" href="/run" role="button">
+          Fortsæt
+        </a>
+      </div>
+      {{/allowRun}}
 
       <h4 class="card-title">{{statustext}}</h4>
       
@@ -54,31 +61,32 @@ Node.template = `
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
         </div>
       {{/status}}
-
-      <!--div class="float-right">
-        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-          Start kørsel
-        </a>
-      </div>
-      <p class="card-text">Tryk på knappen for at starte en ny kørsel</p-->
-
+      {{^status}}
+      <p class="card-text">
+        {{subtext}}
+      </p>
+      {{/status}}
 
     </div>
   </div>
   {{/webElements.currentRun}}
+  <!-- /run status -->
+
+  <!-- run history -->
   {{#webElements.runHistory}}
   <div class="card border-light mb-3" style="max-width: 20vw">
     <div class="card-header">{{title}}</div>
     <div class="card-body">
 
-      Der blev ikke fundet nogen kørselshistorik.
-
-
+      <p class="card-text">
+        Der blev ikke fundet nogen kørselshistorik.
+      </p>
+      
     </div>
   </div>
   {{/webElements.runHistory}}
+    <!-- /run history -->
 
-    <!-- /card-container -->
 </div>
 `
 

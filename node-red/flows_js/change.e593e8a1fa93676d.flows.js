@@ -17,6 +17,13 @@ const Node = {
       "pt": "msg",
       "to": "$globalContext(\"metrics\") @ $metric . {\t    \"name\": $metric.displayname,\t    \"isAvailable\": $avail := ($metric.value = 1 ? true : false),\t    \"message\": $avail ? \"OK ✔️\" : \"Ingen forbindelse ⭕\",\t    \"border\": $avail ? \"success\" : \"secondary\"\t}",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "webElements.metricErrors",
+      "pt": "msg",
+      "to": "webElements.metrics[isAvailable = false] ~> $exists() ? webElements.metrics[isAvailable = false].name",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -31,7 +38,7 @@ const Node = {
       "87f88a6b75c29d1e"
     ]
   ],
-  "_order": 356
+  "_order": 359
 }
 
 module.exports = Node;

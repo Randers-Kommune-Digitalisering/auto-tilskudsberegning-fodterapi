@@ -17,11 +17,11 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 722
+  "_order": 842
 }
 
 Node.template = `
-var landingPage = "{{{payload.data.page}}}";
+var landingPage = "{{{url}}}";
 var activePage = landingPage;
 var rules = {};
 
@@ -196,10 +196,7 @@ function toJSON(...vars)
 // Handle HTTP responses (all)
 
 function handlePostResponse(responseObject)
-{
-    if(responseObject.requestType != "getPageContent")
-        console.log("Response: \\n"+JSON.stringify(responseObject));
-    
+{    
     // Check if OK
     if (responseObject.statusCode != 200)
         console.log("GET request error code " + responseObject.statusCode);
@@ -210,6 +207,10 @@ function handlePostResponse(responseObject)
         console.log("Public key is unauthorized.");
         getPublicKeyAsync(true).then(key => reloadPage());
     }
+
+    // Check for loadPage property and load
+    if (responseObject.loadPage != null)
+        loadPage(responseObject.loadPage);
 
     // Call function depending on request type
     if (handleResponseDynamically[responseObject.requestType] != null)
@@ -228,7 +229,10 @@ var handleResponseDynamically = [];
 
 handleResponseDynamically['acceptPage'] = function (response)
 {
-    reloadPage();
+    if(response.page != null)
+        loadPage(response.page);
+    else
+        reloadPage();
 }
 
 handleResponseDynamically['startRun'] = function (response)
@@ -289,7 +293,7 @@ function hide(objectId)
 function reloadPage()
 {
     console.log("Reload page works");
-    goToPage(activePage);
+    loadPage(activePage);
 }
 
 function roundNumber(num)

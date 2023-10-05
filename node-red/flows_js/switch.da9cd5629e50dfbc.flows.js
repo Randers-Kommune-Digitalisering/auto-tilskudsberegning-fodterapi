@@ -12,23 +12,55 @@ const Node = {
       "vt": "str"
     },
     {
+      "t": "eq",
+      "v": "run",
+      "vt": "str"
+    },
+    {
+      "t": "eq",
+      "v": "login",
+      "vt": "str"
+    },
+    {
+      "t": "eq",
+      "v": "rules",
+      "vt": "str"
+    },
+    {
+      "t": "eq",
+      "v": "grants",
+      "vt": "str"
+    },
+    {
       "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 2,
+  "outputs": 6,
   "x": 230,
-  "y": 640,
+  "y": 660,
   "wires": [
     [
-      "58a4b00d2969e7cb"
+      "0d18a8e83136d09a"
     ],
     [
-      "511e2168c221811e"
+      "50617191eb70b8cf"
+    ],
+    [
+      "ccc6856c86ac35aa"
+    ],
+    [
+      "952315832f18cf2e"
+    ],
+    [
+      "2e3668a1060fe86a"
+    ],
+    [
+      "b307be185f26686f"
     ]
   ],
-  "_order": 351
+  "_order": 354
 }
 
 module.exports = Node;

@@ -5,9 +5,9 @@ const Node = {
   "name": "Skab HTML",
   "info": "",
   "x": 250,
-  "y": 600,
+  "y": 580,
   "wires": [],
-  "_order": 352
+  "_order": 355
 }
 
 module.exports = Node;

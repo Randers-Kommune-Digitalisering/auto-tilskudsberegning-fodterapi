@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"requestType\": payload.requestType,\t    \"statusCode\": payload.statusCode,\t    \"data\": payload.data\t}",
+      "to": "{\t    \"requestType\": payload.requestType,\t    \"page\": payload.page,\t    \"statusCode\": payload.statusCode,\t    \"data\": payload.data\t}",
       "tot": "jsonata"
     }
   ],
@@ -25,7 +25,7 @@ const Node = {
       "d529fc0a0d82838e"
     ]
   ],
-  "_order": 779
+  "_order": 823
 }
 
 module.exports = Node;

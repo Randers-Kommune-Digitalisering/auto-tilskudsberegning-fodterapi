@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.activePage",
+      "p": "webSettings.state.activePage",
       "pt": "global",
       "to": "start",
       "tot": "str"
@@ -31,7 +31,7 @@ const Node = {
       "c02e24bfe2197802"
     ]
   ],
-  "_order": 269
+  "_order": 277
 }
 
 module.exports = Node;
