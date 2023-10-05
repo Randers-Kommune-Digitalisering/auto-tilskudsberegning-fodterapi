@@ -16,7 +16,7 @@ const Node = {
       "p": "config.schedule_name",
       "pt": "msg",
       "to": "config.schedule_name & \"_\" & config.currentRetryAttempt",
-      "tot": "str"
+      "tot": "jsonata"
     }
   ],
   "action": "",

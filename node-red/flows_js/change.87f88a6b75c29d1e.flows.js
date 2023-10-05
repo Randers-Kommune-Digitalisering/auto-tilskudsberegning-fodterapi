@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "webElements.currentRun",
       "pt": "msg",
-      "to": "(\t    $koersel := true;\t{\t    \"title\": $koersel ? \"Igangværende kørsel\" : \"Start ny kørsel\",\t    \"statustext\": $koersel ? \"Robotten arbejder ...\" : \"Robotten er klar til at køre\",\t    \"status\": $koersel ? {\t        \"text\": \"Henter fakturaer\",\t        \"percentage\": 27\t    }\t}\t)",
+      "to": "(\t    $koersel := false;\t{\t    \"title\": $koersel ? \"Igangværende kørsel\" : \"Start ny kørsel\",\t    \"statustext\": $koersel ? \"Robotten arbejder ...\" : \"Robotten er klar til at køre\",\t    \"status\": $koersel ? {\t        \"text\": \"Henter fakturaer\",\t        \"percentage\": 27\t    }\t}\t)",
       "tot": "jsonata"
     },
     {

@@ -47,7 +47,7 @@ Node.template = `
       
       {{#status}}
         <div class="pl-2 float-left">{{text}}</div>
-        <div class="float-right fw-500">{{percentage}}%</div>
+        <div class="pr-2 float-right fw-500">{{percentage}}%</div>
         <br/>
 
         <div class="progress mb-1" style="height:40px">

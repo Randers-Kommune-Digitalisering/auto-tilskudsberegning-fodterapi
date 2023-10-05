@@ -7,12 +7,12 @@ const Node = {
   "propertyType": "msg",
   "rules": [
     {
-      "t": "else"
-    },
-    {
       "t": "lte",
       "v": "config.retryAttempts",
-      "vt": "str"
+      "vt": "msg"
+    },
+    {
+      "t": "else"
     }
   ],
   "checkall": "true",
