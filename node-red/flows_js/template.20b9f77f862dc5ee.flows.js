@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 766
+  "_order": 769
 }
 
 Node.template = `
@@ -177,6 +177,11 @@ body
 {
     border-bottom: 0px!important;
 }
+a.disabled
+{
+  pointer-events: none;
+  cursor: default;
+}
 
 /* Custom elements */
 .progress-container
@@ -190,11 +195,6 @@ body
     overflow: hidden;
     padding: 0px;
 }
-/*
-.site-container
-{
-}
-*/
 .card-container
 {
     display: flex;

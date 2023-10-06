@@ -13,30 +13,34 @@ const Node = {
   "y": 220,
   "wires": [
     [
-      "34e917bf2931ac16"
+      "34e917bf2931ac16",
+      "c98f7a2ea9c74d12"
     ]
   ],
-  "_order": 467
+  "_order": 469
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  if (msg.payload == null || msg.payload.persondata)
-      return msg;
-  
-  const obj = msg.payload.persondata;
+  const danmark = msg.payload.persondata.danmarkgruppe;
   
   var danmarkNum;
   
-  if (obj.danmarkgruppe.toLowerCase().includes("ja") && obj.danmarkgruppe.includes("1"))
+  if
+  (danmark.toLowerCase().includes("ja")   && danmark.includes("1"))
       danmarkNum = 1;
-  else if (obj.danmarkgruppe.toLowerCase().includes("ja") && obj.danmarkgruppe.includes("2"))
+  
+  else if
+  (danmark.toLowerCase().includes("ja")   && danmark.includes("2"))
       danmarkNum = 2;
-  else if (obj.danmarkgruppe.toLowerCase().includes("ja") && obj.danmarkgruppe.includes("5"))
+  
+  else if
+  (danmark.toLowerCase().includes("ja")   && danmark.includes("5"))
       danmarkNum = 5;
+  
   else
       danmarkNum = 0;
   
-  obj.danmarkgruppe = danmarkNum;
+  msg.payload.persondata.danmarkgruppe = danmarkNum;
       
   return msg;
 }

@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "newRun.dqUser",
       "pt": "msg",
-      "to": "webSettings.dqCreds.dqUser",
+      "to": "webData.dqCreds.dqUser",
       "tot": "global",
       "dc": true
     }
@@ -18,7 +18,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 320,
+  "x": 300,
   "y": 1280,
   "wires": [
     [

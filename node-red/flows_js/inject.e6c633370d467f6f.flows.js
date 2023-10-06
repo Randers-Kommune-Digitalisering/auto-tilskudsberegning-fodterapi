@@ -1,5 +1,5 @@
 const Node = {
-  "id": "2233671b5b71afd8",
+  "id": "e6c633370d467f6f",
   "type": "inject",
   "z": "f99fd88fa65c74b9",
   "name": "",
@@ -19,14 +19,15 @@ const Node = {
   "topic": "",
   "payload": "",
   "payloadType": "date",
-  "x": 620,
-  "y": 4420,
+  "x": 300,
+  "y": 4020,
   "wires": [
     [
-      "712ece20f3a51c58"
+      "b9464ea253a2551c",
+      "7c1680ef17c0e027"
     ]
   ],
-  "_order": 1000
+  "_order": 1002
 }
 
 module.exports = Node;

@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "webElements.currentRun",
       "pt": "msg",
-      "to": "(\t    \t$koersel := false;\t$metricserr := $$.webElements.metricErrors ~> $exists();\t\t{\t    \"title\": $koersel ? \t                \"Igangværende kørsel\" : \t                \"Start ny kørsel\",\t\t    \"statustext\": $koersel ? \t                    \"Robotten arbejder\" : \t                    $metricserr ?\t                        \"Kan ikke oprette forbindelse til \" & $$.webElements.metricErrors :\t                        \"Robotten er klar til at køre\",\t\t    \"subtext\": $metricserr ?\t                    \"Robotten kan ikke køre før forbindelsen genetableres. Prøv igen senere.\" :\t                    \"Tryk på knappen for at starte en ny kørsel.\",\t    \t    \"status\": $koersel ?\t    {\t        \"text\": \"Henter fakturaer\",\t        \"percentage\": 27\t    },\t\t    \"allowRun\": $metricserr = false ? true\t\t}\t)",
+      "to": "(\t    \t$koersel := $globalContext(\"webSettings\").state.isRunning;\t$metricserr := $$.webElements.metricErrors ~> $exists();\t\t{\t    \"title\": $koersel ? \t                \"Igangværende kørsel\" : \t                \"Start ny kørsel\",\t\t    \"statustext\": $koersel ? \t                    \"Robotten arbejder\" : \t                    $metricserr ?\t                        \"Kan ikke oprette forbindelse til \" & $$.webElements.metricErrors :\t                        \"Robotten er klar til at køre\",\t\t    \"subtext\": $metricserr ?\t                    \"Robotten kan ikke køre før forbindelsen genetableres. Prøv igen senere.\" :\t                    \"Tryk på knappen for at starte en ny kørsel.\",\t    \t    \"status\": $koersel ?\t    {\t        \"text\": \"Henter fakturaer\",\t        \"percentage\": 27\t    },\t\t    \"allowRun\": $metricserr = false ? $koersel = false ? true\t\t}\t)",
       "tot": "jsonata"
     },
     {
@@ -25,7 +25,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 450,
-  "y": 1240,
+  "y": 1260,
   "wires": [
     [
       "11d389fe09aac0b0"

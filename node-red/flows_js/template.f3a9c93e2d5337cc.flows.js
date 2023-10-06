@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 842
+  "_order": 844
 }
 
 Node.template = `
@@ -311,16 +311,13 @@ function startRun()
 {
     /* Visual */
 
-    var startButton = document.getElementById("button_startRun");
+    const startButton = document.getElementById("button_startRun");
 
-    startButton.disabled = true;
-    startButton.innerHTML = \`<i class="fa-lg fas fa-spinner fa-spin"></i>\`;
-
-    if (document.getElementById("nav_run") !== null)
-        document.getElementById("nav_run").innerHTML = \`Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>\`;
+    startButton.innerHTML = \`<span class="pr-3 pl-1">KØRER</span><i class="fa-lg fas fa-spinner fa-spin"></i>\`;
+    startButton.classList.add("disabled");
 
     /* Node-red */
-    postRequestAsync("startRun", {}, true);
+    postRequestAsync("startRun");
 
 }
 

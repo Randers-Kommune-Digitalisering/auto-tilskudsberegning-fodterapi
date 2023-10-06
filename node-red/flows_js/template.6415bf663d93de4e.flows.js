@@ -9,7 +9,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 690,
+  "x": 670,
   "y": 1900,
   "wires": [
     [
@@ -37,12 +37,23 @@ Node.template = `
     <div class="card-body">
 
         <div class="float-right">
-            <a class="btn btn-primary fs-13 p-3" onclick="startRun()" role="button">
-            Start kørsel
+            <a class="btn btn-primary fs-13 p-3 {{webElements.runButton.disabled}}" onclick="startRun()" role="button" id="button_startRun">
+                {{#webElements.runButton.disabled}}
+                    <span class="pr-3 pl-1">KØRER</span><i class="fa-lg fas fa-spinner fa-spin"></i>
+                {{/webElements.runButton.disabled}}
+                {{^webElements.runButton.disabled}}
+                    Start kørsel
+                {{/webElements.runButton.disabled}}
             </a>
         </div>
 
-        <p class="card-text">Robotten er nu klar til at køre. Robotten henter fakturaer mellem d. XX/XX-XXXX og d. XX/XX-XXXX.<br />Beslutningsstøtte vil blive fremvist efter kørsel.</p>
+        <h4 class="card-title">Kørselsdetaljer</h4>
+        
+        <p class="card-text d-flex" style="gap: 35px">
+            <span><span class="fw-500">Dato</span>: 06/10-2023 🠖 07/10-2023 <br /></span>
+            <span><span class="fw-500">DQ-bruger</span>: DQA1234</span>
+        </p>
+        
 
     </div>
 </div>

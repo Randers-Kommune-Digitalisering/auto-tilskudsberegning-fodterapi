@@ -6,11 +6,6 @@ const Node = {
   "rules": [
     {
       "t": "delete",
-      "p": "payload",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
       "p": "error",
       "pt": "msg"
     },

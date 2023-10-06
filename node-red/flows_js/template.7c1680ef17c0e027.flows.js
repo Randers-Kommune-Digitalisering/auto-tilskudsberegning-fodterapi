@@ -1,28 +1,26 @@
 const Node = {
-  "id": "712ece20f3a51c58",
+  "id": "7c1680ef17c0e027",
   "type": "template",
   "z": "f99fd88fa65c74b9",
   "name": "",
-  "field": "payload",
+  "field": "sql",
   "fieldType": "msg",
   "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 800,
-  "y": 4420,
+  "x": 500,
+  "y": 4040,
   "wires": [
     [
-      "2ed3c08c124a5fc2"
+      "0230bd822b7f09e2"
     ]
   ],
-  "_order": 1002
+  "_order": 1006
 }
 
 Node.template = `
-{{#global.grants.tilskudsperioder.satser}}
-ja
-{{/global.grants.tilskudsperioder.satser}}
+DROP TABLE receipts
 `
 
 module.exports = Node;

@@ -28,6 +28,11 @@ const Node = {
       "t": "delete",
       "p": "orderby",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "sql",
+      "pt": "msg"
     }
   ],
   "action": "",

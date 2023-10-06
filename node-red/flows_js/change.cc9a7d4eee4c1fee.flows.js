@@ -28,7 +28,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.isRunning",
+      "p": "webSettings.state.isRunning",
       "pt": "global",
       "to": "false",
       "tot": "bool"
@@ -53,7 +53,7 @@ const Node = {
       "71e92ac842a9732a"
     ]
   ],
-  "_order": 788
+  "_order": 791
 }
 
 module.exports = Node;
