@@ -29,7 +29,7 @@ const Node = {
   ],
   "env": [],
   "meta": {},
-  "color": "#DDAA99",
+  "color": "#3FADB5",
   "status": {
     "x": 360,
     "y": 420,

@@ -7,18 +7,10 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "runHistory",
-      "pt": "msg",
-      "to": "$.runHistory~> |$|(\t\t$startDate := $$.currentRun.startDate;\t$endDate := $$.currentRun.endDate;\t\tstartDate = $startDate and endDate = $endDate ?\t{\t    \"allReceiptsProcessed\": true\t}\t\t)|",
-      "tot": "jsonata"
-    },
-    {
-      "t": "set",
-      "p": "runHistory",
-      "pt": "global",
-      "to": "runHistory",
-      "tot": "msg",
-      "dc": true
+      "p": "currentRun.allReceiptsProcessed",
+      "pt": "flow",
+      "to": "true",
+      "tot": "bool"
     }
   ],
   "action": "",
@@ -33,7 +25,7 @@ const Node = {
       "12b427e8e67ad28b"
     ]
   ],
-  "_order": 927
+  "_order": 926
 }
 
 module.exports = Node;
