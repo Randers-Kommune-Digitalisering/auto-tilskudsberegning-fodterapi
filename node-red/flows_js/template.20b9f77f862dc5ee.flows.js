@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 768
+  "_order": 770
 }
 
 Node.template = `
@@ -54,7 +54,12 @@ a:hover
 {
     padding-left:5px;
     padding-right:5px;
-}
+}    
+    .nav-item.active
+    {
+        background-color: #2b5177;
+        border-radius: 5px;
+    }
     .nav-item:not(.active)
     {
         background-color: #ffffff32;
@@ -64,6 +69,7 @@ a:hover
     {
         margin-left: 5px;
     }
+    
 .nav-item:hover
 {
     transition-duration: 200ms;

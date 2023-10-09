@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 843
+  "_order": 845
 }
 
 Node.template = `
@@ -229,7 +229,9 @@ var handleResponseDynamically = [];
 
 handleResponseDynamically['acceptPage'] = function (response)
 {
-    if(response.page != null)
+    if(response.redirect != null)
+        loadPage(response.redirect);
+    else if(response.page != null)
         loadPage(response.page);
     else
         reloadPage();

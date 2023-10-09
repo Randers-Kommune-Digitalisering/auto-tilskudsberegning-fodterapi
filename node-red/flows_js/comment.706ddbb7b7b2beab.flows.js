@@ -4,10 +4,10 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Drop tables",
   "info": "",
-  "x": 290,
-  "y": 3980,
+  "x": 270,
+  "y": 4660,
   "wires": [],
-  "_order": 1001
+  "_order": 1004
 }
 
 module.exports = Node;

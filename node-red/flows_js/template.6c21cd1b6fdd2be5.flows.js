@@ -9,14 +9,14 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 500,
-  "y": 3860,
+  "x": 480,
+  "y": 4540,
   "wires": [
     [
       "d31a8798c093ed42"
     ]
   ],
-  "_order": 983
+  "_order": 986
 }
 
 Node.template = `

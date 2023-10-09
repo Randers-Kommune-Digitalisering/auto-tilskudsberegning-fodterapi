@@ -3,14 +3,14 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "dd8bf1dc973547ed",
-  "name": "Sæt msg.citizens",
+  "name": "Sæt msg.citizens \\n & DQ-sagsbehandler",
   "rules": [
     {
       "t": "move",
       "p": "pupOutputs.navn",
       "pt": "msg",
-      "to": "behandlerNavn",
-      "tot": "msg"
+      "to": "dq_sagsbehandler",
+      "tot": "flow"
     },
     {
       "t": "set",
@@ -26,15 +26,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1110,
-  "y": 1380,
+  "x": 1120,
+  "y": 1400,
   "wires": [
     [
       "70088b9148195653",
       "c401932969daa0d6"
     ]
   ],
-  "_order": 882
+  "_order": 885
 }
 
 module.exports = Node;

@@ -14,9 +14,9 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "errors",
+      "p": "errorList",
       "pt": "msg",
-      "to": "$.errors ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": false,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
+      "to": "$.errorList ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": false,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
       "tot": "jsonata"
     }
   ],
@@ -32,7 +32,7 @@ const Node = {
       "1f4491ab8a2f597d"
     ]
   ],
-  "_order": 923
+  "_order": 926
 }
 
 module.exports = Node;

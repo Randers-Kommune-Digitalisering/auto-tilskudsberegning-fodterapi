@@ -4,10 +4,10 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Set test metrics",
   "info": "",
-  "x": 300,
-  "y": 4260,
+  "x": 280,
+  "y": 4940,
   "wires": [],
-  "_order": 1004
+  "_order": 1007
 }
 
 module.exports = Node;

@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 358
+  "_order": 360
 }
 
 Node.template = `
@@ -34,7 +34,7 @@ Node.template = `
     <!-- /metrics -->
 
 </div>
-<div class="card-container mb-3">
+<div class="card-container mb-3 align-items-start">
 
   <!-- run status card -->
   {{#webElements.currentRun}}

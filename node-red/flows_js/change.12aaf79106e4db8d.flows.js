@@ -21,16 +21,16 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "errors",
+      "p": "errorList",
       "pt": "msg",
-      "to": "$.errors ~> |$|\t{\t    \"cpr\": \t           (cpr ~>\t           $split(\"-\"))[0]\t}\t|",
+      "to": "$.errorList ~> |$|\t{\t    \"cpr\": \t           (cpr ~>\t           $split(\"-\"))[0]\t}\t|",
       "tot": "jsonata"
     },
     {
       "t": "set",
-      "p": "errors",
+      "p": "errorList",
       "pt": "msg",
-      "to": "$.errors ~> |$.faktura|\t{\t    \"patientCPR\": \t           (patientCPR ~>\t           $split(\"-\"))[0]\t}\t|",
+      "to": "$.errorList ~> |$.faktura|\t{\t    \"patientCPR\": \t           (patientCPR ~>\t           $split(\"-\"))[0]\t}\t|",
       "tot": "jsonata"
     }
   ],
@@ -46,7 +46,7 @@ const Node = {
       "b98d2d8505e5a715"
     ]
   ],
-  "_order": 918
+  "_order": 921
 }
 
 module.exports = Node;
