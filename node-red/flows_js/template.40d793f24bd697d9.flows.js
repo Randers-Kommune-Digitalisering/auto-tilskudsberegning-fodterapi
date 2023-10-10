@@ -29,11 +29,10 @@ Node.template = `
         <div class="citizen-info">
             <!-- citizen-info -->
 
-            <ul class="nav nav-tabs" role="tablist" style="padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px">
+            <ul class="nav nav-tabs" role="tablist" style="padding-bottom: 1.2px;margin-right: 5px;border-bottom:0px;gap:0px">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#overblik" aria-selected="true" role="tab">Overblik</a>
+                    <a class="nav-link active mr-0" data-bs-toggle="tab" href="#overblik" aria-selected="true" role="tab">Overblik</a>
                 </li>
-
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" data-bs-toggle="tab" href="#sager" aria-selected="false" tabindex="-1" role="tab">Alle sager</a>
                 </li>
@@ -45,15 +44,26 @@ Node.template = `
                     <!-- -->
                     <h4 class="card-title mb-4">
                         {{payload.cpr}}<small class="text-secondary"> - XXXX</small>
-                        <a href="https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/person/{{payload.tempData.persondata.kpurl}}/overblik" target="_blank">
+                        <a href="https://fagsystem.kommunernespensionssystem.dk/spk-fagsystem/person/{{payload.persondata.kpurl}}/overblik" target="_blank">
                             <span class="float-right text-muted"><i class="fas fa-2xs fa-link"></i></span>
                         </a>
                     </h4>
                     
-                    {{{webElements.receipt.grant}}}
+                    {{#webElements.receipt.grant}}
+                    <div class="mb-3 text-success"><i class="fas fa-check"></i> Bevilget tilskud til fodpleje</div>
+                    {{/webElements.receipt.grant}}
 
                     <div class="d-flex flex-wrap" style="gap: 3px">
-                        {{{payload.tempData.persondata._sager}}}
+                        
+                        {{#webElements.receipt.cases}}
+                        <div class="card border-{{border}}">
+                            <div class="card-header fs-10 pt-1 text-muted text-center" style="height: 22px;text-transform:uppercase">{{type}}</div>
+                            <div class="card-body p-1 text-center">
+                                <p class="card-text fs-13 m-1">{{title}}</p>
+                            </div>
+                        </div>
+                        {{/webElements.receipt.cases}}
+
                     </div>
 
 
@@ -61,17 +71,17 @@ Node.template = `
 
                         <div class="card border-light bg-light mb-2 text-center p-1">
                             <div class="text-secondary fs-10">FORMUE</div>
-                            {{payload.tempData.persondata._formue}}
+                            {{payload.receipt.assets}}
                         </div>
 
                         <div class="card border-light bg-light mb-2 text-center p-1">
                             <div class="text-secondary fs-10">DANMARK</div>
-                            {{payload.tempData.persondata._danmark}}
+                            {{payload.receipt.denmark}}
                         </div>
                         
                         <div class="card border-light bg-light mb-2 text-center p-1">
                             <div class="text-secondary fs-10">TILLÆGSPROCENT</div>
-                            {{payload.tempData.persondata._htillaegsprocent}} %
+                            {{payload.receipt.insurancePercentage}} %
                         </div>
 
                     </div>
@@ -120,9 +130,7 @@ Node.template = `
 
     <div class="pagination-container mt-3">
 
-        <ul class="pagination">
-            {{{payload.tempData._pagination}}}
-        </ul>
+        {{{webElements.receipt.pagination}}}
 
         {{{payload.tempData._archive}}}
 

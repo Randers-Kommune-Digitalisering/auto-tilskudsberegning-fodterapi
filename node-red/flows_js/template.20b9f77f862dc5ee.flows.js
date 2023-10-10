@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 781
+  "_order": 782
 }
 
 Node.template = `
@@ -50,7 +50,7 @@ a:hover
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
-.nav-item
+.nav-item:not(li)
 {
     padding-left:5px;
     padding-right:5px;

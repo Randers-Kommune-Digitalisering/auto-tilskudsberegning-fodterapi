@@ -32,7 +32,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if(countAfterActive < 4 && msg.payload.spec > maxCount-countAfterActive)
       countBeforeActive = maxCount - countAfterActive;
   
-  
   function isArchived (id)
   {
       if (msg.payload.tempDataArray[id] != null && msg.payload.tempDataArray[id] != undefined)
