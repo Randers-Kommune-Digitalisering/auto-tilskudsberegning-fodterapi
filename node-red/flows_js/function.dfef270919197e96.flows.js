@@ -9,21 +9,20 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 1240,
-  "y": 2340,
+  "x": 1000,
+  "y": 2520,
   "wires": [
     [
       "66afcd1514727417"
     ]
   ],
-  "_order": 326
+  "_order": 327
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   if (msg.payload.tempData == undefined || msg.payload.tempData == null ||  msg.payload.tempData.persondata == null)
       return msg;
   
-  msg.payload.tempData._bevilling = msg.payload.tempData.persondata.bevilling ? `<div class="mb-3 text-success"><i class="fas fa-check"></i> Bevilget tilskud til fodpleje</div>` : ``;
   return msg;
 }
 

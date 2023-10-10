@@ -7,21 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload.webSettings.state.isRunning",
-      "pt": "msg",
-      "to": "true",
-      "tot": "bool"
-    },
-    {
-      "t": "set",
       "p": "webSettings.state.isRunning",
-      "pt": "global",
-      "to": "payload.webSettings.state.isRunning",
-      "tot": "msg"
-    },
-    {
-      "t": "set",
-      "p": "webData.startedRunThisInstance",
       "pt": "global",
       "to": "true",
       "tot": "bool"
@@ -39,7 +25,7 @@ const Node = {
       "7e5b15ec5045ca0c"
     ]
   ],
-  "_order": 786
+  "_order": 797
 }
 
 module.exports = Node;

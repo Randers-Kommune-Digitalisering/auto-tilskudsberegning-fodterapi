@@ -9,15 +9,15 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1080,
-  "y": 2600,
+  "x": 840,
+  "y": 2780,
   "wires": [
     [
       "4d85f3207c9d8fa1",
       "88fb35ef462682b4"
     ]
   ],
-  "_order": 275
+  "_order": 276
 }
 
 Node.template = `

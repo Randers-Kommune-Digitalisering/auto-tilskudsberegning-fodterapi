@@ -6,9 +6,9 @@ const Node = {
   "name": "Archive receipt",
   "info": "",
   "x": 460,
-  "y": 1480,
+  "y": 1440,
   "wires": [],
-  "_order": 793
+  "_order": 802
 }
 
 module.exports = Node;

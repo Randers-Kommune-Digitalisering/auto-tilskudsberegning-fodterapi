@@ -32,12 +32,17 @@ const Node = {
       "vt": "str"
     },
     {
+      "t": "eq",
+      "v": "receipts",
+      "vt": "str"
+    },
+    {
       "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 6,
+  "outputs": 7,
   "x": 230,
   "y": 660,
   "wires": [
@@ -57,10 +62,13 @@ const Node = {
       "2e3668a1060fe86a"
     ],
     [
+      "409d4850901a04ab"
+    ],
+    [
       "b307be185f26686f"
     ]
   ],
-  "_order": 356
+  "_order": 357
 }
 
 module.exports = Node;

@@ -4,7 +4,7 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "63492761a85db852",
   "name": "",
-  "property": "#:(storeInFile)::webSettings.state.activePage",
+  "property": "webSettings.state.activePage",
   "propertyType": "global",
   "rules": [
     {
@@ -22,7 +22,7 @@ const Node = {
   "repair": false,
   "outputs": 2,
   "x": 430,
-  "y": 1520,
+  "y": 1480,
   "wires": [
     [
       "0deb9ccc1ccfa1cd",
@@ -33,7 +33,7 @@ const Node = {
       "ed2a14aa9e6944fb"
     ]
   ],
-  "_order": 800
+  "_order": 809
 }
 
 module.exports = Node;

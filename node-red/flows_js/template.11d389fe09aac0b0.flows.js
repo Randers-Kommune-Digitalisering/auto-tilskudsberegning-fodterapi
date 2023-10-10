@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 360
+  "_order": 361
 }
 
 Node.template = `
@@ -79,7 +79,7 @@ Node.template = `
             <div class="card-header">Anbefalede handlinger</div>
             <div class="card-body">
               <h5 class="card-title pl-1">{{count}} fakturaer afventer</h5>
-              <button class="btn btn-lg btn-light border-light" type="button" onclick="loadPage('receipts-action')" style="width:100%">Se fakturaer</button>
+              <button class="btn btn-lg btn-light border-light" type="button" onclick="loadPage('receipts?cat=actions')" style="width:100%">Se fakturaer</button>
             </div>
           </div>
           {{/actions}}
@@ -88,7 +88,7 @@ Node.template = `
             <div class="card-header">Manuel behandling</div>
             <div class="card-body">
               <h5 class="card-title pl-1">{{count}} fakturaer afventer</h5>
-              <button class="btn btn-lg btn-light border-light" type="button" onclick="loadPage('receipts-noaction')" style="width:100%">Se fakturaer</button>
+              <button class="btn btn-lg btn-light border-light" type="button" onclick="loadPage('receipts?cat=noactions')" style="width:100%">Se fakturaer</button>
             </div>
           </div>
           {{/noactions}}

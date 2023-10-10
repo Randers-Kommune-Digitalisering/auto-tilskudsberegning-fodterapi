@@ -3,22 +3,21 @@ const Node = {
   "type": "function",
   "z": "5bb3204aef17c104",
   "g": "8c06b11e392189b4",
-  "name": "Set flow temp MSG object",
+  "name": "Temp MSG object",
   "func": "",
   "outputs": 1,
   "noerr": 0,
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 570,
-  "y": 1340,
+  "x": 710,
+  "y": 1300,
   "wires": [
     [
-      "fb46adcf35f27b62",
       "edab2fa81bd50733"
     ]
   ],
-  "_order": 790
+  "_order": 799
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {

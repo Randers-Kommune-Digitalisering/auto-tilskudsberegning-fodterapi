@@ -5,9 +5,9 @@ const Node = {
   "name": "Finalize run",
   "info": "",
   "x": 430,
-  "y": 1620,
+  "y": 1580,
   "wires": [],
-  "_order": 802
+  "_order": 811
 }
 
 module.exports = Node;

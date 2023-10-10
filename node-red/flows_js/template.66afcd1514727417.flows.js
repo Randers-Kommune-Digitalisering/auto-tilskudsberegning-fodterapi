@@ -9,14 +9,14 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1450,
-  "y": 2340,
+  "x": 1210,
+  "y": 2520,
   "wires": [
     [
       "ae78e3fc89996dac"
     ]
   ],
-  "_order": 262
+  "_order": 263
 }
 
 Node.template = `
@@ -112,15 +112,8 @@ Node.template = `
         </div>
 
         <div>
-            
-            
             {{{payload.tempData._faktura}}}
-
-
         </div>
-
-        
-        
 
         <!-- /receipt-inner -->
     </div>
@@ -128,7 +121,6 @@ Node.template = `
 
     <div class="pagination-container mt-3">
 
-        
         <ul class="pagination">
             {{{payload.tempData._pagination}}}
         </ul>

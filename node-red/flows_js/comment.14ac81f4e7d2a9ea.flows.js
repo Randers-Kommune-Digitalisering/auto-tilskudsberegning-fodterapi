@@ -5,9 +5,9 @@ const Node = {
   "name": "Get public key",
   "info": "",
   "x": 430,
-  "y": 1760,
+  "y": 1720,
   "wires": [],
-  "_order": 809
+  "_order": 818
 }
 
 module.exports = Node;

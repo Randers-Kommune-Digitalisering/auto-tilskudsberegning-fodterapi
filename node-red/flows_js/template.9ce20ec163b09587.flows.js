@@ -16,11 +16,11 @@ const Node = {
       "786b0c46ea500270"
     ]
   ],
-  "_order": 1013
+  "_order": 1022
 }
 
 Node.template = `
-INSERT INTO {{tablename}} (uid, runUid, userProcessed) VALUES {{{queryValues}}};
+INSERT IGNORE INTO {{tablename}} (uid, runUid, userProcessed) VALUES {{{queryValues}}};
 `
 
 module.exports = Node;

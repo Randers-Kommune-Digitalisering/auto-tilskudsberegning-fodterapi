@@ -4,10 +4,10 @@ const Node = {
   "z": "43652557380ac3f3",
   "name": "Rules",
   "info": "",
-  "x": 710,
-  "y": 2540,
+  "x": 470,
+  "y": 2720,
   "wires": [],
-  "_order": 274
+  "_order": 275
 }
 
 module.exports = Node;
