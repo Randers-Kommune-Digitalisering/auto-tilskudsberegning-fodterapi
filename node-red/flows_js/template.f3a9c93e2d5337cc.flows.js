@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 844
+  "_order": 1023
 }
 
 Node.template = `
@@ -244,7 +244,10 @@ handleResponseDynamically['startRun'] = function (response)
 
 handleResponseDynamically['archive'] = function (response)
 {
-    reloadPage();
+    if(response.redirect != null)
+        loadPage(response.redirect);
+    else
+        reloadPage();
 }
 
 handleResponseDynamically['finalize'] = function (response)
@@ -294,8 +297,8 @@ function hide(objectId)
 
 function reloadPage()
 {
-    console.log("Reload page works");
-    loadPage(activePage);
+    location.reload();
+    //loadPage(activePage);
 }
 
 function roundNumber(num)

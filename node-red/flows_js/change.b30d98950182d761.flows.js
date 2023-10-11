@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "(\t    $receipts := $globalContext(\"receipts\");\t    \t    ( [] ~> $append($receipts.actions) ~> $append($receipts.noactions) ) [$$.receipt_id in faktura.id]\t\t)\t",
+      "to": "(\t    $receipts := $globalContext(\"receipts\");\t    \t    $$.receipt_id ~> $exists() ?\t\t        ( [] ~> $append($receipts.actions) ~> $append($receipts.noactions) ) [$$.receipt_id in faktura.id]\t        :\t\t        ( ( [] ~> $append($receipts.actions) ~> $append($receipts.noactions) ) [archived = false] ) ~> $exists() ?\t\t            ( [] ~> $append($receipts.actions) ~> $append($receipts.noactions) ) [archived = false]\t            :\t            ( [] ~> $append($receipts.actions) ~> $append($receipts.noactions) ) [0]\t\t)",
       "tot": "jsonata"
     }
   ],

@@ -11,11 +11,10 @@ const Node = {
   "nodes": [
     "dc33a18300489668",
     "9697a09ec6044615",
-    "7e5b15ec5045ca0c",
-    "71e92ac842a9732a",
-    "cc9a7d4eee4c1fee",
     "df181b0f909372fc",
-    "edab2fa81bd50733"
+    "edab2fa81bd50733",
+    "1d984c5c42fea062",
+    "cc9a7d4eee4c1fee"
   ],
   "x": 354,
   "y": 1219,

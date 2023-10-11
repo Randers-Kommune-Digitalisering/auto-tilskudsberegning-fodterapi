@@ -201,7 +201,7 @@ Node.template = `
         {{{webElements.receipt.pagination}}}
 
         {{#webElements.receipt.archiveButton}}
-            <button id="buttonArchiveReceipt" class="btn btn-lg btn-light border-light" type="button" onclick="postRequestAsync('archive', {'id': '{{id}}'}, true);lockButton(this.id)">Bekræft manuel behandling</button>
+            <button id="buttonArchiveReceipt" class="btn btn-lg btn-light border-light {{disabled}}" type="button" onclick="postRequestAsync('archive', {'id': '{{id}}'}, true);lockButton(this.id)">{{text}}</button>
         {{/webElements.receipt.archiveButton}}
 
     </div>

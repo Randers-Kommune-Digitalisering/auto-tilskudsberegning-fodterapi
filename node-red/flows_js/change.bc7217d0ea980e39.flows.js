@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "(\treq.query.cat in ( $globalContext(\"receipts\") ~> $keys() ) ?\t\t    ( $globalContext(\"receipts\") ~> $lookup(req.query.cat) ) [archived = false]\t\t) [0]",
+      "to": "(\t\treq.query.cat in ( $globalContext(\"receipts\") ~> $keys() ) ?\t\t    (($globalContext(\"receipts\") ~> $lookup(req.query.cat)) [archived = false] ) ~> $exists() ?\t    (($globalContext(\"receipts\") ~> $lookup(req.query.cat)) [archived = false] ) [0]\t    :\t    ($globalContext(\"receipts\") ~> $lookup(req.query.cat)) [($globalContext(\"receipts\") ~> $lookup(req.query.cat) ~> $count())-1]\t\t)",
       "tot": "jsonata"
     }
   ],

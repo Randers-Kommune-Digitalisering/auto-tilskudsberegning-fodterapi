@@ -64,7 +64,7 @@ const Node = {
       "t": "set",
       "p": "webElements.receipt.archiveButton",
       "pt": "msg",
-      "to": "{\t    \"id\": payload.faktura.id,\t    \"disabled\": payload.archived ? \"disabled\"\t}",
+      "to": "{\t    \"id\": payload.faktura.id,\t    \"redirect\": payload.faktura.id in receipts.actions.faktura.id ?\t                    \"receipts?cat=actions\"\t                    :\t                    \"receipts?cat=noactions\",\t    \"disabled\": payload.archived ? \"disabled\",\t    \"text\": payload.archived ? \"Behandling bekræftet\" : \"Bekræft manuel behandling\"\t}",
       "tot": "jsonata"
     }
   ],

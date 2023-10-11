@@ -6,19 +6,11 @@ const Node = {
   "name": "Set response",
   "rules": [
     {
-      "t": "delete",
-      "p": "payload.tempDataArray",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.tempData",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "payload.tempDataLength",
-      "pt": "msg"
+      "t": "set",
+      "p": "payload.requestType",
+      "pt": "msg",
+      "to": "archive",
+      "tot": "str"
     },
     {
       "t": "set",
@@ -40,7 +32,7 @@ const Node = {
       "b0eab8ccef2caa5c"
     ]
   ],
-  "_order": 802
+  "_order": 983
 }
 
 module.exports = Node;

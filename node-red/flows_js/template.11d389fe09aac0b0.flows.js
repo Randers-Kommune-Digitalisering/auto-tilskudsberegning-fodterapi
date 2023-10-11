@@ -51,6 +51,15 @@ Node.template = `
       </div>
       {{/allowRun}}
 
+      <!-- Afslut kørsel -->
+      {{#completeRun}}
+      <div class="float-right">
+        <a class="btn btn-primary fs-13 p-3" href="" role="button" onclick="postRequestAsync('completeRun');lockButton(this.id)">
+          Afslut kørsel
+        </a>
+      </div>
+      {{/completeRun}}
+
       <h4 class="card-title">{{statustext}}</h4>
       
       <!-- Igangværende kørsel status -->

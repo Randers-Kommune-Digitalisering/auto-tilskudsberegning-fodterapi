@@ -2,24 +2,15 @@ const Node = {
   "id": "df181b0f909372fc",
   "type": "change",
   "z": "5bb3204aef17c104",
-  "d": true,
   "g": "8c06b11e392189b4",
   "name": "Set response",
   "rules": [
     {
-      "t": "delete",
-      "p": "tempPayload",
-      "pt": "flow"
-    },
-    {
-      "t": "delete",
-      "p": "tempErrors",
-      "pt": "flow"
-    },
-    {
-      "t": "delete",
-      "p": "tempPayload",
-      "pt": "flow"
+      "t": "set",
+      "p": "payload.page",
+      "pt": "msg",
+      "to": "start",
+      "tot": "str"
     }
   ],
   "action": "",
@@ -28,11 +19,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1470,
-  "y": 1260,
+  "y": 1300,
   "wires": [
-    []
+    [
+      "e5908679bccd13f4"
+    ]
   ],
-  "_order": 797
+  "_order": 981
 }
 
 module.exports = Node;
