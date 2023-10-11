@@ -24,8 +24,8 @@ const Node = {
       "t": "set",
       "p": "payload.page",
       "pt": "msg",
-      "to": "payload.webSettings.state.activePage",
-      "tot": "msg"
+      "to": "webSettings.state.activePage",
+      "tot": "global"
     }
   ],
   "action": "",
@@ -33,14 +33,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1430,
-  "y": 1480,
+  "x": 1350,
+  "y": 1500,
   "wires": [
     [
       "b0eab8ccef2caa5c"
     ]
   ],
-  "_order": 806
+  "_order": 802
 }
 
 module.exports = Node;

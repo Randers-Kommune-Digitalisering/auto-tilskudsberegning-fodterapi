@@ -25,6 +25,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   var isArchived = msg.payload.tempDataArray[msg.payload.spec].archived;
   
   var allIsArchived = true;
+  
   for (var i = 0; i < msg.payload.tempDataArray.length; i++)
       if (!msg.payload.tempDataArray[i].archived)
           allIsArchived = false;

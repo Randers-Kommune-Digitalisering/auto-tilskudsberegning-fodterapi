@@ -200,7 +200,9 @@ Node.template = `
 
         {{{webElements.receipt.pagination}}}
 
-        {{{payload.tempData._archive}}}
+        {{#webElements.receipt.archiveButton}}
+            <button id="buttonArchiveReceipt" class="btn btn-lg btn-light border-light" type="button" onclick="postRequestAsync('archive', {'id': '{{id}}'}, true);lockButton(this.id)">Bekræft manuel behandling</button>
+        {{/webElements.receipt.archiveButton}}
 
     </div>
 

@@ -1,7 +1,8 @@
 const Node = {
-  "id": "15a4a332983b2862",
+  "id": "4a2b1e892f7e12ad",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
+  "z": "5bb3204aef17c104",
+  "g": "63492761a85db852",
   "name": "Forespørgsel \\n variabler",
   "rules": [
     {
@@ -15,8 +16,8 @@ const Node = {
       "t": "set",
       "p": "receiptId",
       "pt": "msg",
-      "to": "1b2c3d4e-5f6a-7890-4321-f6e5d4c3b2a1",
-      "tot": "str"
+      "to": "payload.data.id",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -24,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 410,
-  "y": 4140,
+  "x": 450,
+  "y": 1500,
   "wires": [
     [
-      "eef22b37cc07fa10"
+      "eb42d5596baba5be"
     ]
   ],
-  "_order": 1021
+  "_order": 847
 }
 
 module.exports = Node;

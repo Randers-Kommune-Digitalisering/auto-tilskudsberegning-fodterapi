@@ -59,6 +59,13 @@ const Node = {
       "pt": "msg",
       "to": "payload @ $citizen .\t    $citizen.faktura @ $receipt # $index .\t    {\t        \"id\": $receipt.id,\t        \"nr\": $index+1,\t        \"dato\": $receipt.dato ~> $toMillis() ~> $fromMillis(\"[D01]/[M01]-[Y0001]\"),\t        \"ydernummer\": $receipt.ydernummer != \"ydernummermangler\" ? $receipt.ydernummer,\t        \"behandlinger\": $receipt.behandlinger @ $behandling .\t        {\t            \"ydelsesnummer\": $behandling.ydelsesnummer,\t            \"titel\": $behandling.titel,\t            \"type\": $behandling.type,\t            \"patientAndel\": $behandling.patientAndel,\t            \"sygesikringsAndel\": $behandling.sygesikringsAndel,\t            \"total\": $behandling.pris\t        },\t        \"handlinger\": ($citizen.handlinger[fid = $receipt.id]) @ $handling # $hindex .\t        {\t            \"nr\": $hindex+1,\t            \"handling\": $handling.handling = \"Tilføj ydelse\" ?\t                            $handling.handling & \" - Tilskud gives: \" & $handling.tilskud & \" kr\"\t                        :\t                        $handling.handling = \"Opret sag\" ?\t                            $handling.handling & \" - \" &  ( $handling.type = \"A\" ? \"Udvidet helbredstillæg\" : \"Almindeligt helbredstillæg\" ) & \" (type \" & $handling.type & \")\",\t\t            \"tilskud\": $handling.tilskud\t        },\t        \"total\": $receipt.total\t    }\t",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "webElements.receipt.archiveButton",
+      "pt": "msg",
+      "to": "{\t    \"id\": payload.faktura.id,\t    \"disabled\": payload.archived ? \"disabled\"\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",

@@ -1,7 +1,8 @@
 const Node = {
-  "id": "eef22b37cc07fa10",
+  "id": "e5bc1f6e7cbe963d",
   "type": "template",
-  "z": "f99fd88fa65c74b9",
+  "z": "5bb3204aef17c104",
+  "g": "63492761a85db852",
   "name": "Forespørgsel ↓\\n Sæt faktura som behandlet",
   "field": "sql",
   "fieldType": "msg",
@@ -9,14 +10,14 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 680,
-  "y": 4140,
+  "x": 920,
+  "y": 1500,
   "wires": [
     [
-      "a965f3f07c1bdff0"
+      "6580c205c92d1119"
     ]
   ],
-  "_order": 1019
+  "_order": 846
 }
 
 Node.template = `
