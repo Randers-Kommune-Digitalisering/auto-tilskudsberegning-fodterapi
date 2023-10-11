@@ -5,9 +5,9 @@ const Node = {
   "name": "Receipts",
   "info": "",
   "x": 480,
-  "y": 2280,
+  "y": 2100,
   "wires": [],
-  "_order": 289
+  "_order": 287
 }
 
 module.exports = Node;

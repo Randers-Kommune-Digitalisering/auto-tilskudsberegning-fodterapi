@@ -5,9 +5,9 @@ const Node = {
   "name": "navBar",
   "info": "",
   "x": 230,
-  "y": 420,
+  "y": 240,
   "wires": [],
-  "_order": 345
+  "_order": 338
 }
 
 module.exports = Node;

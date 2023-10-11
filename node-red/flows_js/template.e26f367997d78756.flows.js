@@ -10,13 +10,13 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 1200,
-  "y": 1760,
+  "y": 1580,
   "wires": [
     [
       "91310d5bb018c205"
     ]
   ],
-  "_order": 388
+  "_order": 381
 }
 
 Node.template = `

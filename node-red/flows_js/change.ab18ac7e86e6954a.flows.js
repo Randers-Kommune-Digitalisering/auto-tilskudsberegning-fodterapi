@@ -13,6 +13,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "webElements.receipt.title",
+      "pt": "msg",
+      "to": "payload.recommended ?\t    \"Fakturaer - anbefalede handlinger\" : \"Fakturaer - manuel behandling\"",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "webElements.receipt.grant",
       "pt": "msg",
       "to": "payload.persondata.bevilling ? true",
@@ -22,28 +29,35 @@ const Node = {
       "t": "set",
       "p": "webElements.receipt.cases",
       "pt": "msg",
-      "to": "payload.persondata.sager @ $sag .\t(\t    $sag.titel ~> $lowercase() ~> $contains(\"fod\") or\t    $sag.type ~> $lowercase() ~> $contains(\"helbred\") ?\t    \t{\t    \"title\": $sag.titel ~> $substringBefore(\"(\") ~> $trim(),\t    \"type\": $sag.type,\t    \"border\": $sag.aktiv ?\t                $sag.type ~> $lowercase() ~> $contains(\"almindeligt helbredstillæg\") or\t                $sag.type ~> $lowercase() ~> $contains(\"helbredstillægskort\") ?\t                    \"info\"\t                    :\t                    \"success\"\t                :\t                \"warning\",\t    \"gyldighed\": $sag.aktiv ?\t                    $sag.til ~> $exists() ?\t                        \"Gyldig indtil \" & ( $sag.til ~> $toMillis() ~> $fromMillis(\"[D01]/[M01]-[Y0001]\") )\t                        :\t                        \"Gyldig, ukendt uløbsdato\"\t                        \t                    : \"Gyldighed udløb \" & ( $sag.til ~> $toMillis() ~> $fromMillis(\"[D01]/[M01]-[Y0001]\") )\t}\t)",
+      "to": "payload.persondata.sager @ $sag .\t(\t    $sag.titel ~> $lowercase() ~> $contains(\"fod\") or\t    $sag.type ~> $lowercase() ~> $contains(\"helbred\") ?\t    \t{\t    \"title\": $sag.titel ~> $substringBefore(\"(\") ~> $trim(),\t    \"type\": $sag.type,\t    \"border\": $sag.aktiv ?\t                $sag.type ~> $lowercase() ~> $contains(\"almindeligt helbredstillæg\") or\t                $sag.type ~> $lowercase() ~> $contains(\"helbredstillægskort\") ?\t                    \"info\"\t                    :\t                    \"success\"\t                :\t                \"warning\",\t    \"gyldighed\": $sag.aktiv ?\t                    $sag.til ~> $exists() ?\t                        \"Gyldig indtil \" & ( $sag.til ~> $toMillis() ~> $fromMillis(\"[D01]/[M01]-[Y0001]\") )\t                        :\t                        \"Gyldig, ukendt uløbsdato\"\t                        \t                    : \"Gyldighed udløb \" & ( $sag.til ~> $toMillis() ~> $fromMillis(\"[D01]/[M01]-[Y0001]\") ),\t    \"fra\": $sag.fra,\t    \"til\": $sag.til\t}\t)",
       "tot": "jsonata"
     },
     {
       "t": "set",
-      "p": "payload.receipt.assets",
+      "p": "webElements.receipt.assets",
       "pt": "msg",
       "to": "payload.persondata.formue ~> $exists() ?\t    payload.persondata.formue ~> $type() = \"number\" ?\t        (( payload.persondata.formue ~> $formatNumber('#,###')) ~> $replace(\",\", \".\")) & \" kr\"\t        :\t        \"Tjek KP\"\t    :\t    \"Ikke oplyst\"",
       "tot": "jsonata"
     },
     {
       "t": "set",
-      "p": "payload.receipt.denmark",
+      "p": "webElements.receipt.denmark",
       "pt": "msg",
       "to": "payload.persondata.danmarkgruppe ~> $exists() ?\t\t    payload.persondata.danmarkgruppe = 0 ?\t        \"Ej medlem\"\t        :\t        \"Gruppe \" & payload.persondata.danmarkgruppe\t    :\t    \"Ikke oplyst\"",
       "tot": "jsonata"
     },
     {
       "t": "set",
-      "p": "payload.receipt.insurancePercentage",
+      "p": "webElements.receipt.insurancePercentage",
       "pt": "msg",
       "to": "payload.faktura._helbredstillaegsprocent ~> $exists() ?\t\t    payload.faktura._helbredstillaegsprocent ~> $type() = \"array\" ?\t\t        payload.faktura._helbredstillaegsprocent[0].tillaegsprocent\t        :\t        payload.faktura._helbredstillaegsprocent.tillaegsprocent\t        \t    :\t    0",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "webElements.receipt.receipts",
+      "pt": "msg",
+      "to": "payload @ $citizen .\t    $citizen.faktura @ $receipt # $index .\t    {\t        \"id\": $receipt.id,\t        \"nr\": $index+1,\t        \"dato\": $receipt.dato ~> $toMillis() ~> $fromMillis(\"[D01]/[M01]-[Y0001]\"),\t        \"ydernummer\": $receipt.ydernummer != \"ydernummermangler\" ? $receipt.ydernummer,\t        \"behandlinger\": $receipt.behandlinger @ $behandling .\t        {\t            \"ydelsesnummer\": $behandling.ydelsesnummer,\t            \"titel\": $behandling.titel,\t            \"type\": $behandling.type,\t            \"patientAndel\": $behandling.patientAndel,\t            \"sygesikringsAndel\": $behandling.sygesikringsAndel,\t            \"total\": $behandling.pris\t        },\t        \"handlinger\": ($citizen.handlinger[fid = $receipt.id]) @ $handling # $hindex .\t        {\t            \"nr\": $hindex+1,\t            \"handling\": $handling.handling = \"Tilføj ydelse\" ?\t                            $handling.handling & \" - Tilskud gives: \" & $handling.tilskud & \" kr\"\t                        :\t                        $handling.handling = \"Opret sag\" ?\t                            $handling.handling & \" - \" &  ( $handling.type = \"A\" ? \"Udvidet helbredstillæg\" : \"Almindeligt helbredstillæg\" ) & \" (type \" & $handling.type & \")\",\t\t            \"tilskud\": $handling.tilskud\t        },\t        \"total\": $receipt.total\t    }\t",
       "tot": "jsonata"
     }
   ],
@@ -53,14 +67,14 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 790,
-  "y": 2040,
+  "y": 1860,
   "wires": [
     [
       "34a22fef0a170d75",
       "c316a7acfbd673fa"
     ]
   ],
-  "_order": 412
+  "_order": 405
 }
 
 module.exports = Node;

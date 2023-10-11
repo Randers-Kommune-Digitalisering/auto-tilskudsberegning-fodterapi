@@ -6,11 +6,11 @@ const Node = {
   "category": "",
   "in": [
     {
-      "x": 60,
-      "y": 120,
+      "x": 80,
+      "y": 160,
       "wires": [
         {
-          "id": "ca1512ac46ac7b9a"
+          "id": "b1903faba20bc63a"
         }
       ]
     }
@@ -18,7 +18,7 @@ const Node = {
   "out": [
     {
       "x": 800,
-      "y": 980,
+      "y": 800,
       "wires": [
         {
           "id": "ab7c214699fe9ae7",

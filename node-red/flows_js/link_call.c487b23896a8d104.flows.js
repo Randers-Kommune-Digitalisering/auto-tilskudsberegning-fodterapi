@@ -9,13 +9,13 @@ const Node = {
   "linkType": "static",
   "timeout": "30",
   "x": 510,
-  "y": 700,
+  "y": 520,
   "wires": [
     [
       "0fabc7eb977824ee"
     ]
   ],
-  "_order": 375
+  "_order": 368
 }
 
 module.exports = Node;

@@ -5,13 +5,13 @@ const Node = {
   "name": "IN: Receipts",
   "links": [],
   "x": 115,
-  "y": 2040,
+  "y": 1860,
   "wires": [
     [
       "6f7370df29e3187f"
     ]
   ],
-  "_order": 406
+  "_order": 399
 }
 
 module.exports = Node;
