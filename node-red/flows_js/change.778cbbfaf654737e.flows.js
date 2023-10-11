@@ -6,11 +6,18 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "newRun.dqUser",
+      "p": "dqUser",
       "pt": "msg",
       "to": "webData.dqCreds.dqUser",
       "tot": "global",
       "dc": true
+    },
+    {
+      "t": "set",
+      "p": "newRun.dqUser",
+      "pt": "msg",
+      "to": "",
+      "tot": "str"
     }
   ],
   "action": "",
@@ -25,7 +32,7 @@ const Node = {
       "72546cac20915b24"
     ]
   ],
-  "_order": 437
+  "_order": 434
 }
 
 module.exports = Node;

@@ -3,14 +3,14 @@ const Node = {
   "type": "switch",
   "z": "db94b4c117de2f6a",
   "name": "",
-  "property": "webSettings",
-  "propertyType": "global",
+  "property": "\"isRunning\" in ($globalContext(\"webSettings\").state ~> $keys())",
+  "propertyType": "jsonata",
   "rules": [
     {
-      "t": "nempty"
+      "t": "true"
     },
     {
-      "t": "else"
+      "t": "false"
     }
   ],
   "checkall": "true",
@@ -26,7 +26,7 @@ const Node = {
       "88e4c1ff6d0333f9"
     ]
   ],
-  "_order": 254
+  "_order": 251
 }
 
 module.exports = Node;

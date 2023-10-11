@@ -8,15 +8,15 @@ const Node = {
       "t": "set",
       "p": "tablename",
       "pt": "msg",
-      "to": "receipts",
+      "to": "runHistory",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "receiptId",
+      "p": "runId",
       "pt": "msg",
-      "to": "1b2c3d4e-5f6a-7890-4321-f6e5d4c3b2a1",
-      "tot": "str"
+      "to": "currentRun.uid",
+      "tot": "flow"
     }
   ],
   "action": "",
@@ -31,7 +31,7 @@ const Node = {
       "eef22b37cc07fa10"
     ]
   ],
-  "_order": 938
+  "_order": 932
 }
 
 module.exports = Node;

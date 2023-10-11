@@ -10,20 +10,6 @@ const Node = {
       "pt": "msg",
       "to": "false",
       "tot": "bool"
-    },
-    {
-      "t": "set",
-      "p": "newRun.allReceiptsProcessed",
-      "pt": "msg",
-      "to": "false",
-      "tot": "bool"
-    },
-    {
-      "t": "move",
-      "p": "newRun",
-      "pt": "msg",
-      "to": "payload",
-      "tot": "msg"
     }
   ],
   "action": "",
@@ -38,7 +24,7 @@ const Node = {
       "9656e49e15c33931"
     ]
   ],
-  "_order": 444
+  "_order": 441
 }
 
 module.exports = Node;

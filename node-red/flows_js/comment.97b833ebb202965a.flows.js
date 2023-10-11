@@ -5,10 +5,10 @@ const Node = {
   "g": "0644ae6c3d5c62e8",
   "name": "Flyt data til global",
   "info": "",
-  "x": 1280,
-  "y": 3620,
+  "x": 1100,
+  "y": 3520,
   "wires": [],
-  "_order": 929
+  "_order": 923
 }
 
 module.exports = Node;

@@ -9,7 +9,7 @@ const Node = {
       "t": "move",
       "p": "pupOutputs.navn",
       "pt": "msg",
-      "to": "dq_sagsbehandler",
+      "to": "currentRun.dqUser",
       "tot": "flow"
     },
     {
@@ -34,7 +34,7 @@ const Node = {
       "c401932969daa0d6"
     ]
   ],
-  "_order": 805
+  "_order": 803
 }
 
 module.exports = Node;

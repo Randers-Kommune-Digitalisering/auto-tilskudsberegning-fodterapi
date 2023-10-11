@@ -20,13 +20,6 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "payload.allReceiptsProcessed",
-      "pt": "msg",
-      "to": "payload.allReceiptsProcessed = 1 ? true : false",
-      "tot": "jsonata"
-    },
-    {
-      "t": "set",
       "p": "payload.runFinalized",
       "pt": "msg",
       "to": "payload.runFinalized = 1 ? true : false",
@@ -43,9 +36,18 @@ const Node = {
       "pt": "msg"
     },
     {
-      "t": "delete",
+      "t": "move",
       "p": "payload.userStartedRun",
-      "pt": "msg"
+      "pt": "msg",
+      "to": "payload.dqUser",
+      "tot": "msg"
+    },
+    {
+      "t": "move",
+      "p": "payload",
+      "pt": "msg",
+      "to": "newRun",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -60,7 +62,7 @@ const Node = {
       "ed9ab6596a8a16c7"
     ]
   ],
-  "_order": 443
+  "_order": 440
 }
 
 module.exports = Node;

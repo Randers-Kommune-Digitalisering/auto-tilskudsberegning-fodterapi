@@ -16,11 +16,11 @@ const Node = {
       "a965f3f07c1bdff0"
     ]
   ],
-  "_order": 936
+  "_order": 930
 }
 
 Node.template = `
-UPDATE {{tablename}} SET isProcessed = 1 WHERE uid = '{{receiptId}}'
+UPDATE {{tablename}} SET runFinalized = 1 WHERE uid = '{{runId}}'
 `
 
 module.exports = Node;

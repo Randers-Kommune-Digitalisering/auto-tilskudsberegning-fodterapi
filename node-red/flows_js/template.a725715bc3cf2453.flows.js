@@ -16,7 +16,7 @@ const Node = {
       "85b3eea77617597b"
     ]
   ],
-  "_order": 449
+  "_order": 446
 }
 
 Node.template = `
@@ -26,7 +26,6 @@ CREATE TABLE IF NOT EXISTS {{{tablename}}} (
     lastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     startDate DATE,
     endDate DATE,
-    allReceiptsProcessed BOOL DEFAULT false,
     runFinalized BOOL DEFAULT false,
     userStartedRun VARCHAR(255),
     PRIMARY KEY (uid)

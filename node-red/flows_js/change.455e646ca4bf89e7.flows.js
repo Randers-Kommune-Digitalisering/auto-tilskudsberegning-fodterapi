@@ -28,11 +28,6 @@ const Node = {
       "t": "delete",
       "p": "orderby",
       "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "sql",
-      "pt": "msg"
     }
   ],
   "action": "",
@@ -40,12 +35,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 280,
-  "y": 1560,
+  "x": 1140,
+  "y": 1860,
   "wires": [
     []
   ],
-  "_order": 463
+  "_order": 460
 }
 
 module.exports = Node;

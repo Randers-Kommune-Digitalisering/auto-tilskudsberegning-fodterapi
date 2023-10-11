@@ -11,13 +11,11 @@ const Node = {
     "color": "#7f7f7f"
   },
   "nodes": [
-    "d8fce4eadecd4493",
-    "63ec872a76a39ffb",
-    "87437eca4cc7eec9"
+    "63ec872a76a39ffb"
   ],
   "x": 564,
   "y": 39,
-  "w": 482,
+  "w": 201,
   "h": 82,
   "_order": 23
 }
