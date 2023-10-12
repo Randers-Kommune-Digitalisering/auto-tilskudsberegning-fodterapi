@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "requestType",
+      "p": "payload.requestType",
       "pt": "msg",
       "to": "finalizeRun",
       "tot": "str"
