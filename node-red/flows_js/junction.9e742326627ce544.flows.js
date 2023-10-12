@@ -6,7 +6,8 @@ const Node = {
   "y": 1240,
   "wires": [
     [
-      "2f560d32a3fab2b1"
+      "2f560d32a3fab2b1",
+      "5bae06aa5db3623e"
     ]
   ],
   "_order": 160

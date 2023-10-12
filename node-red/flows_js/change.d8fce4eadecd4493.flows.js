@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"message\": message,\t    \"type\": type,\t    \"title\": title,\t    \"progressTo\": progressTo,\t    \"progressionSpeed\": progressionSpeed\t}",
+      "to": "{\t    \"message\": message,\t    \"type\": type,\t    \"title\": title,\t    \"value\": value\t}",
       "tot": "jsonata"
     }
   ],
@@ -21,7 +21,8 @@ const Node = {
   "y": 140,
   "wires": [
     [
-      "87437eca4cc7eec9"
+      "87437eca4cc7eec9",
+      "5ba692fce5d7e41b"
     ]
   ],
   "_order": 944

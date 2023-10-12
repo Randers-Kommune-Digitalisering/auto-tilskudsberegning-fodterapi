@@ -9,8 +9,8 @@ const Node = {
       "t": "set",
       "p": "message",
       "pt": "msg",
-      "to": "\"Henter persondata fra KP ... \" & percentage & \"%\"",
-      "tot": "jsonata"
+      "to": "Henter persondata fra KP",
+      "tot": "str"
     },
     {
       "t": "set",
@@ -18,6 +18,13 @@ const Node = {
       "pt": "msg",
       "to": "update",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "value",
+      "pt": "msg",
+      "to": "30 + percentage/2",
+      "tot": "jsonata"
     }
   ],
   "action": "",

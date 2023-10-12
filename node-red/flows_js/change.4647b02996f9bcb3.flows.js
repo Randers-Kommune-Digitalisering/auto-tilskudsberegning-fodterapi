@@ -2,7 +2,7 @@ const Node = {
   "id": "4647b02996f9bcb3",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "name": "Send status",
+  "name": "Send status %",
   "rules": [
     {
       "t": "set",
@@ -20,17 +20,10 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "progressTo",
+      "p": "value",
       "pt": "msg",
-      "to": "8",
+      "to": "5",
       "tot": "num"
-    },
-    {
-      "t": "set",
-      "p": "progressionSpeed",
-      "pt": "msg",
-      "to": "8",
-      "tot": "str"
     }
   ],
   "action": "",
@@ -38,12 +31,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 690,
+  "x": 700,
   "y": 300,
   "wires": [
     [
-      "4534159a9562836d",
-      "1e371e11072f5276"
+      "4534159a9562836d"
     ]
   ],
   "_order": 954

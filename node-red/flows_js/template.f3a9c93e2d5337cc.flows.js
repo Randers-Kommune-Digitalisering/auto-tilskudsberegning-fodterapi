@@ -17,13 +17,16 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 1030
+  "_order": 1047
 }
 
 Node.template = `
 var landingPage = "{{{url}}}";
 var activePage = landingPage;
 var rules = {};
+
+var isProgressing;
+var currentProgressionGoal = 0;
 
 //
 // HTTP Request
@@ -420,6 +423,7 @@ function createGrantObj(grantId)
 
 var loadPageFunc = [];
 
+
 loadPageFunc["rules"] = function ()
 {    
     if (!Array.isArray(rules) && Object.keys(rules).length === 0)
@@ -525,58 +529,27 @@ function displayWsMessage(ws)
         if(activePage == "start")
         {
             var pText = document.getElementById("progressionText");
-
             pText.innerHTML = ws.message;
-
-            console.log("WS content: " + JSON.stringify(ws));
+            SetProgress(ws.value);
         } 
 
     }
 
+    else if(ws.type == "reload")
+    {
+        reloadPage();
+    }
 }
-
-var isProgressing;
-var currentProgressionGoal = 0;
 
 function SetProgress(value)
 {
     var pPercentage = document.getElementById("progressionPercentage");
-    pPercentage.innerHTML = (value.toString()).split(".")[0] + "%";
+    pPercentage.innerHTML = Math.round(value) + "%";
 
     var pBar = document.getElementById("progressionBar");
     pBar.setAttribute("aria-valuenow", value);
     pBar.style.width = value + "%";
 }
-
-function StartBarProgression(progressTo, progressionSpeeed)
-{
-    SetProgress(currentProgressionGoal);
-    currentProgressionGoal = progressTo;
-    ProgressBar(progressionSpeeed);
-}
-
-async function ProgressBar(progressionSpeeed)
-{
-    // progressionSpeeed = progression % per second
-    var pBar = document.getElementById("progressionBar");
-    var currentProgression = parseFloat(pBar.getAttribute("aria-valuenow"));
-
-    if (currentProgression >= currentProgressionGoal)
-    {
-        SetProgress(currentProgressionGoal);
-        isProgressing = false;
-        return;
-    }
-
-    setTimeout(() => {
-        SetProgress(currentProgression + progressionSpeeed / 4);
-        ProgressBar(progressionSpeeed);
-    }, 250);
-
-}
-
-if (isProgressing)
-    ProgressBar();
 
 `
 

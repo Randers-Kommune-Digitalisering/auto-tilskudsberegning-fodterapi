@@ -69,7 +69,7 @@ Node.template = `
         <br/>
 
         <div class="progress mb-1" style="height:40px">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressionBar" role="progressbar" aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%"></div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressionBar" role="progressbar" _progressTo="{{progressTo}}" _progressionSpeed="{{progressionSpeed}}" aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%"></div>
         </div>
       {{/status}}
       
