@@ -16,12 +16,12 @@ const Node = {
       "95f19f66d2be42f5"
     ]
   ],
-  "_order": 430
+  "_order": 431
 }
 
 Node.template = `
 INSERT INTO runHistory (startDate, endDate, userStartedRun)
-VALUES ('{{{newRun.startDate}}}', '{{{newRun.endDate}}}', '{{dqUser}}');
+VALUES ('{{{newRun.startDate}}}', '{{{newRun.endDate}}}', '{{newRun.dqUser}}');
 `
 
 module.exports = Node;

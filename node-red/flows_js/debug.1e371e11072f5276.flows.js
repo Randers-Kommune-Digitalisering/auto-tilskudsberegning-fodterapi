@@ -1,8 +1,8 @@
 const Node = {
-  "id": "95f244204f98c6c4",
+  "id": "1e371e11072f5276",
   "type": "debug",
-  "z": "fd98a6615193936d",
-  "name": "debug 30",
+  "z": "f99fd88fa65c74b9",
+  "name": "debug 31",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,10 +11,10 @@ const Node = {
   "targetType": "full",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1100,
-  "y": 1020,
+  "x": 840,
+  "y": 260,
   "wires": [],
-  "_order": 475
+  "_order": 957
 }
 
 module.exports = Node;

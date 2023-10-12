@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 351
+  "_order": 352
 }
 
 Node.template = `
@@ -64,12 +64,12 @@ Node.template = `
       
       <!-- Igangværende kørsel status -->
       {{#status}}
-        <div class="pl-2 float-left">{{text}}</div>
-        <div class="pr-2 float-right fw-500">{{percentage}}%</div>
+        <div class="pl-2 float-left" id="progressionText">{{text}}</div>
+        <div class="pr-2 float-right fw-500" id="progressionPercentage">{{percentage}}%</div>
         <br/>
 
         <div class="progress mb-1" style="height:40px">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressionBar" role="progressbar" aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%"></div>
         </div>
       {{/status}}
       

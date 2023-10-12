@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 964
+  "_order": 971
 }
 
 Node.template = `
@@ -50,11 +50,16 @@ a:hover
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
+ li.nav-item
+{
+    padding-left:10px;
+    padding-right:10px;
+}    
 .nav-item:not(li)
 {
     padding-left:5px;
     padding-right:5px;
-}    
+}   
     .nav-item.active
     {
         background-color: #2b5177;
@@ -64,10 +69,6 @@ a:hover
     {
         background-color: #ffffff32;
         border-radius: 5px;
-    }
-    .nav-item:not(:first-child)
-    {
-        margin-left: 5px;
     }
     
 .nav-item:hover

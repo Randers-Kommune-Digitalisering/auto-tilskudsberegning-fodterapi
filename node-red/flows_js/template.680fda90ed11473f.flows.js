@@ -16,15 +16,15 @@ const Node = {
       "99b89b32d8cb3d57"
     ]
   ],
-  "_order": 344
+  "_order": 345
 }
 
 Node.template = `
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+<nav class="navbar navbar-dark bg-primary justify-content-start align-content-stretch flex-row" style="width: 100%">
 
         <a class="navbar-brand randers-logo" href="/start"></a>
 
-        <ul class="navbar-nav navbar-expand-lg me-auto">
+        <ul class="navbar-nav d-flex flex-row" style="flex-grow: 2;gap: 5px">
 
             {{#webElements.navBar.items}}
             <li class="nav-item {{active}}">

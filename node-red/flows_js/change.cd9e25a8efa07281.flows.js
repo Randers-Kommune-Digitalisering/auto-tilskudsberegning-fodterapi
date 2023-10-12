@@ -1,0 +1,31 @@
+const Node = {
+  "id": "cd9e25a8efa07281",
+  "type": "change",
+  "z": "5bb3204aef17c104",
+  "g": "272cd367299d7d94",
+  "name": "",
+  "rules": [
+    {
+      "t": "set",
+      "p": "metricsLoaded",
+      "pt": "flow",
+      "to": "$millis()",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 1060,
+  "y": 180,
+  "wires": [
+    [
+      "ab7bdec27410419f"
+    ]
+  ],
+  "_order": 1049
+}
+
+module.exports = Node;

@@ -16,7 +16,7 @@ const Node = {
       "acd16792b5aedcb6"
     ]
   ],
-  "_order": 391
+  "_order": 392
 }
 
 Node.template = `
@@ -50,8 +50,7 @@ Node.template = `
         <h4 class="card-title">Kørselsdetaljer</h4>
         
         <p class="card-text d-flex" style="gap: 35px">
-            <span><span class="fw-500">Dato</span>: 06/10-2023 🠖 07/10-2023 <br /></span>
-            <span><span class="fw-500">DQ-bruger</span>: DQA1234</span>
+            <span><span class="fw-500">DQ-bruger</span>: {{global.webData.dqCreds.dqUser}}</span>
         </p>
         
 

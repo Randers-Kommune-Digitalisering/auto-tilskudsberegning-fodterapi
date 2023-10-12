@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 1023
+  "_order": 1030
 }
 
 Node.template = `
@@ -497,9 +497,6 @@ wsConnect();
 
 function displayWsMessage(ws)
 {
-    //console.log("Displaying ws object: " + ws);
-    //console.log("Displaying ws object (stringify): " + JSON.stringify(ws));
-
     if(ws.type == "alert")
     {
         var obj = document.getElementById("alertBox");
@@ -522,19 +519,65 @@ function displayWsMessage(ws)
         document.getElementById("alertBox-body").innerHTML = ws.message;
     }
 
+    /* Update progression bar during run */
     else if(ws.type == "update")
     {
-        var obj = document.getElementById("statusText");
-
-        if(obj != null)
+        if(activePage == "start")
         {
-            obj.classList.remove("hidden");
-            obj.innerHTML = "Status: " + ws.message;
-        }
+            var pText = document.getElementById("progressionText");
+
+            pText.innerHTML = ws.message;
+
+            console.log("WS content: " + JSON.stringify(ws));
+        } 
 
     }
 
 }
+
+var isProgressing;
+var currentProgressionGoal = 0;
+
+function SetProgress(value)
+{
+    var pPercentage = document.getElementById("progressionPercentage");
+    pPercentage.innerHTML = (value.toString()).split(".")[0] + "%";
+
+    var pBar = document.getElementById("progressionBar");
+    pBar.setAttribute("aria-valuenow", value);
+    pBar.style.width = value + "%";
+}
+
+function StartBarProgression(progressTo, progressionSpeeed)
+{
+    SetProgress(currentProgressionGoal);
+    currentProgressionGoal = progressTo;
+    ProgressBar(progressionSpeeed);
+}
+
+async function ProgressBar(progressionSpeeed)
+{
+    // progressionSpeeed = progression % per second
+    var pBar = document.getElementById("progressionBar");
+    var currentProgression = parseFloat(pBar.getAttribute("aria-valuenow"));
+
+    if (currentProgression >= currentProgressionGoal)
+    {
+        SetProgress(currentProgressionGoal);
+        isProgressing = false;
+        return;
+    }
+
+    setTimeout(() => {
+        SetProgress(currentProgression + progressionSpeeed / 4);
+        ProgressBar(progressionSpeeed);
+    }, 250);
+
+}
+
+if (isProgressing)
+    ProgressBar();
+
 `
 
 module.exports = Node;

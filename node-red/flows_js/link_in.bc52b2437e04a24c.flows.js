@@ -3,7 +3,11 @@ const Node = {
   "type": "link in",
   "z": "f99fd88fa65c74b9",
   "name": "Websocket IN",
-  "links": [],
+  "links": [
+    "a42d12f6943cd3f8",
+    "c1076894b88bc81e",
+    "4534159a9562836d"
+  ],
   "x": 1095,
   "y": 140,
   "wires": [
@@ -11,7 +15,7 @@ const Node = {
       "d8fce4eadecd4493"
     ]
   ],
-  "_order": 947
+  "_order": 946
 }
 
 module.exports = Node;
