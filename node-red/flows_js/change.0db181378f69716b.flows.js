@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "webSettings.state.isRunning",
       "pt": "global",
-      "to": "true",
+      "to": "false",
       "tot": "bool"
     }
   ],
@@ -24,7 +24,7 @@ const Node = {
       "d37888a479388c64"
     ]
   ],
-  "_order": 942
+  "_order": 946
 }
 
 module.exports = Node;

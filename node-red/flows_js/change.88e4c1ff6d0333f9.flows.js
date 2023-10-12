@@ -2,7 +2,7 @@ const Node = {
   "id": "88e4c1ff6d0333f9",
   "type": "change",
   "z": "db94b4c117de2f6a",
-  "name": "New setting + webData template",
+  "name": "New webSetting template",
   "rules": [
     {
       "t": "set",
@@ -17,13 +17,6 @@ const Node = {
       "pt": "msg",
       "to": "webSettings",
       "tot": "global"
-    },
-    {
-      "t": "set",
-      "p": "webData",
-      "pt": "global",
-      "to": "\t{\t    \"workletCreds\": {},\t    \"dqCreds\": {}\t}",
-      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -31,14 +24,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 690,
+  "x": 670,
   "y": 160,
   "wires": [
     [
       "bb96674ebd01af04"
     ]
   ],
-  "_order": 251
+  "_order": 254
 }
 
 module.exports = Node;
