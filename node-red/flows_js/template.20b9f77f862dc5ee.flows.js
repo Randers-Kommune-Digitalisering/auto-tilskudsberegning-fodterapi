@@ -10,14 +10,14 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1130,
+  "x": 870,
   "y": 100,
   "wires": [
     [
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 487
+  "_order": 609
 }
 
 Node.template = `
@@ -50,6 +50,30 @@ a:hover
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
+.navbar-nav .nav-item
+{
+    padding-left:10px;
+    padding-right:10px;
+}      
+    .nav-item.active
+    {
+        background-color: #2b5177;
+        border-radius: 5px;
+    }
+    .nav-item:not(.active)
+    {
+        background-color: #ffffff32;
+        border-radius: 5px;
+    }
+    
+.nav-item:hover
+{
+    transition-duration: 200ms;
+}
+    .nav-item:hover:not(.active)
+    {
+        background-color: #ffffff52;
+    }
 .nav-link 
 {
     padding-left: 20px;
@@ -68,22 +92,22 @@ a:hover
 {
     justify-content: stretch;
 }
-.d-flex.justify-stretch > *{
+.d-flex.justify-stretch > *
+{
     flex-grow: 1;
 }
-.page-item.archived .page-link {
+.page-item.archived .page-link
+{
     background-color: #E9F3DB!important;
 }
-.page-item.archived.active .page-link {
+.page-item.archived.active .page-link
+{
     background-color: #D8E1CB!important;
 }
-
-
 body
 {
     background-color: whitesmoke;
 }
-
 
 
 /* Randers design */ 
@@ -95,7 +119,6 @@ body
     width: 200px;
     height: 50px;
 }
-
 
 /* Custom style classes */
 .nav-success 
@@ -154,6 +177,11 @@ body
 {
     border-bottom: 0px!important;
 }
+a.disabled
+{
+  pointer-events: none;
+  cursor: default;
+}
 
 /* Custom elements */
 .progress-container
@@ -167,11 +195,6 @@ body
     overflow: hidden;
     padding: 0px;
 }
-/*
-.site-container
-{
-}
-*/
 .card-container
 {
     display: flex;

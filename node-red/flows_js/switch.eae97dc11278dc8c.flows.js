@@ -3,14 +3,14 @@ const Node = {
   "type": "switch",
   "z": "db94b4c117de2f6a",
   "name": "",
-  "property": "#:(storeInFile)::webSettings",
-  "propertyType": "global",
+  "property": "\"isRunning\" in ($globalContext(\"webSettings\").state ~> $keys())",
+  "propertyType": "jsonata",
   "rules": [
     {
-      "t": "nempty"
+      "t": "true"
     },
     {
-      "t": "else"
+      "t": "false"
     }
   ],
   "checkall": "true",
@@ -20,13 +20,13 @@ const Node = {
   "y": 140,
   "wires": [
     [
-      "c7471e96ad8de5e4"
+      "5aa3eb5b114e0403"
     ],
     [
       "88e4c1ff6d0333f9"
     ]
   ],
-  "_order": 155
+  "_order": 195
 }
 
 module.exports = Node;

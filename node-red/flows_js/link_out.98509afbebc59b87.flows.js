@@ -6,12 +6,12 @@ const Node = {
   "name": "PROMETHEUS Get OUT",
   "mode": "link",
   "links": [
-    "ccce7973e950e189"
+    "27904927e2a618d8"
   ],
-  "x": 695,
-  "y": 140,
+  "x": 595,
+  "y": 180,
   "wires": [],
-  "_order": 556
+  "_order": 657
 }
 
 module.exports = Node;

@@ -10,20 +10,23 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 990,
+  "x": 730,
   "y": 100,
   "wires": [
     [
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 488
+  "_order": 665
 }
 
 Node.template = `
-var landingPage = "{{{payload.data.page}}}";
+var landingPage = "{{{url}}}";
 var activePage = landingPage;
 var rules = {};
+
+var isProgressing;
+var currentProgressionGoal = 0;
 
 //
 // HTTP Request
@@ -180,64 +183,6 @@ async function encryptDataAsync(publicKey, data)
 
 
 //
-/// SET PAGE CONTENT FUNCTION
-//
-
-function goToPage(page)
-{
-    var pageName = "";
-    var paramName = "";
-    var paramValue = "";
-    // Works with 1 param only 
-
-    if(page.includes("?"))
-    {
-        var split = page.split("?");
-        pageName = split[0];
-
-        split = split[1].split("=");
-        paramName = split[0];
-        paramValue = split[1];
-    }
-
-    var obj = {};
-
-    if(pageName == "")
-        obj = {"page": page};
-
-    else
-    {
-        obj = { "page": pageName };
-        obj[paramName] = paramValue;
-    }
-
-    postRequestAsync("getPageContent", obj, true);
-}
-
-function setPageContent(pageObj, setHistory = true)
-{
-    setInnerHTML("fullPage", pageObj.html);
-    document.title = "AutoWorkLet - " + pageObj.title;
-
-    if(setHistory)
-        window.history.pushState({ "page": pageObj }, "", "/" + pageObj.url);
-
-    activePage = pageObj.url;
-
-    if (loadPageFunc[pageObj.url] != null)
-        loadPageFunc[pageObj.url]();
-
-}
-
-window.onpopstate = function (e)
-{
-    if (e.state)
-        setPageContent(e.state.page, false);
-};
-
-
-
-//
 /// NODE-RED INTEGRATION / COMMUNICATION
 //
 
@@ -254,9 +199,8 @@ function toJSON(...vars)
 // Handle HTTP responses (all)
 
 function handlePostResponse(responseObject)
-{
-    if(responseObject.requestType != "getPageContent")
-        console.log("Response: \\n"+JSON.stringify(responseObject));
+{    
+    console.log("HTTP RESPONSE: " + JSON.stringify(responseObject));
     
     // Check if OK
     if (responseObject.statusCode != 200)
@@ -268,6 +212,10 @@ function handlePostResponse(responseObject)
         console.log("Public key is unauthorized.");
         getPublicKeyAsync(true).then(key => reloadPage());
     }
+
+    // Check for loadPage property and load
+    if (responseObject.loadPage != null)
+        loadPage(responseObject.loadPage);
 
     // Call function depending on request type
     if (handleResponseDynamically[responseObject.requestType] != null)
@@ -284,30 +232,32 @@ function handlePostResponse(responseObject)
 
 var handleResponseDynamically = [];
 
-handleResponseDynamically['getPageContent'] = function(response)
-{
-    if(response.data != null)
-        setPageContent(response.data);
-}
-
 handleResponseDynamically['acceptPage'] = function (response)
 {
-    reloadPage();
+    if(response.redirect != null)
+        loadPage(response.redirect);
+    else if(response.page != null)
+        loadPage(response.page);
+    else
+        reloadPage();
 }
 
 handleResponseDynamically['startRun'] = function (response)
 {
-    goToPage("start");
+    loadPage("start");
 }
 
 handleResponseDynamically['archive'] = function (response)
 {
-    reloadPage();
+    if(response.redirect != null)
+        loadPage(response.redirect);
+    else
+        reloadPage();
 }
 
-handleResponseDynamically['finalize'] = function (response)
+handleResponseDynamically['completeRun'] = function (response)
 {
-    goToPage("finalized");
+    reloadPage();
 }
 
 
@@ -316,10 +266,27 @@ handleResponseDynamically['finalize'] = function (response)
 /// GENERIC FUNCTIONS
 //
 
-function lockButton(objectId)
+function loadPage(pageurl)
 {
-    var button = document.getElementById(objectId);
-    button.disabled = true;
+    window.location.href = "/" + pageurl;
+}
+
+function lockButton(objectId, unlock = false)
+{
+
+    const button = document.getElementById(objectId);
+    //startButton.innerHTML = \`<span class="pr-3 pl-1">KØRER</span><i class="fa-lg fas fa-spinner fa-spin"></i>\`;
+
+    if(unlock)
+    {
+        button.classList.remove("disabled");
+        button.disabled = false;
+    }
+    else
+    {
+        button.classList.add("disabled");
+        button.disabled = true;
+    }
 }
 
 function setInnerHTML(objectId, content) {
@@ -347,8 +314,8 @@ function hide(objectId)
 
 function reloadPage()
 {
-    console.log("Reload page works");
-    goToPage(activePage);
+    location.reload();
+    //loadPage(activePage);
 }
 
 function roundNumber(num)
@@ -365,17 +332,13 @@ function roundNumber(num)
 function startRun()
 {
     /* Visual */
+    const startButton = document.getElementById("button_startRun");
 
-    var startButton = document.getElementById("button_startRun");
-
-    startButton.disabled = true;
-    startButton.innerHTML = \`<i class="fa-lg fas fa-spinner fa-spin"></i>\`;
-
-    if (document.getElementById("nav_run") !== null)
-        document.getElementById("nav_run").innerHTML = \`Robotten kører<i class="fa-lg fas fa-spinner fa-spin" style="margin-left: 10px"></i>\`;
+    startButton.innerHTML = \`<span class="pr-3 pl-1">KØRER</span><i class="fa-lg fas fa-spinner fa-spin"></i>\`;
+    startButton.classList.add("disabled");
 
     /* Node-red */
-    postRequestAsync("startRun", {}, true);
+    postRequestAsync("startRun");
 
 }
 
@@ -473,6 +436,7 @@ function createGrantObj(grantId)
 
 var loadPageFunc = [];
 
+
 loadPageFunc["rules"] = function ()
 {    
     if (!Array.isArray(rules) && Object.keys(rules).length === 0)
@@ -550,9 +514,6 @@ wsConnect();
 
 function displayWsMessage(ws)
 {
-    //console.log("Displaying ws object: " + ws);
-    //console.log("Displaying ws object (stringify): " + JSON.stringify(ws));
-
     if(ws.type == "alert")
     {
         var obj = document.getElementById("alertBox");
@@ -575,19 +536,34 @@ function displayWsMessage(ws)
         document.getElementById("alertBox-body").innerHTML = ws.message;
     }
 
+    /* Update progression bar during run */
     else if(ws.type == "update")
     {
-        var obj = document.getElementById("statusText");
-
-        if(obj != null)
+        if(activePage == "start")
         {
-            obj.classList.remove("hidden");
-            obj.innerHTML = "Status: " + ws.message;
-        }
+            var pText = document.getElementById("progressionText");
+            pText.innerHTML = ws.message;
+            SetProgress(ws.value);
+        } 
 
     }
 
+    else if(ws.type == "reload")
+    {
+        reloadPage();
+    }
 }
+
+function SetProgress(value)
+{
+    var pPercentage = document.getElementById("progressionPercentage");
+    pPercentage.innerHTML = Math.round(value) + "%";
+
+    var pBar = document.getElementById("progressionBar");
+    pBar.setAttribute("aria-valuenow", value);
+    pBar.style.width = value + "%";
+}
+
 `
 
 module.exports = Node;

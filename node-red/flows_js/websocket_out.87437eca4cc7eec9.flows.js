@@ -1,15 +1,14 @@
 const Node = {
   "id": "87437eca4cc7eec9",
   "type": "websocket out",
-  "z": "8ea344595d9a442a",
-  "g": "0b13e46f82eeff1c",
+  "z": "f99fd88fa65c74b9",
   "name": "WorkLet WebSocket",
   "server": "13a90a014adf9bc5",
   "client": "",
-  "x": 960,
-  "y": 80,
+  "x": 1460,
+  "y": 140,
   "wires": [],
-  "_order": 312
+  "_order": 565
 }
 
 module.exports = Node;

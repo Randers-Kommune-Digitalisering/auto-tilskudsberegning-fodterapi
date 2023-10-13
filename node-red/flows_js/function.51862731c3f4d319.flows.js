@@ -14,12 +14,12 @@ const Node = {
       "module": "puppeteer"
     }
   ],
-  "x": 610,
-  "y": 620,
+  "x": 250,
+  "y": 1000,
   "wires": [
     []
   ],
-  "_order": 144
+  "_order": 193
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {

@@ -1,7 +1,7 @@
 const Node = {
   "id": "db94b4c117de2f6a",
   "type": "subflow",
-  "name": "Set Settings/Rules/Grants",
+  "name": "Set Settings/Grants",
   "info": "",
   "category": "",
   "in": [
@@ -30,7 +30,7 @@ const Node = {
   "env": [],
   "meta": {},
   "color": "#DDAA99",
-  "_order": 5
+  "_order": 3
 }
 
 module.exports = Node;

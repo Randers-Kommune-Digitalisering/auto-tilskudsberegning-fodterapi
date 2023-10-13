@@ -7,21 +7,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload.webSettings.state.isRunning",
-      "pt": "msg",
-      "to": "true",
-      "tot": "bool"
-    },
-    {
-      "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.isRunning",
-      "pt": "global",
-      "to": "payload.webSettings.state.isRunning",
-      "tot": "msg"
-    },
-    {
-      "t": "set",
-      "p": "webData.startedRunThisInstance",
+      "p": "webSettings.state.isRunning",
       "pt": "global",
       "to": "true",
       "tot": "bool"
@@ -36,10 +22,11 @@ const Node = {
   "y": 1300,
   "wires": [
     [
-      "7e5b15ec5045ca0c"
+      "edab2fa81bd50733",
+      "df181b0f909372fc"
     ]
   ],
-  "_order": 505
+  "_order": 625
 }
 
 module.exports = Node;

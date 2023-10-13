@@ -6,17 +6,18 @@ const Node = {
   "name": "Merge changes",
   "rules": [
     {
-      "t": "move",
-      "p": "#:(storeInFile)::rules",
-      "pt": "global",
-      "to": "payload.rules",
-      "tot": "msg"
+      "t": "set",
+      "p": "payload.rules",
+      "pt": "msg",
+      "to": "rules",
+      "tot": "global",
+      "dc": true
     },
     {
       "t": "set",
       "p": "payload.rules",
       "pt": "msg",
-      "to": "$.payload.rules ~> | $ |\t(\t\t$uid := uid;\t$ruleUpdate :=  $$.payload.data.ruleUpdates[id = $uid];\t\t{        \t        \"operator\": $ruleUpdate.operator,\t        \"value\": $ruleUpdate.value\t})\t\t|",
+      "to": "payload.rules ~> | $ |\t(\t\t$uid := uid;\t$ruleUpdate :=  $$.payload.data.ruleUpdates[id ~> $number = $uid];\t\t{        \t        \"operator\": $ruleUpdate.operator,\t        \"value\": $ruleUpdate.value\t})\t\t|",
       "tot": "jsonata"
     },
     {
@@ -34,11 +35,17 @@ const Node = {
       "tot": "jsonata"
     },
     {
-      "t": "move",
+      "t": "set",
       "p": "rules",
-      "pt": "msg",
-      "to": "#:(storeInFile)::rules",
-      "tot": "global"
+      "pt": "global",
+      "to": "payload.rules",
+      "tot": "msg",
+      "dc": true
+    },
+    {
+      "t": "delete",
+      "p": "payload.rules",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -53,7 +60,7 @@ const Node = {
       "8086c52505c2c8d5"
     ]
   ],
-  "_order": 492
+  "_order": 612
 }
 
 module.exports = Node;

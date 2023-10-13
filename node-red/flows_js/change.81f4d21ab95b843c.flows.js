@@ -25,6 +25,13 @@ const Node = {
       "t": "delete",
       "p": "payload.data",
       "pt": "msg"
+    },
+    {
+      "t": "set",
+      "p": "payload.redirect",
+      "pt": "msg",
+      "to": "(\t    $pageOrder := [\t    \"login\",\t    \"rules\",\t    \"grants\",\t    \"run\"\t    ];\t\t    $$.payload.toAccept ?\t    \t        $pageOrder ~> $map( function($value, $key)\t        {\t            $value = $$.payload.page ?\t                $pageOrder[$key+1]\t        }\t        )\t)",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -39,7 +46,7 @@ const Node = {
       "e5908679bccd13f4"
     ]
   ],
-  "_order": 533
+  "_order": 637
 }
 
 module.exports = Node;

@@ -36,7 +36,7 @@ const Node = {
       "t": "move",
       "p": "payload.grants",
       "pt": "msg",
-      "to": "#:(storeInFile)::grants",
+      "to": "grants",
       "tot": "global"
     }
   ],
@@ -52,7 +52,7 @@ const Node = {
       "c5e60849ee87774c"
     ]
   ],
-  "_order": 160
+  "_order": 197
 }
 
 module.exports = Node;

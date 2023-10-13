@@ -6,12 +6,12 @@ const Node = {
   "name": "Status OUT 2",
   "mode": "link",
   "links": [
-    "63ec872a76a39ffb"
+    "bc52b2437e04a24c"
   ],
   "x": 2075,
   "y": 1080,
   "wires": [],
-  "_order": 540
+  "_order": 644
 }
 
 module.exports = Node;

@@ -7,37 +7,9 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "webData.citizens-actions",
-      "pt": "global",
-      "to": "payload",
-      "tot": "jsonata",
-      "dc": true
-    },
-    {
-      "t": "set",
-      "p": "webData.citizens-noactions",
-      "pt": "global",
-      "to": "errors",
-      "tot": "jsonata",
-      "dc": true
-    },
-    {
-      "t": "delete",
-      "p": "errors",
-      "pt": "msg"
-    },
-    {
-      "t": "set",
-      "p": "#:(storeInFile)::webSettings.state.isRunning",
+      "p": "webSettings.state.isRunning",
       "pt": "global",
       "to": "false",
-      "tot": "bool"
-    },
-    {
-      "t": "set",
-      "p": "webSettings.state.isBeingProcessed",
-      "pt": "msg",
-      "to": "true",
       "tot": "bool"
     }
   ],
@@ -46,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1100,
-  "y": 1300,
+  "x": 1020,
+  "y": 1260,
   "wires": [
     [
-      "71e92ac842a9732a"
+      "1d984c5c42fea062"
     ]
   ],
-  "_order": 511
+  "_order": 671
 }
 
 module.exports = Node;

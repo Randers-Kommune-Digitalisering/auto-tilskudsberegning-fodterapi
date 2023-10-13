@@ -1,15 +1,14 @@
 const Node = {
   "id": "d8fce4eadecd4493",
   "type": "change",
-  "z": "8ea344595d9a442a",
-  "g": "0b13e46f82eeff1c",
+  "z": "f99fd88fa65c74b9",
   "name": "Format status",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t\"message\": message, \"type\": type, \"title\": title   \t}",
+      "to": "{\t    \"message\": message,\t    \"type\": type,\t    \"title\": title,\t    \"value\": value\t}",
       "tot": "jsonata"
     }
   ],
@@ -18,14 +17,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 760,
-  "y": 80,
+  "x": 1240,
+  "y": 140,
   "wires": [
     [
-      "87437eca4cc7eec9"
+      "87437eca4cc7eec9",
+      "5ba692fce5d7e41b"
     ]
   ],
-  "_order": 360
+  "_order": 564
 }
 
 module.exports = Node;
