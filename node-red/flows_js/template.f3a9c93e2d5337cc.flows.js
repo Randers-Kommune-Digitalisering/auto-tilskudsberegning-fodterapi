@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 1064
+  "_order": 1026
 }
 
 Node.template = `
@@ -200,6 +200,8 @@ function toJSON(...vars)
 
 function handlePostResponse(responseObject)
 {    
+    console.log("HTTP RESPONSE: " + JSON.stringify(responseObject));
+    
     // Check if OK
     if (responseObject.statusCode != 200)
         console.log("GET request error code " + responseObject.statusCode);
@@ -253,9 +255,9 @@ handleResponseDynamically['archive'] = function (response)
         reloadPage();
 }
 
-handleResponseDynamically['finalize'] = function (response)
+handleResponseDynamically['completeRun'] = function (response)
 {
-    loadPage("finalized");
+    reloadPage();
 }
 
 
@@ -269,10 +271,22 @@ function loadPage(pageurl)
     window.location.href = "/" + pageurl;
 }
 
-function lockButton(objectId)
+function lockButton(objectId, unlock = false)
 {
-    var button = document.getElementById(objectId);
-    button.disabled = true;
+
+    const button = document.getElementById(objectId);
+    //startButton.innerHTML = \`<span class="pr-3 pl-1">KØRER</span><i class="fa-lg fas fa-spinner fa-spin"></i>\`;
+
+    if(unlock)
+    {
+        button.classList.remove("disabled");
+        button.disabled = false;
+    }
+    else
+    {
+        button.classList.add("disabled");
+        button.disabled = true;
+    }
 }
 
 function setInnerHTML(objectId, content) {
@@ -318,7 +332,6 @@ function roundNumber(num)
 function startRun()
 {
     /* Visual */
-
     const startButton = document.getElementById("button_startRun");
 
     startButton.innerHTML = \`<span class="pr-3 pl-1">KØRER</span><i class="fa-lg fas fa-spinner fa-spin"></i>\`;

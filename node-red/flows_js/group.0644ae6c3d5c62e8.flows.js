@@ -4,7 +4,7 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "Tranform 5 - Klargør til UI",
   "style": {
-    "fill": "#ffbfbf",
+    "fill": "#dbcbe7",
     "label": true,
     "fill-opacity": "0.6",
     "color": "#7f7f7f",

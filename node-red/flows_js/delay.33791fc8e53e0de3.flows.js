@@ -4,7 +4,7 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "name": "",
   "pauseType": "delay",
-  "timeout": "5",
+  "timeout": "3",
   "timeoutUnits": "seconds",
   "rate": "1",
   "nbRateUnits": "1",
@@ -22,7 +22,7 @@ const Node = {
       "1d641262f45ce9a8"
     ]
   ],
-  "_order": 985
+  "_order": 954
 }
 
 module.exports = Node;

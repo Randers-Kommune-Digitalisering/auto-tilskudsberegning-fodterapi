@@ -2,6 +2,7 @@ const Node = {
   "id": "87eddff3082dd79d",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "4cee0915c35f0e36",
   "name": "Forespørgsel \\n variabler",
   "rules": [
     {
@@ -33,13 +34,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 510,
-  "y": 3940,
+  "y": 3960,
   "wires": [
     [
       "9ce20ec163b09587"
     ]
   ],
-  "_order": 939
+  "_order": 923
 }
 
 module.exports = Node;

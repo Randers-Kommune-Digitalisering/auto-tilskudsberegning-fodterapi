@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 363
+  "_order": 364
 }
 
 Node.template = `
@@ -54,7 +54,7 @@ Node.template = `
       <!-- Afslut kørsel -->
       {{#completeRun}}
       <div class="float-right">
-        <a class="btn btn-primary fs-13 p-3" href="" role="button" onclick="postRequestAsync('completeRun');lockButton(this.id)">
+        <a class="btn btn-primary fs-13 p-3" role="button" id="completeRunButton" onclick="postRequestAsync('completeRun');lockButton(this.id)">
           Afslut kørsel
         </a>
       </div>

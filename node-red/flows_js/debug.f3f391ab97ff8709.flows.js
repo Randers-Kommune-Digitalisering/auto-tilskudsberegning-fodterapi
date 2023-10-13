@@ -4,18 +4,18 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "272cd367299d7d94",
   "name": "GET",
-  "active": false,
+  "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "true",
-  "targetType": "full",
+  "complete": "url",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
   "x": 730,
   "y": 60,
   "wires": [],
-  "_order": 1047
+  "_order": 1012
 }
 
 module.exports = Node;

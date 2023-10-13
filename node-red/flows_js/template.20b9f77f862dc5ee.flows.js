@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 1005
+  "_order": 970
 }
 
 Node.template = `
@@ -50,16 +50,11 @@ a:hover
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
- li.nav-item
+.navbar-nav .nav-item
 {
     padding-left:10px;
     padding-right:10px;
-}    
-.nav-item:not(li)
-{
-    padding-left:5px;
-    padding-right:5px;
-}   
+}      
     .nav-item.active
     {
         background-color: #2b5177;
@@ -115,7 +110,6 @@ body
 }
 
 
-
 /* Randers design */ 
 .randers-logo {
     background-image: url('https://www.randers.dk/static/logo.svg');
@@ -125,7 +119,6 @@ body
     width: 200px;
     height: 50px;
 }
-
 
 /* Custom style classes */
 .nav-success 

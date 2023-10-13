@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.requestType",
       "pt": "msg",
-      "to": "finalizeRun",
+      "to": "completeRun",
       "tot": "str"
     },
     {
@@ -24,14 +24,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1370,
+  "x": 1350,
   "y": 1680,
   "wires": [
     [
       "7de45ed1590468f4"
     ]
   ],
-  "_order": 1075
+  "_order": 1037
 }
 
 module.exports = Node;
