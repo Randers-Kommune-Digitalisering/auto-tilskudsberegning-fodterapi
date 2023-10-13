@@ -2,12 +2,12 @@ const Node = {
   "id": "8e0612635fce0545",
   "type": "comment",
   "z": "f99fd88fa65c74b9",
-  "name": "Set test metrics",
+  "name": "RESET",
   "info": "",
-  "x": 280,
-  "y": 4940,
+  "x": 70,
+  "y": 4720,
   "wires": [],
-  "_order": 924
+  "_order": 932
 }
 
 module.exports = Node;

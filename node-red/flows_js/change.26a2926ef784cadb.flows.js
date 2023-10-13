@@ -20,13 +20,6 @@ const Node = {
       "pt": "msg",
       "to": "payload[0].uid",
       "tot": "msg"
-    },
-    {
-      "t": "move",
-      "p": "newRun",
-      "pt": "msg",
-      "to": "payload",
-      "tot": "msg"
     }
   ],
   "action": "",
@@ -34,14 +27,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1110,
-  "y": 1620,
+  "x": 1010,
+  "y": 1560,
   "wires": [
     [
-      "455e646ca4bf89e7"
+      "2d8030ce2a820381"
     ]
   ],
-  "_order": 479
+  "_order": 482
 }
 
 module.exports = Node;

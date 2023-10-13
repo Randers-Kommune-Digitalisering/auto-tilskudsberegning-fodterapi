@@ -9,14 +9,14 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "$.payload ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": true,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
+      "to": "$.payload ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": true,\t    \"archived\": $flowContext(\"currentRun\").processedReceipts[$ = $fid] ~> $exists()\t\t})|",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "errorList",
       "pt": "msg",
-      "to": "$.errorList ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": false,\t    \"archived\": $$.currentRun.processedReceipts[$ = $fid] ~> $exists()\t\t})|",
+      "to": "$.errorList ~> | $ |\t(\t    $fid := faktura[0].id;\t    {\t\t    \"recommended\": false,\t    \"archived\": $flowContext(\"currentRun\").processedReceipts[$ = $fid] ~> $exists()\t\t})|",
       "tot": "jsonata"
     }
   ],
@@ -32,7 +32,7 @@ const Node = {
       "12b47dacd4065784"
     ]
   ],
-  "_order": 848
+  "_order": 860
 }
 
 module.exports = Node;

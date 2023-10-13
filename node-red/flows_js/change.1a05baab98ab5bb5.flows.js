@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "message",
       "pt": "msg",
-      "to": "Der skete en fejl ved anmodningen. Prøv igen.",
+      "to": "Der skete en fejl ved anmodningen. Opdater siden og prøv igen.",
       "tot": "str"
     },
     {
@@ -39,7 +39,7 @@ const Node = {
       "d715c7ca9a8313fb"
     ]
   ],
-  "_order": 1028
+  "_order": 1041
 }
 
 module.exports = Node;

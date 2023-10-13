@@ -8,7 +8,7 @@ const Node = {
   "repeat": "",
   "crontab": "",
   "once": true,
-  "onceDelay": "1",
+  "onceDelay": "2",
   "topic": "",
   "x": 140,
   "y": 140,
@@ -17,7 +17,7 @@ const Node = {
       "ebe55fad19bf1114"
     ]
   ],
-  "_order": 907
+  "_order": 919
 }
 
 module.exports = Node;
