@@ -39,11 +39,12 @@ const Node = {
   ],
   "env": [],
   "meta": {},
-  "color": "#DDAA99",
+  "color": "#FDD0A2",
   "outputLabels": [
     "Parsed",
     "Error"
   ],
+  "icon": "node-red/parser-json.svg",
   "_order": 8
 }
 

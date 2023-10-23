@@ -29,7 +29,8 @@ const Node = {
   ],
   "env": [],
   "meta": {},
-  "color": "#DDAA99",
+  "color": "#D8BFD8",
+  "icon": "font-awesome/fa-calculator",
   "_order": 11
 }
 

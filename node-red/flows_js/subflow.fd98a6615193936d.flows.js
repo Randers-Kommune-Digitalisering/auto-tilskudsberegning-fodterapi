@@ -43,11 +43,12 @@ const Node = {
   ],
   "env": [],
   "meta": {},
-  "color": "#DDAA99",
+  "color": "#FDF0C2",
   "outputLabels": [
     "Success",
     "Error"
   ],
+  "icon": "font-awesome/fa-database",
   "_order": 7
 }
 
