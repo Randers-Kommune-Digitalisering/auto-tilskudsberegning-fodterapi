@@ -3,7 +3,7 @@ const Node = {
   "type": "websocket-listener",
   "path": "/ws/worklet",
   "wholemsg": "false",
-  "_order": 158
+  "_order": 154
 }
 
 module.exports = Node;

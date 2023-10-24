@@ -2,7 +2,6 @@ const Node = {
   "id": "5194fc6c80f0bf57",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "d": true,
   "g": "dd8bf1dc973547ed",
   "name": "Sæt msg.citizens",
   "rules": [
@@ -33,7 +32,7 @@ const Node = {
       "3934dae1f2a65428"
     ]
   ],
-  "_order": 454
+  "_order": 450
 }
 
 module.exports = Node;
