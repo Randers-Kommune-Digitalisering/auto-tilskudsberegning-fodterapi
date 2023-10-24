@@ -7,7 +7,7 @@ const Node = {
   "method": "POST",
   "ret": "obj",
   "paytoqs": "ignore",
-  "url": "http://browserless:3000/download?token=null",
+  "url": "browserless:3000/download?token=null",
   "tls": "",
   "persist": false,
   "proxy": "",
