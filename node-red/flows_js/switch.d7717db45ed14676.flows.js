@@ -13,23 +13,31 @@ const Node = {
       "vt": "num"
     },
     {
+      "t": "eq",
+      "v": "0",
+      "vt": "num"
+    },
+    {
       "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 2,
+  "outputs": 3,
   "x": 650,
-  "y": 820,
+  "y": 840,
   "wires": [
     [
       "eb0ffda14742d0d4"
     ],
     [
+      "79fe8a230380ef19"
+    ],
+    [
       "bfecdb8ac081e8aa"
     ]
   ],
-  "_order": 435
+  "_order": 446
 }
 
 module.exports = Node;

@@ -6,10 +6,10 @@ const Node = {
   "name": "WorkLet WebSocket",
   "server": "13a90a014adf9bc5",
   "client": "",
-  "x": 1480,
-  "y": 140,
+  "x": 2150,
+  "y": 160,
   "wires": [],
-  "_order": 556
+  "_order": 560
 }
 
 module.exports = Node;

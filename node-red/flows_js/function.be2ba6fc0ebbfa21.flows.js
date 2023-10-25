@@ -16,7 +16,7 @@ const Node = {
       "34e917bf2931ac16"
     ]
   ],
-  "_order": 353
+  "_order": 356
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -24,6 +24,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   var danmarkNum;
   
+  if
+  (danmark == null)
+      danmarkNum = 0;
+      
   if
   (danmark.toLowerCase().includes("ja")   && danmark.includes("1"))
       danmarkNum = 1;

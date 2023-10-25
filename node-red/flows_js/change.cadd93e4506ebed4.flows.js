@@ -2,12 +2,18 @@ const Node = {
   "id": "cadd93e4506ebed4",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "name": "",
+  "g": "30679eed07d1fb4c",
+  "name": "Delete run data",
   "rules": [
     {
       "t": "delete",
       "p": "webSettings",
-      "pt": "msg"
+      "pt": "global"
+    },
+    {
+      "t": "delete",
+      "p": "currentRun",
+      "pt": "flow"
     }
   ],
   "action": "",
@@ -15,14 +21,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 2150,
-  "y": 280,
+  "x": 1930,
+  "y": 360,
   "wires": [
     [
       "78b31b4b044845c2"
     ]
   ],
-  "_order": 589
+  "_order": 592
 }
 
 module.exports = Node;

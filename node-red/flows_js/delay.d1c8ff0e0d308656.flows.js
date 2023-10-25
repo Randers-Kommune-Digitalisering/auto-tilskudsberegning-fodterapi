@@ -1,8 +1,8 @@
 const Node = {
-  "id": "a7426e0b4bc3d702",
+  "id": "d1c8ff0e0d308656",
   "type": "delay",
   "z": "f99fd88fa65c74b9",
-  "g": "be9daf3e5141b1cb",
+  "g": "947838261d7c3e0b",
   "name": "",
   "pauseType": "delay",
   "timeout": "1",
@@ -16,14 +16,14 @@ const Node = {
   "drop": false,
   "allowrate": false,
   "outputs": 1,
-  "x": 1700,
-  "y": 1540,
+  "x": 1910,
+  "y": 620,
   "wires": [
     [
-      "9e511be739e4961d"
+      "2ebcc085e79fa0fe"
     ]
   ],
-  "_order": 466
+  "_order": 603
 }
 
 module.exports = Node;

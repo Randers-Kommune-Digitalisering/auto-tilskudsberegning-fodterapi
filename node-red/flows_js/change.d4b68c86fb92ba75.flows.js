@@ -2,6 +2,7 @@ const Node = {
   "id": "d4b68c86fb92ba75",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "30679eed07d1fb4c",
   "name": "Send alert",
   "rules": [
     {
@@ -31,14 +32,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1930,
-  "y": 280,
+  "x": 2180,
+  "y": 420,
   "wires": [
     [
-      "cadd93e4506ebed4"
+      "9a241f48583cc63a"
     ]
   ],
-  "_order": 587
+  "_order": 612
 }
 
 module.exports = Node;

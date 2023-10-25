@@ -6,20 +6,6 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload.webSettings",
-      "pt": "msg",
-      "to": "{\t    \"settings\": {\t        \"idleTimeout\": 1800000\t    },\t\t    \"acceptances\": {\t        \"login\": false,\t        \"rules\": false,\t        \"grants\": false\t    },\t\t    \"state\": {\t        \"isRunning\": false\t    }\t    \t}",
-      "tot": "jsonata"
-    },
-    {
-      "t": "move",
-      "p": "payload.webSettings",
-      "pt": "msg",
-      "to": "webSettings",
-      "tot": "global"
-    },
-    {
-      "t": "set",
       "p": "webData",
       "pt": "global",
       "to": "\t{\t    \"workletCreds\": {},\t    \"dqCreds\": {}\t}",
@@ -38,7 +24,7 @@ const Node = {
       "4b11c5de970ad45a"
     ]
   ],
-  "_order": 198
+  "_order": 201
 }
 
 module.exports = Node;

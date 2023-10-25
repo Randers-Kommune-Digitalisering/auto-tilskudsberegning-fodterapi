@@ -2,6 +2,7 @@ const Node = {
   "id": "4e9b3b4f7270c4fb",
   "type": "change",
   "z": "f99fd88fa65c74b9",
+  "g": "30679eed07d1fb4c",
   "name": "Reload web",
   "rules": [
     {
@@ -17,14 +18,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 2410,
-  "y": 340,
+  "x": 2430,
+  "y": 360,
   "wires": [
     [
-      "9a241f48583cc63a"
+      "a3266df483c06c0c",
+      "7ce24aea7b099506"
     ]
   ],
-  "_order": 591
+  "_order": 613
 }
 
 module.exports = Node;
