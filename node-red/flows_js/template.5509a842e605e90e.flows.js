@@ -11,13 +11,13 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 230,
-  "y": 920,
+  "y": 940,
   "wires": [
     [
       "9977c0c7f7b76ce9"
     ]
   ],
-  "_order": 432
+  "_order": 444
 }
 
 Node.template = `
@@ -40,17 +40,13 @@ module.exports = async ({ page }) => {
   await page.waitForSelector("{{{selectors.worklet.datePickerFrom}}}", { waitUntil: 'domcontentloaded', timeout: timeoutMs });
 
   await page.click("{{{selectors.worklet.datePickerFrom}}}", { clickCount: 3 });
-  //await page.evaluate(() => document.querySelector("{{{selectors.worklet.datePickerActive}}}").value = "{{{flow.currentRun.startDate}}}");
   await page.type("{{{selectors.worklet.datePickerActive}}}", "{{{flow.currentRun.startDate}}}");
-  //await page.type("{{{selectors.worklet.datePickerFrom}}}", "{{{flow.currentRun.startDate}}}");
 
   await page.click("{{{selectors.worklet.header}}}");
   await page.waitForSelector("{{{selectors.worklet.datePickerTo}}}", { waitUntil: 'domcontentloaded', timeout: timeoutMs });
 
   await page.click("{{{selectors.worklet.datePickerTo}}}", { clickCount: 3 });
-  //await page.evaluate(() => document.querySelector("{{{selectors.worklet.datePickerActive}}}").value = "{{{flow.currentRun.endDate}}}");
   await page.type("{{{selectors.worklet.datePickerActive}}}", "{{{flow.currentRun.endDate}}}");
-  //await page.type("{{{selectors.worklet.datePickerTo}}}", "{{{flow.currentRun.endDate}}}");
 
   await page.click("{{{selectors.worklet.header}}}");
 

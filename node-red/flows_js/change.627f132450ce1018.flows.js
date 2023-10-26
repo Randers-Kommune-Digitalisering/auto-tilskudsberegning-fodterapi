@@ -1,22 +1,15 @@
 const Node = {
-  "id": "50c16bbc466fce3d",
+  "id": "627f132450ce1018",
   "type": "change",
   "z": "f99fd88fa65c74b9",
-  "g": "eca9722584206eca",
-  "name": "Send status",
+  "g": "947838261d7c3e0b",
+  "name": "Reload web",
   "rules": [
-    {
-      "t": "set",
-      "p": "message",
-      "pt": "msg",
-      "to": "Færdiggører ...",
-      "tot": "str"
-    },
     {
       "t": "set",
       "p": "type",
       "pt": "msg",
-      "to": "update",
+      "to": "reload",
       "tot": "str"
     }
   ],
@@ -25,14 +18,15 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 2010,
-  "y": 3000,
+  "x": 2430,
+  "y": 560,
   "wires": [
     [
-      "1b061f69a24808eb"
+      "662b30053a04321a",
+      "d1c8ff0e0d308656"
     ]
   ],
-  "_order": 501
+  "_order": 609
 }
 
 module.exports = Node;

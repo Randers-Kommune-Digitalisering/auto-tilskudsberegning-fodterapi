@@ -8,6 +8,11 @@ const Node = {
   "propertyType": "msg",
   "rules": [
     {
+      "t": "gt",
+      "v": "3",
+      "vt": "str"
+    },
+    {
       "t": "lte",
       "v": "3",
       "vt": "str"
@@ -15,15 +20,18 @@ const Node = {
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 1,
-  "x": 990,
-  "y": 940,
+  "outputs": 2,
+  "x": 950,
+  "y": 1000,
   "wires": [
+    [
+      "46431ba6d8f703be"
+    ],
     [
       "8bd4c55a7ab8fe8c"
     ]
   ],
-  "_order": 447
+  "_order": 459
 }
 
 module.exports = Node;

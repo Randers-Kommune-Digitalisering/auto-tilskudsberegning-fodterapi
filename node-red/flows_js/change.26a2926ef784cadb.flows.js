@@ -2,7 +2,7 @@ const Node = {
   "id": "26a2926ef784cadb",
   "type": "change",
   "z": "fd98a6615193936d",
-  "name": "Rens svar \\n + Flyt newRun til payload",
+  "name": "Rens svar + \\n Flyt UID til newRun",
   "rules": [
     {
       "t": "delete",
@@ -27,14 +27,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1010,
+  "x": 990,
   "y": 1560,
   "wires": [
     [
       "2d8030ce2a820381"
     ]
   ],
-  "_order": 336
+  "_order": 340
 }
 
 module.exports = Node;

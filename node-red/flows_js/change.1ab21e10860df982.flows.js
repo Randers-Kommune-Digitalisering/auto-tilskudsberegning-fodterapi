@@ -1,7 +1,7 @@
 const Node = {
   "id": "1ab21e10860df982",
   "type": "change",
-  "z": "5bb3204aef17c104",
+  "z": "d5ad1717f0162041",
   "name": "Slet receipts",
   "rules": [
     {
@@ -15,14 +15,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1350,
-  "y": 1640,
+  "x": 1110,
+  "y": 80,
   "wires": [
-    [
-      "a3f0ed2b48640728"
-    ]
+    []
   ],
-  "_order": 665
+  "_order": 428
 }
 
 module.exports = Node;

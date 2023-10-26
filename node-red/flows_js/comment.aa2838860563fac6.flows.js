@@ -6,9 +6,9 @@ const Node = {
   "name": "[E] Download fakturaer for den bestemte tidsperiode",
   "info": "",
   "x": 330,
-  "y": 780,
+  "y": 800,
   "wires": [],
-  "_order": 430
+  "_order": 442
 }
 
 module.exports = Node;

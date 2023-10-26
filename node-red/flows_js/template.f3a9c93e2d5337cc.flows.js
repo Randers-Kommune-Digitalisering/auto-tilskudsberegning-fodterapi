@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 652
+  "_order": 684
 }
 
 Node.template = `
@@ -514,13 +514,14 @@ wsConnect();
 
 function displayWsMessage(ws)
 {
-    if(ws.type == "alert")
+    if (ws.type == "alert" || ws.type == "message")
     {
+        var alertType = ws.type == "alert" ? "warning" : "info";
         var obj = document.getElementById("alertBox");
 
         if (obj == null) {
             var html = \`
-            <div class="alert alert-dismissible alert-warning" id="alertBox">
+            <div class="alert alert-dismissible alert-\`+ alertType +\`" id="alertBox">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading" id="alertBox-heading">\` + ws.title + \`</h4>
                 <p class="mb-0" id="alertBox-body">\` + ws.msg + \`</p>
@@ -529,7 +530,10 @@ function displayWsMessage(ws)
             return;
         }
 
-        obj.classList.add("alert-warning");
+        obj.classList.remove("alert-warning");
+        obj.classList.remove("alert-info");
+        
+        obj.classList.add("alert-" + alertType);
         obj.classList.remove("hidden");
 
         document.getElementById("alertBox-heading").innerHTML = ws.title;

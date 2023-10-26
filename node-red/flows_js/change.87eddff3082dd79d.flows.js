@@ -14,17 +14,9 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "dqUser",
-      "pt": "msg",
-      "to": "currentRun.dqUser",
-      "tot": "flow",
-      "dc": true
-    },
-    {
-      "t": "set",
       "p": "queryValues",
       "pt": "msg",
-      "to": "( [] ~>$append ( receipts.actions ) ~>$append ( receipts.noactions ) ) ~> $map( function($value, $key)\t{\t    \"('\"\t    & $value.faktura.id\t    & \"', \"\t    & $flowContext(\"currentRun\").uid\t    & \", '\"\t    & $$.dqUser\t    & \"')\"\t})\t~> $join(\",\")",
+      "to": "( [] ~>$append ( receipts.actions ) ~>$append ( receipts.noactions ) ) ~> $map( function($value, $key)\t{\t    \"('\"\t    & $value.faktura.id\t    & \"', \"\t    & $flowContext(\"currentRun\").uid\t    & \", '\"\t    & $flowContext(\"currentRun\").dqUser\t    & \"')\"\t})\t~> $join(\",\")",
       "tot": "jsonata"
     }
   ],
@@ -40,7 +32,7 @@ const Node = {
       "9ce20ec163b09587"
     ]
   ],
-  "_order": 552
+  "_order": 557
 }
 
 module.exports = Node;

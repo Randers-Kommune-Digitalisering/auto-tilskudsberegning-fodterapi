@@ -6,18 +6,18 @@ const Node = {
   "category": "",
   "in": [
     {
-      "x": 160,
+      "x": 80,
       "y": 140,
       "wires": [
         {
-          "id": "0b2574d9c0b9bef9"
+          "id": "7e31f0623a4cb539"
         }
       ]
     }
   ],
   "out": [
     {
-      "x": 1000,
+      "x": 1100,
       "y": 140,
       "wires": [
         {
@@ -31,7 +31,7 @@ const Node = {
   "meta": {},
   "color": "#3FADB5",
   "status": {
-    "x": 360,
+    "x": 460,
     "y": 420,
     "wires": [
       {
