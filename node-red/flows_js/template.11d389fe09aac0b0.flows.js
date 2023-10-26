@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 221
+  "_order": 222
 }
 
 Node.template = `
@@ -115,7 +115,7 @@ Node.template = `
     <div class="card-header">{{title}}</div>
     <div class="card-body">
 
-      <p class="card-text">
+      <p class="card-text" id="run-history-text">
         Der blev ikke fundet nogen kørselshistorik.
       </p>
       

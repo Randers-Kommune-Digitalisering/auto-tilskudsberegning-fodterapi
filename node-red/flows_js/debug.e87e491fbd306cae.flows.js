@@ -1,0 +1,20 @@
+const Node = {
+  "id": "e87e491fbd306cae",
+  "type": "debug",
+  "z": "5bb3204aef17c104",
+  "name": "debug 2",
+  "active": true,
+  "tosidebar": true,
+  "console": false,
+  "tostatus": false,
+  "complete": "payload",
+  "targetType": "msg",
+  "statusVal": "",
+  "statusType": "auto",
+  "x": 1280,
+  "y": 1980,
+  "wires": [],
+  "_order": 711
+}
+
+module.exports = Node;

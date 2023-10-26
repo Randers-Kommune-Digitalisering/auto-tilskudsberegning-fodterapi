@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload.data.rules",
       "pt": "msg",
-      "to": "#:(storeInFile)::rules",
+      "to": "rules",
       "tot": "global",
       "dc": true
     }
@@ -19,13 +19,13 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 460,
-  "y": 1920,
+  "y": 1780,
   "wires": [
     [
       "73f3dabb0c5576f5"
     ]
   ],
-  "_order": 673
+  "_order": 674
 }
 
 module.exports = Node;

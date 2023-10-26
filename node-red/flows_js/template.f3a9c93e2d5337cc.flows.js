@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 684
+  "_order": 685
 }
 
 Node.template = `
@@ -450,14 +450,14 @@ loadPageFunc["rules"] = function ()
 
 }
 
-loadPageFunc["run-history"] = function ()
+loadPageFunc["start"] = function ()
 {
-    const tds = document.getElementsByClassName("isFinalized");
-    console.log("Found " + tds.length);
-    for (let index = 0; index < tds.length; index++) {
-        const element = tds[index];
-        element.innerHTML = element.innerHTML == "true" ? "Ja" : "Nej";
-    }
+    var obj = document.getElementById("run-history-text");
+    postRequestAsync("getRunHistory", {}, false)
+        .then(response => {
+           console.log("Response: " + JSON.stringify(response));
+            obj.innerHTML = response.data;
+        });
 }
 
 if (loadPageFunc[landingPage] != null)
