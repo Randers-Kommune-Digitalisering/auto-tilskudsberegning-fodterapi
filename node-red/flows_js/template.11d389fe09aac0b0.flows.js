@@ -113,13 +113,35 @@ Node.template = `
   {{#webElements.runHistory}}
   <div class="card border-light mb-3" style="max-width: 20vw">
     <div class="card-header">{{title}}</div>
-    <div class="card-body">
-
-      <p class="card-text" id="run-history-text">
-        Der blev ikke fundet nogen kørselshistorik.
-      </p>
       
-    </div>
+      {{^history}}
+      <div class="card-body" id="run-history-text" loadme="false">
+        Ingen kørselshistorik.
+      </div>
+      {{/history}}
+
+      {{#history}}
+      <div class="card-body" id="run-history-text" loadme="false">
+        <div class="card p-2">
+            <div class="card-text pb-3">
+              <span class="badge bg-secondary">
+                Kørsel #{{uid}}
+              </span>
+              <span class="float-right">
+                {{lastUpdated}}
+              </span>
+            </div>
+
+            <h6 class="card-subtitle text-muted">
+              {{runFinalized}}
+              <span class="float-right">
+                {{userStartedRun}}
+              </span>
+            </h6>
+        </div>
+      </div>
+      {{/history}}
+      
   </div>
   {{/webElements.runHistory}}
     <!-- /run history -->

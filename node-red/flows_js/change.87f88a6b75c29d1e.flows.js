@@ -15,8 +15,8 @@ const Node = {
       "t": "set",
       "p": "webElements.runHistory",
       "pt": "msg",
-      "to": "{\"title\":\"Kørselshistorik\",\"lastRun\":\"24/09-2023\"}",
-      "tot": "json"
+      "to": "{\t   \"title\":\"Kørselshistorik\",\t   \"history\": $globalContext(\"runHistory\")\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -24,11 +24,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 450,
+  "x": 470,
   "y": 1080,
   "wires": [
     [
-      "11d389fe09aac0b0"
+      "11d389fe09aac0b0",
+      "a560f27458a174c1"
     ]
   ],
   "_order": 224
