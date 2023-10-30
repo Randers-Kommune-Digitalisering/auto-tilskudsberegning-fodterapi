@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 219
+  "_order": 218
 }
 
 Node.template = `
@@ -76,7 +76,7 @@ Node.template = `
       <!-- Subtekst: Klar til kørsel / Afventer forbindelse -->
       {{^status}}
       <p class="card-text">
-        {{subtext}}
+        {{{subtext}}}
       </p>
       {{/status}}
 

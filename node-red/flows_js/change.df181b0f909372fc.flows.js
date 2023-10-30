@@ -11,6 +11,13 @@ const Node = {
       "pt": "msg",
       "to": "start",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "payload.statusCode",
+      "pt": "msg",
+      "to": "200",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -18,14 +25,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1470,
+  "x": 1450,
   "y": 1300,
   "wires": [
     [
       "e5908679bccd13f4"
     ]
   ],
-  "_order": 657
+  "_order": 651
 }
 
 module.exports = Node;
