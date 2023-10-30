@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 219
+  "_order": 220
 }
 
 Node.template = `
@@ -114,14 +114,12 @@ Node.template = `
   <div class="card border-light mb-3" style="max-width: 20vw">
     <div class="card-header">{{title}}</div>
       
+      <div class="card-body" id="run-history-text">
       {{^history}}
         Ingen kørselshistorik.
       {{/history}}
-
-      
-      <div class="card-body" id="run-history-text" loadme="false">
       {{#history}}
-        <div class="card p-2">
+        <div class="historyItem">
             <div class="card-text pb-3">
               <span class="badge bg-secondary">
                 Kørsel #{{uid}}

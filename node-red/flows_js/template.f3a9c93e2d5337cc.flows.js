@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 683
+  "_order": 684
 }
 
 Node.template = `
@@ -454,16 +454,11 @@ loadPageFunc["start"] = function ()
 {
     var obj = document.getElementById("run-history-text");
 
-    if(obj.getAttribute("loadme") == "true")
-    {
-        console.log("Loadme = true");
-    }
-    /*
     postRequestAsync("getRunHistory", {}, false)
         .then(response => {
            console.log("Response: " + JSON.stringify(response));
             obj.innerHTML = response.data;
-        });*/
+        });
 }
 
 if (loadPageFunc[landingPage] != null)
