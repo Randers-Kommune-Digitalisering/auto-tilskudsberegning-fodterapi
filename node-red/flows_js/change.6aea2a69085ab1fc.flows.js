@@ -15,21 +15,21 @@ const Node = {
       "t": "set",
       "p": "grants",
       "pt": "msg",
-      "to": "$.payload.grants ~> | $.satser |\t(\t{\t    \"wtitel\": titel ~> $replace(\" \", \"\")\t})|",
+      "to": "$.grants ~> | $.satser |\t(\t{\t    \"wtitel\": titel ~> $replace(\" \", \"\")\t})|",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "grants",
       "pt": "msg",
-      "to": "{\t    \"max_hjemmebehandling\": 9999999999999999,\t    \"max_udekoersel\": 9999999999999999,\t    \"danmark_fratraek_procent\": 50,\t    \"danmark_fratraek_maxdkk\": 100,\t    \"tilskudsperioder\": payload.grants\t}",
+      "to": "{\t    \"max_hjemmebehandling\": 9999999999999999,\t    \"max_udekoersel\": 9999999999999999,\t    \"danmark_fratraek_procent\": 50,\t    \"danmark_fratraek_maxdkk\": 100,\t    \"tilskudsperioder\": grants\t}",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "grants.tilskudsperioder.satser",
       "pt": "msg",
-      "to": "payload.grants.tilskudsperioder.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": $g.tilskud_maxdkk,\t    \"tilskud_procent\": $g.tilskud_procent,\t    \"titel\": $g.titel,\t    \"wtitel\": $g.wtitel\t}",
+      "to": "grants.tilskudsperioder.satser @ $g #$index.\t{\t    \"id\": $index,\t    \"tilskud_maxdkk\": $g.tilskud_maxdkk,\t    \"tilskud_procent\": $g.tilskud_procent,\t    \"titel\": $g.titel,\t    \"wtitel\": $g.wtitel\t}",
       "tot": "jsonata"
     },
     {
@@ -45,14 +45,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 640,
-  "y": 420,
+  "x": 460,
+  "y": 400,
   "wires": [
     [
       "c5e60849ee87774c"
     ]
   ],
-  "_order": 199
+  "_order": 197
 }
 
 module.exports = Node;

@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 222
+  "_order": 219
 }
 
 Node.template = `
@@ -115,13 +115,12 @@ Node.template = `
     <div class="card-header">{{title}}</div>
       
       {{^history}}
-      <div class="card-body" id="run-history-text" loadme="false">
         Ingen kørselshistorik.
-      </div>
       {{/history}}
 
-      {{#history}}
+      
       <div class="card-body" id="run-history-text" loadme="false">
+      {{#history}}
         <div class="card p-2">
             <div class="card-text pb-3">
               <span class="badge bg-secondary">
@@ -139,8 +138,8 @@ Node.template = `
               </span>
             </h6>
         </div>
-      </div>
       {{/history}}
+      </div>
       
   </div>
   {{/webElements.runHistory}}
