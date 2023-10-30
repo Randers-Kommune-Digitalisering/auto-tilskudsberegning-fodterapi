@@ -7,6 +7,13 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{}",
+      "tot": "json"
+    },
+    {
+      "t": "set",
       "p": "payload.requestType",
       "pt": "msg",
       "to": "archive",
@@ -18,6 +25,13 @@ const Node = {
       "pt": "msg",
       "to": "webSettings.state.activePage",
       "tot": "global"
+    },
+    {
+      "t": "set",
+      "p": "statusCode",
+      "pt": "msg",
+      "to": "200",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -25,14 +39,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1350,
+  "x": 1430,
   "y": 1460,
   "wires": [
     [
-      "b0eab8ccef2caa5c"
+      "e5908679bccd13f4"
     ]
   ],
-  "_order": 647
+  "_order": 659
 }
 
 module.exports = Node;

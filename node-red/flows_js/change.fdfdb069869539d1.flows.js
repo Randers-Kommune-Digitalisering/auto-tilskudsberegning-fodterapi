@@ -20,6 +20,13 @@ const Node = {
       "pt": "msg",
       "to": "getRunHistory",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{}",
+      "tot": "json"
     }
   ],
   "action": "",
@@ -34,7 +41,7 @@ const Node = {
       "59bc30d61309401e"
     ]
   ],
-  "_order": 719
+  "_order": 729
 }
 
 module.exports = Node;

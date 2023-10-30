@@ -3,36 +3,12 @@ const Node = {
   "type": "change",
   "z": "f99fd88fa65c74b9",
   "g": "2324a12126e9564c",
-  "name": "Tilføj til runHistory",
+  "name": "Slet runHistory",
   "rules": [
     {
-      "t": "set",
-      "p": "receipts",
-      "pt": "global",
-      "to": "{\t    \"actions\": payload,\t    \"noactions\": errorList\t}",
-      "tot": "jsonata"
-    },
-    {
-      "t": "set",
-      "p": "newHistoryItem",
-      "pt": "msg",
-      "to": "currentRun",
-      "tot": "flow",
-      "dc": true
-    },
-    {
-      "t": "set",
-      "p": "newHistoryItem",
-      "pt": "msg",
-      "to": "newHistoryItem ~> | $ | {\t\t    \"startDate\": startDate ~> $toMillis ~> $fromMillis(\"[D01]/[M01]-[Y01]\"),\t    \"endDate\": startDate ~> $toMillis ~> $fromMillis(\"[D01]/[M01]-[Y01]\"),\t    \"runStarted\": $millis() ~> $fromMillis(\"[D01]/[M01]-[Y01]\"),\t    \"lastUpdated\": $millis() ~> $toMillis ~> $fromMillis(\"[D01]/[M01]-[Y01]\"),\t    \"userStartedRun\": dqUser,\t    \"runFinalized\": runFinalized = false ? \"Kørsel afsluttet\" : \"Igangværende kørsel\"\t\t} |",
-      "tot": "jsonata"
-    },
-    {
-      "t": "set",
+      "t": "delete",
       "p": "runHistory",
-      "pt": "global",
-      "to": "( [] ~> $append( $globalContext(\"runHistory\") ) ) ~> $append(newHistoryItem)",
-      "tot": "jsonata"
+      "pt": "global"
     }
   ],
   "action": "",
@@ -40,7 +16,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1170,
+  "x": 1240,
   "y": 420,
   "wires": [
     [

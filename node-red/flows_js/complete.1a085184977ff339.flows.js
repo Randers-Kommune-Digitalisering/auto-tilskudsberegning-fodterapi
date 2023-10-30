@@ -4,10 +4,7 @@ const Node = {
   "z": "fd98a6615193936d",
   "name": "",
   "scope": [
-    "2e4fdfaccc3fae91",
-    "5da88f31d30175d4",
-    "0cbf8fd56b53e5e0",
-    "23179bc8fec743a4"
+    "2e4fdfaccc3fae91"
   ],
   "uncaught": false,
   "x": 470,

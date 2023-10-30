@@ -11,6 +11,14 @@ const Node = {
       "to": "payload",
       "tot": "msg",
       "dc": true
+    },
+    {
+      "t": "set",
+      "p": "payload.data",
+      "pt": "msg",
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -25,7 +33,7 @@ const Node = {
       "fdfdb069869539d1"
     ]
   ],
-  "_order": 715
+  "_order": 725
 }
 
 module.exports = Node;

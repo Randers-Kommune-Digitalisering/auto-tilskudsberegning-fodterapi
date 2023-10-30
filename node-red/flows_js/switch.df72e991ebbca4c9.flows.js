@@ -1,9 +1,10 @@
 const Node = {
-  "id": "134a2ed1cbb7f394",
+  "id": "df72e991ebbca4c9",
   "type": "switch",
   "z": "5bb3204aef17c104",
-  "name": "Findes global data?",
-  "property": "$globalContext(tablename) ~> $exists()",
+  "g": "404b73d5fb6cfa91",
+  "name": "",
+  "property": "receiptId ~> $contains(\",\")",
   "propertyType": "jsonata",
   "rules": [
     {
@@ -16,17 +17,17 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 670,
-  "y": 1900,
+  "x": 630,
+  "y": 1400,
   "wires": [
     [
-      "a56f8bec14f724fa"
+      "358c9155bb453982"
     ],
     [
-      "938db90da2b0ab5a"
+      "eb42d5596baba5be"
     ]
   ],
-  "_order": 707
+  "_order": 735
 }
 
 module.exports = Node;

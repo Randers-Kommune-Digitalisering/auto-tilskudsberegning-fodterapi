@@ -7,13 +7,6 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "message",
-      "pt": "msg",
-      "to": "Henter persondata fra KP",
-      "tot": "str"
-    },
-    {
-      "t": "set",
       "p": "type",
       "pt": "msg",
       "to": "update",

@@ -43,6 +43,13 @@ const Node = {
       "tot": "msg"
     },
     {
+      "t": "set",
+      "p": "payload.runResumed",
+      "pt": "msg",
+      "to": "true",
+      "tot": "bool"
+    },
+    {
       "t": "move",
       "p": "payload",
       "pt": "msg",
