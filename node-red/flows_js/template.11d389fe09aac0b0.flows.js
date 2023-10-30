@@ -124,7 +124,10 @@ Node.template = `
               <span class="badge bg-secondary">
                 Kørsel #{{uid}}
               </span>
-              <span class="float-right">
+              <span class="badge bg-light text-dark">
+                {{startDate}} - {{endDate}}
+              </span>
+              <span class="fw-500 float-right">
                 {{lastUpdated}}
               </span>
             </div>

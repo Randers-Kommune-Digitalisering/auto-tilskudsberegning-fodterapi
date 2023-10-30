@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 1390,
-  "y": 2040,
+  "y": 1980,
   "wires": [
     [
       "13f5b8c7391ae4a9"
@@ -29,7 +29,10 @@ Ingen kørselshistorik.
         <span class="badge bg-secondary">
         Kørsel #{{uid}}
         </span>
-        <span class="float-right">
+        <span class="badge bg-light text-dark">
+        {{startDate}} - {{endDate}}
+        </span>
+        <span class="fw-500 float-right">
         {{lastUpdated}}
         </span>
     </div>
