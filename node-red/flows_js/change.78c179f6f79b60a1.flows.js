@@ -38,7 +38,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.login.button",
       "pt": "msg",
-      "to": ".button",
+      "to": "input.button",
       "tot": "str"
     },
     {
