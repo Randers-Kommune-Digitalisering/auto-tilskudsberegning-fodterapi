@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 628
+  "_order": 634
 }
 
 Node.template = `
@@ -243,6 +243,10 @@ a.disabled
 {
     border-top-right-radius: 0px!important;
     border-bottom: 0px;
+}
+.historyItem:not(:first-child)
+{
+    padding-top: 15px;
 }
 `
 

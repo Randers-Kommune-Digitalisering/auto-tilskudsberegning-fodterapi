@@ -43,6 +43,13 @@ const Node = {
       "tot": "msg"
     },
     {
+      "t": "set",
+      "p": "payload.runResumed",
+      "pt": "msg",
+      "to": "true",
+      "tot": "bool"
+    },
+    {
       "t": "move",
       "p": "payload",
       "pt": "msg",
@@ -62,7 +69,7 @@ const Node = {
       "ed9ab6596a8a16c7"
     ]
   ],
-  "_order": 309
+  "_order": 302
 }
 
 module.exports = Node;

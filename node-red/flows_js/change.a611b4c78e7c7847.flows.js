@@ -7,13 +7,6 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "message",
-      "pt": "msg",
-      "to": "Henter persondata fra KP",
-      "tot": "str"
-    },
-    {
-      "t": "set",
       "p": "type",
       "pt": "msg",
       "to": "update",
@@ -40,7 +33,7 @@ const Node = {
       "d06f4fcf2aaff945"
     ]
   ],
-  "_order": 567
+  "_order": 560
 }
 
 module.exports = Node;

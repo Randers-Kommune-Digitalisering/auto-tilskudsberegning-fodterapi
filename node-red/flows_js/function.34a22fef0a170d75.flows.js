@@ -16,7 +16,7 @@ const Node = {
       "40d793f24bd697d9"
     ]
   ],
-  "_order": 275
+  "_order": 272
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -40,7 +40,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   function GetReceiptIdFromIndex(index)
   {
-      return receiptArray[index].faktura.id;
+      if (Array.isArray(receiptArray[index].faktura))
+          return receiptArray[index].faktura[0].id;
+      else
+          return receiptArray[index].faktura.id;
   }
   
   var maxCount = 8;

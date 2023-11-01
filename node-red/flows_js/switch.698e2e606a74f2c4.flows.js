@@ -43,7 +43,7 @@ const Node = {
     },
     {
       "t": "eq",
-      "v": "getGrants",
+      "v": "getRunHistory",
       "vt": "str"
     }
   ],
@@ -54,7 +54,8 @@ const Node = {
   "y": 1360,
   "wires": [
     [
-      "46db975f6e21fe45"
+      "46db975f6e21fe45",
+      "25a1be92472986e8"
     ],
     [
       "0d73a26952f54d44"
@@ -74,9 +75,11 @@ const Node = {
     [
       "2257035b57b40ae8"
     ],
-    []
+    [
+      "5cdb9daf21399b9d"
+    ]
   ],
-  "_order": 618
+  "_order": 624
 }
 
 module.exports = Node;

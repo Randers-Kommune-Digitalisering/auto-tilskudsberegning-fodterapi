@@ -4,13 +4,13 @@ const Node = {
   "z": "5bb3204aef17c104",
   "name": "Afslut kørsel",
   "x": 430,
-  "y": 1640,
+  "y": 1580,
   "wires": [
     [
       "a3f0ed2b48640728"
     ]
   ],
-  "_order": 700
+  "_order": 704
 }
 
 module.exports = Node;

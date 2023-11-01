@@ -5,9 +5,9 @@ const Node = {
   "name": "Get rules",
   "info": "",
   "x": 420,
-  "y": 1880,
+  "y": 1740,
   "wires": [],
-  "_order": 672
+  "_order": 676
 }
 
 module.exports = Node;

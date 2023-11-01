@@ -17,7 +17,7 @@ const Node = {
       "20b9f77f862dc5ee"
     ]
   ],
-  "_order": 684
+  "_order": 688
 }
 
 Node.template = `
@@ -204,7 +204,7 @@ function handlePostResponse(responseObject)
     
     // Check if OK
     if (responseObject.statusCode != 200)
-        console.log("GET request error code " + responseObject.statusCode);
+        console.log("Request error code " + responseObject.statusCode);
 
     // Check if unauthorized -> reaquire public key
     if(responseObject.statusCode == 401)
@@ -247,6 +247,12 @@ handleResponseDynamically['startRun'] = function (response)
     loadPage("start");
 }
 
+handleResponseDynamically['getMetrics'] = function (response)
+{
+    console.log("getMetrics");
+    reloadPage();
+}
+
 handleResponseDynamically['archive'] = function (response)
 {
     if(response.redirect != null)
@@ -281,11 +287,17 @@ function lockButton(objectId, unlock = false)
     {
         button.classList.remove("disabled");
         button.disabled = false;
+
+        if (button.id == "requestMetrics")
+            button.classList.remove("text-muted");
     }
     else
     {
         button.classList.add("disabled");
         button.disabled = true;
+
+        if (button.id == "requestMetrics")
+            button.classList.add("text-muted");
     }
 }
 
@@ -450,14 +462,15 @@ loadPageFunc["rules"] = function ()
 
 }
 
-loadPageFunc["run-history"] = function ()
+loadPageFunc["start"] = function ()
 {
-    const tds = document.getElementsByClassName("isFinalized");
-    console.log("Found " + tds.length);
-    for (let index = 0; index < tds.length; index++) {
-        const element = tds[index];
-        element.innerHTML = element.innerHTML == "true" ? "Ja" : "Nej";
-    }
+    var obj = document.getElementById("run-history-text");
+
+    postRequestAsync("getRunHistory", {}, false)
+        .then(response => {
+           console.log("Response: " + JSON.stringify(response));
+            obj.innerHTML = response.data;
+        });
 }
 
 if (loadPageFunc[landingPage] != null)

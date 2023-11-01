@@ -8,6 +8,11 @@ const Node = {
       "t": "delete",
       "p": "receipts",
       "pt": "global"
+    },
+    {
+      "t": "delete",
+      "p": "runHistory",
+      "pt": "global"
     }
   ],
   "action": "",
@@ -16,11 +21,11 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1110,
-  "y": 80,
+  "y": 100,
   "wires": [
     []
   ],
-  "_order": 428
+  "_order": 421
 }
 
 module.exports = Node;

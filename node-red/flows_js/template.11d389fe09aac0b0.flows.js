@@ -16,7 +16,7 @@ const Node = {
       "a85afd0009f88a48"
     ]
   ],
-  "_order": 221
+  "_order": 218
 }
 
 Node.template = `
@@ -76,7 +76,7 @@ Node.template = `
       <!-- Subtekst: Klar til kørsel / Afventer forbindelse -->
       {{^status}}
       <p class="card-text">
-        {{subtext}}
+        {{{subtext}}}
       </p>
       {{/status}}
 
@@ -113,13 +113,35 @@ Node.template = `
   {{#webElements.runHistory}}
   <div class="card border-light mb-3" style="max-width: 20vw">
     <div class="card-header">{{title}}</div>
-    <div class="card-body">
-
-      <p class="card-text">
-        Der blev ikke fundet nogen kørselshistorik.
-      </p>
       
-    </div>
+      <div class="card-body" id="run-history-text">
+      {{^history}}
+        Ingen kørselshistorik.
+      {{/history}}
+      {{#history}}
+        <div class="historyItem">
+            <div class="card-text pb-3">
+              <span class="badge bg-secondary">
+                Kørsel #{{uid}}
+              </span>
+              <span class="badge bg-light text-dark">
+                {{startDate}} - {{endDate}}
+              </span>
+              <span class="fw-500 float-right">
+                {{lastUpdated}}
+              </span>
+            </div>
+
+            <h6 class="card-subtitle text-muted">
+              {{runFinalized}}
+              <span class="float-right">
+                {{userStartedRun}}
+              </span>
+            </h6>
+        </div>
+      {{/history}}
+      </div>
+      
   </div>
   {{/webElements.runHistory}}
     <!-- /run history -->

@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "5bb3204aef17c104",
   "name": "POST OUTPUT",
-  "active": false,
+  "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -14,7 +14,7 @@ const Node = {
   "x": 2160,
   "y": 1160,
   "wires": [],
-  "_order": 622
+  "_order": 628
 }
 
 module.exports = Node;

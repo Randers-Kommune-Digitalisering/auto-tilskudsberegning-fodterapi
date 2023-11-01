@@ -14,7 +14,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "errors",
+      "p": "errorList",
       "pt": "msg",
       "to": "$.errorList ~> | $.faktura.behandlinger |\t( $t := titel;\t{\t    \"titel\": (titel = \"Behandlingpåklinik\") ? \"Behandling på klinik\"\t    :        (titel = \"Behandlingipatientsegethjem\") ? \"Behandling i patients eget hjem\"\t    :         $$.tilskudsInfo.tilskudsperioder.satser[wtitel = $t].titel\t})|",
       "tot": "jsonata"
@@ -33,7 +33,7 @@ const Node = {
       "01fbd852a9e244c8"
     ]
   ],
-  "_order": 501
+  "_order": 494
 }
 
 module.exports = Node;
