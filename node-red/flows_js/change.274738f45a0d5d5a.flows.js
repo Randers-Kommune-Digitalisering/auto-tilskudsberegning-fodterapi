@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "pupController",
       "pt": "msg",
-      "to": "{\t    \"pages\": [],\t    \"commands\": payload,\t    \"browserless\": browserless\t}",
+      "to": "{\t    \"commands\": payload,\t    \"browserless\": browserless\t}",
       "tot": "jsonata"
     },
     {

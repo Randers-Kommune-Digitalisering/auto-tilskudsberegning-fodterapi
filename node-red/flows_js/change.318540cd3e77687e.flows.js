@@ -29,7 +29,8 @@ const Node = {
   "y": 1500,
   "wires": [
     [
-      "a92cee9aae85d513"
+      "a92cee9aae85d513",
+      "2fc7865332d4a20c"
     ]
   ],
   "_order": 456

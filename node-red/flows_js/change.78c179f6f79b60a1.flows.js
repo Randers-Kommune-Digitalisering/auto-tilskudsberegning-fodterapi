@@ -143,7 +143,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.dqUsername",
       "pt": "msg",
-      "to": "div[class=\\\"Layout__ContentContainer-cetblr-8 Layout__ContentContainerWithFlexRow-cetblr-10 knWRCb\\\"]",
+      "to": "div[class=\"Layout__ContentContainer-cetblr-8 Layout__ContentContainerWithFlexRow-cetblr-10 knWRCb\"]",
       "tot": "str"
     },
     {
