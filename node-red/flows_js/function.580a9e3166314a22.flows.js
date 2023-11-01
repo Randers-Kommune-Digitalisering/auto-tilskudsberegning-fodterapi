@@ -49,11 +49,11 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       const actionList = msg.payload;
       var actionPerformed;
   
-      for (let i = 0; i < actionList.length; i++) {
+      for (const ele of actionList) {
           
           try {
   
-              var ele = actionList[i];
+              //var ele = actionList[i];
               const action = ele.action;
   
               await msg.pupController.page.waitForNetworkIdle();
@@ -72,7 +72,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                   case "click":
                       await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
+                      msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
                       if (ele.isDownload == true || ele.isDownload == "true")
                           await msg.pupController.page.waitForNetworkIdle();
                       break;
@@ -115,11 +115,11 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                   case "get":
                       await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       var content = await msg.pupController.page.$eval(ele.path, el => el.innerText);
-                      ele.output = actionList[i].output = content;
+                      ele.output = content;
                       break;
   
                   case "geturl":
-                      ele.output = actionList[i].output = msg.pupController.page.url();
+                      ele.output = msg.pupController.page.url();
                       break;
   
                   case "authenticate":
@@ -149,9 +149,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           {
               // Error caught
   
-              actionList[i].succesful = false;
-              actionList[i].error = e;
-              actionPerformed = ReportError(actionList[i], e);
+              ele.succesful = false;
+              ele.error = e;
+              actionPerformed = ReportError(ele, e);
               
               node.send([null, actionPerformed]);
           }
