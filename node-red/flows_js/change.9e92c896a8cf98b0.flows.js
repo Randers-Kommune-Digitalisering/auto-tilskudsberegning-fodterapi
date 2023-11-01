@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "browserless",
       "pt": "msg",
-      "to": "{\t   \"browserWSEndpoint\": \"ws://browserless:3000/\",\t   \"ignoreHTTPSErrors\": true,\t   \"ignoreDefaultArgs\": true\t}",
+      "to": "{\t   \"browserWSEndpoint\": \"ws://browserless.prototypes.randers.dk/\",\t   \"ignoreHTTPSErrors\": true,\t   \"ignoreDefaultArgs\": true\t}",
       "tot": "jsonata"
     }
   ],
