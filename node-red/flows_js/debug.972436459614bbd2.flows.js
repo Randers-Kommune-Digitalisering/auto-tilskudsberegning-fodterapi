@@ -1,8 +1,8 @@
 const Node = {
-  "id": "5b3abe81966e4bb3",
+  "id": "972436459614bbd2",
   "type": "debug",
-  "z": "fd98a6615193936d",
-  "name": "RECEIPTS",
+  "z": "41d1b8798efe7e15",
+  "name": "COMMAND EXECUTED",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,10 +11,10 @@ const Node = {
   "targetType": "full",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1350,
-  "y": 1840,
+  "x": 1670,
+  "y": 600,
   "wires": [],
-  "_order": 341
+  "_order": 193
 }
 
 module.exports = Node;
