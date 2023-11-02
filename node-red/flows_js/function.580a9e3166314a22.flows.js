@@ -94,7 +94,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       await msg.pupController.page.evaluate(e => {
                           console.log("Clicking element: " + e);
                           e.click();
-                      }, element)
+                      }, element);
   
                       //const exists = !! await msg.pupController.page.$(ele.path);
                       //if (exists)
@@ -105,12 +105,13 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "click":
+  
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
                       await msg.pupController.page.$(ele.path).then(() => {
                           msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }))
-                      }
-                      );
-                      
+                      });
+  
+                      break;
   
                   case "type":
   
