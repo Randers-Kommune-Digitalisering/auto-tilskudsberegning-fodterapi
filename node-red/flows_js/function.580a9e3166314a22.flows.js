@@ -39,32 +39,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   const loadTimeoutMs = 15000;
   const timeoutMs = 5000;
   
-  
-  async function Click(ele)
-  {
-      try
-      {
-  
-              
-      } catch(error) { console.log("Click error: " + error ) }
-  }
-  
-  async function Type(ele)
-  {
-      try {
-  
-              
-      } catch(error) { console.log("Type error: " + error ) }
-  }
-  
-  async function Select(ele)
-  {
-      try {
-  
-              
-      } catch(error) { console.log("Select error: " + error ) }
-  }
-  
   (async () => {
   
       const actionList = msg.payload;
@@ -106,10 +80,15 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                   case "click":
   
-                      await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
-                      await msg.pupController.page.$(ele.path).then(() => {
-                          msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }))
-                      });
+                      try {
+                          await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
+                          await msg.pupController.page.$(ele.path).then(() => {
+                              msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }))
+                          });
+  
+                      } catch (error) {
+                          console.log("CLICK ERROR: " + error)
+                      };
   
                       break;
   
@@ -117,7 +96,15 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
   
+                      var element = await msg.pupController.page.$(ele.path);
+  
+                      await msg.pupController.page.evaluate(e => {
+                          console.log("Typing in element: " + e);
+                          //e.value = ele.input;
+                      }, element);
+  
                       if (ele.clear == true || ele.clearInput == true || ele.clear == "true" || ele.clearInput == "true")
+                          
                           msg.pupController.page.click(ele.path, { clickCount: 3 })
                               .then(msg.pupController.page.type(ele.path, ele.input));
   
@@ -126,6 +113,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                           await msg.pupController.page.type(ele.path, ele.input);
   
                               //.catch(error => console.log("ERROR: " + error));
+  
+                      await msg.pupController.page.waitForTimeout(1000);
+  
+  
   
                       break;
   
@@ -167,7 +158,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       await msg.pupController.page.authenticate({ 'username': login_username, 'password': login_password }).catch("Authenticate error");;
                       break;
   
-                  case "wait":
+                  case "close":
+                      //await msg.pupController.page.close();
+                      await msg.pupController.browser.close();
                       break;
   
                   default:

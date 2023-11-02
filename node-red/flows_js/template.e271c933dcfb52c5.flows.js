@@ -57,13 +57,12 @@ function actionList() {
             "name": ""
         },
         {
-            "action": "wait",
-            "ms": 1000
-        },
-        {
             "action": "authenticate",
             "username": "",
             "password": ""
+        },
+        {
+            "action": "close"
         }
     ];
 };

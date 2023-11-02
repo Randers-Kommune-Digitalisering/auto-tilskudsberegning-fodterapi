@@ -101,7 +101,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.citizen.tillaegsprocent_luk",
       "pt": "msg",
-      "to": "svg[class=\"svg-inline--fa fa-xmark close-button\"]",
+      "to": "#person-pension-fakta > tbody div > div.HistoryPane__StyledOverlayForHistoryPane-sc-1mpl43b-0.ceTRRO > div > button",
       "tot": "str"
     },
     {
