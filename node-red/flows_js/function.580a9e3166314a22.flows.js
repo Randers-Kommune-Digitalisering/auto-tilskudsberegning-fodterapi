@@ -33,16 +33,71 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
-  //const pup = global.get('puppeteer');
-  //const path = global.get('path');
-  //const downloadPath = path.resolve('/tmp/');
-  
   var actions = [];
-  //var outputs = [];
   var outputs = {};
   
   const loadTimeoutMs = 30000;
   const timeoutMs = 6500;
+  
+  
+  async function Click(ele)
+  {
+      
+      msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs })
+  
+          .then(
+              Promise.all([
+                  msg.pupController.page.waitForNavigation(), // The promise resolves after navigation has finished
+                  msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}))
+              ])
+          )
+          
+          .catch(error => console.log("ERROR: " + error));
+  }
+  
+  async function Type(ele)
+  {
+      await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+      
+      if (ele.clear == true || ele.clearInput == true || ele.clear == "true" || ele.clearInput == "true")
+  
+          msg.pupController.page.click(ele.path, { clickCount: 3 })
+  
+              .then(msg.pupController.page.type(ele.path, ele.input))
+              .catch(error => console.log("ERROR: " + error));
+  
+      else
+          msg.pupController.page.type(ele.path, ele.input)
+  
+              .catch(error => console.log("ERROR: " + error));
+  }
+  
+  async function Select(ele)
+  {
+      await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+  
+      const properties = await msg.pupController.page.$(ele.path)
+  
+          .then(elemHandler => elemHandler.getProperties());
+  
+      for (const property of properties.values())
+      {
+          const element = property.asElement();
+  
+          if (element)
+          {
+              let hText = await element.getProperty("text");
+              let text = await hText.jsonValue();
+  
+              if (text === ele.input)
+              {
+                  let hValue = await element.getProperty("value");
+                  let value = await hValue.jsonValue();
+                  await msg.pupController.page.select(ele.path, value);
+              }
+          }
+      }
+  }
   
   (async () => {
   
@@ -52,17 +107,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       for (const ele of actionList) {
           
           try {
-  
-              //var ele = actionList[i];n 
               const action = ele.action;
-  
-              //await msg.pupController.page.waitForNetworkIdle();
   
               switch (action)
               {
-                  case "newtab":
-                      break;
-  
                   case "goto":
                       if (ele.url != null)
                           await msg.pupController.page.goto(ele.url, { waitUntil: 'load', timeout: loadTimeoutMs });
@@ -71,54 +119,19 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "click":
-                      //msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}))
-                      .then(response => { console.log("CLICK: " + response) });
-                      
-                      if (ele.isDownload == true || ele.isDownload == "true")
-                          await msg.pupController.page.waitForNetworkIdle();
-  
+                      await Click(ele);
                       break;
-                      
-  
-                  /*case "clickifexists":                    
-                      const exists = !! await msg.pupController.page.$(ele.path);
-                      if(exists)
-                          await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
-  
-                      if (ele.isDownload == true || ele.isDownload == "true")
-                          await msg.pupController.page.waitForNetworkIdle();
-                      break;*/
   
                   case "type":
-                      //msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
-  
-                      if (ele.clear == true || ele.clearInput == true || ele.clear == "true" || ele.clearInput == "true")
-                          await msg.pupController.page.click(ele.path, { clickCount: 3 });
-                      await msg.pupController.page.type(ele.path, ele.input);
-  
+                      await Type(ele);
                       break;
   
                   case "select":
-                      let properties = await msg.pupController.page.$(ele.path).then(elemHandler => elemHandler.getProperties());
-                      for (const property of properties.values()) {
-                          const element = property.asElement();
-                          if (element)
-                          {
-                              let hText = await element.getProperty("text");
-                              let text = await hText.jsonValue();
-                              if (text === ele.input)
-                              {
-                                  let hValue = await element.getProperty("value");
-                                  let value = await hValue.jsonValue();
-                                  await msg.pupController.page.select(ele.path, value);
-                              }
-                          }
-                      }
+                      await Select(ele);
                       break;
   
                   case "get":
-                      //msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+                      await msg.pupController.page.waitForSelector(ele.path, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
                       ele.output =  await msg.pupController.page.$eval(ele.path, el => el.innerText);
   
                   case "geturl":
@@ -132,8 +145,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "wait":
-                      if(ele.ms != null)
-                          await wait(ele.ms);
                       break;
   
                   default:
@@ -165,15 +176,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       msg.pupOutputs = outputs;
       node.send([msg, null]);
   })();
-  
-  async function wait(_ms)
-  {
-      let promise = new Promise((resolve, reject) => {
-          setTimeout(() => resolve("done!"), _ms)
-      });
-      let result = await promise; // wait until the promise resolves (*)
-      //alert(result); // "done!"
-  }
   
   function ReportAction(a, s = true)
   {
