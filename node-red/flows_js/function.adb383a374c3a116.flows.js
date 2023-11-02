@@ -14,8 +14,8 @@ const Node = {
       "module": "puppeteer"
     }
   ],
-  "x": 730,
-  "y": 520,
+  "x": 690,
+  "y": 540,
   "wires": [
     [
       "ba19f064476425c9"
@@ -33,7 +33,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   catch (error)
   {
       msg.error = error.message;
-      console.log("Puppeteer error: " + JSON.stringify(error));
+      console.log("Puppeteer instantiation error: " + JSON.stringify(error));
   };
   return msg;
 }
