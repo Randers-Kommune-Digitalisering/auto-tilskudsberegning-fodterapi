@@ -36,7 +36,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   var actions = [];
   var outputs = {};
   
-  const loadTimeoutMs = 30000;
+  const loadTimeoutMs = 15000;
   const timeoutMs = 5000;
   
   
@@ -106,7 +106,10 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                   case "click":
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
-                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { timeout: loadTimeoutMs}));
+                      await msg.pupController.page.$(ele.path).then(() => {
+                          msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }))
+                      }
+                      );
                       
   
                   case "type":
