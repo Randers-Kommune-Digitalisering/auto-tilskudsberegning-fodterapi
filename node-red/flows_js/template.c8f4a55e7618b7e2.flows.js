@@ -100,7 +100,7 @@ width:100%;
 }
 
 .textarea {
-overflow-wrap:break-word;
+overflow-wrap:no-wrap;
 white-space: pre-wrap;
 line-height: 21px;
 /*overflow-y: hidden;

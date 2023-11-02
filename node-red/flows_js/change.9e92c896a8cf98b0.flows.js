@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "browserless",
       "pt": "msg",
-      "to": "{\t   \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/?exitOnPageError=false&timeout=120000\",\t   \"ignoreHTTPSErrors\": true,\t   \"ignoreDefaultArgs\": true,\t   \"exitOnPageError\": false,\t   \"timeout\": 1200000\t}",
+      "to": "{\t   \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/?exitOnPageError=false&timeout=120000&CONNECTION_TIMEOUT=120000\",\t   \"ignoreHTTPSErrors\": true,\t   \"ignoreDefaultArgs\": true,\t   \"exitOnPageError\": false,\t   \"timeout\": 1200000\t}",
       "tot": "jsonata"
     }
   ],

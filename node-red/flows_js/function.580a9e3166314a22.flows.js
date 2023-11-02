@@ -72,7 +72,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
       for (const ele of actionList) {
   
-          console.log("> PERFORMING ACTION: " + JSON.stringify(JSON.parse(JSON.stringify((ele)))));
+          //console.log("> PERFORMING ACTION: " + JSON.stringify(JSON.parse(JSON.stringify((ele)))));
           
           try {
               const action = ele.action;
@@ -87,18 +87,27 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       break;
   
                   case "clickifexists":
-                  case "click":
+                  case "jsclick":
   
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
-                      const exists = !! await msg.pupController.page.$(ele.path);
-                      
-                      if (exists)
-                          msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
-                              //.catch(error => console.log("ERROR: " + error));
+                      var element = await msg.pupController.page.$(ele.path);
+                      await msg.pupController.page.evaluate(e => {
+                          console.log("Clicking element: " + e);
+                          e.click();
+                      }, element)
   
-                      else throw new Error('Element not found: ' + ele.path);
+                      //const exists = !! await msg.pupController.page.$(ele.path);
+                      //if (exists)
+                      //    await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { timeout: loadTimeoutMs}));
+                              //.catch(error => console.log("ERROR: " + error));
+                      //else throw new Error('Element not found: ' + ele.path);
   
                       break;
+  
+                  case "click":
+                      await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
+                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { timeout: loadTimeoutMs}));
+                      
   
                   case "type":
   
@@ -166,7 +175,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
               ele.succesful = true;
               actionPerformed = ReportAction(ele);
   
-              console.log("= ACTION COMPLETE: " + JSON.stringify(actionPerformed));
+              //console.log("= ACTION COMPLETE: " + JSON.stringify(actionPerformed));
   
               node.send([null, actionPerformed]);
               
@@ -221,7 +230,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
       console.log("PupController error:" + e);
       var newAction;
       actions.push(newAction = {
-          "action": a,
+          "action": a.action,
           "succesful": false,
           "error": e,
           "obj": a
