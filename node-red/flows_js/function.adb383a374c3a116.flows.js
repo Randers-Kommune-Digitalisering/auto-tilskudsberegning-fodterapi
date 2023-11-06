@@ -28,7 +28,11 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   try
   {
       msg.pupController.browser = await pup.connect(msg.pupController.browserless);
-      msg.pupController.page = (await msg.pupController.browser.pages())[0];
+  
+      //const pages = await msg.pupController.browser.pages();
+      //console.log("Found browser with pages: " + JSON.stringify(pages));
+      
+      msg.pupController.page = await msg.pupController.browser.newPage();//pages[0];
   }
   catch (error)
   {

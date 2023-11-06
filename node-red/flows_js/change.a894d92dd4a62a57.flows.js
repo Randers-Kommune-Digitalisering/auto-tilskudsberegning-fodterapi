@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "message",
       "pt": "msg",
-      "to": "Henter persondata fra KP",
+      "to": "Kontrollerer forretningsregler",
       "tot": "str"
     },
     {
@@ -38,7 +38,7 @@ const Node = {
       "6f3cd6c4165cd279"
     ]
   ],
-  "_order": 575
+  "_order": 574
 }
 
 module.exports = Node;

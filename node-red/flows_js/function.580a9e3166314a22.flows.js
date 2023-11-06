@@ -41,6 +41,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
   (async () => {
   
+      try {
+  
       const actionList = msg.payload;
       var actionPerformed;
   
@@ -158,10 +160,9 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       await msg.pupController.page.authenticate({ 'username': login_username, 'password': login_password }).catch("Authenticate error");;
                       break;
   
-                  case "close":
-                      //await msg.pupController.page.close();
-                      await msg.pupController.browser.close();
-                      break;
+                  //case "close":
+                  //    await msg.pupController.browser.close();
+                  //    break;
   
                   default:
                       break;
@@ -192,9 +193,16 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
       }
   
-  
       msg.pupOutputs = outputs;
       node.send([msg, null]);
+          
+      } catch (error) {
+          msg.error = error;
+          node.send([msg, null]);
+      } finally {
+          if (msg.pupController.browser) msg.pupController.browser.close();
+      }
+  
   })();
   
   function ReportAction(a, s = true)

@@ -23,7 +23,7 @@ const Node = {
 Node.template = `
 module.exports = async ({ page }) => {
 
-  var timeoutMs = 7000;
+  var timeoutMs = 70000;
 
   // Login
   await page.goto("https://workletnew.snapp.dk/auth/sign-in");

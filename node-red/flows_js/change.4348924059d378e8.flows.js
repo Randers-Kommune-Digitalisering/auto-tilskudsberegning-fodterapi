@@ -13,12 +13,11 @@ const Node = {
       "tot": "flow"
     },
     {
-      "t": "set",
-      "p": "citizens",
+      "t": "move",
+      "p": "pupOutputs",
       "pt": "msg",
-      "to": "pupOutputs",
-      "tot": "msg",
-      "dc": true
+      "to": "citizens",
+      "tot": "msg"
     }
   ],
   "action": "",
