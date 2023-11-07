@@ -18,7 +18,7 @@ const Node = {
     "Konverteret data",
     "Fejl ved konvertering"
   ],
-  "_order": 505
+  "_order": 507
 }
 
 module.exports = Node;

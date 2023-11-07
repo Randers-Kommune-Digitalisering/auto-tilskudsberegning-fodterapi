@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "browserless",
       "pt": "msg",
-      "to": "{\t   \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/\",\t   \"ignoreHTTPSErrors\": true,\t   \"ignoreDefaultArgs\": true,\t   \"exitOnPageError\": false,\t   \"timeout\": 1200000,\t   \"keepalive\": 300000\t}",
+      "to": "{\t   \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/?ignoreHTTPSErrors=true&exitOnPageError=false&keepalive=30000&--no-zygote&--disable-site-isolation-trials&--disable-dev-shm-usage&--disable-features=IsolateOrigins&--deterministic-fetch&--disable-setuid-sandbox&--disable-gpu&headless=true\",\t   \"slowMo\": 10,\t   \"args\": [\t        '--disable-gpu',\t        '--disable-dev-shm-usage',\t        '--disable-setuid-sandbox',\t        '--no-first-run',\t        '--no-sandbox',\t        '--no-zygote',\t        '--deterministic-fetch',\t        '--disable-features=IsolateOrigins',\t        '--disable-site-isolation-trials'\t    ]\t}",
       "tot": "jsonata"
     }
   ],
@@ -24,7 +24,7 @@ const Node = {
       "d68baf48942491dd"
     ]
   ],
-  "_order": 188
+  "_order": 189
 }
 
 module.exports = Node;

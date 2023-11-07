@@ -31,7 +31,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.login.select",
       "pt": "msg",
-      "to": "[id=\"SelectedAuthenticationUrl\"]",
+      "to": "#SelectedAuthenticationUrl",
       "tot": "str"
     },
     {
@@ -180,7 +180,7 @@ const Node = {
       "318540cd3e77687e"
     ]
   ],
-  "_order": 455
+  "_order": 457
 }
 
 module.exports = Node;

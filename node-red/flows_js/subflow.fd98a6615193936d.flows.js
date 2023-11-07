@@ -49,7 +49,7 @@ const Node = {
     "Error"
   ],
   "icon": "font-awesome/fa-database",
-  "_order": 7
+  "_order": 8
 }
 
 module.exports = Node;
