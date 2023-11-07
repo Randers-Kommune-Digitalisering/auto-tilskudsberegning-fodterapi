@@ -1,20 +1,20 @@
 const Node = {
-  "id": "cc7b53e976c60649",
+  "id": "1c35c1712a1009bb",
   "type": "debug",
   "z": "f99fd88fa65c74b9",
-  "name": "debug 3",
-  "active": true,
+  "name": "SAMMENSAT DATA",
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "errorList",
+  "complete": "payload",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 730,
-  "y": 2860,
+  "x": 480,
+  "y": 2200,
   "wires": [],
-  "_order": 609
+  "_order": 622
 }
 
 module.exports = Node;

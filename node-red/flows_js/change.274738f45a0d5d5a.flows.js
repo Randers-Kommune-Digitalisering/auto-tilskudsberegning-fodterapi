@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "pupController",
       "pt": "msg",
-      "to": "{\t    \"pages\": [],\t    \"commands\": payload,\t    \"browserless\": browserless\t}",
+      "to": "{\t    \"commands\": payload,\t    \"browserless\": browserless\t}",
       "tot": "jsonata"
     },
     {
@@ -29,14 +29,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 900,
+  "x": 920,
   "y": 440,
   "wires": [
     [
       "adb383a374c3a116"
     ]
   ],
-  "_order": 164
+  "_order": 165
 }
 
 module.exports = Node;

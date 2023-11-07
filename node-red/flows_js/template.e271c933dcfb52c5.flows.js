@@ -15,7 +15,7 @@ const Node = {
       "c8f4a55e7618b7e2"
     ]
   ],
-  "_order": 183
+  "_order": 184
 }
 
 Node.template = `
@@ -57,13 +57,12 @@ function actionList() {
             "name": ""
         },
         {
-            "action": "wait",
-            "ms": 1000
-        },
-        {
             "action": "authenticate",
             "username": "",
             "password": ""
+        },
+        {
+            "action": "close"
         }
     ];
 };

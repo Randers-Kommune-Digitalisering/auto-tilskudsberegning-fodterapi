@@ -17,13 +17,13 @@ const Node = {
       "9977c0c7f7b76ce9"
     ]
   ],
-  "_order": 437
+  "_order": 440
 }
 
 Node.template = `
 module.exports = async ({ page }) => {
 
-  var timeoutMs = 7000;
+  var timeoutMs = 70000;
 
   // Login
   await page.goto("https://workletnew.snapp.dk/auth/sign-in");

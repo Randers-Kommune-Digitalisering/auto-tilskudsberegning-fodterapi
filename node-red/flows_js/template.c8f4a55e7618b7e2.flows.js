@@ -15,7 +15,7 @@ const Node = {
       "a17c13f96787e2b4"
     ]
   ],
-  "_order": 185
+  "_order": 186
 }
 
 Node.template = `
@@ -100,7 +100,7 @@ width:100%;
 }
 
 .textarea {
-overflow-wrap:break-word;
+overflow-wrap:no-wrap;
 white-space: pre-wrap;
 line-height: 21px;
 /*overflow-y: hidden;

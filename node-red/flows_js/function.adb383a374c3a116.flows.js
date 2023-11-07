@@ -14,26 +14,30 @@ const Node = {
       "module": "puppeteer"
     }
   ],
-  "x": 730,
-  "y": 520,
+  "x": 690,
+  "y": 540,
   "wires": [
     [
       "ba19f064476425c9"
     ]
   ],
-  "_order": 191
+  "_order": 192
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup) {
   try
   {
       msg.pupController.browser = await pup.connect(msg.pupController.browserless);
-      msg.pupController.page = (await msg.pupController.browser.pages())[0];
+  
+      //const pages = await msg.pupController.browser.pages();
+      //console.log("Found browser with pages: " + JSON.stringify(pages));
+      
+      msg.pupController.page = await msg.pupController.browser.newPage();//pages[0];
   }
   catch (error)
   {
       msg.error = error.message;
-      console.log("Puppeteer error: " + JSON.stringify(error));
+      console.log("Puppeteer instantiation error: " + JSON.stringify(error));
   };
   return msg;
 }

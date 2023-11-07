@@ -14,7 +14,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "errors",
+      "p": "errorList",
       "pt": "msg",
       "to": "$.errorList ~> | $.faktura.behandlinger |\t({\t\t    \"type\": (titel = 'Behandlingipatientsegethjem' or\t             titel = 'Behandlingpåklinik' or\t             titel = \"Behandlingudentilskud\") ?\t                'A' : 'B'\t\t})|",
       "tot": "jsonata"
@@ -29,12 +29,11 @@ const Node = {
   "y": 2740,
   "wires": [
     [
-      "2581c0834b49114e",
-      "8c8ca8c35b032bd1"
+      "2581c0834b49114e"
     ]
   ],
   "info": "",
-  "_order": 514
+  "_order": 517
 }
 
 Node.info = `

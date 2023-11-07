@@ -13,12 +13,11 @@ const Node = {
       "tot": "flow"
     },
     {
-      "t": "set",
-      "p": "citizens",
+      "t": "move",
+      "p": "pupOutputs",
       "pt": "msg",
-      "to": "pupOutputs",
-      "tot": "msg",
-      "dc": true
+      "to": "citizens",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -34,7 +33,7 @@ const Node = {
       "c401932969daa0d6"
     ]
   ],
-  "_order": 460
+  "_order": 463
 }
 
 module.exports = Node;

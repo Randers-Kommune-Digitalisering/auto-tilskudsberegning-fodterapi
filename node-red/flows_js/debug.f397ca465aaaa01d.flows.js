@@ -3,19 +3,19 @@ const Node = {
   "type": "debug",
   "z": "f99fd88fa65c74b9",
   "g": "db9b0160d9fdb906",
-  "name": "MSG ERRORS",
+  "name": "MSG ERRORLIST",
   "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "errors",
+  "complete": "errorList",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1140,
+  "x": 1150,
   "y": 3200,
   "wires": [],
-  "_order": 481
+  "_order": 484
 }
 
 module.exports = Node;

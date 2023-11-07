@@ -31,14 +31,14 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.login.select",
       "pt": "msg",
-      "to": "[id=\"SelectedAuthenticationUrl\"]",
+      "to": "#SelectedAuthenticationUrl",
       "tot": "str"
     },
     {
       "t": "set",
       "p": "selectors.kp.login.button",
       "pt": "msg",
-      "to": ".button",
+      "to": "input.button",
       "tot": "str"
     },
     {
@@ -101,7 +101,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.citizen.tillaegsprocent_luk",
       "pt": "msg",
-      "to": "svg[class=\"svg-inline--fa fa-xmark close-button\"]",
+      "to": "#person-pension-fakta > tbody div > div.HistoryPane__StyledOverlayForHistoryPane-sc-1mpl43b-0.ceTRRO > div > button",
       "tot": "str"
     },
     {
@@ -143,7 +143,7 @@ const Node = {
       "t": "set",
       "p": "selectors.kp.dqUsername",
       "pt": "msg",
-      "to": "div[class=\\\"Layout__ContentContainer-cetblr-8 Layout__ContentContainerWithFlexRow-cetblr-10 knWRCb\\\"]",
+      "to": "div[class=\"Layout__ContentContainer-cetblr-8 Layout__ContentContainerWithFlexRow-cetblr-10 knWRCb\"]",
       "tot": "str"
     },
     {
@@ -180,7 +180,7 @@ const Node = {
       "318540cd3e77687e"
     ]
   ],
-  "_order": 454
+  "_order": 457
 }
 
 module.exports = Node;
