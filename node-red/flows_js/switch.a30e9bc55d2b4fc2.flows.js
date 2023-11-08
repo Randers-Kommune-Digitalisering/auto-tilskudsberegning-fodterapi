@@ -17,8 +17,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 1270,
-  "y": 1460,
+  "x": 1310,
+  "y": 1400,
   "wires": [
     [
       "b64c23b2e555b5fe"

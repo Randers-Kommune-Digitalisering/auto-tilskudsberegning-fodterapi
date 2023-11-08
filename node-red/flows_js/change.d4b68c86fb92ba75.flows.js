@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "message",
       "pt": "msg",
-      "to": "Der opstod en uventet fejl under kørslen. Robotten nulstiller sig selv om en kort øjeblik.",
+      "to": "Der opstod en uventet fejl under kørslen. Kør robotten igen, eller prøv igen senere.",
       "tot": "str"
     },
     {
@@ -39,7 +39,7 @@ const Node = {
       "9a241f48583cc63a"
     ]
   ],
-  "_order": 608
+  "_order": 609
 }
 
 module.exports = Node;

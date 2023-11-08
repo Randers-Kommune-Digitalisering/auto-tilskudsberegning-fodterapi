@@ -17,7 +17,7 @@ const Node = {
   ],
   "out": [
     {
-      "x": 1100,
+      "x": 1140,
       "y": 140,
       "wires": [
         {
@@ -25,11 +25,25 @@ const Node = {
           "port": 0
         }
       ]
+    },
+    {
+      "x": 990,
+      "y": 260,
+      "wires": [
+        {
+          "id": "0c5da4d758d1f7cd",
+          "port": 1
+        }
+      ]
     }
   ],
   "env": [],
   "meta": {},
   "color": "#3FADB5",
+  "outputLabels": [
+    "Success",
+    "Error"
+  ],
   "status": {
     "x": 460,
     "y": 420,
