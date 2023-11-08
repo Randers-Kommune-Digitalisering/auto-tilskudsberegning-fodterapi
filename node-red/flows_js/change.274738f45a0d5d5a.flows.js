@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "pupController",
       "pt": "msg",
-      "to": "{\t    \"commands\": payload,\t    \"browserless\": browserless\t}",
+      "to": "{\t    \"commands\": payload,\t    \"browserless\": browserless,\t    \"totalActions\": payload ~> $count()\t}",
       "tot": "jsonata"
     },
     {
