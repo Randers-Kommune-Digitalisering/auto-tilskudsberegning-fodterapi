@@ -23,7 +23,7 @@ const Node = {
       "t": "set",
       "p": "value",
       "pt": "msg",
-      "to": "30 + percentage * 0.6",
+      "to": "15 + percentage * 0.75",
       "tot": "jsonata"
     }
   ],
@@ -39,7 +39,7 @@ const Node = {
       "a42d12f6943cd3f8"
     ]
   ],
-  "_order": 561
+  "_order": 562
 }
 
 module.exports = Node;

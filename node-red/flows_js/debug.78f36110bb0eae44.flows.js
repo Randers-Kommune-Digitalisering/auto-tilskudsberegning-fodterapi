@@ -4,18 +4,18 @@ const Node = {
   "z": "5bb3204aef17c104",
   "g": "63b598a9c0a41f91",
   "name": "POST INPUT",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "true",
-  "targetType": "full",
+  "complete": "payload",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
   "x": 520,
   "y": 280,
   "wires": [],
-  "_order": 636
+  "_order": 638
 }
 
 module.exports = Node;

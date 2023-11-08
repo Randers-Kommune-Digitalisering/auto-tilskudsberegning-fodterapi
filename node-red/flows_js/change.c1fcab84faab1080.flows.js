@@ -1,15 +1,15 @@
 const Node = {
-  "id": "3e3a2119b6ce7876",
+  "id": "c1fcab84faab1080",
   "type": "change",
-  "z": "5bb3204aef17c104",
-  "name": "Set PEM as response",
+  "z": "6f0ff2a58c316519",
+  "name": "Hent tilskudsinfo",
   "rules": [
     {
       "t": "set",
-      "p": "payload.data.pem",
+      "p": "tilskudsInfo",
       "pt": "msg",
-      "to": "publicPem",
-      "tot": "flow",
+      "to": "grants",
+      "tot": "global",
       "dc": true
     }
   ],
@@ -18,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 460,
-  "y": 1680,
+  "x": 440,
+  "y": 160,
   "wires": [
     [
-      "08bcab4b9d4c1cd1"
+      "dd226f5e05407cf6"
     ]
   ],
-  "_order": 666
+  "_order": 379
 }
 
 module.exports = Node;

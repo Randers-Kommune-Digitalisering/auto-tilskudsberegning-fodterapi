@@ -1,15 +1,14 @@
 const Node = {
-  "id": "fa6a961f40812458",
+  "id": "dbe26006d4662726",
   "type": "change",
-  "z": "f99fd88fa65c74b9",
-  "g": "7259557bf9adb316",
-  "name": "Flyt regel til payload.rules",
+  "z": "6f0ff2a58c316519",
+  "name": "Afrund til nærmeste 1 kr",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{ \"rules\": payload }",
+      "to": "$.payload ~> |$.handlinger|\t{\t    \"tilskud\": $round(tilskud, 0)\t}\t|",
       "tot": "jsonata"
     }
   ],
@@ -18,14 +17,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 930,
-  "y": 2480,
+  "x": 710,
+  "y": 520,
   "wires": [
-    [
-      "1d24afdf200e3359"
-    ]
+    []
   ],
-  "_order": 530
+  "_order": 380
 }
 
 module.exports = Node;

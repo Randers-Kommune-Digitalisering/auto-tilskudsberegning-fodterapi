@@ -7,6 +7,14 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "tilskudsInfo",
+      "pt": "msg",
+      "to": "grants",
+      "tot": "global",
+      "dc": true
+    },
+    {
+      "t": "set",
       "p": "payload",
       "pt": "msg",
       "to": "$.payload ~> | $.faktura.behandlinger |\t( $t := titel;\t{\t    \"titel\": (titel = \"Behandlingpåklinik\") ? \"Behandling på klinik\"\t    :        (titel = \"Behandlingipatientsegethjem\") ? \"Behandling i patients eget hjem\"\t    :         $$.tilskudsInfo.tilskudsperioder.satser[wtitel = $t].titel\t})|",
@@ -33,7 +41,7 @@ const Node = {
       "01fbd852a9e244c8"
     ]
   ],
-  "_order": 496
+  "_order": 497
 }
 
 module.exports = Node;
