@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "f99fd88fa65c74b9",
   "g": "dcb33bd7556b5033",
-  "name": "OK?",
+  "name": "Count \\n > 0?",
   "property": "$count( payload.kvitteringer )",
   "propertyType": "jsonata",
   "rules": [
@@ -37,7 +37,7 @@ const Node = {
       "bfecdb8ac081e8aa"
     ]
   ],
-  "_order": 442
+  "_order": 441
 }
 
 module.exports = Node;

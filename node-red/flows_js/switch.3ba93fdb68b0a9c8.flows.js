@@ -1,14 +1,16 @@
 const Node = {
-  "id": "bfecdb8ac081e8aa",
+  "id": "3ba93fdb68b0a9c8",
   "type": "switch",
   "z": "f99fd88fa65c74b9",
   "g": "dcb33bd7556b5033",
-  "name": "",
-  "property": "workletRetryCount",
+  "name": "Login OK?",
+  "property": "payload",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "null"
+      "t": "istype",
+      "v": "object",
+      "vt": "object"
     },
     {
       "t": "else"
@@ -17,17 +19,17 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 650,
-  "y": 900,
+  "x": 470,
+  "y": 860,
   "wires": [
     [
-      "489e20cf938d23e3"
+      "d7717db45ed14676"
     ],
     [
-      "d7a64a896d5baa55"
+      "bfecdb8ac081e8aa"
     ]
   ],
-  "_order": 442
+  "_order": 628
 }
 
 module.exports = Node;

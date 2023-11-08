@@ -31,7 +31,7 @@ const Node = {
   "meta": {},
   "color": "#D8BFD8",
   "icon": "font-awesome/fa-calculator",
-  "_order": 12
+  "_order": 11
 }
 
 module.exports = Node;
