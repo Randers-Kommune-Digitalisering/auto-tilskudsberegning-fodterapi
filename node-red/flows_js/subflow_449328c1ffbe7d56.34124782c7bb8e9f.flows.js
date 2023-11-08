@@ -3,8 +3,8 @@ const Node = {
   "type": "subflow:449328c1ffbe7d56",
   "z": "f99fd88fa65c74b9",
   "g": "f0775df5510c6dd0",
-  "name": "Konvertér persondata",
-  "x": 1280,
+  "name": "Konvertér rådata",
+  "x": 1270,
   "y": 2100,
   "wires": [
     [
