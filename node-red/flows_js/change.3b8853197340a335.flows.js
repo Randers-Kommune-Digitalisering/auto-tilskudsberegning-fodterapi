@@ -23,6 +23,11 @@ const Node = {
       "t": "delete",
       "p": "ruleEngineData",
       "pt": "flow"
+    },
+    {
+      "t": "delete",
+      "p": "errorList",
+      "pt": "flow"
     }
   ],
   "action": "",
@@ -37,7 +42,7 @@ const Node = {
       "3b3f7f6304da71bd"
     ]
   ],
-  "_order": 535
+  "_order": 538
 }
 
 module.exports = Node;

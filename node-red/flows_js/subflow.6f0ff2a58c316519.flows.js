@@ -7,21 +7,21 @@ const Node = {
   "in": [
     {
       "x": 280,
-      "y": 140,
+      "y": 160,
       "wires": [
         {
-          "id": "dd226f5e05407cf6"
+          "id": "c1fcab84faab1080"
         }
       ]
     }
   ],
   "out": [
     {
-      "x": 800,
-      "y": 380,
+      "x": 900,
+      "y": 520,
       "wires": [
         {
-          "id": "0ea4d8c3c830cf7a",
+          "id": "dbe26006d4662726",
           "port": 0
         }
       ]
@@ -31,7 +31,7 @@ const Node = {
   "meta": {},
   "color": "#D8BFD8",
   "icon": "font-awesome/fa-calculator",
-  "_order": 12
+  "_order": 11
 }
 
 module.exports = Node;

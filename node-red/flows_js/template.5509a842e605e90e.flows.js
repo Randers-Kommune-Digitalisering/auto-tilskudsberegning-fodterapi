@@ -14,16 +14,16 @@ const Node = {
   "y": 940,
   "wires": [
     [
-      "9977c0c7f7b76ce9"
+      "cfefbee2346373d0"
     ]
   ],
-  "_order": 440
+  "_order": 443
 }
 
 Node.template = `
 module.exports = async ({ page }) => {
 
-  var timeoutMs = 70000;
+  var timeoutMs = 15000;
 
   // Login
   await page.goto("https://workletnew.snapp.dk/auth/sign-in");

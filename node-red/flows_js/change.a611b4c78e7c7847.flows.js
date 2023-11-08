@@ -7,6 +7,13 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "message",
+      "pt": "msg",
+      "to": "Henter persondata fra KP",
+      "tot": "str"
+    },
+    {
+      "t": "set",
       "p": "type",
       "pt": "msg",
       "to": "update",
@@ -16,7 +23,7 @@ const Node = {
       "t": "set",
       "p": "value",
       "pt": "msg",
-      "to": "30 + percentage/2",
+      "to": "15 + percentage * 0.75",
       "tot": "jsonata"
     }
   ],
@@ -29,11 +36,10 @@ const Node = {
   "y": 1640,
   "wires": [
     [
-      "a42d12f6943cd3f8",
-      "d06f4fcf2aaff945"
+      "a42d12f6943cd3f8"
     ]
   ],
-  "_order": 562
+  "_order": 565
 }
 
 module.exports = Node;

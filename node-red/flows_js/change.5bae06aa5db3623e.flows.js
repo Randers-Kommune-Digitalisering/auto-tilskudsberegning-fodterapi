@@ -22,7 +22,7 @@ const Node = {
       "t": "set",
       "p": "value",
       "pt": "msg",
-      "to": "30",
+      "to": "15",
       "tot": "num"
     }
   ],
@@ -31,14 +31,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1460,
-  "y": 1240,
+  "x": 1600,
+  "y": 1080,
   "wires": [
     [
       "bf4eadb0010bea89"
     ]
   ],
-  "_order": 570
+  "_order": 573
 }
 
 module.exports = Node;

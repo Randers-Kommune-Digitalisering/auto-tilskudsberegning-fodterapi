@@ -17,11 +17,11 @@ const Node = {
       "51919c582b01441a"
     ]
   ],
-  "_order": 560
+  "_order": 563
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  var percentage = msg.pupid / msg.totalCount * 100;
+  var percentage = msg.pupid / (msg.totalCount-1) * 100;
   percentage = parseInt(percentage);
   
   msg.percentage = percentage;

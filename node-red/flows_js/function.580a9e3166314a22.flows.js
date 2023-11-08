@@ -29,7 +29,7 @@ const Node = {
       "2fd098a8190ef089"
     ]
   ],
-  "_order": 166
+  "_order": 168
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, pup, path) {
@@ -48,14 +48,16 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
       for (const ele of actionList) {
   
-          //console.log("> PERFORMING ACTION: " + JSON.stringify(JSON.parse(JSON.stringify((ele)))));
           if (msg.pupController.page)
+  
           try {
+              
               const action = ele.action;
   
               switch (action)
               {
                   case "goto":
+  
                       if (ele.url != null)
                           await msg.pupController.page.goto(ele.url, { waitUntil: 'load', timeout: loadTimeoutMs }).catch("Goto error");
                       else
@@ -72,22 +74,12 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                           e.click();
                       }, element);
   
-                      //const exists = !! await msg.pupController.page.$(ele.path);
-                      //if (exists)
-                      //    await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { timeout: loadTimeoutMs}));
-                              //.catch(error => console.log("ERROR: " + error));
-                      //else throw new Error('Element not found: ' + ele.path);
-  
                       break;
   
                   case "click":
   
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
                       await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }));
-                      
-                      /*await msg.pupController.page.$(ele.path).then(() => {
-                          msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }))
-                      });*/
   
                       break;
   
@@ -99,7 +91,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                       await msg.pupController.page.evaluate(e => {
                           console.log("Typing in element: " + e);
-                          //e.value = ele.input;
                       }, element);
   
                       if (ele.clear == true || ele.clearInput == true || ele.clear == "true" || ele.clearInput == "true")
@@ -109,8 +100,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                       else
                           await msg.pupController.page.type(ele.path, ele.input);
-  
-                      //await msg.pupController.page.waitForTimeout(1000);
   
   
   
@@ -154,10 +143,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       await msg.pupController.page.authenticate({ 'username': login_username, 'password': login_password }).catch("Authenticate error");;
                       break;
   
-                  //case "close":
-                  //    await msg.pupController.browser.close();
-                  //    break;
-  
                   default:
                       break;
               }
@@ -166,8 +151,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
               ele.succesful = true;
               actionPerformed = ReportAction(ele);
-  
-              //console.log("= ACTION COMPLETE: " + JSON.stringify(actionPerformed));
   
               node.send([null, actionPerformed]);
               
@@ -180,16 +163,15 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
               ele.error = e;
               actionPerformed = ReportError(ele, e);
   
-              console.log("!= ACTION FAILED: " + JSON.stringify(actionPerformed));
-  
               node.send([null, actionPerformed]);
           }
           else
           {
-              ele.error = "Browser page no longer exists";
+              // Browser no longer exists
+  
               ele.succesful = false;
+              ele.error = "Browser page no longer exists";
               actionPerformed = ReportAction(ele);
-              console.log("!= ACTION FAILED: " + JSON.stringify(actionPerformed));
   
               node.send([null, actionPerformed]);
           }
@@ -203,7 +185,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
           msg.error = error;
           node.send([msg, null]);
       } finally {
-          //if (msg.pupController.browser) msg.pupController.browser.close();
+          if (msg.pupController.browser) msg.pupController.browser.close();
           console.log("Automation flow finished");
           return;
       }

@@ -16,7 +16,7 @@ const Node = {
       "40d793f24bd697d9"
     ]
   ],
-  "_order": 275
+  "_order": 277
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
@@ -35,8 +35,12 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   receiptArray = Array.isArray(receiptArray) ? receiptArray : [receiptArray];
   
+  console.log("receiptArray: " + JSON.stringify(receiptArray));
+  console.log("faktura: " + JSON.stringify(msg.payload.faktura));
   
-  const currentReceiptIndex = receiptArray.findIndex(x => x.faktura.id == msg.payload.faktura.id);
+  
+  const fakturaId = Array.isArray(msg.payload) ? msg.payload[0].faktura.id : msg.payload.faktura.id;
+  const currentReceiptIndex = receiptArray.findIndex(x => x.faktura.id == fakturaId);
   
   function GetReceiptIdFromIndex(index)
   {

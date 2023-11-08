@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "f99fd88fa65c74b9",
   "name": "COMMANDS",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -11,10 +11,10 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 650,
-  "y": 1600,
+  "x": 630,
+  "y": 1560,
   "wires": [],
-  "_order": 621
+  "_order": 623
 }
 
 module.exports = Node;

@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "pupController",
       "pt": "msg",
-      "to": "{\t    \"commands\": payload,\t    \"browserless\": browserless\t}",
+      "to": "{\t    \"commands\": payload,\t    \"browserless\": browserless,\t    \"totalActions\": payload ~> $count()\t}",
       "tot": "jsonata"
     },
     {
@@ -36,7 +36,7 @@ const Node = {
       "adb383a374c3a116"
     ]
   ],
-  "_order": 165
+  "_order": 167
 }
 
 module.exports = Node;

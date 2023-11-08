@@ -16,7 +16,7 @@ const Node = {
       "0fd5a87ac6a4d895"
     ]
   ],
-  "_order": 269
+  "_order": 271
 }
 
 Node.template = `
@@ -129,7 +129,7 @@ Node.template = `
         <div>
             {{#webElements.receipt.receipts}}
             {{^ydernummer}}
-            <div class="card border-warning mb-2 p-1">
+            <div class="card border-info mb-2 p-1">
                 <span class="pl-2 fs-13"><b>OBS</b>: Behandler har IKKE oplyst ydernummer</span>
             </div>
             {{/ydernummer}}
@@ -190,6 +190,13 @@ Node.template = `
             {{/handlinger}}
 
             {{/webElements.receipt.receipts}}
+            
+            {{#webElements.receipt.regelbrud}}
+            <div class="card mb-2 border-warning header-left" style="">
+                <div class="card-header header-left text-muted fs-10" style="width:20%;border-right: 1px solid rgba(0,0,0,0.125)">REGELBRUD</div>
+                <div style="align-self: center;padding-left:10px">{{text}}</div>
+            </div>
+            {{/webElements.receipt.regelbrud}}
         </div>
 
         <!-- /receipt-inner -->

@@ -1,15 +1,16 @@
 const Node = {
-  "id": "7be173b145756d1c",
+  "id": "f49c77b29f278c5b",
   "type": "change",
-  "z": "5b815921c9650f17",
-  "name": "LOOP \\n TRANSFORMATION",
+  "z": "f99fd88fa65c74b9",
+  "g": "ac8c86427665f81e",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload.looped",
+      "p": "count",
       "pt": "msg",
-      "to": "true",
-      "tot": "bool"
+      "to": "0",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -17,14 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 580,
-  "y": 240,
+  "x": 300,
+  "y": 1100,
   "wires": [
     [
-      "6ae4d558ad8907c7"
+      "029cb7bca0e06894"
     ]
   ],
-  "_order": 746
+  "_order": 633
 }
 
 module.exports = Node;

@@ -7,14 +7,14 @@ const Node = {
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "\"All retries failed for \" & tablename & \" CREATE TABLE query\"",
+  "complete": "\"All retries failed for \" & tablename & \" query: \" & sql",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 970,
-  "y": 280,
+  "x": 1010,
+  "y": 300,
   "wires": [],
-  "_order": 388
+  "_order": 391
 }
 
 module.exports = Node;

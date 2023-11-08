@@ -66,6 +66,13 @@ const Node = {
       "pt": "msg",
       "to": "{\t    \"id\": payload.faktura.id,\t    \"redirect\": payload.faktura.id in receipts.actions.faktura.id ?\t                    \"receipts?cat=actions\"\t                    :\t                    \"receipts?cat=noactions\",\t    \"disabled\": payload.archived ? \"disabled\",\t    \"text\": payload.archived ? \"Behandling bekræftet\" : \"Bekræft manuel behandling\"\t}",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "webElements.receipt.regelbrud",
+      "pt": "msg",
+      "to": "payload.regelbrud ~> $exists ? \t{\t    \"text\": payload.regelbrud\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -77,11 +84,10 @@ const Node = {
   "y": 1860,
   "wires": [
     [
-      "34a22fef0a170d75",
-      "4ef4c2458db3ee6f"
+      "34a22fef0a170d75"
     ]
   ],
-  "_order": 272
+  "_order": 274
 }
 
 module.exports = Node;

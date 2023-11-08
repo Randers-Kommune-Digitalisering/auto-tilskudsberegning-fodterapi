@@ -15,14 +15,14 @@ const Node = {
   "timeout": "",
   "count": "",
   "reduceRight": false,
-  "x": 1310,
+  "x": 1470,
   "y": 1400,
   "wires": [
     [
       "3bd0ac4edb7c8181"
     ]
   ],
-  "_order": 737
+  "_order": 744
 }
 
 module.exports = Node;
