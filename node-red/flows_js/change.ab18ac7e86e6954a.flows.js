@@ -66,6 +66,13 @@ const Node = {
       "pt": "msg",
       "to": "{\t    \"id\": payload.faktura.id,\t    \"redirect\": payload.faktura.id in receipts.actions.faktura.id ?\t                    \"receipts?cat=actions\"\t                    :\t                    \"receipts?cat=noactions\",\t    \"disabled\": payload.archived ? \"disabled\",\t    \"text\": payload.archived ? \"Behandling bekræftet\" : \"Bekræft manuel behandling\"\t}",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "webElements.receipt.regelbrud",
+      "pt": "msg",
+      "to": "payload.regelbrud ~> $exists ? \t{\t    \"text\": payload.regelbrud\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",

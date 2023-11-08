@@ -22,7 +22,7 @@ const Node = {
       "t": "set",
       "p": "value",
       "pt": "msg",
-      "to": "5",
+      "to": "0",
       "tot": "num"
     }
   ],

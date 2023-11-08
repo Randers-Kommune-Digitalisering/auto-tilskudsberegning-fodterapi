@@ -23,6 +23,11 @@ const Node = {
       "t": "delete",
       "p": "ruleEngineData",
       "pt": "flow"
+    },
+    {
+      "t": "delete",
+      "p": "errorList",
+      "pt": "flow"
     }
   ],
   "action": "",

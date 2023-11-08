@@ -16,7 +16,7 @@ const Node = {
       "t": "set",
       "p": "percentage",
       "pt": "msg",
-      "to": "5 + count * 2",
+      "to": "count * 2",
       "tot": "jsonata"
     },
     {
