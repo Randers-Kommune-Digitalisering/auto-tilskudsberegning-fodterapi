@@ -45,7 +45,7 @@ const Node = {
     "Error"
   ],
   "icon": "node-red/parser-json.svg",
-  "_order": 8
+  "_order": 9
 }
 
 module.exports = Node;
