@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 650
+  "_order": 658
 }
 
 Node.template = `
@@ -33,6 +33,10 @@ Node.template = `
 a:hover
 {
     cursor: pointer;
+}
+li:not(:last-child)
+{
+    margin-bottom: 5px;
 }
 
 /* Changes to Boostrap CSS */

@@ -37,12 +37,17 @@ const Node = {
       "vt": "str"
     },
     {
+      "t": "eq",
+      "v": "help",
+      "vt": "str"
+    },
+    {
       "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 7,
+  "outputs": 8,
   "x": 230,
   "y": 480,
   "wires": [
@@ -65,10 +70,13 @@ const Node = {
       "409d4850901a04ab"
     ],
     [
+      "4641ad1f3fe75577"
+    ],
+    [
       "b307be185f26686f"
     ]
   ],
-  "_order": 219
+  "_order": 221
 }
 
 module.exports = Node;
