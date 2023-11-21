@@ -1,20 +1,20 @@
 const Node = {
-  "id": "668e1ae3f9c4ccf8",
+  "id": "84d597a72951f30b",
   "type": "debug",
-  "z": "41d1b8798efe7e15",
-  "name": "All Commands Executed",
+  "z": "29cd456b5e8fbe86",
+  "name": "Output",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "true",
-  "targetType": "full",
+  "complete": "pupOutputs",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1610,
-  "y": 320,
+  "x": 1220,
+  "y": 460,
   "wires": [],
-  "_order": 15
+  "_order": 47
 }
 
 module.exports = Node;
