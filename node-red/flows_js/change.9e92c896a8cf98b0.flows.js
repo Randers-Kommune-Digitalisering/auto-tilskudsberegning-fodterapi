@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "browserless",
       "pt": "msg",
-      "to": "{\t   \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/?ignoreHTTPSErrors=true&exitOnPageError=false&protocolTimeout=10000&--no-zygote&--disable-site-isolation-trials&--disable-dev-shm-usage&--disable-features=IsolateOrigins&--deterministic-fetch&--disable-setuid-sandbox&--disable-gpu&headless=true\",\t   \"slowMo\": 10\t}",
+      "to": "{\t    \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/?ignoreHTTPSErrors=true&exitOnPageError=false&protocolTimeout=10000&--no-zygote&--disable-site-isolation-trials&--disable-dev-shm-usage&--disable-features=IsolateOrigins&--deterministic-fetch&--disable-setuid-sandbox&--disable-gpu&headless=true\",\t    \"headers\": {\t        \"authorization\": \"Basic \" & authkey\t    },\t    \"slowMo\": 10\t}",
       "tot": "jsonata"
     }
   ],
@@ -17,7 +17,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 920,
+  "x": 1080,
   "y": 340,
   "wires": [
     [

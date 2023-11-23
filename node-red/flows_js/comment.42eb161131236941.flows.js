@@ -4,7 +4,7 @@ const Node = {
   "z": "41d1b8798efe7e15",
   "name": "Set browserless launch settings",
   "info": "",
-  "x": 950,
+  "x": 1110,
   "y": 300,
   "wires": [],
   "_order": 36
