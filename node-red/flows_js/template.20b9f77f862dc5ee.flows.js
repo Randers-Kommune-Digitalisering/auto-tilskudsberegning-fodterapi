@@ -17,7 +17,7 @@ const Node = {
       "67aaa3b96a0a8b4d"
     ]
   ],
-  "_order": 658
+  "_order": 660
 }
 
 Node.template = `
@@ -58,16 +58,17 @@ li:not(:last-child)
 {
     padding-left:10px;
     padding-right:10px;
+    border-radius: 5px;
+    height: 100%;
+    margin-bottom: 0px!important;
 }      
     .nav-item.active
     {
         background-color: #2b5177;
-        border-radius: 5px;
     }
     .nav-item:not(.active)
     {
         background-color: #ffffff32;
-        border-radius: 5px;
     }
     
 .nav-item:hover

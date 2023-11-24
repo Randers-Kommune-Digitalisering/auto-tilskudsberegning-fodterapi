@@ -19,7 +19,7 @@ const Node = {
     "Alle handlinger fuldført",
     "Én handling fuldført"
   ],
-  "_order": 471
+  "_order": 472
 }
 
 module.exports = Node;

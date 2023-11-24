@@ -21,6 +21,8 @@ services:
 
       DQ_TESTPASS: ${DQ_TESTPASS}
       DQ_TESTUSER: ${DQ_TESTUSER}
+
+      BROWSERLESS_AUTH: ${BROWSERLESS_AUTH}
       
       # Miljøvariablen FLOWS fortæller Node-RED IDEet hvilket flow.json den skal åbne og gemme ændringer i ved deploy.
       FLOWS: "/data/flows.json"
@@ -48,14 +50,14 @@ services:
     networks:
       - node_red
       
-  browserless:
-    image: browserless/chrome:1.58-chrome-stable
-    restart: always
-    networks:
-      - node_red
-    ports:
-      - "3000:3000"
-    container_name: "browserless"    
+  #browserless:
+  #  image: browserless/chrome:1.58-chrome-stable
+  #  restart: always
+  #  networks:
+  #    - node_red
+  #  ports:
+  #    - "3000:3000"
+  #  container_name: "browserless"    
 networks: 
   node_red:
     name: node_red

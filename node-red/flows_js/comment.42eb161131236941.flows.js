@@ -4,10 +4,10 @@ const Node = {
   "z": "41d1b8798efe7e15",
   "name": "Set browserless launch settings",
   "info": "",
-  "x": 950,
+  "x": 1130,
   "y": 300,
   "wires": [],
-  "_order": 194
+  "_order": 193
 }
 
 module.exports = Node;
