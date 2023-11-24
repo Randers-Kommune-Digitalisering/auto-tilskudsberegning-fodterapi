@@ -48,14 +48,14 @@ services:
     networks:
       - node_red
       
-  browserless:
-    image: browserless/chrome:1.58-chrome-stable
-    restart: always
-    networks:
-      - node_red
-    ports:
-      - "3000:3000"
-    container_name: "browserless"    
+  #browserless:
+  #  image: browserless/chrome:1.58-chrome-stable
+  #  restart: always
+  #  networks:
+  #    - node_red
+  #  ports:
+  #    - "3000:3000"
+  #  container_name: "browserless"    
 networks: 
   node_red:
     name: node_red
