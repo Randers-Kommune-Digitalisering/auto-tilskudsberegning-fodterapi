@@ -1,3 +1,5 @@
+	OBS: Denne dokumentation er ikke opdateret til v.2.0.0
+
 # Dokumentation (*auto-tilskudsberegning-docs*)
 Automatiseringsværktøj til tilskudsberegning af WorkLet fodpleje-fakturaer samt bogføring i KP (Kommunernes Pensionssystem). OBS: Version 1 indeholder ikke bogføringsfunktionalitet, men er blot ment som beslutningsstøtte til sagsbehandleren.
 
