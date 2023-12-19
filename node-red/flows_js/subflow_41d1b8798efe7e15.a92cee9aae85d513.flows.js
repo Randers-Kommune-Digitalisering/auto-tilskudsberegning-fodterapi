@@ -18,8 +18,7 @@ const Node = {
   "outputLabels": [
     "Alle handlinger fuldført",
     "Én handling fuldført"
-  ],
-  "_order": 472
+  ]
 }
 
 module.exports = Node;

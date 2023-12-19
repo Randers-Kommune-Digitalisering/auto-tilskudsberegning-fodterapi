@@ -15,8 +15,7 @@ const Node = {
     [
       "c92a7a1eda08e3f3"
     ]
-  ],
-  "_order": 180
+  ]
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {

@@ -36,8 +36,7 @@ const Node = {
       "1c35c1712a1009bb"
     ]
   ],
-  "info": "",
-  "_order": 513
+  "info": ""
 }
 
 Node.info = `

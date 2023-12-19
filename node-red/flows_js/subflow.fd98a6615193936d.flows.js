@@ -48,8 +48,7 @@ const Node = {
     "Success",
     "Error"
   ],
-  "icon": "font-awesome/fa-database",
-  "_order": 7
+  "icon": "font-awesome/fa-database"
 }
 
 module.exports = Node;

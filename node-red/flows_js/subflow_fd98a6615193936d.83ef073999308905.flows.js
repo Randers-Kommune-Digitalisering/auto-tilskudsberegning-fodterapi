@@ -18,8 +18,7 @@ const Node = {
   "outputLabels": [
     "Succes",
     "Fejl"
-  ],
-  "_order": 440
+  ]
 }
 
 module.exports = Node;

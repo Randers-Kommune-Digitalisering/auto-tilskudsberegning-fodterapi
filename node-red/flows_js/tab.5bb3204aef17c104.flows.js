@@ -4,8 +4,7 @@ const Node = {
   "label": "Web Endpoint",
   "disabled": false,
   "info": "",
-  "env": [],
-  "_order": 1
+  "env": []
 }
 
 module.exports = Node;

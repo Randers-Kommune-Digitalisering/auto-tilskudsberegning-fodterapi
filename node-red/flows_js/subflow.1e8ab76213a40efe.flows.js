@@ -42,8 +42,7 @@ const Node = {
         "port": 0
       }
     ]
-  },
-  "_order": 13
+  }
 }
 
 module.exports = Node;

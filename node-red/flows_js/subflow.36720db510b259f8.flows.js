@@ -35,8 +35,7 @@ const Node = {
     "desc": "Generic node for checking validity of JSON data using custom logical rules.",
     "keywords": "node-red, rule checker, rule engine, rule respect, arbitrary data, data validation"
   },
-  "color": "#DDAA99",
-  "_order": 10
+  "color": "#DDAA99"
 }
 
 Node.info = `

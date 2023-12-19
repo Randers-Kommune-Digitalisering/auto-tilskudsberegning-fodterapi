@@ -31,8 +31,7 @@ const Node = {
     [
       "4329e469feb9a23c"
     ]
-  ],
-  "_order": 340
+  ]
 }
 
 module.exports = Node;

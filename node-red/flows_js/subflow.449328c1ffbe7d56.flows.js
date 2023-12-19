@@ -44,8 +44,7 @@ const Node = {
     "Parsed",
     "Error"
   ],
-  "icon": "node-red/parser-json.svg",
-  "_order": 8
+  "icon": "node-red/parser-json.svg"
 }
 
 module.exports = Node;

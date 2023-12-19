@@ -30,8 +30,7 @@ const Node = {
   "env": [],
   "meta": {},
   "color": "#D8BFD8",
-  "icon": "font-awesome/fa-calculator",
-  "_order": 11
+  "icon": "font-awesome/fa-calculator"
 }
 
 module.exports = Node;
