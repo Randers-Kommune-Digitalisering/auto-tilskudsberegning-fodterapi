@@ -86,7 +86,7 @@ jobs:
           sudo apt install -y jq
       - name: Update version
         run: |
-          yq e ".service.image.tag = \"${{ github.sha }}\"" -i infrastructure/budget-word-app/values.yaml
+          yq e ".service.image.tag = \"${{ github.sha }}\"" -i infrastructure/auto-tilskudsberegning-fodterapi/values.yaml
       - name: Commit and push
         run: |
           git config --global user.name 'GitHub Action'
