@@ -25,7 +25,6 @@ jobs:
       - name: Setup env variables
         run: |
           echo "DOCKER_SERVICE=ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-
 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
@@ -73,32 +72,25 @@ jobs:
         if: ${{ steps.tag.conclusion != 'skipped' }}
         run: ./build/docker-push.sh ${{ env.DOCKER_SERVICE }}:${{ steps.tag.outputs.VERSION }}
 
-# Update tagged verion i config
+  # Update verion i config
       - name: Checkout Target Repository
         uses: actions/checkout@v2
-        if: ${{ steps.tag.conclusion != 'skipped' }}
         with:
           repository: Randers-Kommune-Digitalisering/kithosting-randers-kommune-apps
           ref: 'test'
           path: infrastructure
           ssh-key: ${{ secrets.ACCESS_ARGO_APPS }}
-          
+
       - name: Install yq
-        if: ${{ steps.tag.conclusion != 'skipped' }}
         run: |
           sudo apt install -y jq
-
       - name: Update version
-        if: ${{ steps.tag.conclusion != 'skipped' }}
         run: |
-          yq e ".service.image.tag = \"${{ steps.tag.outputs.VERSION }}\"" -i infrastructure/auto-tilskudsberegning-fodterapi/values.yaml
-
+          yq e ".service.image.tag = \"${{ github.sha }}\"" -i infrastructure/auto-tilskudsberegning-fodterapi/values.yaml
       - name: Commit and push
-        if: ${{ steps.tag.conclusion != 'skipped' }}
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           cd infrastructure
           git commit -am "Update version"
           git push
-          
