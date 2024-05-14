@@ -5,6 +5,7 @@ const Node = {
   "name": "Solo Controller",
   "func": "",
   "outputs": 2,
+  "timeout": "",
   "noerr": 0,
   "initialize": "",
   "finalize": "",
@@ -36,7 +37,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   var outputs = {};
   
   const loadTimeoutMs = 15000;
-  const timeoutMs = 5000;
+  const timeoutMs = 1500;
   
   (async () => {
   
@@ -69,7 +70,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
                       var element = await msg.pupController.page.$(ele.path);
                       await msg.pupController.page.evaluate(e => {
-                          console.log("Clicking element: " + e);
                           e.click();
                       }, element);
   
@@ -78,7 +78,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
                   case "click":
   
                       await msg.pupController.page.waitForSelector(ele.path, { "timeout": timeoutMs });
-                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : { "timeout": timeoutMs }));
+                      await msg.pupController.page.click(ele.path, (ele.parameters != null ? ele.parameters : {}));
   
                       break;
   
@@ -88,9 +88,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   
                       var element = await msg.pupController.page.$(ele.path);
   
-                      await msg.pupController.page.evaluate(e => {
-                          console.log("Typing in element: " + e);
-                      }, element);
+                      await msg.pupController.page.evaluate(e => {}, element);
   
                       if (ele.clear == true || ele.clearInput == true || ele.clear == "true" || ele.clearInput == "true")
                           

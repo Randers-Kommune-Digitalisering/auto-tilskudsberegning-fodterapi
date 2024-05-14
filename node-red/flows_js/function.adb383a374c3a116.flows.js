@@ -5,6 +5,7 @@ const Node = {
   "name": "Add browser",
   "func": "",
   "outputs": 1,
+  "timeout": "",
   "noerr": 0,
   "initialize": "",
   "finalize": "",

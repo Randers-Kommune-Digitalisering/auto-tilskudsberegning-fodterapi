@@ -5,6 +5,7 @@ const Node = {
   "name": "CSS Selector Parser",
   "func": "",
   "outputs": 1,
+  "timeout": "",
   "noerr": 0,
   "initialize": "",
   "finalize": "",

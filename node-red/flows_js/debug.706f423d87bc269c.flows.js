@@ -4,7 +4,7 @@ const Node = {
   "z": "f99fd88fa65c74b9",
   "g": "a42cbec523628e4e",
   "name": "stdout",
-  "active": false,
+  "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
