@@ -10,7 +10,7 @@ const Node = {
   "onceDelay": "2",
   "topic": "",
   "x": 130,
-  "y": 300,
+  "y": 320,
   "wires": [
     [
       "8ed3ae75929488b9"

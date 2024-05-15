@@ -468,7 +468,7 @@ module.exports = {
      *    global.get("os")
      */
     functionGlobalContext: {
-        puppeteer: require('puppeteer'),
+        puppeteer: require('puppeteer-core'),
         path: require('path'),
         fs: require('fs')
         // os:require('os'),
