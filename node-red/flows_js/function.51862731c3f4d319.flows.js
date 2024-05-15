@@ -5,6 +5,7 @@ const Node = {
   "name": "Add browser old (broken)",
   "func": "",
   "outputs": 1,
+  "timeout": "",
   "noerr": 0,
   "initialize": "",
   "finalize": "",

@@ -2,7 +2,7 @@ const Node = {
   "id": "580a9e3166314a22",
   "type": "function",
   "z": "41d1b8798efe7e15",
-  "name": "Solo Controller",
+  "name": "Controller",
   "func": "",
   "outputs": 2,
   "timeout": "",
@@ -19,8 +19,8 @@ const Node = {
       "module": "path"
     }
   ],
-  "x": 1160,
-  "y": 460,
+  "x": 620,
+  "y": 680,
   "wires": [
     [
       "cb4ea3ccf7541c86",

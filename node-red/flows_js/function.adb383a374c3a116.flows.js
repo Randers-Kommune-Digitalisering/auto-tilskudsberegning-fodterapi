@@ -15,8 +15,8 @@ const Node = {
       "module": "puppeteer"
     }
   ],
-  "x": 690,
-  "y": 540,
+  "x": 890,
+  "y": 460,
   "wires": [
     [
       "ba19f064476425c9",

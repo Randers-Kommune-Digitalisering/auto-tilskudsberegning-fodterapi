@@ -59,9 +59,6 @@ function actionList() {
             "action": "authenticate",
             "username": "",
             "password": ""
-        },
-        {
-            "action": "close"
         }
     ];
 };

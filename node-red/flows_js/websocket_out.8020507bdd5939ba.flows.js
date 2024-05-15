@@ -5,8 +5,8 @@ const Node = {
   "name": "",
   "server": "6e63b3c396c75d87",
   "client": "",
-  "x": 1770,
-  "y": 500,
+  "x": 1270,
+  "y": 740,
   "wires": []
 }
 

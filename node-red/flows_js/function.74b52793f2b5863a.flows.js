@@ -5,6 +5,7 @@ const Node = {
   "name": "Initialize? backup",
   "func": "",
   "outputs": 1,
+  "timeout": "",
   "noerr": 0,
   "initialize": "",
   "finalize": "",
