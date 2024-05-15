@@ -5,6 +5,7 @@ const Node = {
   "name": "Pagination",
   "func": "",
   "outputs": 1,
+  "timeout": "",
   "noerr": 0,
   "initialize": "",
   "finalize": "",
@@ -34,8 +35,8 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   
   receiptArray = Array.isArray(receiptArray) ? receiptArray : [receiptArray];
   
-  console.log("receiptArray: " + JSON.stringify(receiptArray));
-  console.log("faktura: " + JSON.stringify(msg.payload.faktura));
+  //console.log("receiptArray: " + JSON.stringify(receiptArray));
+  //console.log("faktura: " + JSON.stringify(msg.payload.faktura));
   
   
   const fakturaId = Array.isArray(msg.payload) ? msg.payload[0].faktura.id : msg.payload.faktura.id;

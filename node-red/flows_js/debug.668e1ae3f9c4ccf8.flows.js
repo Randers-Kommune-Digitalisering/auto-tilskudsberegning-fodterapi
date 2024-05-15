@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    \"successfulActionCount\": payload[succesful = true] ~> $count(),\t    \"failedActionCount\": payload[succesful = false] ~> $count()\t}",
+  "complete": "{\t    \"successfulActionCount\": payload[succesful = true] ~> $count(),\t    \"failedActionCount\": payload[succesful = false] ~> $count(),\t    \"failedActions\": payload[succesful = false]\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

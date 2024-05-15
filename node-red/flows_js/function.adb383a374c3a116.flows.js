@@ -5,7 +5,7 @@ const Node = {
   "name": "Add browser",
   "func": "",
   "outputs": 1,
-  "timeout": "",
+  "timeout": "30",
   "noerr": 0,
   "initialize": "",
   "finalize": "",
@@ -36,7 +36,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, pu
   {
       msg.error = error.message;
       console.log("Puppeteer instantiation error: " + JSON.stringify(error));
-  };
+  }
   return msg;
 }
 
