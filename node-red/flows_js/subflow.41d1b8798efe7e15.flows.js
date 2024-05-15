@@ -11,6 +11,9 @@ const Node = {
       "wires": [
         {
           "id": "5aa16189aff2b4c3"
+        },
+        {
+          "id": "6e9a141119f3d379"
         }
       ]
     }

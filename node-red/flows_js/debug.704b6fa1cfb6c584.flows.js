@@ -1,18 +1,18 @@
 const Node = {
-  "id": "972436459614bbd2",
+  "id": "704b6fa1cfb6c584",
   "type": "debug",
   "z": "41d1b8798efe7e15",
-  "name": "COMMAND EXECUTED",
+  "name": "Browserless config initialized",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "true",
-  "targetType": "full",
+  "complete": "browserless",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1630,
-  "y": 600,
+  "x": 1450,
+  "y": 280,
   "wires": []
 }
 

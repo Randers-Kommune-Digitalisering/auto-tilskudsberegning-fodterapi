@@ -1,18 +1,18 @@
 const Node = {
-  "id": "668e1ae3f9c4ccf8",
+  "id": "6e9a141119f3d379",
   "type": "debug",
   "z": "41d1b8798efe7e15",
-  "name": "All Commands Executed",
+  "name": "New PupController Request",
   "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    \"successfulActionCount\": payload[succesful = true] ~> $count(),\t    \"failedActionCount\": payload[succesful = false] ~> $count()\t}",
+  "complete": "{\t    \"pupController\": \"new request\",\t    \"actionCount\": payload ~> $count()\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1620,
-  "y": 320,
+  "x": 410,
+  "y": 400,
   "wires": []
 }
 
