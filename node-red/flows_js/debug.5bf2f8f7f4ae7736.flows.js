@@ -8,7 +8,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    \"worklet\": statusCode = 200 ? \"receipt download success\" : \"receipt download error\",\t    \"statusCode\": statusCode,\t    \"payload\": payload,\t    \"error\": error.message\t}",
+  "complete": "{\t    \"worklet\": statusCode = 200 ? \"receipt download success\" : \"receipt download error\",\t    \"statusCode\": statusCode,\t    \"payload\": payload ~> | $ | {},[receipts] |,\t    \"error\": error.message\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

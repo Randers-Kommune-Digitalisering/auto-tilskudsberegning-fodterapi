@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "browserless",
       "pt": "msg",
-      "to": "{\t    \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/?ignoreHTTPSErrors=true&exitOnPageError=false&protocolTimeout=10000&--no-zygote&--disable-site-isolation-trials&--disable-dev-shm-usage&--disable-features=IsolateOrigins&--deterministic-fetch&--disable-setuid-sandbox&--disable-gpu&headless=true\",\t    \"headers\": {\t        \"authorization\": \"Basic \" & authkey\t    },\t    \"slowMo\": 10\t}",
+      "to": "{\t    \"browserWSEndpoint\": \"wss://browserless.prototypes.randers.dk/\" &\t                         \"?ignoreHTTPSErrors=true\" &\t                         \"&exitOnPageError=false\" &\t                         \"&protocolTimeout=30000\" &\t                         \"&--no-zygote\" &\t                         \"&--disable-site-isolation-trials\" &\t                         \"&--disable-dev-shm-usage\" &\t                         \"&--disable-features=IsolateOrigins\" &\t                         \"&--deterministic-fetch\" &\t                         \"&--disable-setuid-sandbox\" &\t                         \"&--disable-gpu\" &\t                         \"&headless=new\",\t    \"headers\": {\t        \"authorization\": \"Basic \" & authkey\t    },\t    \"slowMo\": 10\t}",
       "tot": "jsonata"
     }
   ],
