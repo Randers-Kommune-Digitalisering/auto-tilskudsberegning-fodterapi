@@ -12,7 +12,7 @@ const Node = {
   "libs": [
     {
       "var": "pup",
-      "module": "puppeteer-core"
+      "module": "puppeteer"
     }
   ],
   "x": 890,
